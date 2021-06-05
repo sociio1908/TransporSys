@@ -193,9 +193,39 @@ namespace _911_RD.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap pendientes {
+            get {
+                object obj = ResourceManager.GetObject("pendientes", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap policia {
             get {
                 object obj = ResourceManager.GetObject("policia", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pospuestos {
+            get {
+                object obj = ResourceManager.GetObject("pospuestos", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Realizados {
+            get {
+                object obj = ResourceManager.GetObject("Realizados", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -216,6 +246,16 @@ namespace _911_RD.Properties {
         internal static System.Drawing.Bitmap send_location {
             get {
                 object obj = ResourceManager.GetObject("send_location", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap totales {
+            get {
+                object obj = ResourceManager.GetObject("totales", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

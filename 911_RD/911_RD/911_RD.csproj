@@ -171,5 +171,17 @@
   <ItemGroup>
     <None Include="bin\iconos\policia.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\iconos\Dashboard\pendientes.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\iconos\Dashboard\pospuestos.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\iconos\Dashboard\Realizados.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\iconos\Dashboard\totales.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

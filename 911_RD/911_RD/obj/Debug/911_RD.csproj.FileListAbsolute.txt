@@ -43,3 +43,20 @@ C:\Users\Ing. Jerinel Mendoza\Documents\Proyecto C#\Mi_App911\911_RD\911_RD\obj\
 C:\Users\Ing. Jerinel Mendoza\Documents\Proyecto C#\Mi_App911\911_RD\911_RD\obj\Debug\911_RD.pdb
 C:\Users\Ing. Jerinel Mendoza\Documents\Proyecto C#\Mi_App911\911_RD\911_RD\obj\Debug\_911_RD.FrmCliente.resources
 C:\Users\Ing. Jerinel Mendoza\Documents\Proyecto C#\Mi_App911\911_RD\911_RD\obj\Debug\_911_RD.FrmPrincipal.resources
+C:\Users\Alvaro\source\repos\911_RD\911_RD\TransporSys\911_RD\911_RD\bin\Debug\911_RD.exe.config
+C:\Users\Alvaro\source\repos\911_RD\911_RD\TransporSys\911_RD\911_RD\bin\Debug\911_RD.exe
+C:\Users\Alvaro\source\repos\911_RD\911_RD\TransporSys\911_RD\911_RD\bin\Debug\911_RD.pdb
+C:\Users\Alvaro\source\repos\911_RD\911_RD\TransporSys\911_RD\911_RD\bin\Debug\GMap.NET.Core.dll
+C:\Users\Alvaro\source\repos\911_RD\911_RD\TransporSys\911_RD\911_RD\bin\Debug\GMap.NET.WindowsForms.dll
+C:\Users\Alvaro\source\repos\911_RD\911_RD\TransporSys\911_RD\911_RD\obj\Debug\911_RD.csprojAssemblyReference.cache
+C:\Users\Alvaro\source\repos\911_RD\911_RD\TransporSys\911_RD\911_RD\obj\Debug\_911_RD.F_principal.resources
+C:\Users\Alvaro\source\repos\911_RD\911_RD\TransporSys\911_RD\911_RD\obj\Debug\_911_RD.FrmCliente.resources
+C:\Users\Alvaro\source\repos\911_RD\911_RD\TransporSys\911_RD\911_RD\obj\Debug\_911_RD.FrmPrincipal.resources
+C:\Users\Alvaro\source\repos\911_RD\911_RD\TransporSys\911_RD\911_RD\obj\Debug\_911_RD.F_agenda.resources
+C:\Users\Alvaro\source\repos\911_RD\911_RD\TransporSys\911_RD\911_RD\obj\Debug\_911_RD.Properties.Resources.resources
+C:\Users\Alvaro\source\repos\911_RD\911_RD\TransporSys\911_RD\911_RD\obj\Debug\_911_RD.Seleccion_Und.resources
+C:\Users\Alvaro\source\repos\911_RD\911_RD\TransporSys\911_RD\911_RD\obj\Debug\911_RD.csproj.GenerateResource.cache
+C:\Users\Alvaro\source\repos\911_RD\911_RD\TransporSys\911_RD\911_RD\obj\Debug\911_RD.csproj.CoreCompileInputs.cache
+C:\Users\Alvaro\source\repos\911_RD\911_RD\TransporSys\911_RD\911_RD\obj\Debug\911_RD.csproj.CopyComplete
+C:\Users\Alvaro\source\repos\911_RD\911_RD\TransporSys\911_RD\911_RD\obj\Debug\911_RD.exe
+C:\Users\Alvaro\source\repos\911_RD\911_RD\TransporSys\911_RD\911_RD\obj\Debug\911_RD.pdb

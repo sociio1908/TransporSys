@@ -59,5 +59,10 @@ namespace _911_RD
         {
 
         }
+
+        private void label15_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
