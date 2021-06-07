@@ -1,4 +1,5 @@
-﻿using System;
+﻿using _911_RD.Administracion;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,7 +17,7 @@ namespace _911_RD
         {
             InitializeComponent();
             pnl_menu.Width = 2;
-
+            AbrirFormEnPanel(new ConPrincipal());
         }
 
         private void panel2_Paint(object sender, PaintEventArgs e)
@@ -62,6 +63,43 @@ namespace _911_RD
 
         private void label15_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void pnl_resumen_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+
+        private void AbrirFormEnPanel(object Formhijo)
+        {
+            if (this.pnl_contenedor.Controls.Count > 0)
+                this.pnl_contenedor.Controls.RemoveAt(0);
+            Form fh = Formhijo as Form;
+            fh.TopLevel = false;
+            fh.Dock = DockStyle.Fill;
+            this.pnl_contenedor.Controls.Add(fh);
+            this.pnl_contenedor.Tag = fh;
+            fh.Show();
+        }
+
+
+        //Abrir Home Screen
+        private void label1_Click(object sender, EventArgs e)
+        {
+            AbrirFormEnPanel(new ConPrincipal());
+        }
+
+        private void btn_clientes_Click(object sender, EventArgs e)
+        {
+
+            AbrirFormEnPanel(new FrmCliente());
+        }
+
+        private void btn_paciente_Click(object sender, EventArgs e)
+        {
+            AbrirFormEnPanel(new FrmPaciente());
 
         }
     }

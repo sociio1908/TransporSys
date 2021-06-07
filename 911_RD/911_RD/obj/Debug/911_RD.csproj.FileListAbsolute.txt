@@ -61,3 +61,5 @@ C:\Users\Alvaro\source\repos\911_RD\911_RD\TransporSys\911_RD\911_RD\obj\Debug\9
 C:\Users\Alvaro\source\repos\911_RD\911_RD\TransporSys\911_RD\911_RD\obj\Debug\911_RD.exe
 C:\Users\Alvaro\source\repos\911_RD\911_RD\TransporSys\911_RD\911_RD\obj\Debug\911_RD.pdb
 C:\Users\Alvaro\source\repos\911_RD\911_RD\TransporSys\911_RD\911_RD\obj\Debug\_911_RD.FrmLogin.resources
+C:\Users\Alvaro\source\repos\911_RD\911_RD\TransporSys\911_RD\911_RD\obj\Debug\_911_RD.Administracion.ConPrincipal.resources
+C:\Users\Alvaro\source\repos\911_RD\911_RD\TransporSys\911_RD\911_RD\obj\Debug\_911_RD.Administracion.FrmPaciente.resources
