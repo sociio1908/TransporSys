@@ -15,6 +15,7 @@ namespace _911_RD.Administracion
         public FrmPaciente()
         {
             InitializeComponent();
+            cbx_estado.SelectedIndex = 0;
         }
     }
 }

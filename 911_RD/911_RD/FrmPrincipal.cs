@@ -82,6 +82,7 @@ namespace _911_RD
             this.pnl_contenedor.Controls.Add(fh);
             this.pnl_contenedor.Tag = fh;
             fh.Show();
+            pnl_menu.Width = 2;
         }
 
 
