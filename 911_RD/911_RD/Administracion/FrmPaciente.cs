@@ -17,5 +17,16 @@ namespace _911_RD.Administracion
             InitializeComponent();
             cbx_estado.SelectedIndex = 0;
         }
+
+        private void btn_buscar_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("En desarrollo");
+        }
+
+        private void btn_buscar_direccion_Click(object sender, EventArgs e)
+        {
+            F_principal ds = new F_principal();
+            ds.ShowDialog();
+        }
     }
 }
