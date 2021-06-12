@@ -182,6 +182,6 @@ namespace _911_RD.Administracion
         public System.Windows.Forms.Button btn_limpiar;
         public System.Windows.Forms.Button btn_salir;
         public System.Windows.Forms.Label label9;
-        private ErrorTxtBox id_txt;
+        public ErrorTxtBox id_txt;
     }
 }

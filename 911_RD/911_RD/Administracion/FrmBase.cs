@@ -20,9 +20,12 @@ namespace _911_RD.Administracion
         private void btn_salir_Click(object sender, EventArgs e)
         {
            
-           if(MessageBox.Show("Desea salir ?", "Aviso",MessageBoxButtons.YesNo, MessageBoxIcon.Question,MessageBoxDefaultButton.Button2)==DialogResult.Yes) 
-            this.Close();
-        
+           if(MessageBox.Show("Desea salir ?", "Aviso",MessageBoxButtons.YesNo, 
+               MessageBoxIcon.Question,MessageBoxDefaultButton.Button2)==DialogResult.Yes)
+            {
+                this.Close();
+               
+            }
         }
     }
 }

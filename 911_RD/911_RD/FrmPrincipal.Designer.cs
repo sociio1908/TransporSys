@@ -32,7 +32,7 @@ namespace _911_RD
             this.pnl_contenedor = new System.Windows.Forms.Panel();
             this.pnl_menu = new System.Windows.Forms.Panel();
             this.button9 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
+            this.btn_empleado = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -47,11 +47,11 @@ namespace _911_RD
             this.label4 = new System.Windows.Forms.Label();
             this.btn_menu = new System.Windows.Forms.Button();
             this.pnl_barra = new System.Windows.Forms.Panel();
+            this.lbl_buscar = new System.Windows.Forms.Label();
+            this.txt_filtro = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.lbl_minimizar = new System.Windows.Forms.Label();
             this.lbl_cerrar = new System.Windows.Forms.Label();
-            this.txt_filtro = new System.Windows.Forms.TextBox();
-            this.lbl_buscar = new System.Windows.Forms.Label();
             this.pnl_menu.SuspendLayout();
             this.panel1.SuspendLayout();
             this.pnl_barra.SuspendLayout();
@@ -71,7 +71,7 @@ namespace _911_RD
             // 
             this.pnl_menu.BackColor = System.Drawing.Color.Brown;
             this.pnl_menu.Controls.Add(this.button9);
-            this.pnl_menu.Controls.Add(this.button8);
+            this.pnl_menu.Controls.Add(this.btn_empleado);
             this.pnl_menu.Controls.Add(this.button7);
             this.pnl_menu.Controls.Add(this.button1);
             this.pnl_menu.Controls.Add(this.panel1);
@@ -105,20 +105,21 @@ namespace _911_RD
             this.button9.Text = "Ajustes";
             this.button9.UseVisualStyleBackColor = false;
             // 
-            // button8
+            // btn_empleado
             // 
-            this.button8.BackColor = System.Drawing.Color.Brown;
-            this.button8.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button8.FlatAppearance.BorderSize = 0;
-            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button8.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button8.ForeColor = System.Drawing.Color.White;
-            this.button8.Location = new System.Drawing.Point(3, 307);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(177, 33);
-            this.button8.TabIndex = 14;
-            this.button8.Text = "Empleados";
-            this.button8.UseVisualStyleBackColor = false;
+            this.btn_empleado.BackColor = System.Drawing.Color.Brown;
+            this.btn_empleado.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btn_empleado.FlatAppearance.BorderSize = 0;
+            this.btn_empleado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_empleado.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_empleado.ForeColor = System.Drawing.Color.White;
+            this.btn_empleado.Location = new System.Drawing.Point(3, 307);
+            this.btn_empleado.Name = "btn_empleado";
+            this.btn_empleado.Size = new System.Drawing.Size(177, 33);
+            this.btn_empleado.TabIndex = 14;
+            this.btn_empleado.Text = "Empleados";
+            this.btn_empleado.UseVisualStyleBackColor = false;
+            this.btn_empleado.Click += new System.EventHandler(this.btn_empleado_Click);
             // 
             // button7
             // 
@@ -322,6 +323,32 @@ namespace _911_RD
             this.pnl_barra.Size = new System.Drawing.Size(902, 39);
             this.pnl_barra.TabIndex = 0;
             // 
+            // lbl_buscar
+            // 
+            this.lbl_buscar.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lbl_buscar.AutoSize = true;
+            this.lbl_buscar.BackColor = System.Drawing.Color.White;
+            this.lbl_buscar.Enabled = false;
+            this.lbl_buscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_buscar.ForeColor = System.Drawing.Color.DimGray;
+            this.lbl_buscar.Location = new System.Drawing.Point(181, 11);
+            this.lbl_buscar.Name = "lbl_buscar";
+            this.lbl_buscar.Size = new System.Drawing.Size(59, 20);
+            this.lbl_buscar.TabIndex = 0;
+            this.lbl_buscar.Text = "Buscar";
+            this.lbl_buscar.Click += new System.EventHandler(this.lbl_buscar_Click);
+            // 
+            // txt_filtro
+            // 
+            this.txt_filtro.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.txt_filtro.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_filtro.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_filtro.Location = new System.Drawing.Point(178, 9);
+            this.txt_filtro.Name = "txt_filtro";
+            this.txt_filtro.Size = new System.Drawing.Size(613, 24);
+            this.txt_filtro.TabIndex = 0;
+            this.txt_filtro.TextChanged += new System.EventHandler(this.txt_filtro_TextChanged);
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -356,32 +383,6 @@ namespace _911_RD
             this.lbl_cerrar.TabIndex = 1;
             this.lbl_cerrar.Text = "X";
             this.lbl_cerrar.Click += new System.EventHandler(this.lbl_cerrar_Click);
-            // 
-            // txt_filtro
-            // 
-            this.txt_filtro.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.txt_filtro.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txt_filtro.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_filtro.Location = new System.Drawing.Point(178, 9);
-            this.txt_filtro.Name = "txt_filtro";
-            this.txt_filtro.Size = new System.Drawing.Size(613, 24);
-            this.txt_filtro.TabIndex = 0;
-            this.txt_filtro.TextChanged += new System.EventHandler(this.txt_filtro_TextChanged);
-            // 
-            // lbl_buscar
-            // 
-            this.lbl_buscar.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.lbl_buscar.AutoSize = true;
-            this.lbl_buscar.BackColor = System.Drawing.Color.White;
-            this.lbl_buscar.Enabled = false;
-            this.lbl_buscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_buscar.ForeColor = System.Drawing.Color.DimGray;
-            this.lbl_buscar.Location = new System.Drawing.Point(181, 11);
-            this.lbl_buscar.Name = "lbl_buscar";
-            this.lbl_buscar.Size = new System.Drawing.Size(59, 20);
-            this.lbl_buscar.TabIndex = 0;
-            this.lbl_buscar.Text = "Buscar";
-            this.lbl_buscar.Click += new System.EventHandler(this.lbl_buscar_Click);
             // 
             // FrmPrincipal
             // 
@@ -429,7 +430,7 @@ namespace _911_RD
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button btn_empleado;
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.TextBox txt_filtro;
         private System.Windows.Forms.Label lbl_buscar;

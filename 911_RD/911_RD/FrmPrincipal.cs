@@ -132,5 +132,11 @@ namespace _911_RD
         {
 
         }
+
+        private void btn_empleado_Click(object sender, EventArgs e)
+        {
+
+            AbrirFormEnPanel(new FrmEmpleado());
+        }
     }
 }
