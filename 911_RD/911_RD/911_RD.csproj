@@ -62,6 +62,18 @@
     <Compile Include="Administracion\ConPrincipal.Designer.cs">
       <DependentUpon>ConPrincipal.cs</DependentUpon>
     </Compile>
+    <Compile Include="Administracion\FrmBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administracion\FrmBase.Designer.cs">
+      <DependentUpon>FrmBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Administracion\FrmEmpleado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administracion\FrmEmpleado.Designer.cs">
+      <DependentUpon>FrmEmpleado.cs</DependentUpon>
+    </Compile>
     <Compile Include="Administracion\FrmPaciente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -121,6 +133,12 @@
     <Compile Include="Utilidades.cs" />
     <EmbeddedResource Include="Administracion\ConPrincipal.resx">
       <DependentUpon>ConPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administracion\FrmBase.resx">
+      <DependentUpon>FrmBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administracion\FrmEmpleado.resx">
+      <DependentUpon>FrmEmpleado.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Administracion\FrmPaciente.resx">
       <DependentUpon>FrmPaciente.cs</DependentUpon>
@@ -238,6 +256,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="bin\iconos\Dashboard\user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\iconos\Icon_Funtions\cancel64x64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\iconos\Icon_Funtions\save_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\iconos\Icon_Funtions\cancel32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\iconos\Icon_Funtions\limpiar.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
