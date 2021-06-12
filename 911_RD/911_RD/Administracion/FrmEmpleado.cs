@@ -16,5 +16,10 @@ namespace _911_RD.Administracion
         {
             InitializeComponent();
         }
+
+        private void FrmEmpleado_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

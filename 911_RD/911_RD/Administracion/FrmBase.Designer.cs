@@ -33,10 +33,10 @@ namespace _911_RD.Administracion
             this.label1 = new System.Windows.Forms.Label();
             this.btn_salir = new System.Windows.Forms.Button();
             this.btn_limpiar = new System.Windows.Forms.Button();
-            this.btn_buscar = new System.Windows.Forms.PictureBox();
             this.btn_guardar = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.id_txt = new _911_RD.ErrorTxtBox();
+            this.btn_buscar = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.btn_buscar)).BeginInit();
             this.SuspendLayout();
             // 
@@ -99,18 +99,6 @@ namespace _911_RD.Administracion
             this.btn_limpiar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btn_limpiar.UseVisualStyleBackColor = false;
             // 
-            // btn_buscar
-            // 
-            this.btn_buscar.BackColor = System.Drawing.Color.LightGreen;
-            this.btn_buscar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_buscar.Image = global::_911_RD.Properties.Resources.search;
-            this.btn_buscar.Location = new System.Drawing.Point(124, 99);
-            this.btn_buscar.Name = "btn_buscar";
-            this.btn_buscar.Size = new System.Drawing.Size(34, 26);
-            this.btn_buscar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btn_buscar.TabIndex = 136;
-            this.btn_buscar.TabStop = false;
-            // 
             // btn_guardar
             // 
             this.btn_guardar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -142,6 +130,7 @@ namespace _911_RD.Administracion
             // 
             // id_txt
             // 
+            this.id_txt.Enabled = false;
             this.id_txt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.id_txt.Limpiar = false;
             this.id_txt.Location = new System.Drawing.Point(12, 99);
@@ -149,6 +138,18 @@ namespace _911_RD.Administracion
             this.id_txt.Size = new System.Drawing.Size(106, 26);
             this.id_txt.TabIndex = 142;
             this.id_txt.Validar = false;
+            // 
+            // btn_buscar
+            // 
+            this.btn_buscar.BackColor = System.Drawing.Color.LightGreen;
+            this.btn_buscar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_buscar.Image = global::_911_RD.Properties.Resources.search;
+            this.btn_buscar.Location = new System.Drawing.Point(124, 99);
+            this.btn_buscar.Name = "btn_buscar";
+            this.btn_buscar.Size = new System.Drawing.Size(34, 26);
+            this.btn_buscar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btn_buscar.TabIndex = 136;
+            this.btn_buscar.TabStop = false;
             // 
             // FrmBase
             // 
@@ -174,7 +175,6 @@ namespace _911_RD.Administracion
         }
 
         #endregion
-        public System.Windows.Forms.PictureBox btn_buscar;
         public System.Windows.Forms.Label label15;
         public System.Windows.Forms.Button btn_guardar;
         public System.Windows.Forms.Label label1;
@@ -183,5 +183,6 @@ namespace _911_RD.Administracion
         public System.Windows.Forms.Button btn_salir;
         public System.Windows.Forms.Label label9;
         public ErrorTxtBox id_txt;
+        public System.Windows.Forms.PictureBox btn_buscar;
     }
 }
