@@ -15,7 +15,6 @@ namespace _911_RD.Administracion
         public FrmPaciente()
         {
             InitializeComponent();
-            cbx_estado.SelectedIndex = 0;
         }
 
         private void btn_buscar_Click(object sender, EventArgs e)

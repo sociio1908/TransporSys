@@ -68,23 +68,11 @@
     <Compile Include="Administracion\FrmBase.Designer.cs">
       <DependentUpon>FrmBase.cs</DependentUpon>
     </Compile>
-    <Compile Include="Administracion\FrmEmpleado.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Administracion\FrmEmpleado.Designer.cs">
-      <DependentUpon>FrmEmpleado.cs</DependentUpon>
-    </Compile>
     <Compile Include="Administracion\FrmPaciente.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Administracion\FrmPaciente.Designer.cs">
       <DependentUpon>FrmPaciente.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Administracion\FrmUsuario.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Administracion\FrmUsuario.Designer.cs">
-      <DependentUpon>FrmUsuario.cs</DependentUpon>
     </Compile>
     <Compile Include="ErrorTxtBox.cs">
       <SubType>Component</SubType>
@@ -137,14 +125,8 @@
     <EmbeddedResource Include="Administracion\FrmBase.resx">
       <DependentUpon>FrmBase.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Administracion\FrmEmpleado.resx">
-      <DependentUpon>FrmEmpleado.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Administracion\FrmPaciente.resx">
       <DependentUpon>FrmPaciente.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Administracion\FrmUsuario.resx">
-      <DependentUpon>FrmUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>

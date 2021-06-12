@@ -29,60 +29,16 @@ namespace _911_RD.Administracion
         /// </summary>
         private void InitializeComponent()
         {
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.label15 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.txt_id = new _911_RD.ErrorTxtBox();
             this.btn_salir = new System.Windows.Forms.Button();
             this.btn_limpiar = new System.Windows.Forms.Button();
             this.btn_buscar = new System.Windows.Forms.PictureBox();
             this.btn_guardar = new System.Windows.Forms.Button();
+            this.label9 = new System.Windows.Forms.Label();
+            this.id_txt = new _911_RD.ErrorTxtBox();
             ((System.ComponentModel.ISupportInitialize)(this.btn_buscar)).BeginInit();
             this.SuspendLayout();
-            // 
-            // comboBox3
-            // 
-            this.comboBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Items.AddRange(new object[] {
-            "SI",
-            "NO"});
-            this.comboBox3.Location = new System.Drawing.Point(322, 234);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(181, 28);
-            this.comboBox3.TabIndex = 138;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label13.Location = new System.Drawing.Point(322, 215);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(73, 16);
-            this.label13.TabIndex = 137;
-            this.label13.Text = "Epiléptico";
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
-            "NEGATIVO",
-            "POSTIVO",
-            "POSITIVO(Asintomatico)"});
-            this.comboBox2.Location = new System.Drawing.Point(325, 110);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(181, 28);
-            this.comboBox2.TabIndex = 134;
             // 
             // label15
             // 
@@ -95,72 +51,6 @@ namespace _911_RD.Administracion
             this.label15.TabIndex = 131;
             this.label15.Text = "DATOS GENERALES";
             // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.ForeColor = System.Drawing.Color.Firebrick;
-            this.label14.Location = new System.Drawing.Point(304, 56);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(134, 19);
-            this.label14.TabIndex = 130;
-            this.label14.Text = "DATOS MEDICOS";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label5.Location = new System.Drawing.Point(322, 91);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(81, 16);
-            this.label5.TabIndex = 129;
-            this.label5.Text = "COVID-19 ?";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label2.Location = new System.Drawing.Point(15, 305);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(124, 16);
-            this.label2.TabIndex = 128;
-            this.label2.Text = "Fecha nacimiento";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label12.Location = new System.Drawing.Point(319, 275);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(208, 16);
-            this.label12.TabIndex = 127;
-            this.label12.Text = "Medicamentos de emergencia";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label9.Location = new System.Drawing.Point(12, 122);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(310, 16);
-            this.label9.TabIndex = 125;
-            this.label9.Text = "Cédula/Pasaporte (menor padre/madre/tutor)";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label7.Location = new System.Drawing.Point(322, 154);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(57, 16);
-            this.label7.TabIndex = 122;
-            this.label7.Text = "Alergia";
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -171,16 +61,6 @@ namespace _911_RD.Administracion
             this.label1.Size = new System.Drawing.Size(146, 32);
             this.label1.TabIndex = 118;
             this.label1.Text = "Titulo form";
-            // 
-            // txt_id
-            // 
-            this.txt_id.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_id.Limpiar = false;
-            this.txt_id.Location = new System.Drawing.Point(18, 85);
-            this.txt_id.Name = "txt_id";
-            this.txt_id.Size = new System.Drawing.Size(100, 26);
-            this.txt_id.TabIndex = 139;
-            this.txt_id.Validar = true;
             // 
             // btn_salir
             // 
@@ -224,9 +104,9 @@ namespace _911_RD.Administracion
             this.btn_buscar.BackColor = System.Drawing.Color.LightGreen;
             this.btn_buscar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_buscar.Image = global::_911_RD.Properties.Resources.search;
-            this.btn_buscar.Location = new System.Drawing.Point(124, 82);
+            this.btn_buscar.Location = new System.Drawing.Point(124, 99);
             this.btn_buscar.Name = "btn_buscar";
-            this.btn_buscar.Size = new System.Drawing.Size(42, 29);
+            this.btn_buscar.Size = new System.Drawing.Size(34, 26);
             this.btn_buscar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btn_buscar.TabIndex = 136;
             this.btn_buscar.TabStop = false;
@@ -249,26 +129,39 @@ namespace _911_RD.Administracion
             this.btn_guardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btn_guardar.UseVisualStyleBackColor = false;
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label9.Location = new System.Drawing.Point(12, 80);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(21, 16);
+            this.label9.TabIndex = 125;
+            this.label9.Text = "ID";
+            // 
+            // id_txt
+            // 
+            this.id_txt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.id_txt.Limpiar = false;
+            this.id_txt.Location = new System.Drawing.Point(12, 99);
+            this.id_txt.Name = "id_txt";
+            this.id_txt.Size = new System.Drawing.Size(106, 26);
+            this.id_txt.TabIndex = 142;
+            this.id_txt.Validar = false;
+            // 
             // FrmBase
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(978, 594);
+            this.Controls.Add(this.id_txt);
             this.Controls.Add(this.btn_salir);
             this.Controls.Add(this.btn_limpiar);
-            this.Controls.Add(this.txt_id);
-            this.Controls.Add(this.comboBox3);
-            this.Controls.Add(this.label13);
             this.Controls.Add(this.btn_buscar);
-            this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.label15);
-            this.Controls.Add(this.label14);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label12);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.label7);
             this.Controls.Add(this.btn_guardar);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -281,22 +174,14 @@ namespace _911_RD.Administracion
         }
 
         #endregion
-
-        public System.Windows.Forms.ComboBox comboBox3;
-        public System.Windows.Forms.Label label13;
         public System.Windows.Forms.PictureBox btn_buscar;
-        public System.Windows.Forms.ComboBox comboBox2;
         public System.Windows.Forms.Label label15;
-        public System.Windows.Forms.Label label14;
-        public System.Windows.Forms.Label label5;
-        public System.Windows.Forms.Label label2;
-        public System.Windows.Forms.Label label12;
-        public System.Windows.Forms.Label label9;
-        public System.Windows.Forms.Label label7;
         public System.Windows.Forms.Button btn_guardar;
         public System.Windows.Forms.Label label1;
         public ErrorTxtBox txt_id;
         public System.Windows.Forms.Button btn_limpiar;
         public System.Windows.Forms.Button btn_salir;
+        public System.Windows.Forms.Label label9;
+        private ErrorTxtBox id_txt;
     }
 }

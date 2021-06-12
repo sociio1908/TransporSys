@@ -66,5 +66,3 @@ C:\Users\Ing. Jerinel Mendoza\Documents\Proyecto C#\Mi_App911\911_RD\911_RD\obj\
 C:\Users\Ing. Jerinel Mendoza\Documents\Proyecto C#\Mi_App911\911_RD\911_RD\obj\Debug\_911_RD.Administracion.FrmPaciente.resources
 C:\Users\Ing. Jerinel Mendoza\Documents\Proyecto C#\Mi_App911\911_RD\911_RD\obj\Debug\_911_RD.FrmLogin.resources
 C:\Users\Ing. Jerinel Mendoza\Documents\Proyecto C#\Mi_App911\911_RD\911_RD\obj\Debug\_911_RD.Administracion.FrmBase.resources
-C:\Users\Ing. Jerinel Mendoza\Documents\Proyecto C#\Mi_App911\911_RD\911_RD\obj\Debug\_911_RD.Administracion.FrmEmpleado.resources
-C:\Users\Ing. Jerinel Mendoza\Documents\Proyecto C#\Mi_App911\911_RD\911_RD\obj\Debug\_911_RD.Administracion.FrmUsuario.resources
