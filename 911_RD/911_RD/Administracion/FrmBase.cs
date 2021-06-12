@@ -15,6 +15,8 @@ namespace _911_RD.Administracion
         public FrmBase()
         {
             InitializeComponent();
+            txt_filtro.Text = "BUSCAR" + lbl_titulo.Text;
+
         }
 
         private void btn_salir_Click(object sender, EventArgs e)
@@ -26,6 +28,31 @@ namespace _911_RD.Administracion
                 this.Close();
                
             }
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void errorTxtBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void id_txt_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FrmBase_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

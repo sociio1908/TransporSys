@@ -30,13 +30,15 @@ namespace _911_RD.Administracion
         private void InitializeComponent()
         {
             this.label15 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lbl_titulo = new System.Windows.Forms.Label();
             this.btn_salir = new System.Windows.Forms.Button();
             this.btn_limpiar = new System.Windows.Forms.Button();
             this.btn_guardar = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
-            this.id_txt = new _911_RD.ErrorTxtBox();
             this.btn_buscar = new System.Windows.Forms.PictureBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txt_filtro = new _911_RD.ErrorTxtBox();
+            this.id_txt = new _911_RD.ErrorTxtBox();
             ((System.ComponentModel.ISupportInitialize)(this.btn_buscar)).BeginInit();
             this.SuspendLayout();
             // 
@@ -51,20 +53,20 @@ namespace _911_RD.Administracion
             this.label15.TabIndex = 131;
             this.label15.Text = "DATOS GENERALES";
             // 
-            // label1
+            // lbl_titulo
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label1.Location = new System.Drawing.Point(12, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(146, 32);
-            this.label1.TabIndex = 118;
-            this.label1.Text = "Titulo form";
+            this.lbl_titulo.AutoSize = true;
+            this.lbl_titulo.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_titulo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lbl_titulo.Location = new System.Drawing.Point(12, 9);
+            this.lbl_titulo.Name = "lbl_titulo";
+            this.lbl_titulo.Size = new System.Drawing.Size(146, 32);
+            this.lbl_titulo.TabIndex = 118;
+            this.lbl_titulo.Text = "Titulo form";
             // 
             // btn_salir
             // 
-            this.btn_salir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btn_salir.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.btn_salir.BackColor = System.Drawing.Color.Firebrick;
             this.btn_salir.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_salir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -72,9 +74,9 @@ namespace _911_RD.Administracion
             this.btn_salir.ForeColor = System.Drawing.Color.White;
             this.btn_salir.Image = global::_911_RD.Properties.Resources.cancel32x32;
             this.btn_salir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_salir.Location = new System.Drawing.Point(279, 517);
+            this.btn_salir.Location = new System.Drawing.Point(279, 325);
             this.btn_salir.Name = "btn_salir";
-            this.btn_salir.Size = new System.Drawing.Size(106, 65);
+            this.btn_salir.Size = new System.Drawing.Size(106, 50);
             this.btn_salir.TabIndex = 141;
             this.btn_salir.Text = "SALIR";
             this.btn_salir.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -83,7 +85,7 @@ namespace _911_RD.Administracion
             // 
             // btn_limpiar
             // 
-            this.btn_limpiar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btn_limpiar.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.btn_limpiar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.btn_limpiar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_limpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -91,9 +93,9 @@ namespace _911_RD.Administracion
             this.btn_limpiar.ForeColor = System.Drawing.Color.White;
             this.btn_limpiar.Image = global::_911_RD.Properties.Resources.limpiar;
             this.btn_limpiar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_limpiar.Location = new System.Drawing.Point(157, 517);
+            this.btn_limpiar.Location = new System.Drawing.Point(157, 325);
             this.btn_limpiar.Name = "btn_limpiar";
-            this.btn_limpiar.Size = new System.Drawing.Size(116, 65);
+            this.btn_limpiar.Size = new System.Drawing.Size(116, 50);
             this.btn_limpiar.TabIndex = 140;
             this.btn_limpiar.Text = "LIMPIAR";
             this.btn_limpiar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -101,7 +103,7 @@ namespace _911_RD.Administracion
             // 
             // btn_guardar
             // 
-            this.btn_guardar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btn_guardar.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.btn_guardar.BackColor = System.Drawing.Color.YellowGreen;
             this.btn_guardar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_guardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -109,9 +111,9 @@ namespace _911_RD.Administracion
             this.btn_guardar.ForeColor = System.Drawing.Color.White;
             this.btn_guardar.Image = global::_911_RD.Properties.Resources.save_32x32;
             this.btn_guardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_guardar.Location = new System.Drawing.Point(12, 517);
+            this.btn_guardar.Location = new System.Drawing.Point(12, 325);
             this.btn_guardar.Name = "btn_guardar";
-            this.btn_guardar.Size = new System.Drawing.Size(139, 65);
+            this.btn_guardar.Size = new System.Drawing.Size(139, 50);
             this.btn_guardar.TabIndex = 119;
             this.btn_guardar.Text = "GUARDAR";
             this.btn_guardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -128,17 +130,6 @@ namespace _911_RD.Administracion
             this.label9.TabIndex = 125;
             this.label9.Text = "ID";
             // 
-            // id_txt
-            // 
-            this.id_txt.Enabled = false;
-            this.id_txt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.id_txt.Limpiar = false;
-            this.id_txt.Location = new System.Drawing.Point(12, 99);
-            this.id_txt.Name = "id_txt";
-            this.id_txt.Size = new System.Drawing.Size(106, 26);
-            this.id_txt.TabIndex = 142;
-            this.id_txt.Validar = false;
-            // 
             // btn_buscar
             // 
             this.btn_buscar.BackColor = System.Drawing.Color.LightGreen;
@@ -151,12 +142,54 @@ namespace _911_RD.Administracion
             this.btn_buscar.TabIndex = 136;
             this.btn_buscar.TabStop = false;
             // 
+            // label3
+            // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label3.Location = new System.Drawing.Point(14, 384);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(57, 19);
+            this.label3.TabIndex = 163;
+            this.label3.Text = "FILTRO";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
+            // 
+            // txt_filtro
+            // 
+            this.txt_filtro.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txt_filtro.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_filtro.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_filtro.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.txt_filtro.Limpiar = false;
+            this.txt_filtro.Location = new System.Drawing.Point(77, 381);
+            this.txt_filtro.Name = "txt_filtro";
+            this.txt_filtro.Size = new System.Drawing.Size(168, 24);
+            this.txt_filtro.TabIndex = 164;
+            this.txt_filtro.Validar = false;
+            this.txt_filtro.TextChanged += new System.EventHandler(this.errorTxtBox1_TextChanged);
+            // 
+            // id_txt
+            // 
+            this.id_txt.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.id_txt.Enabled = false;
+            this.id_txt.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.id_txt.Limpiar = false;
+            this.id_txt.Location = new System.Drawing.Point(12, 99);
+            this.id_txt.Name = "id_txt";
+            this.id_txt.Size = new System.Drawing.Size(106, 22);
+            this.id_txt.TabIndex = 142;
+            this.id_txt.Validar = false;
+            this.id_txt.TextChanged += new System.EventHandler(this.id_txt_TextChanged);
+            // 
             // FrmBase
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(978, 594);
+            this.ClientSize = new System.Drawing.Size(944, 524);
+            this.Controls.Add(this.txt_filtro);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.id_txt);
             this.Controls.Add(this.btn_salir);
             this.Controls.Add(this.btn_limpiar);
@@ -164,10 +197,11 @@ namespace _911_RD.Administracion
             this.Controls.Add(this.label15);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.btn_guardar);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lbl_titulo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmBase";
             this.Text = "FrmBase";
+            this.Load += new System.EventHandler(this.FrmBase_Load);
             ((System.ComponentModel.ISupportInitialize)(this.btn_buscar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -177,12 +211,14 @@ namespace _911_RD.Administracion
         #endregion
         public System.Windows.Forms.Label label15;
         public System.Windows.Forms.Button btn_guardar;
-        public System.Windows.Forms.Label label1;
+        public System.Windows.Forms.Label lbl_titulo;
         public ErrorTxtBox txt_id;
         public System.Windows.Forms.Button btn_limpiar;
         public System.Windows.Forms.Button btn_salir;
         public System.Windows.Forms.Label label9;
         public ErrorTxtBox id_txt;
         public System.Windows.Forms.PictureBox btn_buscar;
+        public System.Windows.Forms.Label label3;
+        public ErrorTxtBox txt_filtro;
     }
 }
