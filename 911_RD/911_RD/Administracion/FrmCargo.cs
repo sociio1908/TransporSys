@@ -16,5 +16,24 @@ namespace _911_RD.Administracion
         {
             InitializeComponent();
         }
+
+        private void btn_guardar_Click(object sender, EventArgs e)
+        {
+            if (Utilidades.ValidarFormulario(this, errorProvider1) == false)
+                return;
+
+            try
+            {
+
+                //Meto insert/Update
+
+            }
+            catch (Exception dfg)
+            {
+
+            }
+
+        }
+
     }
 }

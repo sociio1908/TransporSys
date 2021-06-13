@@ -77,5 +77,14 @@ namespace _911_RD.Administracion
 
 
         }
+
+        private void btn_Cargo_Click(object sender, EventArgs e)
+        {
+
+            FrmCargo frmCargo = new FrmCargo();
+            frmCargo.ShowDialog();
+
+
+        }
     }
 }
