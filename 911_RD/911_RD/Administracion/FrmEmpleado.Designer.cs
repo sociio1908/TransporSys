@@ -52,9 +52,14 @@ namespace _911_RD.Administracion
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.errorTxtBox4 = new _911_RD.ErrorTxtBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.errorTxtBox7 = new _911_RD.ErrorTxtBox();
             this.id_eme = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SOLICITUD = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tipo_eme = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cedula = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.estado_eme = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sexo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cargo = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -68,7 +73,8 @@ namespace _911_RD.Administracion
             // 
             // btn_guardar
             // 
-            this.btn_guardar.Location = new System.Drawing.Point(11, 414);
+            this.btn_guardar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)));
+            this.btn_guardar.Location = new System.Drawing.Point(11, 415);
             // 
             // lbl_titulo
             // 
@@ -77,34 +83,32 @@ namespace _911_RD.Administracion
             // 
             // btn_limpiar
             // 
-            this.btn_limpiar.Location = new System.Drawing.Point(156, 414);
+            this.btn_limpiar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)));
+            this.btn_limpiar.Location = new System.Drawing.Point(156, 415);
             // 
             // btn_salir
             // 
-            this.btn_salir.Location = new System.Drawing.Point(278, 414);
+            this.btn_salir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)));
+            this.btn_salir.Location = new System.Drawing.Point(278, 415);
+            // 
+            // id_txt
+            // 
+            this.id_txt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.id_txt.Size = new System.Drawing.Size(106, 29);
             // 
             // btn_buscar
             // 
-            this.btn_buscar.Location = new System.Drawing.Point(123, 95);
-            // 
-            // label3
-            // 
-            this.label3.Location = new System.Drawing.Point(12, 473);
-            // 
-            // txt_filtro
-            // 
-            this.txt_filtro.Location = new System.Drawing.Point(75, 473);
-            this.txt_filtro.Size = new System.Drawing.Size(218, 24);
-            this.txt_filtro.Text = "";
+            this.btn_buscar.Location = new System.Drawing.Point(123, 99);
+            this.btn_buscar.Size = new System.Drawing.Size(34, 29);
             // 
             // errorTxtBox2
             // 
-            this.errorTxtBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.errorTxtBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.errorTxtBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.errorTxtBox2.Limpiar = false;
             this.errorTxtBox2.Location = new System.Drawing.Point(12, 155);
             this.errorTxtBox2.Name = "errorTxtBox2";
-            this.errorTxtBox2.Size = new System.Drawing.Size(170, 19);
+            this.errorTxtBox2.Size = new System.Drawing.Size(170, 26);
             this.errorTxtBox2.TabIndex = 145;
             this.errorTxtBox2.Validar = true;
             this.errorTxtBox2.TextChanged += new System.EventHandler(this.errorTxtBox2_TextChanged);
@@ -116,19 +120,19 @@ namespace _911_RD.Administracion
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label4.Location = new System.Drawing.Point(12, 190);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(68, 16);
+            this.label4.Size = new System.Drawing.Size(64, 16);
             this.label4.TabIndex = 148;
-            this.label4.Text = "APELLIDO";
+            this.label4.Text = "NOMBRE";
             this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // errorTxtBox3
             // 
-            this.errorTxtBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.errorTxtBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.errorTxtBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.errorTxtBox3.Limpiar = false;
             this.errorTxtBox3.Location = new System.Drawing.Point(12, 209);
             this.errorTxtBox3.Name = "errorTxtBox3";
-            this.errorTxtBox3.Size = new System.Drawing.Size(170, 19);
+            this.errorTxtBox3.Size = new System.Drawing.Size(170, 26);
             this.errorTxtBox3.TabIndex = 147;
             this.errorTxtBox3.Validar = true;
             this.errorTxtBox3.TextChanged += new System.EventHandler(this.errorTxtBox3_TextChanged);
@@ -138,7 +142,7 @@ namespace _911_RD.Administracion
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label5.Location = new System.Drawing.Point(12, 247);
+            this.label5.Location = new System.Drawing.Point(12, 301);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(138, 16);
             this.label5.TabIndex = 150;
@@ -180,13 +184,13 @@ namespace _911_RD.Administracion
             // 
             // errorTxtBox5
             // 
-            this.errorTxtBox5.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.errorTxtBox5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.errorTxtBox5.Enabled = false;
             this.errorTxtBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.errorTxtBox5.Limpiar = false;
             this.errorTxtBox5.Location = new System.Drawing.Point(237, 155);
             this.errorTxtBox5.Name = "errorTxtBox5";
-            this.errorTxtBox5.Size = new System.Drawing.Size(130, 19);
+            this.errorTxtBox5.Size = new System.Drawing.Size(130, 26);
             this.errorTxtBox5.TabIndex = 154;
             this.errorTxtBox5.Validar = true;
             // 
@@ -203,13 +207,13 @@ namespace _911_RD.Administracion
             // 
             // errorTxtBox6
             // 
-            this.errorTxtBox6.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.errorTxtBox6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.errorTxtBox6.Enabled = false;
             this.errorTxtBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.errorTxtBox6.Limpiar = false;
             this.errorTxtBox6.Location = new System.Drawing.Point(237, 99);
             this.errorTxtBox6.Name = "errorTxtBox6";
-            this.errorTxtBox6.Size = new System.Drawing.Size(130, 19);
+            this.errorTxtBox6.Size = new System.Drawing.Size(130, 26);
             this.errorTxtBox6.TabIndex = 152;
             this.errorTxtBox6.Validar = true;
             // 
@@ -218,7 +222,7 @@ namespace _911_RD.Administracion
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label12.Location = new System.Drawing.Point(15, 299);
+            this.label12.Location = new System.Drawing.Point(12, 349);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(42, 16);
             this.label12.TabIndex = 161;
@@ -232,7 +236,7 @@ namespace _911_RD.Administracion
             this.comboBox3.Items.AddRange(new object[] {
             "HOMBRE",
             "MUJER"});
-            this.comboBox3.Location = new System.Drawing.Point(15, 318);
+            this.comboBox3.Location = new System.Drawing.Point(12, 368);
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(114, 28);
             this.comboBox3.TabIndex = 160;
@@ -243,7 +247,7 @@ namespace _911_RD.Administracion
             this.btn_Cargo.BackColor = System.Drawing.Color.LightGreen;
             this.btn_Cargo.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_Cargo.Image = global::_911_RD.Properties.Resources.search;
-            this.btn_Cargo.Location = new System.Drawing.Point(373, 105);
+            this.btn_Cargo.Location = new System.Drawing.Point(373, 99);
             this.btn_Cargo.Name = "btn_Cargo";
             this.btn_Cargo.Size = new System.Drawing.Size(34, 26);
             this.btn_Cargo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -261,7 +265,7 @@ namespace _911_RD.Administracion
             // dateTimePicker2
             // 
             this.dateTimePicker2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker2.Location = new System.Drawing.Point(12, 266);
+            this.dateTimePicker2.Location = new System.Drawing.Point(12, 320);
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(167, 22);
             this.dateTimePicker2.TabIndex = 164;
@@ -294,7 +298,8 @@ namespace _911_RD.Administracion
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedHeaders;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.DarkSlateGray;
@@ -313,6 +318,7 @@ namespace _911_RD.Administracion
             this.id_eme,
             this.SOLICITUD,
             this.tipo_eme,
+            this.cedula,
             this.estado_eme,
             this.sexo,
             this.cargo,
@@ -328,7 +334,7 @@ namespace _911_RD.Administracion
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.EnableHeadersVisualStyles = false;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 495);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 503);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -349,7 +355,7 @@ namespace _911_RD.Administracion
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.DarkSlateGray;
             this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(842, 281);
+            this.dataGridView1.Size = new System.Drawing.Size(842, 265);
             this.dataGridView1.TabIndex = 167;
             // 
             // label1
@@ -359,14 +365,62 @@ namespace _911_RD.Administracion
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label1.Location = new System.Drawing.Point(12, 136);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(64, 16);
+            this.label1.Size = new System.Drawing.Size(58, 16);
             this.label1.TabIndex = 168;
-            this.label1.Text = "NOMBRE";
+            this.label1.Text = "CEDULA";
+            // 
+            // label13
+            // 
+            this.label13.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label13.Location = new System.Drawing.Point(20, 476);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(76, 16);
+            this.label13.TabIndex = 170;
+            this.label13.Text = "BUSQUEDA";
+            // 
+            // errorTxtBox4
+            // 
+            this.errorTxtBox4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.errorTxtBox4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.errorTxtBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.errorTxtBox4.Limpiar = false;
+            this.errorTxtBox4.Location = new System.Drawing.Point(102, 471);
+            this.errorTxtBox4.Name = "errorTxtBox4";
+            this.errorTxtBox4.Size = new System.Drawing.Size(170, 26);
+            this.errorTxtBox4.TabIndex = 169;
+            this.errorTxtBox4.Validar = true;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label14.Location = new System.Drawing.Point(15, 245);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(68, 16);
+            this.label14.TabIndex = 172;
+            this.label14.Text = "APELLIDO";
+            // 
+            // errorTxtBox7
+            // 
+            this.errorTxtBox7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.errorTxtBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.errorTxtBox7.Limpiar = false;
+            this.errorTxtBox7.Location = new System.Drawing.Point(12, 264);
+            this.errorTxtBox7.Name = "errorTxtBox7";
+            this.errorTxtBox7.Size = new System.Drawing.Size(170, 26);
+            this.errorTxtBox7.TabIndex = 171;
+            this.errorTxtBox7.Validar = true;
             // 
             // id_eme
             // 
             this.id_eme.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.id_eme.FillWeight = 20F;
+            this.id_eme.FillWeight = 50F;
             this.id_eme.HeaderText = "ID";
             this.id_eme.Name = "id_eme";
             this.id_eme.ReadOnly = true;
@@ -385,6 +439,13 @@ namespace _911_RD.Administracion
             this.tipo_eme.Name = "tipo_eme";
             this.tipo_eme.ReadOnly = true;
             // 
+            // cedula
+            // 
+            this.cedula.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.cedula.HeaderText = "CEDULA";
+            this.cedula.Name = "cedula";
+            this.cedula.ReadOnly = true;
+            // 
             // estado_eme
             // 
             this.estado_eme.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
@@ -394,30 +455,36 @@ namespace _911_RD.Administracion
             // 
             // sexo
             // 
+            this.sexo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.sexo.HeaderText = "SEXO";
             this.sexo.Name = "sexo";
             this.sexo.ReadOnly = true;
             // 
             // cargo
             // 
+            this.cargo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.cargo.HeaderText = "CARGO";
             this.cargo.Name = "cargo";
             this.cargo.ReadOnly = true;
             // 
             // salario
             // 
+            this.salario.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.salario.HeaderText = "SALARIO";
             this.salario.Name = "salario";
             this.salario.ReadOnly = true;
             // 
             // fecha_contrato
             // 
+            this.fecha_contrato.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.fecha_contrato.HeaderText = "FECHA CONTRATO";
             this.fecha_contrato.Name = "fecha_contrato";
             this.fecha_contrato.ReadOnly = true;
             // 
             // estado
             // 
+            this.estado.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.estado.FillWeight = 80F;
             this.estado.HeaderText = "ESTADO";
             this.estado.Name = "estado";
             this.estado.ReadOnly = true;
@@ -426,7 +493,11 @@ namespace _911_RD.Administracion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(866, 788);
+            this.ClientSize = new System.Drawing.Size(866, 780);
+            this.Controls.Add(this.label14);
+            this.Controls.Add(this.errorTxtBox7);
+            this.Controls.Add(this.label13);
+            this.Controls.Add(this.errorTxtBox4);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label7);
@@ -449,9 +520,7 @@ namespace _911_RD.Administracion
             this.Name = "FrmEmpleado";
             this.Text = "W";
             this.Load += new System.EventHandler(this.FrmEmpleado_Load);
-            this.Controls.SetChildIndex(this.txt_filtro, 0);
             this.Controls.SetChildIndex(this.errorTxtBox2, 0);
-            this.Controls.SetChildIndex(this.label3, 0);
             this.Controls.SetChildIndex(this.errorTxtBox3, 0);
             this.Controls.SetChildIndex(this.label4, 0);
             this.Controls.SetChildIndex(this.label5, 0);
@@ -478,6 +547,10 @@ namespace _911_RD.Administracion
             this.Controls.SetChildIndex(this.label7, 0);
             this.Controls.SetChildIndex(this.dataGridView1, 0);
             this.Controls.SetChildIndex(this.label1, 0);
+            this.Controls.SetChildIndex(this.errorTxtBox4, 0);
+            this.Controls.SetChildIndex(this.label13, 0);
+            this.Controls.SetChildIndex(this.errorTxtBox7, 0);
+            this.Controls.SetChildIndex(this.label14, 0);
             ((System.ComponentModel.ISupportInitialize)(this.btn_buscar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_Cargo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -510,9 +583,14 @@ namespace _911_RD.Administracion
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label13;
+        private ErrorTxtBox errorTxtBox4;
+        private System.Windows.Forms.Label label14;
+        private ErrorTxtBox errorTxtBox7;
         private System.Windows.Forms.DataGridViewTextBoxColumn id_eme;
         private System.Windows.Forms.DataGridViewTextBoxColumn SOLICITUD;
         private System.Windows.Forms.DataGridViewTextBoxColumn tipo_eme;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cedula;
         private System.Windows.Forms.DataGridViewTextBoxColumn estado_eme;
         private System.Windows.Forms.DataGridViewTextBoxColumn sexo;
         private System.Windows.Forms.DataGridViewTextBoxColumn cargo;

@@ -15,7 +15,6 @@ namespace _911_RD.Administracion
         public FrmBase()
         {
             InitializeComponent();
-            txt_filtro.Text = "BUSCAR" + lbl_titulo.Text;
 
         }
 

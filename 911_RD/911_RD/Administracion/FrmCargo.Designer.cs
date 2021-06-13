@@ -58,7 +58,6 @@
             // 
             // label3
             // 
-            this.label3.Location = new System.Drawing.Point(860, 111);
             // 
             // errorTxtBox1
             // 
@@ -107,7 +106,6 @@
             this.Controls.Add(this.errorTxtBox5);
             this.Name = "FrmCargo";
             this.Text = "FrmCargo";
-            this.Controls.SetChildIndex(this.label3, 0);
             this.Controls.SetChildIndex(this.errorTxtBox5, 0);
             this.Controls.SetChildIndex(this.label10, 0);
             this.Controls.SetChildIndex(this.errorTxtBox1, 0);

@@ -36,8 +36,6 @@ namespace _911_RD.Administracion
             this.btn_guardar = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.btn_buscar = new System.Windows.Forms.PictureBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txt_filtro = new _911_RD.ErrorTxtBox();
             this.id_txt = new _911_RD.ErrorTxtBox();
             ((System.ComponentModel.ISupportInitialize)(this.btn_buscar)).BeginInit();
             this.SuspendLayout();
@@ -142,33 +140,6 @@ namespace _911_RD.Administracion
             this.btn_buscar.TabIndex = 136;
             this.btn_buscar.TabStop = false;
             // 
-            // label3
-            // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label3.Location = new System.Drawing.Point(14, 384);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(57, 19);
-            this.label3.TabIndex = 163;
-            this.label3.Text = "FILTRO";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
-            // 
-            // txt_filtro
-            // 
-            this.txt_filtro.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txt_filtro.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txt_filtro.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_filtro.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.txt_filtro.Limpiar = false;
-            this.txt_filtro.Location = new System.Drawing.Point(77, 381);
-            this.txt_filtro.Name = "txt_filtro";
-            this.txt_filtro.Size = new System.Drawing.Size(168, 24);
-            this.txt_filtro.TabIndex = 164;
-            this.txt_filtro.Validar = false;
-            this.txt_filtro.TextChanged += new System.EventHandler(this.errorTxtBox1_TextChanged);
-            // 
             // id_txt
             // 
             this.id_txt.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -188,8 +159,6 @@ namespace _911_RD.Administracion
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(944, 524);
-            this.Controls.Add(this.txt_filtro);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.id_txt);
             this.Controls.Add(this.btn_salir);
             this.Controls.Add(this.btn_limpiar);
@@ -218,7 +187,5 @@ namespace _911_RD.Administracion
         public System.Windows.Forms.Label label9;
         public ErrorTxtBox id_txt;
         public System.Windows.Forms.PictureBox btn_buscar;
-        public System.Windows.Forms.Label label3;
-        public ErrorTxtBox txt_filtro;
     }
 }
