@@ -29,33 +29,29 @@ namespace _911_RD.Administracion
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.errorTxtBox2 = new _911_RD.ErrorTxtBox();
+            this.txt_cedula = new _911_RD.ErrorTxtBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.errorTxtBox3 = new _911_RD.ErrorTxtBox();
+            this.txt_nombre = new _911_RD.ErrorTxtBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.errorTxtBox5 = new _911_RD.ErrorTxtBox();
+            this.txt_sueldo = new _911_RD.ErrorTxtBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.errorTxtBox6 = new _911_RD.ErrorTxtBox();
+            this.txt_cargo = new _911_RD.ErrorTxtBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.cb_sexo = new System.Windows.Forms.ComboBox();
             this.btn_Cargo = new System.Windows.Forms.PictureBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.fecha_con = new System.Windows.Forms.DateTimePicker();
+            this.fecha_nac = new System.Windows.Forms.DateTimePicker();
             this.label7 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cb_estado = new System.Windows.Forms.ComboBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.errorTxtBox4 = new _911_RD.ErrorTxtBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.errorTxtBox7 = new _911_RD.ErrorTxtBox();
             this.id_eme = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SOLICITUD = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tipo_eme = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -66,15 +62,23 @@ namespace _911_RD.Administracion
             this.salario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fecha_contrato = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.txt_filtro = new _911_RD.ErrorTxtBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.txt_apellido = new _911_RD.ErrorTxtBox();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.btn_buscar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_Cargo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // btn_guardar
             // 
             this.btn_guardar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)));
             this.btn_guardar.Location = new System.Drawing.Point(11, 415);
+            this.btn_guardar.Click += new System.EventHandler(this.btn_guardar_Click);
             // 
             // lbl_titulo
             // 
@@ -101,17 +105,17 @@ namespace _911_RD.Administracion
             this.btn_buscar.Location = new System.Drawing.Point(123, 99);
             this.btn_buscar.Size = new System.Drawing.Size(34, 29);
             // 
-            // errorTxtBox2
+            // txt_cedula
             // 
-            this.errorTxtBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.errorTxtBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.errorTxtBox2.Limpiar = false;
-            this.errorTxtBox2.Location = new System.Drawing.Point(12, 155);
-            this.errorTxtBox2.Name = "errorTxtBox2";
-            this.errorTxtBox2.Size = new System.Drawing.Size(170, 26);
-            this.errorTxtBox2.TabIndex = 145;
-            this.errorTxtBox2.Validar = true;
-            this.errorTxtBox2.TextChanged += new System.EventHandler(this.errorTxtBox2_TextChanged);
+            this.txt_cedula.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_cedula.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.txt_cedula.Limpiar = true;
+            this.txt_cedula.Location = new System.Drawing.Point(12, 155);
+            this.txt_cedula.Name = "txt_cedula";
+            this.txt_cedula.Size = new System.Drawing.Size(170, 26);
+            this.txt_cedula.TabIndex = 145;
+            this.txt_cedula.Validar = true;
+            this.txt_cedula.TextChanged += new System.EventHandler(this.errorTxtBox2_TextChanged);
             // 
             // label4
             // 
@@ -125,17 +129,17 @@ namespace _911_RD.Administracion
             this.label4.Text = "NOMBRE";
             this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
-            // errorTxtBox3
+            // txt_nombre
             // 
-            this.errorTxtBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.errorTxtBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.errorTxtBox3.Limpiar = false;
-            this.errorTxtBox3.Location = new System.Drawing.Point(12, 209);
-            this.errorTxtBox3.Name = "errorTxtBox3";
-            this.errorTxtBox3.Size = new System.Drawing.Size(170, 26);
-            this.errorTxtBox3.TabIndex = 147;
-            this.errorTxtBox3.Validar = true;
-            this.errorTxtBox3.TextChanged += new System.EventHandler(this.errorTxtBox3_TextChanged);
+            this.txt_nombre.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_nombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.txt_nombre.Limpiar = true;
+            this.txt_nombre.Location = new System.Drawing.Point(12, 209);
+            this.txt_nombre.Name = "txt_nombre";
+            this.txt_nombre.Size = new System.Drawing.Size(170, 26);
+            this.txt_nombre.TabIndex = 147;
+            this.txt_nombre.Validar = true;
+            this.txt_nombre.TextChanged += new System.EventHandler(this.errorTxtBox3_TextChanged);
             // 
             // label5
             // 
@@ -182,17 +186,17 @@ namespace _911_RD.Administracion
             this.label10.TabIndex = 155;
             this.label10.Text = "SUELDO";
             // 
-            // errorTxtBox5
+            // txt_sueldo
             // 
-            this.errorTxtBox5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.errorTxtBox5.Enabled = false;
-            this.errorTxtBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.errorTxtBox5.Limpiar = false;
-            this.errorTxtBox5.Location = new System.Drawing.Point(237, 155);
-            this.errorTxtBox5.Name = "errorTxtBox5";
-            this.errorTxtBox5.Size = new System.Drawing.Size(130, 26);
-            this.errorTxtBox5.TabIndex = 154;
-            this.errorTxtBox5.Validar = true;
+            this.txt_sueldo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_sueldo.Enabled = false;
+            this.txt_sueldo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.txt_sueldo.Limpiar = true;
+            this.txt_sueldo.Location = new System.Drawing.Point(237, 155);
+            this.txt_sueldo.Name = "txt_sueldo";
+            this.txt_sueldo.Size = new System.Drawing.Size(130, 26);
+            this.txt_sueldo.TabIndex = 154;
+            this.txt_sueldo.Validar = true;
             // 
             // label11
             // 
@@ -205,17 +209,17 @@ namespace _911_RD.Administracion
             this.label11.TabIndex = 153;
             this.label11.Text = "CARGO";
             // 
-            // errorTxtBox6
+            // txt_cargo
             // 
-            this.errorTxtBox6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.errorTxtBox6.Enabled = false;
-            this.errorTxtBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.errorTxtBox6.Limpiar = false;
-            this.errorTxtBox6.Location = new System.Drawing.Point(237, 99);
-            this.errorTxtBox6.Name = "errorTxtBox6";
-            this.errorTxtBox6.Size = new System.Drawing.Size(130, 26);
-            this.errorTxtBox6.TabIndex = 152;
-            this.errorTxtBox6.Validar = true;
+            this.txt_cargo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_cargo.Enabled = false;
+            this.txt_cargo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.txt_cargo.Limpiar = true;
+            this.txt_cargo.Location = new System.Drawing.Point(237, 99);
+            this.txt_cargo.Name = "txt_cargo";
+            this.txt_cargo.Size = new System.Drawing.Size(130, 26);
+            this.txt_cargo.TabIndex = 152;
+            this.txt_cargo.Validar = true;
             // 
             // label12
             // 
@@ -229,18 +233,18 @@ namespace _911_RD.Administracion
             this.label12.Text = "SEXO";
             this.label12.Click += new System.EventHandler(this.label12_Click);
             // 
-            // comboBox3
+            // cb_sexo
             // 
-            this.comboBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Items.AddRange(new object[] {
+            this.cb_sexo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.cb_sexo.FormattingEnabled = true;
+            this.cb_sexo.Items.AddRange(new object[] {
             "HOMBRE",
             "MUJER"});
-            this.comboBox3.Location = new System.Drawing.Point(12, 368);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(114, 28);
-            this.comboBox3.TabIndex = 160;
-            this.comboBox3.SelectedIndexChanged += new System.EventHandler(this.comboBox3_SelectedIndexChanged);
+            this.cb_sexo.Location = new System.Drawing.Point(12, 368);
+            this.cb_sexo.Name = "cb_sexo";
+            this.cb_sexo.Size = new System.Drawing.Size(114, 28);
+            this.cb_sexo.TabIndex = 160;
+            this.cb_sexo.SelectedIndexChanged += new System.EventHandler(this.comboBox3_SelectedIndexChanged);
             // 
             // btn_Cargo
             // 
@@ -254,22 +258,22 @@ namespace _911_RD.Administracion
             this.btn_Cargo.TabIndex = 162;
             this.btn_Cargo.TabStop = false;
             // 
-            // dateTimePicker1
+            // fecha_con
             // 
-            this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Location = new System.Drawing.Point(240, 218);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(167, 22);
-            this.dateTimePicker1.TabIndex = 163;
+            this.fecha_con.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fecha_con.Location = new System.Drawing.Point(240, 218);
+            this.fecha_con.Name = "fecha_con";
+            this.fecha_con.Size = new System.Drawing.Size(167, 22);
+            this.fecha_con.TabIndex = 163;
             // 
-            // dateTimePicker2
+            // fecha_nac
             // 
-            this.dateTimePicker2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker2.Location = new System.Drawing.Point(12, 320);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(167, 22);
-            this.dateTimePicker2.TabIndex = 164;
-            this.dateTimePicker2.ValueChanged += new System.EventHandler(this.dateTimePicker2_ValueChanged);
+            this.fecha_nac.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fecha_nac.Location = new System.Drawing.Point(12, 320);
+            this.fecha_nac.Name = "fecha_nac";
+            this.fecha_nac.Size = new System.Drawing.Size(167, 22);
+            this.fecha_nac.TabIndex = 164;
+            this.fecha_nac.ValueChanged += new System.EventHandler(this.dateTimePicker2_ValueChanged);
             // 
             // label7
             // 
@@ -282,17 +286,17 @@ namespace _911_RD.Administracion
             this.label7.TabIndex = 166;
             this.label7.Text = "ESTADO";
             // 
-            // comboBox1
+            // cb_estado
             // 
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.cb_estado.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.cb_estado.FormattingEnabled = true;
+            this.cb_estado.Items.AddRange(new object[] {
             "ACTIVO",
             "INACTIVO"});
-            this.comboBox1.Location = new System.Drawing.Point(240, 271);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(114, 28);
-            this.comboBox1.TabIndex = 165;
+            this.cb_estado.Location = new System.Drawing.Point(240, 271);
+            this.cb_estado.Name = "cb_estado";
+            this.cb_estado.Size = new System.Drawing.Size(114, 28);
+            this.cb_estado.TabIndex = 165;
             // 
             // dataGridView1
             // 
@@ -357,65 +361,6 @@ namespace _911_RD.Administracion
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(842, 265);
             this.dataGridView1.TabIndex = 167;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label1.Location = new System.Drawing.Point(12, 136);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(58, 16);
-            this.label1.TabIndex = 168;
-            this.label1.Text = "CEDULA";
-            // 
-            // label13
-            // 
-            this.label13.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label13.Location = new System.Drawing.Point(20, 476);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(76, 16);
-            this.label13.TabIndex = 170;
-            this.label13.Text = "BUSQUEDA";
-            // 
-            // errorTxtBox4
-            // 
-            this.errorTxtBox4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.errorTxtBox4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.errorTxtBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.errorTxtBox4.Limpiar = false;
-            this.errorTxtBox4.Location = new System.Drawing.Point(102, 471);
-            this.errorTxtBox4.Name = "errorTxtBox4";
-            this.errorTxtBox4.Size = new System.Drawing.Size(170, 26);
-            this.errorTxtBox4.TabIndex = 169;
-            this.errorTxtBox4.Validar = true;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label14.Location = new System.Drawing.Point(15, 245);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(68, 16);
-            this.label14.TabIndex = 172;
-            this.label14.Text = "APELLIDO";
-            // 
-            // errorTxtBox7
-            // 
-            this.errorTxtBox7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.errorTxtBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.errorTxtBox7.Limpiar = false;
-            this.errorTxtBox7.Location = new System.Drawing.Point(12, 264);
-            this.errorTxtBox7.Name = "errorTxtBox7";
-            this.errorTxtBox7.Size = new System.Drawing.Size(170, 26);
-            this.errorTxtBox7.TabIndex = 171;
-            this.errorTxtBox7.Validar = true;
             // 
             // id_eme
             // 
@@ -489,48 +434,111 @@ namespace _911_RD.Administracion
             this.estado.Name = "estado";
             this.estado.ReadOnly = true;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label1.Location = new System.Drawing.Point(12, 136);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(58, 16);
+            this.label1.TabIndex = 168;
+            this.label1.Text = "CEDULA";
+            // 
+            // label13
+            // 
+            this.label13.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label13.Location = new System.Drawing.Point(20, 476);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(76, 16);
+            this.label13.TabIndex = 170;
+            this.label13.Text = "BUSQUEDA";
+            // 
+            // txt_filtro
+            // 
+            this.txt_filtro.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.txt_filtro.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_filtro.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.txt_filtro.Limpiar = false;
+            this.txt_filtro.Location = new System.Drawing.Point(102, 471);
+            this.txt_filtro.Name = "txt_filtro";
+            this.txt_filtro.Size = new System.Drawing.Size(170, 26);
+            this.txt_filtro.TabIndex = 169;
+            this.txt_filtro.Validar = false;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label14.Location = new System.Drawing.Point(15, 245);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(68, 16);
+            this.label14.TabIndex = 172;
+            this.label14.Text = "APELLIDO";
+            // 
+            // txt_apellido
+            // 
+            this.txt_apellido.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_apellido.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.txt_apellido.Limpiar = true;
+            this.txt_apellido.Location = new System.Drawing.Point(12, 264);
+            this.txt_apellido.Name = "txt_apellido";
+            this.txt_apellido.Size = new System.Drawing.Size(170, 26);
+            this.txt_apellido.TabIndex = 171;
+            this.txt_apellido.Validar = true;
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // FrmEmpleado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(866, 780);
             this.Controls.Add(this.label14);
-            this.Controls.Add(this.errorTxtBox7);
+            this.Controls.Add(this.txt_apellido);
             this.Controls.Add(this.label13);
-            this.Controls.Add(this.errorTxtBox4);
+            this.Controls.Add(this.txt_filtro);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.dateTimePicker2);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.cb_estado);
+            this.Controls.Add(this.fecha_nac);
+            this.Controls.Add(this.fecha_con);
             this.Controls.Add(this.btn_Cargo);
             this.Controls.Add(this.label12);
-            this.Controls.Add(this.comboBox3);
+            this.Controls.Add(this.cb_sexo);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.errorTxtBox5);
+            this.Controls.Add(this.txt_sueldo);
             this.Controls.Add(this.label11);
-            this.Controls.Add(this.errorTxtBox6);
+            this.Controls.Add(this.txt_cargo);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.errorTxtBox3);
-            this.Controls.Add(this.errorTxtBox2);
+            this.Controls.Add(this.txt_nombre);
+            this.Controls.Add(this.txt_cedula);
             this.Name = "FrmEmpleado";
             this.Text = "W";
             this.Load += new System.EventHandler(this.FrmEmpleado_Load);
-            this.Controls.SetChildIndex(this.errorTxtBox2, 0);
-            this.Controls.SetChildIndex(this.errorTxtBox3, 0);
+            this.Controls.SetChildIndex(this.txt_cedula, 0);
+            this.Controls.SetChildIndex(this.txt_nombre, 0);
             this.Controls.SetChildIndex(this.label4, 0);
             this.Controls.SetChildIndex(this.label5, 0);
             this.Controls.SetChildIndex(this.label6, 0);
-            this.Controls.SetChildIndex(this.errorTxtBox6, 0);
+            this.Controls.SetChildIndex(this.txt_cargo, 0);
             this.Controls.SetChildIndex(this.label11, 0);
-            this.Controls.SetChildIndex(this.errorTxtBox5, 0);
+            this.Controls.SetChildIndex(this.txt_sueldo, 0);
             this.Controls.SetChildIndex(this.label10, 0);
             this.Controls.SetChildIndex(this.label8, 0);
-            this.Controls.SetChildIndex(this.comboBox3, 0);
+            this.Controls.SetChildIndex(this.cb_sexo, 0);
             this.Controls.SetChildIndex(this.label12, 0);
             this.Controls.SetChildIndex(this.lbl_titulo, 0);
             this.Controls.SetChildIndex(this.btn_guardar, 0);
@@ -541,19 +549,20 @@ namespace _911_RD.Administracion
             this.Controls.SetChildIndex(this.btn_salir, 0);
             this.Controls.SetChildIndex(this.id_txt, 0);
             this.Controls.SetChildIndex(this.btn_Cargo, 0);
-            this.Controls.SetChildIndex(this.dateTimePicker1, 0);
-            this.Controls.SetChildIndex(this.dateTimePicker2, 0);
-            this.Controls.SetChildIndex(this.comboBox1, 0);
+            this.Controls.SetChildIndex(this.fecha_con, 0);
+            this.Controls.SetChildIndex(this.fecha_nac, 0);
+            this.Controls.SetChildIndex(this.cb_estado, 0);
             this.Controls.SetChildIndex(this.label7, 0);
             this.Controls.SetChildIndex(this.dataGridView1, 0);
             this.Controls.SetChildIndex(this.label1, 0);
-            this.Controls.SetChildIndex(this.errorTxtBox4, 0);
+            this.Controls.SetChildIndex(this.txt_filtro, 0);
             this.Controls.SetChildIndex(this.label13, 0);
-            this.Controls.SetChildIndex(this.errorTxtBox7, 0);
+            this.Controls.SetChildIndex(this.txt_apellido, 0);
             this.Controls.SetChildIndex(this.label14, 0);
             ((System.ComponentModel.ISupportInitialize)(this.btn_buscar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_Cargo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -564,29 +573,29 @@ namespace _911_RD.Administracion
         private ErrorTxtBox errorTxtBox1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private ErrorTxtBox errorTxtBox2;
+        private ErrorTxtBox txt_cedula;
         private System.Windows.Forms.Label label4;
-        private ErrorTxtBox errorTxtBox3;
+        private ErrorTxtBox txt_nombre;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label10;
-        private ErrorTxtBox errorTxtBox5;
+        private ErrorTxtBox txt_sueldo;
         private System.Windows.Forms.Label label11;
-        private ErrorTxtBox errorTxtBox6;
+        private ErrorTxtBox txt_cargo;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox cb_sexo;
         public System.Windows.Forms.PictureBox btn_Cargo;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.DateTimePicker fecha_con;
+        private System.Windows.Forms.DateTimePicker fecha_nac;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cb_estado;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label13;
-        private ErrorTxtBox errorTxtBox4;
+        private ErrorTxtBox txt_filtro;
         private System.Windows.Forms.Label label14;
-        private ErrorTxtBox errorTxtBox7;
+        private ErrorTxtBox txt_apellido;
         private System.Windows.Forms.DataGridViewTextBoxColumn id_eme;
         private System.Windows.Forms.DataGridViewTextBoxColumn SOLICITUD;
         private System.Windows.Forms.DataGridViewTextBoxColumn tipo_eme;
@@ -597,5 +606,6 @@ namespace _911_RD.Administracion
         private System.Windows.Forms.DataGridViewTextBoxColumn salario;
         private System.Windows.Forms.DataGridViewTextBoxColumn fecha_contrato;
         private System.Windows.Forms.DataGridViewTextBoxColumn estado;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

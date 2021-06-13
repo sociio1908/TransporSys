@@ -15,7 +15,7 @@ namespace _911_RD.Administracion
         public FrmEmpleado()
         {
             InitializeComponent();
-
+            cb_estado.SelectedIndex = 0;
         }
 
         private void FrmEmpleado_Load(object sender, EventArgs e)
@@ -55,6 +55,26 @@ namespace _911_RD.Administracion
 
         private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
         {
+
+        }
+
+        private void btn_guardar_Click(object sender, EventArgs e)
+        {
+
+            if (Utilidades.ValidarFormulario(this, errorProvider1) == false)
+                return;
+
+            try
+            {
+
+                //Meto insert/Update
+
+            }
+            catch(Exception dfg)
+            {
+
+            }
+
 
         }
     }
