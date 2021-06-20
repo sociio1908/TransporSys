@@ -82,7 +82,6 @@
             this.id_txt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.id_txt.Limpiar = true;
             this.id_txt.Size = new System.Drawing.Size(106, 29);
-            this.id_txt.Validar = true;
             // 
             // btn_buscar
             // 

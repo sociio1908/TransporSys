@@ -22,11 +22,18 @@ namespace _911_RD.Administracion
         {
 
             InsertarCargao();
-
+            cargar();
         }
 
 
-
+        void cargar()
+        {
+            using (TransporSysEntities db = new TransporSysEntities())
+            {
+                PUESTOS oPuestos = new PUESTOS();
+                var ls = oPuestos.descripcion;
+            }
+         }
 
 
         private void InsertarCargao()
@@ -57,6 +64,7 @@ namespace _911_RD.Administracion
             }
             catch (Exception dfg)
             {
+                MessageBox.Show(lbl_titulo + " ERRORRRR");
 
             }
 
