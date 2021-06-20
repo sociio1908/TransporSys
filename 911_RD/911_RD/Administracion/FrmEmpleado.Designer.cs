@@ -30,10 +30,10 @@ namespace _911_RD.Administracion
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txt_cedula = new _911_RD.ErrorTxtBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txt_nombre = new _911_RD.ErrorTxtBox();
@@ -52,6 +52,14 @@ namespace _911_RD.Administracion
             this.label7 = new System.Windows.Forms.Label();
             this.cb_estado = new System.Windows.Forms.ComboBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.txt_filtro = new _911_RD.ErrorTxtBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.txt_apellido = new _911_RD.ErrorTxtBox();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.label16 = new System.Windows.Forms.Label();
+            this.errorTxtBox2 = new _911_RD.ErrorTxtBox();
             this.id_eme = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SOLICITUD = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tipo_eme = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -62,12 +70,6 @@ namespace _911_RD.Administracion
             this.salario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fecha_contrato = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.txt_filtro = new _911_RD.ErrorTxtBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.txt_apellido = new _911_RD.ErrorTxtBox();
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.btn_buscar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_Cargo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -169,7 +171,7 @@ namespace _911_RD.Administracion
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label8.Location = new System.Drawing.Point(237, 195);
+            this.label8.Location = new System.Drawing.Point(237, 245);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(126, 16);
             this.label8.TabIndex = 157;
@@ -182,9 +184,9 @@ namespace _911_RD.Administracion
             this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label10.Location = new System.Drawing.Point(237, 136);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(56, 16);
+            this.label10.Size = new System.Drawing.Size(149, 16);
             this.label10.TabIndex = 155;
-            this.label10.Text = "SUELDO";
+            this.label10.Text = "DESCRIPCION CARGO";
             // 
             // txt_sueldo
             // 
@@ -205,9 +207,9 @@ namespace _911_RD.Administracion
             this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label11.Location = new System.Drawing.Point(237, 80);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(58, 16);
+            this.label11.Size = new System.Drawing.Size(54, 16);
             this.label11.TabIndex = 153;
-            this.label11.Text = "CARGO";
+            this.label11.Text = "PUESTO";
             // 
             // txt_cargo
             // 
@@ -262,7 +264,7 @@ namespace _911_RD.Administracion
             // fecha_con
             // 
             this.fecha_con.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fecha_con.Location = new System.Drawing.Point(240, 218);
+            this.fecha_con.Location = new System.Drawing.Point(240, 268);
             this.fecha_con.Name = "fecha_con";
             this.fecha_con.Size = new System.Drawing.Size(167, 22);
             this.fecha_con.TabIndex = 163;
@@ -281,7 +283,7 @@ namespace _911_RD.Administracion
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label7.Location = new System.Drawing.Point(237, 252);
+            this.label7.Location = new System.Drawing.Point(237, 302);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(58, 16);
             this.label7.TabIndex = 166;
@@ -294,7 +296,7 @@ namespace _911_RD.Administracion
             this.cb_estado.Items.AddRange(new object[] {
             "ACTIVO",
             "INACTIVO"});
-            this.cb_estado.Location = new System.Drawing.Point(240, 271);
+            this.cb_estado.Location = new System.Drawing.Point(240, 321);
             this.cb_estado.Name = "cb_estado";
             this.cb_estado.Size = new System.Drawing.Size(114, 28);
             this.cb_estado.TabIndex = 165;
@@ -310,14 +312,14 @@ namespace _911_RD.Administracion
             this.dataGridView1.BackgroundColor = System.Drawing.Color.DarkSlateGray;
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id_eme,
@@ -330,110 +332,38 @@ namespace _911_RD.Administracion
             this.salario,
             this.fecha_contrato,
             this.estado});
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.Teal;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Teal;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.Location = new System.Drawing.Point(12, 503);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Aqua;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Aqua;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.DarkSlateGray;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.DarkSlateGray;
-            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.DarkSlateGray;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.DarkSlateGray;
+            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(842, 265);
+            this.dataGridView1.Size = new System.Drawing.Size(1025, 265);
             this.dataGridView1.TabIndex = 167;
-            // 
-            // id_eme
-            // 
-            this.id_eme.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.id_eme.FillWeight = 50F;
-            this.id_eme.HeaderText = "ID";
-            this.id_eme.Name = "id_eme";
-            this.id_eme.ReadOnly = true;
-            // 
-            // SOLICITUD
-            // 
-            this.SOLICITUD.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.SOLICITUD.HeaderText = "NOMBRE";
-            this.SOLICITUD.Name = "SOLICITUD";
-            this.SOLICITUD.ReadOnly = true;
-            // 
-            // tipo_eme
-            // 
-            this.tipo_eme.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.tipo_eme.HeaderText = "APELLIDO";
-            this.tipo_eme.Name = "tipo_eme";
-            this.tipo_eme.ReadOnly = true;
-            // 
-            // cedula
-            // 
-            this.cedula.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.cedula.HeaderText = "CEDULA";
-            this.cedula.Name = "cedula";
-            this.cedula.ReadOnly = true;
-            // 
-            // estado_eme
-            // 
-            this.estado_eme.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.estado_eme.HeaderText = "FECHA DE NACIMIENTO";
-            this.estado_eme.Name = "estado_eme";
-            this.estado_eme.ReadOnly = true;
-            // 
-            // sexo
-            // 
-            this.sexo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.sexo.HeaderText = "SEXO";
-            this.sexo.Name = "sexo";
-            this.sexo.ReadOnly = true;
-            // 
-            // cargo
-            // 
-            this.cargo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.cargo.HeaderText = "CARGO";
-            this.cargo.Name = "cargo";
-            this.cargo.ReadOnly = true;
-            // 
-            // salario
-            // 
-            this.salario.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.salario.HeaderText = "SALARIO";
-            this.salario.Name = "salario";
-            this.salario.ReadOnly = true;
-            // 
-            // fecha_contrato
-            // 
-            this.fecha_contrato.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.fecha_contrato.HeaderText = "FECHA CONTRATO";
-            this.fecha_contrato.Name = "fecha_contrato";
-            this.fecha_contrato.ReadOnly = true;
-            // 
-            // estado
-            // 
-            this.estado.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.estado.FillWeight = 80F;
-            this.estado.HeaderText = "ESTADO";
-            this.estado.Name = "estado";
-            this.estado.ReadOnly = true;
             // 
             // label1
             // 
@@ -498,11 +428,108 @@ namespace _911_RD.Administracion
             // 
             this.errorProvider1.ContainerControl = this;
             // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label16.Location = new System.Drawing.Point(237, 190);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(64, 16);
+            this.label16.TabIndex = 174;
+            this.label16.Text = "SALARIO";
+            // 
+            // errorTxtBox2
+            // 
+            this.errorTxtBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.errorTxtBox2.Enabled = false;
+            this.errorTxtBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.errorTxtBox2.Limpiar = true;
+            this.errorTxtBox2.Location = new System.Drawing.Point(237, 209);
+            this.errorTxtBox2.Name = "errorTxtBox2";
+            this.errorTxtBox2.Size = new System.Drawing.Size(130, 26);
+            this.errorTxtBox2.TabIndex = 173;
+            this.errorTxtBox2.Validar = true;
+            // 
+            // id_eme
+            // 
+            this.id_eme.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.id_eme.FillWeight = 50F;
+            this.id_eme.HeaderText = "ID";
+            this.id_eme.Name = "id_eme";
+            this.id_eme.ReadOnly = true;
+            // 
+            // SOLICITUD
+            // 
+            this.SOLICITUD.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.SOLICITUD.HeaderText = "NOMBRE";
+            this.SOLICITUD.Name = "SOLICITUD";
+            this.SOLICITUD.ReadOnly = true;
+            // 
+            // tipo_eme
+            // 
+            this.tipo_eme.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.tipo_eme.HeaderText = "APELLIDO";
+            this.tipo_eme.Name = "tipo_eme";
+            this.tipo_eme.ReadOnly = true;
+            // 
+            // cedula
+            // 
+            this.cedula.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.cedula.HeaderText = "CEDULA";
+            this.cedula.Name = "cedula";
+            this.cedula.ReadOnly = true;
+            // 
+            // estado_eme
+            // 
+            this.estado_eme.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.estado_eme.HeaderText = "FECHA DE NACIMIENTO";
+            this.estado_eme.Name = "estado_eme";
+            this.estado_eme.ReadOnly = true;
+            // 
+            // sexo
+            // 
+            this.sexo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.sexo.HeaderText = "SEXO";
+            this.sexo.Name = "sexo";
+            this.sexo.ReadOnly = true;
+            // 
+            // cargo
+            // 
+            this.cargo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.cargo.HeaderText = "PUESTO";
+            this.cargo.Name = "cargo";
+            this.cargo.ReadOnly = true;
+            // 
+            // salario
+            // 
+            this.salario.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.salario.HeaderText = "SALARIO";
+            this.salario.Name = "salario";
+            this.salario.ReadOnly = true;
+            // 
+            // fecha_contrato
+            // 
+            this.fecha_contrato.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.fecha_contrato.HeaderText = "FECHA CONTRATO";
+            this.fecha_contrato.Name = "fecha_contrato";
+            this.fecha_contrato.ReadOnly = true;
+            // 
+            // estado
+            // 
+            this.estado.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.estado.FillWeight = 80F;
+            this.estado.HeaderText = "ESTADO";
+            this.estado.Name = "estado";
+            this.estado.ReadOnly = true;
+            // 
             // FrmEmpleado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(866, 780);
+            this.ClientSize = new System.Drawing.Size(1049, 780);
+            this.Controls.Add(this.label16);
+            this.Controls.Add(this.errorTxtBox2);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.txt_apellido);
             this.Controls.Add(this.label13);
@@ -560,6 +587,8 @@ namespace _911_RD.Administracion
             this.Controls.SetChildIndex(this.label13, 0);
             this.Controls.SetChildIndex(this.txt_apellido, 0);
             this.Controls.SetChildIndex(this.label14, 0);
+            this.Controls.SetChildIndex(this.errorTxtBox2, 0);
+            this.Controls.SetChildIndex(this.label16, 0);
             ((System.ComponentModel.ISupportInitialize)(this.btn_buscar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_Cargo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -597,6 +626,9 @@ namespace _911_RD.Administracion
         private ErrorTxtBox txt_filtro;
         private System.Windows.Forms.Label label14;
         private ErrorTxtBox txt_apellido;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.Label label16;
+        private ErrorTxtBox errorTxtBox2;
         private System.Windows.Forms.DataGridViewTextBoxColumn id_eme;
         private System.Windows.Forms.DataGridViewTextBoxColumn SOLICITUD;
         private System.Windows.Forms.DataGridViewTextBoxColumn tipo_eme;
@@ -607,6 +639,5 @@ namespace _911_RD.Administracion
         private System.Windows.Forms.DataGridViewTextBoxColumn salario;
         private System.Windows.Forms.DataGridViewTextBoxColumn fecha_contrato;
         private System.Windows.Forms.DataGridViewTextBoxColumn estado;
-        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

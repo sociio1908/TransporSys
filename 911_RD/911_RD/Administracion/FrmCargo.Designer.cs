@@ -41,9 +41,15 @@
             this.label13 = new System.Windows.Forms.Label();
             this.txt_filtro = new _911_RD.ErrorTxtBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.label7 = new System.Windows.Forms.Label();
+            this.cb_estado = new System.Windows.Forms.ComboBox();
+            this.errorTxtBox2 = new _911_RD.ErrorTxtBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.id_eme = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cargo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.salario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.btn_buscar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -51,26 +57,25 @@
             // 
             // label15
             // 
-            this.label15.Size = new System.Drawing.Size(153, 19);
-            this.label15.Text = "DATOS DEL CARGO";
+            this.label15.Text = "DATOS DEL PUESTO";
             // 
             // btn_guardar
             // 
-            this.btn_guardar.Location = new System.Drawing.Point(7, 256);
+            this.btn_guardar.Location = new System.Drawing.Point(8, 387);
             this.btn_guardar.Click += new System.EventHandler(this.btn_guardar_Click);
             // 
             // lbl_titulo
             // 
-            this.lbl_titulo.Size = new System.Drawing.Size(267, 32);
-            this.lbl_titulo.Text = "CARGO EMPLEADO";
+            this.lbl_titulo.Size = new System.Drawing.Size(273, 32);
+            this.lbl_titulo.Text = "PUESTOS EMPLEADO";
             // 
             // btn_limpiar
             // 
-            this.btn_limpiar.Location = new System.Drawing.Point(152, 256);
+            this.btn_limpiar.Location = new System.Drawing.Point(153, 387);
             // 
             // btn_salir
             // 
-            this.btn_salir.Location = new System.Drawing.Point(274, 256);
+            this.btn_salir.Location = new System.Drawing.Point(275, 387);
             // 
             // id_txt
             // 
@@ -91,9 +96,9 @@
             this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label10.Location = new System.Drawing.Point(9, 137);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(58, 16);
+            this.label10.Size = new System.Drawing.Size(54, 16);
             this.label10.TabIndex = 157;
-            this.label10.Text = "CARGO";
+            this.label10.Text = "PUESTO";
             // 
             // txt_cargo
             // 
@@ -103,7 +108,7 @@
             this.txt_cargo.Limpiar = true;
             this.txt_cargo.Location = new System.Drawing.Point(9, 156);
             this.txt_cargo.Name = "txt_cargo";
-            this.txt_cargo.Size = new System.Drawing.Size(152, 26);
+            this.txt_cargo.Size = new System.Drawing.Size(114, 26);
             this.txt_cargo.TabIndex = 156;
             this.txt_cargo.Validar = true;
             // 
@@ -114,9 +119,9 @@
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label2.Location = new System.Drawing.Point(9, 194);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(64, 16);
+            this.label2.Size = new System.Drawing.Size(95, 16);
             this.label2.TabIndex = 159;
-            this.label2.Text = "SALARIO";
+            this.label2.Text = "DESCRIPCION";
             // 
             // txt_salario
             // 
@@ -126,7 +131,7 @@
             this.txt_salario.Limpiar = true;
             this.txt_salario.Location = new System.Drawing.Point(9, 213);
             this.txt_salario.Name = "txt_salario";
-            this.txt_salario.Size = new System.Drawing.Size(109, 26);
+            this.txt_salario.Size = new System.Drawing.Size(152, 26);
             this.txt_salario.TabIndex = 160;
             this.txt_salario.Validar = true;
             // 
@@ -141,7 +146,7 @@
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label13.Location = new System.Drawing.Point(12, 327);
+            this.label13.Location = new System.Drawing.Point(15, 448);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(76, 16);
             this.label13.TabIndex = 173;
@@ -154,7 +159,7 @@
             this.txt_filtro.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txt_filtro.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.txt_filtro.Limpiar = false;
-            this.txt_filtro.Location = new System.Drawing.Point(94, 322);
+            this.txt_filtro.Location = new System.Drawing.Point(97, 443);
             this.txt_filtro.Name = "txt_filtro";
             this.txt_filtro.Size = new System.Drawing.Size(170, 26);
             this.txt_filtro.TabIndex = 172;
@@ -183,7 +188,9 @@
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id_eme,
             this.cargo,
-            this.salario});
+            this.descripcion,
+            this.salario,
+            this.estado});
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle6.BackColor = System.Drawing.Color.Teal;
             dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -193,7 +200,7 @@
             dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridView1.EnableHeadersVisualStyles = false;
-            this.dataGridView1.Location = new System.Drawing.Point(7, 354);
+            this.dataGridView1.Location = new System.Drawing.Point(8, 475);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -214,13 +221,59 @@
             dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.DarkSlateGray;
             this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(575, 213);
+            this.dataGridView1.Size = new System.Drawing.Size(574, 182);
             this.dataGridView1.TabIndex = 171;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label7.Location = new System.Drawing.Point(12, 308);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(58, 16);
+            this.label7.TabIndex = 176;
+            this.label7.Text = "ESTADO";
+            // 
+            // cb_estado
+            // 
+            this.cb_estado.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.cb_estado.FormattingEnabled = true;
+            this.cb_estado.Items.AddRange(new object[] {
+            "ACTIVO",
+            "INACTIVO"});
+            this.cb_estado.Location = new System.Drawing.Point(9, 327);
+            this.cb_estado.Name = "cb_estado";
+            this.cb_estado.Size = new System.Drawing.Size(114, 28);
+            this.cb_estado.TabIndex = 175;
+            // 
+            // errorTxtBox2
+            // 
+            this.errorTxtBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.errorTxtBox2.Enabled = false;
+            this.errorTxtBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.errorTxtBox2.Limpiar = true;
+            this.errorTxtBox2.Location = new System.Drawing.Point(8, 269);
+            this.errorTxtBox2.Name = "errorTxtBox2";
+            this.errorTxtBox2.Size = new System.Drawing.Size(94, 26);
+            this.errorTxtBox2.TabIndex = 178;
+            this.errorTxtBox2.Validar = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label1.Location = new System.Drawing.Point(8, 250);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(64, 16);
+            this.label1.TabIndex = 177;
+            this.label1.Text = "SALARIO";
             // 
             // id_eme
             // 
             this.id_eme.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.id_eme.FillWeight = 50F;
+            this.id_eme.FillWeight = 20F;
             this.id_eme.HeaderText = "ID";
             this.id_eme.Name = "id_eme";
             this.id_eme.ReadOnly = true;
@@ -228,22 +281,41 @@
             // cargo
             // 
             this.cargo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.cargo.FillWeight = 40F;
             this.cargo.HeaderText = "CARGO";
             this.cargo.Name = "cargo";
             this.cargo.ReadOnly = true;
             // 
+            // descripcion
+            // 
+            this.descripcion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.descripcion.FillWeight = 98.03922F;
+            this.descripcion.HeaderText = "DESCRIPCION";
+            this.descripcion.Name = "descripcion";
+            this.descripcion.ReadOnly = true;
+            // 
             // salario
             // 
-            this.salario.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.salario.HeaderText = "SALARIO";
             this.salario.Name = "salario";
             this.salario.ReadOnly = true;
+            this.salario.Width = 80;
+            // 
+            // estado
+            // 
+            this.estado.HeaderText = "ESTADO";
+            this.estado.Name = "estado";
+            this.estado.ReadOnly = true;
             // 
             // FrmCargo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(594, 579);
+            this.ClientSize = new System.Drawing.Size(594, 669);
+            this.Controls.Add(this.errorTxtBox2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.cb_estado);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.txt_filtro);
             this.Controls.Add(this.dataGridView1);
@@ -252,6 +324,7 @@
             this.Controls.Add(this.label10);
             this.Controls.Add(this.txt_cargo);
             this.Name = "FrmCargo";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmCargo";
             this.Controls.SetChildIndex(this.txt_cargo, 0);
             this.Controls.SetChildIndex(this.label10, 0);
@@ -268,6 +341,10 @@
             this.Controls.SetChildIndex(this.dataGridView1, 0);
             this.Controls.SetChildIndex(this.txt_filtro, 0);
             this.Controls.SetChildIndex(this.label13, 0);
+            this.Controls.SetChildIndex(this.cb_estado, 0);
+            this.Controls.SetChildIndex(this.label7, 0);
+            this.Controls.SetChildIndex(this.label1, 0);
+            this.Controls.SetChildIndex(this.errorTxtBox2, 0);
             ((System.ComponentModel.ISupportInitialize)(this.btn_buscar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -287,8 +364,14 @@
         private System.Windows.Forms.Label label13;
         private ErrorTxtBox txt_filtro;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ComboBox cb_estado;
+        private ErrorTxtBox errorTxtBox2;
+        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridViewTextBoxColumn id_eme;
         private System.Windows.Forms.DataGridViewTextBoxColumn cargo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn descripcion;
         private System.Windows.Forms.DataGridViewTextBoxColumn salario;
+        private System.Windows.Forms.DataGridViewTextBoxColumn estado;
     }
 }
