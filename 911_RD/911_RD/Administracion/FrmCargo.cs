@@ -15,21 +15,44 @@ namespace _911_RD.Administracion
         public FrmCargo()
         {
             InitializeComponent();
+            
         }
 
         private void btn_guardar_Click(object sender, EventArgs e)
         {
-            if (Utilidades.ValidarFormulario(this, errorProvider1) == false)
-                return;
 
+            InsertarCargao();
+
+        }
+
+
+
+
+
+        private void InsertarCargao()
+        {
             try
             {
-                //    using (SampleEntityFramework db = new SampleEntityFramework())
-                //    {
+                if (Utilidades.ValidarFormulario(this, errorProvider1) == false)
+                    return;
 
 
-                //  //     }
+                using (TransporSysEntities db = new TransporSysEntities())
+                {
+                
+                    PUESTOS oPuestos = new PUESTOS();
+                    //cargamos los datos al objeto
+                    oPuestos.puesto = txt_puesto.Text.Trim();
+                    oPuestos.descripcion = txt_descripcion.Text.Trim();
+                    oPuestos.salario = Convert.ToDouble(txt_salario.Text.Trim());
+                    oPuestos.estado = true;
 
+                    //agregamos el objeto de la tabla al objeto de la bd
+                    db.PUESTOS.Add(oPuestos);
+                    //guardamos los cambios
+                    db.SaveChanges();
+                }
+                MessageBox.Show(lbl_titulo + " se ha guardado exitosamente");
 
             }
             catch (Exception dfg)
@@ -38,6 +61,7 @@ namespace _911_RD.Administracion
             }
 
         }
+
 
     }
 }
