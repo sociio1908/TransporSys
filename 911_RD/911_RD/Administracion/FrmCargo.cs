@@ -15,14 +15,13 @@ namespace _911_RD.Administracion
         public FrmCargo()
         {
             InitializeComponent();
-            
+            cargar();
         }
 
         private void btn_guardar_Click(object sender, EventArgs e)
         {
-
             InsertarCargao();
-            cargar();
+   
         }
 
 
@@ -30,8 +29,16 @@ namespace _911_RD.Administracion
         {
             using (TransporSysEntities db = new TransporSysEntities())
             {
-                PUESTOS oPuestos = new PUESTOS();
-                var ls = oPuestos.descripcion;
+                try
+                {
+                    PUESTOS oPuestos = new PUESTOS();
+                var ls = db.PUESTOS.Find(1);
+                }
+                catch (Exception dfg)
+                {
+                   // MessageBox.Show(lbl_titulo + " ERRORRRR");
+
+                }
             }
          }
 
@@ -43,10 +50,8 @@ namespace _911_RD.Administracion
                 if (Utilidades.ValidarFormulario(this, errorProvider1) == false)
                     return;
 
-
                 using (TransporSysEntities db = new TransporSysEntities())
                 {
-                
                     PUESTOS oPuestos = new PUESTOS();
                     //cargamos los datos al objeto
                     oPuestos.puesto = txt_puesto.Text.Trim();
@@ -64,7 +69,7 @@ namespace _911_RD.Administracion
             }
             catch (Exception dfg)
             {
-                MessageBox.Show(lbl_titulo + " ERRORRRR");
+              //  MessageBox.Show(lbl_titulo + " ERRORRRR");
 
             }
 
