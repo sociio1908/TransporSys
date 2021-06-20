@@ -24,9 +24,11 @@ namespace _911_RD.Administracion
 
             try
             {
+                //    using (SampleEntityFramework db = new SampleEntityFramework())
+                //    {
 
-                //Meto insert/Update
 
+                //  //     }
 
 
             }
