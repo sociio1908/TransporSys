@@ -16,8 +16,9 @@ namespace _911_RD
         public FrmPrincipal()
         {
             InitializeComponent();
-            pnl_menu.Width = 2;
             AbrirFormEnPanel(new ConPrincipal());
+
+            pnl_menu.Width = 180;
         }
 
         private void panel2_Paint(object sender, PaintEventArgs e)

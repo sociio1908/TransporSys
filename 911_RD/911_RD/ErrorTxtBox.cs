@@ -19,5 +19,6 @@ namespace _911_RD
 
         public Boolean Validar { get; set; }
         public Boolean Limpiar { get; set; }
+        public Boolean SoloNumeros { get; set; }
     }
 }

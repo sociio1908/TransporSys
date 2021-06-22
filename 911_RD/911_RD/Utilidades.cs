@@ -29,9 +29,22 @@ namespace _911_RD
 
                             }
                         }
-                        else
+                        if (obj.SoloNumeros == true)
                         {
-                            ErrorProvider.SetError(obj, "");
+                            int cont = 0, letrasEncontradas=0;
+                            foreach (char letra in obj.Text.Trim())
+                            {
+
+                                if(char.IsLetter(obj.Text.Trim(), cont)){
+                                    letrasEncontradas++;
+                                }
+                                cont++;
+                            }
+                            if (letrasEncontradas != 0)
+                            {
+                                HayError = true;
+                                ErrorProvider.SetError(obj, "Solo numeros");
+                            }
                         }
 
                     }
@@ -45,6 +58,8 @@ namespace _911_RD
             return HayError;
         }
 
+
+       
 
         public static void LimpiarControles(System.Windows.Forms.Control forms)
         {
@@ -86,7 +101,10 @@ namespace _911_RD
 
 
         }
-              const int WM_CLOSE = 0x0010;
+
+      
+
+        const int WM_CLOSE = 0x0010;
             [System.Runtime.InteropServices.DllImport("user32.dll", SetLastError = true)]
             static extern IntPtr FindWindow(string lpClassName, string lpWindowName);
             [System.Runtime.InteropServices.DllImport("user32.dll",

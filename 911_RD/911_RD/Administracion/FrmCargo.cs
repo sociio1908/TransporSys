@@ -18,30 +18,27 @@ namespace _911_RD.Administracion
             cargarTabla();
             txt_puesto.Focus();
         }
-
+        int id = 0;
         private void btn_guardar_Click(object sender, EventArgs e)
         {
             InsertarPuesto();
    
         }
 
-        private  void CargarCampos()
+        private void CargarCampos()
         {
-            if (dataGridView1.Rows.Count < 1)
-                return;
-
-            txt_id.Text = dataGridView1.SelectedCells[0].Value.ToString();
-            txt_puesto.Text = dataGridView1.SelectedCells[1].Value.ToString();
-            txt_descripcion.Text = dataGridView1.SelectedCells[2].Value.ToString();
-            txt_salario.Text = dataGridView1.SelectedCells[3].Value.ToString();
-            if (dataGridView1.SelectedCells[4].Value.ToString()=="True"){
-                cb_estado.SelectedIndex = 0;
-            }
-            else
+            try
             {
-                cb_estado.SelectedIndex = 1;
-            }
 
+            id_txt.Text = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
+            txt_puesto.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
+            txt_descripcion.Text = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
+            txt_salario.Text = dataGridView1.SelectedRows[0].Cells[3].Value.ToString();
+            cb_estado.SelectedIndex = dataGridView1.SelectedRows[0].Cells[4].Value.ToString() == "ACTIVO" ? cb_estado.SelectedIndex = 0 : cb_estado.SelectedIndex = 1;
+            }catch(Exception ea)
+            {
+                //
+            }
         }
 
         private void cargarTabla()
@@ -50,14 +47,13 @@ namespace _911_RD.Administracion
             {
                 try
                 {
+                    dataGridView1.Rows.Clear();
+                    string status;
                    var list = db.PUESTOS;
-                    string status = "ACTIVO";
                     foreach(var OPuestos in list)
                     {
-                        if (!OPuestos.estado)
-                             status = "INACTIVO";
                         dataGridView1.Rows.Add(OPuestos.id_puesto.ToString(), OPuestos.puesto.ToString(), OPuestos.descripcion.ToString(),
-                            OPuestos.salario.ToString(), status);
+                            OPuestos.salario.ToString(), status = OPuestos.estado == true ? "ACTIVO" : "INACTIVO");
                     }
                 }
                 catch (Exception dfg)
@@ -72,37 +68,94 @@ namespace _911_RD.Administracion
         private void InsertarPuesto()
         {
             try
-            {
-                if (Utilidades.ValidarFormulario(this, errorProvider1) == false)
+              {
+                  if (Utilidades.ValidarFormulario(this, errorProvider1) == true)
                     return;
 
+            
                 using (TransporSysEntities db = new TransporSysEntities())
                 {
-                    PUESTOS oPuestos = new PUESTOS();
-                    //cargamos los datos al objeto
-                    oPuestos.puesto = txt_puesto.Text.Trim();
-                    oPuestos.descripcion = txt_descripcion.Text.Trim();
-                    oPuestos.salario = Convert.ToDouble(txt_salario.Text.Trim());
-                    oPuestos.estado = true;
-                    //agregamos el objeto de la tabla al objeto de la bd
-                    db.PUESTOS.Add(oPuestos);
-                    //guardamos los cambios
+                    if (id_txt.Text.Trim() == "")
+                    {
+                        PUESTOS puesto = new PUESTOS
+                        {
+                            puesto = txt_puesto.Text.Trim(),
+                            descripcion = txt_descripcion.Text.Trim(),
+                            salario = Convert.ToDouble(txt_salario.Text.Trim()),
+                            estado = cb_estado.SelectedIndex == 0 ? true : false
+                    };
+
+                        db.PUESTOS.Add(puesto);
+                    }
+                    else
+                    {
+                        var puesto = db.PUESTOS.FirstOrDefault(a => a.id_puesto.ToString() == id_txt.Text.Trim());
+                        if (puesto != null)
+                        {
+                            puesto.puesto = txt_puesto.Text.Trim();
+                            puesto.descripcion = txt_descripcion.Text.Trim();
+                            puesto.salario = Convert.ToDouble(txt_salario.Text.Trim());
+                            puesto.estado = cb_estado.SelectedIndex == 0 ? true : false;
+                        }
+                    }
                     db.SaveChanges();
                 }
-                MessageBox.Show(lbl_titulo + " se ha guardado exitosamente");
+                Utilidades.LimpiarControles(this);
+                cargarTabla();
+                MessageBox.Show("Proceso exitoso.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            }
-            catch (Exception dfg)
-            {
-              //  MessageBox.Show(lbl_titulo + " ERRORRRR");
+                }
+               catch (Exception dfg)
+               {
+             // MessageBox.Show(lbl_titulo + " ERRORRRR");
 
-            }
+             }
 
         }
 
         private void dataGridView1_SelectionChanged(object sender, EventArgs e)
         {
+         
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+
+          if (e.RowIndex < 0 )
+              return;
+
             CargarCampos();
+        
+        }
+
+        private void dataGridView1_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+    
+        }
+
+        private void dataGridView1_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            MessageBox.Show("ENTRO PAPAAAA");
+        }
+
+        private void btn_limpiar_Click(object sender, EventArgs e)
+        {
+
+            Utilidades.LimpiarControles(this);
+            cargarTabla();
+        }
+
+        private void FrmCargo_Paint(object sender, PaintEventArgs e)
+        {
+            e.Graphics.DrawRectangle(new Pen(Color.Firebrick, 1),
+                          this.DisplayRectangle);
+        }
+
+        private void txt_salario_KeyPress(object sender, KeyPressEventArgs e)
+        {
+           
+
         }
     }
 }
