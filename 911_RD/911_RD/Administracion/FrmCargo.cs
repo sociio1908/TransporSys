@@ -29,7 +29,6 @@ namespace _911_RD.Administracion
         {
             try
             {
-
             id_txt.Text = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
             txt_puesto.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
             txt_descripcion.Text = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
@@ -113,11 +112,7 @@ namespace _911_RD.Administracion
 
         }
 
-        private void dataGridView1_SelectionChanged(object sender, EventArgs e)
-        {
-         
-        }
-
+     
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
