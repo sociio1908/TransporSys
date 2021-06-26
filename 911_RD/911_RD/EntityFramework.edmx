@@ -3031,7 +3031,7 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.TIPONCF' no tiene definida n
           <End Role="TELEFONOS" Type="Self.TELEFONOS" Multiplicity="*" />
           <End Role="TERCEROS" Type="Self.TERCEROS" Multiplicity="*" />
         </Association>
-        <EntityContainer Name="TransporSysEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="TransporSysEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="ALMACENES" EntityType="Self.ALMACENES" />
           <EntitySet Name="ARTICULOS" EntityType="Self.ARTICULOS" />
           <EntitySet Name="BENEFICIOS" EntityType="Self.BENEFICIOS" />
@@ -3332,7 +3332,7 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.TIPONCF' no tiene definida n
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="TransporSysModelStoreContainer" CdmEntityContainer="TransporSysEntities">
+        <EntityContainerMapping StorageEntityContainer="TransporSysModelStoreContainer" CdmEntityContainer="TransporSysEntities1">
           <EntitySetMapping Name="ALMACENES">
             <EntityTypeMapping TypeName="TransporSysModel.ALMACENES">
               <MappingFragment StoreEntitySet="ALMACENES">

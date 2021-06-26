@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="TransporSysModelStoreContainer" CdmEntityContainer="TransporSysEntities">
+  <EntityContainerMapping StorageEntityContainer="TransporSysModelStoreContainer" CdmEntityContainer="TransporSysEntities1">
     <EntitySetMapping Name="ALMACENES">
       <EntityTypeMapping TypeName="TransporSysModel.ALMACENES">
         <MappingFragment StoreEntitySet="ALMACENES">

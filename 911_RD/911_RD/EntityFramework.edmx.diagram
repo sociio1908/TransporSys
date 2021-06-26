@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="81390f80218d4d2fb731b7cc73453151" Name="Diagram1" ZoomLevel="34">
+      <Diagram DiagramId="e5e39163452b4857829a01080f178f99" Name="Diagram1">
         <EntityTypeShape EntityType="TransporSysModel.ALMACENES" Width="1.5" PointX="24.75" PointY="4" IsExpanded="true" />
         <EntityTypeShape EntityType="TransporSysModel.ARTICULOS" Width="1.5" PointX="24.75" PointY="7.125" IsExpanded="true" />
         <EntityTypeShape EntityType="TransporSysModel.BENEFICIOS" Width="1.5" PointX="16.5" PointY="16.375" IsExpanded="true" />
