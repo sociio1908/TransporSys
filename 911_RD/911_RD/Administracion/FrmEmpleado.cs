@@ -75,6 +75,53 @@ namespace _911_RD.Administracion
 
             }
 
+        }
+
+        private void InsertarEmpleado()
+        {
+            try
+            {
+                if (Utilidades.ValidarFormulario(this, errorProvider1) == true)
+                    return;
+
+
+                using (TransporSysEntities db = new TransporSysEntities())
+                {
+                    if (id_txt.Text.Trim() == "")
+                    {
+                        EMPLEADOS eMPLEADOS = new EMPLEADOS
+                        {
+                            id = txt_puesto.Text.Trim(),
+                            descripcion = txt_descripcion.Text.Trim(),
+                            salario = Convert.ToDouble(txt_salario.Text.Trim()),
+                            estado = cb_estado.SelectedIndex == 0 ? true : false
+                        };
+
+                        db.PUESTOS.Add(puesto);
+                    }
+                    else
+                    {
+                        var puesto = db.PUESTOS.FirstOrDefault(a => a.id_puesto.ToString() == id_txt.Text.Trim());
+                        if (puesto != null)
+                        {
+                            puesto.puesto = txt_puesto.Text.Trim();
+                            puesto.descripcion = txt_descripcion.Text.Trim();
+                            puesto.salario = Convert.ToDouble(txt_salario.Text.Trim());
+                            puesto.estado = cb_estado.SelectedIndex == 0 ? true : false;
+                        }
+                    }
+                    db.SaveChanges();
+                }
+                Utilidades.LimpiarControles(this);
+              //  cargarTabla();
+                MessageBox.Show("Proceso exitoso.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            }
+            catch (Exception dfg)
+            {
+                // MessageBox.Show(lbl_titulo + " ERRORRRR");
+
+            }
 
         }
 
