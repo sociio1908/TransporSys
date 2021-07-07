@@ -181,7 +181,6 @@ namespace _911_RD.Administracion
         public System.Windows.Forms.Label label15;
         public System.Windows.Forms.Button btn_guardar;
         public System.Windows.Forms.Label lbl_titulo;
-        public ErrorTxtBox txt_id;
         public System.Windows.Forms.Button btn_limpiar;
         public System.Windows.Forms.Button btn_salir;
         public System.Windows.Forms.Label label9;

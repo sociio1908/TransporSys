@@ -437,6 +437,7 @@
     <EntitySetMapping Name="TERCEROS">
       <EntityTypeMapping TypeName="TransporSysModel.TERCEROS">
         <MappingFragment StoreEntitySet="TERCEROS">
+          <ScalarProperty Name="identificacion" ColumnName="identificacion" />
           <ScalarProperty Name="id_tercero" ColumnName="id_tercero" />
           <ScalarProperty Name="nombre" ColumnName="nombre" />
         </MappingFragment>

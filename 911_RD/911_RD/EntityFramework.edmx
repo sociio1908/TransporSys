@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="TransporSysModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="TransporSysModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="ALMACENES">
           <Key>
             <PropertyRef Name="id_almacen" />
@@ -434,6 +434,7 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.ARTICULOS_VS_CATEGORIAS_VS_D
           </Key>
           <Property Name="id_tercero" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="nombre" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="identificacion" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="TERCEROS_VS_DIRECCIONES">
           <Key>
@@ -1710,8 +1711,7 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.TIPONCF' no tiene definida n
             <End Role="VENTAS" EntitySet="VENTAS" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="TransporSysModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -2220,6 +2220,7 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.TIPONCF' no tiene definida n
           <NavigationProperty Name="EMAILS" Relationship="Self.TERCEROS_VS_EMAILS" FromRole="TERCEROS" ToRole="EMAILS" />
           <NavigationProperty Name="IDENTIFICACIONES" Relationship="Self.TERCEROS_VS_IDENTIFICACIONES" FromRole="TERCEROS" ToRole="IDENTIFICACIONES" />
           <NavigationProperty Name="TELEFONOS" Relationship="Self.TERCEROS_VS_TELEFONOS" FromRole="TERCEROS" ToRole="TELEFONOS" />
+          <Property Name="identificacion" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="TIPOS_CLIENTES">
           <Key>
@@ -3769,6 +3770,7 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.TIPONCF' no tiene definida n
           <EntitySetMapping Name="TERCEROS">
             <EntityTypeMapping TypeName="TransporSysModel.TERCEROS">
               <MappingFragment StoreEntitySet="TERCEROS">
+                <ScalarProperty Name="identificacion" ColumnName="identificacion" />
                 <ScalarProperty Name="id_tercero" ColumnName="id_tercero" />
                 <ScalarProperty Name="nombre" ColumnName="nombre" />
               </MappingFragment>

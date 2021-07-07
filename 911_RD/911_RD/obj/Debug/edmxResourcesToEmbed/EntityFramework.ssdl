@@ -429,6 +429,7 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.ARTICULOS_VS_CATEGORIAS_VS_D
     </Key>
     <Property Name="id_tercero" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="nombre" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="identificacion" Type="varchar" MaxLength="50" Nullable="false" />
   </EntityType>
   <EntityType Name="TERCEROS_VS_DIRECCIONES">
     <Key>

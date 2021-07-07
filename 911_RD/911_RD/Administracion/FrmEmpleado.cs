@@ -16,6 +16,40 @@ namespace _911_RD.Administracion
         {
             InitializeComponent();
             cb_estado.SelectedIndex = 0;
+            cargarDatosComboBox();
+        }
+
+        MetodosCRUD metodoscrud = new MetodosCRUD();
+
+
+       void cargarDatosComboBox()
+        {
+            try
+            {
+                using (TransporSysEntities db = new TransporSysEntities())
+            {
+                
+                    var listS = db.SEXOS;
+                        foreach (var sEXOS in listS){ 
+                        cb_sexo.Items.Add(sEXOS.descripcion);
+                    
+                    }
+
+                    var listN  = db.NACIONALIDADES;
+                    foreach (var nACIONALIDADES in listN)
+                    {
+                        cb_nacionalidades.Items.Add(nACIONALIDADES.nacionalidad);
+                    }
+
+                }
+                
+            }
+            catch (Exception dfg)
+            {
+                // MessageBox.Show(lbl_titulo + " ERRORRRR");
+
+            }
+
         }
 
         private void FrmEmpleado_Load(object sender, EventArgs e)
@@ -58,16 +92,20 @@ namespace _911_RD.Administracion
 
         }
 
+
+
         private void btn_guardar_Click(object sender, EventArgs e)
         {
 
-            if (Utilidades.ValidarFormulario(this, errorProvider1) == false)
-                return;
+            //if (Utilidades.ValidarFormulario(this, errorProvider1) == false)
+            //    return;
 
             try
             {
 
                 //Meto insert/Update
+                metodoscrud.crudTerceros(id_txt.Text.Trim(), txt_nombre.Text.Trim(), txt_cedula.Text);
+
 
             }
             catch(Exception dfg)
@@ -87,30 +125,30 @@ namespace _911_RD.Administracion
 
                 using (TransporSysEntities db = new TransporSysEntities())
                 {
-                    if (id_txt.Text.Trim() == "")
-                    {
-                        EMPLEADOS eMPLEADOS = new EMPLEADOS
-                        {
-                            id = txt_puesto.Text.Trim(),
-                            descripcion = txt_descripcion.Text.Trim(),
-                            salario = Convert.ToDouble(txt_salario.Text.Trim()),
-                            estado = cb_estado.SelectedIndex == 0 ? true : false
-                        };
+                    //if (id_txt.Text.Trim() == "")
+                    //{
+                    //    EMPLEADOS eMPLEADOS = new EMPLEADOS
+                    //    {
+                    //        id = txt_puesto.Text.Trim(),
+                    //        descripcion = txt_descripcion.Text.Trim(),
+                    //        salario = Convert.ToDouble(txt_salario.Text.Trim()),
+                    //        estado = cb_estado.SelectedIndex == 0 ? true : false
+                    //    };
 
-                        db.PUESTOS.Add(puesto);
-                    }
-                    else
-                    {
-                        var puesto = db.PUESTOS.FirstOrDefault(a => a.id_puesto.ToString() == id_txt.Text.Trim());
-                        if (puesto != null)
-                        {
-                            puesto.puesto = txt_puesto.Text.Trim();
-                            puesto.descripcion = txt_descripcion.Text.Trim();
-                            puesto.salario = Convert.ToDouble(txt_salario.Text.Trim());
-                            puesto.estado = cb_estado.SelectedIndex == 0 ? true : false;
-                        }
-                    }
-                    db.SaveChanges();
+                    //    db.PUESTOS.Add(puesto);
+                    //}
+                    //else
+                    //{
+                    //    var puesto = db.PUESTOS.FirstOrDefault(a => a.id_puesto.ToString() == id_txt.Text.Trim());
+                    //    if (puesto != null)
+                    //    {
+                    //        puesto.puesto = txt_puesto.Text.Trim();
+                    //        puesto.descripcion = txt_descripcion.Text.Trim();
+                    //        puesto.salario = Convert.ToDouble(txt_salario.Text.Trim());
+                    //        puesto.estado = cb_estado.SelectedIndex == 0 ? true : false;
+                    //    }
+                    //}
+                    //db.SaveChanges();
                 }
                 Utilidades.LimpiarControles(this);
               //  cargarTabla();

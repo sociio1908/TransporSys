@@ -70,6 +70,8 @@ namespace _911_RD.Administracion
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.label16 = new System.Windows.Forms.Label();
             this.errorTxtBox2 = new _911_RD.ErrorTxtBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.cb_nacionalidades = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.btn_buscar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_Cargo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -79,7 +81,7 @@ namespace _911_RD.Administracion
             // btn_guardar
             // 
             this.btn_guardar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)));
-            this.btn_guardar.Location = new System.Drawing.Point(11, 415);
+            this.btn_guardar.Location = new System.Drawing.Point(11, 445);
             this.btn_guardar.Click += new System.EventHandler(this.btn_guardar_Click);
             // 
             // lbl_titulo
@@ -90,12 +92,12 @@ namespace _911_RD.Administracion
             // btn_limpiar
             // 
             this.btn_limpiar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)));
-            this.btn_limpiar.Location = new System.Drawing.Point(156, 415);
+            this.btn_limpiar.Location = new System.Drawing.Point(156, 445);
             // 
             // btn_salir
             // 
             this.btn_salir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)));
-            this.btn_salir.Location = new System.Drawing.Point(278, 415);
+            this.btn_salir.Location = new System.Drawing.Point(278, 445);
             // 
             // id_txt
             // 
@@ -115,6 +117,7 @@ namespace _911_RD.Administracion
             this.txt_cedula.Location = new System.Drawing.Point(12, 155);
             this.txt_cedula.Name = "txt_cedula";
             this.txt_cedula.Size = new System.Drawing.Size(170, 26);
+            this.txt_cedula.SoloNumeros = false;
             this.txt_cedula.TabIndex = 145;
             this.txt_cedula.Validar = true;
             this.txt_cedula.TextChanged += new System.EventHandler(this.errorTxtBox2_TextChanged);
@@ -139,6 +142,7 @@ namespace _911_RD.Administracion
             this.txt_nombre.Location = new System.Drawing.Point(12, 209);
             this.txt_nombre.Name = "txt_nombre";
             this.txt_nombre.Size = new System.Drawing.Size(170, 26);
+            this.txt_nombre.SoloNumeros = false;
             this.txt_nombre.TabIndex = 147;
             this.txt_nombre.Validar = true;
             this.txt_nombre.TextChanged += new System.EventHandler(this.errorTxtBox3_TextChanged);
@@ -197,6 +201,7 @@ namespace _911_RD.Administracion
             this.txt_sueldo.Location = new System.Drawing.Point(237, 155);
             this.txt_sueldo.Name = "txt_sueldo";
             this.txt_sueldo.Size = new System.Drawing.Size(130, 26);
+            this.txt_sueldo.SoloNumeros = false;
             this.txt_sueldo.TabIndex = 154;
             this.txt_sueldo.Validar = true;
             // 
@@ -220,6 +225,7 @@ namespace _911_RD.Administracion
             this.txt_cargo.Location = new System.Drawing.Point(237, 99);
             this.txt_cargo.Name = "txt_cargo";
             this.txt_cargo.Size = new System.Drawing.Size(130, 26);
+            this.txt_cargo.SoloNumeros = false;
             this.txt_cargo.TabIndex = 152;
             this.txt_cargo.Validar = true;
             // 
@@ -239,9 +245,6 @@ namespace _911_RD.Administracion
             // 
             this.cb_sexo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.cb_sexo.FormattingEnabled = true;
-            this.cb_sexo.Items.AddRange(new object[] {
-            "HOMBRE",
-            "MUJER"});
             this.cb_sexo.Location = new System.Drawing.Point(12, 368);
             this.cb_sexo.Name = "cb_sexo";
             this.cb_sexo.Size = new System.Drawing.Size(114, 28);
@@ -283,7 +286,7 @@ namespace _911_RD.Administracion
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label7.Location = new System.Drawing.Point(237, 302);
+            this.label7.Location = new System.Drawing.Point(233, 368);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(58, 16);
             this.label7.TabIndex = 166;
@@ -296,7 +299,7 @@ namespace _911_RD.Administracion
             this.cb_estado.Items.AddRange(new object[] {
             "ACTIVO",
             "INACTIVO"});
-            this.cb_estado.Location = new System.Drawing.Point(240, 321);
+            this.cb_estado.Location = new System.Drawing.Point(236, 387);
             this.cb_estado.Name = "cb_estado";
             this.cb_estado.Size = new System.Drawing.Size(114, 28);
             this.cb_estado.TabIndex = 165;
@@ -342,7 +345,7 @@ namespace _911_RD.Administracion
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.GridColor = System.Drawing.Color.White;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 503);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 537);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -363,7 +366,7 @@ namespace _911_RD.Administracion
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
             this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(1025, 265);
+            this.dataGridView1.Size = new System.Drawing.Size(1025, 231);
             this.dataGridView1.TabIndex = 167;
             // 
             // id_eme
@@ -456,7 +459,7 @@ namespace _911_RD.Administracion
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label13.Location = new System.Drawing.Point(20, 476);
+            this.label13.Location = new System.Drawing.Point(20, 506);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(76, 16);
             this.label13.TabIndex = 170;
@@ -469,9 +472,10 @@ namespace _911_RD.Administracion
             this.txt_filtro.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txt_filtro.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.txt_filtro.Limpiar = false;
-            this.txt_filtro.Location = new System.Drawing.Point(102, 471);
+            this.txt_filtro.Location = new System.Drawing.Point(102, 501);
             this.txt_filtro.Name = "txt_filtro";
             this.txt_filtro.Size = new System.Drawing.Size(170, 26);
+            this.txt_filtro.SoloNumeros = false;
             this.txt_filtro.TabIndex = 169;
             this.txt_filtro.Validar = false;
             // 
@@ -494,6 +498,7 @@ namespace _911_RD.Administracion
             this.txt_apellido.Location = new System.Drawing.Point(12, 264);
             this.txt_apellido.Name = "txt_apellido";
             this.txt_apellido.Size = new System.Drawing.Size(170, 26);
+            this.txt_apellido.SoloNumeros = false;
             this.txt_apellido.TabIndex = 171;
             this.txt_apellido.Validar = true;
             // 
@@ -521,14 +526,37 @@ namespace _911_RD.Administracion
             this.errorTxtBox2.Location = new System.Drawing.Point(237, 209);
             this.errorTxtBox2.Name = "errorTxtBox2";
             this.errorTxtBox2.Size = new System.Drawing.Size(130, 26);
+            this.errorTxtBox2.SoloNumeros = false;
             this.errorTxtBox2.TabIndex = 173;
             this.errorTxtBox2.Validar = true;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label17.Location = new System.Drawing.Point(237, 301);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(125, 16);
+            this.label17.TabIndex = 176;
+            this.label17.Text = "NACIONALIDADES";
+            // 
+            // cb_nacionalidades
+            // 
+            this.cb_nacionalidades.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.cb_nacionalidades.FormattingEnabled = true;
+            this.cb_nacionalidades.Location = new System.Drawing.Point(237, 320);
+            this.cb_nacionalidades.Name = "cb_nacionalidades";
+            this.cb_nacionalidades.Size = new System.Drawing.Size(125, 28);
+            this.cb_nacionalidades.TabIndex = 175;
             // 
             // FrmEmpleado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1049, 780);
+            this.Controls.Add(this.label17);
+            this.Controls.Add(this.cb_nacionalidades);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.errorTxtBox2);
             this.Controls.Add(this.label14);
@@ -590,6 +618,8 @@ namespace _911_RD.Administracion
             this.Controls.SetChildIndex(this.label14, 0);
             this.Controls.SetChildIndex(this.errorTxtBox2, 0);
             this.Controls.SetChildIndex(this.label16, 0);
+            this.Controls.SetChildIndex(this.cb_nacionalidades, 0);
+            this.Controls.SetChildIndex(this.label17, 0);
             ((System.ComponentModel.ISupportInitialize)(this.btn_buscar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_Cargo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -640,5 +670,7 @@ namespace _911_RD.Administracion
         private System.Windows.Forms.DataGridViewTextBoxColumn salario;
         private System.Windows.Forms.DataGridViewTextBoxColumn fecha_contrato;
         private System.Windows.Forms.DataGridViewTextBoxColumn estado;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.ComboBox cb_nacionalidades;
     }
 }

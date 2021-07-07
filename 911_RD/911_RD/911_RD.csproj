@@ -95,6 +95,7 @@
     <Compile Include="Administracion\FrmPaciente.Designer.cs">
       <DependentUpon>FrmPaciente.cs</DependentUpon>
     </Compile>
+    <Compile Include="Administracion\MetodosCRUD.cs" />
     <Compile Include="ALMACENES.cs">
       <DependentUpon>EntityFramework.tt</DependentUpon>
     </Compile>

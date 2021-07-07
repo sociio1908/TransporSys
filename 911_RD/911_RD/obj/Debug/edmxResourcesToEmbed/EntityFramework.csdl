@@ -505,6 +505,7 @@
     <NavigationProperty Name="EMAILS" Relationship="Self.TERCEROS_VS_EMAILS" FromRole="TERCEROS" ToRole="EMAILS" />
     <NavigationProperty Name="IDENTIFICACIONES" Relationship="Self.TERCEROS_VS_IDENTIFICACIONES" FromRole="TERCEROS" ToRole="IDENTIFICACIONES" />
     <NavigationProperty Name="TELEFONOS" Relationship="Self.TERCEROS_VS_TELEFONOS" FromRole="TERCEROS" ToRole="TELEFONOS" />
+    <Property Name="identificacion" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="TIPOS_CLIENTES">
     <Key>
