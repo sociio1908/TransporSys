@@ -131,7 +131,7 @@ namespace _911_RD.Administracion
 
         private void dataGridView1_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            MessageBox.Show("ENTRO PAPAAAA");
+            this.DialogResult = DialogResult.OK;
         }
 
         private void btn_limpiar_Click(object sender, EventArgs e)

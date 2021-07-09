@@ -121,8 +121,6 @@ namespace _911_RD.Administracion
             {
                 if (Utilidades.ValidarFormulario(this, errorProvider1) == true)
                     return;
-
-
                 using (TransporSysEntities db = new TransporSysEntities())
                 {
                     //if (id_txt.Text.Trim() == "")
@@ -160,16 +158,22 @@ namespace _911_RD.Administracion
                 // MessageBox.Show(lbl_titulo + " ERRORRRR");
 
             }
-
         }
+
+        int id_cargo = 0;
 
         private void btn_Cargo_Click(object sender, EventArgs e)
         {
-
-            FrmCargo frmCargo = new FrmCargo();
-            frmCargo.ShowDialog();
-
-
+            using (FrmCargo frmCargo = new FrmCargo())
+            {
+                DialogResult dr =  frmCargo.ShowDialog();
+                if (dr == DialogResult.OK)
+                {
+                    txt_cargo.Text = frmCargo.dataGridView1.CurrentRow.Cells[1].Value.ToString();
+                    txt_des_puesto.Text = frmCargo.dataGridView1.CurrentRow.Cells[2].Value.ToString();
+                    txt_salario.Text = frmCargo.dataGridView1.CurrentRow.Cells[3].Value.ToString();
+                }
+            }
         }
     }
 }

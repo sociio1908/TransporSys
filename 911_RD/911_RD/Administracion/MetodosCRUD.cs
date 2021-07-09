@@ -8,8 +8,6 @@ namespace _911_RD.Administracion
 {
     class MetodosCRUD
     {
-
-
        public void crudTerceros(string id_traido, string nombre_traido, string identificacion_traida)
         {
             try {
