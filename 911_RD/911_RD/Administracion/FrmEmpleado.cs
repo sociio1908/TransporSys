@@ -16,13 +16,14 @@ namespace _911_RD.Administracion
         {
             InitializeComponent();
             cb_estado.SelectedIndex = 0;
-            cargarDatosComboBox();
+            cargarNacionalidades();
+            AsignarContinentes();
         }
 
         MetodosCRUD metodoscrud = new MetodosCRUD();
 
 
-       void cargarDatosComboBox()
+       void cargarNacionalidades()
         {
             try
             {
@@ -92,6 +93,62 @@ namespace _911_RD.Administracion
 
         }
 
+
+
+        private void AsignarContinentes()
+        {
+            try
+            {
+                using (TransporSysEntities db = new TransporSysEntities())
+                {
+                    var listS = db.CONTINENTES;
+                    foreach (var cONTI in listS)
+                    {
+                        cb_continente.Items.Add(cONTI.continente);
+                    }
+                }
+            }
+            catch (Exception dfg)
+            {
+                // MessageBox.Show(lbl_titulo + " ERRORRRR");
+
+            }
+        }
+       
+        
+        private void AsignarPaises()
+        {
+
+            MessageBox.Show("ENTYRO");
+            try
+            {
+                using (TransporSysEntities db = new TransporSysEntities())
+                {
+
+                    int id_cont = db.CONTINENTES.FirstOrDefault(a => a.continente == cb_continente.SelectedItem.ToString()).id_continente;
+                    if (id_cont != 0)
+                        return;
+                        var paises = db.PAISES.Where(a => a.id_continente == id_cont);
+                        if (paises != null)
+                        {
+                        foreach (var a in paises)
+                        {
+                            cb_pais.Items.Add(a.pais);
+                            // MessageBox.Show();
+                        }
+                          }
+                         else
+                        {
+                        cb_pais.Items.Clear();
+                        }
+                    id_cont = 0;
+                }
+            }
+            catch (Exception dfg)
+            {
+                // MessageBox.Show(lbl_titulo + " ERRORRRR");
+            }
+        }
 
 
         private void btn_guardar_Click(object sender, EventArgs e)
@@ -174,6 +231,11 @@ namespace _911_RD.Administracion
                     txt_salario.Text = frmCargo.dataGridView1.CurrentRow.Cells[3].Value.ToString();
                 }
             }
+        }
+
+        private void cb_continente_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            AsignarPaises();
         }
     }
 }

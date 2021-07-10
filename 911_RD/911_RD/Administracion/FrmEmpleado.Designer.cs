@@ -30,10 +30,10 @@ namespace _911_RD.Administracion
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txt_cedula = new _911_RD.ErrorTxtBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txt_nombre = new _911_RD.ErrorTxtBox();
@@ -70,16 +70,24 @@ namespace _911_RD.Administracion
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.label16 = new System.Windows.Forms.Label();
             this.txt_salario = new _911_RD.ErrorTxtBox();
-            this.label17 = new System.Windows.Forms.Label();
-            this.cb_nacionalidades = new System.Windows.Forms.ComboBox();
             this.p_direccion = new System.Windows.Forms.Panel();
             this.lbl_direccion = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.p_conductor = new System.Windows.Forms.Panel();
             this.label18 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label25 = new System.Windows.Forms.Label();
+            this.errorTxtBox2 = new _911_RD.ErrorTxtBox();
+            this.label24 = new System.Windows.Forms.Label();
+            this.cb_pais = new System.Windows.Forms.ComboBox();
+            this.label21 = new System.Windows.Forms.Label();
+            this.cb_provincia = new System.Windows.Forms.ComboBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.cb_ciudad = new System.Windows.Forms.ComboBox();
             this.label20 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cb_continente = new System.Windows.Forms.ComboBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this.cb_nacionalidades = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.btn_buscar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_Cargo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -295,7 +303,7 @@ namespace _911_RD.Administracion
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label7.Location = new System.Drawing.Point(233, 368);
+            this.label7.Location = new System.Drawing.Point(237, 349);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(58, 16);
             this.label7.TabIndex = 166;
@@ -308,7 +316,7 @@ namespace _911_RD.Administracion
             this.cb_estado.Items.AddRange(new object[] {
             "ACTIVO",
             "INACTIVO"});
-            this.cb_estado.Location = new System.Drawing.Point(236, 387);
+            this.cb_estado.Location = new System.Drawing.Point(240, 368);
             this.cb_estado.Name = "cb_estado";
             this.cb_estado.Size = new System.Drawing.Size(114, 28);
             this.cb_estado.TabIndex = 165;
@@ -324,14 +332,14 @@ namespace _911_RD.Administracion
             this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.Firebrick;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Firebrick;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.ColumnHeadersHeight = 40;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id_eme,
@@ -344,36 +352,36 @@ namespace _911_RD.Administracion
             this.salario,
             this.fecha_contrato,
             this.estado});
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.GridColor = System.Drawing.Color.White;
             this.dataGridView1.Location = new System.Drawing.Point(12, 537);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.Aqua;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Aqua;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.DodgerBlue;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.White;
-            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.DodgerBlue;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
+            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(1025, 231);
             this.dataGridView1.TabIndex = 167;
@@ -457,9 +465,9 @@ namespace _911_RD.Administracion
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label1.Location = new System.Drawing.Point(12, 136);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(58, 16);
+            this.label1.Size = new System.Drawing.Size(113, 16);
             this.label1.TabIndex = 168;
-            this.label1.Text = "CEDULA";
+            this.label1.Text = "IDENTIFICACION";
             // 
             // label13
             // 
@@ -539,26 +547,6 @@ namespace _911_RD.Administracion
             this.txt_salario.TabIndex = 173;
             this.txt_salario.Validar = true;
             // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label17.Location = new System.Drawing.Point(237, 301);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(125, 16);
-            this.label17.TabIndex = 176;
-            this.label17.Text = "NACIONALIDADES";
-            // 
-            // cb_nacionalidades
-            // 
-            this.cb_nacionalidades.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.cb_nacionalidades.FormattingEnabled = true;
-            this.cb_nacionalidades.Location = new System.Drawing.Point(237, 320);
-            this.cb_nacionalidades.Name = "cb_nacionalidades";
-            this.cb_nacionalidades.Size = new System.Drawing.Size(125, 28);
-            this.cb_nacionalidades.TabIndex = 175;
-            // 
             // p_direccion
             // 
             this.p_direccion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
@@ -584,7 +572,7 @@ namespace _911_RD.Administracion
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
             this.label19.ForeColor = System.Drawing.Color.Firebrick;
-            this.label19.Location = new System.Drawing.Point(438, 377);
+            this.label19.Location = new System.Drawing.Point(438, 389);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(108, 19);
             this.label19.TabIndex = 180;
@@ -614,12 +602,103 @@ namespace _911_RD.Administracion
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel1.Controls.Add(this.label25);
+            this.panel1.Controls.Add(this.errorTxtBox2);
+            this.panel1.Controls.Add(this.label24);
+            this.panel1.Controls.Add(this.cb_pais);
+            this.panel1.Controls.Add(this.label21);
+            this.panel1.Controls.Add(this.cb_provincia);
+            this.panel1.Controls.Add(this.label17);
+            this.panel1.Controls.Add(this.cb_ciudad);
             this.panel1.Controls.Add(this.label20);
-            this.panel1.Controls.Add(this.comboBox1);
+            this.panel1.Controls.Add(this.cb_continente);
             this.panel1.Location = new System.Drawing.Point(442, 259);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(595, 107);
+            this.panel1.Size = new System.Drawing.Size(595, 127);
             this.panel1.TabIndex = 181;
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label25.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label25.Location = new System.Drawing.Point(3, 61);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(202, 16);
+            this.label25.TabIndex = 193;
+            this.label25.Text = "DESCRIPCION DE DIREACCION";
+            // 
+            // errorTxtBox2
+            // 
+            this.errorTxtBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.errorTxtBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.errorTxtBox2.Limpiar = true;
+            this.errorTxtBox2.Location = new System.Drawing.Point(6, 81);
+            this.errorTxtBox2.Name = "errorTxtBox2";
+            this.errorTxtBox2.Size = new System.Drawing.Size(333, 26);
+            this.errorTxtBox2.SoloNumeros = false;
+            this.errorTxtBox2.TabIndex = 191;
+            this.errorTxtBox2.Validar = true;
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label24.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label24.Location = new System.Drawing.Point(137, 5);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(36, 16);
+            this.label24.TabIndex = 192;
+            this.label24.Text = "PAIS";
+            // 
+            // cb_pais
+            // 
+            this.cb_pais.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cb_pais.FormattingEnabled = true;
+            this.cb_pais.Location = new System.Drawing.Point(140, 24);
+            this.cb_pais.Name = "cb_pais";
+            this.cb_pais.Size = new System.Drawing.Size(134, 24);
+            this.cb_pais.TabIndex = 191;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label21.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label21.Location = new System.Drawing.Point(277, 5);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(81, 16);
+            this.label21.TabIndex = 188;
+            this.label21.Text = "PROVINCIA";
+            // 
+            // cb_provincia
+            // 
+            this.cb_provincia.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cb_provincia.FormattingEnabled = true;
+            this.cb_provincia.Location = new System.Drawing.Point(280, 24);
+            this.cb_provincia.Name = "cb_provincia";
+            this.cb_provincia.Size = new System.Drawing.Size(140, 24);
+            this.cb_provincia.TabIndex = 187;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label17.Location = new System.Drawing.Point(423, 5);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(58, 16);
+            this.label17.TabIndex = 186;
+            this.label17.Text = "CIUDAD";
+            // 
+            // cb_ciudad
+            // 
+            this.cb_ciudad.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cb_ciudad.FormattingEnabled = true;
+            this.cb_ciudad.Location = new System.Drawing.Point(426, 24);
+            this.cb_ciudad.Name = "cb_ciudad";
+            this.cb_ciudad.Size = new System.Drawing.Size(154, 24);
+            this.cb_ciudad.TabIndex = 185;
             // 
             // label20
             // 
@@ -628,32 +707,53 @@ namespace _911_RD.Administracion
             this.label20.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label20.Location = new System.Drawing.Point(3, 5);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(125, 16);
+            this.label20.Size = new System.Drawing.Size(89, 16);
             this.label20.TabIndex = 184;
-            this.label20.Text = "NACIONALIDADES";
+            this.label20.Text = "CONTINENTE";
             // 
-            // comboBox1
+            // cb_continente
             // 
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(6, 24);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(125, 28);
-            this.comboBox1.TabIndex = 183;
+            this.cb_continente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cb_continente.FormattingEnabled = true;
+            this.cb_continente.Location = new System.Drawing.Point(6, 24);
+            this.cb_continente.Name = "cb_continente";
+            this.cb_continente.Size = new System.Drawing.Size(128, 24);
+            this.cb_continente.TabIndex = 183;
+            this.cb_continente.SelectedIndexChanged += new System.EventHandler(this.cb_continente_SelectedIndexChanged);
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label22.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label22.Location = new System.Drawing.Point(237, 301);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(111, 16);
+            this.label22.TabIndex = 190;
+            this.label22.Text = "NACIONALIDAD";
+            // 
+            // cb_nacionalidades
+            // 
+            this.cb_nacionalidades.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cb_nacionalidades.FormattingEnabled = true;
+            this.cb_nacionalidades.Location = new System.Drawing.Point(240, 320);
+            this.cb_nacionalidades.Name = "cb_nacionalidades";
+            this.cb_nacionalidades.Size = new System.Drawing.Size(167, 28);
+            this.cb_nacionalidades.TabIndex = 189;
             // 
             // FrmEmpleado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1049, 780);
+            this.Controls.Add(this.label22);
+            this.Controls.Add(this.cb_nacionalidades);
             this.Controls.Add(this.label18);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label19);
             this.Controls.Add(this.p_conductor);
             this.Controls.Add(this.lbl_direccion);
             this.Controls.Add(this.p_direccion);
-            this.Controls.Add(this.label17);
-            this.Controls.Add(this.cb_nacionalidades);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.txt_salario);
             this.Controls.Add(this.label14);
@@ -694,14 +794,6 @@ namespace _911_RD.Administracion
             this.Controls.SetChildIndex(this.label8, 0);
             this.Controls.SetChildIndex(this.cb_sexo, 0);
             this.Controls.SetChildIndex(this.label12, 0);
-            this.Controls.SetChildIndex(this.lbl_titulo, 0);
-            this.Controls.SetChildIndex(this.btn_guardar, 0);
-            this.Controls.SetChildIndex(this.label9, 0);
-            this.Controls.SetChildIndex(this.label15, 0);
-            this.Controls.SetChildIndex(this.btn_buscar, 0);
-            this.Controls.SetChildIndex(this.btn_limpiar, 0);
-            this.Controls.SetChildIndex(this.btn_salir, 0);
-            this.Controls.SetChildIndex(this.id_txt, 0);
             this.Controls.SetChildIndex(this.btn_Cargo, 0);
             this.Controls.SetChildIndex(this.fecha_con, 0);
             this.Controls.SetChildIndex(this.fecha_nac, 0);
@@ -715,14 +807,22 @@ namespace _911_RD.Administracion
             this.Controls.SetChildIndex(this.label14, 0);
             this.Controls.SetChildIndex(this.txt_salario, 0);
             this.Controls.SetChildIndex(this.label16, 0);
-            this.Controls.SetChildIndex(this.cb_nacionalidades, 0);
-            this.Controls.SetChildIndex(this.label17, 0);
             this.Controls.SetChildIndex(this.p_direccion, 0);
             this.Controls.SetChildIndex(this.lbl_direccion, 0);
             this.Controls.SetChildIndex(this.p_conductor, 0);
             this.Controls.SetChildIndex(this.label19, 0);
             this.Controls.SetChildIndex(this.panel1, 0);
             this.Controls.SetChildIndex(this.label18, 0);
+            this.Controls.SetChildIndex(this.cb_nacionalidades, 0);
+            this.Controls.SetChildIndex(this.label22, 0);
+            this.Controls.SetChildIndex(this.lbl_titulo, 0);
+            this.Controls.SetChildIndex(this.btn_guardar, 0);
+            this.Controls.SetChildIndex(this.label9, 0);
+            this.Controls.SetChildIndex(this.label15, 0);
+            this.Controls.SetChildIndex(this.btn_buscar, 0);
+            this.Controls.SetChildIndex(this.btn_limpiar, 0);
+            this.Controls.SetChildIndex(this.btn_salir, 0);
+            this.Controls.SetChildIndex(this.id_txt, 0);
             ((System.ComponentModel.ISupportInitialize)(this.btn_buscar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_Cargo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -775,8 +875,6 @@ namespace _911_RD.Administracion
         private System.Windows.Forms.DataGridViewTextBoxColumn salario;
         private System.Windows.Forms.DataGridViewTextBoxColumn fecha_contrato;
         private System.Windows.Forms.DataGridViewTextBoxColumn estado;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.ComboBox cb_nacionalidades;
         private System.Windows.Forms.Panel p_direccion;
         private System.Windows.Forms.Label lbl_direccion;
         private System.Windows.Forms.Label label19;
@@ -784,6 +882,16 @@ namespace _911_RD.Administracion
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cb_continente;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.ComboBox cb_provincia;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.ComboBox cb_ciudad;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.ComboBox cb_nacionalidades;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.ComboBox cb_pais;
+        private System.Windows.Forms.Label label25;
+        private ErrorTxtBox errorTxtBox2;
     }
 }

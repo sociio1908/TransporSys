@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using _911_RD.Administracion;
 
 namespace _911_RD
 {
@@ -16,7 +17,7 @@ namespace _911_RD
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmPrincipal());
+            Application.Run(new FrmEmpleado());
         }
     }
 }
