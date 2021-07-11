@@ -71,13 +71,21 @@ namespace _911_RD.Administracion
             this.label16 = new System.Windows.Forms.Label();
             this.txt_salario = new _911_RD.ErrorTxtBox();
             this.p_direccion = new System.Windows.Forms.Panel();
-            this.lbl_direccion = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
+            this.txt_correo = new _911_RD.ErrorTxtBox();
+            this.label23 = new System.Windows.Forms.Label();
+            this.txt_telefono = new _911_RD.ErrorTxtBox();
+            this.lbl_contacto = new System.Windows.Forms.Label();
+            this.lbl_conductor = new System.Windows.Forms.Label();
             this.p_conductor = new System.Windows.Forms.Panel();
+            this.fecha_licencia = new System.Windows.Forms.DateTimePicker();
+            this.label28 = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
+            this.txt_numlicencia = new _911_RD.ErrorTxtBox();
             this.label18 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label25 = new System.Windows.Forms.Label();
-            this.errorTxtBox2 = new _911_RD.ErrorTxtBox();
+            this.txt_direccion = new _911_RD.ErrorTxtBox();
             this.label24 = new System.Windows.Forms.Label();
             this.cb_pais = new System.Windows.Forms.ComboBox();
             this.label21 = new System.Windows.Forms.Label();
@@ -92,6 +100,8 @@ namespace _911_RD.Administracion
             ((System.ComponentModel.ISupportInitialize)(this.btn_Cargo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            this.p_direccion.SuspendLayout();
+            this.p_conductor.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -110,6 +120,7 @@ namespace _911_RD.Administracion
             // 
             this.btn_limpiar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)));
             this.btn_limpiar.Location = new System.Drawing.Point(156, 445);
+            this.btn_limpiar.Click += new System.EventHandler(this.btn_limpiar_Click);
             // 
             // btn_salir
             // 
@@ -551,41 +562,139 @@ namespace _911_RD.Administracion
             // 
             this.p_direccion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.p_direccion.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.p_direccion.Controls.Add(this.label26);
+            this.p_direccion.Controls.Add(this.txt_correo);
+            this.p_direccion.Controls.Add(this.label23);
+            this.p_direccion.Controls.Add(this.txt_telefono);
             this.p_direccion.Location = new System.Drawing.Point(442, 99);
             this.p_direccion.Name = "p_direccion";
             this.p_direccion.Size = new System.Drawing.Size(595, 107);
             this.p_direccion.TabIndex = 177;
             // 
-            // lbl_direccion
+            // label26
             // 
-            this.lbl_direccion.AutoSize = true;
-            this.lbl_direccion.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
-            this.lbl_direccion.ForeColor = System.Drawing.Color.Firebrick;
-            this.lbl_direccion.Location = new System.Drawing.Point(438, 56);
-            this.lbl_direccion.Name = "lbl_direccion";
-            this.lbl_direccion.Size = new System.Drawing.Size(105, 19);
-            this.lbl_direccion.TabIndex = 178;
-            this.lbl_direccion.Text = "CONTACTOS";
+            this.label26.AutoSize = true;
+            this.label26.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label26.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label26.Location = new System.Drawing.Point(3, 8);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(72, 16);
+            this.label26.TabIndex = 197;
+            this.label26.Text = "TELEFONO";
             // 
-            // label19
+            // txt_correo
             // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
-            this.label19.ForeColor = System.Drawing.Color.Firebrick;
-            this.label19.Location = new System.Drawing.Point(438, 389);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(108, 19);
-            this.label19.TabIndex = 180;
-            this.label19.Text = "CONDUCTOR";
+            this.txt_correo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_correo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.txt_correo.Limpiar = true;
+            this.txt_correo.Location = new System.Drawing.Point(140, 27);
+            this.txt_correo.Name = "txt_correo";
+            this.txt_correo.Size = new System.Drawing.Size(199, 26);
+            this.txt_correo.SoloNumeros = false;
+            this.txt_correo.TabIndex = 196;
+            this.txt_correo.Validar = false;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label23.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label23.Location = new System.Drawing.Point(137, 7);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(63, 16);
+            this.label23.TabIndex = 195;
+            this.label23.Text = "CORREO";
+            // 
+            // txt_telefono
+            // 
+            this.txt_telefono.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_telefono.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.txt_telefono.Limpiar = true;
+            this.txt_telefono.Location = new System.Drawing.Point(6, 28);
+            this.txt_telefono.Name = "txt_telefono";
+            this.txt_telefono.Size = new System.Drawing.Size(128, 26);
+            this.txt_telefono.SoloNumeros = true;
+            this.txt_telefono.TabIndex = 194;
+            this.txt_telefono.Validar = true;
+            // 
+            // lbl_contacto
+            // 
+            this.lbl_contacto.AutoSize = true;
+            this.lbl_contacto.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
+            this.lbl_contacto.ForeColor = System.Drawing.Color.Firebrick;
+            this.lbl_contacto.Location = new System.Drawing.Point(438, 56);
+            this.lbl_contacto.Name = "lbl_contacto";
+            this.lbl_contacto.Size = new System.Drawing.Size(105, 19);
+            this.lbl_contacto.TabIndex = 178;
+            this.lbl_contacto.Text = "CONTACTOS";
+            // 
+            // lbl_conductor
+            // 
+            this.lbl_conductor.AutoSize = true;
+            this.lbl_conductor.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
+            this.lbl_conductor.ForeColor = System.Drawing.Color.Firebrick;
+            this.lbl_conductor.Location = new System.Drawing.Point(438, 389);
+            this.lbl_conductor.Name = "lbl_conductor";
+            this.lbl_conductor.Size = new System.Drawing.Size(108, 19);
+            this.lbl_conductor.TabIndex = 180;
+            this.lbl_conductor.Text = "CONDUCTOR";
+            this.lbl_conductor.Visible = false;
             // 
             // p_conductor
             // 
             this.p_conductor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.p_conductor.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.p_conductor.Controls.Add(this.fecha_licencia);
+            this.p_conductor.Controls.Add(this.label28);
+            this.p_conductor.Controls.Add(this.label27);
+            this.p_conductor.Controls.Add(this.txt_numlicencia);
             this.p_conductor.Location = new System.Drawing.Point(442, 420);
             this.p_conductor.Name = "p_conductor";
             this.p_conductor.Size = new System.Drawing.Size(595, 107);
             this.p_conductor.TabIndex = 179;
+            this.p_conductor.Visible = false;
+            // 
+            // fecha_licencia
+            // 
+            this.fecha_licencia.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fecha_licencia.Location = new System.Drawing.Point(158, 30);
+            this.fecha_licencia.Name = "fecha_licencia";
+            this.fecha_licencia.Size = new System.Drawing.Size(167, 22);
+            this.fecha_licencia.TabIndex = 191;
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label28.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label28.Location = new System.Drawing.Point(158, 10);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(164, 16);
+            this.label28.TabIndex = 203;
+            this.label28.Text = "FECHA DE VENCIMIENTO";
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label27.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label27.Location = new System.Drawing.Point(3, 10);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(149, 16);
+            this.label27.TabIndex = 201;
+            this.label27.Text = "NUMERO DE LICENCIA";
+            // 
+            // txt_numlicencia
+            // 
+            this.txt_numlicencia.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_numlicencia.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.txt_numlicencia.Limpiar = true;
+            this.txt_numlicencia.Location = new System.Drawing.Point(6, 30);
+            this.txt_numlicencia.Name = "txt_numlicencia";
+            this.txt_numlicencia.Size = new System.Drawing.Size(146, 26);
+            this.txt_numlicencia.SoloNumeros = true;
+            this.txt_numlicencia.TabIndex = 198;
+            this.txt_numlicencia.Validar = true;
             // 
             // label18
             // 
@@ -603,7 +712,7 @@ namespace _911_RD.Administracion
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.WhiteSmoke;
             this.panel1.Controls.Add(this.label25);
-            this.panel1.Controls.Add(this.errorTxtBox2);
+            this.panel1.Controls.Add(this.txt_direccion);
             this.panel1.Controls.Add(this.label24);
             this.panel1.Controls.Add(this.cb_pais);
             this.panel1.Controls.Add(this.label21);
@@ -628,17 +737,17 @@ namespace _911_RD.Administracion
             this.label25.TabIndex = 193;
             this.label25.Text = "DESCRIPCION DE DIREACCION";
             // 
-            // errorTxtBox2
+            // txt_direccion
             // 
-            this.errorTxtBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.errorTxtBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.errorTxtBox2.Limpiar = true;
-            this.errorTxtBox2.Location = new System.Drawing.Point(6, 81);
-            this.errorTxtBox2.Name = "errorTxtBox2";
-            this.errorTxtBox2.Size = new System.Drawing.Size(333, 26);
-            this.errorTxtBox2.SoloNumeros = false;
-            this.errorTxtBox2.TabIndex = 191;
-            this.errorTxtBox2.Validar = true;
+            this.txt_direccion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_direccion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.txt_direccion.Limpiar = true;
+            this.txt_direccion.Location = new System.Drawing.Point(6, 81);
+            this.txt_direccion.Name = "txt_direccion";
+            this.txt_direccion.Size = new System.Drawing.Size(333, 26);
+            this.txt_direccion.SoloNumeros = false;
+            this.txt_direccion.TabIndex = 191;
+            this.txt_direccion.Validar = true;
             // 
             // label24
             // 
@@ -659,6 +768,7 @@ namespace _911_RD.Administracion
             this.cb_pais.Name = "cb_pais";
             this.cb_pais.Size = new System.Drawing.Size(134, 24);
             this.cb_pais.TabIndex = 191;
+            this.cb_pais.SelectedIndexChanged += new System.EventHandler(this.cb_pais_SelectedIndexChanged);
             // 
             // label21
             // 
@@ -679,6 +789,7 @@ namespace _911_RD.Administracion
             this.cb_provincia.Name = "cb_provincia";
             this.cb_provincia.Size = new System.Drawing.Size(140, 24);
             this.cb_provincia.TabIndex = 187;
+            this.cb_provincia.SelectedIndexChanged += new System.EventHandler(this.cb_provincia_SelectedIndexChanged);
             // 
             // label17
             // 
@@ -750,9 +861,9 @@ namespace _911_RD.Administracion
             this.Controls.Add(this.cb_nacionalidades);
             this.Controls.Add(this.label18);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.label19);
+            this.Controls.Add(this.lbl_conductor);
             this.Controls.Add(this.p_conductor);
-            this.Controls.Add(this.lbl_direccion);
+            this.Controls.Add(this.lbl_contacto);
             this.Controls.Add(this.p_direccion);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.txt_salario);
@@ -808,9 +919,9 @@ namespace _911_RD.Administracion
             this.Controls.SetChildIndex(this.txt_salario, 0);
             this.Controls.SetChildIndex(this.label16, 0);
             this.Controls.SetChildIndex(this.p_direccion, 0);
-            this.Controls.SetChildIndex(this.lbl_direccion, 0);
+            this.Controls.SetChildIndex(this.lbl_contacto, 0);
             this.Controls.SetChildIndex(this.p_conductor, 0);
-            this.Controls.SetChildIndex(this.label19, 0);
+            this.Controls.SetChildIndex(this.lbl_conductor, 0);
             this.Controls.SetChildIndex(this.panel1, 0);
             this.Controls.SetChildIndex(this.label18, 0);
             this.Controls.SetChildIndex(this.cb_nacionalidades, 0);
@@ -827,6 +938,10 @@ namespace _911_RD.Administracion
             ((System.ComponentModel.ISupportInitialize)(this.btn_Cargo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            this.p_direccion.ResumeLayout(false);
+            this.p_direccion.PerformLayout();
+            this.p_conductor.ResumeLayout(false);
+            this.p_conductor.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -876,8 +991,8 @@ namespace _911_RD.Administracion
         private System.Windows.Forms.DataGridViewTextBoxColumn fecha_contrato;
         private System.Windows.Forms.DataGridViewTextBoxColumn estado;
         private System.Windows.Forms.Panel p_direccion;
-        private System.Windows.Forms.Label lbl_direccion;
-        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label lbl_contacto;
+        private System.Windows.Forms.Label lbl_conductor;
         private System.Windows.Forms.Panel p_conductor;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Panel panel1;
@@ -892,6 +1007,14 @@ namespace _911_RD.Administracion
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.ComboBox cb_pais;
         private System.Windows.Forms.Label label25;
-        private ErrorTxtBox errorTxtBox2;
+        private ErrorTxtBox txt_direccion;
+        private System.Windows.Forms.Label label23;
+        private ErrorTxtBox txt_telefono;
+        private System.Windows.Forms.Label label26;
+        private ErrorTxtBox txt_correo;
+        private System.Windows.Forms.Label label27;
+        private ErrorTxtBox txt_numlicencia;
+        private System.Windows.Forms.DateTimePicker fecha_licencia;
+        private System.Windows.Forms.Label label28;
     }
 }

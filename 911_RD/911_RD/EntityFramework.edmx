@@ -227,7 +227,7 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.ARTICULOS_VS_CATEGORIAS_VS_D
           <Property Name="id_empleado" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="id_persona" Type="int" Nullable="false" />
           <Property Name="fecha_ingreso" Type="datetime" Nullable="false" />
-          <Property Name="estado" Type="int" Nullable="false" />
+          <Property Name="estado" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="EMPLEADOS_VS_PUESTOS">
           <Key>
@@ -1973,7 +1973,7 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.TIPONCF' no tiene definida n
           <Property Name="id_empleado" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="id_persona" Type="Int32" Nullable="false" />
           <Property Name="fecha_ingreso" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="estado" Type="Int32" Nullable="false" />
+          <Property Name="estado" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="COBROS" Relationship="Self.FK_COBROS_EMPLEADOS" FromRole="EMPLEADOS" ToRole="COBROS" />
           <NavigationProperty Name="COMPRAS" Relationship="Self.FK_COMPRAS_EMPLEADOS" FromRole="EMPLEADOS" ToRole="COMPRAS" />
           <NavigationProperty Name="COTIZACIONES" Relationship="Self.FK_COTIZACIONES_EMPLEADOS" FromRole="EMPLEADOS" ToRole="COTIZACIONES" />

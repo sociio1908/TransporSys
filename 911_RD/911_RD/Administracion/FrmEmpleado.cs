@@ -114,41 +114,8 @@ namespace _911_RD.Administracion
 
             }
         }
-       
-        
-        private void AsignarPaises()
-        {
 
-            MessageBox.Show("ENTYRO");
-            try
-            {
-                using (TransporSysEntities db = new TransporSysEntities())
-                {
 
-                    int id_cont = db.CONTINENTES.FirstOrDefault(a => a.continente == cb_continente.SelectedItem.ToString()).id_continente;
-                    if (id_cont != 0)
-                        return;
-                        var paises = db.PAISES.Where(a => a.id_continente == id_cont);
-                        if (paises != null)
-                        {
-                        foreach (var a in paises)
-                        {
-                            cb_pais.Items.Add(a.pais);
-                            // MessageBox.Show();
-                        }
-                          }
-                         else
-                        {
-                        cb_pais.Items.Clear();
-                        }
-                    id_cont = 0;
-                }
-            }
-            catch (Exception dfg)
-            {
-                // MessageBox.Show(lbl_titulo + " ERRORRRR");
-            }
-        }
 
 
         private void btn_guardar_Click(object sender, EventArgs e)
@@ -229,13 +196,66 @@ namespace _911_RD.Administracion
                     txt_cargo.Text = frmCargo.dataGridView1.CurrentRow.Cells[1].Value.ToString();
                     txt_des_puesto.Text = frmCargo.dataGridView1.CurrentRow.Cells[2].Value.ToString();
                     txt_salario.Text = frmCargo.dataGridView1.CurrentRow.Cells[3].Value.ToString();
+
+                    if (txt_cargo.Text.Trim().ToLower() == "conductor" || txt_cargo.Text.Trim().ToLower() == "chofer")
+                    {
+                        lbl_conductor.Visible = true;
+                        p_conductor.Visible = true;
+                    }
+                    else
+                    {
+                        lbl_conductor.Visible = false;
+                        p_conductor.Visible = false;
+                    }
+
                 }
             }
         }
 
         private void cb_continente_SelectedIndexChanged(object sender, EventArgs e)
         {
-            AsignarPaises();
+            cb_pais.Items.Clear();
+            cb_provincia.Items.Clear();
+            cb_ciudad.Items.Clear();
+            cb_pais.ResetText();
+            cb_provincia.ResetText();
+            cb_ciudad.ResetText();
+            foreach (var x in metodoscrud.AsignarPaises(cb_continente.SelectedItem.ToString())) {
+
+                cb_pais.Items.Add(x.ToString());
+            }
+        }
+
+        private void cb_provincia_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cb_ciudad.Items.Clear();
+            cb_ciudad.ResetText();
+            foreach (var x in metodoscrud.AsignarCiudad(cb_provincia.SelectedItem.ToString()))
+            {
+
+                cb_ciudad.Items.Add(x.ToString());
+            }
+
+        }
+
+        private void cb_pais_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            cb_provincia.Items.Clear();
+            cb_ciudad.Items.Clear();
+            cb_provincia.ResetText();
+            cb_ciudad.ResetText();
+            foreach (var x in metodoscrud.AsignarProvincias(cb_pais.SelectedItem.ToString()))
+            {
+                cb_provincia.Items.Add(x.ToString());
+            }
+        }
+
+        private void btn_limpiar_Click(object sender, EventArgs e)
+        {
+            Utilidades.LimpiarControles(this);
+            lbl_conductor.Visible = false;
+            p_conductor.Visible = false;
         }
     }
 }
