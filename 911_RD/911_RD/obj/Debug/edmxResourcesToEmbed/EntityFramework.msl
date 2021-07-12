@@ -227,6 +227,7 @@
     <EntitySetMapping Name="EMPLEADOS">
       <EntityTypeMapping TypeName="TransporSysModel.EMPLEADOS">
         <MappingFragment StoreEntitySet="EMPLEADOS">
+          <ScalarProperty Name="id_puesto" ColumnName="id_puesto" />
           <ScalarProperty Name="id_empleado" ColumnName="id_empleado" />
           <ScalarProperty Name="id_persona" ColumnName="id_persona" />
           <ScalarProperty Name="fecha_ingreso" ColumnName="fecha_ingreso" />

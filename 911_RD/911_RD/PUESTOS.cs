@@ -19,6 +19,7 @@ namespace _911_RD
         {
             this.EMPLEADOS = new HashSet<EMPLEADOS>();
             this.DEPARTAMENTOS = new HashSet<DEPARTAMENTOS>();
+            this.EMPLEADOS1 = new HashSet<EMPLEADOS>();
         }
     
         public int id_puesto { get; set; }
@@ -31,5 +32,7 @@ namespace _911_RD
         public virtual ICollection<EMPLEADOS> EMPLEADOS { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DEPARTAMENTOS> DEPARTAMENTOS { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<EMPLEADOS> EMPLEADOS1 { get; set; }
     }
 }

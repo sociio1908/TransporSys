@@ -34,6 +34,7 @@ namespace _911_RD
         public int id_persona { get; set; }
         public System.DateTime fecha_ingreso { get; set; }
         public bool estado { get; set; }
+        public int id_puesto { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<COBROS> COBROS { get; set; }
@@ -58,5 +59,6 @@ namespace _911_RD
         public virtual ICollection<VENTAS> VENTAS { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PUESTOS> PUESTOS { get; set; }
+        public virtual PUESTOS PUESTOS1 { get; set; }
     }
 }

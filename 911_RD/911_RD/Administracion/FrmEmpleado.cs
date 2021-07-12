@@ -120,19 +120,26 @@ namespace _911_RD.Administracion
 
         private void btn_guardar_Click(object sender, EventArgs e)
         {
+            MessageBox.Show(validarCombo().ToString());
 
-            //if (Utilidades.ValidarFormulario(this, errorProvider1) == false)
-            //    return;
 
+             if (Utilidades.ValidarFormulario(this, errorProvider1) || validarCombo()==false){
+                MessageBox.Show("Favor llenar todos los campos.");
+                return;
+            }
             try
             {
+                //Method insert/Update
+                int id = metodoscrud.crudPersonas("", metodoscrud.crudTerceros(id_txt.Text, txt_nombre.Text.Trim(), txt_cedula.Text.Trim()).ToString(), Convert.ToInt32(cb_sexo.SelectedIndex).ToString(), fecha_nac.Value, Convert.ToInt32(cb_sexo.SelectedIndex).ToString(), txt_apellido.Text.Trim().ToString());
+                int ID_empleADO =  metodoscrud.crudEmpleado(txt_cedula.Text.Trim(), fecha_con.Value, cb_estado.SelectedIndex == 0 ? true : false, id_cargo);
+                if(conductor)
+                  //  metodoscrud.c
 
-                //Meto insert/Update
-                metodoscrud.crudTerceros(id_txt.Text.Trim(), txt_nombre.Text.Trim(), txt_cedula.Text);
 
 
+                MessageBox.Show("DATOS GUARDADOS CORRECTAMENTE");
             }
-            catch(Exception dfg)
+            catch (Exception dfg)
             {
 
             }
@@ -186,6 +193,17 @@ namespace _911_RD.Administracion
 
         int id_cargo = 0;
 
+
+        bool validarCombo()
+        {
+            if (cb_sexo.SelectedItem ==null  || cb_estado.SelectedItem == null || cb_continente.SelectedItem == null || cb_pais.SelectedItem == null || cb_provincia.SelectedItem == null || cb_ciudad.SelectedItem == null || cb_nacionalidades.SelectedItem == null)
+                return false;
+
+            return true;
+        }
+
+        bool conductor = false;
+
         private void btn_Cargo_Click(object sender, EventArgs e)
         {
             using (FrmCargo frmCargo = new FrmCargo())
@@ -196,16 +214,19 @@ namespace _911_RD.Administracion
                     txt_cargo.Text = frmCargo.dataGridView1.CurrentRow.Cells[1].Value.ToString();
                     txt_des_puesto.Text = frmCargo.dataGridView1.CurrentRow.Cells[2].Value.ToString();
                     txt_salario.Text = frmCargo.dataGridView1.CurrentRow.Cells[3].Value.ToString();
+                    id_cargo = Convert.ToInt32(frmCargo.dataGridView1.CurrentRow.Cells[0].Value);
 
                     if (txt_cargo.Text.Trim().ToLower() == "conductor" || txt_cargo.Text.Trim().ToLower() == "chofer")
                     {
                         lbl_conductor.Visible = true;
                         p_conductor.Visible = true;
+                        conductor = true;
                     }
                     else
                     {
                         lbl_conductor.Visible = false;
                         p_conductor.Visible = false;
+                        conductor = false;
                     }
 
                 }

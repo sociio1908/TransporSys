@@ -25,6 +25,7 @@ namespace _911_RD
         public int id_sexo { get; set; }
         public int id_nacionalidad { get; set; }
         public string apellido { get; set; }
+        public System.DateTime fecha_nacimiento { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<EMPLEADOS> EMPLEADOS { get; set; }

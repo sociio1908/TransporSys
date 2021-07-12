@@ -258,7 +258,7 @@
     <Property Name="id_empleado" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="id_persona" Type="Int32" Nullable="false" />
     <Property Name="fecha_ingreso" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="estado" Type="Int32" Nullable="false" />
+    <Property Name="estado" Type="Boolean" Nullable="false" />
     <NavigationProperty Name="COBROS" Relationship="Self.FK_COBROS_EMPLEADOS" FromRole="EMPLEADOS" ToRole="COBROS" />
     <NavigationProperty Name="COMPRAS" Relationship="Self.FK_COMPRAS_EMPLEADOS" FromRole="EMPLEADOS" ToRole="COMPRAS" />
     <NavigationProperty Name="COTIZACIONES" Relationship="Self.FK_COTIZACIONES_EMPLEADOS" FromRole="EMPLEADOS" ToRole="COTIZACIONES" />
@@ -271,6 +271,8 @@
     <NavigationProperty Name="USUARIOS" Relationship="Self.FK_USUARIOS_EMPLEADOS" FromRole="EMPLEADOS" ToRole="USUARIOS" />
     <NavigationProperty Name="VENTAS" Relationship="Self.FK_VENTAS_EMPLEADOS" FromRole="EMPLEADOS" ToRole="VENTAS" />
     <NavigationProperty Name="PUESTOS" Relationship="Self.EMPLEADOS_VS_PUESTOS" FromRole="EMPLEADOS" ToRole="PUESTOS" />
+    <Property Name="id_puesto" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="PUESTOS1" Relationship="TransporSysModel.FK__EMPLEADOS__id_pu__640DD89F" FromRole="EMPLEADOS" ToRole="PUESTOS" />
   </EntityType>
   <EntityType Name="ENTRADAS">
     <Key>
@@ -448,6 +450,7 @@
     <Property Name="estado" Type="Boolean" Nullable="false" />
     <NavigationProperty Name="EMPLEADOS" Relationship="Self.EMPLEADOS_VS_PUESTOS" FromRole="PUESTOS" ToRole="EMPLEADOS" />
     <NavigationProperty Name="DEPARTAMENTOS" Relationship="Self.PUESTOS_VS_DEPARTAMENTOS" FromRole="PUESTOS" ToRole="DEPARTAMENTOS" />
+    <NavigationProperty Name="EMPLEADOS1" Relationship="TransporSysModel.FK__EMPLEADOS__id_pu__640DD89F" FromRole="PUESTOS" ToRole="EMPLEADOS" />
   </EntityType>
   <EntityType Name="SALIDAS">
     <Key>
@@ -1612,5 +1615,21 @@
       <End Role="TELEFONOS" EntitySet="TELEFONOS" />
       <End Role="TERCEROS" EntitySet="TERCEROS" />
     </AssociationSet>
+    <AssociationSet Name="FK__EMPLEADOS__id_pu__640DD89F" Association="TransporSysModel.FK__EMPLEADOS__id_pu__640DD89F">
+      <End Role="PUESTOS" EntitySet="PUESTOS" />
+      <End Role="EMPLEADOS" EntitySet="EMPLEADOS" />
+    </AssociationSet>
   </EntityContainer>
+  <Association Name="FK__EMPLEADOS__id_pu__640DD89F">
+    <End Type="TransporSysModel.PUESTOS" Role="PUESTOS" Multiplicity="1" />
+    <End Type="TransporSysModel.EMPLEADOS" Role="EMPLEADOS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PUESTOS">
+        <PropertyRef Name="id_puesto" />
+      </Principal>
+      <Dependent Role="EMPLEADOS">
+        <PropertyRef Name="id_puesto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

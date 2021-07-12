@@ -119,6 +119,7 @@
         <AssociationConnector Association="TransporSysModel.TERCEROS_VS_EMAILS" ManuallyRouted="false" />
         <AssociationConnector Association="TransporSysModel.TERCEROS_VS_IDENTIFICACIONES" ManuallyRouted="false" />
         <AssociationConnector Association="TransporSysModel.TERCEROS_VS_TELEFONOS" ManuallyRouted="false" />
+        <AssociationConnector Association="TransporSysModel.FK__EMPLEADOS__id_pu__640DD89F" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

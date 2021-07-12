@@ -8,8 +8,10 @@ namespace _911_RD.Administracion
 {
     class MetodosCRUD
     {
-       public void crudTerceros(string id_traido, string nombre_traido, string identificacion_traida)
+        public int crudTerceros(string id_traido, string nombre_traido, string identificacion_traida)
         {
+
+           int id_result = 0;
             try {
                 using (TransporSysEntities db = new TransporSysEntities())
                 {
@@ -29,8 +31,14 @@ namespace _911_RD.Administracion
                       terceroquery.identificacion = identificacion_traida.Trim();
                     }
                     db.SaveChanges();
+                    if (terceroquery == null) { 
+                        id_result = db.TERCEROS.Max(x => x.id_tercero);
+                    }
+                    else
+                    {
+                        id_result = terceroquery.id_tercero;
+                    }
                     System.Diagnostics.Debug.WriteLine("Proceso exitoso.");
-                
                 }
              }
             catch(Exception aas)
@@ -38,11 +46,15 @@ namespace _911_RD.Administracion
                 System.Diagnostics.Debug.WriteLine("Hubo un error chulo. "+aas);
             }
 
+            return id_result;
         }
 
 
-        public void crudPersonas(string id_per_traido, string id_ter_traido, string id_sex_traido, string id_nac_traido, string apellido_traido)
+    
+
+        public int crudPersonas(string id_per_traido, string id_ter_traido, string id_sex_traido, DateTime fecha_nac ,string id_nac_traido, string apellido_traido)
         {
+            int id_result = 0;
             try
             {
                 using (TransporSysEntities db = new TransporSysEntities())
@@ -56,6 +68,7 @@ namespace _911_RD.Administracion
                             id_sexo = Convert.ToInt32(id_sex_traido.Trim()),
                             id_nacionalidad = Convert.ToInt32(id_nac_traido.Trim()),
                             apellido = apellido_traido.Trim(),
+                            fecha_nacimiento = fecha_nac,
                         };
                         db.PERSONAS.Add(persona);
                     }
@@ -66,26 +79,37 @@ namespace _911_RD.Administracion
                         terceroquery.id_sexo = Convert.ToInt32(id_sex_traido.Trim());
                         terceroquery.id_nacionalidad = Convert.ToInt32(id_nac_traido.Trim());
                         terceroquery.apellido = apellido_traido.Trim();
+                        terceroquery.fecha_nacimiento = fecha_nac;
                     }
                     db.SaveChanges();
+                    if (terceroquery == null)
+                    {
+                        id_result = db.PERSONAS.Max(x => x.id_persona);
+                    }
+                    else
+                    {
+                        id_result = terceroquery.id_persona;
+                    }
                     System.Diagnostics.Debug.WriteLine("Proceso exitoso.");
 
                 }
             }
-            catch (Exception aas)
+            catch (Exception dfg)
             {
-                System.Diagnostics.Debug.WriteLine("Hubo un error chulo. " + aas);
+                // MessageBox.Show(lbl_titulo + " ERRORRRR");
             }
+
+            return id_result;
 
         }
 
-        public void crudEmpleado(string identificacion_traida, DateTime fechaIngreso, bool estado)
+        public int crudEmpleado(string identificacion_traida, DateTime fechaIngreso, bool estado, int id_puesto)
         {
+            int id_result = 0;
             try
             {
                 using (TransporSysEntities db = new TransporSysEntities())
                 {
-
                     int tercero = db.TERCEROS.FirstOrDefault(a => a.identificacion.ToString() == identificacion_traida.Trim()).id_tercero;
                     int persona = db.PERSONAS.FirstOrDefault(a => a.id_tercero == tercero).id_persona;
                     var empleado = db.EMPLEADOS.FirstOrDefault(a => a.id_persona == persona);
@@ -95,6 +119,7 @@ namespace _911_RD.Administracion
                         EMPLEADOS emp = new EMPLEADOS
                         {
                             id_persona = persona,
+                            id_puesto = id_puesto,
                             fecha_ingreso = fechaIngreso,
                             estado = true
                         };
@@ -103,20 +128,31 @@ namespace _911_RD.Administracion
                     else
                     {
                         empleado.fecha_ingreso = fechaIngreso;
+                        empleado.id_puesto = id_puesto;
                         empleado.estado = estado;
                     }
+                    if (empleado == null)
+                    {
+                        id_result = db.EMPLEADOS.Max(x => x.id_empleado);
+                    }
+                    else
+                    {
+                        id_result = empleado.id_empleado;
+                    }
                     db.SaveChanges();
+
                     System.Diagnostics.Debug.WriteLine("Proceso exitoso.");
 
                 }
             }
-            catch (Exception aas)
+            catch (Exception dfg)
             {
-                System.Diagnostics.Debug.WriteLine("Hubo un error chulo. " + aas);
+                // MessageBox.Show(lbl_titulo + " ERRORRRR");
             }
 
-        }
+            return id_result;
 
+        }
 
         public void crudCorre(string correo)
         {
@@ -180,7 +216,6 @@ namespace _911_RD.Administracion
 
         }
 
-
         public List<string> AsignarPaises(string continente)
         {
             List<string> result = new List<string>();
@@ -215,7 +250,6 @@ namespace _911_RD.Administracion
             return result;
         }
 
-      
         public List<string> AsignarProvincias(string pais)
         {
             List<string> result = new List<string>();
@@ -249,7 +283,6 @@ namespace _911_RD.Administracion
             return result;
         }
        
-        
         public List<string> AsignarCiudad(string provincia)
         {
             List<string> result = new List<string>();
@@ -284,8 +317,6 @@ namespace _911_RD.Administracion
             return result;
         }
 
-
-
         public int InsertarDireccion(string id_direc, string direccion, string id_ciudad)
         {
             int id_result = 0;
@@ -310,10 +341,16 @@ namespace _911_RD.Administracion
                         direc_result.direccion = direccion.Trim();
                     }
                     db.SaveChanges();
-                    if(direc_result == null)
-                    id_result = db.DIRECCIONES.Max(x => x.id_direccion);
-                    
+                    if (direc_result == null)
+                    {
+                        id_result = db.DIRECCIONES.Max(x => x.id_direccion);
+                    }
+                    else
+                    {
+                        id_result = db.DIRECCIONES.FirstOrDefault(a => a.id_direccion.ToString() == id_direc.Trim()).id_direccion;
+                    }
                     System.Diagnostics.Debug.WriteLine("Proceso exitoso.");
+
                 }
             }
             catch (Exception dfg)

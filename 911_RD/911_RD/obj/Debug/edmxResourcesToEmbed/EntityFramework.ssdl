@@ -221,8 +221,9 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.ARTICULOS_VS_CATEGORIAS_VS_D
     </Key>
     <Property Name="id_empleado" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="id_persona" Type="int" Nullable="false" />
+    <Property Name="id_puesto" Type="int" Nullable="false" />
     <Property Name="fecha_ingreso" Type="datetime" Nullable="false" />
-    <Property Name="estado" Type="int" Nullable="false" />
+    <Property Name="estado" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="EMPLEADOS_VS_PUESTOS">
     <Key>
@@ -577,6 +578,18 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.TIPONCF' no tiene definida n
     <Property Name="fecha" Type="datetime" Nullable="false" />
     <Property Name="estado" Type="bit" Nullable="false" />
   </EntityType>
+  <Association Name="FK__EMPLEADOS__id_pu__640DD89F">
+    <End Role="PUESTOS" Type="Self.PUESTOS" Multiplicity="1" />
+    <End Role="EMPLEADOS" Type="Self.EMPLEADOS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PUESTOS">
+        <PropertyRef Name="id_puesto" />
+      </Principal>
+      <Dependent Role="EMPLEADOS">
+        <PropertyRef Name="id_puesto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_ARTICULOS_CATEGORIAS">
     <End Role="CATEGORIAS" Type="Self.CATEGORIAS" Multiplicity="1" />
     <End Role="ARTICULOS" Type="Self.ARTICULOS" Multiplicity="*" />
@@ -1441,6 +1454,10 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.TIPONCF' no tiene definida n
     [TIPONCF].[tipo] AS [tipo]
     FROM [dbo].[TIPONCF] AS [TIPONCF]</DefiningQuery>
     </EntitySet>
+    <AssociationSet Name="FK__EMPLEADOS__id_pu__640DD89F" Association="Self.FK__EMPLEADOS__id_pu__640DD89F">
+      <End Role="PUESTOS" EntitySet="PUESTOS" />
+      <End Role="EMPLEADOS" EntitySet="EMPLEADOS" />
+    </AssociationSet>
     <AssociationSet Name="FK_ARTICULOS_CATEGORIAS" Association="Self.FK_ARTICULOS_CATEGORIAS">
       <End Role="CATEGORIAS" EntitySet="CATEGORIAS" />
       <End Role="ARTICULOS" EntitySet="ARTICULOS" />

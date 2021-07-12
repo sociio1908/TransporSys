@@ -228,10 +228,10 @@ namespace _911_RD.Administracion
             this.txt_des_puesto.Limpiar = true;
             this.txt_des_puesto.Location = new System.Drawing.Point(237, 155);
             this.txt_des_puesto.Name = "txt_des_puesto";
-            this.txt_des_puesto.Size = new System.Drawing.Size(170, 26);
+            this.txt_des_puesto.Size = new System.Drawing.Size(199, 26);
             this.txt_des_puesto.SoloNumeros = false;
             this.txt_des_puesto.TabIndex = 154;
-            this.txt_des_puesto.Validar = true;
+            this.txt_des_puesto.Validar = false;
             // 
             // label11
             // 
@@ -255,7 +255,7 @@ namespace _911_RD.Administracion
             this.txt_cargo.Size = new System.Drawing.Size(130, 26);
             this.txt_cargo.SoloNumeros = false;
             this.txt_cargo.TabIndex = 152;
-            this.txt_cargo.Validar = true;
+            this.txt_cargo.Validar = false;
             // 
             // label12
             // 
@@ -528,7 +528,7 @@ namespace _911_RD.Administracion
             this.txt_apellido.Size = new System.Drawing.Size(170, 26);
             this.txt_apellido.SoloNumeros = false;
             this.txt_apellido.TabIndex = 171;
-            this.txt_apellido.Validar = true;
+            this.txt_apellido.Validar = false;
             // 
             // errorProvider1
             // 
@@ -554,9 +554,9 @@ namespace _911_RD.Administracion
             this.txt_salario.Location = new System.Drawing.Point(237, 209);
             this.txt_salario.Name = "txt_salario";
             this.txt_salario.Size = new System.Drawing.Size(130, 26);
-            this.txt_salario.SoloNumeros = false;
+            this.txt_salario.SoloNumeros = true;
             this.txt_salario.TabIndex = 173;
-            this.txt_salario.Validar = true;
+            this.txt_salario.Validar = false;
             // 
             // p_direccion
             // 
@@ -615,7 +615,7 @@ namespace _911_RD.Administracion
             this.txt_telefono.Size = new System.Drawing.Size(128, 26);
             this.txt_telefono.SoloNumeros = true;
             this.txt_telefono.TabIndex = 194;
-            this.txt_telefono.Validar = true;
+            this.txt_telefono.Validar = false;
             // 
             // lbl_contacto
             // 
@@ -747,7 +747,7 @@ namespace _911_RD.Administracion
             this.txt_direccion.Size = new System.Drawing.Size(333, 26);
             this.txt_direccion.SoloNumeros = false;
             this.txt_direccion.TabIndex = 191;
-            this.txt_direccion.Validar = true;
+            this.txt_direccion.Validar = false;
             // 
             // label24
             // 
