@@ -139,5 +139,15 @@ namespace _911_RD
 
             AbrirFormEnPanel(new FrmEmpleado());
         }
+
+        private void btn_ventas_Click(object sender, EventArgs e)
+        {
+            AbrirFormEnPanel(new frmVentas());
+        }
+
+        private void btn_gps_Click(object sender, EventArgs e)
+        {
+            AbrirFormEnPanel(new F_principal());
+        }
     }
 }

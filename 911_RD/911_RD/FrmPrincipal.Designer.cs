@@ -31,7 +31,7 @@ namespace _911_RD
         {
             this.pnl_contenedor = new System.Windows.Forms.Panel();
             this.pnl_menu = new System.Windows.Forms.Panel();
-            this.button9 = new System.Windows.Forms.Button();
+            this.btn_gps = new System.Windows.Forms.Button();
             this.btn_empleado = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -41,7 +41,7 @@ namespace _911_RD
             this.btn_clientes = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btn_ventas = new System.Windows.Forms.Button();
             this.btn_paciente = new System.Windows.Forms.Button();
             this.btn_viajes = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
@@ -52,6 +52,7 @@ namespace _911_RD
             this.label1 = new System.Windows.Forms.Label();
             this.lbl_minimizar = new System.Windows.Forms.Label();
             this.lbl_cerrar = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
             this.pnl_menu.SuspendLayout();
             this.panel1.SuspendLayout();
             this.pnl_barra.SuspendLayout();
@@ -70,7 +71,8 @@ namespace _911_RD
             // pnl_menu
             // 
             this.pnl_menu.BackColor = System.Drawing.Color.Brown;
-            this.pnl_menu.Controls.Add(this.button9);
+            this.pnl_menu.Controls.Add(this.button2);
+            this.pnl_menu.Controls.Add(this.btn_gps);
             this.pnl_menu.Controls.Add(this.btn_empleado);
             this.pnl_menu.Controls.Add(this.button7);
             this.pnl_menu.Controls.Add(this.button1);
@@ -78,7 +80,7 @@ namespace _911_RD
             this.pnl_menu.Controls.Add(this.btn_clientes);
             this.pnl_menu.Controls.Add(this.button5);
             this.pnl_menu.Controls.Add(this.button4);
-            this.pnl_menu.Controls.Add(this.button3);
+            this.pnl_menu.Controls.Add(this.btn_ventas);
             this.pnl_menu.Controls.Add(this.btn_paciente);
             this.pnl_menu.Controls.Add(this.btn_viajes);
             this.pnl_menu.Controls.Add(this.label4);
@@ -90,20 +92,21 @@ namespace _911_RD
             this.pnl_menu.TabIndex = 1;
             this.pnl_menu.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
-            // button9
+            // btn_gps
             // 
-            this.button9.BackColor = System.Drawing.Color.Brown;
-            this.button9.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button9.FlatAppearance.BorderSize = 0;
-            this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button9.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button9.ForeColor = System.Drawing.Color.White;
-            this.button9.Location = new System.Drawing.Point(-3, 384);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(177, 33);
-            this.button9.TabIndex = 15;
-            this.button9.Text = "Ajustes";
-            this.button9.UseVisualStyleBackColor = false;
+            this.btn_gps.BackColor = System.Drawing.Color.Brown;
+            this.btn_gps.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btn_gps.FlatAppearance.BorderSize = 0;
+            this.btn_gps.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_gps.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_gps.ForeColor = System.Drawing.Color.White;
+            this.btn_gps.Location = new System.Drawing.Point(0, 384);
+            this.btn_gps.Name = "btn_gps";
+            this.btn_gps.Size = new System.Drawing.Size(177, 33);
+            this.btn_gps.TabIndex = 15;
+            this.btn_gps.Text = "GPS";
+            this.btn_gps.UseVisualStyleBackColor = false;
+            this.btn_gps.Click += new System.EventHandler(this.btn_gps_Click);
             // 
             // btn_empleado
             // 
@@ -231,20 +234,21 @@ namespace _911_RD
             this.button4.Text = "Planes";
             this.button4.UseVisualStyleBackColor = false;
             // 
-            // button3
+            // btn_ventas
             // 
-            this.button3.BackColor = System.Drawing.Color.Brown;
-            this.button3.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(3, 115);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(177, 33);
-            this.button3.TabIndex = 9;
-            this.button3.Text = "Ventas";
-            this.button3.UseVisualStyleBackColor = false;
+            this.btn_ventas.BackColor = System.Drawing.Color.Brown;
+            this.btn_ventas.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btn_ventas.FlatAppearance.BorderSize = 0;
+            this.btn_ventas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_ventas.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_ventas.ForeColor = System.Drawing.Color.White;
+            this.btn_ventas.Location = new System.Drawing.Point(3, 115);
+            this.btn_ventas.Name = "btn_ventas";
+            this.btn_ventas.Size = new System.Drawing.Size(177, 33);
+            this.btn_ventas.TabIndex = 9;
+            this.btn_ventas.Text = "Ventas";
+            this.btn_ventas.UseVisualStyleBackColor = false;
+            this.btn_ventas.Click += new System.EventHandler(this.btn_ventas_Click);
             // 
             // btn_paciente
             // 
@@ -384,6 +388,21 @@ namespace _911_RD
             this.lbl_cerrar.Text = "X";
             this.lbl_cerrar.Click += new System.EventHandler(this.lbl_cerrar_Click);
             // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.Brown;
+            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.Color.White;
+            this.button2.Location = new System.Drawing.Point(-3, 423);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(177, 33);
+            this.button2.TabIndex = 16;
+            this.button2.Text = "Ajustes";
+            this.button2.UseVisualStyleBackColor = false;
+            // 
             // FrmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -422,7 +441,7 @@ namespace _911_RD
         private System.Windows.Forms.Button btn_clientes;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btn_ventas;
         private System.Windows.Forms.Button btn_paciente;
         private System.Windows.Forms.Button btn_viajes;
         private System.Windows.Forms.Panel panel1;
@@ -431,8 +450,9 @@ namespace _911_RD
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button btn_empleado;
-        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Button btn_gps;
         private System.Windows.Forms.TextBox txt_filtro;
         private System.Windows.Forms.Label lbl_buscar;
+        private System.Windows.Forms.Button button2;
     }
 }

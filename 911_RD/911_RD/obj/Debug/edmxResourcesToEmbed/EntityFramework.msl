@@ -356,6 +356,7 @@
     <EntitySetMapping Name="PERSONAS">
       <EntityTypeMapping TypeName="TransporSysModel.PERSONAS">
         <MappingFragment StoreEntitySet="PERSONAS">
+          <ScalarProperty Name="fecha_nacimiento" ColumnName="fecha_nacimiento" />
           <ScalarProperty Name="id_persona" ColumnName="id_persona" />
           <ScalarProperty Name="id_tercero" ColumnName="id_tercero" />
           <ScalarProperty Name="id_sexo" ColumnName="id_sexo" />

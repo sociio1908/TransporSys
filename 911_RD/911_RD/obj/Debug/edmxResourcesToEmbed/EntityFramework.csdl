@@ -414,6 +414,7 @@
     <NavigationProperty Name="NACIONALIDADES" Relationship="Self.FK_PERSONAS_NACIONALIDADES" FromRole="PERSONAS" ToRole="NACIONALIDADES" />
     <NavigationProperty Name="SEXOS" Relationship="Self.FK_PERSONAS_SEXOS" FromRole="PERSONAS" ToRole="SEXOS" />
     <NavigationProperty Name="TERCEROS" Relationship="Self.FK_PERSONAS_TERCEROS" FromRole="PERSONAS" ToRole="TERCEROS" />
+    <Property Name="fecha_nacimiento" Type="DateTime" Nullable="false" Precision="0" />
   </EntityType>
   <EntityType Name="PRECIOS">
     <Key>

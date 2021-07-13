@@ -351,6 +351,7 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.ARTICULOS_VS_CATEGORIAS_VS_D
     <Property Name="id_sexo" Type="int" Nullable="false" />
     <Property Name="id_nacionalidad" Type="int" Nullable="false" />
     <Property Name="apellido" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="fecha_nacimiento" Type="date" Nullable="false" />
   </EntityType>
   <EntityType Name="PRECIOS">
     <Key>
