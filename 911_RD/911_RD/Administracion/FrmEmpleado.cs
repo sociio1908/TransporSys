@@ -17,7 +17,6 @@ namespace _911_RD.Administracion
             InitializeComponent();
             cb_estado.SelectedIndex = 0;
             cargarNacionalidades();
-            AsignarContinentes();
         }
 
         MetodosCRUD metodoscrud = new MetodosCRUD();
@@ -27,7 +26,7 @@ namespace _911_RD.Administracion
         {
             try
             {
-                using (TransporSysEntities db = new TransporSysEntities())
+                using (TransporSysEntities2 db = new TransporSysEntities2())
             {
                 
                     var listS = db.SEXOS;
@@ -95,29 +94,6 @@ namespace _911_RD.Administracion
 
 
 
-        private void AsignarContinentes()
-        {
-            try
-            {
-                using (TransporSysEntities db = new TransporSysEntities())
-                {
-                    var listS = db.CONTINENTES;
-                    foreach (var cONTI in listS)
-                    {
-                        cb_continente.Items.Add(cONTI.continente);
-                    }
-                }
-            }
-            catch (Exception dfg)
-            {
-                // MessageBox.Show(lbl_titulo + " ERRORRRR");
-
-            }
-        }
-
-
-
-
         private void btn_guardar_Click(object sender, EventArgs e)
         {
             MessageBox.Show(validarCombo().ToString());
@@ -152,7 +128,7 @@ namespace _911_RD.Administracion
             {
                 if (Utilidades.ValidarFormulario(this, errorProvider1) == true)
                     return;
-                using (TransporSysEntities db = new TransporSysEntities())
+                using (TransporSysEntities2 db = new TransporSysEntities2())
                 {
                     //if (id_txt.Text.Trim() == "")
                     //{
@@ -196,7 +172,7 @@ namespace _911_RD.Administracion
 
         bool validarCombo()
         {
-            if (cb_sexo.SelectedItem ==null  || cb_estado.SelectedItem == null || cb_continente.SelectedItem == null || cb_pais.SelectedItem == null || cb_provincia.SelectedItem == null || cb_ciudad.SelectedItem == null || cb_nacionalidades.SelectedItem == null)
+            if (cb_sexo.SelectedItem ==null  || cb_estado.SelectedItem == null || cb_nacionalidades.SelectedItem == null)
                 return false;
 
             return true;
@@ -233,50 +209,50 @@ namespace _911_RD.Administracion
             }
         }
 
-        private void cb_continente_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            cb_pais.Items.Clear();
-            cb_provincia.Items.Clear();
-            cb_ciudad.Items.Clear();
-            cb_pais.ResetText();
-            cb_provincia.ResetText();
-            cb_ciudad.ResetText();
-            foreach (var x in metodoscrud.AsignarPaises(cb_continente.SelectedItem.ToString())) {
-
-                cb_pais.Items.Add(x.ToString());
-            }
-        }
-
-        private void cb_provincia_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            cb_ciudad.Items.Clear();
-            cb_ciudad.ResetText();
-            foreach (var x in metodoscrud.AsignarCiudad(cb_provincia.SelectedItem.ToString()))
-            {
-
-                cb_ciudad.Items.Add(x.ToString());
-            }
-
-        }
-
-        private void cb_pais_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-            cb_provincia.Items.Clear();
-            cb_ciudad.Items.Clear();
-            cb_provincia.ResetText();
-            cb_ciudad.ResetText();
-            foreach (var x in metodoscrud.AsignarProvincias(cb_pais.SelectedItem.ToString()))
-            {
-                cb_provincia.Items.Add(x.ToString());
-            }
-        }
 
         private void btn_limpiar_Click(object sender, EventArgs e)
         {
             Utilidades.LimpiarControles(this);
             lbl_conductor.Visible = false;
             p_conductor.Visible = false;
+        }
+
+        private void btn_busc_dir_Click(object sender, EventArgs e)
+        {
+            using (FrmDirecciones frm = new FrmDirecciones())
+            {
+                DialogResult dr = frm.ShowDialog();
+                if (dr == DialogResult.OK)
+                
+                try
+                {
+                    UseWaitCursor = true;
+                    var res = Utilidades.ExtraerDireccion(frm.webBrowser1.Url.ToString());
+
+                    if (res.Item3)
+                    {
+                        this.DialogResult = DialogResult.OK;
+                            txt_lat.Text = res.Item1.ToString();
+                            txt_long.Text = res.Item2.ToString();
+                            lbl_estado_dir.Text = "DIRECCION CARGADA CON EXITO.";
+                        lbl_estado_dir.ForeColor = System.Drawing.Color.DarkGreen;
+                    }
+                    else
+                    {
+                        lbl_estado_dir.Text = "ERROR, DIRECCION NO CARGADA.";
+                        lbl_estado_dir.ForeColor = System.Drawing.Color.Red;
+                    }
+                    UseWaitCursor = false;
+
+                }
+                catch (Exception asasd)
+                {
+                    //error
+                }
+
+              
+
+            }
         }
     }
 }

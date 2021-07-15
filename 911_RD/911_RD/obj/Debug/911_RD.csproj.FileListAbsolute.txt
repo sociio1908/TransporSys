@@ -76,3 +76,4 @@ C:\Users\Ing. Jerinel Mendoza\Documents\Proyecto C#\Mi_App911\911_RD\911_RD\bin\
 C:\Users\Ing. Jerinel Mendoza\Documents\Proyecto C#\Mi_App911\911_RD\911_RD\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\Ing. Jerinel Mendoza\Documents\Proyecto C#\Mi_App911\911_RD\911_RD\obj\Debug\911_RD.csprojAssemblyReference.cache
 C:\Users\Ing. Jerinel Mendoza\Documents\Proyecto C#\Mi_App911\911_RD\911_RD\obj\Debug\_911_RD.frmVentas.resources
+C:\Users\Ing. Jerinel Mendoza\Documents\Proyecto C#\Mi_App911\911_RD\911_RD\obj\Debug\_911_RD.Administracion.FrmDirecciones.resources

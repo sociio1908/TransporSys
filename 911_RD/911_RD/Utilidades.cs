@@ -10,6 +10,53 @@ namespace _911_RD
     {
 
 
+        public static Tuple<string, string, Boolean> ExtraerDireccion(string link1)
+        {
+            Boolean listo = false;
+            string latitud = null, longitud = null;
+            try
+            {
+            char[] data = link1.ToCharArray();
+            int coma = 0;
+
+            for (int a = 0; a < data.Length; a++)
+            {
+                if (data[a].ToString().Equals("@") || (coma > 0 && coma < 3))
+                {
+                    if (coma == 1 && data[a].ToString() != (","))
+                    {
+                        latitud += data[a].ToString();
+                    }
+                    if (coma == 2 && data[a].ToString() != (","))
+                    {
+                        longitud += data[a].ToString();
+                    }
+                    if (data[a].ToString().Equals("@"))
+                    {
+                        coma++;
+                    }
+                    if (data[a].ToString().Equals(","))
+                    {
+                        coma++;
+                    }
+                }
+            }
+            latitud.Trim();
+            longitud.Trim();
+            latitud.Replace(",", "");
+            longitud.Replace(",", "");
+                if ((latitud != null || latitud != "") && (longitud != null || longitud != ""))
+                    listo = true;
+
+            }
+            catch (Exception er)
+            {
+                //error
+            }
+
+            return Tuple.Create(latitud, longitud, listo);
+        }
+
         public static Boolean ValidarFormulario(Control objeto, ErrorProvider ErrorProvider)
         {
             Boolean HayError = false;

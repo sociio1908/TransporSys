@@ -84,16 +84,13 @@ namespace _911_RD.Administracion
             this.txt_numlicencia = new _911_RD.ErrorTxtBox();
             this.label18 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label25 = new System.Windows.Forms.Label();
-            this.txt_direccion = new _911_RD.ErrorTxtBox();
-            this.label24 = new System.Windows.Forms.Label();
-            this.cb_pais = new System.Windows.Forms.ComboBox();
-            this.label21 = new System.Windows.Forms.Label();
-            this.cb_provincia = new System.Windows.Forms.ComboBox();
-            this.label17 = new System.Windows.Forms.Label();
-            this.cb_ciudad = new System.Windows.Forms.ComboBox();
             this.label20 = new System.Windows.Forms.Label();
-            this.cb_continente = new System.Windows.Forms.ComboBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.txt_long = new _911_RD.ErrorTxtBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.btn_busc_dir = new System.Windows.Forms.PictureBox();
+            this.lbl_estado_dir = new System.Windows.Forms.Label();
+            this.txt_lat = new _911_RD.ErrorTxtBox();
             this.label22 = new System.Windows.Forms.Label();
             this.cb_nacionalidades = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.btn_buscar)).BeginInit();
@@ -103,6 +100,7 @@ namespace _911_RD.Administracion
             this.p_direccion.SuspendLayout();
             this.p_conductor.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_busc_dir)).BeginInit();
             this.SuspendLayout();
             // 
             // btn_guardar
@@ -711,126 +709,100 @@ namespace _911_RD.Administracion
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.panel1.Controls.Add(this.label25);
-            this.panel1.Controls.Add(this.txt_direccion);
-            this.panel1.Controls.Add(this.label24);
-            this.panel1.Controls.Add(this.cb_pais);
-            this.panel1.Controls.Add(this.label21);
-            this.panel1.Controls.Add(this.cb_provincia);
-            this.panel1.Controls.Add(this.label17);
-            this.panel1.Controls.Add(this.cb_ciudad);
             this.panel1.Controls.Add(this.label20);
-            this.panel1.Controls.Add(this.cb_continente);
+            this.panel1.Controls.Add(this.label19);
+            this.panel1.Controls.Add(this.txt_long);
+            this.panel1.Controls.Add(this.label17);
+            this.panel1.Controls.Add(this.btn_busc_dir);
+            this.panel1.Controls.Add(this.lbl_estado_dir);
+            this.panel1.Controls.Add(this.txt_lat);
             this.panel1.Location = new System.Drawing.Point(442, 259);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(595, 127);
             this.panel1.TabIndex = 181;
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label25.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label25.Location = new System.Drawing.Point(3, 61);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(202, 16);
-            this.label25.TabIndex = 193;
-            this.label25.Text = "DESCRIPCION DE DIREACCION";
-            // 
-            // txt_direccion
-            // 
-            this.txt_direccion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txt_direccion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.txt_direccion.Limpiar = true;
-            this.txt_direccion.Location = new System.Drawing.Point(6, 81);
-            this.txt_direccion.Name = "txt_direccion";
-            this.txt_direccion.Size = new System.Drawing.Size(333, 26);
-            this.txt_direccion.SoloNumeros = false;
-            this.txt_direccion.TabIndex = 191;
-            this.txt_direccion.Validar = false;
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label24.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label24.Location = new System.Drawing.Point(137, 5);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(36, 16);
-            this.label24.TabIndex = 192;
-            this.label24.Text = "PAIS";
-            // 
-            // cb_pais
-            // 
-            this.cb_pais.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cb_pais.FormattingEnabled = true;
-            this.cb_pais.Location = new System.Drawing.Point(140, 24);
-            this.cb_pais.Name = "cb_pais";
-            this.cb_pais.Size = new System.Drawing.Size(134, 24);
-            this.cb_pais.TabIndex = 191;
-            this.cb_pais.SelectedIndexChanged += new System.EventHandler(this.cb_pais_SelectedIndexChanged);
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label21.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label21.Location = new System.Drawing.Point(277, 5);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(81, 16);
-            this.label21.TabIndex = 188;
-            this.label21.Text = "PROVINCIA";
-            // 
-            // cb_provincia
-            // 
-            this.cb_provincia.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cb_provincia.FormattingEnabled = true;
-            this.cb_provincia.Location = new System.Drawing.Point(280, 24);
-            this.cb_provincia.Name = "cb_provincia";
-            this.cb_provincia.Size = new System.Drawing.Size(140, 24);
-            this.cb_provincia.TabIndex = 187;
-            this.cb_provincia.SelectedIndexChanged += new System.EventHandler(this.cb_provincia_SelectedIndexChanged);
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label17.Location = new System.Drawing.Point(423, 5);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(58, 16);
-            this.label17.TabIndex = 186;
-            this.label17.Text = "CIUDAD";
-            // 
-            // cb_ciudad
-            // 
-            this.cb_ciudad.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cb_ciudad.FormattingEnabled = true;
-            this.cb_ciudad.Location = new System.Drawing.Point(426, 24);
-            this.cb_ciudad.Name = "cb_ciudad";
-            this.cb_ciudad.Size = new System.Drawing.Size(154, 24);
-            this.cb_ciudad.TabIndex = 185;
             // 
             // label20
             // 
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.label20.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label20.Location = new System.Drawing.Point(3, 5);
+            this.label20.Location = new System.Drawing.Point(3, 74);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(89, 16);
-            this.label20.TabIndex = 184;
-            this.label20.Text = "CONTINENTE";
+            this.label20.Size = new System.Drawing.Size(73, 16);
+            this.label20.TabIndex = 197;
+            this.label20.Text = "LONGITUD";
             // 
-            // cb_continente
+            // label19
             // 
-            this.cb_continente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cb_continente.FormattingEnabled = true;
-            this.cb_continente.Location = new System.Drawing.Point(6, 24);
-            this.cb_continente.Name = "cb_continente";
-            this.cb_continente.Size = new System.Drawing.Size(128, 24);
-            this.cb_continente.TabIndex = 183;
-            this.cb_continente.SelectedIndexChanged += new System.EventHandler(this.cb_continente_SelectedIndexChanged);
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label19.Location = new System.Drawing.Point(3, 42);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(57, 16);
+            this.label19.TabIndex = 196;
+            this.label19.Text = "LATITUD";
+            // 
+            // txt_long
+            // 
+            this.txt_long.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_long.Enabled = false;
+            this.txt_long.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.txt_long.Limpiar = true;
+            this.txt_long.Location = new System.Drawing.Point(82, 69);
+            this.txt_long.Name = "txt_long";
+            this.txt_long.Size = new System.Drawing.Size(173, 26);
+            this.txt_long.SoloNumeros = false;
+            this.txt_long.TabIndex = 195;
+            this.txt_long.Validar = true;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label17.Location = new System.Drawing.Point(3, 5);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(136, 16);
+            this.label17.TabIndex = 194;
+            this.label17.Text = "BUSCAR DIRECCION";
+            // 
+            // btn_busc_dir
+            // 
+            this.btn_busc_dir.BackColor = System.Drawing.Color.LightGreen;
+            this.btn_busc_dir.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_busc_dir.Image = global::_911_RD.Properties.Resources.search;
+            this.btn_busc_dir.Location = new System.Drawing.Point(145, 3);
+            this.btn_busc_dir.Name = "btn_busc_dir";
+            this.btn_busc_dir.Size = new System.Drawing.Size(34, 26);
+            this.btn_busc_dir.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btn_busc_dir.TabIndex = 191;
+            this.btn_busc_dir.TabStop = false;
+            this.btn_busc_dir.Click += new System.EventHandler(this.btn_busc_dir_Click);
+            // 
+            // lbl_estado_dir
+            // 
+            this.lbl_estado_dir.AutoSize = true;
+            this.lbl_estado_dir.Font = new System.Drawing.Font("Candara", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_estado_dir.ForeColor = System.Drawing.Color.Red;
+            this.lbl_estado_dir.Location = new System.Drawing.Point(127, 98);
+            this.lbl_estado_dir.Name = "lbl_estado_dir";
+            this.lbl_estado_dir.Size = new System.Drawing.Size(128, 15);
+            this.lbl_estado_dir.TabIndex = 193;
+            this.lbl_estado_dir.Text = "DIRECCION SIN CARGAR";
+            // 
+            // txt_lat
+            // 
+            this.txt_lat.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_lat.Enabled = false;
+            this.txt_lat.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.txt_lat.Limpiar = true;
+            this.txt_lat.Location = new System.Drawing.Point(82, 37);
+            this.txt_lat.Name = "txt_lat";
+            this.txt_lat.Size = new System.Drawing.Size(173, 26);
+            this.txt_lat.SoloNumeros = false;
+            this.txt_lat.TabIndex = 191;
+            this.txt_lat.Validar = true;
             // 
             // label22
             // 
@@ -944,6 +916,7 @@ namespace _911_RD.Administracion
             this.p_conductor.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_busc_dir)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -996,18 +969,9 @@ namespace _911_RD.Administracion
         private System.Windows.Forms.Panel p_conductor;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.ComboBox cb_continente;
-        private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.ComboBox cb_provincia;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.ComboBox cb_ciudad;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.ComboBox cb_nacionalidades;
-        private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.ComboBox cb_pais;
-        private System.Windows.Forms.Label label25;
-        private ErrorTxtBox txt_direccion;
+        private System.Windows.Forms.Label lbl_estado_dir;
         private System.Windows.Forms.Label label23;
         private ErrorTxtBox txt_telefono;
         private System.Windows.Forms.Label label26;
@@ -1016,5 +980,11 @@ namespace _911_RD.Administracion
         private ErrorTxtBox txt_numlicencia;
         private System.Windows.Forms.DateTimePicker fecha_licencia;
         private System.Windows.Forms.Label label28;
+        public System.Windows.Forms.PictureBox btn_busc_dir;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label19;
+        public ErrorTxtBox txt_lat;
+        public ErrorTxtBox txt_long;
     }
 }
