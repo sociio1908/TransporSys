@@ -114,17 +114,6 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.ARTICULOS_VS_CATEGORIAS_VS_D
           <Property Name="fecha" Type="datetime" Nullable="false" />
           <Property Name="estado" Type="bit" Nullable="false" />
         </EntityType>
-        <EntityType Name="CUOTAS">
-          <Key>
-            <PropertyRef Name="id_cuotas" />
-          </Key>
-          <Property Name="id_cuotas" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="id_financiamiento" Type="int" Nullable="false" />
-          <Property Name="num_cuota" Type="int" Nullable="false" />
-          <Property Name="tasa" Type="float" Nullable="false" />
-          <Property Name="monto" Type="float" Nullable="false" />
-          <Property Name="estado" Type="bit" Nullable="false" />
-        </EntityType>
         <EntityType Name="DEPARTAMENTOS">
           <Key>
             <PropertyRef Name="id_departamento" />
@@ -294,28 +283,16 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.ARTICULOS_VS_CATEGORIAS_VS_D
         </EntityType>
         <EntityType Name="MARCA">
           <Key>
-            <PropertyRef Name="intMarca" />
+            <PropertyRef Name="id_marca" />
           </Key>
-          <Property Name="intMarca" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_marca" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="marca" Type="nvarchar" MaxLength="255" />
-        </EntityType>
-        <EntityType Name="MEMBRESIAS">
-          <Key>
-            <PropertyRef Name="serie" />
-          </Key>
-          <Property Name="serie" Type="varchar" MaxLength="150" Nullable="false" />
-          <Property Name="id_tipo_membresia" Type="int" Nullable="false" />
-          <Property Name="id_cliente" Type="int" Nullable="false" />
-          <Property Name="puntos" Type="int" Nullable="false" />
-          <Property Name="fecha_creacion" Type="datetime" Nullable="false" />
-          <Property Name="fecha_expiracion" Type="datetime" Nullable="false" />
-          <Property Name="estado" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="MODELO">
           <Key>
-            <PropertyRef Name="intModelo" />
+            <PropertyRef Name="id_modelo" />
           </Key>
-          <Property Name="intModelo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_modelo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="modelo" Type="nvarchar" MaxLength="255" />
           <Property Name="createdAt" Type="datetime" />
           <Property Name="updatedAt" Type="datetime" />
@@ -436,7 +413,6 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.ARTICULOS_VS_CATEGORIAS_VS_D
           </Key>
           <Property Name="id_tercero" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="nombre" Type="varchar" MaxLength="100" Nullable="false" />
-          <Property Name="identificacion" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="TERCEROS_VS_DIRECCIONES">
           <Key>
@@ -528,20 +504,6 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.TIPONCF' no tiene definida n
           <Property Name="tipo_usuario" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="descripcion" Type="varchar" MaxLength="150" Nullable="false" />
         </EntityType>
-        <EntityType Name="TRANSPORTE">
-          <Key>
-            <PropertyRef Name="intTransporte" />
-          </Key>
-          <Property Name="intTransporte" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="numFactura" Type="int" Nullable="false" />
-          <Property Name="intEmpleado" Type="int" Nullable="false" />
-          <Property Name="intVehiculo" Type="int" Nullable="false" />
-          <Property Name="intDireccion" Type="int" Nullable="false" />
-          <Property Name="hora" Type="datetime" />
-          <Property Name="status" Type="nvarchar" MaxLength="255" />
-          <Property Name="createdAt" Type="datetime" />
-          <Property Name="updatedAt" Type="datetime" />
-        </EntityType>
         <EntityType Name="UNIDADES_DE_MEDIDA">
           <Key>
             <PropertyRef Name="id_unidad_de_medida" />
@@ -565,14 +527,19 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.TIPONCF' no tiene definida n
         </EntityType>
         <EntityType Name="VEHICULO">
           <Key>
-            <PropertyRef Name="intVehiculo" />
+            <PropertyRef Name="id_vehiculo" />
           </Key>
-          <Property Name="intVehiculo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="intMarca" Type="int" Nullable="false" />
-          <Property Name="intModelo" Type="int" Nullable="false" />
-          <Property Name="status" Type="bit" />
-          <Property Name="createdAt" Type="datetime" />
-          <Property Name="updatedAt" Type="datetime" />
+          <Property Name="id_vehiculo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_marca" Type="int" Nullable="false" />
+          <Property Name="id_modelo" Type="int" Nullable="false" />
+          <Property Name="id_conductor" Type="int" />
+          <Property Name="num_chasis" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="fecha_ingreso" Type="datetime" Nullable="false" />
+          <Property Name="ano_fabricacion" Type="datetime" Nullable="false" />
+          <Property Name="gasto_galon_combustible_kilometro" Type="float" Nullable="false" />
+          <Property Name="id_combustible" Type="int" Nullable="false" />
+          <Property Name="num_gps" Type="varchar" MaxLength="50" />
+          <Property Name="estado" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="VENTAS">
           <Key>
@@ -761,18 +728,6 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.TIPONCF' no tiene definida n
             </Principal>
             <Dependent Role="COTIZACIONES">
               <PropertyRef Name="id_empleado" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_CUOTAS_FINANCIAMIENTOS">
-          <End Role="FINANCIAMIENTOS" Type="Self.FINANCIAMIENTOS" Multiplicity="1" />
-          <End Role="CUOTAS" Type="Self.CUOTAS" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="FINANCIAMIENTOS">
-              <PropertyRef Name="id_financiamiento" />
-            </Principal>
-            <Dependent Role="CUOTAS">
-              <PropertyRef Name="id_financiamiento" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1064,30 +1019,6 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.TIPONCF' no tiene definida n
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_MEMBRESIAS_CLIENTES">
-          <End Role="CLIENTES" Type="Self.CLIENTES" Multiplicity="1" />
-          <End Role="MEMBRESIAS" Type="Self.MEMBRESIAS" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="CLIENTES">
-              <PropertyRef Name="id_cliente" />
-            </Principal>
-            <Dependent Role="MEMBRESIAS">
-              <PropertyRef Name="id_cliente" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_MEMBRESIAS_TIPOS_MEMBRESIAS">
-          <End Role="TIPOS_MEMBRESIAS" Type="Self.TIPOS_MEMBRESIAS" Multiplicity="1" />
-          <End Role="MEMBRESIAS" Type="Self.MEMBRESIAS" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TIPOS_MEMBRESIAS">
-              <PropertyRef Name="id_tipo_membresia" />
-            </Principal>
-            <Dependent Role="MEMBRESIAS">
-              <PropertyRef Name="id_tipo_membresia" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_PAISES_CONTINENTES">
           <End Role="CONTINENTES" Type="Self.CONTINENTES" Multiplicity="1" />
           <End Role="PAISES" Type="Self.PAISES" Multiplicity="*" />
@@ -1364,6 +1295,30 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.TIPONCF' no tiene definida n
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_vaehicualo">
+          <End Role="MODELO" Type="Self.MODELO" Multiplicity="1" />
+          <End Role="VEHICULO" Type="Self.VEHICULO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MODELO">
+              <PropertyRef Name="id_modelo" />
+            </Principal>
+            <Dependent Role="VEHICULO">
+              <PropertyRef Name="id_modelo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_vaehiculo">
+          <End Role="MARCA" Type="Self.MARCA" Multiplicity="1" />
+          <End Role="VEHICULO" Type="Self.VEHICULO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MARCA">
+              <PropertyRef Name="id_marca" />
+            </Principal>
+            <Dependent Role="VEHICULO">
+              <PropertyRef Name="id_marca" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_VENTAS_CLIENTES">
           <End Role="CLIENTES" Type="Self.CLIENTES" Multiplicity="1" />
           <End Role="VENTAS" Type="Self.VENTAS" Multiplicity="*" />
@@ -1399,7 +1354,6 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.TIPONCF' no tiene definida n
           <EntitySet Name="COMPRAS" EntityType="Self.COMPRAS" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CONTINENTES" EntityType="Self.CONTINENTES" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="COTIZACIONES" EntityType="Self.COTIZACIONES" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="CUOTAS" EntityType="Self.CUOTAS" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DEPARTAMENTOS" EntityType="Self.DEPARTAMENTOS" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DESCUENTOS" EntityType="Self.DESCUENTOS" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DETALLES_COMPRAS" EntityType="Self.DETALLES_COMPRAS" Schema="dbo" store:Type="Tables" />
@@ -1417,7 +1371,6 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.TIPONCF' no tiene definida n
           <EntitySet Name="IDENTIFICACIONES" EntityType="Self.IDENTIFICACIONES" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ITEBIS" EntityType="Self.ITEBIS" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MARCA" EntityType="Self.MARCA" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="MEMBRESIAS" EntityType="Self.MEMBRESIAS" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MODELO" EntityType="Self.MODELO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="NACIONALIDADES" EntityType="Self.NACIONALIDADES" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="NCF" EntityType="Self.NCF" Schema="dbo" store:Type="Tables" />
@@ -1442,7 +1395,6 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.TIPONCF' no tiene definida n
           <EntitySet Name="TIPOS_SUPLIDORES" EntityType="Self.TIPOS_SUPLIDORES" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TIPOS_TELEFONOS" EntityType="Self.TIPOS_TELEFONOS" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TIPOS_USUARIOS" EntityType="Self.TIPOS_USUARIOS" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="TRANSPORTE" EntityType="Self.TRANSPORTE" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UNIDADES_DE_MEDIDA" EntityType="Self.UNIDADES_DE_MEDIDA" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="USUARIOS" EntityType="Self.USUARIOS" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="VEHICULO" EntityType="Self.VEHICULO" Schema="dbo" store:Type="Tables" />
@@ -1519,10 +1471,6 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.TIPONCF' no tiene definida n
           <AssociationSet Name="FK_COTIZACIONES_EMPLEADOS" Association="Self.FK_COTIZACIONES_EMPLEADOS">
             <End Role="EMPLEADOS" EntitySet="EMPLEADOS" />
             <End Role="COTIZACIONES" EntitySet="COTIZACIONES" />
-          </AssociationSet>
-          <AssociationSet Name="FK_CUOTAS_FINANCIAMIENTOS" Association="Self.FK_CUOTAS_FINANCIAMIENTOS">
-            <End Role="FINANCIAMIENTOS" EntitySet="FINANCIAMIENTOS" />
-            <End Role="CUOTAS" EntitySet="CUOTAS" />
           </AssociationSet>
           <AssociationSet Name="FK_DESCUENTOS_EMPLEADOS" Association="Self.FK_DESCUENTOS_EMPLEADOS">
             <End Role="EMPLEADOS" EntitySet="EMPLEADOS" />
@@ -1620,14 +1568,6 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.TIPONCF' no tiene definida n
             <End Role="TIPOS_IDENTIFICACIONES" EntitySet="TIPOS_IDENTIFICACIONES" />
             <End Role="IDENTIFICACIONES" EntitySet="IDENTIFICACIONES" />
           </AssociationSet>
-          <AssociationSet Name="FK_MEMBRESIAS_CLIENTES" Association="Self.FK_MEMBRESIAS_CLIENTES">
-            <End Role="CLIENTES" EntitySet="CLIENTES" />
-            <End Role="MEMBRESIAS" EntitySet="MEMBRESIAS" />
-          </AssociationSet>
-          <AssociationSet Name="FK_MEMBRESIAS_TIPOS_MEMBRESIAS" Association="Self.FK_MEMBRESIAS_TIPOS_MEMBRESIAS">
-            <End Role="TIPOS_MEMBRESIAS" EntitySet="TIPOS_MEMBRESIAS" />
-            <End Role="MEMBRESIAS" EntitySet="MEMBRESIAS" />
-          </AssociationSet>
           <AssociationSet Name="FK_PAISES_CONTINENTES" Association="Self.FK_PAISES_CONTINENTES">
             <End Role="CONTINENTES" EntitySet="CONTINENTES" />
             <End Role="PAISES" EntitySet="PAISES" />
@@ -1719,6 +1659,14 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.TIPONCF' no tiene definida n
           <AssociationSet Name="FK_USUARIOS_TIPO_USUARIOS" Association="Self.FK_USUARIOS_TIPO_USUARIOS">
             <End Role="TIPOS_USUARIOS" EntitySet="TIPOS_USUARIOS" />
             <End Role="USUARIOS" EntitySet="USUARIOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_vaehicualo" Association="Self.FK_vaehicualo">
+            <End Role="MODELO" EntitySet="MODELO" />
+            <End Role="VEHICULO" EntitySet="VEHICULO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_vaehiculo" Association="Self.FK_vaehiculo">
+            <End Role="MARCA" EntitySet="MARCA" />
+            <End Role="VEHICULO" EntitySet="VEHICULO" />
           </AssociationSet>
           <AssociationSet Name="FK_VENTAS_CLIENTES" Association="Self.FK_VENTAS_CLIENTES">
             <End Role="CLIENTES" EntitySet="CLIENTES" />
@@ -2077,9 +2025,12 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.TIPONCF' no tiene definida n
         <EntityType Name="MARCA">
           <Key>
             <PropertyRef Name="intMarca" />
+            <PropertyRef Name="id_marca" />
           </Key>
           <Property Name="intMarca" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="marca1" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="id_marca" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="VEHICULO" Relationship="TransporSysModel.FK_vaehiculo" FromRole="MARCA" ToRole="VEHICULO" />
         </EntityType>
         <EntityType Name="MEMBRESIAS">
           <Key>
@@ -2098,11 +2049,14 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.TIPONCF' no tiene definida n
         <EntityType Name="MODELO">
           <Key>
             <PropertyRef Name="intModelo" />
+            <PropertyRef Name="id_modelo" />
           </Key>
           <Property Name="intModelo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="modelo1" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="createdAt" Type="DateTime" Precision="3" />
           <Property Name="updatedAt" Type="DateTime" Precision="3" />
+          <Property Name="id_modelo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="VEHICULO" Relationship="TransporSysModel.FK_vaehicualo" FromRole="MODELO" ToRole="VEHICULO" />
         </EntityType>
         <EntityType Name="NACIONALIDADES">
           <Key>
@@ -2341,6 +2295,7 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.TIPONCF' no tiene definida n
         <EntityType Name="VEHICULO">
           <Key>
             <PropertyRef Name="intVehiculo" />
+            <PropertyRef Name="id_vehiculo" />
           </Key>
           <Property Name="intVehiculo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="intMarca" Type="Int32" Nullable="false" />
@@ -2348,6 +2303,19 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.TIPONCF' no tiene definida n
           <Property Name="status" Type="Boolean" />
           <Property Name="createdAt" Type="DateTime" Precision="3" />
           <Property Name="updatedAt" Type="DateTime" Precision="3" />
+          <Property Name="id_vehiculo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_marca" Type="Int32" Nullable="false" />
+          <Property Name="id_modelo" Type="Int32" Nullable="false" />
+          <Property Name="id_conductor" Type="Int32" />
+          <Property Name="num_chasis" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="fecha_ingreso" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ano_fabricacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="gasto_galon_combustible_kilometro" Type="Double" Nullable="false" />
+          <Property Name="id_combustible" Type="Int32" Nullable="false" />
+          <Property Name="num_gps" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="estado" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="MARCA" Relationship="TransporSysModel.FK_vaehiculo" FromRole="VEHICULO" ToRole="MARCA" />
+          <NavigationProperty Name="MODELO" Relationship="TransporSysModel.FK_vaehicualo" FromRole="VEHICULO" ToRole="MODELO" />
         </EntityType>
         <EntityType Name="VENTAS">
           <Key>
@@ -3353,6 +3321,14 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.TIPONCF' no tiene definida n
             <End Role="PUESTOS" EntitySet="PUESTOS" />
             <End Role="EMPLEADOS" EntitySet="EMPLEADOS" />
           </AssociationSet>
+          <AssociationSet Name="FK_vaehiculo" Association="TransporSysModel.FK_vaehiculo">
+            <End Role="MARCA" EntitySet="MARCA" />
+            <End Role="VEHICULO" EntitySet="VEHICULO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_vaehicualo" Association="TransporSysModel.FK_vaehicualo">
+            <End Role="MODELO" EntitySet="MODELO" />
+            <End Role="VEHICULO" EntitySet="VEHICULO" />
+          </AssociationSet>
         </EntityContainer>
         <Association Name="FK__EMPLEADOS__id_pu__640DD89F">
           <End Type="TransporSysModel.PUESTOS" Role="PUESTOS" Multiplicity="1" />
@@ -3363,6 +3339,30 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.TIPONCF' no tiene definida n
             </Principal>
             <Dependent Role="EMPLEADOS">
               <PropertyRef Name="id_puesto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_vaehiculo">
+          <End Type="TransporSysModel.MARCA" Role="MARCA" Multiplicity="1" />
+          <End Type="TransporSysModel.VEHICULO" Role="VEHICULO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MARCA">
+              <PropertyRef Name="id_marca" />
+            </Principal>
+            <Dependent Role="VEHICULO">
+              <PropertyRef Name="id_marca" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_vaehicualo">
+          <End Type="TransporSysModel.MODELO" Role="MODELO" Multiplicity="1" />
+          <End Type="TransporSysModel.VEHICULO" Role="VEHICULO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MODELO">
+              <PropertyRef Name="id_modelo" />
+            </Principal>
+            <Dependent Role="VEHICULO">
+              <PropertyRef Name="id_modelo" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -3475,18 +3475,6 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.TIPONCF' no tiene definida n
                 <ScalarProperty Name="id_cliente" ColumnName="id_cliente" />
                 <ScalarProperty Name="id_empleado" ColumnName="id_empleado" />
                 <ScalarProperty Name="fecha" ColumnName="fecha" />
-                <ScalarProperty Name="estado" ColumnName="estado" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="CUOTAS">
-            <EntityTypeMapping TypeName="TransporSysModel.CUOTAS">
-              <MappingFragment StoreEntitySet="CUOTAS">
-                <ScalarProperty Name="id_cuotas" ColumnName="id_cuotas" />
-                <ScalarProperty Name="id_financiamiento" ColumnName="id_financiamiento" />
-                <ScalarProperty Name="num_cuota" ColumnName="num_cuota" />
-                <ScalarProperty Name="tasa" ColumnName="tasa" />
-                <ScalarProperty Name="monto" ColumnName="monto" />
                 <ScalarProperty Name="estado" ColumnName="estado" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -3666,28 +3654,15 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.TIPONCF' no tiene definida n
           <EntitySetMapping Name="MARCA">
             <EntityTypeMapping TypeName="TransporSysModel.MARCA">
               <MappingFragment StoreEntitySet="MARCA">
-                <ScalarProperty Name="intMarca" ColumnName="intMarca" />
+                <ScalarProperty Name="id_marca" ColumnName="id_marca" />
                 <ScalarProperty Name="marca1" ColumnName="marca" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="MEMBRESIAS">
-            <EntityTypeMapping TypeName="TransporSysModel.MEMBRESIAS">
-              <MappingFragment StoreEntitySet="MEMBRESIAS">
-                <ScalarProperty Name="serie" ColumnName="serie" />
-                <ScalarProperty Name="id_tipo_membresia" ColumnName="id_tipo_membresia" />
-                <ScalarProperty Name="id_cliente" ColumnName="id_cliente" />
-                <ScalarProperty Name="puntos" ColumnName="puntos" />
-                <ScalarProperty Name="fecha_creacion" ColumnName="fecha_creacion" />
-                <ScalarProperty Name="fecha_expiracion" ColumnName="fecha_expiracion" />
-                <ScalarProperty Name="estado" ColumnName="estado" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="MODELO">
             <EntityTypeMapping TypeName="TransporSysModel.MODELO">
               <MappingFragment StoreEntitySet="MODELO">
-                <ScalarProperty Name="intModelo" ColumnName="intModelo" />
+                <ScalarProperty Name="id_modelo" ColumnName="id_modelo" />
                 <ScalarProperty Name="modelo1" ColumnName="modelo" />
                 <ScalarProperty Name="createdAt" ColumnName="createdAt" />
                 <ScalarProperty Name="updatedAt" ColumnName="updatedAt" />
@@ -3810,7 +3785,6 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.TIPONCF' no tiene definida n
           <EntitySetMapping Name="TERCEROS">
             <EntityTypeMapping TypeName="TransporSysModel.TERCEROS">
               <MappingFragment StoreEntitySet="TERCEROS">
-                <ScalarProperty Name="identificacion" ColumnName="identificacion" />
                 <ScalarProperty Name="id_tercero" ColumnName="id_tercero" />
                 <ScalarProperty Name="nombre" ColumnName="nombre" />
               </MappingFragment>
@@ -3871,21 +3845,6 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.TIPONCF' no tiene definida n
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="TRANSPORTE">
-            <EntityTypeMapping TypeName="TransporSysModel.TRANSPORTE">
-              <MappingFragment StoreEntitySet="TRANSPORTE">
-                <ScalarProperty Name="intTransporte" ColumnName="intTransporte" />
-                <ScalarProperty Name="numFactura" ColumnName="numFactura" />
-                <ScalarProperty Name="intEmpleado" ColumnName="intEmpleado" />
-                <ScalarProperty Name="intVehiculo" ColumnName="intVehiculo" />
-                <ScalarProperty Name="intDireccion" ColumnName="intDireccion" />
-                <ScalarProperty Name="hora" ColumnName="hora" />
-                <ScalarProperty Name="status" ColumnName="status" />
-                <ScalarProperty Name="createdAt" ColumnName="createdAt" />
-                <ScalarProperty Name="updatedAt" ColumnName="updatedAt" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="UNIDADES_DE_MEDIDA">
             <EntityTypeMapping TypeName="TransporSysModel.UNIDADES_DE_MEDIDA">
               <MappingFragment StoreEntitySet="UNIDADES_DE_MEDIDA">
@@ -3911,12 +3870,17 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.TIPONCF' no tiene definida n
           <EntitySetMapping Name="VEHICULO">
             <EntityTypeMapping TypeName="TransporSysModel.VEHICULO">
               <MappingFragment StoreEntitySet="VEHICULO">
-                <ScalarProperty Name="intVehiculo" ColumnName="intVehiculo" />
-                <ScalarProperty Name="intMarca" ColumnName="intMarca" />
-                <ScalarProperty Name="intModelo" ColumnName="intModelo" />
-                <ScalarProperty Name="status" ColumnName="status" />
-                <ScalarProperty Name="createdAt" ColumnName="createdAt" />
-                <ScalarProperty Name="updatedAt" ColumnName="updatedAt" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="num_gps" ColumnName="num_gps" />
+                <ScalarProperty Name="id_combustible" ColumnName="id_combustible" />
+                <ScalarProperty Name="gasto_galon_combustible_kilometro" ColumnName="gasto_galon_combustible_kilometro" />
+                <ScalarProperty Name="ano_fabricacion" ColumnName="ano_fabricacion" />
+                <ScalarProperty Name="fecha_ingreso" ColumnName="fecha_ingreso" />
+                <ScalarProperty Name="num_chasis" ColumnName="num_chasis" />
+                <ScalarProperty Name="id_conductor" ColumnName="id_conductor" />
+                <ScalarProperty Name="id_modelo" ColumnName="id_modelo" />
+                <ScalarProperty Name="id_marca" ColumnName="id_marca" />
+                <ScalarProperty Name="id_vehiculo" ColumnName="id_vehiculo" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
