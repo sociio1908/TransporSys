@@ -16,17 +16,17 @@ namespace _911_RD.Administracion
         {
             InitializeComponent();
             cb_estado.SelectedIndex = 0;
-            cargarNacionalidades();
+            cargarComboxs();
         }
 
         MetodosCRUD metodoscrud = new MetodosCRUD();
 
 
-       void cargarNacionalidades()
+       void cargarComboxs()
         {
             try
             {
-                using (TransporSysEntities2 db = new TransporSysEntities2())
+                using (TransporSysEntities db = new TransporSysEntities())
             {
                 
                     var listS = db.SEXOS;
@@ -41,8 +41,15 @@ namespace _911_RD.Administracion
                         cb_nacionalidades.Items.Add(nACIONALIDADES.nacionalidad);
                     }
 
+                    var listIden = db.TIPOS_IDENTIFICACIONES;
+                    foreach (var identi in listIden)
+                    {
+                        cb_tipoIdent.Items.Add(identi.nombre);
+                    }
+
+
                 }
-                
+
             }
             catch (Exception dfg)
             {
@@ -105,11 +112,11 @@ namespace _911_RD.Administracion
             }
             try
             {
-                //Method insert/Update
-                int id = metodoscrud.crudPersonas("", metodoscrud.crudTerceros(id_txt.Text, txt_nombre.Text.Trim(), txt_cedula.Text.Trim()).ToString(), Convert.ToInt32(cb_sexo.SelectedIndex).ToString(), fecha_nac.Value, Convert.ToInt32(cb_sexo.SelectedIndex).ToString(), txt_apellido.Text.Trim().ToString());
-                int ID_empleADO =  metodoscrud.crudEmpleado(txt_cedula.Text.Trim(), fecha_con.Value, cb_estado.SelectedIndex == 0 ? true : false, id_cargo);
-                if(conductor)
-                  //  metodoscrud.c
+                ////Method insert/Update
+                //int id = metodoscrud.crudPersonas("", metodoscrud.crudTerceros(id_txt.Text, txt_nombre.Text.Trim(), txt_cedula.Text.Trim()).ToString(), Convert.ToInt32(cb_sexo.SelectedIndex).ToString(), fecha_nac.Value, Convert.ToInt32(cb_sexo.SelectedIndex).ToString(), txt_apellido.Text.Trim().ToString());
+                //int ID_empleADO =  metodoscrud.crudEmpleado(txt_cedula.Text.Trim(), fecha_con.Value, cb_estado.SelectedIndex == 0 ? true : false, id_cargo);
+                //if(conductor)
+                //  //  metodoscrud.c
 
 
 
@@ -128,7 +135,7 @@ namespace _911_RD.Administracion
             {
                 if (Utilidades.ValidarFormulario(this, errorProvider1) == true)
                     return;
-                using (TransporSysEntities2 db = new TransporSysEntities2())
+                using (TransporSysEntities db = new TransporSysEntities())
                 {
                     //if (id_txt.Text.Trim() == "")
                     //{

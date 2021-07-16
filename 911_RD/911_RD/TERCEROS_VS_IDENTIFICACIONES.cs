@@ -12,12 +12,9 @@ namespace _911_RD
     using System;
     using System.Collections.Generic;
     
-    public partial class DIRECCIONES
+    public partial class TERCEROS_VS_IDENTIFICACIONES
     {
-        public int id_direccion { get; set; }
-        public int id_ciudad { get; set; }
-        public string direccion { get; set; }
-    
-        public virtual CIUDADES CIUDADES { get; set; }
+        public int id_tercero { get; set; }
+        public int id_identificacion { get; set; }
     }
 }

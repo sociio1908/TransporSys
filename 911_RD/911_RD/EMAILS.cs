@@ -14,16 +14,7 @@ namespace _911_RD
     
     public partial class EMAILS
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public EMAILS()
-        {
-            this.TERCEROS = new HashSet<TERCEROS>();
-        }
-    
         public int id_email { get; set; }
         public string email { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TERCEROS> TERCEROS { get; set; }
     }
 }

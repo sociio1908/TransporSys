@@ -93,6 +93,8 @@ namespace _911_RD.Administracion
             this.txt_lat = new _911_RD.ErrorTxtBox();
             this.label22 = new System.Windows.Forms.Label();
             this.cb_nacionalidades = new System.Windows.Forms.ComboBox();
+            this.label21 = new System.Windows.Forms.Label();
+            this.cb_tipoIdent = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.btn_buscar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_Cargo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -106,7 +108,7 @@ namespace _911_RD.Administracion
             // btn_guardar
             // 
             this.btn_guardar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)));
-            this.btn_guardar.Location = new System.Drawing.Point(11, 445);
+            this.btn_guardar.Location = new System.Drawing.Point(11, 475);
             this.btn_guardar.Click += new System.EventHandler(this.btn_guardar_Click);
             // 
             // lbl_titulo
@@ -117,13 +119,13 @@ namespace _911_RD.Administracion
             // btn_limpiar
             // 
             this.btn_limpiar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)));
-            this.btn_limpiar.Location = new System.Drawing.Point(156, 445);
+            this.btn_limpiar.Location = new System.Drawing.Point(156, 475);
             this.btn_limpiar.Click += new System.EventHandler(this.btn_limpiar_Click);
             // 
             // btn_salir
             // 
             this.btn_salir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)));
-            this.btn_salir.Location = new System.Drawing.Point(278, 445);
+            this.btn_salir.Location = new System.Drawing.Point(278, 475);
             // 
             // id_txt
             // 
@@ -140,7 +142,7 @@ namespace _911_RD.Administracion
             this.txt_cedula.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txt_cedula.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.txt_cedula.Limpiar = true;
-            this.txt_cedula.Location = new System.Drawing.Point(12, 155);
+            this.txt_cedula.Location = new System.Drawing.Point(12, 209);
             this.txt_cedula.Name = "txt_cedula";
             this.txt_cedula.Size = new System.Drawing.Size(170, 26);
             this.txt_cedula.SoloNumeros = true;
@@ -153,7 +155,7 @@ namespace _911_RD.Administracion
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label4.Location = new System.Drawing.Point(12, 190);
+            this.label4.Location = new System.Drawing.Point(12, 244);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(64, 16);
             this.label4.TabIndex = 148;
@@ -165,7 +167,7 @@ namespace _911_RD.Administracion
             this.txt_nombre.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txt_nombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.txt_nombre.Limpiar = true;
-            this.txt_nombre.Location = new System.Drawing.Point(12, 209);
+            this.txt_nombre.Location = new System.Drawing.Point(12, 263);
             this.txt_nombre.Name = "txt_nombre";
             this.txt_nombre.Size = new System.Drawing.Size(170, 26);
             this.txt_nombre.SoloNumeros = false;
@@ -178,7 +180,7 @@ namespace _911_RD.Administracion
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label5.Location = new System.Drawing.Point(12, 301);
+            this.label5.Location = new System.Drawing.Point(12, 355);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(138, 16);
             this.label5.TabIndex = 150;
@@ -190,7 +192,7 @@ namespace _911_RD.Administracion
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
             this.label6.ForeColor = System.Drawing.Color.Firebrick;
-            this.label6.Location = new System.Drawing.Point(236, 56);
+            this.label6.Location = new System.Drawing.Point(246, 56);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(149, 19);
             this.label6.TabIndex = 151;
@@ -201,7 +203,7 @@ namespace _911_RD.Administracion
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label8.Location = new System.Drawing.Point(237, 245);
+            this.label8.Location = new System.Drawing.Point(247, 245);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(126, 16);
             this.label8.TabIndex = 157;
@@ -212,7 +214,7 @@ namespace _911_RD.Administracion
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label10.Location = new System.Drawing.Point(237, 136);
+            this.label10.Location = new System.Drawing.Point(247, 136);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(149, 16);
             this.label10.TabIndex = 155;
@@ -224,7 +226,7 @@ namespace _911_RD.Administracion
             this.txt_des_puesto.Enabled = false;
             this.txt_des_puesto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.txt_des_puesto.Limpiar = true;
-            this.txt_des_puesto.Location = new System.Drawing.Point(237, 155);
+            this.txt_des_puesto.Location = new System.Drawing.Point(247, 155);
             this.txt_des_puesto.Name = "txt_des_puesto";
             this.txt_des_puesto.Size = new System.Drawing.Size(199, 26);
             this.txt_des_puesto.SoloNumeros = false;
@@ -236,7 +238,7 @@ namespace _911_RD.Administracion
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label11.Location = new System.Drawing.Point(237, 80);
+            this.label11.Location = new System.Drawing.Point(247, 80);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(54, 16);
             this.label11.TabIndex = 153;
@@ -248,7 +250,7 @@ namespace _911_RD.Administracion
             this.txt_cargo.Enabled = false;
             this.txt_cargo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.txt_cargo.Limpiar = true;
-            this.txt_cargo.Location = new System.Drawing.Point(237, 99);
+            this.txt_cargo.Location = new System.Drawing.Point(247, 99);
             this.txt_cargo.Name = "txt_cargo";
             this.txt_cargo.Size = new System.Drawing.Size(130, 26);
             this.txt_cargo.SoloNumeros = false;
@@ -260,7 +262,7 @@ namespace _911_RD.Administracion
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label12.Location = new System.Drawing.Point(12, 349);
+            this.label12.Location = new System.Drawing.Point(12, 403);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(42, 16);
             this.label12.TabIndex = 161;
@@ -271,7 +273,7 @@ namespace _911_RD.Administracion
             // 
             this.cb_sexo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.cb_sexo.FormattingEnabled = true;
-            this.cb_sexo.Location = new System.Drawing.Point(12, 368);
+            this.cb_sexo.Location = new System.Drawing.Point(12, 422);
             this.cb_sexo.Name = "cb_sexo";
             this.cb_sexo.Size = new System.Drawing.Size(114, 28);
             this.cb_sexo.TabIndex = 160;
@@ -282,7 +284,7 @@ namespace _911_RD.Administracion
             this.btn_Cargo.BackColor = System.Drawing.Color.LightGreen;
             this.btn_Cargo.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_Cargo.Image = global::_911_RD.Properties.Resources.search;
-            this.btn_Cargo.Location = new System.Drawing.Point(373, 99);
+            this.btn_Cargo.Location = new System.Drawing.Point(345, 99);
             this.btn_Cargo.Name = "btn_Cargo";
             this.btn_Cargo.Size = new System.Drawing.Size(34, 26);
             this.btn_Cargo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -293,7 +295,7 @@ namespace _911_RD.Administracion
             // fecha_con
             // 
             this.fecha_con.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fecha_con.Location = new System.Drawing.Point(240, 268);
+            this.fecha_con.Location = new System.Drawing.Point(250, 268);
             this.fecha_con.Name = "fecha_con";
             this.fecha_con.Size = new System.Drawing.Size(167, 22);
             this.fecha_con.TabIndex = 163;
@@ -301,7 +303,7 @@ namespace _911_RD.Administracion
             // fecha_nac
             // 
             this.fecha_nac.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fecha_nac.Location = new System.Drawing.Point(12, 320);
+            this.fecha_nac.Location = new System.Drawing.Point(12, 374);
             this.fecha_nac.Name = "fecha_nac";
             this.fecha_nac.Size = new System.Drawing.Size(167, 22);
             this.fecha_nac.TabIndex = 164;
@@ -312,7 +314,7 @@ namespace _911_RD.Administracion
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label7.Location = new System.Drawing.Point(237, 349);
+            this.label7.Location = new System.Drawing.Point(247, 350);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(58, 16);
             this.label7.TabIndex = 166;
@@ -325,7 +327,7 @@ namespace _911_RD.Administracion
             this.cb_estado.Items.AddRange(new object[] {
             "ACTIVO",
             "INACTIVO"});
-            this.cb_estado.Location = new System.Drawing.Point(240, 368);
+            this.cb_estado.Location = new System.Drawing.Point(250, 369);
             this.cb_estado.Name = "cb_estado";
             this.cb_estado.Size = new System.Drawing.Size(114, 28);
             this.cb_estado.TabIndex = 165;
@@ -371,7 +373,7 @@ namespace _911_RD.Administracion
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.GridColor = System.Drawing.Color.White;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 537);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 564);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -392,7 +394,7 @@ namespace _911_RD.Administracion
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
             this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(1025, 231);
+            this.dataGridView1.Size = new System.Drawing.Size(1025, 204);
             this.dataGridView1.TabIndex = 167;
             // 
             // id_eme
@@ -472,7 +474,7 @@ namespace _911_RD.Administracion
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label1.Location = new System.Drawing.Point(12, 136);
+            this.label1.Location = new System.Drawing.Point(12, 190);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(113, 16);
             this.label1.TabIndex = 168;
@@ -485,7 +487,7 @@ namespace _911_RD.Administracion
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label13.Location = new System.Drawing.Point(20, 506);
+            this.label13.Location = new System.Drawing.Point(12, 536);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(76, 16);
             this.label13.TabIndex = 170;
@@ -498,7 +500,7 @@ namespace _911_RD.Administracion
             this.txt_filtro.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txt_filtro.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.txt_filtro.Limpiar = false;
-            this.txt_filtro.Location = new System.Drawing.Point(102, 501);
+            this.txt_filtro.Location = new System.Drawing.Point(94, 531);
             this.txt_filtro.Name = "txt_filtro";
             this.txt_filtro.Size = new System.Drawing.Size(170, 26);
             this.txt_filtro.SoloNumeros = false;
@@ -510,7 +512,7 @@ namespace _911_RD.Administracion
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label14.Location = new System.Drawing.Point(15, 245);
+            this.label14.Location = new System.Drawing.Point(15, 299);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(68, 16);
             this.label14.TabIndex = 172;
@@ -521,7 +523,7 @@ namespace _911_RD.Administracion
             this.txt_apellido.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txt_apellido.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.txt_apellido.Limpiar = true;
-            this.txt_apellido.Location = new System.Drawing.Point(12, 264);
+            this.txt_apellido.Location = new System.Drawing.Point(12, 318);
             this.txt_apellido.Name = "txt_apellido";
             this.txt_apellido.Size = new System.Drawing.Size(170, 26);
             this.txt_apellido.SoloNumeros = false;
@@ -537,7 +539,7 @@ namespace _911_RD.Administracion
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.label16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label16.Location = new System.Drawing.Point(237, 190);
+            this.label16.Location = new System.Drawing.Point(247, 190);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(64, 16);
             this.label16.TabIndex = 174;
@@ -549,7 +551,7 @@ namespace _911_RD.Administracion
             this.txt_salario.Enabled = false;
             this.txt_salario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.txt_salario.Limpiar = true;
-            this.txt_salario.Location = new System.Drawing.Point(237, 209);
+            this.txt_salario.Location = new System.Drawing.Point(247, 209);
             this.txt_salario.Name = "txt_salario";
             this.txt_salario.Size = new System.Drawing.Size(130, 26);
             this.txt_salario.SoloNumeros = true;
@@ -564,9 +566,9 @@ namespace _911_RD.Administracion
             this.p_direccion.Controls.Add(this.txt_correo);
             this.p_direccion.Controls.Add(this.label23);
             this.p_direccion.Controls.Add(this.txt_telefono);
-            this.p_direccion.Location = new System.Drawing.Point(442, 99);
+            this.p_direccion.Location = new System.Drawing.Point(498, 78);
             this.p_direccion.Name = "p_direccion";
-            this.p_direccion.Size = new System.Drawing.Size(595, 107);
+            this.p_direccion.Size = new System.Drawing.Size(427, 107);
             this.p_direccion.TabIndex = 177;
             // 
             // label26
@@ -620,7 +622,7 @@ namespace _911_RD.Administracion
             this.lbl_contacto.AutoSize = true;
             this.lbl_contacto.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
             this.lbl_contacto.ForeColor = System.Drawing.Color.Firebrick;
-            this.lbl_contacto.Location = new System.Drawing.Point(438, 56);
+            this.lbl_contacto.Location = new System.Drawing.Point(494, 56);
             this.lbl_contacto.Name = "lbl_contacto";
             this.lbl_contacto.Size = new System.Drawing.Size(105, 19);
             this.lbl_contacto.TabIndex = 178;
@@ -631,7 +633,7 @@ namespace _911_RD.Administracion
             this.lbl_conductor.AutoSize = true;
             this.lbl_conductor.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
             this.lbl_conductor.ForeColor = System.Drawing.Color.Firebrick;
-            this.lbl_conductor.Location = new System.Drawing.Point(438, 389);
+            this.lbl_conductor.Location = new System.Drawing.Point(494, 377);
             this.lbl_conductor.Name = "lbl_conductor";
             this.lbl_conductor.Size = new System.Drawing.Size(108, 19);
             this.lbl_conductor.TabIndex = 180;
@@ -646,9 +648,9 @@ namespace _911_RD.Administracion
             this.p_conductor.Controls.Add(this.label28);
             this.p_conductor.Controls.Add(this.label27);
             this.p_conductor.Controls.Add(this.txt_numlicencia);
-            this.p_conductor.Location = new System.Drawing.Point(442, 420);
+            this.p_conductor.Location = new System.Drawing.Point(498, 399);
             this.p_conductor.Name = "p_conductor";
-            this.p_conductor.Size = new System.Drawing.Size(595, 107);
+            this.p_conductor.Size = new System.Drawing.Size(427, 107);
             this.p_conductor.TabIndex = 179;
             this.p_conductor.Visible = false;
             // 
@@ -699,7 +701,7 @@ namespace _911_RD.Administracion
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
             this.label18.ForeColor = System.Drawing.Color.Firebrick;
-            this.label18.Location = new System.Drawing.Point(438, 216);
+            this.label18.Location = new System.Drawing.Point(494, 216);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(94, 19);
             this.label18.TabIndex = 182;
@@ -716,9 +718,9 @@ namespace _911_RD.Administracion
             this.panel1.Controls.Add(this.btn_busc_dir);
             this.panel1.Controls.Add(this.lbl_estado_dir);
             this.panel1.Controls.Add(this.txt_lat);
-            this.panel1.Location = new System.Drawing.Point(442, 259);
+            this.panel1.Location = new System.Drawing.Point(498, 238);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(595, 127);
+            this.panel1.Size = new System.Drawing.Size(427, 127);
             this.panel1.TabIndex = 181;
             // 
             // label20
@@ -809,7 +811,7 @@ namespace _911_RD.Administracion
             this.label22.AutoSize = true;
             this.label22.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.label22.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label22.Location = new System.Drawing.Point(237, 301);
+            this.label22.Location = new System.Drawing.Point(247, 301);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(111, 16);
             this.label22.TabIndex = 190;
@@ -819,16 +821,38 @@ namespace _911_RD.Administracion
             // 
             this.cb_nacionalidades.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cb_nacionalidades.FormattingEnabled = true;
-            this.cb_nacionalidades.Location = new System.Drawing.Point(240, 320);
+            this.cb_nacionalidades.Location = new System.Drawing.Point(250, 320);
             this.cb_nacionalidades.Name = "cb_nacionalidades";
             this.cb_nacionalidades.Size = new System.Drawing.Size(167, 28);
             this.cb_nacionalidades.TabIndex = 189;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label21.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label21.Location = new System.Drawing.Point(9, 136);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(145, 16);
+            this.label21.TabIndex = 192;
+            this.label21.Text = "TIPO IDENTIFICACION";
+            // 
+            // cb_tipoIdent
+            // 
+            this.cb_tipoIdent.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.cb_tipoIdent.FormattingEnabled = true;
+            this.cb_tipoIdent.Location = new System.Drawing.Point(12, 155);
+            this.cb_tipoIdent.Name = "cb_tipoIdent";
+            this.cb_tipoIdent.Size = new System.Drawing.Size(142, 28);
+            this.cb_tipoIdent.TabIndex = 191;
             // 
             // FrmEmpleado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1049, 780);
+            this.Controls.Add(this.label21);
+            this.Controls.Add(this.cb_tipoIdent);
             this.Controls.Add(this.label22);
             this.Controls.Add(this.cb_nacionalidades);
             this.Controls.Add(this.label18);
@@ -906,6 +930,8 @@ namespace _911_RD.Administracion
             this.Controls.SetChildIndex(this.btn_limpiar, 0);
             this.Controls.SetChildIndex(this.btn_salir, 0);
             this.Controls.SetChildIndex(this.id_txt, 0);
+            this.Controls.SetChildIndex(this.cb_tipoIdent, 0);
+            this.Controls.SetChildIndex(this.label21, 0);
             ((System.ComponentModel.ISupportInitialize)(this.btn_buscar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_Cargo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -986,5 +1012,7 @@ namespace _911_RD.Administracion
         private System.Windows.Forms.Label label19;
         public ErrorTxtBox txt_lat;
         public ErrorTxtBox txt_long;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.ComboBox cb_tipoIdent;
     }
 }

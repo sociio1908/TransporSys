@@ -14,18 +14,10 @@ namespace _911_RD
     
     public partial class IDENTIFICACIONES
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public IDENTIFICACIONES()
-        {
-            this.TERCEROS = new HashSet<TERCEROS>();
-        }
-    
         public int id_identificacion { get; set; }
         public int id_tipo_identificacion { get; set; }
         public string identificacion { get; set; }
     
         public virtual TIPOS_IDENTIFICACIONES TIPOS_IDENTIFICACIONES { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TERCEROS> TERCEROS { get; set; }
     }
 }

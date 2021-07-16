@@ -103,6 +103,24 @@
     </Compile>
     <Compile Include="Administracion\MessageBoxTemporal.cs" />
     <Compile Include="Administracion\MetodosCRUD.cs" />
+    <Compile Include="Administracion\Vehiculo\FrmMarca.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administracion\Vehiculo\FrmMarca.Designer.cs">
+      <DependentUpon>FrmMarca.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Administracion\Vehiculo\FrmModelo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administracion\Vehiculo\FrmModelo.Designer.cs">
+      <DependentUpon>FrmModelo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Administracion\Vehiculo\FrmVehiculos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administracion\Vehiculo\FrmVehiculos.Designer.cs">
+      <DependentUpon>FrmVehiculos.cs</DependentUpon>
+    </Compile>
     <Compile Include="ALMACENES.cs">
       <DependentUpon>TransporSysEntities.tt</DependentUpon>
     </Compile>
@@ -288,6 +306,12 @@
     <Compile Include="TERCEROS.cs">
       <DependentUpon>TransporSysEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="TERCEROS_VS_EMAILS.cs">
+      <DependentUpon>TransporSysEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TERCEROS_VS_IDENTIFICACIONES.cs">
+      <DependentUpon>TransporSysEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="TIPONCF.cs">
       <DependentUpon>TransporSysEntities.tt</DependentUpon>
     </Compile>
@@ -321,9 +345,9 @@
       <DependentUpon>TransporSysEntities.Context.tt</DependentUpon>
     </Compile>
     <Compile Include="TransporSysEntities.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
       <DependentUpon>TransporSysEntities.tt</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
     </Compile>
     <Compile Include="TransporSysEntities.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -363,6 +387,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Administracion\FrmPaciente.resx">
       <DependentUpon>FrmPaciente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administracion\Vehiculo\FrmMarca.resx">
+      <DependentUpon>FrmMarca.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administracion\Vehiculo\FrmModelo.resx">
+      <DependentUpon>FrmModelo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administracion\Vehiculo\FrmVehiculos.resx">
+      <DependentUpon>FrmVehiculos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -508,8 +541,8 @@
     </Content>
     <Content Include="TransporSysEntities.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>TransporSysEntities.edmx</DependentUpon>
       <LastGenOutput>TransporSysEntities.cs</LastGenOutput>
+      <DependentUpon>TransporSysEntities.edmx</DependentUpon>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

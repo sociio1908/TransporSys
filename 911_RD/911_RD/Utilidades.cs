@@ -105,9 +105,6 @@ namespace _911_RD
             return HayError;
         }
 
-
-       
-
         public static void LimpiarControles(System.Windows.Forms.Control forms)
         {
             try
@@ -148,8 +145,6 @@ namespace _911_RD
 
 
         }
-
-      
 
         const int WM_CLOSE = 0x0010;
             [System.Runtime.InteropServices.DllImport("user32.dll", SetLastError = true)]

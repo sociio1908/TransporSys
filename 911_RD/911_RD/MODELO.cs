@@ -22,8 +22,6 @@ namespace _911_RD
     
         public int id_modelo { get; set; }
         public string modelo1 { get; set; }
-        public Nullable<System.DateTime> createdAt { get; set; }
-        public Nullable<System.DateTime> updatedAt { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<VEHICULO> VEHICULO { get; set; }

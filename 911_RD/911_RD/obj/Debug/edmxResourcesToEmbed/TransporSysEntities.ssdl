@@ -15,11 +15,12 @@
     </Key>
     <Property Name="id_articulo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="id_categoria" Type="int" Nullable="false" />
+    <Property Name="id_unidad_de_medida" Type="int" Nullable="false" />
     <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="descripcion" Type="varchar" MaxLength="150" Nullable="false" />
     <Property Name="reorden" Type="int" Nullable="false" />
-    <Property Name="imagen" Type="varchar" MaxLength="200" Nullable="false" />
     <Property Name="codigo_barras" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="precio" Type="float" Nullable="false" />
     <Property Name="estado" Type="bit" Nullable="false" />
   </EntityType>
   <!--Errores durante la generación:
@@ -213,7 +214,7 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.ARTICULOS_VS_CATEGORIAS_VS_D
     </Key>
     <Property Name="id_direccion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="id_ciudad" Type="int" Nullable="false" />
-    <Property Name="direccion" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="direccion" Type="varchar" MaxLength="200" Nullable="false" />
   </EntityType>
   <EntityType Name="EMAILS">
     <Key>
@@ -311,16 +312,14 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.GPS' no tiene definida ningu
       <PropertyRef Name="id_marca" />
     </Key>
     <Property Name="id_marca" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="marca" Type="nvarchar" MaxLength="255" />
+    <Property Name="marca" Type="varchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="MODELO">
     <Key>
       <PropertyRef Name="id_modelo" />
     </Key>
     <Property Name="id_modelo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="modelo" Type="nvarchar" MaxLength="255" />
-    <Property Name="createdAt" Type="datetime" />
-    <Property Name="updatedAt" Type="datetime" />
+    <Property Name="modelo" Type="varchar" MaxLength="50" Nullable="false" />
   </EntityType>
   <EntityType Name="NACIONALIDADES">
     <Key>
@@ -405,6 +404,8 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.GPS' no tiene definida ningu
     <Property Name="salario" Type="float" Nullable="false" />
     <Property Name="estado" Type="bit" Nullable="false" />
   </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'TransporSys.dbo.PUESTOS_VS_DEPARTAMENTOS' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
   <EntityType Name="PUESTOS_VS_DEPARTAMENTOS">
     <Key>
       <PropertyRef Name="id_puesto" />
@@ -464,14 +465,14 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.GPS' no tiene definida ningu
     <Property Name="id_tercero" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="nombre" Type="varchar" MaxLength="100" Nullable="false" />
   </EntityType>
-  <EntityType Name="TERCEROS_VS_DIRECCIONES">
-    <Key>
-      <PropertyRef Name="id_tercero" />
-      <PropertyRef Name="id_direccion" />
-    </Key>
-    <Property Name="id_tercero" Type="int" Nullable="false" />
-    <Property Name="id_direccion" Type="int" Nullable="false" />
-  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6013: La tabla o vista 'TransporSys.dbo.TERCEROS_VS_DIRECCIONES' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
+        <EntityType Name="TERCEROS_VS_DIRECCIONES">
+          <Property Name="id_tercero" Type="int" />
+          <Property Name="id_direccion" Type="int" />
+        </EntityType>-->
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'TransporSys.dbo.TERCEROS_VS_EMAILS' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
   <EntityType Name="TERCEROS_VS_EMAILS">
     <Key>
       <PropertyRef Name="id_tercero" />
@@ -480,6 +481,8 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.GPS' no tiene definida ningu
     <Property Name="id_tercero" Type="int" Nullable="false" />
     <Property Name="id_email" Type="int" Nullable="false" />
   </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'TransporSys.dbo.TERCEROS_VS_IDENTIFICACIONES' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
   <EntityType Name="TERCEROS_VS_IDENTIFICACIONES">
     <Key>
       <PropertyRef Name="id_tercero" />
@@ -488,14 +491,12 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.GPS' no tiene definida ningu
     <Property Name="id_tercero" Type="int" Nullable="false" />
     <Property Name="id_identificacion" Type="int" Nullable="false" />
   </EntityType>
-  <EntityType Name="TERCEROS_VS_TELEFONOS">
-    <Key>
-      <PropertyRef Name="id_tercero" />
-      <PropertyRef Name="id_telefono" />
-    </Key>
-    <Property Name="id_tercero" Type="int" Nullable="false" />
-    <Property Name="id_telefono" Type="int" Nullable="false" />
-  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6013: La tabla o vista 'TransporSys.dbo.TERCEROS_VS_TELEFONOS' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
+        <EntityType Name="TERCEROS_VS_TELEFONOS">
+          <Property Name="id_tercero" Type="int" />
+          <Property Name="id_telefono" Type="nchar" MaxLength="10" />
+        </EntityType>-->
   <!--Errores durante la generación:
 advertencia 6002: La tabla o vista 'TransporSys.dbo.TIPONCF' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
   <EntityType Name="TIPONCF">
@@ -1370,102 +1371,6 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.TIPONCF' no tiene definida n
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_TERCEROS_VS_DIRECCIONES_DIRECCIONES">
-    <End Role="DIRECCIONES" Type="Self.DIRECCIONES" Multiplicity="1" />
-    <End Role="TERCEROS_VS_DIRECCIONES" Type="Self.TERCEROS_VS_DIRECCIONES" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="DIRECCIONES">
-        <PropertyRef Name="id_direccion" />
-      </Principal>
-      <Dependent Role="TERCEROS_VS_DIRECCIONES">
-        <PropertyRef Name="id_direccion" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_TERCEROS_VS_DIRECCIONES_TERCEROS">
-    <End Role="TERCEROS" Type="Self.TERCEROS" Multiplicity="1" />
-    <End Role="TERCEROS_VS_DIRECCIONES" Type="Self.TERCEROS_VS_DIRECCIONES" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="TERCEROS">
-        <PropertyRef Name="id_tercero" />
-      </Principal>
-      <Dependent Role="TERCEROS_VS_DIRECCIONES">
-        <PropertyRef Name="id_tercero" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_TERCEROS_VS_EMAILS_EMAILS">
-    <End Role="EMAILS" Type="Self.EMAILS" Multiplicity="1" />
-    <End Role="TERCEROS_VS_EMAILS" Type="Self.TERCEROS_VS_EMAILS" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="EMAILS">
-        <PropertyRef Name="id_email" />
-      </Principal>
-      <Dependent Role="TERCEROS_VS_EMAILS">
-        <PropertyRef Name="id_email" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_TERCEROS_VS_EMAILS_TERCEROS">
-    <End Role="TERCEROS" Type="Self.TERCEROS" Multiplicity="1" />
-    <End Role="TERCEROS_VS_EMAILS" Type="Self.TERCEROS_VS_EMAILS" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="TERCEROS">
-        <PropertyRef Name="id_tercero" />
-      </Principal>
-      <Dependent Role="TERCEROS_VS_EMAILS">
-        <PropertyRef Name="id_tercero" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_TERCEROS_VS_IDENTIFICACIONES_IDENTIFICACIONES">
-    <End Role="IDENTIFICACIONES" Type="Self.IDENTIFICACIONES" Multiplicity="1" />
-    <End Role="TERCEROS_VS_IDENTIFICACIONES" Type="Self.TERCEROS_VS_IDENTIFICACIONES" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="IDENTIFICACIONES">
-        <PropertyRef Name="id_identificacion" />
-      </Principal>
-      <Dependent Role="TERCEROS_VS_IDENTIFICACIONES">
-        <PropertyRef Name="id_identificacion" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_TERCEROS_VS_IDENTIFICACIONES_TERCEROS">
-    <End Role="TERCEROS" Type="Self.TERCEROS" Multiplicity="1" />
-    <End Role="TERCEROS_VS_IDENTIFICACIONES" Type="Self.TERCEROS_VS_IDENTIFICACIONES" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="TERCEROS">
-        <PropertyRef Name="id_tercero" />
-      </Principal>
-      <Dependent Role="TERCEROS_VS_IDENTIFICACIONES">
-        <PropertyRef Name="id_tercero" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_TERCEROS_VS_TELEFONOS_TELEFONOS">
-    <End Role="TELEFONOS" Type="Self.TELEFONOS" Multiplicity="1" />
-    <End Role="TERCEROS_VS_TELEFONOS" Type="Self.TERCEROS_VS_TELEFONOS" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="TELEFONOS">
-        <PropertyRef Name="id_telefono" />
-      </Principal>
-      <Dependent Role="TERCEROS_VS_TELEFONOS">
-        <PropertyRef Name="id_telefono" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_TERCEROS_VS_TELEFONOS_TERCEROS">
-    <End Role="TERCEROS" Type="Self.TERCEROS" Multiplicity="1" />
-    <End Role="TERCEROS_VS_TELEFONOS" Type="Self.TERCEROS_VS_TELEFONOS" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="TERCEROS">
-        <PropertyRef Name="id_tercero" />
-      </Principal>
-      <Dependent Role="TERCEROS_VS_TELEFONOS">
-        <PropertyRef Name="id_tercero" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_tipoviajes">
     <End Role="TIPOSVIAJES" Type="Self.TIPOSVIAJES" Multiplicity="1" />
     <End Role="VIAJES" Type="Self.VIAJES" Multiplicity="*" />
@@ -1589,17 +1494,12 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.TIPONCF' no tiene definida n
     <EntitySet Name="PRECIOS" EntityType="Self.PRECIOS" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="PROVINCIAS" EntityType="Self.PROVINCIAS" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="PUESTOS" EntityType="Self.PUESTOS" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="PUESTOS_VS_DEPARTAMENTOS" EntityType="Self.PUESTOS_VS_DEPARTAMENTOS" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="SALIDAS" EntityType="Self.SALIDAS" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="SEXOS" EntityType="Self.SEXOS" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="SUPLIDORES" EntityType="Self.SUPLIDORES" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TELEFONOS" EntityType="Self.TELEFONOS" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TERCEROS" EntityType="Self.TERCEROS" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="TERCEROS_VS_DIRECCIONES" EntityType="Self.TERCEROS_VS_DIRECCIONES" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="TERCEROS_VS_EMAILS" EntityType="Self.TERCEROS_VS_EMAILS" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="TERCEROS_VS_IDENTIFICACIONES" EntityType="Self.TERCEROS_VS_IDENTIFICACIONES" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="TERCEROS_VS_TELEFONOS" EntityType="Self.TERCEROS_VS_TELEFONOS" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TIPOS_CLIENTES" EntityType="Self.TIPOS_CLIENTES" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TIPOS_IDENTIFICACIONES" EntityType="Self.TIPOS_IDENTIFICACIONES" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TIPOS_MEMBRESIAS" EntityType="Self.TIPOS_MEMBRESIAS" Schema="dbo" store:Type="Tables" />
@@ -1627,6 +1527,24 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.TIPONCF' no tiene definida n
     [GPS].[latitud] AS [latitud], 
     [GPS].[longitud] AS [longitud]
     FROM [dbo].[GPS] AS [GPS]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="PUESTOS_VS_DEPARTAMENTOS" EntityType="Self.PUESTOS_VS_DEPARTAMENTOS" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [PUESTOS_VS_DEPARTAMENTOS].[id_puesto] AS [id_puesto], 
+    [PUESTOS_VS_DEPARTAMENTOS].[id_departamento] AS [id_departamento]
+    FROM [dbo].[PUESTOS_VS_DEPARTAMENTOS] AS [PUESTOS_VS_DEPARTAMENTOS]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="TERCEROS_VS_EMAILS" EntityType="Self.TERCEROS_VS_EMAILS" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [TERCEROS_VS_EMAILS].[id_tercero] AS [id_tercero], 
+    [TERCEROS_VS_EMAILS].[id_email] AS [id_email]
+    FROM [dbo].[TERCEROS_VS_EMAILS] AS [TERCEROS_VS_EMAILS]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="TERCEROS_VS_IDENTIFICACIONES" EntityType="Self.TERCEROS_VS_IDENTIFICACIONES" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [TERCEROS_VS_IDENTIFICACIONES].[id_tercero] AS [id_tercero], 
+    [TERCEROS_VS_IDENTIFICACIONES].[id_identificacion] AS [id_identificacion]
+    FROM [dbo].[TERCEROS_VS_IDENTIFICACIONES] AS [TERCEROS_VS_IDENTIFICACIONES]</DefiningQuery>
     </EntitySet>
     <EntitySet Name="TIPONCF" EntityType="Self.TIPONCF" store:Type="Tables" store:Schema="dbo">
       <DefiningQuery>SELECT 
@@ -1873,38 +1791,6 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.TIPONCF' no tiene definida n
     <AssociationSet Name="FK_TELEFONOS_TIPOS_TELEFONOS" Association="Self.FK_TELEFONOS_TIPOS_TELEFONOS">
       <End Role="TIPOS_TELEFONOS" EntitySet="TIPOS_TELEFONOS" />
       <End Role="TELEFONOS" EntitySet="TELEFONOS" />
-    </AssociationSet>
-    <AssociationSet Name="FK_TERCEROS_VS_DIRECCIONES_DIRECCIONES" Association="Self.FK_TERCEROS_VS_DIRECCIONES_DIRECCIONES">
-      <End Role="DIRECCIONES" EntitySet="DIRECCIONES" />
-      <End Role="TERCEROS_VS_DIRECCIONES" EntitySet="TERCEROS_VS_DIRECCIONES" />
-    </AssociationSet>
-    <AssociationSet Name="FK_TERCEROS_VS_DIRECCIONES_TERCEROS" Association="Self.FK_TERCEROS_VS_DIRECCIONES_TERCEROS">
-      <End Role="TERCEROS" EntitySet="TERCEROS" />
-      <End Role="TERCEROS_VS_DIRECCIONES" EntitySet="TERCEROS_VS_DIRECCIONES" />
-    </AssociationSet>
-    <AssociationSet Name="FK_TERCEROS_VS_EMAILS_EMAILS" Association="Self.FK_TERCEROS_VS_EMAILS_EMAILS">
-      <End Role="EMAILS" EntitySet="EMAILS" />
-      <End Role="TERCEROS_VS_EMAILS" EntitySet="TERCEROS_VS_EMAILS" />
-    </AssociationSet>
-    <AssociationSet Name="FK_TERCEROS_VS_EMAILS_TERCEROS" Association="Self.FK_TERCEROS_VS_EMAILS_TERCEROS">
-      <End Role="TERCEROS" EntitySet="TERCEROS" />
-      <End Role="TERCEROS_VS_EMAILS" EntitySet="TERCEROS_VS_EMAILS" />
-    </AssociationSet>
-    <AssociationSet Name="FK_TERCEROS_VS_IDENTIFICACIONES_IDENTIFICACIONES" Association="Self.FK_TERCEROS_VS_IDENTIFICACIONES_IDENTIFICACIONES">
-      <End Role="IDENTIFICACIONES" EntitySet="IDENTIFICACIONES" />
-      <End Role="TERCEROS_VS_IDENTIFICACIONES" EntitySet="TERCEROS_VS_IDENTIFICACIONES" />
-    </AssociationSet>
-    <AssociationSet Name="FK_TERCEROS_VS_IDENTIFICACIONES_TERCEROS" Association="Self.FK_TERCEROS_VS_IDENTIFICACIONES_TERCEROS">
-      <End Role="TERCEROS" EntitySet="TERCEROS" />
-      <End Role="TERCEROS_VS_IDENTIFICACIONES" EntitySet="TERCEROS_VS_IDENTIFICACIONES" />
-    </AssociationSet>
-    <AssociationSet Name="FK_TERCEROS_VS_TELEFONOS_TELEFONOS" Association="Self.FK_TERCEROS_VS_TELEFONOS_TELEFONOS">
-      <End Role="TELEFONOS" EntitySet="TELEFONOS" />
-      <End Role="TERCEROS_VS_TELEFONOS" EntitySet="TERCEROS_VS_TELEFONOS" />
-    </AssociationSet>
-    <AssociationSet Name="FK_TERCEROS_VS_TELEFONOS_TERCEROS" Association="Self.FK_TERCEROS_VS_TELEFONOS_TERCEROS">
-      <End Role="TERCEROS" EntitySet="TERCEROS" />
-      <End Role="TERCEROS_VS_TELEFONOS" EntitySet="TERCEROS_VS_TELEFONOS" />
     </AssociationSet>
     <AssociationSet Name="FK_tipoviajes" Association="Self.FK_tipoviajes">
       <End Role="TIPOSVIAJES" EntitySet="TIPOSVIAJES" />

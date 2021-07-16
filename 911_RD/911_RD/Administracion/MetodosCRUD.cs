@@ -8,31 +8,33 @@ namespace _911_RD.Administracion
 {
     class MetodosCRUD
     {
-        public int crudTerceros(string id_traido, string nombre_traido, string identificacion_traida)
+        public int crudTerceros(string id_traido, string nombre_traido)
         {
             int id_result = 0;
             try
             {
-                using (TransporSysEntities2 db = new TransporSysEntities2())
+
+                //TransporSysEntities
+                using (TransporSysEntities db = new TransporSysEntities())
                 {
-                        var terceroquery = db.TERCEROS.FirstOrDefault(a => a.id_tercero.ToString() == id_traido.Trim());
-                        if (terceroquery == null)
+                    var terceroquery = db.TERCEROS.FirstOrDefault(a => a.id_tercero.ToString() == id_traido.Trim());
+                    if (terceroquery == null)
+                    {
+                        TERCEROS tercero = new TERCEROS
                         {
-                            TERCEROS tercero = new TERCEROS
-                            {
-                                nombre = nombre_traido.Trim(),
-                            };
-                            db.TERCEROS.Add(tercero);
-                            id_result = db.TERCEROS.Max(x => x.id_tercero);
-                        }
-                        else
-                        {
-                            terceroquery = db.TERCEROS.FirstOrDefault(a => a.id_tercero.ToString() == id_traido.Trim());
-                            terceroquery.id_tercero = Convert.ToInt32(id_traido.Trim());
-                            terceroquery.nombre = nombre_traido.Trim();
-                             id_result = terceroquery.id_tercero;
+                            nombre = nombre_traido.Trim(),
+                        };
+                        db.TERCEROS.Add(tercero);
+                        id_result = db.TERCEROS.Max(x => x.id_tercero);
                     }
-                        db.SaveChanges();
+                    else
+                    {
+                        terceroquery = db.TERCEROS.FirstOrDefault(a => a.id_tercero.ToString() == id_traido.Trim());
+                        terceroquery.id_tercero = Convert.ToInt32(id_traido.Trim());
+                        terceroquery.nombre = nombre_traido.Trim();
+                        id_result = terceroquery.id_tercero;
+                    }
+                    db.SaveChanges();
                 }
             }
             catch (Exception asd)
@@ -48,7 +50,7 @@ namespace _911_RD.Administracion
             int id_result = 0;
             try
             {
-                using (TransporSysEntities2 db = new TransporSysEntities2())
+                using (TransporSysEntities db = new TransporSysEntities())
                 {
                     var terceroquery = db.IDENTIFICACIONES.FirstOrDefault(a => a.identificacion.ToString() == identificacion.Trim());
                     if (terceroquery == null)
@@ -67,7 +69,8 @@ namespace _911_RD.Administracion
                         terceroquery.identificacion = identificacion.Trim();
                         id_result = terceroquery.id_identificacion;
                     }
-                     
+
+
 
 
                     db.SaveChanges();
@@ -87,7 +90,7 @@ namespace _911_RD.Administracion
             int id_result = 0;
             try
             {
-                using (TransporSysEntities2 db = new TransporSysEntities2())
+                using (TransporSysEntities db = new TransporSysEntities())
                 {
                     var terceroquery = db.PERSONAS.FirstOrDefault(a => a.id_tercero.ToString() == id_ter_traido.Trim());
                     if (terceroquery == null)
@@ -138,7 +141,7 @@ namespace _911_RD.Administracion
             int id_result = 0;
             try
             {
-                using (TransporSysEntities2 db = new TransporSysEntities2())
+                using (TransporSysEntities db = new TransporSysEntities())
                 {
                     int tercero = db.TERCEROS.FirstOrDefault(a => a.id_tercero.ToString() == id_ter.Trim()).id_tercero;
                     int persona = db.PERSONAS.FirstOrDefault(a => a.id_tercero == tercero).id_persona;
@@ -188,7 +191,7 @@ namespace _911_RD.Administracion
         {
             try
             {
-                using (TransporSysEntities2 db = new TransporSysEntities2())
+                using (TransporSysEntities db = new TransporSysEntities())
                 {
                     var email_result = db.EMAILS.FirstOrDefault(a => a.email.ToString() == correo.Trim());
                     if (email_result == null)
@@ -219,7 +222,7 @@ namespace _911_RD.Administracion
         {
             try
             {
-                using (TransporSysEntities2 db = new TransporSysEntities2())
+                using (TransporSysEntities db = new TransporSysEntities())
                 {
                     var tel_result = db.TELEFONOS.FirstOrDefault(a => a.telefono.ToString() == telefono.Trim());
                     if (tel_result == null)
@@ -252,7 +255,7 @@ namespace _911_RD.Administracion
 
             try
             {
-                using (TransporSysEntities2 db = new TransporSysEntities2())
+                using (TransporSysEntities db = new TransporSysEntities())
                 {
 
                     int id_cont = db.CONTINENTES.FirstOrDefault(a => a.continente == continente).id_continente;
@@ -285,7 +288,7 @@ namespace _911_RD.Administracion
             List<string> result = new List<string>();
             try
             {
-                using (TransporSysEntities2 db = new TransporSysEntities2())
+                using (TransporSysEntities db = new TransporSysEntities())
                 {
 
                     int id_p = db.PAISES.FirstOrDefault(a => a.pais == pais).id_pais;
@@ -319,7 +322,7 @@ namespace _911_RD.Administracion
 
             try
             {
-                using (TransporSysEntities2 db = new TransporSysEntities2())
+                using (TransporSysEntities db = new TransporSysEntities())
                 {
 
                     int id_provincia = db.PROVINCIAS.FirstOrDefault(a => a.provincia == provincia).id_provincia;
@@ -352,7 +355,7 @@ namespace _911_RD.Administracion
             int id_result = 0;
             try
             {
-                using (TransporSysEntities2 db = new TransporSysEntities2())
+                using (TransporSysEntities db = new TransporSysEntities())
                 {
                     var direc_result = db.DIRECCIONES.FirstOrDefault(a => a.id_direccion.ToString() == id_direc.Trim());
                     //    System.Diagnostics.Debug.WriteLine(terceroquery.nombre);

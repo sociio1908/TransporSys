@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="TransporSysModelStoreContainer" CdmEntityContainer="TransporSysEntities2">
+  <EntityContainerMapping StorageEntityContainer="TransporSysModelStoreContainer" CdmEntityContainer="TransporSysEntities">
     <EntitySetMapping Name="ALMACENES">
       <EntityTypeMapping TypeName="TransporSysModel.ALMACENES">
         <MappingFragment StoreEntitySet="ALMACENES">
@@ -16,11 +16,12 @@
         <MappingFragment StoreEntitySet="ARTICULOS">
           <ScalarProperty Name="id_articulo" ColumnName="id_articulo" />
           <ScalarProperty Name="id_categoria" ColumnName="id_categoria" />
+          <ScalarProperty Name="id_unidad_de_medida" ColumnName="id_unidad_de_medida" />
           <ScalarProperty Name="nombre" ColumnName="nombre" />
           <ScalarProperty Name="descripcion" ColumnName="descripcion" />
           <ScalarProperty Name="reorden" ColumnName="reorden" />
-          <ScalarProperty Name="imagen" ColumnName="imagen" />
           <ScalarProperty Name="codigo_barras" ColumnName="codigo_barras" />
+          <ScalarProperty Name="precio" ColumnName="precio" />
           <ScalarProperty Name="estado" ColumnName="estado" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -313,8 +314,6 @@
         <MappingFragment StoreEntitySet="MODELO">
           <ScalarProperty Name="id_modelo" ColumnName="id_modelo" />
           <ScalarProperty Name="modelo1" ColumnName="modelo" />
-          <ScalarProperty Name="createdAt" ColumnName="createdAt" />
-          <ScalarProperty Name="updatedAt" ColumnName="updatedAt" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -642,6 +641,22 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="TERCEROS_VS_EMAILS">
+      <EntityTypeMapping TypeName="TransporSysModel.TERCEROS_VS_EMAILS">
+        <MappingFragment StoreEntitySet="TERCEROS_VS_EMAILS">
+          <ScalarProperty Name="id_tercero" ColumnName="id_tercero" />
+          <ScalarProperty Name="id_email" ColumnName="id_email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TERCEROS_VS_IDENTIFICACIONES">
+      <EntityTypeMapping TypeName="TransporSysModel.TERCEROS_VS_IDENTIFICACIONES">
+        <MappingFragment StoreEntitySet="TERCEROS_VS_IDENTIFICACIONES">
+          <ScalarProperty Name="id_tercero" ColumnName="id_tercero" />
+          <ScalarProperty Name="id_identificacion" ColumnName="id_identificacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="TIPONCF">
       <EntityTypeMapping TypeName="TransporSysModel.TIPONCF">
         <MappingFragment StoreEntitySet="TIPONCF">
@@ -664,38 +679,6 @@
       </EndProperty>
       <EndProperty Name="PUESTOS">
         <ScalarProperty Name="id_puesto" ColumnName="id_puesto" />
-      </EndProperty>
-    </AssociationSetMapping>
-    <AssociationSetMapping Name="TERCEROS_VS_DIRECCIONES" TypeName="TransporSysModel.TERCEROS_VS_DIRECCIONES" StoreEntitySet="TERCEROS_VS_DIRECCIONES">
-      <EndProperty Name="DIRECCIONES">
-        <ScalarProperty Name="id_direccion" ColumnName="id_direccion" />
-      </EndProperty>
-      <EndProperty Name="TERCEROS">
-        <ScalarProperty Name="id_tercero" ColumnName="id_tercero" />
-      </EndProperty>
-    </AssociationSetMapping>
-    <AssociationSetMapping Name="TERCEROS_VS_EMAILS" TypeName="TransporSysModel.TERCEROS_VS_EMAILS" StoreEntitySet="TERCEROS_VS_EMAILS">
-      <EndProperty Name="EMAILS">
-        <ScalarProperty Name="id_email" ColumnName="id_email" />
-      </EndProperty>
-      <EndProperty Name="TERCEROS">
-        <ScalarProperty Name="id_tercero" ColumnName="id_tercero" />
-      </EndProperty>
-    </AssociationSetMapping>
-    <AssociationSetMapping Name="TERCEROS_VS_IDENTIFICACIONES" TypeName="TransporSysModel.TERCEROS_VS_IDENTIFICACIONES" StoreEntitySet="TERCEROS_VS_IDENTIFICACIONES">
-      <EndProperty Name="IDENTIFICACIONES">
-        <ScalarProperty Name="id_identificacion" ColumnName="id_identificacion" />
-      </EndProperty>
-      <EndProperty Name="TERCEROS">
-        <ScalarProperty Name="id_tercero" ColumnName="id_tercero" />
-      </EndProperty>
-    </AssociationSetMapping>
-    <AssociationSetMapping Name="TERCEROS_VS_TELEFONOS" TypeName="TransporSysModel.TERCEROS_VS_TELEFONOS" StoreEntitySet="TERCEROS_VS_TELEFONOS">
-      <EndProperty Name="TELEFONOS">
-        <ScalarProperty Name="id_telefono" ColumnName="id_telefono" />
-      </EndProperty>
-      <EndProperty Name="TERCEROS">
-        <ScalarProperty Name="id_tercero" ColumnName="id_tercero" />
       </EndProperty>
     </AssociationSetMapping>
   </EntityContainerMapping>

@@ -13,10 +13,10 @@ namespace _911_RD
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class TransporSysEntities2 : DbContext
+    public partial class TransporSysEntities : DbContext
     {
-        public TransporSysEntities2()
-            : base("name=TransporSysEntities2")
+        public TransporSysEntities()
+            : base("name=TransporSysEntities")
         {
         }
     
@@ -83,6 +83,8 @@ namespace _911_RD
         public virtual DbSet<VIAJES> VIAJES { get; set; }
         public virtual DbSet<ARTICULOS_VS_CATEGORIAS_VS_DESCUENTOS> ARTICULOS_VS_CATEGORIAS_VS_DESCUENTOS { get; set; }
         public virtual DbSet<GPS> GPS { get; set; }
+        public virtual DbSet<TERCEROS_VS_EMAILS> TERCEROS_VS_EMAILS { get; set; }
+        public virtual DbSet<TERCEROS_VS_IDENTIFICACIONES> TERCEROS_VS_IDENTIFICACIONES { get; set; }
         public virtual DbSet<TIPONCF> TIPONCF { get; set; }
     }
 }

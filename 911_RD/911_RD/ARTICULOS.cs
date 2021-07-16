@@ -30,11 +30,12 @@ namespace _911_RD
     
         public int id_articulo { get; set; }
         public int id_categoria { get; set; }
+        public int id_unidad_de_medida { get; set; }
         public string nombre { get; set; }
         public string descripcion { get; set; }
         public int reorden { get; set; }
-        public string imagen { get; set; }
         public string codigo_barras { get; set; }
+        public double precio { get; set; }
         public bool estado { get; set; }
     
         public virtual CATEGORIAS CATEGORIAS { get; set; }

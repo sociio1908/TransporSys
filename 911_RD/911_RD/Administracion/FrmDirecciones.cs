@@ -52,5 +52,12 @@ namespace _911_RD.Administracion
                 //error
             }
         }
+
+        private void btn_cerrar_Click(object sender, EventArgs e)
+        {
+
+            this.DialogResult = DialogResult.No;
+            this.Close();
+        }
     }
 }
