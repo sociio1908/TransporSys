@@ -14,7 +14,7 @@ namespace _911_RD.Administracion.Vehiculo
     {
         public FrmMarca()
         {
-            InitializeComponent();
+            InitializeComponent(); cargarTabla();
         }
 
         private void btn_guardar_Click(object sender, EventArgs e)
@@ -99,6 +99,11 @@ namespace _911_RD.Administracion.Vehiculo
 
                 }
             }
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            CargarCampos();
         }
     }
 }

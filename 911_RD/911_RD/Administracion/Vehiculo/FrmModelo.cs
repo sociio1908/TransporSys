@@ -102,5 +102,9 @@ namespace _911_RD.Administracion.Vehiculo
             }
         }
 
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            CargarCampos();
+        }
     }
 }
