@@ -220,8 +220,8 @@
       <EntityTypeMapping TypeName="TransporSysModel.DIRECCIONES">
         <MappingFragment StoreEntitySet="DIRECCIONES">
           <ScalarProperty Name="id_direccion" ColumnName="id_direccion" />
-          <ScalarProperty Name="id_ciudad" ColumnName="id_ciudad" />
-          <ScalarProperty Name="direccion" ColumnName="direccion" />
+          <ScalarProperty Name="latitud" ColumnName="latitud" />
+          <ScalarProperty Name="longitud" ColumnName="longitud" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -641,6 +641,14 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="TERCEROS_VS_DIRECCIONES">
+      <EntityTypeMapping TypeName="TransporSysModel.TERCEROS_VS_DIRECCIONES">
+        <MappingFragment StoreEntitySet="TERCEROS_VS_DIRECCIONES">
+          <ScalarProperty Name="id_tercero" ColumnName="id_tercero" />
+          <ScalarProperty Name="id_direccion" ColumnName="id_direccion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="TERCEROS_VS_EMAILS">
       <EntityTypeMapping TypeName="TransporSysModel.TERCEROS_VS_EMAILS">
         <MappingFragment StoreEntitySet="TERCEROS_VS_EMAILS">
@@ -654,6 +662,14 @@
         <MappingFragment StoreEntitySet="TERCEROS_VS_IDENTIFICACIONES">
           <ScalarProperty Name="id_tercero" ColumnName="id_tercero" />
           <ScalarProperty Name="id_identificacion" ColumnName="id_identificacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TERCEROS_VS_TELEFONOS">
+      <EntityTypeMapping TypeName="TransporSysModel.TERCEROS_VS_TELEFONOS">
+        <MappingFragment StoreEntitySet="TERCEROS_VS_TELEFONOS">
+          <ScalarProperty Name="id_tercero" ColumnName="id_tercero" />
+          <ScalarProperty Name="id_telefono" ColumnName="id_telefono" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

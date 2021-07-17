@@ -8,6 +8,10 @@ namespace _911_RD.Administracion
 {
     class MetodosCRUD
     {
+
+        //ME FALTA CONDUCTOR Y AHI PUEDO INSERTAR EMPLEADOOOOOOOOOOOOOOOS
+
+
         public int crudTerceros(string id_traido, string nombre_traido)
         {
             int id_result = 0;
@@ -45,14 +49,17 @@ namespace _911_RD.Administracion
             return id_result;
         }
 
-        public int crudIdentificaciones(string identificacion, string id_tipo, string id_tercer0)
+        public int crudIdentificaciones(string identificacion, string id_tipo, string id_tercero)
         {
-            int id_result = 0;
+            int id_result = 0, id_identificacion=0;
             try
             {
                 using (TransporSysEntities db = new TransporSysEntities())
                 {
-                    var terceroquery = db.IDENTIFICACIONES.FirstOrDefault(a => a.identificacion.ToString() == identificacion.Trim());
+
+                    id_identificacion = db.TERCEROS_VS_IDENTIFICACIONES.FirstOrDefault(x => x.id_tercero.ToString() == id_tercero.Trim()).id_identificacion;
+
+                    var terceroquery = db.IDENTIFICACIONES.FirstOrDefault(a => a.identificacion.ToString() == identificacion.Trim() || a.id_identificacion == id_identificacion);
                     if (terceroquery == null)
                     {
                         IDENTIFICACIONES ident = new IDENTIFICACIONES
@@ -70,9 +77,15 @@ namespace _911_RD.Administracion
                         id_result = terceroquery.id_identificacion;
                     }
 
-
-
-
+                    if (id_identificacion == 0)
+                    {
+                        TERCEROS_VS_IDENTIFICACIONES tERCEROS_VS_IDENTIFICACIONES = new TERCEROS_VS_IDENTIFICACIONES
+                        {
+                            id_identificacion = id_result,
+                            id_tercero = Convert.ToInt32(id_tercero.Trim()),
+                        };
+                        db.TERCEROS_VS_IDENTIFICACIONES.Add(tERCEROS_VS_IDENTIFICACIONES);
+                    }
                     db.SaveChanges();
                 }
             }
@@ -84,8 +97,7 @@ namespace _911_RD.Administracion
             return id_result;
         }
 
-
-        public int crudPersonas(string id_per_traido, string id_ter_traido, string id_sex_traido, DateTime fecha_nac, string id_nac_traido, string apellido_traido)
+        public int crudPersonas(string id_ter_traido, string id_sex_traido, DateTime fecha_nac, string id_nac_traido, string apellido_traido)
         {
             int id_result = 0;
             try
@@ -104,25 +116,17 @@ namespace _911_RD.Administracion
                             fecha_nacimiento = fecha_nac,
                         };
                         db.PERSONAS.Add(persona);
-                    }
-                    else
-                    {
-                        terceroquery = db.PERSONAS.FirstOrDefault(a => a.id_persona.ToString() == id_per_traido.Trim());
-
-                        terceroquery.id_sexo = Convert.ToInt32(id_sex_traido.Trim());
-                        terceroquery.id_nacionalidad = Convert.ToInt32(id_nac_traido.Trim());
-                        terceroquery.apellido = apellido_traido.Trim();
-                        terceroquery.fecha_nacimiento = fecha_nac;
-                    }
-                    db.SaveChanges();
-                    if (terceroquery == null)
-                    {
                         id_result = db.PERSONAS.Max(x => x.id_persona);
                     }
                     else
                     {
+                        terceroquery.id_sexo = Convert.ToInt32(id_sex_traido.Trim());
+                        terceroquery.id_nacionalidad = Convert.ToInt32(id_nac_traido.Trim());
+                        terceroquery.apellido = apellido_traido.Trim();
+                        terceroquery.fecha_nacimiento = fecha_nac;
                         id_result = terceroquery.id_persona;
                     }
+                    db.SaveChanges();
                     System.Diagnostics.Debug.WriteLine("Proceso exitoso.");
 
                 }
@@ -136,44 +140,35 @@ namespace _911_RD.Administracion
 
         }
 
-        public int crudEmpleado(string id_ter, DateTime fechaIngreso, bool estado, int id_puesto)
+        public int crudEmpleado(string id_persona, DateTime fechaIngreso, bool estado, int id_puesto)
         {
             int id_result = 0;
             try
             {
                 using (TransporSysEntities db = new TransporSysEntities())
                 {
-                    int tercero = db.TERCEROS.FirstOrDefault(a => a.id_tercero.ToString() == id_ter.Trim()).id_tercero;
-                    int persona = db.PERSONAS.FirstOrDefault(a => a.id_tercero == tercero).id_persona;
-                    var empleado = db.EMPLEADOS.FirstOrDefault(a => a.id_persona == persona);
+                    var empleado = db.EMPLEADOS.FirstOrDefault(a => a.id_persona.ToString() == id_persona);
 
                     if (empleado == null)
                     {
                         EMPLEADOS emp = new EMPLEADOS
                         {
-                            id_persona = persona,
+                            id_persona = Convert.ToInt32(id_persona.Trim()),
                             id_puesto = id_puesto,
                             fecha_ingreso = fechaIngreso,
                             estado = true
                         };
                         db.EMPLEADOS.Add(emp);
+                        id_result = db.EMPLEADOS.Max(x => x.id_empleado);
                     }
                     else
                     {
                         empleado.fecha_ingreso = fechaIngreso;
                         empleado.id_puesto = id_puesto;
                         empleado.estado = estado;
-                    }
-                    if (empleado == null)
-                    {
-                        id_result = db.EMPLEADOS.Max(x => x.id_empleado);
-                    }
-                    else
-                    {
                         id_result = empleado.id_empleado;
                     }
                     db.SaveChanges();
-
                     System.Diagnostics.Debug.WriteLine("Proceso exitoso.");
 
                 }
@@ -187,66 +182,73 @@ namespace _911_RD.Administracion
 
         }
 
-        public void crudCorre(string correo)
+        public int crudCorre(string correo)
         {
+            int id_result = 0;
             try
             {
                 using (TransporSysEntities db = new TransporSysEntities())
                 {
-                    var email_result = db.EMAILS.FirstOrDefault(a => a.email.ToString() == correo.Trim());
-                    if (email_result == null)
+                    var correo_result = db.EMAILS.FirstOrDefault(a => a.email.ToString() == correo.Trim());
+                    //    System.Diagnostics.Debug.WriteLine(terceroquery.nombre);
+                    if (correo_result == null)
                     {
-                        EMAILS emails = new EMAILS
+                        EMAILS tele = new EMAILS
                         {
-                            email = correo.Trim()
+                            email = correo.Trim(),
                         };
-                        db.EMAILS.Add(emails);
+                        db.EMAILS.Add(tele);
+                        id_result = db.EMAILS.Max(x => x.id_email);
                     }
                     else
                     {
-                        email_result.email = correo.Trim();
+                        id_result = correo_result.id_email;
                     }
                     db.SaveChanges();
                     System.Diagnostics.Debug.WriteLine("Proceso exitoso.");
-
                 }
             }
-            catch (Exception aas)
+            catch (Exception dfg)
             {
-                System.Diagnostics.Debug.WriteLine("Hubo un error chulo. " + aas);
+                // MessageBox.Show(lbl_titulo + " ERRORRRR");
             }
 
+            return id_result;
         }
 
-        public void crudTelefono(string telefono)
+        public int crudTelefono(string telefono)
         {
+
+            int id_result = 0;
             try
             {
                 using (TransporSysEntities db = new TransporSysEntities())
                 {
                     var tel_result = db.TELEFONOS.FirstOrDefault(a => a.telefono.ToString() == telefono.Trim());
+                    //    System.Diagnostics.Debug.WriteLine(terceroquery.nombre);
                     if (tel_result == null)
                     {
-                        TELEFONOS tel = new TELEFONOS
+                        TELEFONOS tele = new TELEFONOS
                         {
-                            telefono = telefono.Trim()
+                            telefono = telefono.Trim(),
                         };
-                        db.TELEFONOS.Add(tel);
+                        db.TELEFONOS.Add(tele);
+                        id_result = db.TELEFONOS.Max(x => x.id_telefono);
                     }
                     else
                     {
-                        telefono = telefono.Trim();
+                        id_result = tel_result.id_telefono;
                     }
                     db.SaveChanges();
                     System.Diagnostics.Debug.WriteLine("Proceso exitoso.");
-
                 }
             }
-            catch (Exception aas)
+            catch (Exception dfg)
             {
-                System.Diagnostics.Debug.WriteLine("Hubo un error chulo. " + aas);
+                // MessageBox.Show(lbl_titulo + " ERRORRRR");
             }
 
+            return id_result;
         }
 
         public List<string> AsignarPaises(string continente)
@@ -350,40 +352,31 @@ namespace _911_RD.Administracion
             return result;
         }
 
-        public int InsertarDireccion(string id_direc, string direccion, string id_ciudad)
+        public int InsertarDireccion(string latitud_ , string longitud_ )
         {
             int id_result = 0;
             try
             {
                 using (TransporSysEntities db = new TransporSysEntities())
                 {
-                    var direc_result = db.DIRECCIONES.FirstOrDefault(a => a.id_direccion.ToString() == id_direc.Trim());
+                    var direc_result = db.DIRECCIONES.FirstOrDefault(a => a.latitud.ToString() == latitud_.Trim() && a.longitud.ToString() == longitud_.Trim());
                     //    System.Diagnostics.Debug.WriteLine(terceroquery.nombre);
                     if (direc_result == null)
                     {
                         DIRECCIONES direcciones = new DIRECCIONES
                         {
-                            id_ciudad = Convert.ToInt32(id_ciudad),
-                            direccion = direccion.Trim(),
+                            latitud = Convert.ToDouble(latitud_),
+                            longitud = Convert.ToDouble(longitud_),
                         };
                         db.DIRECCIONES.Add(direcciones);
-                    }
-                    else
-                    {
-                        direc_result.id_ciudad = Convert.ToInt32(id_ciudad);
-                        direc_result.direccion = direccion.Trim();
-                    }
-                    db.SaveChanges();
-                    if (direc_result == null)
-                    {
                         id_result = db.DIRECCIONES.Max(x => x.id_direccion);
                     }
                     else
                     {
-                        id_result = db.DIRECCIONES.FirstOrDefault(a => a.id_direccion.ToString() == id_direc.Trim()).id_direccion;
+                        id_result = direc_result.id_direccion;
                     }
+                    db.SaveChanges();
                     System.Diagnostics.Debug.WriteLine("Proceso exitoso.");
-
                 }
             }
             catch (Exception dfg)

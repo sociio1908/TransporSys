@@ -306,10 +306,16 @@
     <Compile Include="TERCEROS.cs">
       <DependentUpon>TransporSysEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="TERCEROS_VS_DIRECCIONES.cs">
+      <DependentUpon>TransporSysEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="TERCEROS_VS_EMAILS.cs">
       <DependentUpon>TransporSysEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="TERCEROS_VS_IDENTIFICACIONES.cs">
+      <DependentUpon>TransporSysEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TERCEROS_VS_TELEFONOS.cs">
       <DependentUpon>TransporSysEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="TIPONCF.cs">
@@ -345,9 +351,9 @@
       <DependentUpon>TransporSysEntities.Context.tt</DependentUpon>
     </Compile>
     <Compile Include="TransporSysEntities.cs">
-      <DependentUpon>TransporSysEntities.tt</DependentUpon>
-      <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TransporSysEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="TransporSysEntities.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -541,8 +547,8 @@
     </Content>
     <Content Include="TransporSysEntities.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>TransporSysEntities.cs</LastGenOutput>
       <DependentUpon>TransporSysEntities.edmx</DependentUpon>
+      <LastGenOutput>TransporSysEntities.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

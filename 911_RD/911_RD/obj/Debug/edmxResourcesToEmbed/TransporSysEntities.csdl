@@ -59,7 +59,7 @@
     <Key>
       <PropertyRef Name="id_ciudad" />
     </Key>
-    <Property Name="id_ciudad" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_ciudad" Type="Double" Nullable="false" />
     <Property Name="id_provincia" Type="Int32" Nullable="false" />
     <Property Name="ciudad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <NavigationProperty Name="PROVINCIAS" Relationship="Self.FK_CIUDADES_PROVINCIAS" FromRole="CIUDADES" ToRole="PROVINCIAS" />
@@ -247,8 +247,8 @@
       <PropertyRef Name="id_direccion" />
     </Key>
     <Property Name="id_direccion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="id_ciudad" Type="Int32" Nullable="false" />
-    <Property Name="direccion" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="latitud" Type="Double" Nullable="false" />
+    <Property Name="longitud" Type="Double" Nullable="false" />
     <NavigationProperty Name="CIUDADES" Relationship="Self.FK_DIRECCIONES_CIUDADES" FromRole="DIRECCIONES" ToRole="CIUDADES" />
   </EntityType>
   <EntityType Name="EMAILS">
@@ -718,6 +718,14 @@
     <NavigationProperty Name="EMPLEADOS" Relationship="Self.FK_GPsS" FromRole="GPS" ToRole="EMPLEADOS" />
     <NavigationProperty Name="VEHICULO" Relationship="Self.FK_GPS" FromRole="GPS" ToRole="VEHICULO" />
   </EntityType>
+  <EntityType Name="TERCEROS_VS_DIRECCIONES">
+    <Key>
+      <PropertyRef Name="id_tercero" />
+      <PropertyRef Name="id_direccion" />
+    </Key>
+    <Property Name="id_tercero" Type="Int32" Nullable="false" />
+    <Property Name="id_direccion" Type="Int32" Nullable="false" />
+  </EntityType>
   <EntityType Name="TERCEROS_VS_EMAILS">
     <Key>
       <PropertyRef Name="id_tercero" />
@@ -733,6 +741,14 @@
     </Key>
     <Property Name="id_tercero" Type="Int32" Nullable="false" />
     <Property Name="id_identificacion" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TERCEROS_VS_TELEFONOS">
+    <Key>
+      <PropertyRef Name="id_tercero" />
+      <PropertyRef Name="id_telefono" />
+    </Key>
+    <Property Name="id_tercero" Type="Int32" Nullable="false" />
+    <Property Name="id_telefono" Type="Int32" Nullable="false" />
   </EntityType>
   <EntityType Name="TIPONCF">
     <Key>
@@ -917,7 +933,7 @@
         <PropertyRef Name="id_ciudad" />
       </Principal>
       <Dependent Role="DIRECCIONES">
-        <PropertyRef Name="id_ciudad" />
+        <PropertyRef Name="latitud" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -1564,8 +1580,10 @@
     <EntitySet Name="VIAJES" EntityType="Self.VIAJES" />
     <EntitySet Name="ARTICULOS_VS_CATEGORIAS_VS_DESCUENTOS" EntityType="Self.ARTICULOS_VS_CATEGORIAS_VS_DESCUENTOS" />
     <EntitySet Name="GPS" EntityType="Self.GPS" />
+    <EntitySet Name="TERCEROS_VS_DIRECCIONES" EntityType="Self.TERCEROS_VS_DIRECCIONES" />
     <EntitySet Name="TERCEROS_VS_EMAILS" EntityType="Self.TERCEROS_VS_EMAILS" />
     <EntitySet Name="TERCEROS_VS_IDENTIFICACIONES" EntityType="Self.TERCEROS_VS_IDENTIFICACIONES" />
+    <EntitySet Name="TERCEROS_VS_TELEFONOS" EntityType="Self.TERCEROS_VS_TELEFONOS" />
     <EntitySet Name="TIPONCF" EntityType="Self.TIPONCF" />
     <AssociationSet Name="FK_EXISTENCIAS_ALMACENES" Association="Self.FK_EXISTENCIAS_ALMACENES">
       <End Role="ALMACENES" EntitySet="ALMACENES" />

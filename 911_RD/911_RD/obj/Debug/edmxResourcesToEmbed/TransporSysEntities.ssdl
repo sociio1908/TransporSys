@@ -57,7 +57,7 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.ARTICULOS_VS_CATEGORIAS_VS_D
     <Key>
       <PropertyRef Name="id_ciudad" />
     </Key>
-    <Property Name="id_ciudad" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_ciudad" Type="float" Nullable="false" />
     <Property Name="id_provincia" Type="int" Nullable="false" />
     <Property Name="ciudad" Type="varchar" MaxLength="50" Nullable="false" />
   </EntityType>
@@ -213,8 +213,8 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.ARTICULOS_VS_CATEGORIAS_VS_D
       <PropertyRef Name="id_direccion" />
     </Key>
     <Property Name="id_direccion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="id_ciudad" Type="int" Nullable="false" />
-    <Property Name="direccion" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="latitud" Type="float" Nullable="false" />
+    <Property Name="longitud" Type="float" Nullable="false" />
   </EntityType>
   <EntityType Name="EMAILS">
     <Key>
@@ -466,11 +466,15 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.PUESTOS_VS_DEPARTAMENTOS' no
     <Property Name="nombre" Type="varchar" MaxLength="100" Nullable="false" />
   </EntityType>
   <!--Errores durante la generación:
-advertencia 6013: La tabla o vista 'TransporSys.dbo.TERCEROS_VS_DIRECCIONES' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
-        <EntityType Name="TERCEROS_VS_DIRECCIONES">
-          <Property Name="id_tercero" Type="int" />
-          <Property Name="id_direccion" Type="int" />
-        </EntityType>-->
+advertencia 6002: La tabla o vista 'TransporSys.dbo.TERCEROS_VS_DIRECCIONES' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="TERCEROS_VS_DIRECCIONES">
+    <Key>
+      <PropertyRef Name="id_tercero" />
+      <PropertyRef Name="id_direccion" />
+    </Key>
+    <Property Name="id_tercero" Type="int" Nullable="false" />
+    <Property Name="id_direccion" Type="int" Nullable="false" />
+  </EntityType>
   <!--Errores durante la generación:
 advertencia 6002: La tabla o vista 'TransporSys.dbo.TERCEROS_VS_EMAILS' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
   <EntityType Name="TERCEROS_VS_EMAILS">
@@ -492,11 +496,15 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.TERCEROS_VS_IDENTIFICACIONES
     <Property Name="id_identificacion" Type="int" Nullable="false" />
   </EntityType>
   <!--Errores durante la generación:
-advertencia 6013: La tabla o vista 'TransporSys.dbo.TERCEROS_VS_TELEFONOS' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
-        <EntityType Name="TERCEROS_VS_TELEFONOS">
-          <Property Name="id_tercero" Type="int" />
-          <Property Name="id_telefono" Type="nchar" MaxLength="10" />
-        </EntityType>-->
+advertencia 6002: La tabla o vista 'TransporSys.dbo.TERCEROS_VS_TELEFONOS' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="TERCEROS_VS_TELEFONOS">
+    <Key>
+      <PropertyRef Name="id_tercero" />
+      <PropertyRef Name="id_telefono" />
+    </Key>
+    <Property Name="id_tercero" Type="int" Nullable="false" />
+    <Property Name="id_telefono" Type="int" Nullable="false" />
+  </EntityType>
   <!--Errores durante la generación:
 advertencia 6002: La tabla o vista 'TransporSys.dbo.TIPONCF' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
   <EntityType Name="TIPONCF">
@@ -1007,7 +1015,7 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.TIPONCF' no tiene definida n
         <PropertyRef Name="id_ciudad" />
       </Principal>
       <Dependent Role="DIRECCIONES">
-        <PropertyRef Name="id_ciudad" />
+        <PropertyRef Name="latitud" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -1534,6 +1542,12 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.TIPONCF' no tiene definida n
     [PUESTOS_VS_DEPARTAMENTOS].[id_departamento] AS [id_departamento]
     FROM [dbo].[PUESTOS_VS_DEPARTAMENTOS] AS [PUESTOS_VS_DEPARTAMENTOS]</DefiningQuery>
     </EntitySet>
+    <EntitySet Name="TERCEROS_VS_DIRECCIONES" EntityType="Self.TERCEROS_VS_DIRECCIONES" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [TERCEROS_VS_DIRECCIONES].[id_tercero] AS [id_tercero], 
+    [TERCEROS_VS_DIRECCIONES].[id_direccion] AS [id_direccion]
+    FROM [dbo].[TERCEROS_VS_DIRECCIONES] AS [TERCEROS_VS_DIRECCIONES]</DefiningQuery>
+    </EntitySet>
     <EntitySet Name="TERCEROS_VS_EMAILS" EntityType="Self.TERCEROS_VS_EMAILS" store:Type="Tables" store:Schema="dbo">
       <DefiningQuery>SELECT 
     [TERCEROS_VS_EMAILS].[id_tercero] AS [id_tercero], 
@@ -1545,6 +1559,12 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.TIPONCF' no tiene definida n
     [TERCEROS_VS_IDENTIFICACIONES].[id_tercero] AS [id_tercero], 
     [TERCEROS_VS_IDENTIFICACIONES].[id_identificacion] AS [id_identificacion]
     FROM [dbo].[TERCEROS_VS_IDENTIFICACIONES] AS [TERCEROS_VS_IDENTIFICACIONES]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="TERCEROS_VS_TELEFONOS" EntityType="Self.TERCEROS_VS_TELEFONOS" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [TERCEROS_VS_TELEFONOS].[id_tercero] AS [id_tercero], 
+    [TERCEROS_VS_TELEFONOS].[id_telefono] AS [id_telefono]
+    FROM [dbo].[TERCEROS_VS_TELEFONOS] AS [TERCEROS_VS_TELEFONOS]</DefiningQuery>
     </EntitySet>
     <EntitySet Name="TIPONCF" EntityType="Self.TIPONCF" store:Type="Tables" store:Schema="dbo">
       <DefiningQuery>SELECT 
