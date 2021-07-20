@@ -612,7 +612,7 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.TIPONCF' no tiene definida n
     <Property Name="num_chasis" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="fecha_ingreso" Type="datetime" Nullable="false" />
     <Property Name="ano_fabricacion" Type="datetime" Nullable="false" />
-    <Property Name="gasto_galon_combustible_kilometro" Type="float" Nullable="false" />
+    <Property Name="gasto_galon_combustible_kilometro" Type="float" />
     <Property Name="id_combustible" Type="int" Nullable="false" />
     <Property Name="num_gps" Type="varchar" MaxLength="50" />
     <Property Name="estado" Type="bit" Nullable="false" />

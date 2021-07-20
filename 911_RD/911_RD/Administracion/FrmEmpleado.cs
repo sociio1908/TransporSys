@@ -17,11 +17,13 @@ namespace _911_RD.Administracion
             InitializeComponent();
             cb_estado.SelectedIndex = 0;
             cargarComboxs();
+
+
+            metodoscrud.crudTerceros(id_txt.Text, txt_nombre.Text);
+
         }
 
         MetodosCRUD metodoscrud = new MetodosCRUD();
-
-
        void cargarComboxs()
         {
             try
@@ -31,20 +33,20 @@ namespace _911_RD.Administracion
                 
                     var listS = db.SEXOS;
                         foreach (var sEXOS in listS){ 
-                        cb_sexo.Items.Add(sEXOS.descripcion);
+                        cb_sexo.Items.Add(sEXOS.descripcion.ToUpper());
                     
                     }
 
                     var listN  = db.NACIONALIDADES;
                     foreach (var nACIONALIDADES in listN)
                     {
-                        cb_nacionalidades.Items.Add(nACIONALIDADES.nacionalidad);
+                        cb_nacionalidades.Items.Add(nACIONALIDADES.nacionalidad.ToUpper());
                     }
 
                     var listIden = db.TIPOS_IDENTIFICACIONES;
                     foreach (var identi in listIden)
                     {
-                        cb_tipoIdent.Items.Add(identi.nombre);
+                        cb_tipoIdent.Items.Add(identi.nombre.ToUpper());
                     }
 
 
@@ -112,15 +114,9 @@ namespace _911_RD.Administracion
             }
             try
             {
-                ////Method insert/Update
-                //int id = metodoscrud.crudPersonas("", metodoscrud.crudTerceros(id_txt.Text, txt_nombre.Text.Trim(), txt_cedula.Text.Trim()).ToString(), Convert.ToInt32(cb_sexo.SelectedIndex).ToString(), fecha_nac.Value, Convert.ToInt32(cb_sexo.SelectedIndex).ToString(), txt_apellido.Text.Trim().ToString());
-                //int ID_empleADO =  metodoscrud.crudEmpleado(txt_cedula.Text.Trim(), fecha_con.Value, cb_estado.SelectedIndex == 0 ? true : false, id_cargo);
-                //if(conductor)
-                //  //  metodoscrud.c
 
+                InsertarEmpleado();
 
-
-                MessageBox.Show("DATOS GUARDADOS CORRECTAMENTE");
             }
             catch (Exception dfg)
             {
@@ -129,43 +125,27 @@ namespace _911_RD.Administracion
 
         }
 
+
         private void InsertarEmpleado()
         {
             try
             {
-                if (Utilidades.ValidarFormulario(this, errorProvider1) == true)
-                    return;
-                using (TransporSysEntities db = new TransporSysEntities())
+                int tercero = metodoscrud.crudTerceros(id_txt.Text, txt_nombre.Text);
+                MessageBox.Show("ID TERCERO: "+tercero);
+                int persona = metodoscrud.crudPersonas(tercero.ToString(), (cb_sexo.SelectedIndex+1).ToString(), fecha_nac.Value, (cb_nacionalidades.SelectedIndex+1).ToString(), txt_apellido.Text);
+                MessageBox.Show("ID persona: " + persona);
+                int id_identificacion = metodoscrud.crudIdentificaciones(txt_cedula.Text, (cb_tipoIdent.SelectedIndex + 1).ToString(), tercero.ToString());
+                MessageBox.Show("ID id_identificacion: " + tercero);
+                metodoscrud.crudCorreo("0",txt_correo.Text, tercero.ToString());
+                metodoscrud.crudTelefono("0", txt_telefono.Text, tercero.ToString());
+                metodoscrud.InsertarDireccion(txt_lat.Text, txt_long.Text, tercero.ToString());
+                int empleado = metodoscrud.crudEmpleado(txt_cargo.Text, persona.ToString(), fecha_con.Value, cb_estado.SelectedItem.ToString() == "ACTIVO" ? true : false);
+                if (conductor == true)
                 {
-                    //if (id_txt.Text.Trim() == "")
-                    //{
-                    //    EMPLEADOS eMPLEADOS = new EMPLEADOS
-                    //    {
-                    //        id = txt_puesto.Text.Trim(),
-                    //        descripcion = txt_descripcion.Text.Trim(),
-                    //        salario = Convert.ToDouble(txt_salario.Text.Trim()),
-                    //        estado = cb_estado.SelectedIndex == 0 ? true : false
-                    //    };
-
-                    //    db.PUESTOS.Add(puesto);
-                    //}
-                    //else
-                    //{
-                    //    var puesto = db.PUESTOS.FirstOrDefault(a => a.id_puesto.ToString() == id_txt.Text.Trim());
-                    //    if (puesto != null)
-                    //    {
-                    //        puesto.puesto = txt_puesto.Text.Trim();
-                    //        puesto.descripcion = txt_descripcion.Text.Trim();
-                    //        puesto.salario = Convert.ToDouble(txt_salario.Text.Trim());
-                    //        puesto.estado = cb_estado.SelectedIndex == 0 ? true : false;
-                    //    }
-                    //}
-                    //db.SaveChanges();
+                    int conductor = metodoscrud.crudConductor(empleado.ToString(), txt_numlicencia.Text, fecha_licencia.Value);
                 }
-                Utilidades.LimpiarControles(this);
-              //  cargarTabla();
-                MessageBox.Show("Proceso exitoso.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+                MessageBox.Show("DATOS GUARDADOS CORRECTAMENTE");
             }
             catch (Exception dfg)
             {
@@ -174,7 +154,6 @@ namespace _911_RD.Administracion
             }
         }
 
-        int id_cargo = 0;
 
 
         bool validarCombo()
@@ -197,9 +176,8 @@ namespace _911_RD.Administracion
                     txt_cargo.Text = frmCargo.dataGridView1.CurrentRow.Cells[1].Value.ToString();
                     txt_des_puesto.Text = frmCargo.dataGridView1.CurrentRow.Cells[2].Value.ToString();
                     txt_salario.Text = frmCargo.dataGridView1.CurrentRow.Cells[3].Value.ToString();
-                    id_cargo = Convert.ToInt32(frmCargo.dataGridView1.CurrentRow.Cells[0].Value);
 
-                    if (txt_cargo.Text.Trim().ToLower() == "conductor" || txt_cargo.Text.Trim().ToLower() == "chofer")
+                    if (txt_cargo.Text.Trim().ToLower() == "conductor" || txt_cargo.Text.Trim().ToLower() == "chofer" || txt_cargo.Text.Trim().ToLower() == "piloto" || txt_cargo.Text.Trim().ToLower() == "automovilista")
                     {
                         lbl_conductor.Visible = true;
                         p_conductor.Visible = true;
@@ -224,6 +202,8 @@ namespace _911_RD.Administracion
             p_conductor.Visible = false;
         }
 
+
+        //Seleccionar direccion
         private void btn_busc_dir_Click(object sender, EventArgs e)
         {
             using (FrmDirecciones frm = new FrmDirecciones())
@@ -257,9 +237,12 @@ namespace _911_RD.Administracion
                     //error
                 }
 
-              
-
             }
+        }
+
+        private void cb_nacionalidades_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            MessageBox.Show(cb_nacionalidades.SelectedIndex.ToString());
         }
     }
 }

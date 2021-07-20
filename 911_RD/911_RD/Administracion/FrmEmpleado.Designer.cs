@@ -169,9 +169,10 @@ namespace _911_RD.Administracion
             this.txt_nombre.Limpiar = true;
             this.txt_nombre.Location = new System.Drawing.Point(12, 263);
             this.txt_nombre.Name = "txt_nombre";
-            this.txt_nombre.Size = new System.Drawing.Size(170, 26);
+            this.txt_nombre.Size = new System.Drawing.Size(205, 26);
             this.txt_nombre.SoloNumeros = false;
             this.txt_nombre.TabIndex = 147;
+            this.txt_nombre.Text = "Jerinel";
             this.txt_nombre.Validar = true;
             this.txt_nombre.TextChanged += new System.EventHandler(this.errorTxtBox3_TextChanged);
             // 
@@ -228,10 +229,10 @@ namespace _911_RD.Administracion
             this.txt_des_puesto.Limpiar = true;
             this.txt_des_puesto.Location = new System.Drawing.Point(247, 155);
             this.txt_des_puesto.Name = "txt_des_puesto";
-            this.txt_des_puesto.Size = new System.Drawing.Size(199, 26);
+            this.txt_des_puesto.Size = new System.Drawing.Size(245, 26);
             this.txt_des_puesto.SoloNumeros = false;
             this.txt_des_puesto.TabIndex = 154;
-            this.txt_des_puesto.Validar = false;
+            this.txt_des_puesto.Validar = true;
             // 
             // label11
             // 
@@ -255,7 +256,7 @@ namespace _911_RD.Administracion
             this.txt_cargo.Size = new System.Drawing.Size(130, 26);
             this.txt_cargo.SoloNumeros = false;
             this.txt_cargo.TabIndex = 152;
-            this.txt_cargo.Validar = false;
+            this.txt_cargo.Validar = true;
             // 
             // label12
             // 
@@ -525,10 +526,10 @@ namespace _911_RD.Administracion
             this.txt_apellido.Limpiar = true;
             this.txt_apellido.Location = new System.Drawing.Point(12, 318);
             this.txt_apellido.Name = "txt_apellido";
-            this.txt_apellido.Size = new System.Drawing.Size(170, 26);
+            this.txt_apellido.Size = new System.Drawing.Size(205, 26);
             this.txt_apellido.SoloNumeros = false;
             this.txt_apellido.TabIndex = 171;
-            this.txt_apellido.Validar = false;
+            this.txt_apellido.Validar = true;
             // 
             // errorProvider1
             // 
@@ -556,7 +557,7 @@ namespace _911_RD.Administracion
             this.txt_salario.Size = new System.Drawing.Size(130, 26);
             this.txt_salario.SoloNumeros = true;
             this.txt_salario.TabIndex = 173;
-            this.txt_salario.Validar = false;
+            this.txt_salario.Validar = true;
             // 
             // p_direccion
             // 
@@ -615,7 +616,7 @@ namespace _911_RD.Administracion
             this.txt_telefono.Size = new System.Drawing.Size(128, 26);
             this.txt_telefono.SoloNumeros = true;
             this.txt_telefono.TabIndex = 194;
-            this.txt_telefono.Validar = false;
+            this.txt_telefono.Validar = true;
             // 
             // lbl_contacto
             // 
@@ -825,6 +826,7 @@ namespace _911_RD.Administracion
             this.cb_nacionalidades.Name = "cb_nacionalidades";
             this.cb_nacionalidades.Size = new System.Drawing.Size(167, 28);
             this.cb_nacionalidades.TabIndex = 189;
+            this.cb_nacionalidades.SelectedIndexChanged += new System.EventHandler(this.cb_nacionalidades_SelectedIndexChanged);
             // 
             // label21
             // 

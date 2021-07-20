@@ -617,7 +617,7 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.TIPONCF' no tiene definida n
           <Property Name="num_chasis" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="fecha_ingreso" Type="datetime" Nullable="false" />
           <Property Name="ano_fabricacion" Type="datetime" Nullable="false" />
-          <Property Name="gasto_galon_combustible_kilometro" Type="float" Nullable="false" />
+          <Property Name="gasto_galon_combustible_kilometro" Type="float" />
           <Property Name="id_combustible" Type="int" Nullable="false" />
           <Property Name="num_gps" Type="varchar" MaxLength="50" />
           <Property Name="estado" Type="bit" Nullable="false" />
@@ -2486,7 +2486,7 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.TIPONCF' no tiene definida n
           <Property Name="num_chasis" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="fecha_ingreso" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="ano_fabricacion" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="gasto_galon_combustible_kilometro" Type="Double" Nullable="false" />
+          <Property Name="gasto_galon_combustible_kilometro" Type="Double" />
           <Property Name="id_combustible" Type="Int32" Nullable="false" />
           <Property Name="num_gps" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="estado" Type="Boolean" Nullable="false" />
