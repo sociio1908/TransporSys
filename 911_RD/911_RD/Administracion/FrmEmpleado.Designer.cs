@@ -95,6 +95,7 @@ namespace _911_RD.Administracion
             this.cb_nacionalidades = new System.Windows.Forms.ComboBox();
             this.label21 = new System.Windows.Forms.Label();
             this.cb_tipoIdent = new System.Windows.Forms.ComboBox();
+            this.txt_id_cargo = new _911_RD.ErrorTxtBox();
             ((System.ComponentModel.ISupportInitialize)(this.btn_buscar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_Cargo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -323,6 +324,7 @@ namespace _911_RD.Administracion
             // 
             // cb_estado
             // 
+            this.cb_estado.Enabled = false;
             this.cb_estado.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.cb_estado.FormattingEnabled = true;
             this.cb_estado.Items.AddRange(new object[] {
@@ -848,11 +850,25 @@ namespace _911_RD.Administracion
             this.cb_tipoIdent.Size = new System.Drawing.Size(142, 28);
             this.cb_tipoIdent.TabIndex = 191;
             // 
+            // txt_id_cargo
+            // 
+            this.txt_id_cargo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_id_cargo.Enabled = false;
+            this.txt_id_cargo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.txt_id_cargo.Limpiar = true;
+            this.txt_id_cargo.Location = new System.Drawing.Point(385, 99);
+            this.txt_id_cargo.Name = "txt_id_cargo";
+            this.txt_id_cargo.Size = new System.Drawing.Size(49, 26);
+            this.txt_id_cargo.SoloNumeros = false;
+            this.txt_id_cargo.TabIndex = 193;
+            this.txt_id_cargo.Validar = true;
+            // 
             // FrmEmpleado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1049, 780);
+            this.Controls.Add(this.txt_id_cargo);
             this.Controls.Add(this.label21);
             this.Controls.Add(this.cb_tipoIdent);
             this.Controls.Add(this.label22);
@@ -934,6 +950,7 @@ namespace _911_RD.Administracion
             this.Controls.SetChildIndex(this.id_txt, 0);
             this.Controls.SetChildIndex(this.cb_tipoIdent, 0);
             this.Controls.SetChildIndex(this.label21, 0);
+            this.Controls.SetChildIndex(this.txt_id_cargo, 0);
             ((System.ComponentModel.ISupportInitialize)(this.btn_buscar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_Cargo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -1016,5 +1033,6 @@ namespace _911_RD.Administracion
         public ErrorTxtBox txt_long;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.ComboBox cb_tipoIdent;
+        private ErrorTxtBox txt_id_cargo;
     }
 }

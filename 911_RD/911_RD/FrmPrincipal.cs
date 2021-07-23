@@ -105,35 +105,9 @@ namespace _911_RD
 
         }
 
-        private void txt_filtro_TextChanged(object sender, EventArgs e)
-        {
+     
 
-            try
-            {
-               
-                    if (txt_filtro.Text != "")
-                    {
-                        lbl_buscar.Visible = false;
-                    }
-                    else
-                    {
-                        lbl_buscar.Visible = true;
-                    }
-            }
-            catch(Exception asa)
-            {
-
-            }
-           
-
-
-        }
-
-        private void lbl_buscar_Click(object sender, EventArgs e)
-        {
-
-        }
-
+     
         private void btn_empleado_Click(object sender, EventArgs e)
         {
 

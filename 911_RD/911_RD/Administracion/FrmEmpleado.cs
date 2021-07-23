@@ -16,10 +16,8 @@ namespace _911_RD.Administracion
         {
             InitializeComponent();
             cb_estado.SelectedIndex = 0;
-            cargarComboxs();
-
-
-            metodoscrud.crudTerceros(id_txt.Text, txt_nombre.Text);
+            cargarComboxs(); 
+            //id_tercero = metodoscrud.crudTerceros("17", "Mariam").ToString();
 
         }
 
@@ -105,9 +103,7 @@ namespace _911_RD.Administracion
 
         private void btn_guardar_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(validarCombo().ToString());
-
-
+          
              if (Utilidades.ValidarFormulario(this, errorProvider1) || validarCombo()==false){
                 MessageBox.Show("Favor llenar todos los campos.");
                 return;
@@ -125,27 +121,41 @@ namespace _911_RD.Administracion
 
         }
 
+        string id_tercero = "";
 
         private void InsertarEmpleado()
         {
             try
             {
-                int tercero = metodoscrud.crudTerceros(id_txt.Text, txt_nombre.Text);
-                MessageBox.Show("ID TERCERO: "+tercero);
-                int persona = metodoscrud.crudPersonas(tercero.ToString(), (cb_sexo.SelectedIndex+1).ToString(), fecha_nac.Value, (cb_nacionalidades.SelectedIndex+1).ToString(), txt_apellido.Text);
-                MessageBox.Show("ID persona: " + persona);
-                int id_identificacion = metodoscrud.crudIdentificaciones(txt_cedula.Text, (cb_tipoIdent.SelectedIndex + 1).ToString(), tercero.ToString());
-                MessageBox.Show("ID id_identificacion: " + tercero);
-                metodoscrud.crudCorreo("0",txt_correo.Text, tercero.ToString());
-                metodoscrud.crudTelefono("0", txt_telefono.Text, tercero.ToString());
+                //Tercero
+                int tercero = metodoscrud.crudTerceros(id_tercero, txt_nombre.Text.Trim());
+                MessageBox.Show("ID_TERCERO: " + tercero);
+                //Persona
+                int id_sexo = cb_sexo.SelectedIndex + 1;
+                int id_nacionalidad = cb_nacionalidades.SelectedIndex + 1;
+                int persona = metodoscrud.crudPersonas(tercero.ToString(), id_sexo.ToString(), fecha_nac.Value, id_nacionalidad.ToString(), txt_apellido.Text);
+                MessageBox.Show("ID_PERSONA: " + persona);
+                //Identificacion
+                int id_tipoIdentificacion = cb_tipoIdent.SelectedIndex + 1;
+                int id_identificacion = metodoscrud.crudIdentificaciones(txt_cedula.Text, id_tipoIdentificacion.ToString(), tercero.ToString());
+                MessageBox.Show("ID_identificacion: " + id_identificacion);
+                //Correo
+                metodoscrud.crudCorreo("",txt_correo.Text, tercero.ToString());
+                //Telefono
+                metodoscrud.crudTelefono("", txt_telefono.Text, tercero.ToString());
+                //Direccion
                 metodoscrud.InsertarDireccion(txt_lat.Text, txt_long.Text, tercero.ToString());
-                int empleado = metodoscrud.crudEmpleado(txt_cargo.Text, persona.ToString(), fecha_con.Value, cb_estado.SelectedItem.ToString() == "ACTIVO" ? true : false);
+                //Empleado
+                int empleado = metodoscrud.crudEmpleado(txt_id_cargo.Text, persona.ToString(), fecha_con.Value, cb_estado.SelectedIndex == 0 ? true : false);
+                MessageBox.Show("ID_empleado: " + empleado);
                 if (conductor == true)
                 {
-                    int conductor = metodoscrud.crudConductor(empleado.ToString(), txt_numlicencia.Text, fecha_licencia.Value);
+                    int id_conductor = metodoscrud.crudConductor(empleado.ToString(), txt_numlicencia.Text, fecha_licencia.Value); 
+                    MessageBox.Show("id_conductor: " + id_conductor);
                 }
 
                 MessageBox.Show("DATOS GUARDADOS CORRECTAMENTE");
+                
             }
             catch (Exception dfg)
             {
@@ -166,6 +176,8 @@ namespace _911_RD.Administracion
 
         bool conductor = false;
 
+
+
         private void btn_Cargo_Click(object sender, EventArgs e)
         {
             using (FrmCargo frmCargo = new FrmCargo())
@@ -173,6 +185,7 @@ namespace _911_RD.Administracion
                 DialogResult dr =  frmCargo.ShowDialog();
                 if (dr == DialogResult.OK)
                 {
+                    txt_id_cargo.Text = frmCargo.dataGridView1.CurrentRow.Cells[0].Value.ToString();
                     txt_cargo.Text = frmCargo.dataGridView1.CurrentRow.Cells[1].Value.ToString();
                     txt_des_puesto.Text = frmCargo.dataGridView1.CurrentRow.Cells[2].Value.ToString();
                     txt_salario.Text = frmCargo.dataGridView1.CurrentRow.Cells[3].Value.ToString();
