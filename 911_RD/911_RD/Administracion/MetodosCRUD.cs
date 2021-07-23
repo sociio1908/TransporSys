@@ -177,13 +177,13 @@ namespace _911_RD.Administracion
                     var res = db.TERCEROS_VS_EMAILS.FirstOrDefault(x => x.id_email.ToString() == id_correo && x.id_tercero.ToString() == id_tercero);
                     if (res == null) { 
                        TERCEROS_VS_EMAILS tERCEROS_VS_EMAILS = new TERCEROS_VS_EMAILS
-                        {
-                           id_email = int.Parse(id_correo.Trim()),
+                       {
                            id_tercero = int.Parse(id_tercero.Trim()),
+                           id_email = int.Parse(id_correo.Trim()),
                         };
                        db.TERCEROS_VS_EMAILS.Add(tERCEROS_VS_EMAILS);
-                       db.SaveChanges();
                     }
+                    db.SaveChanges();
                 }
 
             }
@@ -196,20 +196,20 @@ namespace _911_RD.Administracion
         {
             try
             {
-                using (TransporSysEntities db = new TransporSysEntities())
+            using (TransporSysEntities db = new TransporSysEntities())
                 {
                     var res = db.TERCEROS_VS_TELEFONOS.FirstOrDefault(x => x.id_telefono.ToString() == id_telefono && x.id_tercero.ToString() == id_tercero);
                     if (res == null)
                     {
                         TERCEROS_VS_TELEFONOS tERCEROS_VS_IDENTIFICACIONES = new TERCEROS_VS_TELEFONOS
                         {
-                            id_telefono = int.Parse(id_telefono.Trim()),
                             id_tercero = int.Parse(id_tercero.Trim()),
+                            id_telefono = int.Parse(id_telefono.Trim()),
                         };
                         db.TERCEROS_VS_TELEFONOS.Add(tERCEROS_VS_IDENTIFICACIONES);
-                        db.SaveChanges();
-                    }
-                }
+                     }
+                db.SaveChanges();
+            }
 
             }
             catch (Exception asd)
@@ -308,7 +308,7 @@ namespace _911_RD.Administracion
             {
                 using (TransporSysEntities db = new TransporSysEntities())
                 {
-                    var terceroquery = db.EMAILS.FirstOrDefault(a => a.id_email.ToString() == id_correo.Trim());
+                    var terceroquery = db.EMAILS.FirstOrDefault(a => a.email.ToString() == correo.Trim());
                     if (terceroquery == null)
                     {
                         EMAILS core = new EMAILS
@@ -341,15 +341,14 @@ namespace _911_RD.Administracion
 
         }
 
-        public void crudTelefono(string id_telefono,string telefono, string id_tercero)
+        public void crudTelefono(string id_telefono, string telefono, string id_tercero)
         {
-
             int id_result = 0;
             try
             {
                 using (TransporSysEntities db = new TransporSysEntities())
                 {
-                    var terceroquery = db.TELEFONOS.FirstOrDefault(a => a.id_telefono.ToString() == id_telefono.Trim());
+                    var terceroquery = db.TELEFONOS.FirstOrDefault(a => a.telefono.ToString() == telefono.Trim());
                     if (terceroquery == null)
                     {
                         TELEFONOS core = new TELEFONOS
@@ -359,19 +358,22 @@ namespace _911_RD.Administracion
                         };
                         db.TELEFONOS.Add(core);
                     }
+
                     else
                     {
-                        terceroquery.telefono = telefono.Trim();
-                        terceroquery.id_tipo_telefono = 1;
-                        id_result = terceroquery.id_telefono; 
+                        terceroquery.id_tipo_telefono = 3;
+                        id_result = terceroquery.id_telefono;
                     }
                     db.SaveChanges();
                     if (terceroquery == null)
                     {
                         id_result = db.TELEFONOS.Max(x => x.id_telefono);
                     }
+                    System.Diagnostics.Debug.WriteLine("ID: TERCERO: "+ id_tercero);
+                    System.Diagnostics.Debug.WriteLine("ID: TEL: " + id_result);
+
                     crudTerceroVStelefono(id_tercero, id_result.ToString());
-                    System.Diagnostics.Debug.WriteLine("Proceso exitoso.");
+                    
                 }
             }
             catch (Exception dfg)
@@ -536,8 +538,8 @@ namespace _911_RD.Administracion
                     {
                         TERCEROS_VS_DIRECCIONES TaRCEROS_VS_DIRECCIONES = new TERCEROS_VS_DIRECCIONES
                         {
-                            id_direccion = int.Parse(id_direccion),
                             id_tercero = int.Parse(id_tercero.Trim()),
+                            id_direccion = int.Parse(id_direccion),
                         };
                         db.TERCEROS_VS_DIRECCIONES.Add(TaRCEROS_VS_DIRECCIONES);
                     }

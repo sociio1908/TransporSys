@@ -15,9 +15,11 @@ namespace _911_RD.Administracion
         public FrmEmpleado()
         {
             InitializeComponent();
-            cb_estado.SelectedIndex = 0;
-            cargarComboxs(); 
-            //id_tercero = metodoscrud.crudTerceros("17", "Mariam").ToString();
+           cb_estado.SelectedIndex = 0;
+           cargarComboxs();
+           
+          //  FALTAN LOS VS Y LAS CONSULTAS
+            //metodoscrud.crudTelefono("", "8092427798", "23");
 
         }
 
@@ -111,7 +113,9 @@ namespace _911_RD.Administracion
             try
             {
 
-                InsertarEmpleado();
+
+
+             //   InsertarEmpleado();
 
             }
             catch (Exception dfg)
