@@ -19,9 +19,6 @@ namespace _911_RD.Administracion
            cargarComboxs();
 
             //  FALTAN LOS VS Y LAS CONSULTAS
-            metodoscrud.crudTelefono("", "8092201111", "29");
-
-          
 
         }
 
