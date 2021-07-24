@@ -306,18 +306,6 @@
     <Compile Include="TERCEROS.cs">
       <DependentUpon>TransporSysEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="TERCEROS_VS_DIRECCIONES.cs">
-      <DependentUpon>TransporSysEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="TERCEROS_VS_EMAILS.cs">
-      <DependentUpon>TransporSysEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="TERCEROS_VS_IDENTIFICACIONES.cs">
-      <DependentUpon>TransporSysEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="TERCEROS_VS_TELEFONOS.cs">
-      <DependentUpon>TransporSysEntities.tt</DependentUpon>
-    </Compile>
     <Compile Include="TIPONCF.cs">
       <DependentUpon>TransporSysEntities.tt</DependentUpon>
     </Compile>

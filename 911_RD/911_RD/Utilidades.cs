@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,7 +9,8 @@ namespace _911_RD
 {
     class Utilidades
     {
-
+                                                             //INGJERINELMENDO;initial catalog=TransporSys;integrated security=True;
+        public static SqlConnection conexion = new SqlConnection("server=INGJERINELMENDO ; database=TransporSys ; integrated security = true");
 
         public static Tuple<string, string, Boolean> ExtraerDireccion(string link1)
         {
@@ -104,6 +106,16 @@ namespace _911_RD
             }
             return HayError;
         }
+
+        public static bool mayorEdad(DateTime dateTime)
+        {
+            if (dateTime.AddYears(18) > DateTime.Today)
+            {
+                return false;
+            }
+            return true;
+        }
+
 
         public static void LimpiarControles(System.Windows.Forms.Control forms)
         {

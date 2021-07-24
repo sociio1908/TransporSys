@@ -83,10 +83,6 @@ namespace _911_RD
         public virtual DbSet<VIAJES> VIAJES { get; set; }
         public virtual DbSet<ARTICULOS_VS_CATEGORIAS_VS_DESCUENTOS> ARTICULOS_VS_CATEGORIAS_VS_DESCUENTOS { get; set; }
         public virtual DbSet<GPS> GPS { get; set; }
-        public virtual DbSet<TERCEROS_VS_DIRECCIONES> TERCEROS_VS_DIRECCIONES { get; set; }
-        public virtual DbSet<TERCEROS_VS_EMAILS> TERCEROS_VS_EMAILS { get; set; }
-        public virtual DbSet<TERCEROS_VS_IDENTIFICACIONES> TERCEROS_VS_IDENTIFICACIONES { get; set; }
-        public virtual DbSet<TERCEROS_VS_TELEFONOS> TERCEROS_VS_TELEFONOS { get; set; }
         public virtual DbSet<TIPONCF> TIPONCF { get; set; }
     }
 }

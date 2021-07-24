@@ -17,9 +17,11 @@ namespace _911_RD.Administracion
             InitializeComponent();
            cb_estado.SelectedIndex = 0;
            cargarComboxs();
-           
-          //  FALTAN LOS VS Y LAS CONSULTAS
-            //metodoscrud.crudTelefono("", "8092427798", "23");
+
+            //  FALTAN LOS VS Y LAS CONSULTAS
+            metodoscrud.crudTelefono("", "8092201111", "29");
+
+          
 
         }
 
@@ -98,7 +100,7 @@ namespace _911_RD.Administracion
 
         private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
         {
-
+          
         }
 
 
@@ -106,16 +108,17 @@ namespace _911_RD.Administracion
         private void btn_guardar_Click(object sender, EventArgs e)
         {
           
-             if (Utilidades.ValidarFormulario(this, errorProvider1) || validarCombo()==false){
-                MessageBox.Show("Favor llenar todos los campos.");
+             if (Utilidades.ValidarFormulario(this, errorProvider1) || validarCombo()==false || Utilidades.mayorEdad(fecha_nac.Value)==false)
+            {
+                MessageBox.Show("Favor llenar todos los campos y tiene que ser mayor a 18 años", "Se requiere persona mayor de edad", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+
+
             try
             {
 
-
-
-             //   InsertarEmpleado();
+              InsertarEmpleado();
 
             }
             catch (Exception dfg)
@@ -143,12 +146,14 @@ namespace _911_RD.Administracion
                 int id_tipoIdentificacion = cb_tipoIdent.SelectedIndex + 1;
                 int id_identificacion = metodoscrud.crudIdentificaciones(txt_cedula.Text, id_tipoIdentificacion.ToString(), tercero.ToString());
                 MessageBox.Show("ID_identificacion: " + id_identificacion);
+
+
                 //Correo
                 metodoscrud.crudCorreo("",txt_correo.Text, tercero.ToString());
                 //Telefono
                 metodoscrud.crudTelefono("", txt_telefono.Text, tercero.ToString());
                 //Direccion
-                metodoscrud.InsertarDireccion(txt_lat.Text, txt_long.Text, tercero.ToString());
+                 int id_direccion = metodoscrud.InsertarDireccion(txt_lat.Text, txt_long.Text, tercero.ToString());
                 //Empleado
                 int empleado = metodoscrud.crudEmpleado(txt_id_cargo.Text, persona.ToString(), fecha_con.Value, cb_estado.SelectedIndex == 0 ? true : false);
                 MessageBox.Show("ID_empleado: " + empleado);
@@ -169,6 +174,30 @@ namespace _911_RD.Administracion
         }
 
 
+        private void cargarTabla()
+        {
+            using (TransporSysEntities db = new TransporSysEntities())
+            {
+                try
+                {
+                    dataGridView1.Rows.Clear();
+                    string status;
+                    var list = db.PUESTOS;
+                    foreach (var OPuestos in list)
+                    {
+                        dataGridView1.Rows.Add(OPuestos.id_puesto.ToString(), OPuestos.puesto.ToString(), OPuestos.descripcion.ToString(),
+                            OPuestos.salario.ToString(), status = OPuestos.estado == true ? "ACTIVO" : "INACTIVO");
+                    }
+                }
+                catch (Exception dfg)
+                {
+                    // MessageBox.Show(lbl_titulo + " ERRORRRR");
+
+                }
+            }
+        }
+
+
 
         bool validarCombo()
         {
@@ -181,6 +210,7 @@ namespace _911_RD.Administracion
         bool conductor = false;
 
 
+    
 
         private void btn_Cargo_Click(object sender, EventArgs e)
         {

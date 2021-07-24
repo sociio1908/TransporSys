@@ -4,6 +4,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -139,85 +140,6 @@ namespace _911_RD.Administracion
             return id_result;
         }
 
-
-        public void crudTerceroVSidentidicaciones(string id_tercero, string id_identificacion_t)
-        {
-            try
-            {
-                using (TransporSysEntities db = new TransporSysEntities())
-                {
-
-                    var id_identificacion = db.TERCEROS_VS_IDENTIFICACIONES.FirstOrDefault(x => x.id_tercero.ToString() == id_tercero.Trim());
-                  if (id_identificacion == null)
-                  {
-                    TERCEROS_VS_IDENTIFICACIONES tERCEROS_VS_IDENTIFICACIONES = new TERCEROS_VS_IDENTIFICACIONES
-                    {
-                        id_identificacion = int.Parse(id_identificacion_t),
-                        id_tercero = int.Parse(id_tercero.Trim()),
-                     };
-                      db.TERCEROS_VS_IDENTIFICACIONES.Add(tERCEROS_VS_IDENTIFICACIONES);
-                  }
-                    db.SaveChanges();
-                }
-
-            }
-            catch (Exception asd)
-            {
-
-            }
-        }
-
-        public void crudTerceroVScorreo(string id_tercero, string id_correo)
-        {
-            try
-            {
-                using (TransporSysEntities db = new TransporSysEntities())
-                {
-
-                    var res = db.TERCEROS_VS_EMAILS.FirstOrDefault(x => x.id_email.ToString() == id_correo && x.id_tercero.ToString() == id_tercero);
-                    if (res == null) { 
-                       TERCEROS_VS_EMAILS tERCEROS_VS_EMAILS = new TERCEROS_VS_EMAILS
-                       {
-                           id_tercero = int.Parse(id_tercero.Trim()),
-                           id_email = int.Parse(id_correo.Trim()),
-                        };
-                       db.TERCEROS_VS_EMAILS.Add(tERCEROS_VS_EMAILS);
-                    }
-                    db.SaveChanges();
-                }
-
-            }
-            catch (Exception asd)
-            {
-
-            }
-        }
-        public void crudTerceroVStelefono(string id_tercero, string id_telefono)
-        {
-            try
-            {
-            using (TransporSysEntities db = new TransporSysEntities())
-                {
-                    var res = db.TERCEROS_VS_TELEFONOS.FirstOrDefault(x => x.id_telefono.ToString() == id_telefono && x.id_tercero.ToString() == id_tercero);
-                    if (res == null)
-                    {
-                        TERCEROS_VS_TELEFONOS tERCEROS_VS_IDENTIFICACIONES = new TERCEROS_VS_TELEFONOS
-                        {
-                            id_tercero = int.Parse(id_tercero.Trim()),
-                            id_telefono = int.Parse(id_telefono.Trim()),
-                        };
-                        db.TERCEROS_VS_TELEFONOS.Add(tERCEROS_VS_IDENTIFICACIONES);
-                     }
-                db.SaveChanges();
-            }
-
-            }
-            catch (Exception asd)
-            {
-
-            }
-        }
-
         public int crudIdentificaciones(string identificacion, string id_tipo, string id_tercero)
         {
             int id_result = 0;
@@ -230,6 +152,7 @@ namespace _911_RD.Administracion
                     {
                         IDENTIFICACIONES ident = new IDENTIFICACIONES
                         {
+                            
                             id_tipo_identificacion = int.Parse(id_tipo.Trim()),
                             identificacion = identificacion.Trim(),
                         };
@@ -244,8 +167,9 @@ namespace _911_RD.Administracion
                     db.SaveChanges();
                     if (terceroquery == null)
                        id_result = db.IDENTIFICACIONES.Max(x => x.id_identificacion);
-                    crudTerceroVSidentidicaciones(id_tercero, id_result.ToString());
+
                 }
+                crud_VS(int.Parse(id_tercero), id_result, "TERCEROS_VS_IDENTIFICACIONES", "id_identificacion");
             }
             catch (Exception asd)
             {
@@ -322,17 +246,15 @@ namespace _911_RD.Administracion
                         terceroquery.email = correo.Trim();
                         id_result = terceroquery.id_email;
                     }
-
                     db.SaveChanges();
-                    
                     if (terceroquery == null)
                     {
                         id_result = db.EMAILS.Max(x => x.id_email);
                     }
-
-                    crudTerceroVScorreo(id_tercero, id_result.ToString());
-                    System.Diagnostics.Debug.WriteLine("Proceso exitoso.");
+                  
                 }
+                crud_VS(int.Parse(id_tercero), id_result, "TERCEROS_VS_EMAILS", "id_email");
+
             }
             catch (Exception dfg)
             {
@@ -353,6 +275,7 @@ namespace _911_RD.Administracion
                     {
                         TELEFONOS core = new TELEFONOS
                         {
+                                
                             telefono = telefono.Trim(),
                             id_tipo_telefono =1,
                         };
@@ -369,20 +292,86 @@ namespace _911_RD.Administracion
                     {
                         id_result = db.TELEFONOS.Max(x => x.id_telefono);
                     }
-                    System.Diagnostics.Debug.WriteLine("ID: TERCERO: "+ id_tercero);
-                    System.Diagnostics.Debug.WriteLine("ID: TEL: " + id_result);
-
-                    crudTerceroVStelefono(id_tercero, id_result.ToString());
-                    
                 }
+                crud_VS(int.Parse(id_tercero), id_result, "TERCEROS_VS_TELEFONOS", "id_telefono");
             }
             catch (Exception dfg)
             {
                 // MessageBox.Show(lbl_titulo + " ERRORRRR");
             }
-
         }
 
+        public int InsertarDireccion(string latitud_, string longitud_, string id_tercero)
+        {
+            int id_result = 0;
+            try
+            {
+                using (TransporSysEntities db = new TransporSysEntities())
+                {
+                    var terceroquery = db.DIRECCIONES.FirstOrDefault(a => a.latitud.ToString() == latitud_.Trim() && a.longitud.ToString() == longitud_.Trim());
+                    if (terceroquery == null)
+                    {
+                        DIRECCIONES core = new DIRECCIONES
+                        {
+                            
+                            latitud = Convert.ToDouble(latitud_),
+                            longitud = Convert.ToDouble(longitud_),
+                        };
+                        db.DIRECCIONES.Add(core);
+                        db.SaveChanges();
+                    }
+                    else
+                    {
+                        id_result = terceroquery.id_direccion;
+                    }
+                    if (terceroquery == null)
+                    {
+                        id_result = db.DIRECCIONES.Max(x => x.id_direccion);
+                    }
+
+                }
+                if (id_tercero.Trim() != "")
+                    crud_VS(int.Parse(id_tercero), id_result, "TERCEROS_VS_DIRECCIONES", "id_direccion");
+            }
+            catch (Exception dfg)
+            {
+                // MessageBox.Show(lbl_titulo + " ERRORRRR");
+            }
+            return id_result;
+        }
+
+        public void crud_VS(int id_tercero, int id_valor, string tabla, string campo)
+        {
+            try
+            {
+               Utilidades.conexion.Open();
+                if(campo== "id_identificacion")
+                {
+                    string delete = "Delete from " + tabla + " where id_tercero = " + id_tercero + " and " + campo + " = " + id_valor;
+                    System.Diagnostics.Debug.WriteLine("DELETE: " + delete.ToString());
+                    SqlCommand comando = new SqlCommand(delete, Utilidades.conexion);
+                    comando.ExecuteNonQuery();
+                }
+                var cadenaSelect = "Select  ISNULL( id_tercero  , 0)  as id_tercero from " + tabla + " where id_tercero = " + id_tercero + " and " + campo + " = " + id_valor;
+                System.Diagnostics.Debug.WriteLine("SELECT: " + cadenaSelect.ToString());
+                SqlCommand comandoSelect = new SqlCommand(cadenaSelect, Utilidades.conexion);
+
+                var resul = comandoSelect.ExecuteScalar();
+
+                if (resul ==null )
+                {
+                    string cadena_insert = "insert into " + tabla + " ( id_tercero," + campo + ") values (" + id_tercero + "," + id_valor + ")";
+                    System.Diagnostics.Debug.WriteLine("insert: " + cadena_insert);
+                    SqlCommand comando = new SqlCommand(cadena_insert, Utilidades.conexion);
+                    comando.ExecuteNonQuery();
+                }
+                Utilidades.conexion.Close();
+            }
+            catch (Exception asd)
+            {
+                //error
+            }
+        }
 
         public List<string> AsignarPaises(string continente)
         {
@@ -484,76 +473,6 @@ namespace _911_RD.Administracion
 
             return result;
         }
-
-        public int InsertarDireccion(string latitud_, string longitud_, string id_tercero)
-        {
-            int id_result = 0;
-            try
-            {
-                using (TransporSysEntities db = new TransporSysEntities())
-                {
-                    var terceroquery = db.DIRECCIONES.FirstOrDefault(a => a.latitud.ToString() == latitud_.Trim() && a.longitud.ToString() == longitud_.Trim());
-                    if (terceroquery == null)
-                    {
-                        DIRECCIONES core = new DIRECCIONES
-                        {
-                            latitud = Convert.ToDouble(latitud_),
-                            longitud = Convert.ToDouble(longitud_),
-                        };
-                        db.DIRECCIONES.Add(core);
-                        db.SaveChanges();
-                    }
-                    else
-                    {
-                        id_result = terceroquery.id_direccion;
-                    }
-                    if (terceroquery == null)
-                    {
-                        id_result = db.DIRECCIONES.Max(x => x.id_direccion);
-                    }
-                    
-                    if(id_tercero.Trim() !=null || id_tercero.Trim() != "")
-                        crudTerceroVSdirecciones(id_tercero, id_result.ToString());
-
-                    System.Diagnostics.Debug.WriteLine("Proceso exitoso.");
-
-                }
-            }
-            catch (Exception dfg)
-            {
-                // MessageBox.Show(lbl_titulo + " ERRORRRR");
-            }
-            return id_result;
-        }
-
-        public void crudTerceroVSdirecciones(string id_tercero, string id_direccion)
-        {
-            try
-            {
-                using (TransporSysEntities db = new TransporSysEntities())
-                {
-
-                    var id_identificacion = db.TERCEROS_VS_DIRECCIONES.FirstOrDefault(x => x.id_tercero.ToString() == id_tercero.Trim() && x.id_direccion.ToString() == id_direccion.Trim());
-                    if (id_identificacion == null)
-                    {
-                        TERCEROS_VS_DIRECCIONES TaRCEROS_VS_DIRECCIONES = new TERCEROS_VS_DIRECCIONES
-                        {
-                            id_tercero = int.Parse(id_tercero.Trim()),
-                            id_direccion = int.Parse(id_direccion),
-                        };
-                        db.TERCEROS_VS_DIRECCIONES.Add(TaRCEROS_VS_DIRECCIONES);
-                    }
-                    db.SaveChanges();
-                }
-
-            }
-            catch (Exception asd)
-            {
-
-            }
-        }
-
-
 
     }
 }

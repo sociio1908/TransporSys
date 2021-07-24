@@ -26,6 +26,7 @@ namespace _911_RD
         public string num_seguro { get; set; }
         public System.DateTime fecha_nacimiento { get; set; }
         public string alergias { get; set; }
+        public int estado_covid { get; set; }
         public bool epilectico { get; set; }
         public string historial_medico { get; set; }
         public string medicamentos { get; set; }

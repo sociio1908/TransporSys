@@ -347,6 +347,7 @@
           <ScalarProperty Name="num_seguro" ColumnName="num_seguro" />
           <ScalarProperty Name="fecha_nacimiento" ColumnName="fecha_nacimiento" />
           <ScalarProperty Name="alergias" ColumnName="alergias" />
+          <ScalarProperty Name="estado_covid" ColumnName="estado_covid" />
           <ScalarProperty Name="epilectico" ColumnName="epilectico" />
           <ScalarProperty Name="historial_medico" ColumnName="historial_medico" />
           <ScalarProperty Name="medicamentos" ColumnName="medicamentos" />
@@ -641,38 +642,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="TERCEROS_VS_DIRECCIONES">
-      <EntityTypeMapping TypeName="TransporSysModel.TERCEROS_VS_DIRECCIONES">
-        <MappingFragment StoreEntitySet="TERCEROS_VS_DIRECCIONES">
-          <ScalarProperty Name="id_tercero" ColumnName="id_tercero" />
-          <ScalarProperty Name="id_direccion" ColumnName="id_direccion" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="TERCEROS_VS_EMAILS">
-      <EntityTypeMapping TypeName="TransporSysModel.TERCEROS_VS_EMAILS">
-        <MappingFragment StoreEntitySet="TERCEROS_VS_EMAILS">
-          <ScalarProperty Name="id_tercero" ColumnName="id_tercero" />
-          <ScalarProperty Name="id_email" ColumnName="id_email" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="TERCEROS_VS_IDENTIFICACIONES">
-      <EntityTypeMapping TypeName="TransporSysModel.TERCEROS_VS_IDENTIFICACIONES">
-        <MappingFragment StoreEntitySet="TERCEROS_VS_IDENTIFICACIONES">
-          <ScalarProperty Name="id_tercero" ColumnName="id_tercero" />
-          <ScalarProperty Name="id_identificacion" ColumnName="id_identificacion" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="TERCEROS_VS_TELEFONOS">
-      <EntityTypeMapping TypeName="TransporSysModel.TERCEROS_VS_TELEFONOS">
-        <MappingFragment StoreEntitySet="TERCEROS_VS_TELEFONOS">
-          <ScalarProperty Name="id_tercero" ColumnName="id_tercero" />
-          <ScalarProperty Name="id_telefono" ColumnName="id_telefono" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="TIPONCF">
       <EntityTypeMapping TypeName="TransporSysModel.TIPONCF">
         <MappingFragment StoreEntitySet="TIPONCF">
@@ -695,6 +664,38 @@
       </EndProperty>
       <EndProperty Name="PUESTOS">
         <ScalarProperty Name="id_puesto" ColumnName="id_puesto" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="TERCEROS_VS_DIRECCIONES" TypeName="TransporSysModel.TERCEROS_VS_DIRECCIONES" StoreEntitySet="TERCEROS_VS_DIRECCIONES">
+      <EndProperty Name="DIRECCIONES">
+        <ScalarProperty Name="id_direccion" ColumnName="id_direccion" />
+      </EndProperty>
+      <EndProperty Name="TERCEROS">
+        <ScalarProperty Name="id_tercero" ColumnName="id_tercero" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="TERCEROS_VS_EMAILS" TypeName="TransporSysModel.TERCEROS_VS_EMAILS" StoreEntitySet="TERCEROS_VS_EMAILS">
+      <EndProperty Name="EMAILS">
+        <ScalarProperty Name="id_email" ColumnName="id_email" />
+      </EndProperty>
+      <EndProperty Name="TERCEROS">
+        <ScalarProperty Name="id_tercero" ColumnName="id_tercero" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="TERCEROS_VS_IDENTIFICACIONES" TypeName="TransporSysModel.TERCEROS_VS_IDENTIFICACIONES" StoreEntitySet="TERCEROS_VS_IDENTIFICACIONES">
+      <EndProperty Name="IDENTIFICACIONES">
+        <ScalarProperty Name="id_identificacion" ColumnName="id_identificacion" />
+      </EndProperty>
+      <EndProperty Name="TERCEROS">
+        <ScalarProperty Name="id_tercero" ColumnName="id_tercero" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="TERCEROS_VS_TELEFONOS" TypeName="TransporSysModel.TERCEROS_VS_TELEFONOS" StoreEntitySet="TERCEROS_VS_TELEFONOS">
+      <EndProperty Name="TERCEROS">
+        <ScalarProperty Name="id_tercero" ColumnName="id_tercero" />
+      </EndProperty>
+      <EndProperty Name="TELEFONOS">
+        <ScalarProperty Name="id_telefono" ColumnName="id_telefono" />
       </EndProperty>
     </AssociationSetMapping>
   </EntityContainerMapping>

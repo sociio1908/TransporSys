@@ -20,6 +20,10 @@ namespace _911_RD
             this.CLIENTES = new HashSet<CLIENTES>();
             this.PERSONAS = new HashSet<PERSONAS>();
             this.SUPLIDORES = new HashSet<SUPLIDORES>();
+            this.DIRECCIONES = new HashSet<DIRECCIONES>();
+            this.EMAILS = new HashSet<EMAILS>();
+            this.IDENTIFICACIONES = new HashSet<IDENTIFICACIONES>();
+            this.TELEFONOS = new HashSet<TELEFONOS>();
         }
     
         public int id_tercero { get; set; }
@@ -31,5 +35,13 @@ namespace _911_RD
         public virtual ICollection<PERSONAS> PERSONAS { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<SUPLIDORES> SUPLIDORES { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<DIRECCIONES> DIRECCIONES { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<EMAILS> EMAILS { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<IDENTIFICACIONES> IDENTIFICACIONES { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<TELEFONOS> TELEFONOS { get; set; }
     }
 }

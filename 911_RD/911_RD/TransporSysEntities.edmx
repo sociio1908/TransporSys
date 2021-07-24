@@ -355,6 +355,7 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.GPS' no tiene definida ningu
           <Property Name="num_seguro" Type="varchar" MaxLength="50" />
           <Property Name="fecha_nacimiento" Type="datetime" Nullable="false" />
           <Property Name="alergias" Type="varchar" MaxLength="200" />
+          <Property Name="estado_covid" Type="int" Nullable="false" />
           <Property Name="epilectico" Type="bit" Nullable="false" />
           <Property Name="historial_medico" Type="varchar" MaxLength="200" Nullable="false" />
           <Property Name="medicamentos" Type="varchar" MaxLength="200" Nullable="false" />
@@ -685,6 +686,102 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.TIPONCF' no tiene definida n
             </Principal>
             <Dependent Role="EMPLEADOS">
               <PropertyRef Name="id_puesto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TERCEROS___id_di__3B95D2F1">
+          <End Role="DIRECCIONES" Type="Self.DIRECCIONES" Multiplicity="1" />
+          <End Role="TERCEROS_VS_DIRECCIONES" Type="Self.TERCEROS_VS_DIRECCIONES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DIRECCIONES">
+              <PropertyRef Name="id_direccion" />
+            </Principal>
+            <Dependent Role="TERCEROS_VS_DIRECCIONES">
+              <PropertyRef Name="id_direccion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TERCEROS___id_em__3F6663D5">
+          <End Role="EMAILS" Type="Self.EMAILS" Multiplicity="1" />
+          <End Role="TERCEROS_VS_EMAILS" Type="Self.TERCEROS_VS_EMAILS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EMAILS">
+              <PropertyRef Name="id_email" />
+            </Principal>
+            <Dependent Role="TERCEROS_VS_EMAILS">
+              <PropertyRef Name="id_email" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TERCEROS___id_id__3D7E1B63">
+          <End Role="IDENTIFICACIONES" Type="Self.IDENTIFICACIONES" Multiplicity="1" />
+          <End Role="TERCEROS_VS_IDENTIFICACIONES" Type="Self.TERCEROS_VS_IDENTIFICACIONES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="IDENTIFICACIONES">
+              <PropertyRef Name="id_identificacion" />
+            </Principal>
+            <Dependent Role="TERCEROS_VS_IDENTIFICACIONES">
+              <PropertyRef Name="id_identificacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TERCEROS___id_te__39AD8A7F">
+          <End Role="TERCEROS" Type="Self.TERCEROS" Multiplicity="1" />
+          <End Role="TERCEROS_VS_TELEFONOS" Type="Self.TERCEROS_VS_TELEFONOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TERCEROS">
+              <PropertyRef Name="id_tercero" />
+            </Principal>
+            <Dependent Role="TERCEROS_VS_TELEFONOS">
+              <PropertyRef Name="id_tercero" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TERCEROS___id_te__3AA1AEB8">
+          <End Role="TELEFONOS" Type="Self.TELEFONOS" Multiplicity="1" />
+          <End Role="TERCEROS_VS_TELEFONOS" Type="Self.TERCEROS_VS_TELEFONOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TELEFONOS">
+              <PropertyRef Name="id_telefono" />
+            </Principal>
+            <Dependent Role="TERCEROS_VS_TELEFONOS">
+              <PropertyRef Name="id_telefono" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TERCEROS___id_te__3C89F72A">
+          <End Role="TERCEROS" Type="Self.TERCEROS" Multiplicity="1" />
+          <End Role="TERCEROS_VS_DIRECCIONES" Type="Self.TERCEROS_VS_DIRECCIONES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TERCEROS">
+              <PropertyRef Name="id_tercero" />
+            </Principal>
+            <Dependent Role="TERCEROS_VS_DIRECCIONES">
+              <PropertyRef Name="id_tercero" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TERCEROS___id_te__3E723F9C">
+          <End Role="TERCEROS" Type="Self.TERCEROS" Multiplicity="1" />
+          <End Role="TERCEROS_VS_IDENTIFICACIONES" Type="Self.TERCEROS_VS_IDENTIFICACIONES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TERCEROS">
+              <PropertyRef Name="id_tercero" />
+            </Principal>
+            <Dependent Role="TERCEROS_VS_IDENTIFICACIONES">
+              <PropertyRef Name="id_tercero" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TERCEROS___id_te__405A880E">
+          <End Role="TERCEROS" Type="Self.TERCEROS" Multiplicity="1" />
+          <End Role="TERCEROS_VS_EMAILS" Type="Self.TERCEROS_VS_EMAILS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TERCEROS">
+              <PropertyRef Name="id_tercero" />
+            </Principal>
+            <Dependent Role="TERCEROS_VS_EMAILS">
+              <PropertyRef Name="id_tercero" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1585,6 +1682,38 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.TIPONCF' no tiene definida n
             <End Role="PUESTOS" EntitySet="PUESTOS" />
             <End Role="EMPLEADOS" EntitySet="EMPLEADOS" />
           </AssociationSet>
+          <AssociationSet Name="FK__TERCEROS___id_di__3B95D2F1" Association="Self.FK__TERCEROS___id_di__3B95D2F1">
+            <End Role="DIRECCIONES" EntitySet="DIRECCIONES" />
+            <End Role="TERCEROS_VS_DIRECCIONES" EntitySet="TERCEROS_VS_DIRECCIONES" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TERCEROS___id_em__3F6663D5" Association="Self.FK__TERCEROS___id_em__3F6663D5">
+            <End Role="EMAILS" EntitySet="EMAILS" />
+            <End Role="TERCEROS_VS_EMAILS" EntitySet="TERCEROS_VS_EMAILS" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TERCEROS___id_id__3D7E1B63" Association="Self.FK__TERCEROS___id_id__3D7E1B63">
+            <End Role="IDENTIFICACIONES" EntitySet="IDENTIFICACIONES" />
+            <End Role="TERCEROS_VS_IDENTIFICACIONES" EntitySet="TERCEROS_VS_IDENTIFICACIONES" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TERCEROS___id_te__39AD8A7F" Association="Self.FK__TERCEROS___id_te__39AD8A7F">
+            <End Role="TERCEROS" EntitySet="TERCEROS" />
+            <End Role="TERCEROS_VS_TELEFONOS" EntitySet="TERCEROS_VS_TELEFONOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TERCEROS___id_te__3AA1AEB8" Association="Self.FK__TERCEROS___id_te__3AA1AEB8">
+            <End Role="TELEFONOS" EntitySet="TELEFONOS" />
+            <End Role="TERCEROS_VS_TELEFONOS" EntitySet="TERCEROS_VS_TELEFONOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TERCEROS___id_te__3C89F72A" Association="Self.FK__TERCEROS___id_te__3C89F72A">
+            <End Role="TERCEROS" EntitySet="TERCEROS" />
+            <End Role="TERCEROS_VS_DIRECCIONES" EntitySet="TERCEROS_VS_DIRECCIONES" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TERCEROS___id_te__3E723F9C" Association="Self.FK__TERCEROS___id_te__3E723F9C">
+            <End Role="TERCEROS" EntitySet="TERCEROS" />
+            <End Role="TERCEROS_VS_IDENTIFICACIONES" EntitySet="TERCEROS_VS_IDENTIFICACIONES" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TERCEROS___id_te__405A880E" Association="Self.FK__TERCEROS___id_te__405A880E">
+            <End Role="TERCEROS" EntitySet="TERCEROS" />
+            <End Role="TERCEROS_VS_EMAILS" EntitySet="TERCEROS_VS_EMAILS" />
+          </AssociationSet>
           <AssociationSet Name="FK_ARTICULOS_CATEGORIAS" Association="Self.FK_ARTICULOS_CATEGORIAS">
             <End Role="CATEGORIAS" EntitySet="CATEGORIAS" />
             <End Role="ARTICULOS" EntitySet="ARTICULOS" />
@@ -2101,6 +2230,7 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.TIPONCF' no tiene definida n
           <Property Name="latitud" Type="Double" Nullable="false" />
           <Property Name="longitud" Type="Double" Nullable="false" />
           <NavigationProperty Name="CIUDADES" Relationship="Self.FK_DIRECCIONES_CIUDADES" FromRole="DIRECCIONES" ToRole="CIUDADES" />
+          <NavigationProperty Name="TERCEROS" Relationship="Self.TERCEROS_VS_DIRECCIONES" FromRole="DIRECCIONES" ToRole="TERCEROS" />
         </EntityType>
         <EntityType Name="EMAILS">
           <Key>
@@ -2108,6 +2238,7 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.TIPONCF' no tiene definida n
           </Key>
           <Property Name="id_email" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="TERCEROS" Relationship="Self.TERCEROS_VS_EMAILS" FromRole="EMAILS" ToRole="TERCEROS" />
         </EntityType>
         <EntityType Name="EMPLEADOS">
           <Key>
@@ -2189,6 +2320,7 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.TIPONCF' no tiene definida n
           <Property Name="id_tipo_identificacion" Type="Int32" Nullable="false" />
           <Property Name="identificacion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="TIPOS_IDENTIFICACIONES" Relationship="Self.FK_IDENTIFICACIONES_TIPOS_IDENTIFICACIONES" FromRole="IDENTIFICACIONES" ToRole="TIPOS_IDENTIFICACIONES" />
+          <NavigationProperty Name="TERCEROS" Relationship="Self.TERCEROS_VS_IDENTIFICACIONES" FromRole="IDENTIFICACIONES" ToRole="TERCEROS" />
         </EntityType>
         <EntityType Name="ITEBIS">
           <Key>
@@ -2245,6 +2377,7 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.TIPONCF' no tiene definida n
           <Property Name="num_seguro" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="fecha_nacimiento" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="alergias" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="estado_covid" Type="Int32" Nullable="false" />
           <Property Name="epilectico" Type="Boolean" Nullable="false" />
           <Property Name="historial_medico" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="medicamentos" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
@@ -2366,6 +2499,7 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.TIPONCF' no tiene definida n
           <Property Name="id_tipo_telefono" Type="Int32" Nullable="false" />
           <Property Name="telefono" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="TIPOS_TELEFONOS" Relationship="Self.FK_TELEFONOS_TIPOS_TELEFONOS" FromRole="TELEFONOS" ToRole="TIPOS_TELEFONOS" />
+          <NavigationProperty Name="TERCEROS" Relationship="Self.TERCEROS_VS_TELEFONOS" FromRole="TELEFONOS" ToRole="TERCEROS" />
         </EntityType>
         <EntityType Name="TERCEROS">
           <Key>
@@ -2376,6 +2510,10 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.TIPONCF' no tiene definida n
           <NavigationProperty Name="CLIENTES" Relationship="Self.FK_CLIENTES_TERCEROS" FromRole="TERCEROS" ToRole="CLIENTES" />
           <NavigationProperty Name="PERSONAS" Relationship="Self.FK_PERSONAS_TERCEROS" FromRole="TERCEROS" ToRole="PERSONAS" />
           <NavigationProperty Name="SUPLIDORES" Relationship="Self.FK_SUPLIDORES_TERCEROS" FromRole="TERCEROS" ToRole="SUPLIDORES" />
+          <NavigationProperty Name="DIRECCIONES" Relationship="Self.TERCEROS_VS_DIRECCIONES" FromRole="TERCEROS" ToRole="DIRECCIONES" />
+          <NavigationProperty Name="EMAILS" Relationship="Self.TERCEROS_VS_EMAILS" FromRole="TERCEROS" ToRole="EMAILS" />
+          <NavigationProperty Name="IDENTIFICACIONES" Relationship="Self.TERCEROS_VS_IDENTIFICACIONES" FromRole="TERCEROS" ToRole="IDENTIFICACIONES" />
+          <NavigationProperty Name="TELEFONOS" Relationship="Self.TERCEROS_VS_TELEFONOS" FromRole="TERCEROS" ToRole="TELEFONOS" />
         </EntityType>
         <EntityType Name="TIPOS_CLIENTES">
           <Key>
@@ -2568,38 +2706,6 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.TIPONCF' no tiene definida n
           <Property Name="longitud" Type="Geography" Nullable="false" />
           <NavigationProperty Name="EMPLEADOS" Relationship="Self.FK_GPsS" FromRole="GPS" ToRole="EMPLEADOS" />
           <NavigationProperty Name="VEHICULO" Relationship="Self.FK_GPS" FromRole="GPS" ToRole="VEHICULO" />
-        </EntityType>
-        <EntityType Name="TERCEROS_VS_DIRECCIONES">
-          <Key>
-            <PropertyRef Name="id_tercero" />
-            <PropertyRef Name="id_direccion" />
-          </Key>
-          <Property Name="id_tercero" Type="Int32" Nullable="false" />
-          <Property Name="id_direccion" Type="Int32" Nullable="false" />
-        </EntityType>
-        <EntityType Name="TERCEROS_VS_EMAILS">
-          <Key>
-            <PropertyRef Name="id_tercero" />
-            <PropertyRef Name="id_email" />
-          </Key>
-          <Property Name="id_tercero" Type="Int32" Nullable="false" />
-          <Property Name="id_email" Type="Int32" Nullable="false" />
-        </EntityType>
-        <EntityType Name="TERCEROS_VS_IDENTIFICACIONES">
-          <Key>
-            <PropertyRef Name="id_tercero" />
-            <PropertyRef Name="id_identificacion" />
-          </Key>
-          <Property Name="id_tercero" Type="Int32" Nullable="false" />
-          <Property Name="id_identificacion" Type="Int32" Nullable="false" />
-        </EntityType>
-        <EntityType Name="TERCEROS_VS_TELEFONOS">
-          <Key>
-            <PropertyRef Name="id_tercero" />
-            <PropertyRef Name="id_telefono" />
-          </Key>
-          <Property Name="id_tercero" Type="Int32" Nullable="false" />
-          <Property Name="id_telefono" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="TIPONCF">
           <Key>
@@ -3372,6 +3478,22 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.TIPONCF' no tiene definida n
           <End Role="DEPARTAMENTOS" Type="Self.DEPARTAMENTOS" Multiplicity="*" />
           <End Role="PUESTOS" Type="Self.PUESTOS" Multiplicity="*" />
         </Association>
+        <Association Name="TERCEROS_VS_DIRECCIONES">
+          <End Role="DIRECCIONES" Type="Self.DIRECCIONES" Multiplicity="*" />
+          <End Role="TERCEROS" Type="Self.TERCEROS" Multiplicity="*" />
+        </Association>
+        <Association Name="TERCEROS_VS_EMAILS">
+          <End Role="EMAILS" Type="Self.EMAILS" Multiplicity="*" />
+          <End Role="TERCEROS" Type="Self.TERCEROS" Multiplicity="*" />
+        </Association>
+        <Association Name="TERCEROS_VS_IDENTIFICACIONES">
+          <End Role="IDENTIFICACIONES" Type="Self.IDENTIFICACIONES" Multiplicity="*" />
+          <End Role="TERCEROS" Type="Self.TERCEROS" Multiplicity="*" />
+        </Association>
+        <Association Name="TERCEROS_VS_TELEFONOS">
+          <End Role="TERCEROS" Type="Self.TERCEROS" Multiplicity="*" />
+          <End Role="TELEFONOS" Type="Self.TELEFONOS" Multiplicity="*" />
+        </Association>
         <EntityContainer Name="TransporSysEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="ALMACENES" EntityType="Self.ALMACENES" />
           <EntitySet Name="ARTICULOS" EntityType="Self.ARTICULOS" />
@@ -3431,10 +3553,6 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.TIPONCF' no tiene definida n
           <EntitySet Name="VIAJES" EntityType="Self.VIAJES" />
           <EntitySet Name="ARTICULOS_VS_CATEGORIAS_VS_DESCUENTOS" EntityType="Self.ARTICULOS_VS_CATEGORIAS_VS_DESCUENTOS" />
           <EntitySet Name="GPS" EntityType="Self.GPS" />
-          <EntitySet Name="TERCEROS_VS_DIRECCIONES" EntityType="Self.TERCEROS_VS_DIRECCIONES" />
-          <EntitySet Name="TERCEROS_VS_EMAILS" EntityType="Self.TERCEROS_VS_EMAILS" />
-          <EntitySet Name="TERCEROS_VS_IDENTIFICACIONES" EntityType="Self.TERCEROS_VS_IDENTIFICACIONES" />
-          <EntitySet Name="TERCEROS_VS_TELEFONOS" EntityType="Self.TERCEROS_VS_TELEFONOS" />
           <EntitySet Name="TIPONCF" EntityType="Self.TIPONCF" />
           <AssociationSet Name="FK_EXISTENCIAS_ALMACENES" Association="Self.FK_EXISTENCIAS_ALMACENES">
             <End Role="ALMACENES" EntitySet="ALMACENES" />
@@ -3695,6 +3813,22 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.TIPONCF' no tiene definida n
           <AssociationSet Name="PUESTOS_VS_DEPARTAMENTOS" Association="Self.PUESTOS_VS_DEPARTAMENTOS">
             <End Role="DEPARTAMENTOS" EntitySet="DEPARTAMENTOS" />
             <End Role="PUESTOS" EntitySet="PUESTOS" />
+          </AssociationSet>
+          <AssociationSet Name="TERCEROS_VS_DIRECCIONES" Association="Self.TERCEROS_VS_DIRECCIONES">
+            <End Role="DIRECCIONES" EntitySet="DIRECCIONES" />
+            <End Role="TERCEROS" EntitySet="TERCEROS" />
+          </AssociationSet>
+          <AssociationSet Name="TERCEROS_VS_EMAILS" Association="Self.TERCEROS_VS_EMAILS">
+            <End Role="EMAILS" EntitySet="EMAILS" />
+            <End Role="TERCEROS" EntitySet="TERCEROS" />
+          </AssociationSet>
+          <AssociationSet Name="TERCEROS_VS_IDENTIFICACIONES" Association="Self.TERCEROS_VS_IDENTIFICACIONES">
+            <End Role="IDENTIFICACIONES" EntitySet="IDENTIFICACIONES" />
+            <End Role="TERCEROS" EntitySet="TERCEROS" />
+          </AssociationSet>
+          <AssociationSet Name="TERCEROS_VS_TELEFONOS" Association="Self.TERCEROS_VS_TELEFONOS">
+            <End Role="TERCEROS" EntitySet="TERCEROS" />
+            <End Role="TELEFONOS" EntitySet="TELEFONOS" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -4049,6 +4183,7 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.TIPONCF' no tiene definida n
                 <ScalarProperty Name="num_seguro" ColumnName="num_seguro" />
                 <ScalarProperty Name="fecha_nacimiento" ColumnName="fecha_nacimiento" />
                 <ScalarProperty Name="alergias" ColumnName="alergias" />
+                <ScalarProperty Name="estado_covid" ColumnName="estado_covid" />
                 <ScalarProperty Name="epilectico" ColumnName="epilectico" />
                 <ScalarProperty Name="historial_medico" ColumnName="historial_medico" />
                 <ScalarProperty Name="medicamentos" ColumnName="medicamentos" />
@@ -4343,38 +4478,6 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.TIPONCF' no tiene definida n
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="TERCEROS_VS_DIRECCIONES">
-            <EntityTypeMapping TypeName="TransporSysModel.TERCEROS_VS_DIRECCIONES">
-              <MappingFragment StoreEntitySet="TERCEROS_VS_DIRECCIONES">
-                <ScalarProperty Name="id_tercero" ColumnName="id_tercero" />
-                <ScalarProperty Name="id_direccion" ColumnName="id_direccion" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="TERCEROS_VS_EMAILS">
-            <EntityTypeMapping TypeName="TransporSysModel.TERCEROS_VS_EMAILS">
-              <MappingFragment StoreEntitySet="TERCEROS_VS_EMAILS">
-                <ScalarProperty Name="id_tercero" ColumnName="id_tercero" />
-                <ScalarProperty Name="id_email" ColumnName="id_email" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="TERCEROS_VS_IDENTIFICACIONES">
-            <EntityTypeMapping TypeName="TransporSysModel.TERCEROS_VS_IDENTIFICACIONES">
-              <MappingFragment StoreEntitySet="TERCEROS_VS_IDENTIFICACIONES">
-                <ScalarProperty Name="id_tercero" ColumnName="id_tercero" />
-                <ScalarProperty Name="id_identificacion" ColumnName="id_identificacion" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="TERCEROS_VS_TELEFONOS">
-            <EntityTypeMapping TypeName="TransporSysModel.TERCEROS_VS_TELEFONOS">
-              <MappingFragment StoreEntitySet="TERCEROS_VS_TELEFONOS">
-                <ScalarProperty Name="id_tercero" ColumnName="id_tercero" />
-                <ScalarProperty Name="id_telefono" ColumnName="id_telefono" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="TIPONCF">
             <EntityTypeMapping TypeName="TransporSysModel.TIPONCF">
               <MappingFragment StoreEntitySet="TIPONCF">
@@ -4397,6 +4500,38 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.TIPONCF' no tiene definida n
             </EndProperty>
             <EndProperty Name="PUESTOS">
               <ScalarProperty Name="id_puesto" ColumnName="id_puesto" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="TERCEROS_VS_DIRECCIONES" TypeName="TransporSysModel.TERCEROS_VS_DIRECCIONES" StoreEntitySet="TERCEROS_VS_DIRECCIONES">
+            <EndProperty Name="DIRECCIONES">
+              <ScalarProperty Name="id_direccion" ColumnName="id_direccion" />
+            </EndProperty>
+            <EndProperty Name="TERCEROS">
+              <ScalarProperty Name="id_tercero" ColumnName="id_tercero" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="TERCEROS_VS_EMAILS" TypeName="TransporSysModel.TERCEROS_VS_EMAILS" StoreEntitySet="TERCEROS_VS_EMAILS">
+            <EndProperty Name="EMAILS">
+              <ScalarProperty Name="id_email" ColumnName="id_email" />
+            </EndProperty>
+            <EndProperty Name="TERCEROS">
+              <ScalarProperty Name="id_tercero" ColumnName="id_tercero" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="TERCEROS_VS_IDENTIFICACIONES" TypeName="TransporSysModel.TERCEROS_VS_IDENTIFICACIONES" StoreEntitySet="TERCEROS_VS_IDENTIFICACIONES">
+            <EndProperty Name="IDENTIFICACIONES">
+              <ScalarProperty Name="id_identificacion" ColumnName="id_identificacion" />
+            </EndProperty>
+            <EndProperty Name="TERCEROS">
+              <ScalarProperty Name="id_tercero" ColumnName="id_tercero" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="TERCEROS_VS_TELEFONOS" TypeName="TransporSysModel.TERCEROS_VS_TELEFONOS" StoreEntitySet="TERCEROS_VS_TELEFONOS">
+            <EndProperty Name="TERCEROS">
+              <ScalarProperty Name="id_tercero" ColumnName="id_tercero" />
+            </EndProperty>
+            <EndProperty Name="TELEFONOS">
+              <ScalarProperty Name="id_telefono" ColumnName="id_telefono" />
             </EndProperty>
           </AssociationSetMapping>
         </EntityContainerMapping>

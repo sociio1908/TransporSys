@@ -250,6 +250,7 @@
     <Property Name="latitud" Type="Double" Nullable="false" />
     <Property Name="longitud" Type="Double" Nullable="false" />
     <NavigationProperty Name="CIUDADES" Relationship="Self.FK_DIRECCIONES_CIUDADES" FromRole="DIRECCIONES" ToRole="CIUDADES" />
+    <NavigationProperty Name="TERCEROS" Relationship="Self.TERCEROS_VS_DIRECCIONES" FromRole="DIRECCIONES" ToRole="TERCEROS" />
   </EntityType>
   <EntityType Name="EMAILS">
     <Key>
@@ -257,6 +258,7 @@
     </Key>
     <Property Name="id_email" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="TERCEROS" Relationship="Self.TERCEROS_VS_EMAILS" FromRole="EMAILS" ToRole="TERCEROS" />
   </EntityType>
   <EntityType Name="EMPLEADOS">
     <Key>
@@ -338,6 +340,7 @@
     <Property Name="id_tipo_identificacion" Type="Int32" Nullable="false" />
     <Property Name="identificacion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
     <NavigationProperty Name="TIPOS_IDENTIFICACIONES" Relationship="Self.FK_IDENTIFICACIONES_TIPOS_IDENTIFICACIONES" FromRole="IDENTIFICACIONES" ToRole="TIPOS_IDENTIFICACIONES" />
+    <NavigationProperty Name="TERCEROS" Relationship="Self.TERCEROS_VS_IDENTIFICACIONES" FromRole="IDENTIFICACIONES" ToRole="TERCEROS" />
   </EntityType>
   <EntityType Name="ITEBIS">
     <Key>
@@ -394,6 +397,7 @@
     <Property Name="num_seguro" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="fecha_nacimiento" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="alergias" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="estado_covid" Type="Int32" Nullable="false" />
     <Property Name="epilectico" Type="Boolean" Nullable="false" />
     <Property Name="historial_medico" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="medicamentos" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
@@ -515,6 +519,7 @@
     <Property Name="id_tipo_telefono" Type="Int32" Nullable="false" />
     <Property Name="telefono" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
     <NavigationProperty Name="TIPOS_TELEFONOS" Relationship="Self.FK_TELEFONOS_TIPOS_TELEFONOS" FromRole="TELEFONOS" ToRole="TIPOS_TELEFONOS" />
+    <NavigationProperty Name="TERCEROS" Relationship="Self.TERCEROS_VS_TELEFONOS" FromRole="TELEFONOS" ToRole="TERCEROS" />
   </EntityType>
   <EntityType Name="TERCEROS">
     <Key>
@@ -525,6 +530,10 @@
     <NavigationProperty Name="CLIENTES" Relationship="Self.FK_CLIENTES_TERCEROS" FromRole="TERCEROS" ToRole="CLIENTES" />
     <NavigationProperty Name="PERSONAS" Relationship="Self.FK_PERSONAS_TERCEROS" FromRole="TERCEROS" ToRole="PERSONAS" />
     <NavigationProperty Name="SUPLIDORES" Relationship="Self.FK_SUPLIDORES_TERCEROS" FromRole="TERCEROS" ToRole="SUPLIDORES" />
+    <NavigationProperty Name="DIRECCIONES" Relationship="Self.TERCEROS_VS_DIRECCIONES" FromRole="TERCEROS" ToRole="DIRECCIONES" />
+    <NavigationProperty Name="EMAILS" Relationship="Self.TERCEROS_VS_EMAILS" FromRole="TERCEROS" ToRole="EMAILS" />
+    <NavigationProperty Name="IDENTIFICACIONES" Relationship="Self.TERCEROS_VS_IDENTIFICACIONES" FromRole="TERCEROS" ToRole="IDENTIFICACIONES" />
+    <NavigationProperty Name="TELEFONOS" Relationship="Self.TERCEROS_VS_TELEFONOS" FromRole="TERCEROS" ToRole="TELEFONOS" />
   </EntityType>
   <EntityType Name="TIPOS_CLIENTES">
     <Key>
@@ -717,38 +726,6 @@
     <Property Name="longitud" Type="Geography" Nullable="false" />
     <NavigationProperty Name="EMPLEADOS" Relationship="Self.FK_GPsS" FromRole="GPS" ToRole="EMPLEADOS" />
     <NavigationProperty Name="VEHICULO" Relationship="Self.FK_GPS" FromRole="GPS" ToRole="VEHICULO" />
-  </EntityType>
-  <EntityType Name="TERCEROS_VS_DIRECCIONES">
-    <Key>
-      <PropertyRef Name="id_tercero" />
-      <PropertyRef Name="id_direccion" />
-    </Key>
-    <Property Name="id_tercero" Type="Int32" Nullable="false" />
-    <Property Name="id_direccion" Type="Int32" Nullable="false" />
-  </EntityType>
-  <EntityType Name="TERCEROS_VS_EMAILS">
-    <Key>
-      <PropertyRef Name="id_tercero" />
-      <PropertyRef Name="id_email" />
-    </Key>
-    <Property Name="id_tercero" Type="Int32" Nullable="false" />
-    <Property Name="id_email" Type="Int32" Nullable="false" />
-  </EntityType>
-  <EntityType Name="TERCEROS_VS_IDENTIFICACIONES">
-    <Key>
-      <PropertyRef Name="id_tercero" />
-      <PropertyRef Name="id_identificacion" />
-    </Key>
-    <Property Name="id_tercero" Type="Int32" Nullable="false" />
-    <Property Name="id_identificacion" Type="Int32" Nullable="false" />
-  </EntityType>
-  <EntityType Name="TERCEROS_VS_TELEFONOS">
-    <Key>
-      <PropertyRef Name="id_tercero" />
-      <PropertyRef Name="id_telefono" />
-    </Key>
-    <Property Name="id_tercero" Type="Int32" Nullable="false" />
-    <Property Name="id_telefono" Type="Int32" Nullable="false" />
   </EntityType>
   <EntityType Name="TIPONCF">
     <Key>
@@ -1521,6 +1498,22 @@
     <End Role="DEPARTAMENTOS" Type="Self.DEPARTAMENTOS" Multiplicity="*" />
     <End Role="PUESTOS" Type="Self.PUESTOS" Multiplicity="*" />
   </Association>
+  <Association Name="TERCEROS_VS_DIRECCIONES">
+    <End Role="DIRECCIONES" Type="Self.DIRECCIONES" Multiplicity="*" />
+    <End Role="TERCEROS" Type="Self.TERCEROS" Multiplicity="*" />
+  </Association>
+  <Association Name="TERCEROS_VS_EMAILS">
+    <End Role="EMAILS" Type="Self.EMAILS" Multiplicity="*" />
+    <End Role="TERCEROS" Type="Self.TERCEROS" Multiplicity="*" />
+  </Association>
+  <Association Name="TERCEROS_VS_IDENTIFICACIONES">
+    <End Role="IDENTIFICACIONES" Type="Self.IDENTIFICACIONES" Multiplicity="*" />
+    <End Role="TERCEROS" Type="Self.TERCEROS" Multiplicity="*" />
+  </Association>
+  <Association Name="TERCEROS_VS_TELEFONOS">
+    <End Role="TERCEROS" Type="Self.TERCEROS" Multiplicity="*" />
+    <End Role="TELEFONOS" Type="Self.TELEFONOS" Multiplicity="*" />
+  </Association>
   <EntityContainer Name="TransporSysEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="ALMACENES" EntityType="Self.ALMACENES" />
     <EntitySet Name="ARTICULOS" EntityType="Self.ARTICULOS" />
@@ -1580,10 +1573,6 @@
     <EntitySet Name="VIAJES" EntityType="Self.VIAJES" />
     <EntitySet Name="ARTICULOS_VS_CATEGORIAS_VS_DESCUENTOS" EntityType="Self.ARTICULOS_VS_CATEGORIAS_VS_DESCUENTOS" />
     <EntitySet Name="GPS" EntityType="Self.GPS" />
-    <EntitySet Name="TERCEROS_VS_DIRECCIONES" EntityType="Self.TERCEROS_VS_DIRECCIONES" />
-    <EntitySet Name="TERCEROS_VS_EMAILS" EntityType="Self.TERCEROS_VS_EMAILS" />
-    <EntitySet Name="TERCEROS_VS_IDENTIFICACIONES" EntityType="Self.TERCEROS_VS_IDENTIFICACIONES" />
-    <EntitySet Name="TERCEROS_VS_TELEFONOS" EntityType="Self.TERCEROS_VS_TELEFONOS" />
     <EntitySet Name="TIPONCF" EntityType="Self.TIPONCF" />
     <AssociationSet Name="FK_EXISTENCIAS_ALMACENES" Association="Self.FK_EXISTENCIAS_ALMACENES">
       <End Role="ALMACENES" EntitySet="ALMACENES" />
@@ -1844,6 +1833,22 @@
     <AssociationSet Name="PUESTOS_VS_DEPARTAMENTOS" Association="Self.PUESTOS_VS_DEPARTAMENTOS">
       <End Role="DEPARTAMENTOS" EntitySet="DEPARTAMENTOS" />
       <End Role="PUESTOS" EntitySet="PUESTOS" />
+    </AssociationSet>
+    <AssociationSet Name="TERCEROS_VS_DIRECCIONES" Association="Self.TERCEROS_VS_DIRECCIONES">
+      <End Role="DIRECCIONES" EntitySet="DIRECCIONES" />
+      <End Role="TERCEROS" EntitySet="TERCEROS" />
+    </AssociationSet>
+    <AssociationSet Name="TERCEROS_VS_EMAILS" Association="Self.TERCEROS_VS_EMAILS">
+      <End Role="EMAILS" EntitySet="EMAILS" />
+      <End Role="TERCEROS" EntitySet="TERCEROS" />
+    </AssociationSet>
+    <AssociationSet Name="TERCEROS_VS_IDENTIFICACIONES" Association="Self.TERCEROS_VS_IDENTIFICACIONES">
+      <End Role="IDENTIFICACIONES" EntitySet="IDENTIFICACIONES" />
+      <End Role="TERCEROS" EntitySet="TERCEROS" />
+    </AssociationSet>
+    <AssociationSet Name="TERCEROS_VS_TELEFONOS" Association="Self.TERCEROS_VS_TELEFONOS">
+      <End Role="TERCEROS" EntitySet="TERCEROS" />
+      <End Role="TELEFONOS" EntitySet="TELEFONOS" />
     </AssociationSet>
   </EntityContainer>
 </Schema>
