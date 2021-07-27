@@ -17,9 +17,10 @@ namespace _911_RD.Administracion
             InitializeComponent();
            cb_estado.SelectedIndex = 0;
            cargarComboxs();
+            cargarTabla();
+            
 
             //  FALTAN LOS VS Y LAS CONSULTAS
-
         }
 
         MetodosCRUD metodoscrud = new MetodosCRUD();
@@ -46,6 +47,12 @@ namespace _911_RD.Administracion
                     foreach (var identi in listIden)
                     {
                         cb_tipoIdent.Items.Add(identi.nombre.ToUpper());
+                    }
+
+                    var listP = db.PUESTOS;
+                    foreach (var pue in listP)
+                    {
+                        cb_puestos.Items.Add(pue.puesto.ToUpper());
                     }
 
 
@@ -173,26 +180,15 @@ namespace _911_RD.Administracion
 
         private void cargarTabla()
         {
-            using (TransporSysEntities db = new TransporSysEntities())
-            {
-                try
-                {
-                    dataGridView1.Rows.Clear();
-                    string status;
-                    var list = db.PUESTOS;
-                    foreach (var OPuestos in list)
-                    {
-                        dataGridView1.Rows.Add(OPuestos.id_puesto.ToString(), OPuestos.puesto.ToString(), OPuestos.descripcion.ToString(),
-                            OPuestos.salario.ToString(), status = OPuestos.estado == true ? "ACTIVO" : "INACTIVO");
-                    }
-                }
-                catch (Exception dfg)
-                {
-                    // MessageBox.Show(lbl_titulo + " ERRORRRR");
 
-                }
+            DatosEm = metodoscrud.buscarEmpleado("", "");
+            if (DatosEm != null)
+            {
+                dataGridView1.DataSource = DatosEm;
+                DatosEm.AcceptChanges();
             }
         }
+        
 
 
 
@@ -288,5 +284,36 @@ namespace _911_RD.Administracion
         {
             MessageBox.Show(cb_nacionalidades.SelectedIndex.ToString());
         }
+
+        DataTable DatosEm = new DataTable();
+
+        private void cb_puestos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+            MessageBox.Show(cb_puestos.SelectedIndex+" "+DatosEm.Rows.Count );
+
+
+            if (cb_puestos.SelectedIndex==0)
+             {
+                dataGridView1.DataSource = DatosEm;
+                return;
+            }
+
+            DataTable data = new DataTable();
+             data = DatosEm;
+
+                    foreach (DataRow row in data.Rows)
+                    {
+                          MessageBox.Show(row[10].ToString());
+                       if(row[10].ToString().ToUpper()!= cb_puestos.SelectedItem.ToString())
+                        row.Delete();
+                    }
+                    data.AcceptChanges();
+            dataGridView1.DataSource = data;
+        }
+
+
+
+
     }
 }

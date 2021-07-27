@@ -8,6 +8,8 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data;
+using System.Configuration;
 
 namespace _911_RD.Administracion
 {
@@ -87,7 +89,7 @@ namespace _911_RD.Administracion
                         id_result = terceroquery.id_empleado;
                     }
                     db.SaveChanges(); if (terceroquery == null)
-                      if (terceroquery == null)
+                        if (terceroquery == null)
                         {
                             id_result = db.EMPLEADOS.Max(x => x.id_empleado);
                         }
@@ -129,7 +131,7 @@ namespace _911_RD.Administracion
                     {
                         id_result = db.TERCEROS.Max(x => x.id_tercero);
                     }
-                 
+
                 }
             }
             catch (Exception asd)
@@ -138,6 +140,53 @@ namespace _911_RD.Administracion
             }
 
             return id_result;
+        }
+
+
+
+
+        public DataTable buscarEmpleado(string identidicacion, string codigo){
+            DataTable dt = new DataTable();
+            //try
+            //{
+            //    // List<string> Empleados = new List<string>();
+
+                Utilidades.conexion.Open();
+                var query = "SELECT ter.id_tercero as ID_TERCERO, per.id_persona as ID_PERSONA, emp.id_empleado as ID_EMPLEADO, ter.nombre +' '+per.apellido as NOMBRE_COMPLETO, per.fecha_nacimiento as FECHANACIMIENTO, sex.descripcion as SEXO, " +
+                        " nac.nacionalidad as NACIONALIDAD, iden.identificacion as IDENTIFICACION, tipo_iden.nombre as TIPO_IDENTIFICACION," +
+                        " emp.fecha_ingreso as FECHACONTRATO, pue.puesto as PUESTO, pue.salario as SUELDO, tel.telefono as TELEFONO, cor.email as EMAIL, dir.latitud as LATITUD, dir.longitud as LONGITUD" +
+                        " from TERCEROS ter " +
+                        " inner join PERSONAS per on ter.id_tercero = per.id_tercero " +
+                        " inner join SEXOS sex on per.id_sexo = sex.id_sexo  " +
+                        " inner join NACIONALIDADES nac on per.id_nacionalidad = nac.id_nacionalidad " +
+                        " inner join TERCEROS_VS_IDENTIFICACIONES idenVS on ter.id_tercero = idenVS.id_tercero " +
+                        " inner join IDENTIFICACIONES iden on idenVS.id_identificacion = iden.id_identificacion " +
+                        " inner join TIPOS_IDENTIFICACIONES tipo_iden on iden.id_tipo_identificacion = tipo_iden.id_tipo_identificacion " +
+                        " inner join TERCEROS_VS_DIRECCIONES dirVS on ter.id_tercero = dirVS.id_tercero " +
+                        " inner join DIRECCIONES dir on dirVS.id_direccion = dir.id_direccion " +
+                        " inner join TERCEROS_VS_EMAILS corVS on ter.id_tercero = corVS.id_tercero " +
+                        " inner join EMAILS cor on corVS.id_email = cor.id_email " +
+                        " inner join TERCEROS_VS_TELEFONOS telVS on ter.id_tercero = telVS.id_tercero " +
+                        " inner join TELEFONOS tel on telVS.id_telefono = tel.id_telefono " +
+                        " inner join EMPLEADOS emp on per.id_persona = emp.id_persona " +
+                        " inner join PUESTOS pue on emp.id_puesto = pue.id_puesto";
+
+
+                SqlCommand comandoSelect = new SqlCommand(query, Utilidades.conexion);
+
+                SqlDataAdapter adap = new SqlDataAdapter(comandoSelect);
+                    adap.Fill(dt);
+                Utilidades.conexion.Close();
+                return dt;
+               
+
+            //}
+
+            //catch (Exception aas)
+            //{
+            //    //Posible error
+            //}
+            return dt;
         }
 
         public int crudIdentificaciones(string identificacion, string id_tipo, string id_tercero)

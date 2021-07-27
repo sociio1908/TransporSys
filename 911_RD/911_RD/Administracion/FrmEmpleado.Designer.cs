@@ -96,6 +96,9 @@ namespace _911_RD.Administracion
             this.label21 = new System.Windows.Forms.Label();
             this.cb_tipoIdent = new System.Windows.Forms.ComboBox();
             this.txt_id_cargo = new _911_RD.ErrorTxtBox();
+            this.cb_puestos = new System.Windows.Forms.ComboBox();
+            this.label24 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.btn_buscar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_Cargo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -104,6 +107,7 @@ namespace _911_RD.Administracion
             this.p_conductor.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btn_busc_dir)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // btn_guardar
@@ -863,11 +867,51 @@ namespace _911_RD.Administracion
             this.txt_id_cargo.TabIndex = 193;
             this.txt_id_cargo.Validar = true;
             // 
+            // cb_puestos
+            // 
+            this.cb_puestos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cb_puestos.FormattingEnabled = true;
+            this.cb_puestos.Items.AddRange(new object[] {
+            "TODOS"});
+            this.cb_puestos.Location = new System.Drawing.Point(438, 529);
+            this.cb_puestos.Name = "cb_puestos";
+            this.cb_puestos.Size = new System.Drawing.Size(188, 24);
+            this.cb_puestos.TabIndex = 194;
+            this.cb_puestos.SelectedIndexChanged += new System.EventHandler(this.cb_puestos_SelectedIndexChanged);
+            // 
+            // label24
+            // 
+            this.label24.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label24.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label24.Location = new System.Drawing.Point(310, 536);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(122, 16);
+            this.label24.TabIndex = 195;
+            this.label24.Text = "CARGAR PUESTOS";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.LightGreen;
+            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox1.Image = global::_911_RD.Properties.Resources.search;
+            this.pictureBox1.Location = new System.Drawing.Point(270, 531);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(34, 26);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 198;
+            this.pictureBox1.TabStop = false;
+            // 
             // FrmEmpleado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1049, 780);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.label24);
+            this.Controls.Add(this.cb_puestos);
             this.Controls.Add(this.txt_id_cargo);
             this.Controls.Add(this.label21);
             this.Controls.Add(this.cb_tipoIdent);
@@ -951,6 +995,9 @@ namespace _911_RD.Administracion
             this.Controls.SetChildIndex(this.cb_tipoIdent, 0);
             this.Controls.SetChildIndex(this.label21, 0);
             this.Controls.SetChildIndex(this.txt_id_cargo, 0);
+            this.Controls.SetChildIndex(this.cb_puestos, 0);
+            this.Controls.SetChildIndex(this.label24, 0);
+            this.Controls.SetChildIndex(this.pictureBox1, 0);
             ((System.ComponentModel.ISupportInitialize)(this.btn_buscar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_Cargo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -962,6 +1009,7 @@ namespace _911_RD.Administracion
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btn_busc_dir)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -989,7 +1037,6 @@ namespace _911_RD.Administracion
         private System.Windows.Forms.DateTimePicker fecha_nac;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox cb_estado;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label13;
         private ErrorTxtBox txt_filtro;
@@ -1034,5 +1081,9 @@ namespace _911_RD.Administracion
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.ComboBox cb_tipoIdent;
         private ErrorTxtBox txt_id_cargo;
+        private System.Windows.Forms.ComboBox cb_puestos;
+        private System.Windows.Forms.Label label24;
+        public System.Windows.Forms.DataGridView dataGridView1;
+        public System.Windows.Forms.PictureBox pictureBox1;
     }
 }
