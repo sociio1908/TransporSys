@@ -150,8 +150,6 @@ namespace _911_RD.Administracion
                 int id_tipoIdentificacion = cb_tipoIdent.SelectedIndex + 1;
                 int id_identificacion = metodoscrud.crudIdentificaciones(txt_cedula.Text, id_tipoIdentificacion.ToString(), tercero.ToString());
                 MessageBox.Show("ID_identificacion: " + id_identificacion);
-
-
                 //Correo
                 metodoscrud.crudCorreo("",txt_correo.Text, tercero.ToString());
                 //Telefono
