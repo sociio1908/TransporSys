@@ -116,7 +116,7 @@ namespace _911_RD
 
         private void btn_ventas_Click(object sender, EventArgs e)
         {
-            AbrirFormEnPanel(new frmVentas());
+            AbrirFormEnPanel(new frmServicios());
         }
 
         private void btn_gps_Click(object sender, EventArgs e)

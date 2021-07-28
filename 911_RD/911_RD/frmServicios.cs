@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace _911_RD
 {
-    public partial class frmVentas : Form
+    public partial class frmServicios : Form
     {
-        public frmVentas()
+        public frmServicios()
         {
             InitializeComponent();
         }

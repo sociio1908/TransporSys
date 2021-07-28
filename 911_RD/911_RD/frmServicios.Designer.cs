@@ -1,7 +1,7 @@
 ﻿
 namespace _911_RD
 {
-    partial class frmVentas
+    partial class frmServicios
     {
         /// <summary>
         /// Required designer variable.
