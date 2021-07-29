@@ -379,4 +379,4 @@ healthchecksdb
 MigrationBackup/
 
 # End of https://www.gitignore.io/api/windows,visualstudio
-/GUI_V_2/GUI_V_2.csproj/
+911_RD/911_RD.csproj/
