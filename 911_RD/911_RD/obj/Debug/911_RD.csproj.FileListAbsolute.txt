@@ -74,9 +74,29 @@ C:\Users\Ing. Jerinel Mendoza\Documents\Proyecto C#\Mi_App911\911_RD\911_RD\bin\
 C:\Users\Ing. Jerinel Mendoza\Documents\Proyecto C#\Mi_App911\911_RD\911_RD\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\Ing. Jerinel Mendoza\Documents\Proyecto C#\Mi_App911\911_RD\911_RD\bin\Debug\EntityFramework.xml
 C:\Users\Ing. Jerinel Mendoza\Documents\Proyecto C#\Mi_App911\911_RD\911_RD\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\Ing. Jerinel Mendoza\Documents\Proyecto C#\Mi_App911\911_RD\911_RD\obj\Debug\_911_RD.frmVentas.resources
-C:\Users\Ing. Jerinel Mendoza\Documents\Proyecto C#\Mi_App911\911_RD\911_RD\obj\Debug\_911_RD.Administracion.FrmDirecciones.resources
-C:\Users\Ing. Jerinel Mendoza\Documents\Proyecto C#\Mi_App911\911_RD\911_RD\obj\Debug\_911_RD.Administracion.Vehiculo.FrmMarca.resources
-C:\Users\Ing. Jerinel Mendoza\Documents\Proyecto C#\Mi_App911\911_RD\911_RD\obj\Debug\_911_RD.Administracion.Vehiculo.FrmModelo.resources
-C:\Users\Ing. Jerinel Mendoza\Documents\Proyecto C#\Mi_App911\911_RD\911_RD\obj\Debug\_911_RD.Administracion.Vehiculo.FrmVehiculos.resources
-C:\Users\Ing. Jerinel Mendoza\Documents\Proyecto C#\Mi_App911\911_RD\911_RD\obj\Debug\911_RD.csprojAssemblyReference.cache
+C:\Users\harol\Documents\GitHub\TransporSys\911_RD\911_RD\bin\Debug\911_RD.exe.config
+C:\Users\harol\Documents\GitHub\TransporSys\911_RD\911_RD\bin\Debug\911_RD.exe
+C:\Users\harol\Documents\GitHub\TransporSys\911_RD\911_RD\bin\Debug\911_RD.pdb
+C:\Users\harol\Documents\GitHub\TransporSys\911_RD\911_RD\bin\Debug\EntityFramework.dll
+C:\Users\harol\Documents\GitHub\TransporSys\911_RD\911_RD\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\harol\Documents\GitHub\TransporSys\911_RD\911_RD\bin\Debug\GMap.NET.Core.dll
+C:\Users\harol\Documents\GitHub\TransporSys\911_RD\911_RD\bin\Debug\GMap.NET.WindowsForms.dll
+C:\Users\harol\Documents\GitHub\TransporSys\911_RD\911_RD\bin\Debug\EntityFramework.xml
+C:\Users\harol\Documents\GitHub\TransporSys\911_RD\911_RD\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\harol\Documents\GitHub\TransporSys\911_RD\911_RD\obj\Debug\_911_RD.Administracion.ConPrincipal.resources
+C:\Users\harol\Documents\GitHub\TransporSys\911_RD\911_RD\obj\Debug\_911_RD.Administracion.FrmBase.resources
+C:\Users\harol\Documents\GitHub\TransporSys\911_RD\911_RD\obj\Debug\_911_RD.Administracion.FrmCargo.resources
+C:\Users\harol\Documents\GitHub\TransporSys\911_RD\911_RD\obj\Debug\_911_RD.Administracion.FrmEmpleado.resources
+C:\Users\harol\Documents\GitHub\TransporSys\911_RD\911_RD\obj\Debug\_911_RD.Administracion.FrmPaciente.resources
+C:\Users\harol\Documents\GitHub\TransporSys\911_RD\911_RD\obj\Debug\_911_RD.F_principal.resources
+C:\Users\harol\Documents\GitHub\TransporSys\911_RD\911_RD\obj\Debug\_911_RD.FrmCliente.resources
+C:\Users\harol\Documents\GitHub\TransporSys\911_RD\911_RD\obj\Debug\_911_RD.FrmLogin.resources
+C:\Users\harol\Documents\GitHub\TransporSys\911_RD\911_RD\obj\Debug\_911_RD.FrmPrincipal.resources
+C:\Users\harol\Documents\GitHub\TransporSys\911_RD\911_RD\obj\Debug\_911_RD.F_agenda.resources
+C:\Users\harol\Documents\GitHub\TransporSys\911_RD\911_RD\obj\Debug\_911_RD.Properties.Resources.resources
+C:\Users\harol\Documents\GitHub\TransporSys\911_RD\911_RD\obj\Debug\_911_RD.Seleccion_Und.resources
+C:\Users\harol\Documents\GitHub\TransporSys\911_RD\911_RD\obj\Debug\911_RD.csproj.GenerateResource.cache
+C:\Users\harol\Documents\GitHub\TransporSys\911_RD\911_RD\obj\Debug\911_RD.csproj.CoreCompileInputs.cache
+C:\Users\harol\Documents\GitHub\TransporSys\911_RD\911_RD\obj\Debug\911_RD.csproj.CopyComplete
+C:\Users\harol\Documents\GitHub\TransporSys\911_RD\911_RD\obj\Debug\911_RD.exe
+C:\Users\harol\Documents\GitHub\TransporSys\911_RD\911_RD\obj\Debug\911_RD.pdb
