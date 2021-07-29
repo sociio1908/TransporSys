@@ -43,7 +43,7 @@ namespace _911_RD.Administracion
 
         private void cargarTabla()
         {
-            using (TransporSysEntities1 db = new TransporSysEntities1())
+            using (TransporSysEntities4 db = new TransporSysEntities4())
             {
                 try
                 {
@@ -73,7 +73,7 @@ namespace _911_RD.Administracion
                     return;
 
             
-                using (TransporSysEntities1 db = new TransporSysEntities1())
+                using (TransporSysEntities4 db = new TransporSysEntities4())
                 {
                     if (id_txt.Text.Trim() == "")
                     {
@@ -155,6 +155,31 @@ namespace _911_RD.Administracion
         private void txt_salario_KeyPress(object sender, KeyPressEventArgs e)
         {
            
+
+        }
+
+        private void btnEnviar_Click(object sender, EventArgs e)
+        {
+            FrmEmpleado frEmpl = new FrmEmpleado();
+            frEmpl.txt_cargo.Text = txt_puesto.Text;
+            frEmpl.txt_sueldo.Text = txt_descripcion.Text;
+            frEmpl.errorTxtBox2.Text = txt_salario.Text;
+            frEmpl.Show();
+           
+        }
+
+        private void label10_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_salir_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FrmCargo_Load(object sender, EventArgs e)
+        {
 
         }
     }

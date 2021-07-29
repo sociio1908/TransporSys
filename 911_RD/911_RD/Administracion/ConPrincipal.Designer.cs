@@ -122,7 +122,7 @@
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.DarkSlateGray;
             this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(323, 387);
+            this.dataGridView1.Size = new System.Drawing.Size(421, 387);
             this.dataGridView1.TabIndex = 9;
             // 
             // id_eme
@@ -346,7 +346,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(883, 512);
+            this.ClientSize = new System.Drawing.Size(981, 512);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.panel7);
             this.Controls.Add(this.label2);

@@ -41,6 +41,7 @@ namespace _911_RD
             this.Name = "FrmCliente";
             this.Text = "CLIENTES";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.FrmCliente_Load);
             this.ResumeLayout(false);
 
         }

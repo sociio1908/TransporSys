@@ -14,18 +14,8 @@ namespace _911_RD
     
     public partial class DIRECCIONES
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public DIRECCIONES()
-        {
-            this.TERCEROS = new HashSet<TERCEROS>();
-        }
-    
         public int id_direccion { get; set; }
-        public int id_ciudad { get; set; }
-        public string direccion { get; set; }
-    
-        public virtual CIUDADES CIUDADES { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TERCEROS> TERCEROS { get; set; }
+        public double latitud { get; set; }
+        public double longitud { get; set; }
     }
 }

@@ -14,6 +14,12 @@ namespace _911_RD
     
     public partial class VENTAS
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public VENTAS()
+        {
+            this.DETALLES_VENTAS = new HashSet<DETALLES_VENTAS>();
+        }
+    
         public int num_fact { get; set; }
         public int id_cliente { get; set; }
         public int id_empleado { get; set; }
@@ -21,7 +27,8 @@ namespace _911_RD
         public bool estado { get; set; }
     
         public virtual CLIENTES CLIENTES { get; set; }
-        public virtual DETALLES_VENTAS DETALLES_VENTAS { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<DETALLES_VENTAS> DETALLES_VENTAS { get; set; }
         public virtual EMPLEADOS EMPLEADOS { get; set; }
     }
 }

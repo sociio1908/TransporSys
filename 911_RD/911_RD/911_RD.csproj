@@ -48,6 +48,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BarcodeStandard, Version=2.4.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\BarcodeLib.2.4.0\lib\netstandard2.0\BarcodeStandard.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -60,13 +63,44 @@
     <Reference Include="GMap.NET.WindowsForms, Version=1.7.5.0, Culture=neutral, PublicKeyToken=b85b9027b614afef, processorArchitecture=MSIL">
       <HintPath>..\packages\GMap.NET.WindowsForms.1.7.5\lib\net40\GMap.NET.WindowsForms.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.5.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing.Common, Version=4.0.0.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Drawing.Common.5.0.2\lib\net461\System.Drawing.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.5.0.0\lib\net45\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Text.Encodings.Web, Version=5.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encodings.Web.5.0.1\lib\net461\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Json, Version=5.0.0.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Json.5.0.2\lib\net461\System.Text.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net461\System.ValueTuple.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -86,6 +120,12 @@
     <Compile Include="Administracion\ConPrincipal.Designer.cs">
       <DependentUpon>ConPrincipal.cs</DependentUpon>
     </Compile>
+    <Compile Include="Administracion\FrmArticulos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administracion\FrmArticulos.Designer.cs">
+      <DependentUpon>FrmArticulos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Administracion\FrmBase.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -97,6 +137,18 @@
     </Compile>
     <Compile Include="Administracion\FrmCargo.Designer.cs">
       <DependentUpon>FrmCargo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Administracion\FrmCategoria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administracion\FrmCategoria.Designer.cs">
+      <DependentUpon>FrmCategoria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Administracion\FrmCompra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administracion\FrmCompra.Designer.cs">
+      <DependentUpon>FrmCompra.cs</DependentUpon>
     </Compile>
     <Compile Include="Administracion\FrmEmpleado.cs">
       <SubType>Form</SubType>
@@ -110,89 +162,95 @@
     <Compile Include="Administracion\FrmPaciente.Designer.cs">
       <DependentUpon>FrmPaciente.cs</DependentUpon>
     </Compile>
+    <Compile Include="Administracion\FrmSuplidor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administracion\FrmSuplidor.Designer.cs">
+      <DependentUpon>FrmSuplidor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Administracion\FrmUnidadesMD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administracion\FrmUnidadesMD.Designer.cs">
+      <DependentUpon>FrmUnidadesMD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Administracion\FrmVentas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administracion\FrmVentas.Designer.cs">
+      <DependentUpon>FrmVentas.cs</DependentUpon>
+    </Compile>
     <Compile Include="ALMACENES.cs">
-      <DependentUpon>EntityFramework.tt</DependentUpon>
+      <DependentUpon>TransporSysEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="ARTICULOS.cs">
-      <DependentUpon>EntityFramework.tt</DependentUpon>
+      <DependentUpon>TransporSysEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="ARTICULOS_VS_CATEGORIAS_VS_DESCUENTOS.cs">
-      <DependentUpon>EntityFramework.tt</DependentUpon>
+      <DependentUpon>TransporSysEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="BENEFICIOS.cs">
-      <DependentUpon>EntityFramework.tt</DependentUpon>
+      <DependentUpon>TransporSysEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="CATEGORIAS.cs">
-      <DependentUpon>EntityFramework.tt</DependentUpon>
+      <DependentUpon>TransporSysEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="CIUDADES.cs">
-      <DependentUpon>EntityFramework.tt</DependentUpon>
+      <DependentUpon>TransporSysEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="CLIENTES.cs">
-      <DependentUpon>EntityFramework.tt</DependentUpon>
+      <DependentUpon>TransporSysEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="COBROS.cs">
-      <DependentUpon>EntityFramework.tt</DependentUpon>
+      <DependentUpon>TransporSysEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="COMBUSTIBLE.cs">
+      <DependentUpon>TransporSysEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="COMPRAS.cs">
-      <DependentUpon>EntityFramework.tt</DependentUpon>
+      <DependentUpon>TransporSysEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CONDUCTOR.cs">
+      <DependentUpon>TransporSysEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="CONTINENTES.cs">
-      <DependentUpon>EntityFramework.tt</DependentUpon>
+      <DependentUpon>TransporSysEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="COTIZACIONES.cs">
-      <DependentUpon>EntityFramework.tt</DependentUpon>
-    </Compile>
-    <Compile Include="CUOTAS.cs">
-      <DependentUpon>EntityFramework.tt</DependentUpon>
+      <DependentUpon>TransporSysEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="DEPARTAMENTOS.cs">
-      <DependentUpon>EntityFramework.tt</DependentUpon>
+      <DependentUpon>TransporSysEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="DESCUENTOS.cs">
-      <DependentUpon>EntityFramework.tt</DependentUpon>
+      <DependentUpon>TransporSysEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="DETALLES_COMPRAS.cs">
-      <DependentUpon>EntityFramework.tt</DependentUpon>
+      <DependentUpon>TransporSysEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="DETALLES_COTIZACIONES.cs">
-      <DependentUpon>EntityFramework.tt</DependentUpon>
+      <DependentUpon>TransporSysEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="DETALLES_ENTRADAS.cs">
-      <DependentUpon>EntityFramework.tt</DependentUpon>
+      <DependentUpon>TransporSysEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="DETALLES_SALIDAS.cs">
-      <DependentUpon>EntityFramework.tt</DependentUpon>
+      <DependentUpon>TransporSysEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="DETALLES_VENTAS.cs">
-      <DependentUpon>EntityFramework.tt</DependentUpon>
+      <DependentUpon>TransporSysEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="DIRECCIONES.cs">
-      <DependentUpon>EntityFramework.tt</DependentUpon>
+      <DependentUpon>TransporSysEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="EMAILS.cs">
-      <DependentUpon>EntityFramework.tt</DependentUpon>
+      <DependentUpon>TransporSysEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="EMPLEADOS.cs">
-      <DependentUpon>EntityFramework.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EntityFramework.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>EntityFramework.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EntityFramework.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>EntityFramework.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EntityFramework.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>EntityFramework.edmx</DependentUpon>
+      <DependentUpon>TransporSysEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="ENTRADAS.cs">
-      <DependentUpon>EntityFramework.tt</DependentUpon>
+      <DependentUpon>TransporSysEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="ErrorTxtBox.cs">
       <SubType>Component</SubType>
@@ -201,10 +259,10 @@
       <DependentUpon>ErrorTxtBox.cs</DependentUpon>
     </Compile>
     <Compile Include="EXISTENCIAS.cs">
-      <DependentUpon>EntityFramework.tt</DependentUpon>
+      <DependentUpon>TransporSysEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="FINANCIAMIENTOS.cs">
-      <DependentUpon>EntityFramework.tt</DependentUpon>
+      <DependentUpon>TransporSysEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -236,46 +294,49 @@
     <Compile Include="F_agenda.Designer.cs">
       <DependentUpon>F_agenda.cs</DependentUpon>
     </Compile>
+    <Compile Include="GPS.cs">
+      <DependentUpon>TransporSysEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="IDENTIFICACIONES.cs">
-      <DependentUpon>EntityFramework.tt</DependentUpon>
+      <DependentUpon>TransporSysEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="ITEBIS.cs">
-      <DependentUpon>EntityFramework.tt</DependentUpon>
+      <DependentUpon>TransporSysEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="MARCA.cs">
-      <DependentUpon>EntityFramework.tt</DependentUpon>
-    </Compile>
-    <Compile Include="MEMBRESIAS.cs">
-      <DependentUpon>EntityFramework.tt</DependentUpon>
+      <DependentUpon>TransporSysEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="MODELO.cs">
-      <DependentUpon>EntityFramework.tt</DependentUpon>
+      <DependentUpon>TransporSysEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="NACIONALIDADES.cs">
-      <DependentUpon>EntityFramework.tt</DependentUpon>
+      <DependentUpon>TransporSysEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="NCF.cs">
-      <DependentUpon>EntityFramework.tt</DependentUpon>
+      <DependentUpon>TransporSysEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PACIENTES.cs">
+      <DependentUpon>TransporSysEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="PAISES.cs">
-      <DependentUpon>EntityFramework.tt</DependentUpon>
+      <DependentUpon>TransporSysEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="PERSONAS.cs">
-      <DependentUpon>EntityFramework.tt</DependentUpon>
+      <DependentUpon>TransporSysEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="PRECIOS.cs">
-      <DependentUpon>EntityFramework.tt</DependentUpon>
+      <DependentUpon>TransporSysEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PROVINCIAS.cs">
-      <DependentUpon>EntityFramework.tt</DependentUpon>
+      <DependentUpon>TransporSysEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="PUESTOS.cs">
-      <DependentUpon>EntityFramework.tt</DependentUpon>
+      <DependentUpon>TransporSysEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="SALIDAS.cs">
-      <DependentUpon>EntityFramework.tt</DependentUpon>
+      <DependentUpon>TransporSysEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Seleccion_Und.cs">
       <SubType>Form</SubType>
@@ -284,56 +345,95 @@
       <DependentUpon>Seleccion_Und.cs</DependentUpon>
     </Compile>
     <Compile Include="SEXOS.cs">
-      <DependentUpon>EntityFramework.tt</DependentUpon>
+      <DependentUpon>TransporSysEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="SUPLIDORES.cs">
-      <DependentUpon>EntityFramework.tt</DependentUpon>
+      <DependentUpon>TransporSysEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sysdiagrams.cs">
+      <DependentUpon>TransporSysEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="TELEFONOS.cs">
-      <DependentUpon>EntityFramework.tt</DependentUpon>
+      <DependentUpon>TransporSysEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="TERCEROS.cs">
-      <DependentUpon>EntityFramework.tt</DependentUpon>
+      <DependentUpon>TransporSysEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TERCEROS_VS_DIRECCIONES.cs">
+      <DependentUpon>TransporSysEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TERCEROS_VS_EMAILS.cs">
+      <DependentUpon>TransporSysEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TERCEROS_VS_IDENTIFICACIONES.cs">
+      <DependentUpon>TransporSysEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TERCEROS_VS_TELEFONOS.cs">
+      <DependentUpon>TransporSysEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="TIPONCF.cs">
-      <DependentUpon>EntityFramework.tt</DependentUpon>
+      <DependentUpon>TransporSysEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TIPOSPAGO.cs">
+      <DependentUpon>TransporSysEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TIPOSVIAJES.cs">
+      <DependentUpon>TransporSysEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="TIPOS_CLIENTES.cs">
-      <DependentUpon>EntityFramework.tt</DependentUpon>
+      <DependentUpon>TransporSysEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="TIPOS_IDENTIFICACIONES.cs">
-      <DependentUpon>EntityFramework.tt</DependentUpon>
+      <DependentUpon>TransporSysEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="TIPOS_MEMBRESIAS.cs">
-      <DependentUpon>EntityFramework.tt</DependentUpon>
+      <DependentUpon>TransporSysEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="TIPOS_SUPLIDORES.cs">
-      <DependentUpon>EntityFramework.tt</DependentUpon>
+      <DependentUpon>TransporSysEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="TIPOS_TELEFONOS.cs">
-      <DependentUpon>EntityFramework.tt</DependentUpon>
+      <DependentUpon>TransporSysEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="TIPOS_USUARIOS.cs">
-      <DependentUpon>EntityFramework.tt</DependentUpon>
+      <DependentUpon>TransporSysEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="TRANSPORTE.cs">
-      <DependentUpon>EntityFramework.tt</DependentUpon>
+    <Compile Include="TransporSysEntities.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TransporSysEntities.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TransporSysEntities.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TransporSysEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TransporSysEntities.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TransporSysEntities.edmx</DependentUpon>
     </Compile>
     <Compile Include="UNIDADES_DE_MEDIDA.cs">
-      <DependentUpon>EntityFramework.tt</DependentUpon>
+      <DependentUpon>TransporSysEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="USUARIOS.cs">
-      <DependentUpon>EntityFramework.tt</DependentUpon>
+      <DependentUpon>TransporSysEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Utilidades.cs" />
     <Compile Include="VEHICULO.cs">
-      <DependentUpon>EntityFramework.tt</DependentUpon>
+      <DependentUpon>TransporSysEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="VENTAS.cs">
-      <DependentUpon>EntityFramework.tt</DependentUpon>
+      <DependentUpon>TransporSysEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VIAJES.cs">
+      <DependentUpon>TransporSysEntities.tt</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Administracion\ConPrincipal.resx">
       <DependentUpon>ConPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administracion\FrmArticulos.resx">
+      <DependentUpon>FrmArticulos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Administracion\FrmBase.resx">
       <DependentUpon>FrmBase.cs</DependentUpon>
@@ -341,11 +441,26 @@
     <EmbeddedResource Include="Administracion\FrmCargo.resx">
       <DependentUpon>FrmCargo.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Administracion\FrmCategoria.resx">
+      <DependentUpon>FrmCategoria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administracion\FrmCompra.resx">
+      <DependentUpon>FrmCompra.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Administracion\FrmEmpleado.resx">
       <DependentUpon>FrmEmpleado.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Administracion\FrmPaciente.resx">
       <DependentUpon>FrmPaciente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administracion\FrmSuplidor.resx">
+      <DependentUpon>FrmSuplidor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administracion\FrmUnidadesMD.resx">
+      <DependentUpon>FrmUnidadesMD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administracion\FrmVentas.resx">
+      <DependentUpon>FrmVentas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -375,13 +490,6 @@
     <EmbeddedResource Include="Seleccion_Und.resx">
       <DependentUpon>Seleccion_Und.cs</DependentUpon>
     </EmbeddedResource>
-    <EntityDeploy Include="EntityFramework.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>EntityFramework.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="EntityFramework.edmx.diagram">
-      <DependentUpon>EntityFramework.edmx</DependentUpon>
-    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -392,6 +500,13 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <EntityDeploy Include="TransporSysEntities.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>TransporSysEntities.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="TransporSysEntities.edmx.diagram">
+      <DependentUpon>TransporSysEntities.edmx</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -481,18 +596,6 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="EntityFramework.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>EntityFramework.edmx</DependentUpon>
-      <LastGenOutput>EntityFramework.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="EntityFramework.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>EntityFramework.edmx</DependentUpon>
-      <LastGenOutput>EntityFramework.cs</LastGenOutput>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
       <Visible>False</Visible>
       <ProductName>Microsoft .NET Framework 4.6.1 %28x86 y x64%29</ProductName>
@@ -503,6 +606,23 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\iconos\escaner-de-codigo-de-barras %281%29.png" />
+    <Content Include="bin\iconos\recibo.png" />
+    <Content Include="Iconos\escaner-de-codigo-de-barras.png" />
+    <None Include="Resources\eraser.png" />
+    <Content Include="TransporSysEntities.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>TransporSysEntities.edmx</DependentUpon>
+      <LastGenOutput>TransporSysEntities.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="TransporSysEntities.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>TransporSysEntities.edmx</DependentUpon>
+      <LastGenOutput>TransporSysEntities.cs</LastGenOutput>
+    </Content>
+    <None Include="Resources\recibo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

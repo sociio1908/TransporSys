@@ -14,7 +14,16 @@ namespace _911_RD
     
     public partial class MARCA
     {
-        public int intMarca { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public MARCA()
+        {
+            this.VEHICULO = new HashSet<VEHICULO>();
+        }
+    
+        public int id_marca { get; set; }
         public string marca1 { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<VEHICULO> VEHICULO { get; set; }
     }
 }

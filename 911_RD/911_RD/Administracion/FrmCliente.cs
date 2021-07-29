@@ -11,12 +11,17 @@ using _911_RD.Administracion;
 
 namespace _911_RD
 {
-    public partial class FrmCliente : Form
+    public partial class FrmCliente : FrmBase
 
     {
         public FrmCliente()
         {
             InitializeComponent();
+        }
+
+        private void FrmCliente_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

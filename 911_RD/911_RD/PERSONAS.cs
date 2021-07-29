@@ -18,6 +18,7 @@ namespace _911_RD
         public PERSONAS()
         {
             this.EMPLEADOS = new HashSet<EMPLEADOS>();
+            this.PACIENTES = new HashSet<PACIENTES>();
         }
     
         public int id_persona { get; set; }
@@ -25,10 +26,13 @@ namespace _911_RD
         public int id_sexo { get; set; }
         public int id_nacionalidad { get; set; }
         public string apellido { get; set; }
+        public System.DateTime fecha_nacimiento { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<EMPLEADOS> EMPLEADOS { get; set; }
         public virtual NACIONALIDADES NACIONALIDADES { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<PACIENTES> PACIENTES { get; set; }
         public virtual SEXOS SEXOS { get; set; }
         public virtual TERCEROS TERCEROS { get; set; }
     }

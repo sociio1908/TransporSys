@@ -18,7 +18,6 @@ namespace _911_RD
         public FINANCIAMIENTOS()
         {
             this.COBROS = new HashSet<COBROS>();
-            this.CUOTAS = new HashSet<CUOTAS>();
         }
     
         public int id_financiamiento { get; set; }
@@ -36,8 +35,6 @@ namespace _911_RD
         public virtual CLIENTES CLIENTES { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<COBROS> COBROS { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CUOTAS> CUOTAS { get; set; }
         public virtual EMPLEADOS EMPLEADOS { get; set; }
     }
 }

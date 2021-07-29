@@ -17,9 +17,9 @@ namespace _911_RD
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public CLIENTES()
         {
+            this.VIAJES = new HashSet<VIAJES>();
             this.COTIZACIONES = new HashSet<COTIZACIONES>();
             this.FINANCIAMIENTOS = new HashSet<FINANCIAMIENTOS>();
-            this.MEMBRESIAS = new HashSet<MEMBRESIAS>();
             this.VENTAS = new HashSet<VENTAS>();
         }
     
@@ -28,14 +28,14 @@ namespace _911_RD
         public int id_tipo_cliente { get; set; }
         public bool estado { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<VIAJES> VIAJES { get; set; }
         public virtual TERCEROS TERCEROS { get; set; }
         public virtual TIPOS_CLIENTES TIPOS_CLIENTES { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<COTIZACIONES> COTIZACIONES { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<FINANCIAMIENTOS> FINANCIAMIENTOS { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<MEMBRESIAS> MEMBRESIAS { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<VENTAS> VENTAS { get; set; }
     }

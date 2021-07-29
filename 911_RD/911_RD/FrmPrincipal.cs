@@ -139,5 +139,15 @@ namespace _911_RD
 
             AbrirFormEnPanel(new FrmEmpleado());
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            AbrirFormEnPanel(new FrmArticulos());
+        }
+        private void FrmArticulos_Paint(object sender, PaintEventArgs e)
+        {
+            e.Graphics.DrawRectangle(new Pen(Color.Firebrick, 1),
+                          this.DisplayRectangle);
+        }
     }
 }

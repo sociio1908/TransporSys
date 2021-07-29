@@ -14,18 +14,10 @@ namespace _911_RD
     
     public partial class TELEFONOS
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public TELEFONOS()
-        {
-            this.TERCEROS = new HashSet<TERCEROS>();
-        }
-    
         public int id_telefono { get; set; }
         public int id_tipo_telefono { get; set; }
         public string telefono { get; set; }
     
         public virtual TIPOS_TELEFONOS TIPOS_TELEFONOS { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TERCEROS> TERCEROS { get; set; }
     }
 }

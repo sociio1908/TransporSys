@@ -115,6 +115,7 @@ namespace _911_RD.Administracion
             this.txt_cedula.Location = new System.Drawing.Point(12, 155);
             this.txt_cedula.Name = "txt_cedula";
             this.txt_cedula.Size = new System.Drawing.Size(170, 26);
+            this.txt_cedula.SoloNumeros = false;
             this.txt_cedula.TabIndex = 145;
             this.txt_cedula.Validar = true;
             this.txt_cedula.TextChanged += new System.EventHandler(this.errorTxtBox2_TextChanged);
@@ -139,6 +140,7 @@ namespace _911_RD.Administracion
             this.txt_nombre.Location = new System.Drawing.Point(12, 209);
             this.txt_nombre.Name = "txt_nombre";
             this.txt_nombre.Size = new System.Drawing.Size(170, 26);
+            this.txt_nombre.SoloNumeros = false;
             this.txt_nombre.TabIndex = 147;
             this.txt_nombre.Validar = true;
             this.txt_nombre.TextChanged += new System.EventHandler(this.errorTxtBox3_TextChanged);
@@ -197,6 +199,7 @@ namespace _911_RD.Administracion
             this.txt_sueldo.Location = new System.Drawing.Point(237, 155);
             this.txt_sueldo.Name = "txt_sueldo";
             this.txt_sueldo.Size = new System.Drawing.Size(130, 26);
+            this.txt_sueldo.SoloNumeros = false;
             this.txt_sueldo.TabIndex = 154;
             this.txt_sueldo.Validar = true;
             // 
@@ -220,6 +223,7 @@ namespace _911_RD.Administracion
             this.txt_cargo.Location = new System.Drawing.Point(237, 99);
             this.txt_cargo.Name = "txt_cargo";
             this.txt_cargo.Size = new System.Drawing.Size(130, 26);
+            this.txt_cargo.SoloNumeros = false;
             this.txt_cargo.TabIndex = 152;
             this.txt_cargo.Validar = true;
             // 
@@ -472,6 +476,7 @@ namespace _911_RD.Administracion
             this.txt_filtro.Location = new System.Drawing.Point(102, 471);
             this.txt_filtro.Name = "txt_filtro";
             this.txt_filtro.Size = new System.Drawing.Size(170, 26);
+            this.txt_filtro.SoloNumeros = false;
             this.txt_filtro.TabIndex = 169;
             this.txt_filtro.Validar = false;
             // 
@@ -494,6 +499,7 @@ namespace _911_RD.Administracion
             this.txt_apellido.Location = new System.Drawing.Point(12, 264);
             this.txt_apellido.Name = "txt_apellido";
             this.txt_apellido.Size = new System.Drawing.Size(170, 26);
+            this.txt_apellido.SoloNumeros = false;
             this.txt_apellido.TabIndex = 171;
             this.txt_apellido.Validar = true;
             // 
@@ -521,6 +527,7 @@ namespace _911_RD.Administracion
             this.errorTxtBox2.Location = new System.Drawing.Point(237, 209);
             this.errorTxtBox2.Name = "errorTxtBox2";
             this.errorTxtBox2.Size = new System.Drawing.Size(130, 26);
+            this.errorTxtBox2.SoloNumeros = false;
             this.errorTxtBox2.TabIndex = 173;
             this.errorTxtBox2.Validar = true;
             // 
@@ -611,9 +618,7 @@ namespace _911_RD.Administracion
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label10;
-        private ErrorTxtBox txt_sueldo;
         private System.Windows.Forms.Label label11;
-        private ErrorTxtBox txt_cargo;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.ComboBox cb_sexo;
         public System.Windows.Forms.PictureBox btn_Cargo;
@@ -629,7 +634,6 @@ namespace _911_RD.Administracion
         private ErrorTxtBox txt_apellido;
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.Label label16;
-        private ErrorTxtBox errorTxtBox2;
         private System.Windows.Forms.DataGridViewTextBoxColumn id_eme;
         private System.Windows.Forms.DataGridViewTextBoxColumn SOLICITUD;
         private System.Windows.Forms.DataGridViewTextBoxColumn tipo_eme;
@@ -640,5 +644,8 @@ namespace _911_RD.Administracion
         private System.Windows.Forms.DataGridViewTextBoxColumn salario;
         private System.Windows.Forms.DataGridViewTextBoxColumn fecha_contrato;
         private System.Windows.Forms.DataGridViewTextBoxColumn estado;
+        public ErrorTxtBox txt_sueldo;
+        public ErrorTxtBox txt_cargo;
+        public ErrorTxtBox errorTxtBox2;
     }
 }

@@ -18,7 +18,6 @@ namespace _911_RD
         public TIPOS_MEMBRESIAS()
         {
             this.BENEFICIOS = new HashSet<BENEFICIOS>();
-            this.MEMBRESIAS = new HashSet<MEMBRESIAS>();
         }
     
         public int id_tipo_membresia { get; set; }
@@ -28,7 +27,5 @@ namespace _911_RD
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<BENEFICIOS> BENEFICIOS { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<MEMBRESIAS> MEMBRESIAS { get; set; }
     }
 }

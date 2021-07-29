@@ -19,35 +19,46 @@ namespace _911_RD
         {
             this.COBROS = new HashSet<COBROS>();
             this.COMPRAS = new HashSet<COMPRAS>();
+            this.CONDUCTOR = new HashSet<CONDUCTOR>();
             this.COTIZACIONES = new HashSet<COTIZACIONES>();
             this.DESCUENTOS = new HashSet<DESCUENTOS>();
             this.ENTRADAS = new HashSet<ENTRADAS>();
             this.FINANCIAMIENTOS = new HashSet<FINANCIAMIENTOS>();
+            this.GPS = new HashSet<GPS>();
             this.PRECIOS = new HashSet<PRECIOS>();
             this.SALIDAS = new HashSet<SALIDAS>();
             this.USUARIOS = new HashSet<USUARIOS>();
             this.VENTAS = new HashSet<VENTAS>();
-            this.PUESTOS = new HashSet<PUESTOS>();
+            this.PUESTOS4 = new HashSet<PUESTOS>();
         }
     
         public int id_empleado { get; set; }
         public int id_persona { get; set; }
+        public int id_puesto { get; set; }
         public System.DateTime fecha_ingreso { get; set; }
-        public int estado { get; set; }
+        public bool estado { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<COBROS> COBROS { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<COMPRAS> COMPRAS { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CONDUCTOR> CONDUCTOR { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<COTIZACIONES> COTIZACIONES { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DESCUENTOS> DESCUENTOS { get; set; }
+        public virtual PUESTOS PUESTOS { get; set; }
+        public virtual PUESTOS PUESTOS1 { get; set; }
+        public virtual PUESTOS PUESTOS2 { get; set; }
+        public virtual PUESTOS PUESTOS3 { get; set; }
         public virtual PERSONAS PERSONAS { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ENTRADAS> ENTRADAS { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<FINANCIAMIENTOS> FINANCIAMIENTOS { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<GPS> GPS { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PRECIOS> PRECIOS { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
@@ -57,6 +68,6 @@ namespace _911_RD
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<VENTAS> VENTAS { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PUESTOS> PUESTOS { get; set; }
+        public virtual ICollection<PUESTOS> PUESTOS4 { get; set; }
     }
 }

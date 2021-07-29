@@ -18,6 +18,10 @@ namespace _911_RD
         public PUESTOS()
         {
             this.EMPLEADOS = new HashSet<EMPLEADOS>();
+            this.EMPLEADOS1 = new HashSet<EMPLEADOS>();
+            this.EMPLEADOS2 = new HashSet<EMPLEADOS>();
+            this.EMPLEADOS3 = new HashSet<EMPLEADOS>();
+            this.EMPLEADOS4 = new HashSet<EMPLEADOS>();
             this.DEPARTAMENTOS = new HashSet<DEPARTAMENTOS>();
         }
     
@@ -29,6 +33,14 @@ namespace _911_RD
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<EMPLEADOS> EMPLEADOS { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<EMPLEADOS> EMPLEADOS1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<EMPLEADOS> EMPLEADOS2 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<EMPLEADOS> EMPLEADOS3 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<EMPLEADOS> EMPLEADOS4 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DEPARTAMENTOS> DEPARTAMENTOS { get; set; }
     }
