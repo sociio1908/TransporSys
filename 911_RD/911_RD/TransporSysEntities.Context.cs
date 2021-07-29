@@ -13,10 +13,10 @@ namespace _911_RD
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class TransporSysEntities1 : DbContext
+    public partial class TransporSysEntities : DbContext
     {
-        public TransporSysEntities1()
-            : base("name=TransporSysEntities1")
+        public TransporSysEntities()
+            : base("name=TransporSysEntities")
         {
         }
     

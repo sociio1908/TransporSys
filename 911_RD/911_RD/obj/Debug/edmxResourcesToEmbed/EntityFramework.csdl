@@ -1321,7 +1321,7 @@
     <End Role="TELEFONOS" Type="Self.TELEFONOS" Multiplicity="*" />
     <End Role="TERCEROS" Type="Self.TERCEROS" Multiplicity="*" />
   </Association>
-  <EntityContainer Name="TransporSysEntities1" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="TransporSysEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="ALMACENES" EntityType="Self.ALMACENES" />
     <EntitySet Name="ARTICULOS" EntityType="Self.ARTICULOS" />
     <EntitySet Name="BENEFICIOS" EntityType="Self.BENEFICIOS" />

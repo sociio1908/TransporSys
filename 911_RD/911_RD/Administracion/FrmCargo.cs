@@ -42,7 +42,7 @@ namespace _911_RD.Administracion
 
         private void cargarTabla()
         {
-            using (TransporSysEntities1 db = new TransporSysEntities1())
+            using (TransporSysEntities db = new TransporSysEntities())
             {
                 try
                 {
@@ -72,7 +72,7 @@ namespace _911_RD.Administracion
                     return;
 
             
-                using (TransporSysEntities1 db = new TransporSysEntities1())
+                using (TransporSysEntities db = new TransporSysEntities())
                 {
                     if (id_txt.Text.Trim() == "")
                     {
