@@ -14,15 +14,15 @@ namespace _911_RD
     
     public partial class DETALLES_VENTAS
     {
+        public int id_detalle { get; set; }
         public int num_fact { get; set; }
         public int id_articulo { get; set; }
-        public int cantidad { get; set; }
+        public double cantidad { get; set; }
         public double precio { get; set; }
         public double itbis { get; set; }
         public double descuento { get; set; }
         public double total { get; set; }
     
-        public virtual ARTICULOS ARTICULOS { get; set; }
         public virtual VENTAS VENTAS { get; set; }
     }
 }

@@ -17,6 +17,7 @@ namespace _911_RD
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public UNIDADES_DE_MEDIDA()
         {
+            this.ARTICULOS = new HashSet<ARTICULOS>();
             this.EXISTENCIAS = new HashSet<EXISTENCIAS>();
         }
     
@@ -25,6 +26,8 @@ namespace _911_RD
         public string abreviatura { get; set; }
         public string descripcion { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ARTICULOS> ARTICULOS { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<EXISTENCIAS> EXISTENCIAS { get; set; }
     }

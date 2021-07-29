@@ -18,5 +18,10 @@ namespace _911_RD
         {
             InitializeComponent();
         }
+
+        private void FrmCliente_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

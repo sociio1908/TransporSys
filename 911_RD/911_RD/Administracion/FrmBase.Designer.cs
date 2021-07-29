@@ -149,6 +149,7 @@ namespace _911_RD.Administracion
             this.id_txt.Location = new System.Drawing.Point(12, 99);
             this.id_txt.Name = "id_txt";
             this.id_txt.Size = new System.Drawing.Size(106, 22);
+            this.id_txt.SoloNumeros = false;
             this.id_txt.TabIndex = 142;
             this.id_txt.Validar = false;
             this.id_txt.TextChanged += new System.EventHandler(this.id_txt_TextChanged);
