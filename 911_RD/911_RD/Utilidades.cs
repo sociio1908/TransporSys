@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,7 +9,55 @@ namespace _911_RD
 {
     class Utilidades
     {
+        //INGJERINELMENDO;initial catalog=TransporSys;integrated security=True;
+        public static SqlConnection conexion = new SqlConnection("server=INGJERINELMENDO ; database=TransporSys ; integrated security = true");
 
+        public static Tuple<string, string, Boolean> ExtraerDireccion(string link1)
+        {
+            Boolean listo = false;
+            string latitud = null, longitud = null;
+            try
+            {
+                char[] data = link1.ToCharArray();
+                int coma = 0;
+
+                for (int a = 0; a < data.Length; a++)
+                {
+                    if (data[a].ToString().Equals("@") || (coma > 0 && coma < 3))
+                    {
+                        if (coma == 1 && data[a].ToString() != (","))
+                        {
+                            latitud += data[a].ToString();
+                        }
+                        if (coma == 2 && data[a].ToString() != (","))
+                        {
+                            longitud += data[a].ToString();
+                        }
+                        if (data[a].ToString().Equals("@"))
+                        {
+                            coma++;
+                        }
+                        if (data[a].ToString().Equals(","))
+                        {
+                            coma++;
+                        }
+                    }
+                }
+                latitud.Trim();
+                longitud.Trim();
+                latitud.Replace(",", "");
+                longitud.Replace(",", "");
+                if ((latitud != null || latitud != "") && (longitud != null || longitud != ""))
+                    listo = true;
+
+            }
+            catch (Exception er)
+            {
+                //error
+            }
+
+            return Tuple.Create(latitud, longitud, listo);
+        }
 
         public static Boolean ValidarFormulario(Control objeto, ErrorProvider ErrorProvider)
         {
@@ -31,11 +80,12 @@ namespace _911_RD
                         }
                         if (obj.SoloNumeros == true)
                         {
-                            int cont = 0, letrasEncontradas=0;
+                            int cont = 0, letrasEncontradas = 0;
                             foreach (char letra in obj.Text.Trim())
                             {
 
-                                if(char.IsLetter(obj.Text.Trim(), cont)){
+                                if (char.IsLetter(obj.Text.Trim(), cont))
+                                {
                                     letrasEncontradas++;
                                 }
                                 cont++;
@@ -58,8 +108,15 @@ namespace _911_RD
             return HayError;
         }
 
+        public static bool mayorEdad(DateTime dateTime)
+        {
+            if (dateTime.AddYears(18) > DateTime.Today)
+            {
+                return false;
+            }
+            return true;
+        }
 
-       
 
         public static void LimpiarControles(System.Windows.Forms.Control forms)
         {
@@ -102,20 +159,18 @@ namespace _911_RD
 
         }
 
-      
-
         const int WM_CLOSE = 0x0010;
-            [System.Runtime.InteropServices.DllImport("user32.dll", SetLastError = true)]
-            static extern IntPtr FindWindow(string lpClassName, string lpWindowName);
-            [System.Runtime.InteropServices.DllImport("user32.dll",
-                CharSet = System.Runtime.InteropServices.CharSet.Auto)]
-            static extern IntPtr SendMessage(IntPtr hWnd, UInt32 Msg, IntPtr wParam, IntPtr lParam);
-            [System.Runtime.InteropServices.DllImport("user32.dll", SetLastError = true,
-                CharSet = System.Runtime.InteropServices.CharSet.Auto)]
-            static extern IntPtr FindWindowEx(IntPtr hwndParent, IntPtr hwndChildAfter,
-                string lpszClass, string lpszWindow);
-            [System.Runtime.InteropServices.DllImport("user32.dll", SetLastError = true,
-                CharSet = System.Runtime.InteropServices.CharSet.Auto)]
-            static extern bool SetWindowText(IntPtr hwnd, string lpString);
+        [System.Runtime.InteropServices.DllImport("user32.dll", SetLastError = true)]
+        static extern IntPtr FindWindow(string lpClassName, string lpWindowName);
+        [System.Runtime.InteropServices.DllImport("user32.dll",
+            CharSet = System.Runtime.InteropServices.CharSet.Auto)]
+        static extern IntPtr SendMessage(IntPtr hWnd, UInt32 Msg, IntPtr wParam, IntPtr lParam);
+        [System.Runtime.InteropServices.DllImport("user32.dll", SetLastError = true,
+            CharSet = System.Runtime.InteropServices.CharSet.Auto)]
+        static extern IntPtr FindWindowEx(IntPtr hwndParent, IntPtr hwndChildAfter,
+            string lpszClass, string lpszWindow);
+        [System.Runtime.InteropServices.DllImport("user32.dll", SetLastError = true,
+            CharSet = System.Runtime.InteropServices.CharSet.Auto)]
+        static extern bool SetWindowText(IntPtr hwnd, string lpString);
     }
 }

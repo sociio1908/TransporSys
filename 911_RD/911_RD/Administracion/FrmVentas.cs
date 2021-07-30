@@ -165,6 +165,7 @@ namespace _911_RD.Administracion
                     txt_stock.Text = "";
                     txt_des.Text = "";
                     txt_codBarra.Text = "";
+                    pnl_cod.BackgroundImage.Dispose();
 
 
                     SumarFilas();
@@ -211,7 +212,11 @@ namespace _911_RD.Administracion
         {
             using (TransporSysEntities4 db = new TransporSysEntities4())
             {
-                if (dataGridView1.Rows.Count > 0)
+                if (dataGridView1.Rows.Count <= 0)
+                {
+                    MessageBox.Show("ESTA VACIO");
+                }
+                else
                 {
 
                     VENTAS vent = new VENTAS
@@ -237,7 +242,11 @@ namespace _911_RD.Administracion
         {
             using (TransporSysEntities4 db = new TransporSysEntities4())
             {
-                if (dataGridView1.Rows.Count > 0)
+                if (dataGridView1.Rows.Count <= 0)
+                {
+                    MessageBox.Show("ESTA VACIO");
+                }
+                else 
                 {
 
                     foreach (DataGridViewRow row in dataGridView1.Rows)
@@ -294,6 +303,13 @@ namespace _911_RD.Administracion
         {
             dataGridView1.Rows.RemoveAt(dataGridView1.CurrentRow.Index);
             SumarFilas();
+            if (dataGridView1.Rows.Count ==0)
+            {
+                txt_subtotal.Text = "0.0";
+                txt_impuesto.Text = "0.0";
+                txt_impTotal.Text = "0.0";
+            }
+            
         }
     }
 }

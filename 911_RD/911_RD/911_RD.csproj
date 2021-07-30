@@ -306,6 +306,7 @@
     <Compile Include="MARCA.cs">
       <DependentUpon>TransporSysEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="Administracion\MetodosCRUD.cs" />
     <Compile Include="MODELO.cs">
       <DependentUpon>TransporSysEntities.tt</DependentUpon>
     </Compile>
