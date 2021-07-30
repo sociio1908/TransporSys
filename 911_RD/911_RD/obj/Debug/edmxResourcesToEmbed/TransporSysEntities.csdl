@@ -19,7 +19,7 @@
     <Property Name="id_unidad_de_medida" Type="Int32" Nullable="false" />
     <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="descripcion" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="reorden" Type="Int32" Nullable="false" />
+    <Property Name="reorden" Type="Double" Nullable="false" />
     <Property Name="codigo_barras" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="precio" Type="Double" Nullable="false" />
     <Property Name="estado" Type="Boolean" Nullable="false" />
@@ -55,11 +55,20 @@
     <NavigationProperty Name="ARTICULOS" Relationship="Self.FK_ARTICULOS_CATEGORIAS" FromRole="CATEGORIAS" ToRole="ARTICULOS" />
     <NavigationProperty Name="ARTICULOS_VS_CATEGORIAS_VS_DESCUENTOS" Relationship="Self.FK_ARTICULOS_VS_CATEGORIAS_VS_DESCUENTOS_CATEGORIAS" FromRole="CATEGORIAS" ToRole="ARTICULOS_VS_CATEGORIAS_VS_DESCUENTOS" />
   </EntityType>
+  <EntityType Name="CATEGORIAS_SERVICIOS">
+    <Key>
+      <PropertyRef Name="id_categoriaServicio" />
+    </Key>
+    <Property Name="id_categoriaServicio" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="categoria" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="descripcion" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="estado" Type="Boolean" Nullable="false" />
+  </EntityType>
   <EntityType Name="CIUDADES">
     <Key>
       <PropertyRef Name="id_ciudad" />
     </Key>
-    <Property Name="id_ciudad" Type="Double" Nullable="false" />
+    <Property Name="id_ciudad" Type="Decimal" Precision="18" Scale="15" Nullable="false" />
     <Property Name="id_provincia" Type="Int32" Nullable="false" />
     <Property Name="ciudad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <NavigationProperty Name="PROVINCIAS" Relationship="Self.FK_CIUDADES_PROVINCIAS" FromRole="CIUDADES" ToRole="PROVINCIAS" />
@@ -73,7 +82,6 @@
     <Property Name="id_tercero" Type="Int32" Nullable="false" />
     <Property Name="id_tipo_cliente" Type="Int32" Nullable="false" />
     <Property Name="estado" Type="Boolean" Nullable="false" />
-    <NavigationProperty Name="VIAJES" Relationship="Self.FK_CLIENte" FromRole="CLIENTES" ToRole="VIAJES" />
     <NavigationProperty Name="TERCEROS" Relationship="Self.FK_CLIENTES_TERCEROS" FromRole="CLIENTES" ToRole="TERCEROS" />
     <NavigationProperty Name="TIPOS_CLIENTES" Relationship="Self.FK_CLIENTES_TIPOS_CLIENTES" FromRole="CLIENTES" ToRole="TIPOS_CLIENTES" />
     <NavigationProperty Name="COTIZACIONES" Relationship="Self.FK_COTIZACIONES_CLIENTES" FromRole="CLIENTES" ToRole="COTIZACIONES" />
@@ -126,7 +134,7 @@
     <Property Name="num_licencia" Type="Int32" Nullable="false" />
     <Property Name="fecha_vencimiento" Type="DateTime" Nullable="false" Precision="0" />
     <NavigationProperty Name="EMPLEADOS" Relationship="Self.FK__CONDUCTOR__id_em__54CB950F" FromRole="CONDUCTOR" ToRole="EMPLEADOS" />
-    <NavigationProperty Name="VIAJES" Relationship="Self.FK_conducto" FromRole="CONDUCTOR" ToRole="VIAJES" />
+    <NavigationProperty Name="TRANSPORTE" Relationship="Self.FK_conducto" FromRole="CONDUCTOR" ToRole="TRANSPORTE" />
   </EntityType>
   <EntityType Name="CONTINENTES">
     <Key>
@@ -174,11 +182,12 @@
   </EntityType>
   <EntityType Name="DETALLES_COMPRAS">
     <Key>
-      <PropertyRef Name="num_compra" />
+      <PropertyRef Name="id_detalle" />
     </Key>
-    <Property Name="num_compra" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_detalle" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="num_compra" Type="Int32" Nullable="false" />
     <Property Name="id_articulo" Type="Int32" Nullable="false" />
-    <Property Name="cantidad" Type="Int32" Nullable="false" />
+    <Property Name="cantidad" Type="Double" Nullable="false" />
     <Property Name="precio" Type="Double" Nullable="false" />
     <Property Name="itbis" Type="Double" Nullable="false" />
     <Property Name="descuento" Type="Double" Nullable="false" />
@@ -230,11 +239,12 @@
   </EntityType>
   <EntityType Name="DETALLES_VENTAS">
     <Key>
-      <PropertyRef Name="num_fact" />
+      <PropertyRef Name="id_detalle" />
     </Key>
+    <Property Name="id_detalle" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="num_fact" Type="Int32" Nullable="false" />
     <Property Name="id_articulo" Type="Int32" Nullable="false" />
-    <Property Name="cantidad" Type="Int32" Nullable="false" />
+    <Property Name="cantidad" Type="Double" Nullable="false" />
     <Property Name="precio" Type="Double" Nullable="false" />
     <Property Name="itbis" Type="Double" Nullable="false" />
     <Property Name="descuento" Type="Double" Nullable="false" />
@@ -247,10 +257,41 @@
       <PropertyRef Name="id_direccion" />
     </Key>
     <Property Name="id_direccion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="latitud" Type="Double" Nullable="false" />
-    <Property Name="longitud" Type="Double" Nullable="false" />
+    <Property Name="latitud" Type="Decimal" Precision="18" Scale="15" Nullable="false" />
+    <Property Name="longitud" Type="Decimal" Precision="18" Scale="15" Nullable="false" />
     <NavigationProperty Name="CIUDADES" Relationship="Self.FK_DIRECCIONES_CIUDADES" FromRole="DIRECCIONES" ToRole="CIUDADES" />
     <NavigationProperty Name="TERCEROS" Relationship="Self.TERCEROS_VS_DIRECCIONES" FromRole="DIRECCIONES" ToRole="TERCEROS" />
+  </EntityType>
+  <EntityType Name="DVENTAS_SERVICIOS">
+    <Key>
+      <PropertyRef Name="id_detalle" />
+    </Key>
+    <Property Name="id_detalle" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="num_fact" Type="Int32" Nullable="false" />
+    <Property Name="id_servicio" Type="Int32" Nullable="false" />
+    <Property Name="cantidad" Type="Double" Nullable="false" />
+    <Property Name="precio" Type="Double" Nullable="false" />
+    <Property Name="itbis" Type="Double" Nullable="false" />
+    <Property Name="descuento" Type="Double" Nullable="false" />
+    <Property Name="total" Type="Double" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DVIAJES">
+    <Key>
+      <PropertyRef Name="id_dviaje" />
+    </Key>
+    <Property Name="id_dviaje" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_viaje" Type="Int32" Nullable="false" />
+    <Property Name="fecha_recogidaA" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="fecha_recogidaB" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="direc_recogida" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="escaleras" Type="Boolean" />
+    <Property Name="num_habitacion_recogida" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="instrucciones_recodida" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="contacto_recogida" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="direc_destino" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="num_habitacion_destino" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="instrucciones_destino" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="contacto_destino" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="EMAILS">
     <Key>
@@ -403,7 +444,6 @@
     <Property Name="medicamentos" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="estado" Type="Boolean" Nullable="false" />
     <NavigationProperty Name="PERSONAS" Relationship="Self.FK_id_Ppersona" FromRole="PACIENTES" ToRole="PERSONAS" />
-    <NavigationProperty Name="VIAJES" Relationship="Self.FK_paciente" FromRole="PACIENTES" ToRole="VIAJES" />
   </EntityType>
   <EntityType Name="PAISES">
     <Key>
@@ -479,6 +519,18 @@
     <Property Name="estado" Type="Boolean" Nullable="false" />
     <NavigationProperty Name="DETALLES_SALIDAS" Relationship="Self.FK_DETALLES_SALIDAS_SALIDAS" FromRole="SALIDAS" ToRole="DETALLES_SALIDAS" />
     <NavigationProperty Name="EMPLEADOS" Relationship="Self.FK_SALIDAS_EMPLEADOS" FromRole="SALIDAS" ToRole="EMPLEADOS" />
+  </EntityType>
+  <EntityType Name="SERVICIOS">
+    <Key>
+      <PropertyRef Name="id_servicio" />
+    </Key>
+    <Property Name="id_servicio" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_categoriaServicio" Type="Int32" Nullable="false" />
+    <Property Name="id_unidad_de_medida" Type="Int32" />
+    <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="precio" Type="Double" Nullable="false" />
+    <Property Name="estado" Type="Boolean" />
   </EntityType>
   <EntityType Name="SEXOS">
     <Key>
@@ -597,7 +649,6 @@
     <Property Name="id_tipoPago" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="estado" Type="Boolean" />
-    <NavigationProperty Name="VIAJES" Relationship="Self.FK_PAGO" FromRole="TIPOSPAGO" ToRole="VIAJES" />
   </EntityType>
   <EntityType Name="TIPOSVIAJES">
     <Key>
@@ -607,7 +658,21 @@
     <Property Name="descripcionViaje" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="precio" Type="Double" Nullable="false" />
     <Property Name="estado" Type="Boolean" />
-    <NavigationProperty Name="VIAJES" Relationship="Self.FK_tipoviajes" FromRole="TIPOSVIAJES" ToRole="VIAJES" />
+  </EntityType>
+  <EntityType Name="TRANSPORTE">
+    <Key>
+      <PropertyRef Name="id_transporte" />
+    </Key>
+    <Property Name="id_transporte" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_conductor" Type="Int32" />
+    <Property Name="num_fact" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="ida_vuelta" Type="Boolean" />
+    <Property Name="fecha_transporte" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="notas_viaje" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="id_direccionA" Type="Int32" />
+    <Property Name="id_direccionB" Type="Int32" />
+    <Property Name="estado" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="CONDUCTOR" Relationship="Self.FK_conducto" FromRole="TRANSPORTE" ToRole="CONDUCTOR" />
   </EntityType>
   <EntityType Name="UNIDADES_DE_MEDIDA">
     <Key>
@@ -652,6 +717,18 @@
     <NavigationProperty Name="MODELO" Relationship="Self.FK_vaehicualo" FromRole="VEHICULO" ToRole="MODELO" />
     <NavigationProperty Name="GPS" Relationship="Self.FK_GPS" FromRole="VEHICULO" ToRole="GPS" />
   </EntityType>
+  <EntityType Name="VENTA_SERVICIOS">
+    <Key>
+      <PropertyRef Name="num_fact" />
+    </Key>
+    <Property Name="num_fact" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_cliente" Type="Int32" Nullable="false" />
+    <Property Name="id_empleado" Type="Int32" Nullable="false" />
+    <Property Name="fecha" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="id_paciente" Type="Int32" Nullable="false" />
+    <Property Name="tipo_pago" Type="Int32" Nullable="false" />
+    <Property Name="estado" Type="Boolean" Nullable="false" />
+  </EntityType>
   <EntityType Name="VENTAS">
     <Key>
       <PropertyRef Name="num_fact" />
@@ -664,43 +741,6 @@
     <NavigationProperty Name="CLIENTES" Relationship="Self.FK_VENTAS_CLIENTES" FromRole="VENTAS" ToRole="CLIENTES" />
     <NavigationProperty Name="DETALLES_VENTAS" Relationship="Self.FK_DETALLE_VENTAS_VENTAS" FromRole="VENTAS" ToRole="DETALLES_VENTAS" />
     <NavigationProperty Name="EMPLEADOS" Relationship="Self.FK_VENTAS_EMPLEADOS" FromRole="VENTAS" ToRole="EMPLEADOS" />
-  </EntityType>
-  <EntityType Name="VIAJES">
-    <Key>
-      <PropertyRef Name="id_viaje" />
-    </Key>
-    <Property Name="id_viaje" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="id_tipoPago" Type="Int32" Nullable="false" />
-    <Property Name="id_cliente" Type="Int32" Nullable="false" />
-    <Property Name="id_paciente" Type="Int32" Nullable="false" />
-    <Property Name="id_tipoViaje" Type="Int32" Nullable="false" />
-    <Property Name="id_conductor" Type="Int32" />
-    <Property Name="oxigeno" Type="Boolean" Nullable="false" />
-    <Property Name="silla_rueda" Type="Boolean" Nullable="false" />
-    <Property Name="camilla" Type="Boolean" Nullable="false" />
-    <Property Name="acompanante" Type="Int32" Nullable="false" />
-    <Property Name="personal_ayudante" Type="Int32" Nullable="false" />
-    <Property Name="fecha_creacion" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="fecha_recogida" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="direc_recogida" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="num_habitacion_recogida" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="instrucciones_recodida" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-    <Property Name="contacto_recodigda" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="direc_destino" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="num_habitacion_destino" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="instrucciones_destino" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-    <Property Name="contacto_destino" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="notas_viaje" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="total_viaje" Type="Double" Nullable="false" />
-    <Property Name="subtotal_viaje" Type="Double" Nullable="false" />
-    <Property Name="descuento" Type="Double" Nullable="false" />
-    <Property Name="itbis" Type="Double" Nullable="false" />
-    <Property Name="estado" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="CLIENTES" Relationship="Self.FK_CLIENte" FromRole="VIAJES" ToRole="CLIENTES" />
-    <NavigationProperty Name="CONDUCTOR" Relationship="Self.FK_conducto" FromRole="VIAJES" ToRole="CONDUCTOR" />
-    <NavigationProperty Name="PACIENTES" Relationship="Self.FK_paciente" FromRole="VIAJES" ToRole="PACIENTES" />
-    <NavigationProperty Name="TIPOSPAGO" Relationship="Self.FK_PAGO" FromRole="VIAJES" ToRole="TIPOSPAGO" />
-    <NavigationProperty Name="TIPOSVIAJES" Relationship="Self.FK_tipoviajes" FromRole="VIAJES" ToRole="TIPOSVIAJES" />
   </EntityType>
   <EntityType Name="ARTICULOS_VS_CATEGORIAS_VS_DESCUENTOS">
     <Key>
@@ -914,18 +954,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_CLIENte">
-    <End Role="CLIENTES" Type="Self.CLIENTES" Multiplicity="1" />
-    <End Role="VIAJES" Type="Self.VIAJES" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="CLIENTES">
-        <PropertyRef Name="id_cliente" />
-      </Principal>
-      <Dependent Role="VIAJES">
-        <PropertyRef Name="id_cliente" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_CLIENTES_TERCEROS">
     <End Role="TERCEROS" Type="Self.TERCEROS" Multiplicity="1" />
     <End Role="CLIENTES" Type="Self.CLIENTES" Multiplicity="*" />
@@ -1036,7 +1064,7 @@
   </Association>
   <Association Name="FK_DETALLES_COMPRAS_COMPRAS">
     <End Role="COMPRAS" Type="Self.COMPRAS" Multiplicity="1" />
-    <End Role="DETALLES_COMPRAS" Type="Self.DETALLES_COMPRAS" Multiplicity="0..1" />
+    <End Role="DETALLES_COMPRAS" Type="Self.DETALLES_COMPRAS" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="COMPRAS">
         <PropertyRef Name="num_compra" />
@@ -1060,12 +1088,12 @@
   </Association>
   <Association Name="FK_conducto">
     <End Role="CONDUCTOR" Type="Self.CONDUCTOR" Multiplicity="0..1" />
-    <End Role="VIAJES" Type="Self.VIAJES" Multiplicity="*" />
+    <End Role="TRANSPORTE" Type="Self.TRANSPORTE" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="CONDUCTOR">
         <PropertyRef Name="id_conductor" />
       </Principal>
-      <Dependent Role="VIAJES">
+      <Dependent Role="TRANSPORTE">
         <PropertyRef Name="id_conductor" />
       </Dependent>
     </ReferentialConstraint>
@@ -1156,7 +1184,7 @@
   </Association>
   <Association Name="FK_DETALLE_VENTAS_VENTAS">
     <End Role="VENTAS" Type="Self.VENTAS" Multiplicity="1" />
-    <End Role="DETALLES_VENTAS" Type="Self.DETALLES_VENTAS" Multiplicity="0..1" />
+    <End Role="DETALLES_VENTAS" Type="Self.DETALLES_VENTAS" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="VENTAS">
         <PropertyRef Name="num_fact" />
@@ -1358,18 +1386,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_paciente">
-    <End Role="PACIENTES" Type="Self.PACIENTES" Multiplicity="1" />
-    <End Role="VIAJES" Type="Self.VIAJES" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="PACIENTES">
-        <PropertyRef Name="id_paciente" />
-      </Principal>
-      <Dependent Role="VIAJES">
-        <PropertyRef Name="id_paciente" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_PROVINCIAS_PAISES">
     <End Role="PAISES" Type="Self.PAISES" Multiplicity="1" />
     <End Role="PROVINCIAS" Type="Self.PROVINCIAS" Multiplicity="*" />
@@ -1454,30 +1470,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_PAGO">
-    <End Role="TIPOSPAGO" Type="Self.TIPOSPAGO" Multiplicity="1" />
-    <End Role="VIAJES" Type="Self.VIAJES" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="TIPOSPAGO">
-        <PropertyRef Name="id_tipoPago" />
-      </Principal>
-      <Dependent Role="VIAJES">
-        <PropertyRef Name="id_tipoPago" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_tipoviajes">
-    <End Role="TIPOSVIAJES" Type="Self.TIPOSVIAJES" Multiplicity="1" />
-    <End Role="VIAJES" Type="Self.VIAJES" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="TIPOSVIAJES">
-        <PropertyRef Name="id_tipoViaje" />
-      </Principal>
-      <Dependent Role="VIAJES">
-        <PropertyRef Name="id_tipoViaje" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_GPS">
     <End Role="VEHICULO" Type="Self.VEHICULO" Multiplicity="1" />
     <End Role="GPS" Type="Self.GPS" Multiplicity="*" />
@@ -1519,6 +1511,7 @@
     <EntitySet Name="ARTICULOS" EntityType="Self.ARTICULOS" />
     <EntitySet Name="BENEFICIOS" EntityType="Self.BENEFICIOS" />
     <EntitySet Name="CATEGORIAS" EntityType="Self.CATEGORIAS" />
+    <EntitySet Name="CATEGORIAS_SERVICIOS" EntityType="Self.CATEGORIAS_SERVICIOS" />
     <EntitySet Name="CIUDADES" EntityType="Self.CIUDADES" />
     <EntitySet Name="CLIENTES" EntityType="Self.CLIENTES" />
     <EntitySet Name="COBROS" EntityType="Self.COBROS" />
@@ -1535,6 +1528,8 @@
     <EntitySet Name="DETALLES_SALIDAS" EntityType="Self.DETALLES_SALIDAS" />
     <EntitySet Name="DETALLES_VENTAS" EntityType="Self.DETALLES_VENTAS" />
     <EntitySet Name="DIRECCIONES" EntityType="Self.DIRECCIONES" />
+    <EntitySet Name="DVENTAS_SERVICIOS" EntityType="Self.DVENTAS_SERVICIOS" />
+    <EntitySet Name="DVIAJES" EntityType="Self.DVIAJES" />
     <EntitySet Name="EMAILS" EntityType="Self.EMAILS" />
     <EntitySet Name="EMPLEADOS" EntityType="Self.EMPLEADOS" />
     <EntitySet Name="ENTRADAS" EntityType="Self.ENTRADAS" />
@@ -1553,6 +1548,7 @@
     <EntitySet Name="PROVINCIAS" EntityType="Self.PROVINCIAS" />
     <EntitySet Name="PUESTOS" EntityType="Self.PUESTOS" />
     <EntitySet Name="SALIDAS" EntityType="Self.SALIDAS" />
+    <EntitySet Name="SERVICIOS" EntityType="Self.SERVICIOS" />
     <EntitySet Name="SEXOS" EntityType="Self.SEXOS" />
     <EntitySet Name="SUPLIDORES" EntityType="Self.SUPLIDORES" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
@@ -1566,11 +1562,12 @@
     <EntitySet Name="TIPOS_USUARIOS" EntityType="Self.TIPOS_USUARIOS" />
     <EntitySet Name="TIPOSPAGO" EntityType="Self.TIPOSPAGO" />
     <EntitySet Name="TIPOSVIAJES" EntityType="Self.TIPOSVIAJES" />
+    <EntitySet Name="TRANSPORTE" EntityType="Self.TRANSPORTE" />
     <EntitySet Name="UNIDADES_DE_MEDIDA" EntityType="Self.UNIDADES_DE_MEDIDA" />
     <EntitySet Name="USUARIOS" EntityType="Self.USUARIOS" />
     <EntitySet Name="VEHICULO" EntityType="Self.VEHICULO" />
+    <EntitySet Name="VENTA_SERVICIOS" EntityType="Self.VENTA_SERVICIOS" />
     <EntitySet Name="VENTAS" EntityType="Self.VENTAS" />
-    <EntitySet Name="VIAJES" EntityType="Self.VIAJES" />
     <EntitySet Name="ARTICULOS_VS_CATEGORIAS_VS_DESCUENTOS" EntityType="Self.ARTICULOS_VS_CATEGORIAS_VS_DESCUENTOS" />
     <EntitySet Name="GPS" EntityType="Self.GPS" />
     <EntitySet Name="TIPONCF" EntityType="Self.TIPONCF" />
@@ -1634,10 +1631,6 @@
       <End Role="CIUDADES" EntitySet="CIUDADES" />
       <End Role="DIRECCIONES" EntitySet="DIRECCIONES" />
     </AssociationSet>
-    <AssociationSet Name="FK_CLIENte" Association="Self.FK_CLIENte">
-      <End Role="CLIENTES" EntitySet="CLIENTES" />
-      <End Role="VIAJES" EntitySet="VIAJES" />
-    </AssociationSet>
     <AssociationSet Name="FK_CLIENTES_TERCEROS" Association="Self.FK_CLIENTES_TERCEROS">
       <End Role="TERCEROS" EntitySet="TERCEROS" />
       <End Role="CLIENTES" EntitySet="CLIENTES" />
@@ -1684,7 +1677,7 @@
     </AssociationSet>
     <AssociationSet Name="FK_conducto" Association="Self.FK_conducto">
       <End Role="CONDUCTOR" EntitySet="CONDUCTOR" />
-      <End Role="VIAJES" EntitySet="VIAJES" />
+      <End Role="TRANSPORTE" EntitySet="TRANSPORTE" />
     </AssociationSet>
     <AssociationSet Name="FK_PAISES_CONTINENTES" Association="Self.FK_PAISES_CONTINENTES">
       <End Role="CONTINENTES" EntitySet="CONTINENTES" />
@@ -1782,10 +1775,6 @@
       <End Role="PERSONAS" EntitySet="PERSONAS" />
       <End Role="PACIENTES" EntitySet="PACIENTES" />
     </AssociationSet>
-    <AssociationSet Name="FK_paciente" Association="Self.FK_paciente">
-      <End Role="PACIENTES" EntitySet="PACIENTES" />
-      <End Role="VIAJES" EntitySet="VIAJES" />
-    </AssociationSet>
     <AssociationSet Name="FK_PROVINCIAS_PAISES" Association="Self.FK_PROVINCIAS_PAISES">
       <End Role="PAISES" EntitySet="PAISES" />
       <End Role="PROVINCIAS" EntitySet="PROVINCIAS" />
@@ -1813,14 +1802,6 @@
     <AssociationSet Name="FK_USUARIOS_TIPO_USUARIOS" Association="Self.FK_USUARIOS_TIPO_USUARIOS">
       <End Role="TIPOS_USUARIOS" EntitySet="TIPOS_USUARIOS" />
       <End Role="USUARIOS" EntitySet="USUARIOS" />
-    </AssociationSet>
-    <AssociationSet Name="FK_PAGO" Association="Self.FK_PAGO">
-      <End Role="TIPOSPAGO" EntitySet="TIPOSPAGO" />
-      <End Role="VIAJES" EntitySet="VIAJES" />
-    </AssociationSet>
-    <AssociationSet Name="FK_tipoviajes" Association="Self.FK_tipoviajes">
-      <End Role="TIPOSVIAJES" EntitySet="TIPOSVIAJES" />
-      <End Role="VIAJES" EntitySet="VIAJES" />
     </AssociationSet>
     <AssociationSet Name="FK_GPS" Association="Self.FK_GPS">
       <End Role="VEHICULO" EntitySet="VEHICULO" />

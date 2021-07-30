@@ -23,7 +23,7 @@
           <Property Name="id_unidad_de_medida" Type="int" Nullable="false" />
           <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="descripcion" Type="varchar" MaxLength="150" Nullable="false" />
-          <Property Name="reorden" Type="int" Nullable="false" />
+          <Property Name="reorden" Type="float" Nullable="false" />
           <Property Name="codigo_barras" Type="varchar" MaxLength="200" Nullable="false" />
           <Property Name="precio" Type="float" Nullable="false" />
           <Property Name="estado" Type="bit" Nullable="false" />
@@ -58,11 +58,20 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.ARTICULOS_VS_CATEGORIAS_VS_D
           <Property Name="descripcion" Type="varchar" MaxLength="150" Nullable="false" />
           <Property Name="estado" Type="bit" Nullable="false" />
         </EntityType>
+        <EntityType Name="CATEGORIAS_SERVICIOS">
+          <Key>
+            <PropertyRef Name="id_categoriaServicio" />
+          </Key>
+          <Property Name="id_categoriaServicio" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="categoria" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="descripcion" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="estado" Type="bit" Nullable="false" />
+        </EntityType>
         <EntityType Name="CIUDADES">
           <Key>
             <PropertyRef Name="id_ciudad" />
           </Key>
-          <Property Name="id_ciudad" Type="float" Nullable="false" />
+          <Property Name="id_ciudad" Type="decimal" Precision="18" Scale="15" Nullable="false" />
           <Property Name="id_provincia" Type="int" Nullable="false" />
           <Property Name="ciudad" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
@@ -155,11 +164,12 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.ARTICULOS_VS_CATEGORIAS_VS_D
         </EntityType>
         <EntityType Name="DETALLES_COMPRAS">
           <Key>
-            <PropertyRef Name="num_compra" />
+            <PropertyRef Name="id_detalle" />
           </Key>
-          <Property Name="num_compra" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_detalle" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="num_compra" Type="int" Nullable="false" />
           <Property Name="id_articulo" Type="int" Nullable="false" />
-          <Property Name="cantidad" Type="int" Nullable="false" />
+          <Property Name="cantidad" Type="float" Nullable="false" />
           <Property Name="precio" Type="float" Nullable="false" />
           <Property Name="itbis" Type="float" Nullable="false" />
           <Property Name="descuento" Type="float" Nullable="false" />
@@ -203,11 +213,12 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.ARTICULOS_VS_CATEGORIAS_VS_D
         </EntityType>
         <EntityType Name="DETALLES_VENTAS">
           <Key>
-            <PropertyRef Name="num_fact" />
+            <PropertyRef Name="id_detalle" />
           </Key>
+          <Property Name="id_detalle" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="num_fact" Type="int" Nullable="false" />
           <Property Name="id_articulo" Type="int" Nullable="false" />
-          <Property Name="cantidad" Type="int" Nullable="false" />
+          <Property Name="cantidad" Type="float" Nullable="false" />
           <Property Name="precio" Type="float" Nullable="false" />
           <Property Name="itbis" Type="float" Nullable="false" />
           <Property Name="descuento" Type="float" Nullable="false" />
@@ -218,8 +229,39 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.ARTICULOS_VS_CATEGORIAS_VS_D
             <PropertyRef Name="id_direccion" />
           </Key>
           <Property Name="id_direccion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="latitud" Type="float" Nullable="false" />
-          <Property Name="longitud" Type="float" Nullable="false" />
+          <Property Name="latitud" Type="decimal" Precision="18" Scale="15" Nullable="false" />
+          <Property Name="longitud" Type="decimal" Precision="18" Scale="15" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DVENTAS_SERVICIOS">
+          <Key>
+            <PropertyRef Name="id_detalle" />
+          </Key>
+          <Property Name="id_detalle" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="num_fact" Type="int" Nullable="false" />
+          <Property Name="id_servicio" Type="int" Nullable="false" />
+          <Property Name="cantidad" Type="float" Nullable="false" />
+          <Property Name="precio" Type="float" Nullable="false" />
+          <Property Name="itbis" Type="float" Nullable="false" />
+          <Property Name="descuento" Type="float" Nullable="false" />
+          <Property Name="total" Type="float" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DVIAJES">
+          <Key>
+            <PropertyRef Name="id_dviaje" />
+          </Key>
+          <Property Name="id_dviaje" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_viaje" Type="int" Nullable="false" />
+          <Property Name="fecha_recogidaA" Type="datetime" Nullable="false" />
+          <Property Name="fecha_recogidaB" Type="datetime" Nullable="false" />
+          <Property Name="direc_recogida" Type="varchar" MaxLength="200" />
+          <Property Name="escaleras" Type="bit" />
+          <Property Name="num_habitacion_recogida" Type="varchar" MaxLength="50" />
+          <Property Name="instrucciones_recodida" Type="varchar" MaxLength="200" />
+          <Property Name="contacto_recogida" Type="varchar" MaxLength="50" />
+          <Property Name="direc_destino" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="num_habitacion_destino" Type="varchar" MaxLength="50" />
+          <Property Name="instrucciones_destino" Type="varchar" MaxLength="200" />
+          <Property Name="contacto_destino" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="EMAILS">
           <Key>
@@ -430,6 +472,18 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.PUESTOS_VS_DEPARTAMENTOS' no
           <Property Name="nota" Type="varchar" MaxLength="200" Nullable="false" />
           <Property Name="estado" Type="bit" Nullable="false" />
         </EntityType>
+        <EntityType Name="SERVICIOS">
+          <Key>
+            <PropertyRef Name="id_servicio" />
+          </Key>
+          <Property Name="id_servicio" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_categoriaServicio" Type="int" Nullable="false" />
+          <Property Name="id_unidad_de_medida" Type="int" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" />
+          <Property Name="descripcion" Type="varchar" MaxLength="50" />
+          <Property Name="precio" Type="float" Nullable="false" />
+          <Property Name="estado" Type="bit" />
+        </EntityType>
         <EntityType Name="SEXOS">
           <Key>
             <PropertyRef Name="id_sexo" />
@@ -586,6 +640,20 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.TIPONCF' no tiene definida n
           <Property Name="precio" Type="float" Nullable="false" />
           <Property Name="estado" Type="bit" />
         </EntityType>
+        <EntityType Name="TRANSPORTE">
+          <Key>
+            <PropertyRef Name="id_transporte" />
+          </Key>
+          <Property Name="id_transporte" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_conductor" Type="int" />
+          <Property Name="num_fact" Type="nchar" MaxLength="10" />
+          <Property Name="ida_vuelta" Type="bit" />
+          <Property Name="fecha_transporte" Type="datetime" Nullable="false" />
+          <Property Name="notas_viaje" Type="varchar" MaxLength="50" />
+          <Property Name="id_direccionA" Type="int" />
+          <Property Name="id_direccionB" Type="int" />
+          <Property Name="estado" Type="int" Nullable="false" />
+        </EntityType>
         <EntityType Name="UNIDADES_DE_MEDIDA">
           <Key>
             <PropertyRef Name="id_unidad_de_medida" />
@@ -623,6 +691,18 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.TIPONCF' no tiene definida n
           <Property Name="num_gps" Type="varchar" MaxLength="50" />
           <Property Name="estado" Type="bit" Nullable="false" />
         </EntityType>
+        <EntityType Name="VENTA_SERVICIOS">
+          <Key>
+            <PropertyRef Name="num_fact" />
+          </Key>
+          <Property Name="num_fact" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_cliente" Type="int" Nullable="false" />
+          <Property Name="id_empleado" Type="int" Nullable="false" />
+          <Property Name="fecha" Type="datetime" Nullable="false" />
+          <Property Name="id_paciente" Type="int" Nullable="false" />
+          <Property Name="tipo_pago" Type="int" Nullable="false" />
+          <Property Name="estado" Type="bit" Nullable="false" />
+        </EntityType>
         <EntityType Name="VENTAS">
           <Key>
             <PropertyRef Name="num_fact" />
@@ -632,38 +712,6 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.TIPONCF' no tiene definida n
           <Property Name="id_empleado" Type="int" Nullable="false" />
           <Property Name="fecha" Type="datetime" Nullable="false" />
           <Property Name="estado" Type="bit" Nullable="false" />
-        </EntityType>
-        <EntityType Name="VIAJES">
-          <Key>
-            <PropertyRef Name="id_viaje" />
-          </Key>
-          <Property Name="id_viaje" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="id_tipoPago" Type="int" Nullable="false" />
-          <Property Name="id_cliente" Type="int" Nullable="false" />
-          <Property Name="id_paciente" Type="int" Nullable="false" />
-          <Property Name="id_tipoViaje" Type="int" Nullable="false" />
-          <Property Name="id_conductor" Type="int" />
-          <Property Name="oxigeno" Type="bit" Nullable="false" />
-          <Property Name="silla_rueda" Type="bit" Nullable="false" />
-          <Property Name="camilla" Type="bit" Nullable="false" />
-          <Property Name="acompanante" Type="int" Nullable="false" />
-          <Property Name="personal_ayudante" Type="int" Nullable="false" />
-          <Property Name="fecha_creacion" Type="datetime" Nullable="false" />
-          <Property Name="fecha_recogida" Type="datetime" Nullable="false" />
-          <Property Name="direc_recogida" Type="varchar" MaxLength="200" Nullable="false" />
-          <Property Name="num_habitacion_recogida" Type="varchar" MaxLength="50" />
-          <Property Name="instrucciones_recodida" Type="varchar" MaxLength="200" />
-          <Property Name="contacto_recodigda" Type="varchar" MaxLength="50" />
-          <Property Name="direc_destino" Type="varchar" MaxLength="200" Nullable="false" />
-          <Property Name="num_habitacion_destino" Type="varchar" MaxLength="50" />
-          <Property Name="instrucciones_destino" Type="varchar" MaxLength="200" />
-          <Property Name="contacto_destino" Type="varchar" MaxLength="50" />
-          <Property Name="notas_viaje" Type="varchar" MaxLength="50" />
-          <Property Name="total_viaje" Type="float" Nullable="false" />
-          <Property Name="subtotal_viaje" Type="float" Nullable="false" />
-          <Property Name="descuento" Type="float" Nullable="false" />
-          <Property Name="itbis" Type="float" Nullable="false" />
-          <Property Name="estado" Type="int" Nullable="false" />
         </EntityType>
         <Association Name="FK__CONDUCTOR__id_em__54CB950F">
           <End Role="EMPLEADOS" Type="Self.EMPLEADOS" Multiplicity="1" />
@@ -857,18 +905,6 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.TIPONCF' no tiene definida n
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_CLIENte">
-          <End Role="CLIENTES" Type="Self.CLIENTES" Multiplicity="1" />
-          <End Role="VIAJES" Type="Self.VIAJES" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="CLIENTES">
-              <PropertyRef Name="id_cliente" />
-            </Principal>
-            <Dependent Role="VIAJES">
-              <PropertyRef Name="id_cliente" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_CLIENTES_TERCEROS">
           <End Role="TERCEROS" Type="Self.TERCEROS" Multiplicity="1" />
           <End Role="CLIENTES" Type="Self.CLIENTES" Multiplicity="*" />
@@ -943,12 +979,12 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.TIPONCF' no tiene definida n
         </Association>
         <Association Name="FK_conducto">
           <End Role="CONDUCTOR" Type="Self.CONDUCTOR" Multiplicity="0..1" />
-          <End Role="VIAJES" Type="Self.VIAJES" Multiplicity="*" />
+          <End Role="TRANSPORTE" Type="Self.TRANSPORTE" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="CONDUCTOR">
               <PropertyRef Name="id_conductor" />
             </Principal>
-            <Dependent Role="VIAJES">
+            <Dependent Role="TRANSPORTE">
               <PropertyRef Name="id_conductor" />
             </Dependent>
           </ReferentialConstraint>
@@ -1003,7 +1039,7 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.TIPONCF' no tiene definida n
         </Association>
         <Association Name="FK_DETALLE_VENTAS_VENTAS">
           <End Role="VENTAS" Type="Self.VENTAS" Multiplicity="1" />
-          <End Role="DETALLES_VENTAS" Type="Self.DETALLES_VENTAS" Multiplicity="0..1" />
+          <End Role="DETALLES_VENTAS" Type="Self.DETALLES_VENTAS" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="VENTAS">
               <PropertyRef Name="num_fact" />
@@ -1027,7 +1063,7 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.TIPONCF' no tiene definida n
         </Association>
         <Association Name="FK_DETALLES_COMPRAS_COMPRAS">
           <End Role="COMPRAS" Type="Self.COMPRAS" Multiplicity="1" />
-          <End Role="DETALLES_COMPRAS" Type="Self.DETALLES_COMPRAS" Multiplicity="0..1" />
+          <End Role="DETALLES_COMPRAS" Type="Self.DETALLES_COMPRAS" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="COMPRAS">
               <PropertyRef Name="num_compra" />
@@ -1301,30 +1337,6 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.TIPONCF' no tiene definida n
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_paciente">
-          <End Role="PACIENTES" Type="Self.PACIENTES" Multiplicity="1" />
-          <End Role="VIAJES" Type="Self.VIAJES" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PACIENTES">
-              <PropertyRef Name="id_paciente" />
-            </Principal>
-            <Dependent Role="VIAJES">
-              <PropertyRef Name="id_paciente" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_PAGO">
-          <End Role="TIPOSPAGO" Type="Self.TIPOSPAGO" Multiplicity="1" />
-          <End Role="VIAJES" Type="Self.VIAJES" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TIPOSPAGO">
-              <PropertyRef Name="id_tipoPago" />
-            </Principal>
-            <Dependent Role="VIAJES">
-              <PropertyRef Name="id_tipoPago" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_PAISES_CONTINENTES">
           <End Role="CONTINENTES" Type="Self.CONTINENTES" Multiplicity="1" />
           <End Role="PAISES" Type="Self.PAISES" Multiplicity="*" />
@@ -1481,18 +1493,6 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.TIPONCF' no tiene definida n
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_tipoviajes">
-          <End Role="TIPOSVIAJES" Type="Self.TIPOSVIAJES" Multiplicity="1" />
-          <End Role="VIAJES" Type="Self.VIAJES" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TIPOSVIAJES">
-              <PropertyRef Name="id_tipoViaje" />
-            </Principal>
-            <Dependent Role="VIAJES">
-              <PropertyRef Name="id_tipoViaje" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_USUARIOS_EMPLEADOS">
           <End Role="EMPLEADOS" Type="Self.EMPLEADOS" Multiplicity="1" />
           <End Role="USUARIOS" Type="Self.USUARIOS" Multiplicity="*" />
@@ -1570,6 +1570,7 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.TIPONCF' no tiene definida n
           <EntitySet Name="ARTICULOS" EntityType="Self.ARTICULOS" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="BENEFICIOS" EntityType="Self.BENEFICIOS" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CATEGORIAS" EntityType="Self.CATEGORIAS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CATEGORIAS_SERVICIOS" EntityType="Self.CATEGORIAS_SERVICIOS" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CIUDADES" EntityType="Self.CIUDADES" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CLIENTES" EntityType="Self.CLIENTES" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="COBROS" EntityType="Self.COBROS" Schema="dbo" store:Type="Tables" />
@@ -1586,6 +1587,8 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.TIPONCF' no tiene definida n
           <EntitySet Name="DETALLES_SALIDAS" EntityType="Self.DETALLES_SALIDAS" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DETALLES_VENTAS" EntityType="Self.DETALLES_VENTAS" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DIRECCIONES" EntityType="Self.DIRECCIONES" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DVENTAS_SERVICIOS" EntityType="Self.DVENTAS_SERVICIOS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DVIAJES" EntityType="Self.DVIAJES" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="EMAILS" EntityType="Self.EMAILS" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="EMPLEADOS" EntityType="Self.EMPLEADOS" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="EMPLEADOS_VS_PUESTOS" EntityType="Self.EMPLEADOS_VS_PUESTOS" Schema="dbo" store:Type="Tables" />
@@ -1605,6 +1608,7 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.TIPONCF' no tiene definida n
           <EntitySet Name="PROVINCIAS" EntityType="Self.PROVINCIAS" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PUESTOS" EntityType="Self.PUESTOS" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SALIDAS" EntityType="Self.SALIDAS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SERVICIOS" EntityType="Self.SERVICIOS" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SEXOS" EntityType="Self.SEXOS" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SUPLIDORES" EntityType="Self.SUPLIDORES" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
@@ -1618,11 +1622,12 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.TIPONCF' no tiene definida n
           <EntitySet Name="TIPOS_USUARIOS" EntityType="Self.TIPOS_USUARIOS" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TIPOSPAGO" EntityType="Self.TIPOSPAGO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TIPOSVIAJES" EntityType="Self.TIPOSVIAJES" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TRANSPORTE" EntityType="Self.TRANSPORTE" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UNIDADES_DE_MEDIDA" EntityType="Self.UNIDADES_DE_MEDIDA" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="USUARIOS" EntityType="Self.USUARIOS" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="VEHICULO" EntityType="Self.VEHICULO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VENTA_SERVICIOS" EntityType="Self.VENTA_SERVICIOS" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="VENTAS" EntityType="Self.VENTAS" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="VIAJES" EntityType="Self.VIAJES" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ARTICULOS_VS_CATEGORIAS_VS_DESCUENTOS" EntityType="Self.ARTICULOS_VS_CATEGORIAS_VS_DESCUENTOS" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [ARTICULOS_VS_CATEGORIAS_VS_DESCUENTOS].[id_articulo] AS [id_articulo], 
@@ -1738,10 +1743,6 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.TIPONCF' no tiene definida n
             <End Role="PROVINCIAS" EntitySet="PROVINCIAS" />
             <End Role="CIUDADES" EntitySet="CIUDADES" />
           </AssociationSet>
-          <AssociationSet Name="FK_CLIENte" Association="Self.FK_CLIENte">
-            <End Role="CLIENTES" EntitySet="CLIENTES" />
-            <End Role="VIAJES" EntitySet="VIAJES" />
-          </AssociationSet>
           <AssociationSet Name="FK_CLIENTES_TERCEROS" Association="Self.FK_CLIENTES_TERCEROS">
             <End Role="TERCEROS" EntitySet="TERCEROS" />
             <End Role="CLIENTES" EntitySet="CLIENTES" />
@@ -1768,7 +1769,7 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.TIPONCF' no tiene definida n
           </AssociationSet>
           <AssociationSet Name="FK_conducto" Association="Self.FK_conducto">
             <End Role="CONDUCTOR" EntitySet="CONDUCTOR" />
-            <End Role="VIAJES" EntitySet="VIAJES" />
+            <End Role="TRANSPORTE" EntitySet="TRANSPORTE" />
           </AssociationSet>
           <AssociationSet Name="FK_COTIZACIONES_CLIENTES" Association="Self.FK_COTIZACIONES_CLIENTES">
             <End Role="CLIENTES" EntitySet="CLIENTES" />
@@ -1886,14 +1887,6 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.TIPONCF' no tiene definida n
             <End Role="TIPOS_IDENTIFICACIONES" EntitySet="TIPOS_IDENTIFICACIONES" />
             <End Role="IDENTIFICACIONES" EntitySet="IDENTIFICACIONES" />
           </AssociationSet>
-          <AssociationSet Name="FK_paciente" Association="Self.FK_paciente">
-            <End Role="PACIENTES" EntitySet="PACIENTES" />
-            <End Role="VIAJES" EntitySet="VIAJES" />
-          </AssociationSet>
-          <AssociationSet Name="FK_PAGO" Association="Self.FK_PAGO">
-            <End Role="TIPOSPAGO" EntitySet="TIPOSPAGO" />
-            <End Role="VIAJES" EntitySet="VIAJES" />
-          </AssociationSet>
           <AssociationSet Name="FK_PAISES_CONTINENTES" Association="Self.FK_PAISES_CONTINENTES">
             <End Role="CONTINENTES" EntitySet="CONTINENTES" />
             <End Role="PAISES" EntitySet="PAISES" />
@@ -1946,10 +1939,6 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.TIPONCF' no tiene definida n
             <End Role="TIPOS_TELEFONOS" EntitySet="TIPOS_TELEFONOS" />
             <End Role="TELEFONOS" EntitySet="TELEFONOS" />
           </AssociationSet>
-          <AssociationSet Name="FK_tipoviajes" Association="Self.FK_tipoviajes">
-            <End Role="TIPOSVIAJES" EntitySet="TIPOSVIAJES" />
-            <End Role="VIAJES" EntitySet="VIAJES" />
-          </AssociationSet>
           <AssociationSet Name="FK_USUARIOS_EMPLEADOS" Association="Self.FK_USUARIOS_EMPLEADOS">
             <End Role="EMPLEADOS" EntitySet="EMPLEADOS" />
             <End Role="USUARIOS" EntitySet="USUARIOS" />
@@ -1999,7 +1988,7 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.TIPONCF' no tiene definida n
           <Property Name="id_unidad_de_medida" Type="Int32" Nullable="false" />
           <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="descripcion" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="reorden" Type="Int32" Nullable="false" />
+          <Property Name="reorden" Type="Double" Nullable="false" />
           <Property Name="codigo_barras" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="precio" Type="Double" Nullable="false" />
           <Property Name="estado" Type="Boolean" Nullable="false" />
@@ -2035,11 +2024,20 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.TIPONCF' no tiene definida n
           <NavigationProperty Name="ARTICULOS" Relationship="Self.FK_ARTICULOS_CATEGORIAS" FromRole="CATEGORIAS" ToRole="ARTICULOS" />
           <NavigationProperty Name="ARTICULOS_VS_CATEGORIAS_VS_DESCUENTOS" Relationship="Self.FK_ARTICULOS_VS_CATEGORIAS_VS_DESCUENTOS_CATEGORIAS" FromRole="CATEGORIAS" ToRole="ARTICULOS_VS_CATEGORIAS_VS_DESCUENTOS" />
         </EntityType>
+        <EntityType Name="CATEGORIAS_SERVICIOS">
+          <Key>
+            <PropertyRef Name="id_categoriaServicio" />
+          </Key>
+          <Property Name="id_categoriaServicio" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="categoria" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="descripcion" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="estado" Type="Boolean" Nullable="false" />
+        </EntityType>
         <EntityType Name="CIUDADES">
           <Key>
             <PropertyRef Name="id_ciudad" />
           </Key>
-          <Property Name="id_ciudad" Type="Double" Nullable="false" />
+          <Property Name="id_ciudad" Type="Decimal" Precision="18" Scale="15" Nullable="false" />
           <Property Name="id_provincia" Type="Int32" Nullable="false" />
           <Property Name="ciudad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="PROVINCIAS" Relationship="Self.FK_CIUDADES_PROVINCIAS" FromRole="CIUDADES" ToRole="PROVINCIAS" />
@@ -2053,7 +2051,6 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.TIPONCF' no tiene definida n
           <Property Name="id_tercero" Type="Int32" Nullable="false" />
           <Property Name="id_tipo_cliente" Type="Int32" Nullable="false" />
           <Property Name="estado" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="VIAJES" Relationship="Self.FK_CLIENte" FromRole="CLIENTES" ToRole="VIAJES" />
           <NavigationProperty Name="TERCEROS" Relationship="Self.FK_CLIENTES_TERCEROS" FromRole="CLIENTES" ToRole="TERCEROS" />
           <NavigationProperty Name="TIPOS_CLIENTES" Relationship="Self.FK_CLIENTES_TIPOS_CLIENTES" FromRole="CLIENTES" ToRole="TIPOS_CLIENTES" />
           <NavigationProperty Name="COTIZACIONES" Relationship="Self.FK_COTIZACIONES_CLIENTES" FromRole="CLIENTES" ToRole="COTIZACIONES" />
@@ -2106,7 +2103,7 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.TIPONCF' no tiene definida n
           <Property Name="num_licencia" Type="Int32" Nullable="false" />
           <Property Name="fecha_vencimiento" Type="DateTime" Nullable="false" Precision="0" />
           <NavigationProperty Name="EMPLEADOS" Relationship="Self.FK__CONDUCTOR__id_em__54CB950F" FromRole="CONDUCTOR" ToRole="EMPLEADOS" />
-          <NavigationProperty Name="VIAJES" Relationship="Self.FK_conducto" FromRole="CONDUCTOR" ToRole="VIAJES" />
+          <NavigationProperty Name="TRANSPORTE" Relationship="Self.FK_conducto" FromRole="CONDUCTOR" ToRole="TRANSPORTE" />
         </EntityType>
         <EntityType Name="CONTINENTES">
           <Key>
@@ -2154,11 +2151,12 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.TIPONCF' no tiene definida n
         </EntityType>
         <EntityType Name="DETALLES_COMPRAS">
           <Key>
-            <PropertyRef Name="num_compra" />
+            <PropertyRef Name="id_detalle" />
           </Key>
-          <Property Name="num_compra" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_detalle" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="num_compra" Type="Int32" Nullable="false" />
           <Property Name="id_articulo" Type="Int32" Nullable="false" />
-          <Property Name="cantidad" Type="Int32" Nullable="false" />
+          <Property Name="cantidad" Type="Double" Nullable="false" />
           <Property Name="precio" Type="Double" Nullable="false" />
           <Property Name="itbis" Type="Double" Nullable="false" />
           <Property Name="descuento" Type="Double" Nullable="false" />
@@ -2210,11 +2208,12 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.TIPONCF' no tiene definida n
         </EntityType>
         <EntityType Name="DETALLES_VENTAS">
           <Key>
-            <PropertyRef Name="num_fact" />
+            <PropertyRef Name="id_detalle" />
           </Key>
+          <Property Name="id_detalle" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="num_fact" Type="Int32" Nullable="false" />
           <Property Name="id_articulo" Type="Int32" Nullable="false" />
-          <Property Name="cantidad" Type="Int32" Nullable="false" />
+          <Property Name="cantidad" Type="Double" Nullable="false" />
           <Property Name="precio" Type="Double" Nullable="false" />
           <Property Name="itbis" Type="Double" Nullable="false" />
           <Property Name="descuento" Type="Double" Nullable="false" />
@@ -2227,10 +2226,41 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.TIPONCF' no tiene definida n
             <PropertyRef Name="id_direccion" />
           </Key>
           <Property Name="id_direccion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="latitud" Type="Double" Nullable="false" />
-          <Property Name="longitud" Type="Double" Nullable="false" />
+          <Property Name="latitud" Type="Decimal" Precision="18" Scale="15" Nullable="false" />
+          <Property Name="longitud" Type="Decimal" Precision="18" Scale="15" Nullable="false" />
           <NavigationProperty Name="CIUDADES" Relationship="Self.FK_DIRECCIONES_CIUDADES" FromRole="DIRECCIONES" ToRole="CIUDADES" />
           <NavigationProperty Name="TERCEROS" Relationship="Self.TERCEROS_VS_DIRECCIONES" FromRole="DIRECCIONES" ToRole="TERCEROS" />
+        </EntityType>
+        <EntityType Name="DVENTAS_SERVICIOS">
+          <Key>
+            <PropertyRef Name="id_detalle" />
+          </Key>
+          <Property Name="id_detalle" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="num_fact" Type="Int32" Nullable="false" />
+          <Property Name="id_servicio" Type="Int32" Nullable="false" />
+          <Property Name="cantidad" Type="Double" Nullable="false" />
+          <Property Name="precio" Type="Double" Nullable="false" />
+          <Property Name="itbis" Type="Double" Nullable="false" />
+          <Property Name="descuento" Type="Double" Nullable="false" />
+          <Property Name="total" Type="Double" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DVIAJES">
+          <Key>
+            <PropertyRef Name="id_dviaje" />
+          </Key>
+          <Property Name="id_dviaje" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_viaje" Type="Int32" Nullable="false" />
+          <Property Name="fecha_recogidaA" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="fecha_recogidaB" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="direc_recogida" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="escaleras" Type="Boolean" />
+          <Property Name="num_habitacion_recogida" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="instrucciones_recodida" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="contacto_recogida" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="direc_destino" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="num_habitacion_destino" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="instrucciones_destino" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="contacto_destino" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="EMAILS">
           <Key>
@@ -2383,7 +2413,6 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.TIPONCF' no tiene definida n
           <Property Name="medicamentos" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="estado" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="PERSONAS" Relationship="Self.FK_id_Ppersona" FromRole="PACIENTES" ToRole="PERSONAS" />
-          <NavigationProperty Name="VIAJES" Relationship="Self.FK_paciente" FromRole="PACIENTES" ToRole="VIAJES" />
         </EntityType>
         <EntityType Name="PAISES">
           <Key>
@@ -2459,6 +2488,18 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.TIPONCF' no tiene definida n
           <Property Name="estado" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="DETALLES_SALIDAS" Relationship="Self.FK_DETALLES_SALIDAS_SALIDAS" FromRole="SALIDAS" ToRole="DETALLES_SALIDAS" />
           <NavigationProperty Name="EMPLEADOS" Relationship="Self.FK_SALIDAS_EMPLEADOS" FromRole="SALIDAS" ToRole="EMPLEADOS" />
+        </EntityType>
+        <EntityType Name="SERVICIOS">
+          <Key>
+            <PropertyRef Name="id_servicio" />
+          </Key>
+          <Property Name="id_servicio" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_categoriaServicio" Type="Int32" Nullable="false" />
+          <Property Name="id_unidad_de_medida" Type="Int32" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="precio" Type="Double" Nullable="false" />
+          <Property Name="estado" Type="Boolean" />
         </EntityType>
         <EntityType Name="SEXOS">
           <Key>
@@ -2577,7 +2618,6 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.TIPONCF' no tiene definida n
           <Property Name="id_tipoPago" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="estado" Type="Boolean" />
-          <NavigationProperty Name="VIAJES" Relationship="Self.FK_PAGO" FromRole="TIPOSPAGO" ToRole="VIAJES" />
         </EntityType>
         <EntityType Name="TIPOSVIAJES">
           <Key>
@@ -2587,7 +2627,21 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.TIPONCF' no tiene definida n
           <Property Name="descripcionViaje" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="precio" Type="Double" Nullable="false" />
           <Property Name="estado" Type="Boolean" />
-          <NavigationProperty Name="VIAJES" Relationship="Self.FK_tipoviajes" FromRole="TIPOSVIAJES" ToRole="VIAJES" />
+        </EntityType>
+        <EntityType Name="TRANSPORTE">
+          <Key>
+            <PropertyRef Name="id_transporte" />
+          </Key>
+          <Property Name="id_transporte" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_conductor" Type="Int32" />
+          <Property Name="num_fact" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="ida_vuelta" Type="Boolean" />
+          <Property Name="fecha_transporte" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="notas_viaje" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="id_direccionA" Type="Int32" />
+          <Property Name="id_direccionB" Type="Int32" />
+          <Property Name="estado" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="CONDUCTOR" Relationship="Self.FK_conducto" FromRole="TRANSPORTE" ToRole="CONDUCTOR" />
         </EntityType>
         <EntityType Name="UNIDADES_DE_MEDIDA">
           <Key>
@@ -2632,6 +2686,18 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.TIPONCF' no tiene definida n
           <NavigationProperty Name="MODELO" Relationship="Self.FK_vaehicualo" FromRole="VEHICULO" ToRole="MODELO" />
           <NavigationProperty Name="GPS" Relationship="Self.FK_GPS" FromRole="VEHICULO" ToRole="GPS" />
         </EntityType>
+        <EntityType Name="VENTA_SERVICIOS">
+          <Key>
+            <PropertyRef Name="num_fact" />
+          </Key>
+          <Property Name="num_fact" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_cliente" Type="Int32" Nullable="false" />
+          <Property Name="id_empleado" Type="Int32" Nullable="false" />
+          <Property Name="fecha" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="id_paciente" Type="Int32" Nullable="false" />
+          <Property Name="tipo_pago" Type="Int32" Nullable="false" />
+          <Property Name="estado" Type="Boolean" Nullable="false" />
+        </EntityType>
         <EntityType Name="VENTAS">
           <Key>
             <PropertyRef Name="num_fact" />
@@ -2644,43 +2710,6 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.TIPONCF' no tiene definida n
           <NavigationProperty Name="CLIENTES" Relationship="Self.FK_VENTAS_CLIENTES" FromRole="VENTAS" ToRole="CLIENTES" />
           <NavigationProperty Name="DETALLES_VENTAS" Relationship="Self.FK_DETALLE_VENTAS_VENTAS" FromRole="VENTAS" ToRole="DETALLES_VENTAS" />
           <NavigationProperty Name="EMPLEADOS" Relationship="Self.FK_VENTAS_EMPLEADOS" FromRole="VENTAS" ToRole="EMPLEADOS" />
-        </EntityType>
-        <EntityType Name="VIAJES">
-          <Key>
-            <PropertyRef Name="id_viaje" />
-          </Key>
-          <Property Name="id_viaje" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="id_tipoPago" Type="Int32" Nullable="false" />
-          <Property Name="id_cliente" Type="Int32" Nullable="false" />
-          <Property Name="id_paciente" Type="Int32" Nullable="false" />
-          <Property Name="id_tipoViaje" Type="Int32" Nullable="false" />
-          <Property Name="id_conductor" Type="Int32" />
-          <Property Name="oxigeno" Type="Boolean" Nullable="false" />
-          <Property Name="silla_rueda" Type="Boolean" Nullable="false" />
-          <Property Name="camilla" Type="Boolean" Nullable="false" />
-          <Property Name="acompanante" Type="Int32" Nullable="false" />
-          <Property Name="personal_ayudante" Type="Int32" Nullable="false" />
-          <Property Name="fecha_creacion" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="fecha_recogida" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="direc_recogida" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="num_habitacion_recogida" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="instrucciones_recodida" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Name="contacto_recodigda" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="direc_destino" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="num_habitacion_destino" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="instrucciones_destino" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Name="contacto_destino" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="notas_viaje" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="total_viaje" Type="Double" Nullable="false" />
-          <Property Name="subtotal_viaje" Type="Double" Nullable="false" />
-          <Property Name="descuento" Type="Double" Nullable="false" />
-          <Property Name="itbis" Type="Double" Nullable="false" />
-          <Property Name="estado" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="CLIENTES" Relationship="Self.FK_CLIENte" FromRole="VIAJES" ToRole="CLIENTES" />
-          <NavigationProperty Name="CONDUCTOR" Relationship="Self.FK_conducto" FromRole="VIAJES" ToRole="CONDUCTOR" />
-          <NavigationProperty Name="PACIENTES" Relationship="Self.FK_paciente" FromRole="VIAJES" ToRole="PACIENTES" />
-          <NavigationProperty Name="TIPOSPAGO" Relationship="Self.FK_PAGO" FromRole="VIAJES" ToRole="TIPOSPAGO" />
-          <NavigationProperty Name="TIPOSVIAJES" Relationship="Self.FK_tipoviajes" FromRole="VIAJES" ToRole="TIPOSVIAJES" />
         </EntityType>
         <EntityType Name="ARTICULOS_VS_CATEGORIAS_VS_DESCUENTOS">
           <Key>
@@ -2894,18 +2923,6 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.TIPONCF' no tiene definida n
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_CLIENte">
-          <End Role="CLIENTES" Type="Self.CLIENTES" Multiplicity="1" />
-          <End Role="VIAJES" Type="Self.VIAJES" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="CLIENTES">
-              <PropertyRef Name="id_cliente" />
-            </Principal>
-            <Dependent Role="VIAJES">
-              <PropertyRef Name="id_cliente" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_CLIENTES_TERCEROS">
           <End Role="TERCEROS" Type="Self.TERCEROS" Multiplicity="1" />
           <End Role="CLIENTES" Type="Self.CLIENTES" Multiplicity="*" />
@@ -3016,7 +3033,7 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.TIPONCF' no tiene definida n
         </Association>
         <Association Name="FK_DETALLES_COMPRAS_COMPRAS">
           <End Role="COMPRAS" Type="Self.COMPRAS" Multiplicity="1" />
-          <End Role="DETALLES_COMPRAS" Type="Self.DETALLES_COMPRAS" Multiplicity="0..1" />
+          <End Role="DETALLES_COMPRAS" Type="Self.DETALLES_COMPRAS" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="COMPRAS">
               <PropertyRef Name="num_compra" />
@@ -3040,12 +3057,12 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.TIPONCF' no tiene definida n
         </Association>
         <Association Name="FK_conducto">
           <End Role="CONDUCTOR" Type="Self.CONDUCTOR" Multiplicity="0..1" />
-          <End Role="VIAJES" Type="Self.VIAJES" Multiplicity="*" />
+          <End Role="TRANSPORTE" Type="Self.TRANSPORTE" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="CONDUCTOR">
               <PropertyRef Name="id_conductor" />
             </Principal>
-            <Dependent Role="VIAJES">
+            <Dependent Role="TRANSPORTE">
               <PropertyRef Name="id_conductor" />
             </Dependent>
           </ReferentialConstraint>
@@ -3136,7 +3153,7 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.TIPONCF' no tiene definida n
         </Association>
         <Association Name="FK_DETALLE_VENTAS_VENTAS">
           <End Role="VENTAS" Type="Self.VENTAS" Multiplicity="1" />
-          <End Role="DETALLES_VENTAS" Type="Self.DETALLES_VENTAS" Multiplicity="0..1" />
+          <End Role="DETALLES_VENTAS" Type="Self.DETALLES_VENTAS" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="VENTAS">
               <PropertyRef Name="num_fact" />
@@ -3338,18 +3355,6 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.TIPONCF' no tiene definida n
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_paciente">
-          <End Role="PACIENTES" Type="Self.PACIENTES" Multiplicity="1" />
-          <End Role="VIAJES" Type="Self.VIAJES" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PACIENTES">
-              <PropertyRef Name="id_paciente" />
-            </Principal>
-            <Dependent Role="VIAJES">
-              <PropertyRef Name="id_paciente" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_PROVINCIAS_PAISES">
           <End Role="PAISES" Type="Self.PAISES" Multiplicity="1" />
           <End Role="PROVINCIAS" Type="Self.PROVINCIAS" Multiplicity="*" />
@@ -3434,30 +3439,6 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.TIPONCF' no tiene definida n
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_PAGO">
-          <End Role="TIPOSPAGO" Type="Self.TIPOSPAGO" Multiplicity="1" />
-          <End Role="VIAJES" Type="Self.VIAJES" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TIPOSPAGO">
-              <PropertyRef Name="id_tipoPago" />
-            </Principal>
-            <Dependent Role="VIAJES">
-              <PropertyRef Name="id_tipoPago" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_tipoviajes">
-          <End Role="TIPOSVIAJES" Type="Self.TIPOSVIAJES" Multiplicity="1" />
-          <End Role="VIAJES" Type="Self.VIAJES" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TIPOSVIAJES">
-              <PropertyRef Name="id_tipoViaje" />
-            </Principal>
-            <Dependent Role="VIAJES">
-              <PropertyRef Name="id_tipoViaje" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_GPS">
           <End Role="VEHICULO" Type="Self.VEHICULO" Multiplicity="1" />
           <End Role="GPS" Type="Self.GPS" Multiplicity="*" />
@@ -3499,6 +3480,7 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.TIPONCF' no tiene definida n
           <EntitySet Name="ARTICULOS" EntityType="Self.ARTICULOS" />
           <EntitySet Name="BENEFICIOS" EntityType="Self.BENEFICIOS" />
           <EntitySet Name="CATEGORIAS" EntityType="Self.CATEGORIAS" />
+          <EntitySet Name="CATEGORIAS_SERVICIOS" EntityType="Self.CATEGORIAS_SERVICIOS" />
           <EntitySet Name="CIUDADES" EntityType="Self.CIUDADES" />
           <EntitySet Name="CLIENTES" EntityType="Self.CLIENTES" />
           <EntitySet Name="COBROS" EntityType="Self.COBROS" />
@@ -3515,6 +3497,8 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.TIPONCF' no tiene definida n
           <EntitySet Name="DETALLES_SALIDAS" EntityType="Self.DETALLES_SALIDAS" />
           <EntitySet Name="DETALLES_VENTAS" EntityType="Self.DETALLES_VENTAS" />
           <EntitySet Name="DIRECCIONES" EntityType="Self.DIRECCIONES" />
+          <EntitySet Name="DVENTAS_SERVICIOS" EntityType="Self.DVENTAS_SERVICIOS" />
+          <EntitySet Name="DVIAJES" EntityType="Self.DVIAJES" />
           <EntitySet Name="EMAILS" EntityType="Self.EMAILS" />
           <EntitySet Name="EMPLEADOS" EntityType="Self.EMPLEADOS" />
           <EntitySet Name="ENTRADAS" EntityType="Self.ENTRADAS" />
@@ -3533,6 +3517,7 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.TIPONCF' no tiene definida n
           <EntitySet Name="PROVINCIAS" EntityType="Self.PROVINCIAS" />
           <EntitySet Name="PUESTOS" EntityType="Self.PUESTOS" />
           <EntitySet Name="SALIDAS" EntityType="Self.SALIDAS" />
+          <EntitySet Name="SERVICIOS" EntityType="Self.SERVICIOS" />
           <EntitySet Name="SEXOS" EntityType="Self.SEXOS" />
           <EntitySet Name="SUPLIDORES" EntityType="Self.SUPLIDORES" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
@@ -3546,11 +3531,12 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.TIPONCF' no tiene definida n
           <EntitySet Name="TIPOS_USUARIOS" EntityType="Self.TIPOS_USUARIOS" />
           <EntitySet Name="TIPOSPAGO" EntityType="Self.TIPOSPAGO" />
           <EntitySet Name="TIPOSVIAJES" EntityType="Self.TIPOSVIAJES" />
+          <EntitySet Name="TRANSPORTE" EntityType="Self.TRANSPORTE" />
           <EntitySet Name="UNIDADES_DE_MEDIDA" EntityType="Self.UNIDADES_DE_MEDIDA" />
           <EntitySet Name="USUARIOS" EntityType="Self.USUARIOS" />
           <EntitySet Name="VEHICULO" EntityType="Self.VEHICULO" />
+          <EntitySet Name="VENTA_SERVICIOS" EntityType="Self.VENTA_SERVICIOS" />
           <EntitySet Name="VENTAS" EntityType="Self.VENTAS" />
-          <EntitySet Name="VIAJES" EntityType="Self.VIAJES" />
           <EntitySet Name="ARTICULOS_VS_CATEGORIAS_VS_DESCUENTOS" EntityType="Self.ARTICULOS_VS_CATEGORIAS_VS_DESCUENTOS" />
           <EntitySet Name="GPS" EntityType="Self.GPS" />
           <EntitySet Name="TIPONCF" EntityType="Self.TIPONCF" />
@@ -3614,10 +3600,6 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.TIPONCF' no tiene definida n
             <End Role="CIUDADES" EntitySet="CIUDADES" />
             <End Role="DIRECCIONES" EntitySet="DIRECCIONES" />
           </AssociationSet>
-          <AssociationSet Name="FK_CLIENte" Association="Self.FK_CLIENte">
-            <End Role="CLIENTES" EntitySet="CLIENTES" />
-            <End Role="VIAJES" EntitySet="VIAJES" />
-          </AssociationSet>
           <AssociationSet Name="FK_CLIENTES_TERCEROS" Association="Self.FK_CLIENTES_TERCEROS">
             <End Role="TERCEROS" EntitySet="TERCEROS" />
             <End Role="CLIENTES" EntitySet="CLIENTES" />
@@ -3664,7 +3646,7 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.TIPONCF' no tiene definida n
           </AssociationSet>
           <AssociationSet Name="FK_conducto" Association="Self.FK_conducto">
             <End Role="CONDUCTOR" EntitySet="CONDUCTOR" />
-            <End Role="VIAJES" EntitySet="VIAJES" />
+            <End Role="TRANSPORTE" EntitySet="TRANSPORTE" />
           </AssociationSet>
           <AssociationSet Name="FK_PAISES_CONTINENTES" Association="Self.FK_PAISES_CONTINENTES">
             <End Role="CONTINENTES" EntitySet="CONTINENTES" />
@@ -3762,10 +3744,6 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.TIPONCF' no tiene definida n
             <End Role="PERSONAS" EntitySet="PERSONAS" />
             <End Role="PACIENTES" EntitySet="PACIENTES" />
           </AssociationSet>
-          <AssociationSet Name="FK_paciente" Association="Self.FK_paciente">
-            <End Role="PACIENTES" EntitySet="PACIENTES" />
-            <End Role="VIAJES" EntitySet="VIAJES" />
-          </AssociationSet>
           <AssociationSet Name="FK_PROVINCIAS_PAISES" Association="Self.FK_PROVINCIAS_PAISES">
             <End Role="PAISES" EntitySet="PAISES" />
             <End Role="PROVINCIAS" EntitySet="PROVINCIAS" />
@@ -3793,14 +3771,6 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.TIPONCF' no tiene definida n
           <AssociationSet Name="FK_USUARIOS_TIPO_USUARIOS" Association="Self.FK_USUARIOS_TIPO_USUARIOS">
             <End Role="TIPOS_USUARIOS" EntitySet="TIPOS_USUARIOS" />
             <End Role="USUARIOS" EntitySet="USUARIOS" />
-          </AssociationSet>
-          <AssociationSet Name="FK_PAGO" Association="Self.FK_PAGO">
-            <End Role="TIPOSPAGO" EntitySet="TIPOSPAGO" />
-            <End Role="VIAJES" EntitySet="VIAJES" />
-          </AssociationSet>
-          <AssociationSet Name="FK_tipoviajes" Association="Self.FK_tipoviajes">
-            <End Role="TIPOSVIAJES" EntitySet="TIPOSVIAJES" />
-            <End Role="VIAJES" EntitySet="VIAJES" />
           </AssociationSet>
           <AssociationSet Name="FK_GPS" Association="Self.FK_GPS">
             <End Role="VEHICULO" EntitySet="VEHICULO" />
@@ -3876,6 +3846,16 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.TIPONCF' no tiene definida n
             <EntityTypeMapping TypeName="TransporSysModel.CATEGORIAS">
               <MappingFragment StoreEntitySet="CATEGORIAS">
                 <ScalarProperty Name="id_categoria" ColumnName="id_categoria" />
+                <ScalarProperty Name="categoria" ColumnName="categoria" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CATEGORIAS_SERVICIOS">
+            <EntityTypeMapping TypeName="TransporSysModel.CATEGORIAS_SERVICIOS">
+              <MappingFragment StoreEntitySet="CATEGORIAS_SERVICIOS">
+                <ScalarProperty Name="id_categoriaServicio" ColumnName="id_categoriaServicio" />
                 <ScalarProperty Name="categoria" ColumnName="categoria" />
                 <ScalarProperty Name="descripcion" ColumnName="descripcion" />
                 <ScalarProperty Name="estado" ColumnName="estado" />
@@ -3990,6 +3970,7 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.TIPONCF' no tiene definida n
           <EntitySetMapping Name="DETALLES_COMPRAS">
             <EntityTypeMapping TypeName="TransporSysModel.DETALLES_COMPRAS">
               <MappingFragment StoreEntitySet="DETALLES_COMPRAS">
+                <ScalarProperty Name="id_detalle" ColumnName="id_detalle" />
                 <ScalarProperty Name="num_compra" ColumnName="num_compra" />
                 <ScalarProperty Name="id_articulo" ColumnName="id_articulo" />
                 <ScalarProperty Name="cantidad" ColumnName="cantidad" />
@@ -4042,6 +4023,7 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.TIPONCF' no tiene definida n
           <EntitySetMapping Name="DETALLES_VENTAS">
             <EntityTypeMapping TypeName="TransporSysModel.DETALLES_VENTAS">
               <MappingFragment StoreEntitySet="DETALLES_VENTAS">
+                <ScalarProperty Name="id_detalle" ColumnName="id_detalle" />
                 <ScalarProperty Name="num_fact" ColumnName="num_fact" />
                 <ScalarProperty Name="id_articulo" ColumnName="id_articulo" />
                 <ScalarProperty Name="cantidad" ColumnName="cantidad" />
@@ -4058,6 +4040,39 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.TIPONCF' no tiene definida n
                 <ScalarProperty Name="id_direccion" ColumnName="id_direccion" />
                 <ScalarProperty Name="latitud" ColumnName="latitud" />
                 <ScalarProperty Name="longitud" ColumnName="longitud" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DVENTAS_SERVICIOS">
+            <EntityTypeMapping TypeName="TransporSysModel.DVENTAS_SERVICIOS">
+              <MappingFragment StoreEntitySet="DVENTAS_SERVICIOS">
+                <ScalarProperty Name="id_detalle" ColumnName="id_detalle" />
+                <ScalarProperty Name="num_fact" ColumnName="num_fact" />
+                <ScalarProperty Name="id_servicio" ColumnName="id_servicio" />
+                <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+                <ScalarProperty Name="precio" ColumnName="precio" />
+                <ScalarProperty Name="itbis" ColumnName="itbis" />
+                <ScalarProperty Name="descuento" ColumnName="descuento" />
+                <ScalarProperty Name="total" ColumnName="total" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DVIAJES">
+            <EntityTypeMapping TypeName="TransporSysModel.DVIAJES">
+              <MappingFragment StoreEntitySet="DVIAJES">
+                <ScalarProperty Name="id_dviaje" ColumnName="id_dviaje" />
+                <ScalarProperty Name="id_viaje" ColumnName="id_viaje" />
+                <ScalarProperty Name="fecha_recogidaA" ColumnName="fecha_recogidaA" />
+                <ScalarProperty Name="fecha_recogidaB" ColumnName="fecha_recogidaB" />
+                <ScalarProperty Name="direc_recogida" ColumnName="direc_recogida" />
+                <ScalarProperty Name="escaleras" ColumnName="escaleras" />
+                <ScalarProperty Name="num_habitacion_recogida" ColumnName="num_habitacion_recogida" />
+                <ScalarProperty Name="instrucciones_recodida" ColumnName="instrucciones_recodida" />
+                <ScalarProperty Name="contacto_recogida" ColumnName="contacto_recogida" />
+                <ScalarProperty Name="direc_destino" ColumnName="direc_destino" />
+                <ScalarProperty Name="num_habitacion_destino" ColumnName="num_habitacion_destino" />
+                <ScalarProperty Name="instrucciones_destino" ColumnName="instrucciones_destino" />
+                <ScalarProperty Name="contacto_destino" ColumnName="contacto_destino" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -4256,6 +4271,19 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.TIPONCF' no tiene definida n
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="SERVICIOS">
+            <EntityTypeMapping TypeName="TransporSysModel.SERVICIOS">
+              <MappingFragment StoreEntitySet="SERVICIOS">
+                <ScalarProperty Name="id_servicio" ColumnName="id_servicio" />
+                <ScalarProperty Name="id_categoriaServicio" ColumnName="id_categoriaServicio" />
+                <ScalarProperty Name="id_unidad_de_medida" ColumnName="id_unidad_de_medida" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="precio" ColumnName="precio" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="SEXOS">
             <EntityTypeMapping TypeName="TransporSysModel.SEXOS">
               <MappingFragment StoreEntitySet="SEXOS">
@@ -4376,6 +4404,21 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.TIPONCF' no tiene definida n
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="TRANSPORTE">
+            <EntityTypeMapping TypeName="TransporSysModel.TRANSPORTE">
+              <MappingFragment StoreEntitySet="TRANSPORTE">
+                <ScalarProperty Name="id_transporte" ColumnName="id_transporte" />
+                <ScalarProperty Name="id_conductor" ColumnName="id_conductor" />
+                <ScalarProperty Name="num_fact" ColumnName="num_fact" />
+                <ScalarProperty Name="ida_vuelta" ColumnName="ida_vuelta" />
+                <ScalarProperty Name="fecha_transporte" ColumnName="fecha_transporte" />
+                <ScalarProperty Name="notas_viaje" ColumnName="notas_viaje" />
+                <ScalarProperty Name="id_direccionA" ColumnName="id_direccionA" />
+                <ScalarProperty Name="id_direccionB" ColumnName="id_direccionB" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="UNIDADES_DE_MEDIDA">
             <EntityTypeMapping TypeName="TransporSysModel.UNIDADES_DE_MEDIDA">
               <MappingFragment StoreEntitySet="UNIDADES_DE_MEDIDA">
@@ -4415,6 +4458,19 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.TIPONCF' no tiene definida n
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="VENTA_SERVICIOS">
+            <EntityTypeMapping TypeName="TransporSysModel.VENTA_SERVICIOS">
+              <MappingFragment StoreEntitySet="VENTA_SERVICIOS">
+                <ScalarProperty Name="num_fact" ColumnName="num_fact" />
+                <ScalarProperty Name="id_cliente" ColumnName="id_cliente" />
+                <ScalarProperty Name="id_empleado" ColumnName="id_empleado" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="id_paciente" ColumnName="id_paciente" />
+                <ScalarProperty Name="tipo_pago" ColumnName="tipo_pago" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="VENTAS">
             <EntityTypeMapping TypeName="TransporSysModel.VENTAS">
               <MappingFragment StoreEntitySet="VENTAS">
@@ -4422,39 +4478,6 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.TIPONCF' no tiene definida n
                 <ScalarProperty Name="id_cliente" ColumnName="id_cliente" />
                 <ScalarProperty Name="id_empleado" ColumnName="id_empleado" />
                 <ScalarProperty Name="fecha" ColumnName="fecha" />
-                <ScalarProperty Name="estado" ColumnName="estado" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="VIAJES">
-            <EntityTypeMapping TypeName="TransporSysModel.VIAJES">
-              <MappingFragment StoreEntitySet="VIAJES">
-                <ScalarProperty Name="id_viaje" ColumnName="id_viaje" />
-                <ScalarProperty Name="id_tipoPago" ColumnName="id_tipoPago" />
-                <ScalarProperty Name="id_cliente" ColumnName="id_cliente" />
-                <ScalarProperty Name="id_paciente" ColumnName="id_paciente" />
-                <ScalarProperty Name="id_tipoViaje" ColumnName="id_tipoViaje" />
-                <ScalarProperty Name="id_conductor" ColumnName="id_conductor" />
-                <ScalarProperty Name="oxigeno" ColumnName="oxigeno" />
-                <ScalarProperty Name="silla_rueda" ColumnName="silla_rueda" />
-                <ScalarProperty Name="camilla" ColumnName="camilla" />
-                <ScalarProperty Name="acompanante" ColumnName="acompanante" />
-                <ScalarProperty Name="personal_ayudante" ColumnName="personal_ayudante" />
-                <ScalarProperty Name="fecha_creacion" ColumnName="fecha_creacion" />
-                <ScalarProperty Name="fecha_recogida" ColumnName="fecha_recogida" />
-                <ScalarProperty Name="direc_recogida" ColumnName="direc_recogida" />
-                <ScalarProperty Name="num_habitacion_recogida" ColumnName="num_habitacion_recogida" />
-                <ScalarProperty Name="instrucciones_recodida" ColumnName="instrucciones_recodida" />
-                <ScalarProperty Name="contacto_recodigda" ColumnName="contacto_recodigda" />
-                <ScalarProperty Name="direc_destino" ColumnName="direc_destino" />
-                <ScalarProperty Name="num_habitacion_destino" ColumnName="num_habitacion_destino" />
-                <ScalarProperty Name="instrucciones_destino" ColumnName="instrucciones_destino" />
-                <ScalarProperty Name="contacto_destino" ColumnName="contacto_destino" />
-                <ScalarProperty Name="notas_viaje" ColumnName="notas_viaje" />
-                <ScalarProperty Name="total_viaje" ColumnName="total_viaje" />
-                <ScalarProperty Name="subtotal_viaje" ColumnName="subtotal_viaje" />
-                <ScalarProperty Name="descuento" ColumnName="descuento" />
-                <ScalarProperty Name="itbis" ColumnName="itbis" />
                 <ScalarProperty Name="estado" ColumnName="estado" />
               </MappingFragment>
             </EntityTypeMapping>

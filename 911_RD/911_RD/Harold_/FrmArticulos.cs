@@ -47,8 +47,11 @@ namespace _911_RD.Administracion
 
         private void btn_guardar_Click(object sender, EventArgs e)
         {
-            InsertarArticulo();
-            id_txt.Text = "";
+            if (Utilidades.ValidarFormulario(this, errorProvider1) == false)
+            {
+                InsertarArticulo();
+                id_txt.Text = "";
+            }
         }
         private void CargarCampos()
         {
@@ -76,7 +79,7 @@ namespace _911_RD.Administracion
 
         private void cargarTabla()
         {
-            using (TransporSysEntities4 db = new TransporSysEntities4())
+            using (TransporSysEntities db = new TransporSysEntities())
             {
                 try
                 {
@@ -103,65 +106,71 @@ namespace _911_RD.Administracion
         {
             //if (Utilidades.ValidarFormulario(this,errorProvider1) == true)
             //    return;
-
-            using (TransporSysEntities4 db = new TransporSysEntities4())
-            {
-                //desactiva validar el id y ten pendiente que solo se va a usar para actualizar un producto
-
-                if (id_txt.Text.Trim() == "")
+            try {
+                using (TransporSysEntities db = new TransporSysEntities())
                 {
-                    ARTICULOS art = new ARTICULOS
+                    //desactiva validar el id y ten pendiente que solo se va a usar para actualizar un producto
+
+                    if (id_txt.Text.Trim() == "")
                     {
-                        //ningun campo vacio
-                        id_categoria = Convert.ToInt32(txt_idcategoria.Text.Trim()),  //debe existir en articulo
-                        nombre = txt_nombre.Text.Trim(), //debe ser string
-                        descripcion = txt_des.Text.Trim(),//debe ser string
-                        reorden = Convert.ToDouble(txt_stock.Text.Trim()),//debe ser int
-                        precio = Convert.ToDouble(txt_precio.Text.Trim()),
-                        //imagen = (txt_foto.Text.Trim()), //debe ser string
-                        codigo_barras = txt_codBarra.Text.Trim(), //debe ser string
-                        estado = cb_estado.SelectedIndex == 0 ? true : false, //debe ser tru/false
-                        id_unidad_de_medida = Convert.ToInt32(txt_unidad.Text.Trim())
+                        ARTICULOS art = new ARTICULOS
+                        {
+                            //ningun campo vacio
+                            id_categoria = Convert.ToInt32(txt_idcategoria.Text.Trim()),  //debe existir en articulo
+                            nombre = txt_nombre.Text.Trim(), //debe ser string
+                            descripcion = txt_des.Text.Trim(),//debe ser string
+                            reorden = Convert.ToDouble(txt_stock.Text.Trim()),//debe ser int
+                            precio = Convert.ToDouble(txt_precio.Text.Trim()),
+                            //imagen = (txt_foto.Text.Trim()), //debe ser string
+                            codigo_barras = txt_codBarra.Text.Trim(), //debe ser string
+                            estado = cb_estado.SelectedIndex == 0 ? true : false, //debe ser tru/false
+                            id_unidad_de_medida = Convert.ToInt32(txt_unidad.Text.Trim())
 
-                    };
-                    db.ARTICULOS.Add(art);
-                }
-                else
-                {
-
-
-                    //TODO TUYO CABALLO Dale !
-                    //validamos que el articulo exista... SIEMPRE VA A EXISTIR, PORQUE?
-                    //Pues porque ese txt_id solo va a estar lleno si cuando le doy click en la tabla se carga el dato...
-                    //de lo contrario nunca estara lleno, pero validamos por si las moscas
-
-                    //es int pero para no estar jodiendo convirtiendo el del txt lo hago directo, pero ese dato es int
-                    var articulo = db.ARTICULOS.FirstOrDefault(a => a.id_articulo.ToString() == id_txt.Text.Trim());
-                    // si esa variable no esta vacia... pues el articulo existe y pues lo modificamos...
-                    if (articulo != null)
-                    {
-
-                        //pero aqui con ; porque es un objeto y no un tabla como alla arriba
-                        articulo.id_categoria = Convert.ToInt32(txt_idcategoria.Text.Trim());  //debe existir en articulo
-                        articulo.nombre = txt_nombre.Text.Trim(); //debe ser string
-                        articulo.descripcion = txt_des.Text.Trim();//debe ser string
-                        articulo.reorden = Convert.ToDouble(txt_stock.Text.Trim());//debe ser int
-                                                                                  // articulo.imagen = (txt_foto.Text.Trim()); //debe ser string
-                        articulo.codigo_barras = txt_codBarra.Text.Trim(); //debe ser string
-                        articulo.estado = cb_estado.SelectedIndex == 0 ? true : false; //debe ser tru/false
-                        articulo.precio = Convert.ToDouble(txt_precio.Text.Trim());
-                        articulo.id_unidad_de_medida = Convert.ToInt32(txt_unidad.Text.Trim());
+                        };
+                        db.ARTICULOS.Add(art);
                     }
+                    else
+                    {
+
+
+                        //TODO TUYO CABALLO Dale !
+                        //validamos que el articulo exista... SIEMPRE VA A EXISTIR, PORQUE?
+                        //Pues porque ese txt_id solo va a estar lleno si cuando le doy click en la tabla se carga el dato...
+                        //de lo contrario nunca estara lleno, pero validamos por si las moscas
+
+                        //es int pero para no estar jodiendo convirtiendo el del txt lo hago directo, pero ese dato es int
+                        var articulo = db.ARTICULOS.FirstOrDefault(a => a.id_articulo.ToString() == id_txt.Text.Trim());
+                        // si esa variable no esta vacia... pues el articulo existe y pues lo modificamos...
+                        if (articulo != null)
+                        {
+
+                            //pero aqui con ; porque es un objeto y no un tabla como alla arriba
+                            articulo.id_categoria = Convert.ToInt32(txt_idcategoria.Text.Trim());  //debe existir en articulo
+                            articulo.nombre = txt_nombre.Text.Trim(); //debe ser string
+                            articulo.descripcion = txt_des.Text.Trim();//debe ser string
+                            articulo.reorden = Convert.ToDouble(txt_stock.Text.Trim());//debe ser int
+                                                                                       // articulo.imagen = (txt_foto.Text.Trim()); //debe ser string
+                            articulo.codigo_barras = txt_codBarra.Text.Trim(); //debe ser string
+                            articulo.estado = cb_estado.SelectedIndex == 0 ? true : false; //debe ser tru/false
+                            articulo.precio = Convert.ToDouble(txt_precio.Text.Trim());
+                            articulo.id_unidad_de_medida = Convert.ToInt32(txt_unidad.Text.Trim());
+                        }
+                    }
+                    db.SaveChanges();
+                    Utilidades.LimpiarControles(this);
+                    cargarTabla();
                 }
-                db.SaveChanges();
-                Utilidades.LimpiarControles(this);
-                cargarTabla();
             }
+            catch (Exception dfg)
+            {
+                // MessageBox.Show(lbl_titulo + " ERRORRRR");
 
-            MessageBox.Show("");
-
-
+            }
         }
+
+        
+
+        
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -199,6 +208,8 @@ namespace _911_RD.Administracion
 
                 }
             }
+
+
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)
@@ -233,7 +244,7 @@ namespace _911_RD.Administracion
             Random rnd = new Random();
             int cod_valor = rnd.Next(1, 999999999);
             txt_codBarra.Text = cod_valor.ToString();
-            using (TransporSysEntities4 db = new TransporSysEntities4())
+            using (TransporSysEntities db = new TransporSysEntities())
             {
                 var articulo = db.ARTICULOS.FirstOrDefault(a => a.codigo_barras.ToString() == txt_codBarra.Text.Trim());
                 // si esa variable no esta vacia... pues el articulo existe y pues lo modificamos...
@@ -269,7 +280,7 @@ namespace _911_RD.Administracion
 
         private void btn_eliminar_Click(object sender, EventArgs e)
         {
-            using (TransporSysEntities4 db = new TransporSysEntities4())
+            using (TransporSysEntities db = new TransporSysEntities())
             {
 
                 var articulo = db.ARTICULOS.FirstOrDefault(a => a.id_articulo.ToString() == id_txt.Text.Trim());
@@ -307,7 +318,7 @@ namespace _911_RD.Administracion
         {
             try
             {
-                using (TransporSysEntities4 db = new TransporSysEntities4())
+                using (TransporSysEntities db = new TransporSysEntities())
                 {
                     var articulos = from pro in db.ARTICULOS
                                     join cat in db.CATEGORIAS on pro.id_categoria

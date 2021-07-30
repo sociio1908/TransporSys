@@ -54,6 +54,7 @@ namespace _911_RD.Administracion
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.txt_unidad = new _911_RD.ErrorTxtBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btn_enviar = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.txt_codBarra = new System.Windows.Forms.TextBox();
@@ -69,7 +70,6 @@ namespace _911_RD.Administracion
             this.estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.id_unidad_de_medida = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cod_barra = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btn_enviar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.btn_buscar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -88,6 +88,7 @@ namespace _911_RD.Administracion
             // 
             // btn_guardar
             // 
+            this.btn_guardar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_guardar.Location = new System.Drawing.Point(1008, 294);
             this.btn_guardar.Size = new System.Drawing.Size(181, 50);
             this.btn_guardar.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -101,6 +102,7 @@ namespace _911_RD.Administracion
             // 
             // btn_limpiar
             // 
+            this.btn_limpiar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_limpiar.Location = new System.Drawing.Point(1008, 350);
             this.btn_limpiar.Size = new System.Drawing.Size(181, 50);
             this.btn_limpiar.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -108,20 +110,21 @@ namespace _911_RD.Administracion
             // 
             // btn_salir
             // 
+            this.btn_salir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_salir.Location = new System.Drawing.Point(1008, 462);
             this.btn_salir.Size = new System.Drawing.Size(181, 50);
             this.btn_salir.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label9
             // 
-            this.label9.Location = new System.Drawing.Point(183, 20);
+            this.label9.Location = new System.Drawing.Point(180, 20);
             this.label9.Click += new System.EventHandler(this.label9_Click);
             // 
             // id_txt
             // 
             this.id_txt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.id_txt.Enabled = true;
-            this.id_txt.Location = new System.Drawing.Point(210, 14);
+            this.id_txt.Location = new System.Drawing.Point(207, 14);
             this.id_txt.Size = new System.Drawing.Size(106, 29);
             // 
             // btn_buscar
@@ -163,7 +166,7 @@ namespace _911_RD.Administracion
             this.txt_des.Limpiar = true;
             this.txt_des.Location = new System.Drawing.Point(280, 58);
             this.txt_des.Name = "txt_des";
-            this.txt_des.Size = new System.Drawing.Size(154, 26);
+            this.txt_des.Size = new System.Drawing.Size(204, 26);
             this.txt_des.SoloNumeros = false;
             this.txt_des.TabIndex = 160;
             this.txt_des.Validar = true;
@@ -320,6 +323,7 @@ namespace _911_RD.Administracion
             // txt_idcategoria
             // 
             this.txt_idcategoria.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_idcategoria.Enabled = false;
             this.txt_idcategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.txt_idcategoria.Limpiar = true;
             this.txt_idcategoria.Location = new System.Drawing.Point(38, 127);
@@ -345,6 +349,7 @@ namespace _911_RD.Administracion
             // txt_unidad
             // 
             this.txt_unidad.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_unidad.Enabled = false;
             this.txt_unidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.txt_unidad.Limpiar = true;
             this.txt_unidad.Location = new System.Drawing.Point(280, 128);
@@ -382,6 +387,24 @@ namespace _911_RD.Administracion
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "DATOS GENERALES";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // btn_enviar
+            // 
+            this.btn_enviar.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.btn_enviar.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btn_enviar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_enviar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_enviar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_enviar.ForeColor = System.Drawing.Color.White;
+            this.btn_enviar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_enviar.Location = new System.Drawing.Point(691, 126);
+            this.btn_enviar.Name = "btn_enviar";
+            this.btn_enviar.Size = new System.Drawing.Size(139, 34);
+            this.btn_enviar.TabIndex = 201;
+            this.btn_enviar.Text = "SELECCIONAR";
+            this.btn_enviar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btn_enviar.UseVisualStyleBackColor = false;
+            this.btn_enviar.Click += new System.EventHandler(this.btn_enviar_Click);
             // 
             // pictureBox1
             // 
@@ -427,7 +450,7 @@ namespace _911_RD.Administracion
             // 
             // btn_eliminar
             // 
-            this.btn_eliminar.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.btn_eliminar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_eliminar.BackColor = System.Drawing.Color.RoyalBlue;
             this.btn_eliminar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_eliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -447,9 +470,8 @@ namespace _911_RD.Administracion
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedHeaders;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -504,7 +526,7 @@ namespace _911_RD.Administracion
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
             this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(873, 215);
+            this.dataGridView1.Size = new System.Drawing.Size(984, 215);
             this.dataGridView1.TabIndex = 202;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick_1);
             this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting_1);
@@ -571,24 +593,6 @@ namespace _911_RD.Administracion
             this.cod_barra.ReadOnly = true;
             this.cod_barra.Width = 130;
             // 
-            // btn_enviar
-            // 
-            this.btn_enviar.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.btn_enviar.BackColor = System.Drawing.Color.RoyalBlue;
-            this.btn_enviar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_enviar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_enviar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_enviar.ForeColor = System.Drawing.Color.White;
-            this.btn_enviar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_enviar.Location = new System.Drawing.Point(691, 126);
-            this.btn_enviar.Name = "btn_enviar";
-            this.btn_enviar.Size = new System.Drawing.Size(139, 34);
-            this.btn_enviar.TabIndex = 201;
-            this.btn_enviar.Text = "SELECCIONAR";
-            this.btn_enviar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btn_enviar.UseVisualStyleBackColor = false;
-            this.btn_enviar.Click += new System.EventHandler(this.btn_enviar_Click);
-            // 
             // FrmArticulos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -605,16 +609,16 @@ namespace _911_RD.Administracion
             this.Controls.SetChildIndex(this.label13, 0);
             this.Controls.SetChildIndex(this.lbl_titulo, 0);
             this.Controls.SetChildIndex(this.btn_guardar, 0);
-            this.Controls.SetChildIndex(this.label9, 0);
             this.Controls.SetChildIndex(this.label15, 0);
             this.Controls.SetChildIndex(this.btn_buscar, 0);
             this.Controls.SetChildIndex(this.btn_limpiar, 0);
             this.Controls.SetChildIndex(this.btn_salir, 0);
-            this.Controls.SetChildIndex(this.id_txt, 0);
             this.Controls.SetChildIndex(this.groupBox1, 0);
             this.Controls.SetChildIndex(this.groupBox2, 0);
             this.Controls.SetChildIndex(this.btn_eliminar, 0);
             this.Controls.SetChildIndex(this.dataGridView1, 0);
+            this.Controls.SetChildIndex(this.label9, 0);
+            this.Controls.SetChildIndex(this.id_txt, 0);
             ((System.ComponentModel.ISupportInitialize)(this.btn_buscar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();

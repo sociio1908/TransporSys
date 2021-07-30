@@ -17,7 +17,7 @@ namespace _911_RD
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public CONDUCTOR()
         {
-            this.VIAJES = new HashSet<VIAJES>();
+            this.TRANSPORTE = new HashSet<TRANSPORTE>();
         }
     
         public int id_conductor { get; set; }
@@ -27,6 +27,6 @@ namespace _911_RD
     
         public virtual EMPLEADOS EMPLEADOS { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<VIAJES> VIAJES { get; set; }
+        public virtual ICollection<TRANSPORTE> TRANSPORTE { get; set; }
     }
 }

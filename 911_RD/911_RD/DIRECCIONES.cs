@@ -21,8 +21,8 @@ namespace _911_RD
         }
     
         public int id_direccion { get; set; }
-        public double latitud { get; set; }
-        public double longitud { get; set; }
+        public decimal latitud { get; set; }
+        public decimal longitud { get; set; }
     
         public virtual CIUDADES CIUDADES { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

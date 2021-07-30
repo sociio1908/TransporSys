@@ -14,9 +14,10 @@ namespace _911_RD
     
     public partial class DETALLES_COMPRAS
     {
+        public int id_detalle { get; set; }
         public int num_compra { get; set; }
         public int id_articulo { get; set; }
-        public int cantidad { get; set; }
+        public double cantidad { get; set; }
         public double precio { get; set; }
         public double itbis { get; set; }
         public double descuento { get; set; }

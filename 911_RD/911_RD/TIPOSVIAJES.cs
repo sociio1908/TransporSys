@@ -14,18 +14,9 @@ namespace _911_RD
     
     public partial class TIPOSVIAJES
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public TIPOSVIAJES()
-        {
-            this.VIAJES = new HashSet<VIAJES>();
-        }
-    
         public int id_tipoViaje { get; set; }
         public string descripcionViaje { get; set; }
         public double precio { get; set; }
         public Nullable<bool> estado { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<VIAJES> VIAJES { get; set; }
     }
 }

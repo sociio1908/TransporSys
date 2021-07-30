@@ -14,12 +14,6 @@ namespace _911_RD
     
     public partial class PACIENTES
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public PACIENTES()
-        {
-            this.VIAJES = new HashSet<VIAJES>();
-        }
-    
         public int id_paciente { get; set; }
         public int id_persona { get; set; }
         public double peso { get; set; }
@@ -33,7 +27,5 @@ namespace _911_RD
         public bool estado { get; set; }
     
         public virtual PERSONAS PERSONAS { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<VIAJES> VIAJES { get; set; }
     }
 }

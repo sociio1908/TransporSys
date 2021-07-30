@@ -46,6 +46,16 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="CATEGORIAS_SERVICIOS">
+      <EntityTypeMapping TypeName="TransporSysModel.CATEGORIAS_SERVICIOS">
+        <MappingFragment StoreEntitySet="CATEGORIAS_SERVICIOS">
+          <ScalarProperty Name="id_categoriaServicio" ColumnName="id_categoriaServicio" />
+          <ScalarProperty Name="categoria" ColumnName="categoria" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="CIUDADES">
       <EntityTypeMapping TypeName="TransporSysModel.CIUDADES">
         <MappingFragment StoreEntitySet="CIUDADES">
@@ -154,6 +164,7 @@
     <EntitySetMapping Name="DETALLES_COMPRAS">
       <EntityTypeMapping TypeName="TransporSysModel.DETALLES_COMPRAS">
         <MappingFragment StoreEntitySet="DETALLES_COMPRAS">
+          <ScalarProperty Name="id_detalle" ColumnName="id_detalle" />
           <ScalarProperty Name="num_compra" ColumnName="num_compra" />
           <ScalarProperty Name="id_articulo" ColumnName="id_articulo" />
           <ScalarProperty Name="cantidad" ColumnName="cantidad" />
@@ -206,6 +217,7 @@
     <EntitySetMapping Name="DETALLES_VENTAS">
       <EntityTypeMapping TypeName="TransporSysModel.DETALLES_VENTAS">
         <MappingFragment StoreEntitySet="DETALLES_VENTAS">
+          <ScalarProperty Name="id_detalle" ColumnName="id_detalle" />
           <ScalarProperty Name="num_fact" ColumnName="num_fact" />
           <ScalarProperty Name="id_articulo" ColumnName="id_articulo" />
           <ScalarProperty Name="cantidad" ColumnName="cantidad" />
@@ -222,6 +234,39 @@
           <ScalarProperty Name="id_direccion" ColumnName="id_direccion" />
           <ScalarProperty Name="latitud" ColumnName="latitud" />
           <ScalarProperty Name="longitud" ColumnName="longitud" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DVENTAS_SERVICIOS">
+      <EntityTypeMapping TypeName="TransporSysModel.DVENTAS_SERVICIOS">
+        <MappingFragment StoreEntitySet="DVENTAS_SERVICIOS">
+          <ScalarProperty Name="id_detalle" ColumnName="id_detalle" />
+          <ScalarProperty Name="num_fact" ColumnName="num_fact" />
+          <ScalarProperty Name="id_servicio" ColumnName="id_servicio" />
+          <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+          <ScalarProperty Name="precio" ColumnName="precio" />
+          <ScalarProperty Name="itbis" ColumnName="itbis" />
+          <ScalarProperty Name="descuento" ColumnName="descuento" />
+          <ScalarProperty Name="total" ColumnName="total" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DVIAJES">
+      <EntityTypeMapping TypeName="TransporSysModel.DVIAJES">
+        <MappingFragment StoreEntitySet="DVIAJES">
+          <ScalarProperty Name="id_dviaje" ColumnName="id_dviaje" />
+          <ScalarProperty Name="id_viaje" ColumnName="id_viaje" />
+          <ScalarProperty Name="fecha_recogidaA" ColumnName="fecha_recogidaA" />
+          <ScalarProperty Name="fecha_recogidaB" ColumnName="fecha_recogidaB" />
+          <ScalarProperty Name="direc_recogida" ColumnName="direc_recogida" />
+          <ScalarProperty Name="escaleras" ColumnName="escaleras" />
+          <ScalarProperty Name="num_habitacion_recogida" ColumnName="num_habitacion_recogida" />
+          <ScalarProperty Name="instrucciones_recodida" ColumnName="instrucciones_recodida" />
+          <ScalarProperty Name="contacto_recogida" ColumnName="contacto_recogida" />
+          <ScalarProperty Name="direc_destino" ColumnName="direc_destino" />
+          <ScalarProperty Name="num_habitacion_destino" ColumnName="num_habitacion_destino" />
+          <ScalarProperty Name="instrucciones_destino" ColumnName="instrucciones_destino" />
+          <ScalarProperty Name="contacto_destino" ColumnName="contacto_destino" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -420,6 +465,19 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="SERVICIOS">
+      <EntityTypeMapping TypeName="TransporSysModel.SERVICIOS">
+        <MappingFragment StoreEntitySet="SERVICIOS">
+          <ScalarProperty Name="id_servicio" ColumnName="id_servicio" />
+          <ScalarProperty Name="id_categoriaServicio" ColumnName="id_categoriaServicio" />
+          <ScalarProperty Name="id_unidad_de_medida" ColumnName="id_unidad_de_medida" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="precio" ColumnName="precio" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="SEXOS">
       <EntityTypeMapping TypeName="TransporSysModel.SEXOS">
         <MappingFragment StoreEntitySet="SEXOS">
@@ -540,6 +598,21 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="TRANSPORTE">
+      <EntityTypeMapping TypeName="TransporSysModel.TRANSPORTE">
+        <MappingFragment StoreEntitySet="TRANSPORTE">
+          <ScalarProperty Name="id_transporte" ColumnName="id_transporte" />
+          <ScalarProperty Name="id_conductor" ColumnName="id_conductor" />
+          <ScalarProperty Name="num_fact" ColumnName="num_fact" />
+          <ScalarProperty Name="ida_vuelta" ColumnName="ida_vuelta" />
+          <ScalarProperty Name="fecha_transporte" ColumnName="fecha_transporte" />
+          <ScalarProperty Name="notas_viaje" ColumnName="notas_viaje" />
+          <ScalarProperty Name="id_direccionA" ColumnName="id_direccionA" />
+          <ScalarProperty Name="id_direccionB" ColumnName="id_direccionB" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="UNIDADES_DE_MEDIDA">
       <EntityTypeMapping TypeName="TransporSysModel.UNIDADES_DE_MEDIDA">
         <MappingFragment StoreEntitySet="UNIDADES_DE_MEDIDA">
@@ -579,6 +652,19 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="VENTA_SERVICIOS">
+      <EntityTypeMapping TypeName="TransporSysModel.VENTA_SERVICIOS">
+        <MappingFragment StoreEntitySet="VENTA_SERVICIOS">
+          <ScalarProperty Name="num_fact" ColumnName="num_fact" />
+          <ScalarProperty Name="id_cliente" ColumnName="id_cliente" />
+          <ScalarProperty Name="id_empleado" ColumnName="id_empleado" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="id_paciente" ColumnName="id_paciente" />
+          <ScalarProperty Name="tipo_pago" ColumnName="tipo_pago" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="VENTAS">
       <EntityTypeMapping TypeName="TransporSysModel.VENTAS">
         <MappingFragment StoreEntitySet="VENTAS">
@@ -586,39 +672,6 @@
           <ScalarProperty Name="id_cliente" ColumnName="id_cliente" />
           <ScalarProperty Name="id_empleado" ColumnName="id_empleado" />
           <ScalarProperty Name="fecha" ColumnName="fecha" />
-          <ScalarProperty Name="estado" ColumnName="estado" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="VIAJES">
-      <EntityTypeMapping TypeName="TransporSysModel.VIAJES">
-        <MappingFragment StoreEntitySet="VIAJES">
-          <ScalarProperty Name="id_viaje" ColumnName="id_viaje" />
-          <ScalarProperty Name="id_tipoPago" ColumnName="id_tipoPago" />
-          <ScalarProperty Name="id_cliente" ColumnName="id_cliente" />
-          <ScalarProperty Name="id_paciente" ColumnName="id_paciente" />
-          <ScalarProperty Name="id_tipoViaje" ColumnName="id_tipoViaje" />
-          <ScalarProperty Name="id_conductor" ColumnName="id_conductor" />
-          <ScalarProperty Name="oxigeno" ColumnName="oxigeno" />
-          <ScalarProperty Name="silla_rueda" ColumnName="silla_rueda" />
-          <ScalarProperty Name="camilla" ColumnName="camilla" />
-          <ScalarProperty Name="acompanante" ColumnName="acompanante" />
-          <ScalarProperty Name="personal_ayudante" ColumnName="personal_ayudante" />
-          <ScalarProperty Name="fecha_creacion" ColumnName="fecha_creacion" />
-          <ScalarProperty Name="fecha_recogida" ColumnName="fecha_recogida" />
-          <ScalarProperty Name="direc_recogida" ColumnName="direc_recogida" />
-          <ScalarProperty Name="num_habitacion_recogida" ColumnName="num_habitacion_recogida" />
-          <ScalarProperty Name="instrucciones_recodida" ColumnName="instrucciones_recodida" />
-          <ScalarProperty Name="contacto_recodigda" ColumnName="contacto_recodigda" />
-          <ScalarProperty Name="direc_destino" ColumnName="direc_destino" />
-          <ScalarProperty Name="num_habitacion_destino" ColumnName="num_habitacion_destino" />
-          <ScalarProperty Name="instrucciones_destino" ColumnName="instrucciones_destino" />
-          <ScalarProperty Name="contacto_destino" ColumnName="contacto_destino" />
-          <ScalarProperty Name="notas_viaje" ColumnName="notas_viaje" />
-          <ScalarProperty Name="total_viaje" ColumnName="total_viaje" />
-          <ScalarProperty Name="subtotal_viaje" ColumnName="subtotal_viaje" />
-          <ScalarProperty Name="descuento" ColumnName="descuento" />
-          <ScalarProperty Name="itbis" ColumnName="itbis" />
           <ScalarProperty Name="estado" ColumnName="estado" />
         </MappingFragment>
       </EntityTypeMapping>

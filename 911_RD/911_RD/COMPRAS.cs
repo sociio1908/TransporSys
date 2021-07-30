@@ -14,6 +14,12 @@ namespace _911_RD
     
     public partial class COMPRAS
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public COMPRAS()
+        {
+            this.DETALLES_COMPRAS = new HashSet<DETALLES_COMPRAS>();
+        }
+    
         public int num_compra { get; set; }
         public int id_suplidor { get; set; }
         public int id_empleado { get; set; }
@@ -22,6 +28,7 @@ namespace _911_RD
     
         public virtual EMPLEADOS EMPLEADOS { get; set; }
         public virtual SUPLIDORES SUPLIDORES { get; set; }
-        public virtual DETALLES_COMPRAS DETALLES_COMPRAS { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<DETALLES_COMPRAS> DETALLES_COMPRAS { get; set; }
     }
 }

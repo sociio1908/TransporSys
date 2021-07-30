@@ -33,6 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BarcodeStandard">
+      <HintPath>..\..\..\TransporSysClonado\TransporSys\911_RD\packages\BarcodeLib.2.4.0\lib\netstandard2.0\BarcodeStandard.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -50,6 +53,9 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing.Common, Version=4.0.0.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Drawing.Common.5.0.2\lib\net461\System.Drawing.Common.dll</HintPath>
+    </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Xaml" />
@@ -136,6 +142,9 @@
     <Compile Include="CATEGORIAS.cs">
       <DependentUpon>TransporSysEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="CATEGORIAS_SERVICIOS.cs">
+      <DependentUpon>TransporSysEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="CIUDADES.cs">
       <DependentUpon>TransporSysEntities.tt</DependentUpon>
     </Compile>
@@ -184,6 +193,12 @@
     <Compile Include="DIRECCIONES.cs">
       <DependentUpon>TransporSysEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="DVENTAS_SERVICIOS.cs">
+      <DependentUpon>TransporSysEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DVIAJES.cs">
+      <DependentUpon>TransporSysEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="EMAILS.cs">
       <DependentUpon>TransporSysEntities.tt</DependentUpon>
     </Compile>
@@ -217,6 +232,18 @@
     <Compile Include="Administracion\FrmCliente.Designer.cs">
       <DependentUpon>FrmCliente.cs</DependentUpon>
     </Compile>
+    <Compile Include="Administracion\FrmArticulos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administracion\FrmArticulos.designer.cs">
+      <DependentUpon>FrmArticulos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Administracion\FrmCategoria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administracion\FrmCategoria.designer.cs">
+      <DependentUpon>FrmCategoria.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -234,6 +261,12 @@
     </Compile>
     <Compile Include="frmServicios.Designer.cs">
       <DependentUpon>frmServicios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Administracion\FrmUnidadesMD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administracion\FrmUnidadesMD.designer.cs">
+      <DependentUpon>FrmUnidadesMD.cs</DependentUpon>
     </Compile>
     <Compile Include="F_agenda.cs">
       <SubType>Form</SubType>
@@ -290,6 +323,9 @@
     </Compile>
     <Compile Include="Seleccion_Und.Designer.cs">
       <DependentUpon>Seleccion_Und.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SERVICIOS.cs">
+      <DependentUpon>TransporSysEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="SEXOS.cs">
       <DependentUpon>TransporSysEntities.tt</DependentUpon>
@@ -348,6 +384,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>TransporSysEntities.edmx</DependentUpon>
     </Compile>
+    <Compile Include="TRANSPORTE.cs">
+      <DependentUpon>TransporSysEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="UNIDADES_DE_MEDIDA.cs">
       <DependentUpon>TransporSysEntities.tt</DependentUpon>
     </Compile>
@@ -361,7 +400,7 @@
     <Compile Include="VENTAS.cs">
       <DependentUpon>TransporSysEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="VIAJES.cs">
+    <Compile Include="VENTA_SERVICIOS.cs">
       <DependentUpon>TransporSysEntities.tt</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Administracion\ConPrincipal.resx">
@@ -397,6 +436,12 @@
     <EmbeddedResource Include="Administracion\FrmCliente.resx">
       <DependentUpon>FrmCliente.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Administracion\FrmArticulos.resx">
+      <DependentUpon>FrmArticulos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administracion\FrmCategoria.resx">
+      <DependentUpon>FrmCategoria.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </EmbeddedResource>
@@ -405,6 +450,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmServicios.resx">
       <DependentUpon>frmServicios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administracion\FrmUnidadesMD.resx">
+      <DependentUpon>FrmUnidadesMD.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="F_agenda.resx">
       <DependentUpon>F_agenda.cs</DependentUpon>

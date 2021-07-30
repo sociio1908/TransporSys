@@ -14,17 +14,8 @@ namespace _911_RD
     
     public partial class TIPOSPAGO
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public TIPOSPAGO()
-        {
-            this.VIAJES = new HashSet<VIAJES>();
-        }
-    
         public int id_tipoPago { get; set; }
         public string descripcion { get; set; }
         public Nullable<bool> estado { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<VIAJES> VIAJES { get; set; }
     }
 }

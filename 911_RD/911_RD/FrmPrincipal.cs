@@ -123,5 +123,10 @@ namespace _911_RD
         {
             AbrirFormEnPanel(new F_principal());
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            AbrirFormEnPanel(new FrmArticulos());
+        }
     }
 }

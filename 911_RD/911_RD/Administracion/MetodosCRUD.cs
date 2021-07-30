@@ -363,8 +363,8 @@ namespace _911_RD.Administracion
                         DIRECCIONES core = new DIRECCIONES
                         {
                             
-                            latitud = Convert.ToDouble(latitud_),
-                            longitud = Convert.ToDouble(longitud_),
+                            latitud = Convert.ToDecimal(latitud_),
+                            longitud = Convert.ToDecimal(longitud_),
                         };
                         db.DIRECCIONES.Add(core);
                         db.SaveChanges();
