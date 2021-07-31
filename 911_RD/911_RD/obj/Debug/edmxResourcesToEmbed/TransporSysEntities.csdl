@@ -109,7 +109,6 @@
     </Key>
     <Property Name="id_combustible" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="precio" Type="Double" Nullable="false" />
     <Property Name="estado" Type="Boolean" Nullable="false" />
   </EntityType>
   <EntityType Name="COMPRAS">
@@ -705,13 +704,13 @@
     <Property Name="id_vehiculo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="id_marca" Type="Int32" Nullable="false" />
     <Property Name="id_modelo" Type="Int32" Nullable="false" />
-    <Property Name="id_conductor" Type="Int32" />
     <Property Name="num_chasis" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="fecha_ingreso" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="ano_fabricacion" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="gasto_galon_combustible_kilometro" Type="Double" />
     <Property Name="id_combustible" Type="Int32" Nullable="false" />
     <Property Name="num_gps" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="num_placa" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="estado" Type="Boolean" Nullable="false" />
     <NavigationProperty Name="MARCA" Relationship="Self.FK_vaehiculo" FromRole="VEHICULO" ToRole="MARCA" />
     <NavigationProperty Name="MODELO" Relationship="Self.FK_vaehicualo" FromRole="VEHICULO" ToRole="MODELO" />
@@ -773,6 +772,14 @@
     </Key>
     <Property Name="numTipo" Type="Int32" Nullable="false" />
     <Property Name="tipo" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="VEHICULOS_VS_CONDUCTOR">
+    <Key>
+      <PropertyRef Name="id_vehiculo" />
+      <PropertyRef Name="id_conductor" />
+    </Key>
+    <Property Name="id_vehiculo" Type="Int32" Nullable="false" />
+    <Property Name="id_conductor" Type="Int32" Nullable="false" />
   </EntityType>
   <Association Name="FK_EXISTENCIAS_ALMACENES">
     <End Role="ALMACENES" Type="Self.ALMACENES" Multiplicity="1" />
@@ -1571,6 +1578,7 @@
     <EntitySet Name="ARTICULOS_VS_CATEGORIAS_VS_DESCUENTOS" EntityType="Self.ARTICULOS_VS_CATEGORIAS_VS_DESCUENTOS" />
     <EntitySet Name="GPS" EntityType="Self.GPS" />
     <EntitySet Name="TIPONCF" EntityType="Self.TIPONCF" />
+    <EntitySet Name="VEHICULOS_VS_CONDUCTOR" EntityType="Self.VEHICULOS_VS_CONDUCTOR" />
     <AssociationSet Name="FK_EXISTENCIAS_ALMACENES" Association="Self.FK_EXISTENCIAS_ALMACENES">
       <End Role="ALMACENES" EntitySet="ALMACENES" />
       <End Role="EXISTENCIAS" EntitySet="EXISTENCIAS" />

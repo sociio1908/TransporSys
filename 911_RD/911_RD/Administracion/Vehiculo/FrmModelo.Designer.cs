@@ -38,12 +38,12 @@ namespace _911_RD.Administracion.Vehiculo
             this.label10 = new System.Windows.Forms.Label();
             this.txt_modelo = new _911_RD.ErrorTxtBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.txt_filtro = new _911_RD.ErrorTxtBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.id_eme = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Seleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.txt_filtro = new _911_RD.ErrorTxtBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.btn_buscar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
@@ -68,6 +68,7 @@ namespace _911_RD.Administracion.Vehiculo
             // btn_limpiar
             // 
             this.btn_limpiar.Location = new System.Drawing.Point(150, 209);
+            this.btn_limpiar.Click += new System.EventHandler(this.btn_limpiar_Click);
             // 
             // btn_salir
             // 
@@ -158,37 +159,7 @@ namespace _911_RD.Administracion.Vehiculo
             this.dataGridView1.Size = new System.Drawing.Size(405, 162);
             this.dataGridView1.TabIndex = 184;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // txt_filtro
-            // 
-            this.txt_filtro.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.txt_filtro.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txt_filtro.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.txt_filtro.Limpiar = false;
-            this.txt_filtro.Location = new System.Drawing.Point(91, 274);
-            this.txt_filtro.Name = "txt_filtro";
-            this.txt_filtro.Size = new System.Drawing.Size(170, 26);
-            this.txt_filtro.SoloNumeros = false;
-            this.txt_filtro.TabIndex = 185;
-            this.txt_filtro.Validar = false;
-            // 
-            // label13
-            // 
-            this.label13.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label13.Location = new System.Drawing.Point(9, 279);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(76, 16);
-            this.label13.TabIndex = 186;
-            this.label13.Text = "BUSQUEDA";
-            // 
-            // errorProvider1
-            // 
-            this.errorProvider1.ContainerControl = this;
+            this.dataGridView1.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentDoubleClick);
             // 
             // id_eme
             // 
@@ -220,6 +191,37 @@ namespace _911_RD.Administracion.Vehiculo
             this.Seleccionar.Name = "Seleccionar";
             this.Seleccionar.ReadOnly = true;
             this.Seleccionar.Text = "Editar";
+            // 
+            // txt_filtro
+            // 
+            this.txt_filtro.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.txt_filtro.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_filtro.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.txt_filtro.Limpiar = false;
+            this.txt_filtro.Location = new System.Drawing.Point(91, 274);
+            this.txt_filtro.Name = "txt_filtro";
+            this.txt_filtro.Size = new System.Drawing.Size(170, 26);
+            this.txt_filtro.SoloNumeros = false;
+            this.txt_filtro.TabIndex = 185;
+            this.txt_filtro.Validar = false;
+            // 
+            // label13
+            // 
+            this.label13.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label13.Location = new System.Drawing.Point(9, 279);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(76, 16);
+            this.label13.TabIndex = 186;
+            this.label13.Text = "BUSQUEDA";
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
             // 
             // FrmModelo
             // 

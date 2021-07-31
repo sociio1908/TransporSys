@@ -89,5 +89,6 @@ namespace _911_RD
         public virtual DbSet<ARTICULOS_VS_CATEGORIAS_VS_DESCUENTOS> ARTICULOS_VS_CATEGORIAS_VS_DESCUENTOS { get; set; }
         public virtual DbSet<GPS> GPS { get; set; }
         public virtual DbSet<TIPONCF> TIPONCF { get; set; }
+        public virtual DbSet<VEHICULOS_VS_CONDUCTOR> VEHICULOS_VS_CONDUCTOR { get; set; }
     }
 }

@@ -94,7 +94,6 @@
         <MappingFragment StoreEntitySet="COMBUSTIBLE">
           <ScalarProperty Name="id_combustible" ColumnName="id_combustible" />
           <ScalarProperty Name="descripcion" ColumnName="descripcion" />
-          <ScalarProperty Name="precio" ColumnName="precio" />
           <ScalarProperty Name="estado" ColumnName="estado" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -641,13 +640,13 @@
           <ScalarProperty Name="id_vehiculo" ColumnName="id_vehiculo" />
           <ScalarProperty Name="id_marca" ColumnName="id_marca" />
           <ScalarProperty Name="id_modelo" ColumnName="id_modelo" />
-          <ScalarProperty Name="id_conductor" ColumnName="id_conductor" />
           <ScalarProperty Name="num_chasis" ColumnName="num_chasis" />
           <ScalarProperty Name="fecha_ingreso" ColumnName="fecha_ingreso" />
           <ScalarProperty Name="ano_fabricacion" ColumnName="ano_fabricacion" />
           <ScalarProperty Name="gasto_galon_combustible_kilometro" ColumnName="gasto_galon_combustible_kilometro" />
           <ScalarProperty Name="id_combustible" ColumnName="id_combustible" />
           <ScalarProperty Name="num_gps" ColumnName="num_gps" />
+          <ScalarProperty Name="num_placa" ColumnName="num_placa" />
           <ScalarProperty Name="estado" ColumnName="estado" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -700,6 +699,14 @@
         <MappingFragment StoreEntitySet="TIPONCF">
           <ScalarProperty Name="numTipo" ColumnName="numTipo" />
           <ScalarProperty Name="tipo" ColumnName="tipo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VEHICULOS_VS_CONDUCTOR">
+      <EntityTypeMapping TypeName="TransporSysModel.VEHICULOS_VS_CONDUCTOR">
+        <MappingFragment StoreEntitySet="VEHICULOS_VS_CONDUCTOR">
+          <ScalarProperty Name="id_vehiculo" ColumnName="id_vehiculo" />
+          <ScalarProperty Name="id_conductor" ColumnName="id_conductor" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

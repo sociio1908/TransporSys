@@ -23,7 +23,6 @@ namespace _911_RD.Administracion.Vehiculo
             InsertarPuesto();
         }
 
-
         private void InsertarPuesto()
         {
             try
@@ -103,7 +102,21 @@ namespace _911_RD.Administracion.Vehiculo
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (e.RowIndex < 0)
+                return;
+
             CargarCampos();
+        }
+
+        private void btn_limpiar_Click(object sender, EventArgs e)
+        {
+            Utilidades.LimpiarControles(this);
+            cargarTabla();
+        }
+
+        private void dataGridView1_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            this.DialogResult = DialogResult.OK;
         }
     }
 }

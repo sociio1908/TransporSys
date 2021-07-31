@@ -67,6 +67,7 @@ namespace _911_RD.Administracion.Vehiculo
             // btn_limpiar
             // 
             this.btn_limpiar.Location = new System.Drawing.Point(157, 192);
+            this.btn_limpiar.Click += new System.EventHandler(this.btn_limpiar_Click);
             // 
             // btn_salir
             // 
@@ -184,6 +185,7 @@ namespace _911_RD.Administracion.Vehiculo
             this.dataGridView1.Size = new System.Drawing.Size(393, 176);
             this.dataGridView1.TabIndex = 187;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.dataGridView1.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentDoubleClick);
             // 
             // id_eme
             // 

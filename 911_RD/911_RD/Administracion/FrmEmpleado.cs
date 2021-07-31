@@ -205,30 +205,37 @@ namespace _911_RD.Administracion
 
         private void btn_Cargo_Click(object sender, EventArgs e)
         {
-            using (FrmCargo frmCargo = new FrmCargo())
+
+            try
             {
-                DialogResult dr =  frmCargo.ShowDialog();
-                if (dr == DialogResult.OK)
+                using (FrmCargo frmCargo = new FrmCargo())
                 {
-                    txt_id_cargo.Text = frmCargo.dataGridView1.CurrentRow.Cells[0].Value.ToString();
-                    txt_cargo.Text = frmCargo.dataGridView1.CurrentRow.Cells[1].Value.ToString();
-                    txt_des_puesto.Text = frmCargo.dataGridView1.CurrentRow.Cells[2].Value.ToString();
-                    txt_salario.Text = frmCargo.dataGridView1.CurrentRow.Cells[3].Value.ToString();
-
-                    if (txt_cargo.Text.Trim().ToLower() == "conductor" || txt_cargo.Text.Trim().ToLower() == "chofer" || txt_cargo.Text.Trim().ToLower() == "piloto" || txt_cargo.Text.Trim().ToLower() == "automovilista")
+                    DialogResult dr = frmCargo.ShowDialog();
+                    if (dr == DialogResult.OK)
                     {
-                        lbl_conductor.Visible = true;
-                        p_conductor.Visible = true;
-                        conductor = true;
-                    }
-                    else
-                    {
-                        lbl_conductor.Visible = false;
-                        p_conductor.Visible = false;
-                        conductor = false;
-                    }
+                        txt_id_cargo.Text = frmCargo.dataGridView1.CurrentRow.Cells[0].Value.ToString();
+                        txt_cargo.Text = frmCargo.dataGridView1.CurrentRow.Cells[1].Value.ToString();
+                        txt_des_puesto.Text = frmCargo.dataGridView1.CurrentRow.Cells[2].Value.ToString();
+                        txt_salario.Text = frmCargo.dataGridView1.CurrentRow.Cells[3].Value.ToString();
 
+                        if (txt_cargo.Text.Trim().ToLower() == "conductor" || txt_cargo.Text.Trim().ToLower() == "chofer" || txt_cargo.Text.Trim().ToLower() == "piloto" || txt_cargo.Text.Trim().ToLower() == "automovilista")
+                        {
+                            lbl_conductor.Visible = true;
+                            p_conductor.Visible = true;
+                            conductor = true;
+                        }
+                        else
+                        {
+                            lbl_conductor.Visible = false;
+                            p_conductor.Visible = false;
+                            conductor = false;
+                        }
+
+                    }
                 }
+            }catch(Exception asa)
+            {
+                //error
             }
         }
 

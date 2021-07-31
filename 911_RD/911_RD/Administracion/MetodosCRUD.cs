@@ -59,6 +59,32 @@ namespace _911_RD.Administracion
             return id_result;
         }
 
+
+        public bool ValidarChasis_Placa(string campo)
+        {
+            bool id_result = false;
+
+            try
+            {
+                //TransporSysEntities
+                using (TransporSysEntities db = new TransporSysEntities())
+                {
+                    var terceroquery = db.VEHICULO.FirstOrDefault(a => a.num_chasis.ToString() == campo.Trim() || a.num_placa.ToString() == campo.Trim() || a.num_gps.ToString() == campo.Trim());
+                    if (terceroquery != null)
+                    {
+                        return true;
+                    }
+                 
+                }
+            }
+            catch (Exception asd)
+            {
+
+            }
+
+            return id_result;
+        }
+
         public int crudEmpleado(string id_puesto, string id_persona, DateTime fecha, bool estadoT)
         {
             int id_result = 0;
@@ -141,8 +167,6 @@ namespace _911_RD.Administracion
 
             return id_result;
         }
-
-
 
 
         public DataTable buscarEmpleado(string identidicacion, string codigo){

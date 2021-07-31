@@ -106,5 +106,16 @@ namespace _911_RD.Administracion.Vehiculo
         {
             CargarCampos();
         }
+
+        private void btn_limpiar_Click(object sender, EventArgs e)
+        {
+            Utilidades.LimpiarControles(this);
+            cargarTabla();
+        }
+
+        private void dataGridView1_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            this.DialogResult = DialogResult.OK;
+        }
     }
 }

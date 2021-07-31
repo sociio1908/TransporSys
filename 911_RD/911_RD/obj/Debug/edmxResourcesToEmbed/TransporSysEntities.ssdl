@@ -98,7 +98,6 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.ARTICULOS_VS_CATEGORIAS_VS_D
     </Key>
     <Property Name="id_combustible" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="descripcion" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="precio" Type="float" Nullable="false" />
     <Property Name="estado" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="COMPRAS">
@@ -677,14 +676,24 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.TIPONCF' no tiene definida n
     <Property Name="id_vehiculo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="id_marca" Type="int" Nullable="false" />
     <Property Name="id_modelo" Type="int" Nullable="false" />
-    <Property Name="id_conductor" Type="int" />
     <Property Name="num_chasis" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="fecha_ingreso" Type="datetime" Nullable="false" />
     <Property Name="ano_fabricacion" Type="datetime" Nullable="false" />
     <Property Name="gasto_galon_combustible_kilometro" Type="float" />
     <Property Name="id_combustible" Type="int" Nullable="false" />
     <Property Name="num_gps" Type="varchar" MaxLength="50" />
+    <Property Name="num_placa" Type="varchar" MaxLength="50" />
     <Property Name="estado" Type="bit" Nullable="false" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'TransporSys.dbo.VEHICULOS_VS_CONDUCTOR' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="VEHICULOS_VS_CONDUCTOR">
+    <Key>
+      <PropertyRef Name="id_vehiculo" />
+      <PropertyRef Name="id_conductor" />
+    </Key>
+    <Property Name="id_vehiculo" Type="int" Nullable="false" />
+    <Property Name="id_conductor" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="VENTA_SERVICIOS">
     <Key>
@@ -1673,6 +1682,12 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.TIPONCF' no tiene definida n
     [TIPONCF].[numTipo] AS [numTipo], 
     [TIPONCF].[tipo] AS [tipo]
     FROM [dbo].[TIPONCF] AS [TIPONCF]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="VEHICULOS_VS_CONDUCTOR" EntityType="Self.VEHICULOS_VS_CONDUCTOR" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [VEHICULOS_VS_CONDUCTOR].[id_vehiculo] AS [id_vehiculo], 
+    [VEHICULOS_VS_CONDUCTOR].[id_conductor] AS [id_conductor]
+    FROM [dbo].[VEHICULOS_VS_CONDUCTOR] AS [VEHICULOS_VS_CONDUCTOR]</DefiningQuery>
     </EntitySet>
     <AssociationSet Name="FK__CONDUCTOR__id_em__54CB950F" Association="Self.FK__CONDUCTOR__id_em__54CB950F">
       <End Role="EMPLEADOS" EntitySet="EMPLEADOS" />
