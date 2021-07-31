@@ -33,7 +33,7 @@ namespace _911_RD.Administracion
 
         private void FrmVentas_Load(object sender, EventArgs e)
         {
-
+          
         }
 
         private void txt_codBarra_TextChanged(object sender, EventArgs e)
@@ -136,9 +136,9 @@ namespace _911_RD.Administracion
         private void button14_Click(object sender, EventArgs e)
         {
 
-            if (txt_cantidad.Text == "0")
+            if (txt_cantidad.Text == "0"|| txt_id.Text == "")
             {
-                MessageBox.Show("LA CANTIDAD DEL PRODUCTO NO PUEDE SER 0");
+                MessageBox.Show("NO HAY PRODUCTO SLECCIONADO o LA CANTIDAD DEL PRODUCTO NO PUEDE SER 0");
             }
             else
             {
@@ -210,7 +210,7 @@ namespace _911_RD.Administracion
 
         private void CargarFact()
         {
-            using (TransporSysEntities4 db = new TransporSysEntities4())
+            using (TransporSysEntities db = new TransporSysEntities())
             {
                 if (dataGridView1.Rows.Count <= 0)
                 {
@@ -218,19 +218,22 @@ namespace _911_RD.Administracion
                 }
                 else
                 {
-
-                    VENTAS vent = new VENTAS
+                    try
                     {
-                        //ningun campo vacio
-                        num_fact = Convert.ToInt32(txt_numfactura.Text.Trim()),
-                        id_cliente = 1,
-                        id_empleado = 1,
-                        fecha = DateTime.Now,
-                        estado = true,
-                    };
-                    db.VENTAS.Add(vent);
-                    db.SaveChanges();
-                }
+                        VENTAS vent = new VENTAS
+                        {
+                            //ningun campo vacio
+                            num_fact = Convert.ToInt32(txt_numfactura.Text.Trim()),
+                            id_cliente = 1,
+                            id_empleado = 1,
+                            fecha = DateTime.Now,
+                            estado = true,
+                        };
+                        db.VENTAS.Add(vent);
+                        db.SaveChanges();
+                    }
+                    catch (Exception) { }
+                    }
 
                 MessageBox.Show("");
             }
@@ -240,33 +243,37 @@ namespace _911_RD.Administracion
 
         private void InsertarDetalle()
         {
-            using (TransporSysEntities4 db = new TransporSysEntities4())
+            using (TransporSysEntities db = new TransporSysEntities())
             {
+
                 if (dataGridView1.Rows.Count <= 0)
                 {
                     MessageBox.Show("ESTA VACIO");
                 }
                 else 
                 {
-
-                    foreach (DataGridViewRow row in dataGridView1.Rows)
+                    try
                     {
-
-                        DETALLES_VENTAS Dvent = new DETALLES_VENTAS
+                        foreach (DataGridViewRow row in dataGridView1.Rows)
                         {
 
-                            num_fact = Convert.ToInt32(txt_numfactura.Text.Trim()),
-                            id_articulo = Convert.ToInt32(row.Cells[0].Value.ToString()),
-                            cantidad = Convert.ToDouble(row.Cells[2].Value.ToString()),
-                            precio = Convert.ToDouble(row.Cells[3].Value.ToString()),
-                            itbis = Convert.ToDouble(txt_impuesto.Text.Trim()),
-                            descuento = 0,
-                            total = Convert.ToDouble(txt_impTotal.Text.Trim())
-                        };
-                        db.DETALLES_VENTAS.Add(Dvent);
+                            DETALLES_VENTAS Dvent = new DETALLES_VENTAS
+                            {
 
+                                num_fact = Convert.ToInt32(txt_numfactura.Text.Trim()),
+                                id_articulo = Convert.ToInt32(row.Cells[0].Value.ToString()),
+                                cantidad = Convert.ToDouble(row.Cells[2].Value.ToString()),
+                                precio = Convert.ToDouble(row.Cells[3].Value.ToString()),
+                                itbis = Convert.ToDouble(txt_impuesto.Text.Trim()),
+                                descuento = 0,
+                                total = Convert.ToDouble(txt_impTotal.Text.Trim())
+                            };
+                            db.DETALLES_VENTAS.Add(Dvent);
+
+                        }
+                        db.SaveChanges();
                     }
-                    db.SaveChanges();
+                    catch (Exception) { }
                 }
 
                 MessageBox.Show("");
@@ -277,37 +284,49 @@ namespace _911_RD.Administracion
 
         private void ActualizarStock()
         {
-            using (var db = new TransporSysEntities4())
+            using (var db = new TransporSysEntities())
             {
-
-                foreach(DataGridViewRow row in dataGridView1.Rows)
+                try
                 {
-                    int a = Convert.ToInt32(row.Cells["id_articulos"].Value.ToString());
-                    int c = Convert.ToInt32(row.Cells["cantidad"].Value.ToString());
-                    
-                    var result = db.ARTICULOS.SingleOrDefault(b => b.id_articulo == a);
-                    var stockactual = db.ARTICULOS.SingleOrDefault(b => b.id_articulo == a);
-                    int d = Convert.ToInt32(stockactual.reorden.ToString());
-                    double actstock = d-c;
-                    if (result != null)
+                    foreach (DataGridViewRow row in dataGridView1.Rows)
                     {
-                        result.reorden = actstock;
-                        db.SaveChanges();
+                        int a = Convert.ToInt32(row.Cells["id_articulos"].Value.ToString());
+                        int c = Convert.ToInt32(row.Cells["cantidad"].Value.ToString());
+
+                        var result = db.ARTICULOS.SingleOrDefault(b => b.id_articulo == a);
+                        var stockactual = db.ARTICULOS.SingleOrDefault(b => b.id_articulo == a);
+                        int d = Convert.ToInt32(stockactual.reorden.ToString());
+                        double actstock = d - c;
+                        if (result != null)
+                        {
+                            result.reorden = actstock;
+                            db.SaveChanges();
+                        }
                     }
+                }catch(Exception)
+                {
+
                 }
-                
-            }
+
+                }
         }
 
         private void button1_Click_2(object sender, EventArgs e)
         {
-            dataGridView1.Rows.RemoveAt(dataGridView1.CurrentRow.Index);
-            SumarFilas();
-            if (dataGridView1.Rows.Count ==0)
+            if (dataGridView1.Rows.Count == 0)
             {
-                txt_subtotal.Text = "0.0";
-                txt_impuesto.Text = "0.0";
-                txt_impTotal.Text = "0.0";
+                MessageBox.Show("NO HAY ELEMENTOS");
+            }
+            else
+            {
+                dataGridView1.Rows.RemoveAt(dataGridView1.CurrentRow.Index);
+                SumarFilas();
+                if (dataGridView1.Rows.Count == 0)
+                {
+                    txt_subtotal.Text = "0.0";
+                    txt_impuesto.Text = "0.0";
+                    txt_impTotal.Text = "0.0";
+                }
             }
             
         }

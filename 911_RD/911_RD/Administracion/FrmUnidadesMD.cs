@@ -48,7 +48,7 @@ namespace _911_RD.Administracion
 
         private void cargarTabla()
         {
-            using (TransporSysEntities4 db = new TransporSysEntities4())
+            using (TransporSysEntities db = new TransporSysEntities())
             {
                 try
                 {
@@ -72,45 +72,50 @@ namespace _911_RD.Administracion
             //if (Utilidades.ValidarFormulario(this,errorProvider1) == true)
             //    return;
 
-            using (TransporSysEntities4 db = new TransporSysEntities4())
+            using (TransporSysEntities db = new TransporSysEntities())
             {
-                //desactiva validar el id y ten pendiente que solo se va a usar para actualizar un producto
-
-                if (id_txt.Text.Trim() == "")
+                try
                 {
-                    UNIDADES_DE_MEDIDA und_med = new UNIDADES_DE_MEDIDA
+                    if (txt_abreviatura.Text == "" || txt_descripcion.Text == "" || txt_unidad.Text == "")
                     {
-                        unidad_de_medida = txt_unidad.Text.Trim(),
-                        descripcion = txt_descripcion.Text.Trim(),
-                        abreviatura = txt_abreviatura.Text.Trim()
-
-                    };
-                    db.UNIDADES_DE_MEDIDA.Add(und_med);
-                }
-                else
-                {
-
-
-                    //es int pero para no estar jodiendo convirtiendo el del txt lo hago directo, pero ese dato es int
-                    var unidades = db.UNIDADES_DE_MEDIDA.FirstOrDefault(a => a.id_unidad_de_medida.ToString() == id_txt.Text.Trim());
-                    // si esa variable no esta vacia... pues el articulo existe y pues lo modificamos...
-                    if (unidades != null)
-                    {
-
-                        unidades.unidad_de_medida = txt_unidad.Text.Trim();
-                        unidades.descripcion = txt_descripcion.Text.Trim();
-                        unidades.abreviatura = txt_abreviatura.Text.Trim();
-
-
+                        MessageBox.Show("NINGUN CAMPO PUEDE ESTAR VACIO");
                     }
+                    else
+                    if (id_txt.Text.Trim() == "")
+                    {
+                        UNIDADES_DE_MEDIDA und_med = new UNIDADES_DE_MEDIDA
+                        {
+                            unidad_de_medida = txt_unidad.Text.Trim(),
+                            descripcion = txt_descripcion.Text.Trim(),
+                            abreviatura = txt_abreviatura.Text.Trim()
+
+                        };
+                        db.UNIDADES_DE_MEDIDA.Add(und_med);
+                    }
+                    else
+                    {
+
+
+                        //es int pero para no estar jodiendo convirtiendo el del txt lo hago directo, pero ese dato es int
+                        var unidades = db.UNIDADES_DE_MEDIDA.FirstOrDefault(a => a.id_unidad_de_medida.ToString() == id_txt.Text.Trim());
+                        // si esa variable no esta vacia... pues el articulo existe y pues lo modificamos...
+                        if (unidades != null)
+                        {
+
+                            unidades.unidad_de_medida = txt_unidad.Text.Trim();
+                            unidades.descripcion = txt_descripcion.Text.Trim();
+                            unidades.abreviatura = txt_abreviatura.Text.Trim();
+
+
+                        }
+                        MessageBox.Show("COMPLETO");
+                    }
+                    db.SaveChanges();
+                    Utilidades.LimpiarControles(this);
+                    cargarTabla();
                 }
-                db.SaveChanges();
-                Utilidades.LimpiarControles(this);
-                cargarTabla();
+                catch (Exception) { }
             }
-
-            MessageBox.Show("");
-
 
         }
 
@@ -139,7 +144,7 @@ namespace _911_RD.Administracion
         {
             try
             {
-                using (TransporSysEntities4 db = new TransporSysEntities4())
+                using (TransporSysEntities db = new TransporSysEntities())
                 {
                     var categoria = from pro in db.UNIDADES_DE_MEDIDA
                                     join cat in db.UNIDADES_DE_MEDIDA on pro.id_unidad_de_medida
@@ -152,7 +157,7 @@ namespace _911_RD.Administracion
                                         pro.unidad_de_medida,
                                         pro.descripcion,
 
-                                        cat.ARTICULOS,
+                                        
                                         pro.abreviatura,
 
                                         //etc

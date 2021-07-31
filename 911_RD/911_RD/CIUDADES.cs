@@ -14,10 +14,18 @@ namespace _911_RD
     
     public partial class CIUDADES
     {
-        public double id_ciudad { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public CIUDADES()
+        {
+            this.DIRECCIONES = new HashSet<DIRECCIONES>();
+        }
+    
+        public decimal id_ciudad { get; set; }
         public int id_provincia { get; set; }
         public string ciudad { get; set; }
     
         public virtual PROVINCIAS PROVINCIAS { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<DIRECCIONES> DIRECCIONES { get; set; }
     }
 }

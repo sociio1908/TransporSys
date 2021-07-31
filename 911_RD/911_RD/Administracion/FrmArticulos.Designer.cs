@@ -54,6 +54,7 @@ namespace _911_RD.Administracion
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.txt_unidad = new _911_RD.ErrorTxtBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btn_enviar = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.txt_codBarra = new System.Windows.Forms.TextBox();
@@ -69,7 +70,6 @@ namespace _911_RD.Administracion
             this.estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.id_unidad_de_medida = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cod_barra = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btn_enviar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.btn_buscar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -123,6 +123,7 @@ namespace _911_RD.Administracion
             this.id_txt.Enabled = true;
             this.id_txt.Location = new System.Drawing.Point(210, 14);
             this.id_txt.Size = new System.Drawing.Size(106, 29);
+            this.id_txt.Validar = true;
             // 
             // btn_buscar
             // 
@@ -383,6 +384,24 @@ namespace _911_RD.Administracion
             this.groupBox1.Text = "DATOS GENERALES";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
+            // btn_enviar
+            // 
+            this.btn_enviar.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.btn_enviar.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btn_enviar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_enviar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_enviar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_enviar.ForeColor = System.Drawing.Color.White;
+            this.btn_enviar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_enviar.Location = new System.Drawing.Point(691, 126);
+            this.btn_enviar.Name = "btn_enviar";
+            this.btn_enviar.Size = new System.Drawing.Size(139, 34);
+            this.btn_enviar.TabIndex = 201;
+            this.btn_enviar.Text = "SELECCIONAR";
+            this.btn_enviar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btn_enviar.UseVisualStyleBackColor = false;
+            this.btn_enviar.Click += new System.EventHandler(this.btn_enviar_Click);
+            // 
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.LightGreen;
@@ -570,24 +589,6 @@ namespace _911_RD.Administracion
             this.cod_barra.Name = "cod_barra";
             this.cod_barra.ReadOnly = true;
             this.cod_barra.Width = 130;
-            // 
-            // btn_enviar
-            // 
-            this.btn_enviar.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.btn_enviar.BackColor = System.Drawing.Color.RoyalBlue;
-            this.btn_enviar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_enviar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_enviar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_enviar.ForeColor = System.Drawing.Color.White;
-            this.btn_enviar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_enviar.Location = new System.Drawing.Point(691, 126);
-            this.btn_enviar.Name = "btn_enviar";
-            this.btn_enviar.Size = new System.Drawing.Size(139, 34);
-            this.btn_enviar.TabIndex = 201;
-            this.btn_enviar.Text = "SELECCIONAR";
-            this.btn_enviar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btn_enviar.UseVisualStyleBackColor = false;
-            this.btn_enviar.Click += new System.EventHandler(this.btn_enviar_Click);
             // 
             // FrmArticulos
             // 

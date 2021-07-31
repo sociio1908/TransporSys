@@ -87,7 +87,7 @@ namespace _911_RD.Administracion
             this.txt_id = new _911_RD.ErrorTxtBox();
             this.txt_numfactura = new _911_RD.ErrorTxtBox();
             this.txt_cantidad = new _911_RD.ErrorTxtBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btn_quitar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -909,27 +909,27 @@ namespace _911_RD.Administracion
             this.txt_cantidad.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txt_cantidad.Validar = true;
             // 
-            // button1
+            // btn_quitar
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.button1.Image = global::_911_RD.Properties.Resources.eraser;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(918, 499);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(266, 65);
-            this.button1.TabIndex = 228;
-            this.button1.Text = "REMOVER PRODUCTO";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click_2);
+            this.btn_quitar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.btn_quitar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_quitar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.btn_quitar.FlatAppearance.BorderSize = 0;
+            this.btn_quitar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.btn_quitar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.btn_quitar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_quitar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_quitar.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.btn_quitar.Image = global::_911_RD.Properties.Resources.eraser;
+            this.btn_quitar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_quitar.Location = new System.Drawing.Point(918, 499);
+            this.btn_quitar.Name = "btn_quitar";
+            this.btn_quitar.Size = new System.Drawing.Size(266, 65);
+            this.btn_quitar.TabIndex = 228;
+            this.btn_quitar.Text = "REMOVER PRODUCTO";
+            this.btn_quitar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btn_quitar.UseVisualStyleBackColor = false;
+            this.btn_quitar.Click += new System.EventHandler(this.button1_Click_2);
             // 
             // FrmVentas
             // 
@@ -937,7 +937,7 @@ namespace _911_RD.Administracion
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(44)))));
             this.ClientSize = new System.Drawing.Size(1200, 734);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btn_quitar);
             this.Controls.Add(this.btn_factura);
             this.Controls.Add(this.label17);
             this.Controls.Add(this.label16);
@@ -1033,6 +1033,6 @@ namespace _911_RD.Administracion
         private System.Windows.Forms.DataGridViewTextBoxColumn precio;
         private System.Windows.Forms.DataGridViewTextBoxColumn descuento;
         private System.Windows.Forms.DataGridViewTextBoxColumn total;
-        public System.Windows.Forms.Button button1;
+        public System.Windows.Forms.Button btn_quitar;
     }
 }

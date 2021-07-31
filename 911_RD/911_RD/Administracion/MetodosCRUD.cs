@@ -24,7 +24,7 @@ namespace _911_RD.Administracion
             try
             {
                 //TransporSysEntities4
-                using (TransporSysEntities4 db = new TransporSysEntities4())
+                using (TransporSysEntities db = new TransporSysEntities())
                 {
                     var terceroquery = db.CONDUCTOR.FirstOrDefault(a => a.id_empleado.ToString() == id_empleado.Trim());
                     if (terceroquery == null)
@@ -65,7 +65,7 @@ namespace _911_RD.Administracion
             try
             {
                 //TransporSysEntities4
-                using (TransporSysEntities4 db = new TransporSysEntities4())
+                using (TransporSysEntities db = new TransporSysEntities())
                 {
                     var terceroquery = db.EMPLEADOS.FirstOrDefault(a => a.id_persona.ToString() == id_persona.Trim());
                     if (terceroquery == null)
@@ -109,7 +109,7 @@ namespace _911_RD.Administracion
             try
             {
                 //TransporSysEntities4
-                using (TransporSysEntities4 db = new TransporSysEntities4())
+                using (TransporSysEntities db = new TransporSysEntities())
                 {
                     var terceroquery = db.TERCEROS.FirstOrDefault(a => a.id_tercero.ToString() == id_traido.Trim());
                     if (terceroquery == null)
@@ -195,7 +195,7 @@ namespace _911_RD.Administracion
             int id_result = 0;
             try
             {
-                using (TransporSysEntities4 db = new TransporSysEntities4())
+                using (TransporSysEntities db = new TransporSysEntities())
                 {
                     var terceroquery = db.IDENTIFICACIONES.FirstOrDefault(a => a.identificacion.ToString() == identificacion.Trim());
                     if (terceroquery == null)
@@ -234,7 +234,7 @@ namespace _911_RD.Administracion
             int id_result = 0;
             try
             {
-                using (TransporSysEntities4 db = new TransporSysEntities4())
+                using (TransporSysEntities db = new TransporSysEntities())
                 {
                     var terceroquery = db.PERSONAS.FirstOrDefault(a => a.id_tercero.ToString() == id_ter_traido.Trim());
                     if (terceroquery == null)
@@ -280,7 +280,7 @@ namespace _911_RD.Administracion
             int id_result = 0;
             try
             {
-                using (TransporSysEntities4 db = new TransporSysEntities4())
+                using (TransporSysEntities db = new TransporSysEntities())
                 {
                     var terceroquery = db.EMAILS.FirstOrDefault(a => a.email.ToString() == correo.Trim());
                     if (terceroquery == null)
@@ -318,7 +318,7 @@ namespace _911_RD.Administracion
             int id_result = 0;
             try
             {
-                using (TransporSysEntities4 db = new TransporSysEntities4())
+                using (TransporSysEntities db = new TransporSysEntities())
                 {
                     var terceroquery = db.TELEFONOS.FirstOrDefault(a => a.telefono.ToString() == telefono.Trim());
                     if (terceroquery == null)
@@ -356,7 +356,7 @@ namespace _911_RD.Administracion
             int id_result = 0;
             try
             {
-                using (TransporSysEntities4 db = new TransporSysEntities4())
+                using (TransporSysEntities db = new TransporSysEntities())
                 {
                     var terceroquery = db.DIRECCIONES.FirstOrDefault(a => a.latitud.ToString() == latitud_.Trim() && a.longitud.ToString() == longitud_.Trim());
                     if (terceroquery == null)
@@ -429,7 +429,7 @@ namespace _911_RD.Administracion
 
             try
             {
-                using (TransporSysEntities4 db = new TransporSysEntities4())
+                using (TransporSysEntities db = new TransporSysEntities())
                 {
 
                     int id_cont = db.CONTINENTES.FirstOrDefault(a => a.continente == continente).id_continente;
@@ -462,7 +462,7 @@ namespace _911_RD.Administracion
             List<string> result = new List<string>();
             try
             {
-                using (TransporSysEntities4 db = new TransporSysEntities4())
+                using (TransporSysEntities db = new TransporSysEntities())
                 {
 
                     int id_p = db.PAISES.FirstOrDefault(a => a.pais == pais).id_pais;
@@ -496,7 +496,7 @@ namespace _911_RD.Administracion
 
             try
             {
-                using (TransporSysEntities4 db = new TransporSysEntities4())
+                using (TransporSysEntities db = new TransporSysEntities())
                 {
 
                     int id_provincia = db.PROVINCIAS.FirstOrDefault(a => a.provincia == provincia).id_provincia;

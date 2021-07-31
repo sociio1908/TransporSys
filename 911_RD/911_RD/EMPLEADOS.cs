@@ -29,7 +29,7 @@ namespace _911_RD
             this.SALIDAS = new HashSet<SALIDAS>();
             this.USUARIOS = new HashSet<USUARIOS>();
             this.VENTAS = new HashSet<VENTAS>();
-            this.PUESTOS4 = new HashSet<PUESTOS>();
+            this.PUESTOS1 = new HashSet<PUESTOS>();
         }
     
         public int id_empleado { get; set; }
@@ -49,9 +49,6 @@ namespace _911_RD
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DESCUENTOS> DESCUENTOS { get; set; }
         public virtual PUESTOS PUESTOS { get; set; }
-        public virtual PUESTOS PUESTOS1 { get; set; }
-        public virtual PUESTOS PUESTOS2 { get; set; }
-        public virtual PUESTOS PUESTOS3 { get; set; }
         public virtual PERSONAS PERSONAS { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ENTRADAS> ENTRADAS { get; set; }
@@ -68,6 +65,6 @@ namespace _911_RD
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<VENTAS> VENTAS { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PUESTOS> PUESTOS4 { get; set; }
+        public virtual ICollection<PUESTOS> PUESTOS1 { get; set; }
     }
 }

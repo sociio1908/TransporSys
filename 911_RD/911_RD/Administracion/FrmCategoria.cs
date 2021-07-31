@@ -58,7 +58,7 @@ namespace _911_RD.Administracion
 
         private void cargarTabla()
         {
-            using (TransporSysEntities4 db = new TransporSysEntities4())
+            using (TransporSysEntities db = new TransporSysEntities())
             {
                 try
                 {
@@ -83,39 +83,45 @@ namespace _911_RD.Administracion
         {
             
 
-            using (TransporSysEntities4 db = new TransporSysEntities4())
+            using (TransporSysEntities db = new TransporSysEntities())
             {
-              
-
-                if (id_txt.Text.Trim() == "")
+                try
                 {
-                    CATEGORIAS cate = new CATEGORIAS
+
+                    if (txt_nombre.Text == "" || txt_descripcion.Text == "" || cb_estado.Text == "")
                     {
-                        categoria = txt_nombre.Text.Trim(), 
-                        descripcion = txt_descripcion.Text.Trim(),
-                        estado = cb_estado.SelectedIndex == 0 ? true : false 
-                    };
-                    db.CATEGORIAS.Add(cate);
-                }
-                else
-                {
-
-                    var categoria = db.CATEGORIAS.FirstOrDefault(a => a.id_categoria.ToString() == id_txt.Text.Trim());
-                    
-                    if (categoria != null)
-                    { 
-                        categoria.categoria = txt_nombre.Text.Trim(); 
-                        categoria.descripcion = txt_descripcion.Text.Trim();
-                        categoria.estado = cb_estado.SelectedIndex == 0 ? true : false; 
+                        MessageBox.Show("NINGUN CAMPO PUEDE ESTAR VACIO");
                     }
+                    else
+                   if (id_txt.Text.Trim() == "")
+                    {
+                        CATEGORIAS cate = new CATEGORIAS
+                        {
+                            categoria = txt_nombre.Text.Trim(),
+                            descripcion = txt_descripcion.Text.Trim(),
+                            estado = cb_estado.SelectedIndex == 0 ? true : false
+                        };
+                        db.CATEGORIAS.Add(cate);
+                    }
+                    else
+                    {
+
+                        var categoria = db.CATEGORIAS.FirstOrDefault(a => a.id_categoria.ToString() == id_txt.Text.Trim());
+
+                        if (categoria != null)
+                        {
+                            categoria.categoria = txt_nombre.Text.Trim();
+                            categoria.descripcion = txt_descripcion.Text.Trim();
+                            categoria.estado = cb_estado.SelectedIndex == 0 ? true : false;
+                        }
+                        MessageBox.Show("COMPLETO");
+                    }
+                    db.SaveChanges();
+                    Utilidades.LimpiarControles(this);
+                    cargarTabla();
                 }
-                db.SaveChanges();
-                Utilidades.LimpiarControles(this);
-                cargarTabla();
+                catch (Exception) { }
             }
-
-            MessageBox.Show("");
-
 
         }
 
@@ -133,7 +139,7 @@ namespace _911_RD.Administracion
         {
             try
             {
-                using (TransporSysEntities4 db = new TransporSysEntities4())
+                using (TransporSysEntities db = new TransporSysEntities())
                 {
                     var categoria = from pro in db.CATEGORIAS
                                     join cat in db.CATEGORIAS on pro.id_categoria

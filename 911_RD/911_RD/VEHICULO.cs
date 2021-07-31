@@ -27,7 +27,7 @@ namespace _911_RD
         public string num_chasis { get; set; }
         public System.DateTime fecha_ingreso { get; set; }
         public System.DateTime ano_fabricacion { get; set; }
-        public double gasto_galon_combustible_kilometro { get; set; }
+        public Nullable<double> gasto_galon_combustible_kilometro { get; set; }
         public int id_combustible { get; set; }
         public string num_gps { get; set; }
         public bool estado { get; set; }

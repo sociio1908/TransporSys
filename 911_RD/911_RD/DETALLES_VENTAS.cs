@@ -23,6 +23,7 @@ namespace _911_RD
         public double descuento { get; set; }
         public double total { get; set; }
     
+        public virtual ARTICULOS ARTICULOS { get; set; }
         public virtual VENTAS VENTAS { get; set; }
     }
 }

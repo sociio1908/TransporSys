@@ -12,12 +12,15 @@ namespace _911_RD
     using System;
     using System.Collections.Generic;
     
-    public partial class sysdiagrams
+    public partial class DVENTAS_SERVICIOS
     {
-        public string name { get; set; }
-        public int principal_id { get; set; }
-        public int diagram_id { get; set; }
-        public Nullable<int> version { get; set; }
-        public byte[] definition { get; set; }
+        public int id_detalle { get; set; }
+        public int num_fact { get; set; }
+        public int id_servicio { get; set; }
+        public double cantidad { get; set; }
+        public double precio { get; set; }
+        public double itbis { get; set; }
+        public double descuento { get; set; }
+        public double total { get; set; }
     }
 }

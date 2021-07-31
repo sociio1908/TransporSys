@@ -13,10 +13,10 @@ namespace _911_RD
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class TransporSysEntities4 : DbContext
+    public partial class TransporSysEntities : DbContext
     {
-        public TransporSysEntities4()
-            : base("name=TransporSysEntities4")
+        public TransporSysEntities()
+            : base("name=TransporSysEntities")
         {
         }
     
@@ -29,6 +29,7 @@ namespace _911_RD
         public virtual DbSet<ARTICULOS> ARTICULOS { get; set; }
         public virtual DbSet<BENEFICIOS> BENEFICIOS { get; set; }
         public virtual DbSet<CATEGORIAS> CATEGORIAS { get; set; }
+        public virtual DbSet<CATEGORIAS_SERVICIOS> CATEGORIAS_SERVICIOS { get; set; }
         public virtual DbSet<CIUDADES> CIUDADES { get; set; }
         public virtual DbSet<CLIENTES> CLIENTES { get; set; }
         public virtual DbSet<COBROS> COBROS { get; set; }
@@ -45,6 +46,8 @@ namespace _911_RD
         public virtual DbSet<DETALLES_SALIDAS> DETALLES_SALIDAS { get; set; }
         public virtual DbSet<DETALLES_VENTAS> DETALLES_VENTAS { get; set; }
         public virtual DbSet<DIRECCIONES> DIRECCIONES { get; set; }
+        public virtual DbSet<DVENTAS_SERVICIOS> DVENTAS_SERVICIOS { get; set; }
+        public virtual DbSet<DVIAJES> DVIAJES { get; set; }
         public virtual DbSet<EMAILS> EMAILS { get; set; }
         public virtual DbSet<EMPLEADOS> EMPLEADOS { get; set; }
         public virtual DbSet<ENTRADAS> ENTRADAS { get; set; }
@@ -63,9 +66,9 @@ namespace _911_RD
         public virtual DbSet<PROVINCIAS> PROVINCIAS { get; set; }
         public virtual DbSet<PUESTOS> PUESTOS { get; set; }
         public virtual DbSet<SALIDAS> SALIDAS { get; set; }
+        public virtual DbSet<SERVICIOS> SERVICIOS { get; set; }
         public virtual DbSet<SEXOS> SEXOS { get; set; }
         public virtual DbSet<SUPLIDORES> SUPLIDORES { get; set; }
-        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<TELEFONOS> TELEFONOS { get; set; }
         public virtual DbSet<TERCEROS> TERCEROS { get; set; }
         public virtual DbSet<TIPOS_CLIENTES> TIPOS_CLIENTES { get; set; }
@@ -76,17 +79,14 @@ namespace _911_RD
         public virtual DbSet<TIPOS_USUARIOS> TIPOS_USUARIOS { get; set; }
         public virtual DbSet<TIPOSPAGO> TIPOSPAGO { get; set; }
         public virtual DbSet<TIPOSVIAJES> TIPOSVIAJES { get; set; }
+        public virtual DbSet<TRANSPORTE> TRANSPORTE { get; set; }
         public virtual DbSet<UNIDADES_DE_MEDIDA> UNIDADES_DE_MEDIDA { get; set; }
         public virtual DbSet<USUARIOS> USUARIOS { get; set; }
         public virtual DbSet<VEHICULO> VEHICULO { get; set; }
+        public virtual DbSet<VENTA_SERVICIOS> VENTA_SERVICIOS { get; set; }
         public virtual DbSet<VENTAS> VENTAS { get; set; }
-        public virtual DbSet<VIAJES> VIAJES { get; set; }
         public virtual DbSet<ARTICULOS_VS_CATEGORIAS_VS_DESCUENTOS> ARTICULOS_VS_CATEGORIAS_VS_DESCUENTOS { get; set; }
         public virtual DbSet<GPS> GPS { get; set; }
-        public virtual DbSet<TERCEROS_VS_DIRECCIONES> TERCEROS_VS_DIRECCIONES { get; set; }
-        public virtual DbSet<TERCEROS_VS_EMAILS> TERCEROS_VS_EMAILS { get; set; }
-        public virtual DbSet<TERCEROS_VS_IDENTIFICACIONES> TERCEROS_VS_IDENTIFICACIONES { get; set; }
-        public virtual DbSet<TERCEROS_VS_TELEFONOS> TERCEROS_VS_TELEFONOS { get; set; }
         public virtual DbSet<TIPONCF> TIPONCF { get; set; }
     }
 }

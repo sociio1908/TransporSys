@@ -195,6 +195,9 @@
     <Compile Include="CATEGORIAS.cs">
       <DependentUpon>TransporSysEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="CATEGORIAS_SERVICIOS.cs">
+      <DependentUpon>TransporSysEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="CIUDADES.cs">
       <DependentUpon>TransporSysEntities.tt</DependentUpon>
     </Compile>
@@ -241,6 +244,12 @@
       <DependentUpon>TransporSysEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="DIRECCIONES.cs">
+      <DependentUpon>TransporSysEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DVENTAS_SERVICIOS.cs">
+      <DependentUpon>TransporSysEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DVIAJES.cs">
       <DependentUpon>TransporSysEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="EMAILS.cs">
@@ -294,6 +303,7 @@
     <Compile Include="F_agenda.Designer.cs">
       <DependentUpon>F_agenda.cs</DependentUpon>
     </Compile>
+    <Compile Include="Administracion\MetodosCRUD.cs" />
     <Compile Include="GPS.cs">
       <DependentUpon>TransporSysEntities.tt</DependentUpon>
     </Compile>
@@ -306,7 +316,6 @@
     <Compile Include="MARCA.cs">
       <DependentUpon>TransporSysEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Administracion\MetodosCRUD.cs" />
     <Compile Include="MODELO.cs">
       <DependentUpon>TransporSysEntities.tt</DependentUpon>
     </Compile>
@@ -345,31 +354,19 @@
     <Compile Include="Seleccion_Und.Designer.cs">
       <DependentUpon>Seleccion_Und.cs</DependentUpon>
     </Compile>
+    <Compile Include="SERVICIOS.cs">
+      <DependentUpon>TransporSysEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="SEXOS.cs">
       <DependentUpon>TransporSysEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="SUPLIDORES.cs">
       <DependentUpon>TransporSysEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="sysdiagrams.cs">
-      <DependentUpon>TransporSysEntities.tt</DependentUpon>
-    </Compile>
     <Compile Include="TELEFONOS.cs">
       <DependentUpon>TransporSysEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="TERCEROS.cs">
-      <DependentUpon>TransporSysEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="TERCEROS_VS_DIRECCIONES.cs">
-      <DependentUpon>TransporSysEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="TERCEROS_VS_EMAILS.cs">
-      <DependentUpon>TransporSysEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="TERCEROS_VS_IDENTIFICACIONES.cs">
-      <DependentUpon>TransporSysEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="TERCEROS_VS_TELEFONOS.cs">
       <DependentUpon>TransporSysEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="TIPONCF.cs">
@@ -414,6 +411,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>TransporSysEntities.edmx</DependentUpon>
     </Compile>
+    <Compile Include="TRANSPORTE.cs">
+      <DependentUpon>TransporSysEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="UNIDADES_DE_MEDIDA.cs">
       <DependentUpon>TransporSysEntities.tt</DependentUpon>
     </Compile>
@@ -427,7 +427,7 @@
     <Compile Include="VENTAS.cs">
       <DependentUpon>TransporSysEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="VIAJES.cs">
+    <Compile Include="VENTA_SERVICIOS.cs">
       <DependentUpon>TransporSysEntities.tt</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Administracion\ConPrincipal.resx">
@@ -612,7 +612,6 @@
     <Content Include="bin\iconos\escaner-de-codigo-de-barras %281%29.png" />
     <Content Include="bin\iconos\recibo.png" />
     <Content Include="Iconos\escaner-de-codigo-de-barras.png" />
-    <None Include="Resources\eraser.png" />
     <Content Include="TransporSysEntities.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>TransporSysEntities.edmx</DependentUpon>
@@ -623,6 +622,7 @@
       <DependentUpon>TransporSysEntities.edmx</DependentUpon>
       <LastGenOutput>TransporSysEntities.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\eraser.png" />
     <None Include="Resources\recibo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -12,18 +12,18 @@ namespace _911_RD
     using System;
     using System.Collections.Generic;
     
-    public partial class EMAILS
+    public partial class TRANSPORTE
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public EMAILS()
-        {
-            this.TERCEROS = new HashSet<TERCEROS>();
-        }
+        public int id_transporte { get; set; }
+        public Nullable<int> id_conductor { get; set; }
+        public string num_fact { get; set; }
+        public Nullable<bool> ida_vuelta { get; set; }
+        public System.DateTime fecha_transporte { get; set; }
+        public string notas_viaje { get; set; }
+        public Nullable<int> id_direccionA { get; set; }
+        public Nullable<int> id_direccionB { get; set; }
+        public int estado { get; set; }
     
-        public int id_email { get; set; }
-        public string email { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TERCEROS> TERCEROS { get; set; }
+        public virtual CONDUCTOR CONDUCTOR { get; set; }
     }
 }
