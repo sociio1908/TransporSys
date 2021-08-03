@@ -89,7 +89,7 @@ namespace _911_RD.Administracion
         private void btn_traer_Click(object sender, EventArgs e)
         {
 
-           
+
         }
 
         private void codigo_de_barra()
@@ -108,25 +108,25 @@ namespace _911_RD.Administracion
             }
             else
             {
-                 int n = dataGridView1.Rows.Add();
+                int n = dataGridView1.Rows.Add();
 
-                    dataGridView1.Rows[n].Cells[0].Value = txt_id.Text.ToString();
-                    dataGridView1.Rows[n].Cells[1].Value = txt_nombre.Text;
-                    dataGridView1.Rows[n].Cells[2].Value = txt_cantidad.Text.ToString();
-                    dataGridView1.Rows[n].Cells[3].Value = txt_precio.Text.ToString();
-                    dataGridView1.Rows[n].Cells[4].Value = txt_descuento.Text.ToString();
-                    txt_id.Text = "";
-                    txt_nombre.Text = "";
-                    txt_cantidad.Text = "0";
-                    txt_precio.Text = "";
-                    //txt_descuento.Text = "";
-                    txt_stock.Text = "";
-                    txt_des.Text = "";
-                    txt_codBarra.Text = "";
+                dataGridView1.Rows[n].Cells[0].Value = txt_id.Text.ToString();
+                dataGridView1.Rows[n].Cells[1].Value = txt_nombre.Text;
+                dataGridView1.Rows[n].Cells[2].Value = txt_cantidad.Text.ToString();
+                dataGridView1.Rows[n].Cells[3].Value = txt_precio.Text.ToString();
+                dataGridView1.Rows[n].Cells[4].Value = txt_descuento.Text.ToString();
+                txt_id.Text = "";
+                txt_nombre.Text = "";
+                txt_cantidad.Text = "0";
+                txt_precio.Text = "";
+                //txt_descuento.Text = "";
+                txt_stock.Text = "";
+                txt_des.Text = "";
+                txt_codBarra.Text = "";
 
 
-                    SumarFilas();
-                
+                SumarFilas();
+
             }
         }
 
@@ -197,7 +197,7 @@ namespace _911_RD.Administracion
                 }
                 else
                 {
-                    try 
+                    try
                     {
                         foreach (DataGridViewRow row in dataGridView1.Rows)
                         {
@@ -349,6 +349,60 @@ namespace _911_RD.Administracion
                     txt_subtotal.Text = "0.0";
                     txt_impuesto.Text = "0.0";
                     txt_impTotal.Text = "0.0";
+                }
+            }
+        }
+
+        private void txt_codBarra_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((int)e.KeyChar == (int)Keys.Enter)
+            {
+                LlenarDataGrid(txt_codBarra.Text.Trim());
+                codigo_de_barra();
+            }
+        }
+
+        public void LlenarDataGrid(string condicion = "")
+        {
+
+            using (TransporSysEntities db = new TransporSysEntities())
+            {
+                try
+                {
+                    var articulos = from pro in db.ARTICULOS
+
+                                    select new
+                                    {
+                                        //aqui cargas los campos de tu tabla
+                                        pro.id_articulo,
+                                        pro.nombre,
+                                        pro.descripcion,
+                                        pro.reorden,
+                                        pro.precio,
+
+                                        pro.codigo_barras,
+                                        //etc
+                                    };
+                    //aqui vas a ver klk con lo que quieres filtrar
+
+                    articulos = articulos.Where(pro => (pro.codigo_barras.ToString().Contains(condicion)));
+
+
+                    foreach (var OArticulos in articulos)
+                    {
+
+                        txt_id.Text = OArticulos.id_articulo.ToString();
+                        txt_nombre.Text = OArticulos.nombre.ToString();
+                        txt_des.Text = OArticulos.descripcion.ToString();
+                        txt_stock.Text = OArticulos.reorden.ToString();
+                        txt_precio.Text = OArticulos.precio.ToString();
+                        txt_codBarra.Text = OArticulos.codigo_barras.ToString();
+                    }
+
+                }
+                catch (Exception aas)
+                {
+                    //Posible error
                 }
             }
         }

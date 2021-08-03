@@ -47,8 +47,17 @@ namespace _911_RD.Administracion
 
         private void btn_guardar_Click(object sender, EventArgs e)
         {
-            InsertarArticulo();
-            id_txt.Text = "";
+            Utilidades va = new Utilidades();
+           if( Utilidades.ValidarFormulario(this, errorProvider1)==true)
+            {
+
+            }
+            else
+            {
+                InsertarArticulo();
+                id_txt.Text = "";
+            }
+            
         }
         private void CargarCampos()
         {
@@ -277,19 +286,22 @@ namespace _911_RD.Administracion
         {
             using (TransporSysEntities db = new TransporSysEntities())
             {
+                try 
+                { 
+                    var articulo = db.ARTICULOS.FirstOrDefault(a => a.id_articulo.ToString() == id_txt.Text.Trim());
+                    // si esa variable no esta vacia... pues el articulo existe y pues lo modificamos...
+                    if (articulo != null)
+                    {
 
-                var articulo = db.ARTICULOS.FirstOrDefault(a => a.id_articulo.ToString() == id_txt.Text.Trim());
-                // si esa variable no esta vacia... pues el articulo existe y pues lo modificamos...
-                if (articulo != null)
-                {
+                        articulo.estado = false; //debe ser tru/false
 
-                    articulo.estado = false; //debe ser tru/false
+                    }
 
+                    db.SaveChanges();
+                    Utilidades.LimpiarControles(this);
+                    cargarTabla();
                 }
-
-                db.SaveChanges();
-                Utilidades.LimpiarControles(this);
-                cargarTabla();
+                catch (Exception) { }
             }
 
             MessageBox.Show("");
@@ -408,9 +420,25 @@ namespace _911_RD.Administracion
 
         private void btn_enviar_Click(object sender, EventArgs e)
         {
-          
+           
+                this.DialogResult = DialogResult.OK;
+           
+            
+        }
 
-            this.DialogResult = DialogResult.OK;
+        private void txt_precio_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label10_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txt_idcategoria_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
