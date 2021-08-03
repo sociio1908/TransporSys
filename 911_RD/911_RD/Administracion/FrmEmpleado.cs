@@ -16,12 +16,12 @@ namespace _911_RD.Administracion
         {
             InitializeComponent();
            cb_estado.SelectedIndex = 0;
-           cargarComboxs();
+           cargarComboxs(); dataGridView1.AllowUserToAddRows = false;
             cargarTabla("");
             //  FALTAN LOS VS Y LAS CONSULTAS
 
         }
-
+        int cont = 0;
         MetodosCRUD metodoscrud = new MetodosCRUD();
        void cargarComboxs()
         {
@@ -47,10 +47,6 @@ namespace _911_RD.Administracion
                     {
                         cb_tipoIdent.Items.Add(identi.nombre.ToUpper());
                     }
-
-                   
-
-
                 }
 
             }
@@ -64,7 +60,7 @@ namespace _911_RD.Administracion
 
         private void FrmEmpleado_Load(object sender, EventArgs e)
         {
-
+            dataGridView1.Rows[0].Selected = false;
         }
 
         private void errorTxtBox2_TextChanged(object sender, EventArgs e)
@@ -206,10 +202,11 @@ namespace _911_RD.Administracion
                                    join idenVS in db.TERCEROS_VS_IDENTIFICACIONES on ter.id_tercero equals idenVS.id_tercero
                                    join iden in db.IDENTIFICACIONES on idenVS.id_identificacion equals iden.id_identificacion
                                    select new
-                                    {
+                                   {
                                        id_tercero = ter.id_tercero,
                                        id_persona = per.id_persona,
                                        id_puesto = pues.id_puesto,
+                                       nacionalidad = per.id_nacionalidad,
                                        tipo_identificacion = iden.id_tipo_identificacion,
                                        id_empleado = emp.id_empleado,
                                        Nombre = ter.nombre,
@@ -224,8 +221,6 @@ namespace _911_RD.Administracion
                                   
                                    };
 
-                    MessageBox.Show(empleado.ToList().Count + "");
-
                     //aqui vas a ver klk con lo que quieres filtrar
                     if (condicion.Equals(""))
                     {
@@ -238,15 +233,10 @@ namespace _911_RD.Administracion
 
                     if (empleado!=null)
                     {
-                        MessageBox.Show(empleado.ToList().Count+"");
-
                         dataGridView1.Rows.Clear();
 
                         foreach (var emple in empleado.ToList())
                         {
-
-                            MessageBox.Show(emple.Apellido);
-
                             dataGridView1.Rows.Add(
                              emple.id_tercero.ToString(),
                              emple.id_persona.ToString(),
@@ -256,20 +246,21 @@ namespace _911_RD.Administracion
                              emple.Nombre.ToString(),
                              emple.Apellido.ToString(),
                              emple.Cedula.ToString(),
-                             emple.Fecha_Contraro.ToString(),
+                             emple.Fecha_Nacimiento.ToString(),
                              emple.Sexo.ToString(),
                              emple.Puesto.ToString(),
                              emple.Salario.ToString(),
                              emple.Fecha_Contraro.ToString(),
-                             emple.Estado.ToString()
+                             emple.Estado==true ? "ACTIVO" : "INACTIVO",
+                             emple.nacionalidad.ToString()
                             );
 
                         }
 
                     }
                 }
-
-            }catch(Exception ass)
+            }
+            catch (Exception ass)
             {
 
             }
@@ -335,6 +326,7 @@ namespace _911_RD.Administracion
             Utilidades.LimpiarControles(this);
             lbl_conductor.Visible = false;
             p_conductor.Visible = false;
+            cargarTabla("");
         }
 
 
@@ -377,7 +369,7 @@ namespace _911_RD.Administracion
 
         private void cb_nacionalidades_SelectedIndexChanged(object sender, EventArgs e)
         {
-            MessageBox.Show(cb_nacionalidades.SelectedIndex.ToString());
+          
         }
 
         DataTable DatosEm = new DataTable();
@@ -390,6 +382,83 @@ namespace _911_RD.Administracion
         private void txt_numlicencia_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (this.dataGridView1.Columns[e.ColumnIndex].Name == "salario")
+            {
+                if (e.Value != null)
+                {
+                            e.CellStyle.BackColor = Color.LightSalmon;
+                            e.CellStyle.ForeColor = Color.Black;
+                }
+            }
+        }
+
+        private void btn_filtro_Click(object sender, EventArgs e)
+        {
+               cargarTabla(txt_filtro.Text.Trim());
+
+        }
+
+        private void txt_filtro_TextChanged(object sender, EventArgs e)
+        {
+
+                cargarTabla(txt_filtro.Text.Trim());
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+
+        string tercero = "";
+        string persona = "";
+
+        private void CargarCampos()
+        {
+            try
+            {
+                using (TransporSysEntities db = new TransporSysEntities())
+                {
+
+                    tercero = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
+                    persona = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
+                    txt_id_cargo.Text = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
+                    txt_des_puesto.Text = db.PUESTOS.FirstOrDefault(a=>a.id_puesto.ToString()== txt_id_cargo.Text).descripcion;
+                    cb_tipoIdent.SelectedIndex = (int.Parse(dataGridView1.SelectedRows[0].Cells[3].Value.ToString()) - 1);
+                    id_txt.Text = dataGridView1.SelectedRows[0].Cells[4].Value.ToString();
+                    txt_nombre.Text = dataGridView1.SelectedRows[0].Cells[5].Value.ToString();
+                    txt_apellido.Text = dataGridView1.SelectedRows[0].Cells[6].Value.ToString();
+                    txt_cedula.Text = dataGridView1.SelectedRows[0].Cells[7].Value.ToString();
+                    fecha_nac.Value = DateTime.Parse(dataGridView1.SelectedRows[0].Cells[8].Value.ToString());
+                    cb_sexo.SelectedIndex = dataGridView1.SelectedRows[0].Cells[9].Value.ToString().ToLower() == "hombre" ? cb_sexo.SelectedIndex = 0 : 1;
+                    txt_cargo.Text = dataGridView1.SelectedRows[0].Cells[10].Value.ToString();
+                    txt_salario.Text = dataGridView1.SelectedRows[0].Cells[11].Value.ToString();
+                    fecha_con.Value = DateTime.Parse(dataGridView1.SelectedRows[0].Cells[12].Value.ToString());
+                    cb_estado.SelectedIndex = dataGridView1.SelectedRows[0].Cells[13].Value.ToString() == "ACTIVO" ? cb_estado.SelectedIndex = 0 : cb_estado.SelectedIndex = 1;
+                    cb_nacionalidades.SelectedIndex = (int.Parse(dataGridView1.SelectedRows[0].Cells[14].Value.ToString()) -1);
+                }
+            }
+            catch (Exception ea)
+            {
+                //
+            }
+        }
+
+        private void dataGridView1_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+        
+        private void dataGridView1_SelectionChanged(object sender, EventArgs e)
+        {
+
+            if (dataGridView1.Rows.Count > 0 && cont >0)
+                CargarCampos();
+            cont++;
         }
     }
 }
