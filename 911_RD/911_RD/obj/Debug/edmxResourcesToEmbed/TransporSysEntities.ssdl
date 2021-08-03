@@ -519,45 +519,37 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.PUESTOS_VS_DEPARTAMENTOS' no
     <Property Name="id_tercero" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="nombre" Type="varchar" MaxLength="100" Nullable="false" />
   </EntityType>
-  <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'TransporSys.dbo.TERCEROS_VS_DIRECCIONES' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
   <EntityType Name="TERCEROS_VS_DIRECCIONES">
     <Key>
-      <PropertyRef Name="id_tercero" />
-      <PropertyRef Name="id_direccion" />
+      <PropertyRef Name="id_vs" />
     </Key>
     <Property Name="id_tercero" Type="int" Nullable="false" />
     <Property Name="id_direccion" Type="int" Nullable="false" />
+    <Property Name="id_vs" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
   </EntityType>
-  <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'TransporSys.dbo.TERCEROS_VS_EMAILS' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
   <EntityType Name="TERCEROS_VS_EMAILS">
     <Key>
-      <PropertyRef Name="id_tercero" />
-      <PropertyRef Name="id_email" />
+      <PropertyRef Name="id_vs" />
     </Key>
     <Property Name="id_tercero" Type="int" Nullable="false" />
     <Property Name="id_email" Type="int" Nullable="false" />
+    <Property Name="id_vs" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
   </EntityType>
-  <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'TransporSys.dbo.TERCEROS_VS_IDENTIFICACIONES' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
   <EntityType Name="TERCEROS_VS_IDENTIFICACIONES">
     <Key>
-      <PropertyRef Name="id_tercero" />
-      <PropertyRef Name="id_identificacion" />
+      <PropertyRef Name="id_vs" />
     </Key>
     <Property Name="id_tercero" Type="int" Nullable="false" />
     <Property Name="id_identificacion" Type="int" Nullable="false" />
+    <Property Name="id_vs" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
   </EntityType>
-  <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'TransporSys.dbo.TERCEROS_VS_TELEFONOS' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
   <EntityType Name="TERCEROS_VS_TELEFONOS">
     <Key>
-      <PropertyRef Name="id_tercero" />
-      <PropertyRef Name="id_telefono" />
+      <PropertyRef Name="id_vs" />
     </Key>
     <Property Name="id_tercero" Type="int" Nullable="false" />
     <Property Name="id_telefono" Type="int" Nullable="false" />
+    <Property Name="id_vs" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
   </EntityType>
   <!--Errores durante la generación:
 advertencia 6002: La tabla o vista 'TransporSys.dbo.TIPONCF' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
@@ -1618,6 +1610,10 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.VEHICULOS_VS_CONDUCTOR' no t
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TELEFONOS" EntityType="Self.TELEFONOS" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TERCEROS" EntityType="Self.TERCEROS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TERCEROS_VS_DIRECCIONES" EntityType="Self.TERCEROS_VS_DIRECCIONES" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TERCEROS_VS_EMAILS" EntityType="Self.TERCEROS_VS_EMAILS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TERCEROS_VS_IDENTIFICACIONES" EntityType="Self.TERCEROS_VS_IDENTIFICACIONES" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TERCEROS_VS_TELEFONOS" EntityType="Self.TERCEROS_VS_TELEFONOS" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TIPOS_CLIENTES" EntityType="Self.TIPOS_CLIENTES" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TIPOS_IDENTIFICACIONES" EntityType="Self.TIPOS_IDENTIFICACIONES" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TIPOS_MEMBRESIAS" EntityType="Self.TIPOS_MEMBRESIAS" Schema="dbo" store:Type="Tables" />
@@ -1652,30 +1648,6 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.VEHICULOS_VS_CONDUCTOR' no t
     [PUESTOS_VS_DEPARTAMENTOS].[id_puesto] AS [id_puesto], 
     [PUESTOS_VS_DEPARTAMENTOS].[id_departamento] AS [id_departamento]
     FROM [dbo].[PUESTOS_VS_DEPARTAMENTOS] AS [PUESTOS_VS_DEPARTAMENTOS]</DefiningQuery>
-    </EntitySet>
-    <EntitySet Name="TERCEROS_VS_DIRECCIONES" EntityType="Self.TERCEROS_VS_DIRECCIONES" store:Type="Tables" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-    [TERCEROS_VS_DIRECCIONES].[id_tercero] AS [id_tercero], 
-    [TERCEROS_VS_DIRECCIONES].[id_direccion] AS [id_direccion]
-    FROM [dbo].[TERCEROS_VS_DIRECCIONES] AS [TERCEROS_VS_DIRECCIONES]</DefiningQuery>
-    </EntitySet>
-    <EntitySet Name="TERCEROS_VS_EMAILS" EntityType="Self.TERCEROS_VS_EMAILS" store:Type="Tables" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-    [TERCEROS_VS_EMAILS].[id_tercero] AS [id_tercero], 
-    [TERCEROS_VS_EMAILS].[id_email] AS [id_email]
-    FROM [dbo].[TERCEROS_VS_EMAILS] AS [TERCEROS_VS_EMAILS]</DefiningQuery>
-    </EntitySet>
-    <EntitySet Name="TERCEROS_VS_IDENTIFICACIONES" EntityType="Self.TERCEROS_VS_IDENTIFICACIONES" store:Type="Tables" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-    [TERCEROS_VS_IDENTIFICACIONES].[id_tercero] AS [id_tercero], 
-    [TERCEROS_VS_IDENTIFICACIONES].[id_identificacion] AS [id_identificacion]
-    FROM [dbo].[TERCEROS_VS_IDENTIFICACIONES] AS [TERCEROS_VS_IDENTIFICACIONES]</DefiningQuery>
-    </EntitySet>
-    <EntitySet Name="TERCEROS_VS_TELEFONOS" EntityType="Self.TERCEROS_VS_TELEFONOS" store:Type="Tables" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-    [TERCEROS_VS_TELEFONOS].[id_tercero] AS [id_tercero], 
-    [TERCEROS_VS_TELEFONOS].[id_telefono] AS [id_telefono]
-    FROM [dbo].[TERCEROS_VS_TELEFONOS] AS [TERCEROS_VS_TELEFONOS]</DefiningQuery>
     </EntitySet>
     <EntitySet Name="TIPONCF" EntityType="Self.TIPONCF" store:Type="Tables" store:Schema="dbo">
       <DefiningQuery>SELECT 

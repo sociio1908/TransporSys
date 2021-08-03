@@ -12,18 +12,13 @@ namespace _911_RD
     using System;
     using System.Collections.Generic;
     
-    public partial class EMAILS
+    public partial class TERCEROS_VS_EMAILS
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public EMAILS()
-        {
-            this.TERCEROS_VS_EMAILS = new HashSet<TERCEROS_VS_EMAILS>();
-        }
-    
+        public int id_tercero { get; set; }
         public int id_email { get; set; }
-        public string email { get; set; }
+        public int id_vs { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TERCEROS_VS_EMAILS> TERCEROS_VS_EMAILS { get; set; }
+        public virtual EMAILS EMAILS { get; set; }
+        public virtual TERCEROS TERCEROS { get; set; }
     }
 }

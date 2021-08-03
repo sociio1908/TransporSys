@@ -52,16 +52,6 @@ namespace _911_RD.Administracion
             this.label7 = new System.Windows.Forms.Label();
             this.cb_estado = new System.Windows.Forms.ComboBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.id_eme = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SOLICITUD = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tipo_eme = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cedula = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.estado_eme = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sexo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cargo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.salario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fecha_contrato = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.txt_filtro = new _911_RD.ErrorTxtBox();
@@ -96,9 +86,22 @@ namespace _911_RD.Administracion
             this.label21 = new System.Windows.Forms.Label();
             this.cb_tipoIdent = new System.Windows.Forms.ComboBox();
             this.txt_id_cargo = new _911_RD.ErrorTxtBox();
-            this.cb_puestos = new System.Windows.Forms.ComboBox();
-            this.label24 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.txt_error_cedula = new System.Windows.Forms.Label();
+            this.id_ter = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id_per = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id_pue = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id_tip_ide = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id_eme = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SOLICITUD = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tipo_eme = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cedula = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.estado_eme = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sexo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cargo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.salario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fecha_contrato = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.btn_buscar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_Cargo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -360,6 +363,10 @@ namespace _911_RD.Administracion
             this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.ColumnHeadersHeight = 40;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.id_ter,
+            this.id_per,
+            this.id_pue,
+            this.id_tip_ide,
             this.id_eme,
             this.SOLICITUD,
             this.tipo_eme,
@@ -403,78 +410,6 @@ namespace _911_RD.Administracion
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(1025, 204);
             this.dataGridView1.TabIndex = 167;
-            // 
-            // id_eme
-            // 
-            this.id_eme.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.id_eme.FillWeight = 50F;
-            this.id_eme.HeaderText = "ID";
-            this.id_eme.Name = "id_eme";
-            this.id_eme.ReadOnly = true;
-            // 
-            // SOLICITUD
-            // 
-            this.SOLICITUD.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.SOLICITUD.HeaderText = "NOMBRE";
-            this.SOLICITUD.Name = "SOLICITUD";
-            this.SOLICITUD.ReadOnly = true;
-            // 
-            // tipo_eme
-            // 
-            this.tipo_eme.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.tipo_eme.HeaderText = "APELLIDO";
-            this.tipo_eme.Name = "tipo_eme";
-            this.tipo_eme.ReadOnly = true;
-            // 
-            // cedula
-            // 
-            this.cedula.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.cedula.HeaderText = "CEDULA";
-            this.cedula.Name = "cedula";
-            this.cedula.ReadOnly = true;
-            // 
-            // estado_eme
-            // 
-            this.estado_eme.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.estado_eme.HeaderText = "FECHA DE NACIMIENTO";
-            this.estado_eme.Name = "estado_eme";
-            this.estado_eme.ReadOnly = true;
-            // 
-            // sexo
-            // 
-            this.sexo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.sexo.HeaderText = "SEXO";
-            this.sexo.Name = "sexo";
-            this.sexo.ReadOnly = true;
-            // 
-            // cargo
-            // 
-            this.cargo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.cargo.HeaderText = "PUESTO";
-            this.cargo.Name = "cargo";
-            this.cargo.ReadOnly = true;
-            // 
-            // salario
-            // 
-            this.salario.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.salario.HeaderText = "SALARIO";
-            this.salario.Name = "salario";
-            this.salario.ReadOnly = true;
-            // 
-            // fecha_contrato
-            // 
-            this.fecha_contrato.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.fecha_contrato.HeaderText = "FECHA CONTRATO";
-            this.fecha_contrato.Name = "fecha_contrato";
-            this.fecha_contrato.ReadOnly = true;
-            // 
-            // estado
-            // 
-            this.estado.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.estado.FillWeight = 80F;
-            this.estado.HeaderText = "ESTADO";
-            this.estado.Name = "estado";
-            this.estado.ReadOnly = true;
             // 
             // label1
             // 
@@ -575,7 +510,7 @@ namespace _911_RD.Administracion
             this.p_direccion.Controls.Add(this.txt_telefono);
             this.p_direccion.Location = new System.Drawing.Point(498, 78);
             this.p_direccion.Name = "p_direccion";
-            this.p_direccion.Size = new System.Drawing.Size(427, 107);
+            this.p_direccion.Size = new System.Drawing.Size(427, 135);
             this.p_direccion.TabIndex = 177;
             // 
             // label26
@@ -702,6 +637,7 @@ namespace _911_RD.Administracion
             this.txt_numlicencia.SoloNumeros = true;
             this.txt_numlicencia.TabIndex = 198;
             this.txt_numlicencia.Validar = true;
+            this.txt_numlicencia.TextChanged += new System.EventHandler(this.txt_numlicencia_TextChanged);
             // 
             // label18
             // 
@@ -867,31 +803,6 @@ namespace _911_RD.Administracion
             this.txt_id_cargo.TabIndex = 193;
             this.txt_id_cargo.Validar = true;
             // 
-            // cb_puestos
-            // 
-            this.cb_puestos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cb_puestos.FormattingEnabled = true;
-            this.cb_puestos.Items.AddRange(new object[] {
-            "TODOS"});
-            this.cb_puestos.Location = new System.Drawing.Point(438, 529);
-            this.cb_puestos.Name = "cb_puestos";
-            this.cb_puestos.Size = new System.Drawing.Size(188, 24);
-            this.cb_puestos.TabIndex = 194;
-            this.cb_puestos.SelectedIndexChanged += new System.EventHandler(this.cb_puestos_SelectedIndexChanged);
-            // 
-            // label24
-            // 
-            this.label24.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.label24.AutoSize = true;
-            this.label24.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label24.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label24.Location = new System.Drawing.Point(310, 536);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(122, 16);
-            this.label24.TabIndex = 195;
-            this.label24.Text = "CARGAR PUESTOS";
-            // 
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.LightGreen;
@@ -904,14 +815,125 @@ namespace _911_RD.Administracion
             this.pictureBox1.TabIndex = 198;
             this.pictureBox1.TabStop = false;
             // 
+            // txt_error_cedula
+            // 
+            this.txt_error_cedula.AutoSize = true;
+            this.txt_error_cedula.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
+            this.txt_error_cedula.ForeColor = System.Drawing.Color.Red;
+            this.txt_error_cedula.Location = new System.Drawing.Point(188, 214);
+            this.txt_error_cedula.Name = "txt_error_cedula";
+            this.txt_error_cedula.Size = new System.Drawing.Size(17, 16);
+            this.txt_error_cedula.TabIndex = 221;
+            this.txt_error_cedula.Text = "X";
+            this.txt_error_cedula.Visible = false;
+            // 
+            // id_ter
+            // 
+            this.id_ter.HeaderText = "id_tercero";
+            this.id_ter.Name = "id_ter";
+            this.id_ter.ReadOnly = true;
+            this.id_ter.Visible = false;
+            // 
+            // id_per
+            // 
+            this.id_per.HeaderText = "id_persona";
+            this.id_per.Name = "id_per";
+            this.id_per.ReadOnly = true;
+            this.id_per.Visible = false;
+            // 
+            // id_pue
+            // 
+            this.id_pue.HeaderText = "id_puesto";
+            this.id_pue.Name = "id_pue";
+            this.id_pue.ReadOnly = true;
+            this.id_pue.Visible = false;
+            // 
+            // id_tip_ide
+            // 
+            this.id_tip_ide.HeaderText = "tipo_identificacion";
+            this.id_tip_ide.Name = "id_tip_ide";
+            this.id_tip_ide.ReadOnly = true;
+            this.id_tip_ide.Visible = false;
+            // 
+            // id_eme
+            // 
+            this.id_eme.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.id_eme.FillWeight = 50F;
+            this.id_eme.HeaderText = "ID";
+            this.id_eme.Name = "id_eme";
+            this.id_eme.ReadOnly = true;
+            // 
+            // SOLICITUD
+            // 
+            this.SOLICITUD.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.SOLICITUD.HeaderText = "NOMBRE";
+            this.SOLICITUD.Name = "SOLICITUD";
+            this.SOLICITUD.ReadOnly = true;
+            // 
+            // tipo_eme
+            // 
+            this.tipo_eme.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.tipo_eme.HeaderText = "APELLIDO";
+            this.tipo_eme.Name = "tipo_eme";
+            this.tipo_eme.ReadOnly = true;
+            // 
+            // cedula
+            // 
+            this.cedula.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.cedula.HeaderText = "CEDULA";
+            this.cedula.Name = "cedula";
+            this.cedula.ReadOnly = true;
+            // 
+            // estado_eme
+            // 
+            this.estado_eme.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.estado_eme.HeaderText = "FECHA DE NACIMIENTO";
+            this.estado_eme.Name = "estado_eme";
+            this.estado_eme.ReadOnly = true;
+            // 
+            // sexo
+            // 
+            this.sexo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.sexo.HeaderText = "SEXO";
+            this.sexo.Name = "sexo";
+            this.sexo.ReadOnly = true;
+            // 
+            // cargo
+            // 
+            this.cargo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.cargo.HeaderText = "PUESTO";
+            this.cargo.Name = "cargo";
+            this.cargo.ReadOnly = true;
+            // 
+            // salario
+            // 
+            this.salario.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.salario.HeaderText = "SALARIO";
+            this.salario.Name = "salario";
+            this.salario.ReadOnly = true;
+            // 
+            // fecha_contrato
+            // 
+            this.fecha_contrato.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.fecha_contrato.HeaderText = "FECHA CONTRATO";
+            this.fecha_contrato.Name = "fecha_contrato";
+            this.fecha_contrato.ReadOnly = true;
+            // 
+            // estado
+            // 
+            this.estado.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.estado.FillWeight = 80F;
+            this.estado.HeaderText = "ESTADO";
+            this.estado.Name = "estado";
+            this.estado.ReadOnly = true;
+            // 
             // FrmEmpleado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1049, 780);
+            this.Controls.Add(this.txt_error_cedula);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.label24);
-            this.Controls.Add(this.cb_puestos);
             this.Controls.Add(this.txt_id_cargo);
             this.Controls.Add(this.label21);
             this.Controls.Add(this.cb_tipoIdent);
@@ -995,9 +1017,8 @@ namespace _911_RD.Administracion
             this.Controls.SetChildIndex(this.cb_tipoIdent, 0);
             this.Controls.SetChildIndex(this.label21, 0);
             this.Controls.SetChildIndex(this.txt_id_cargo, 0);
-            this.Controls.SetChildIndex(this.cb_puestos, 0);
-            this.Controls.SetChildIndex(this.label24, 0);
             this.Controls.SetChildIndex(this.pictureBox1, 0);
+            this.Controls.SetChildIndex(this.txt_error_cedula, 0);
             ((System.ComponentModel.ISupportInitialize)(this.btn_buscar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_Cargo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -1045,16 +1066,6 @@ namespace _911_RD.Administracion
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.Label label16;
         private ErrorTxtBox txt_salario;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id_eme;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SOLICITUD;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tipo_eme;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cedula;
-        private System.Windows.Forms.DataGridViewTextBoxColumn estado_eme;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sexo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cargo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn salario;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fecha_contrato;
-        private System.Windows.Forms.DataGridViewTextBoxColumn estado;
         private System.Windows.Forms.Panel p_direccion;
         private System.Windows.Forms.Label lbl_contacto;
         private System.Windows.Forms.Label lbl_conductor;
@@ -1081,9 +1092,22 @@ namespace _911_RD.Administracion
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.ComboBox cb_tipoIdent;
         private ErrorTxtBox txt_id_cargo;
-        private System.Windows.Forms.ComboBox cb_puestos;
-        private System.Windows.Forms.Label label24;
         public System.Windows.Forms.DataGridView dataGridView1;
         public System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label txt_error_cedula;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id_ter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id_per;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id_pue;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id_tip_ide;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id_eme;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SOLICITUD;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tipo_eme;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cedula;
+        private System.Windows.Forms.DataGridViewTextBoxColumn estado_eme;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sexo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cargo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn salario;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fecha_contrato;
+        private System.Windows.Forms.DataGridViewTextBoxColumn estado;
     }
 }

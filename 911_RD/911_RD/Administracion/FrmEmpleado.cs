@@ -17,10 +17,9 @@ namespace _911_RD.Administracion
             InitializeComponent();
            cb_estado.SelectedIndex = 0;
            cargarComboxs();
-            cargarTabla();
-            
-
+            cargarTabla("");
             //  FALTAN LOS VS Y LAS CONSULTAS
+
         }
 
         MetodosCRUD metodoscrud = new MetodosCRUD();
@@ -49,11 +48,7 @@ namespace _911_RD.Administracion
                         cb_tipoIdent.Items.Add(identi.nombre.ToUpper());
                     }
 
-                    var listP = db.PUESTOS;
-                    foreach (var pue in listP)
-                    {
-                        cb_puestos.Items.Add(pue.puesto.ToUpper());
-                    }
+                   
 
 
                 }
@@ -74,7 +69,24 @@ namespace _911_RD.Administracion
 
         private void errorTxtBox2_TextChanged(object sender, EventArgs e)
         {
+            try
+            {
+                if (metodoscrud.ValidarIdentificacion(txt_cedula.Text.Trim())!=0 && id_txt.Text.Trim() == "")
+                {
+                    txt_error_cedula.Visible = true;
+                    btn_guardar.Enabled = false;
+                }
+                else
+                {
+                    txt_error_cedula.Visible = false;
+                    btn_guardar.Enabled = true;
+                }
 
+            }
+            catch (Exception asd)
+            {
+
+            }
         }
 
         private void label12_Click(object sender, EventArgs e)
@@ -114,7 +126,7 @@ namespace _911_RD.Administracion
           
              if (Utilidades.ValidarFormulario(this, errorProvider1) || validarCombo()==false || Utilidades.mayorEdad(fecha_nac.Value)==false)
             {
-                MessageBox.Show("Favor llenar todos los campos y tiene que ser mayor a 18 años", "Se requiere persona mayor de edad", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Favor llenar todos los campos y tiene que ser mayor de edad (18 años)", "Se requiere persona mayor de edad", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -123,6 +135,8 @@ namespace _911_RD.Administracion
             {
 
               InsertarEmpleado();
+                cargarTabla("");
+              
 
             }
             catch (Exception dfg)
@@ -176,19 +190,95 @@ namespace _911_RD.Administracion
         }
 
 
-        private void cargarTabla()
+        private void cargarTabla(string condicion)
         {
 
-            DatosEm = metodoscrud.buscarEmpleado("", "");
-            if (DatosEm != null)
+            try
             {
-                dataGridView1.DataSource = DatosEm;
-                DatosEm.AcceptChanges();
+                using (TransporSysEntities db = new TransporSysEntities())
+                {
+
+                    var empleado = from emp in db.EMPLEADOS
+                                   join pues in db.PUESTOS on emp.id_puesto equals pues.id_puesto
+                                   join per in db.PERSONAS on emp.id_persona equals per.id_persona
+                                   join ter in db.TERCEROS on per.id_tercero equals ter.id_tercero
+                                   join sex in db.SEXOS on per.id_sexo equals sex.id_sexo
+                                   join idenVS in db.TERCEROS_VS_IDENTIFICACIONES on ter.id_tercero equals idenVS.id_tercero
+                                   join iden in db.IDENTIFICACIONES on idenVS.id_identificacion equals iden.id_identificacion
+                                   select new
+                                    {
+                                       id_tercero = ter.id_tercero,
+                                       id_persona = per.id_persona,
+                                       id_puesto = pues.id_puesto,
+                                       tipo_identificacion = iden.id_tipo_identificacion,
+                                       id_empleado = emp.id_empleado,
+                                       Nombre = ter.nombre,
+                                       Apellido = per.apellido,
+                                       Cedula = iden.identificacion,
+                                       Fecha_Nacimiento = per.fecha_nacimiento,
+                                       Sexo = sex.descripcion,
+                                       Puesto = pues.puesto,
+                                       Salario = pues.salario,
+                                       Fecha_Contraro = emp.fecha_ingreso,
+                                       Estado = emp.estado,
+                                  
+                                   };
+
+                    MessageBox.Show(empleado.ToList().Count + "");
+
+                    //aqui vas a ver klk con lo que quieres filtrar
+                    if (condicion.Equals(""))
+                    {
+                        empleado = empleado.Where(em => em.Estado == true);
+                    }
+                    else
+                    {
+                        empleado = empleado.Where(em => em.Estado == true && (em.id_empleado.ToString().Contains(condicion) || em.Cedula.Contains(condicion)) || em.Nombre.Contains(condicion) || em.Apellido.Contains(condicion) || em.Puesto.Contains(condicion));
+                    }
+
+                    if (empleado!=null)
+                    {
+                        MessageBox.Show(empleado.ToList().Count+"");
+
+                        dataGridView1.Rows.Clear();
+
+                        foreach (var emple in empleado.ToList())
+                        {
+
+                            MessageBox.Show(emple.Apellido);
+
+                            dataGridView1.Rows.Add(
+                             emple.id_tercero.ToString(),
+                             emple.id_persona.ToString(),
+                             emple.id_puesto.ToString(),
+                             emple.tipo_identificacion.ToString(),
+                             emple.id_empleado.ToString(),
+                             emple.Nombre.ToString(),
+                             emple.Apellido.ToString(),
+                             emple.Cedula.ToString(),
+                             emple.Fecha_Contraro.ToString(),
+                             emple.Sexo.ToString(),
+                             emple.Puesto.ToString(),
+                             emple.Salario.ToString(),
+                             emple.Fecha_Contraro.ToString(),
+                             emple.Estado.ToString()
+                            );
+
+                        }
+
+                    }
+                }
+
+            }catch(Exception ass)
+            {
+
             }
+
+          
+
+
         }
         
-
-
 
         bool validarCombo()
         {
@@ -295,30 +385,11 @@ namespace _911_RD.Administracion
         private void cb_puestos_SelectedIndexChanged(object sender, EventArgs e)
         {
             
-            MessageBox.Show(cb_puestos.SelectedIndex+" "+DatosEm.Rows.Count );
-
-
-            if (cb_puestos.SelectedIndex==0)
-             {
-                dataGridView1.DataSource = DatosEm;
-                return;
-            }
-
-            DataTable data = new DataTable();
-             data = DatosEm;
-
-                    foreach (DataRow row in data.Rows)
-                    {
-                          MessageBox.Show(row[10].ToString());
-                       if(row[10].ToString().ToUpper()!= cb_puestos.SelectedItem.ToString())
-                        row.Delete();
-                    }
-                    data.AcceptChanges();
-            dataGridView1.DataSource = data;
         }
 
+        private void txt_numlicencia_TextChanged(object sender, EventArgs e)
+        {
 
-
-
+        }
     }
 }

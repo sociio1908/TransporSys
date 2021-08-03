@@ -72,6 +72,10 @@ namespace _911_RD
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<TELEFONOS> TELEFONOS { get; set; }
         public virtual DbSet<TERCEROS> TERCEROS { get; set; }
+        public virtual DbSet<TERCEROS_VS_DIRECCIONES> TERCEROS_VS_DIRECCIONES { get; set; }
+        public virtual DbSet<TERCEROS_VS_EMAILS> TERCEROS_VS_EMAILS { get; set; }
+        public virtual DbSet<TERCEROS_VS_IDENTIFICACIONES> TERCEROS_VS_IDENTIFICACIONES { get; set; }
+        public virtual DbSet<TERCEROS_VS_TELEFONOS> TERCEROS_VS_TELEFONOS { get; set; }
         public virtual DbSet<TIPOS_CLIENTES> TIPOS_CLIENTES { get; set; }
         public virtual DbSet<TIPOS_IDENTIFICACIONES> TIPOS_IDENTIFICACIONES { get; set; }
         public virtual DbSet<TIPOS_MEMBRESIAS> TIPOS_MEMBRESIAS { get; set; }

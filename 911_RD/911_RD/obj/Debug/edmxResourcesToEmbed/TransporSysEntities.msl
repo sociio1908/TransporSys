@@ -523,6 +523,42 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="TERCEROS_VS_DIRECCIONES">
+      <EntityTypeMapping TypeName="TransporSysModel.TERCEROS_VS_DIRECCIONES">
+        <MappingFragment StoreEntitySet="TERCEROS_VS_DIRECCIONES">
+          <ScalarProperty Name="id_tercero" ColumnName="id_tercero" />
+          <ScalarProperty Name="id_direccion" ColumnName="id_direccion" />
+          <ScalarProperty Name="id_vs" ColumnName="id_vs" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TERCEROS_VS_EMAILS">
+      <EntityTypeMapping TypeName="TransporSysModel.TERCEROS_VS_EMAILS">
+        <MappingFragment StoreEntitySet="TERCEROS_VS_EMAILS">
+          <ScalarProperty Name="id_tercero" ColumnName="id_tercero" />
+          <ScalarProperty Name="id_email" ColumnName="id_email" />
+          <ScalarProperty Name="id_vs" ColumnName="id_vs" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TERCEROS_VS_IDENTIFICACIONES">
+      <EntityTypeMapping TypeName="TransporSysModel.TERCEROS_VS_IDENTIFICACIONES">
+        <MappingFragment StoreEntitySet="TERCEROS_VS_IDENTIFICACIONES">
+          <ScalarProperty Name="id_tercero" ColumnName="id_tercero" />
+          <ScalarProperty Name="id_identificacion" ColumnName="id_identificacion" />
+          <ScalarProperty Name="id_vs" ColumnName="id_vs" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TERCEROS_VS_TELEFONOS">
+      <EntityTypeMapping TypeName="TransporSysModel.TERCEROS_VS_TELEFONOS">
+        <MappingFragment StoreEntitySet="TERCEROS_VS_TELEFONOS">
+          <ScalarProperty Name="id_tercero" ColumnName="id_tercero" />
+          <ScalarProperty Name="id_telefono" ColumnName="id_telefono" />
+          <ScalarProperty Name="id_vs" ColumnName="id_vs" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="TIPOS_CLIENTES">
       <EntityTypeMapping TypeName="TransporSysModel.TIPOS_CLIENTES">
         <MappingFragment StoreEntitySet="TIPOS_CLIENTES">
@@ -724,38 +760,6 @@
       </EndProperty>
       <EndProperty Name="PUESTOS">
         <ScalarProperty Name="id_puesto" ColumnName="id_puesto" />
-      </EndProperty>
-    </AssociationSetMapping>
-    <AssociationSetMapping Name="TERCEROS_VS_DIRECCIONES" TypeName="TransporSysModel.TERCEROS_VS_DIRECCIONES" StoreEntitySet="TERCEROS_VS_DIRECCIONES">
-      <EndProperty Name="DIRECCIONES">
-        <ScalarProperty Name="id_direccion" ColumnName="id_direccion" />
-      </EndProperty>
-      <EndProperty Name="TERCEROS">
-        <ScalarProperty Name="id_tercero" ColumnName="id_tercero" />
-      </EndProperty>
-    </AssociationSetMapping>
-    <AssociationSetMapping Name="TERCEROS_VS_EMAILS" TypeName="TransporSysModel.TERCEROS_VS_EMAILS" StoreEntitySet="TERCEROS_VS_EMAILS">
-      <EndProperty Name="EMAILS">
-        <ScalarProperty Name="id_email" ColumnName="id_email" />
-      </EndProperty>
-      <EndProperty Name="TERCEROS">
-        <ScalarProperty Name="id_tercero" ColumnName="id_tercero" />
-      </EndProperty>
-    </AssociationSetMapping>
-    <AssociationSetMapping Name="TERCEROS_VS_IDENTIFICACIONES" TypeName="TransporSysModel.TERCEROS_VS_IDENTIFICACIONES" StoreEntitySet="TERCEROS_VS_IDENTIFICACIONES">
-      <EndProperty Name="IDENTIFICACIONES">
-        <ScalarProperty Name="id_identificacion" ColumnName="id_identificacion" />
-      </EndProperty>
-      <EndProperty Name="TERCEROS">
-        <ScalarProperty Name="id_tercero" ColumnName="id_tercero" />
-      </EndProperty>
-    </AssociationSetMapping>
-    <AssociationSetMapping Name="TERCEROS_VS_TELEFONOS" TypeName="TransporSysModel.TERCEROS_VS_TELEFONOS" StoreEntitySet="TERCEROS_VS_TELEFONOS">
-      <EndProperty Name="TERCEROS">
-        <ScalarProperty Name="id_tercero" ColumnName="id_tercero" />
-      </EndProperty>
-      <EndProperty Name="TELEFONOS">
-        <ScalarProperty Name="id_telefono" ColumnName="id_telefono" />
       </EndProperty>
     </AssociationSetMapping>
   </EntityContainerMapping>
