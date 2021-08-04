@@ -23,6 +23,8 @@ namespace _911_RD.Administracion
         }
         int cont = 0;
         MetodosCRUD metodoscrud = new MetodosCRUD();
+
+
        void cargarComboxs()
         {
             try

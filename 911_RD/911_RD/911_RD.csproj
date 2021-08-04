@@ -77,6 +77,30 @@
     <Compile Include="Administracion\ConPrincipal.Designer.cs">
       <DependentUpon>ConPrincipal.cs</DependentUpon>
     </Compile>
+    <Compile Include="Administracion\Direccion\FrmCiudad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administracion\Direccion\FrmCiudad.Designer.cs">
+      <DependentUpon>FrmCiudad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Administracion\Direccion\FrmContinente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administracion\Direccion\FrmContinente.Designer.cs">
+      <DependentUpon>FrmContinente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Administracion\Direccion\FrmPais.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administracion\Direccion\FrmPais.Designer.cs">
+      <DependentUpon>FrmPais.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Administracion\Direccion\FrmProvincia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administracion\Direccion\FrmProvincia.Designer.cs">
+      <DependentUpon>FrmProvincia.cs</DependentUpon>
+    </Compile>
     <Compile Include="Administracion\FrmBase.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -94,6 +118,12 @@
     </Compile>
     <Compile Include="Administracion\FrmDirecciones.Designer.cs">
       <DependentUpon>FrmDirecciones.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Administracion\Direccion\FrmDireccionNativa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administracion\Direccion\FrmDireccionNativa.Designer.cs">
+      <DependentUpon>FrmDireccionNativa.cs</DependentUpon>
     </Compile>
     <Compile Include="Administracion\FrmEmpleado.cs">
       <SubType>Form</SubType>
@@ -427,6 +457,18 @@
     <EmbeddedResource Include="Administracion\ConPrincipal.resx">
       <DependentUpon>ConPrincipal.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Administracion\Direccion\FrmCiudad.resx">
+      <DependentUpon>FrmCiudad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administracion\Direccion\FrmContinente.resx">
+      <DependentUpon>FrmContinente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administracion\Direccion\FrmPais.resx">
+      <DependentUpon>FrmPais.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administracion\Direccion\FrmProvincia.resx">
+      <DependentUpon>FrmProvincia.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Administracion\FrmBase.resx">
       <DependentUpon>FrmBase.cs</DependentUpon>
     </EmbeddedResource>
@@ -435,6 +477,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Administracion\FrmDirecciones.resx">
       <DependentUpon>FrmDirecciones.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administracion\Direccion\FrmDireccionNativa.resx">
+      <DependentUpon>FrmDireccionNativa.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Administracion\FrmEmpleado.resx">
       <DependentUpon>FrmEmpleado.cs</DependentUpon>
