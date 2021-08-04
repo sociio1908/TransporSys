@@ -26,5 +26,30 @@ namespace _911_RD
         {
             this.WindowState = FormWindowState.Minimized;
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string sPass = Utilidades.Encrypt.GetSHA256(txt_password.Text.Trim());
+
+            using (TransporSysEntities db = new TransporSysEntities())
+            {
+                var lst = from d in db.USUARIOS
+                          where d.usuario == txt_user.Text
+                          && d.contrasena == sPass
+                          select d;
+
+                if (lst.Count() > 0)
+                {
+                    FrmPrincipal frmp = new FrmPrincipal();
+                    frmp.ShowDialog();
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Usuario O Contraseña Incorrectos");
+                }
+            }
+
+        }
     }
 }
