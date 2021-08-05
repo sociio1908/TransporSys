@@ -16,14 +16,27 @@ namespace _911_RD.Administracion
         {
             InitializeComponent();
            cb_estado.SelectedIndex = 0;
-           cargarComboxs(); dataGridView1.AllowUserToAddRows = false;
+           cargarComboxs(); 
+            dataGridView1.AllowUserToAddRows = false;
             cargarTabla("");
             //  FALTAN LOS VS Y LAS CONSULTAS
-
+            cargarFormDIr();
         }
         int cont = 0;
         MetodosCRUD metodoscrud = new MetodosCRUD();
 
+
+
+        FrmDireccionNativa FrmDir = new FrmDireccionNativa();
+        void cargarFormDIr()
+        {
+            FrmDir.TopLevel = false;
+            p_dir.Controls.Add(FrmDir);
+            FrmDir.btn_guardar.Visible = false;
+            FrmDir.btn_limpiar.Visible = false;
+            FrmDir.btn_salir.Visible = false;
+            FrmDir.Show();
+        }
 
        void cargarComboxs()
         {
@@ -167,7 +180,7 @@ namespace _911_RD.Administracion
                 //Telefono
                 metodoscrud.crudTelefono("", txt_telefono.Text, tercero.ToString());
                 //Direccion
-                 int id_direccion = metodoscrud.InsertarDireccion(txt_lat.Text, txt_long.Text, tercero.ToString());
+                 int id_direccion = metodoscrud.InsertarDireccion(FrmDir.id_txt.Text, FrmDir.cb_ciudad.SelectedItem.ToString(), FrmDir.txt_descripcion.Text, tercero.ToString());
                 //Empleado
                 int empleado = metodoscrud.crudEmpleado(txt_id_cargo.Text, persona.ToString(), fecha_con.Value, cb_estado.SelectedIndex == 0 ? true : false);
                 MessageBox.Show("ID_empleado: " + empleado);
@@ -335,38 +348,8 @@ namespace _911_RD.Administracion
         //Seleccionar direccion
         private void btn_busc_dir_Click(object sender, EventArgs e)
         {
-            using (FrmDirecciones frm = new FrmDirecciones())
-            {
-                DialogResult dr = frm.ShowDialog();
-                if (dr == DialogResult.OK)
-                
-                try
-                {
-                    UseWaitCursor = true;
-                    var res = Utilidades.ExtraerDireccion(frm.webBrowser1.Url.ToString());
+         
 
-                    if (res.Item3)
-                    {
-                        this.DialogResult = DialogResult.OK;
-                            txt_lat.Text = res.Item1.ToString();
-                            txt_long.Text = res.Item2.ToString();
-                            lbl_estado_dir.Text = "DIRECCION CARGADA CON EXITO.";
-                        lbl_estado_dir.ForeColor = System.Drawing.Color.DarkGreen;
-                    }
-                    else
-                    {
-                        lbl_estado_dir.Text = "ERROR, DIRECCION NO CARGADA.";
-                        lbl_estado_dir.ForeColor = System.Drawing.Color.Red;
-                    }
-                    UseWaitCursor = false;
-
-                }
-                catch (Exception asasd)
-                {
-                    //error
-                }
-
-            }
         }
 
         private void cb_nacionalidades_SelectedIndexChanged(object sender, EventArgs e)
@@ -461,6 +444,16 @@ namespace _911_RD.Administracion
             if (dataGridView1.Rows.Count > 0 && cont >0)
                 CargarCampos();
             cont++;
+        }
+
+        private void c_puesto_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void c_puesto_SelectedValueChanged(object sender, EventArgs e)
+        {
+            cargarTabla(txt_filtro.Text.Trim());
         }
     }
 }

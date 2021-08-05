@@ -68,7 +68,7 @@
     <Key>
       <PropertyRef Name="id_ciudad" />
     </Key>
-    <Property Name="id_ciudad" Type="Decimal" Precision="18" Scale="15" Nullable="false" />
+    <Property Name="id_ciudad" Type="Int32" Nullable="false" />
     <Property Name="id_provincia" Type="Int32" Nullable="false" />
     <Property Name="ciudad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <NavigationProperty Name="PROVINCIAS" Relationship="Self.FK_CIUDADES_PROVINCIAS" FromRole="CIUDADES" ToRole="PROVINCIAS" />
@@ -256,10 +256,18 @@
       <PropertyRef Name="id_direccion" />
     </Key>
     <Property Name="id_direccion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="latitud" Type="Decimal" Precision="18" Scale="15" Nullable="false" />
-    <Property Name="longitud" Type="Decimal" Precision="18" Scale="15" Nullable="false" />
+    <Property Name="id_ciudad" Type="Int32" Nullable="false" />
+    <Property Name="descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
     <NavigationProperty Name="CIUDADES" Relationship="Self.FK_DIRECCIONES_CIUDADES" FromRole="DIRECCIONES" ToRole="CIUDADES" />
     <NavigationProperty Name="TERCEROS_VS_DIRECCIONES" Relationship="Self.FK__TERCEROS___id_di__3B95D2F1" FromRole="DIRECCIONES" ToRole="TERCEROS_VS_DIRECCIONES" />
+  </EntityType>
+  <EntityType Name="DIRECCIONESLL">
+    <Key>
+      <PropertyRef Name="id_direccion" />
+    </Key>
+    <Property Name="id_direccion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="latitud" Type="Decimal" Precision="18" Scale="15" Nullable="false" />
+    <Property Name="longitud" Type="Decimal" Precision="18" Scale="15" Nullable="false" />
   </EntityType>
   <EntityType Name="DVENTAS_SERVICIOS">
     <Key>
@@ -997,7 +1005,7 @@
         <PropertyRef Name="id_ciudad" />
       </Principal>
       <Dependent Role="DIRECCIONES">
-        <PropertyRef Name="latitud" />
+        <PropertyRef Name="id_ciudad" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -1655,6 +1663,7 @@
     <EntitySet Name="DETALLES_SALIDAS" EntityType="Self.DETALLES_SALIDAS" />
     <EntitySet Name="DETALLES_VENTAS" EntityType="Self.DETALLES_VENTAS" />
     <EntitySet Name="DIRECCIONES" EntityType="Self.DIRECCIONES" />
+    <EntitySet Name="DIRECCIONESLL" EntityType="Self.DIRECCIONESLL" />
     <EntitySet Name="DVENTAS_SERVICIOS" EntityType="Self.DVENTAS_SERVICIOS" />
     <EntitySet Name="DVIAJES" EntityType="Self.DVIAJES" />
     <EntitySet Name="EMAILS" EntityType="Self.EMAILS" />

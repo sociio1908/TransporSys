@@ -74,14 +74,7 @@ namespace _911_RD.Administracion
             this.label27 = new System.Windows.Forms.Label();
             this.txt_numlicencia = new _911_RD.ErrorTxtBox();
             this.label18 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.txt_long = new _911_RD.ErrorTxtBox();
-            this.label17 = new System.Windows.Forms.Label();
-            this.btn_busc_dir = new System.Windows.Forms.PictureBox();
-            this.lbl_estado_dir = new System.Windows.Forms.Label();
-            this.txt_lat = new _911_RD.ErrorTxtBox();
+            this.p_dir = new System.Windows.Forms.Panel();
             this.label22 = new System.Windows.Forms.Label();
             this.cb_nacionalidades = new System.Windows.Forms.ComboBox();
             this.label21 = new System.Windows.Forms.Label();
@@ -89,6 +82,7 @@ namespace _911_RD.Administracion
             this.txt_id_cargo = new _911_RD.ErrorTxtBox();
             this.btn_filtro = new System.Windows.Forms.PictureBox();
             this.txt_error_cedula = new System.Windows.Forms.Label();
+            this.c_puesto = new System.Windows.Forms.ComboBox();
             this.id_ter = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.id_per = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.id_pue = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -103,6 +97,7 @@ namespace _911_RD.Administracion
             this.salario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fecha_contrato = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.direcciones = new System.Windows.Forms.DataGridViewButtonColumn();
             this.nacionalidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.btn_buscar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_Cargo)).BeginInit();
@@ -110,8 +105,6 @@ namespace _911_RD.Administracion
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.p_direccion.SuspendLayout();
             this.p_conductor.SuspendLayout();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btn_busc_dir)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_filtro)).BeginInit();
             this.SuspendLayout();
             // 
@@ -381,6 +374,7 @@ namespace _911_RD.Administracion
             this.salario,
             this.fecha_contrato,
             this.estado,
+            this.direcciones,
             this.nacionalidad});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
@@ -521,7 +515,7 @@ namespace _911_RD.Administracion
             this.p_direccion.Controls.Add(this.txt_telefono);
             this.p_direccion.Location = new System.Drawing.Point(498, 78);
             this.p_direccion.Name = "p_direccion";
-            this.p_direccion.Size = new System.Drawing.Size(427, 135);
+            this.p_direccion.Size = new System.Drawing.Size(360, 103);
             this.p_direccion.TabIndex = 177;
             // 
             // label26
@@ -586,7 +580,7 @@ namespace _911_RD.Administracion
             this.lbl_conductor.AutoSize = true;
             this.lbl_conductor.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
             this.lbl_conductor.ForeColor = System.Drawing.Color.Firebrick;
-            this.lbl_conductor.Location = new System.Drawing.Point(494, 377);
+            this.lbl_conductor.Location = new System.Drawing.Point(491, 458);
             this.lbl_conductor.Name = "lbl_conductor";
             this.lbl_conductor.Size = new System.Drawing.Size(108, 19);
             this.lbl_conductor.TabIndex = 180;
@@ -601,15 +595,16 @@ namespace _911_RD.Administracion
             this.p_conductor.Controls.Add(this.label28);
             this.p_conductor.Controls.Add(this.label27);
             this.p_conductor.Controls.Add(this.txt_numlicencia);
-            this.p_conductor.Location = new System.Drawing.Point(498, 399);
+            this.p_conductor.Location = new System.Drawing.Point(495, 480);
             this.p_conductor.Name = "p_conductor";
-            this.p_conductor.Size = new System.Drawing.Size(427, 107);
+            this.p_conductor.Size = new System.Drawing.Size(342, 75);
             this.p_conductor.TabIndex = 179;
             this.p_conductor.Visible = false;
             // 
             // fecha_licencia
             // 
             this.fecha_licencia.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fecha_licencia.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.fecha_licencia.Location = new System.Drawing.Point(158, 30);
             this.fecha_licencia.Name = "fecha_licencia";
             this.fecha_licencia.Size = new System.Drawing.Size(167, 22);
@@ -655,110 +650,20 @@ namespace _911_RD.Administracion
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
             this.label18.ForeColor = System.Drawing.Color.Firebrick;
-            this.label18.Location = new System.Drawing.Point(494, 216);
+            this.label18.Location = new System.Drawing.Point(494, 190);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(94, 19);
             this.label18.TabIndex = 182;
             this.label18.Text = "DIRECCION";
             // 
-            // panel1
+            // p_dir
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.panel1.Controls.Add(this.label20);
-            this.panel1.Controls.Add(this.label19);
-            this.panel1.Controls.Add(this.txt_long);
-            this.panel1.Controls.Add(this.label17);
-            this.panel1.Controls.Add(this.btn_busc_dir);
-            this.panel1.Controls.Add(this.lbl_estado_dir);
-            this.panel1.Controls.Add(this.txt_lat);
-            this.panel1.Location = new System.Drawing.Point(498, 238);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(427, 127);
-            this.panel1.TabIndex = 181;
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label20.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label20.Location = new System.Drawing.Point(3, 74);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(73, 16);
-            this.label20.TabIndex = 197;
-            this.label20.Text = "LONGITUD";
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label19.Location = new System.Drawing.Point(3, 42);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(57, 16);
-            this.label19.TabIndex = 196;
-            this.label19.Text = "LATITUD";
-            // 
-            // txt_long
-            // 
-            this.txt_long.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txt_long.Enabled = false;
-            this.txt_long.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.txt_long.Limpiar = true;
-            this.txt_long.Location = new System.Drawing.Point(82, 69);
-            this.txt_long.Name = "txt_long";
-            this.txt_long.Size = new System.Drawing.Size(173, 26);
-            this.txt_long.SoloNumeros = false;
-            this.txt_long.TabIndex = 195;
-            this.txt_long.Validar = true;
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label17.Location = new System.Drawing.Point(3, 5);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(136, 16);
-            this.label17.TabIndex = 194;
-            this.label17.Text = "BUSCAR DIRECCION";
-            // 
-            // btn_busc_dir
-            // 
-            this.btn_busc_dir.BackColor = System.Drawing.Color.LightGreen;
-            this.btn_busc_dir.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_busc_dir.Image = global::_911_RD.Properties.Resources.search;
-            this.btn_busc_dir.Location = new System.Drawing.Point(145, 3);
-            this.btn_busc_dir.Name = "btn_busc_dir";
-            this.btn_busc_dir.Size = new System.Drawing.Size(34, 26);
-            this.btn_busc_dir.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btn_busc_dir.TabIndex = 191;
-            this.btn_busc_dir.TabStop = false;
-            this.btn_busc_dir.Click += new System.EventHandler(this.btn_busc_dir_Click);
-            // 
-            // lbl_estado_dir
-            // 
-            this.lbl_estado_dir.AutoSize = true;
-            this.lbl_estado_dir.Font = new System.Drawing.Font("Candara", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_estado_dir.ForeColor = System.Drawing.Color.Red;
-            this.lbl_estado_dir.Location = new System.Drawing.Point(127, 98);
-            this.lbl_estado_dir.Name = "lbl_estado_dir";
-            this.lbl_estado_dir.Size = new System.Drawing.Size(128, 15);
-            this.lbl_estado_dir.TabIndex = 193;
-            this.lbl_estado_dir.Text = "DIRECCION SIN CARGAR";
-            // 
-            // txt_lat
-            // 
-            this.txt_lat.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txt_lat.Enabled = false;
-            this.txt_lat.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.txt_lat.Limpiar = true;
-            this.txt_lat.Location = new System.Drawing.Point(82, 37);
-            this.txt_lat.Name = "txt_lat";
-            this.txt_lat.Size = new System.Drawing.Size(173, 26);
-            this.txt_lat.SoloNumeros = false;
-            this.txt_lat.TabIndex = 191;
-            this.txt_lat.Validar = true;
+            this.p_dir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.p_dir.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.p_dir.Location = new System.Drawing.Point(498, 212);
+            this.p_dir.Name = "p_dir";
+            this.p_dir.Size = new System.Drawing.Size(427, 243);
+            this.p_dir.TabIndex = 181;
             // 
             // label22
             // 
@@ -838,6 +743,18 @@ namespace _911_RD.Administracion
             this.txt_error_cedula.TabIndex = 221;
             this.txt_error_cedula.Text = "X";
             this.txt_error_cedula.Visible = false;
+            // 
+            // c_puesto
+            // 
+            this.c_puesto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.c_puesto.FormattingEnabled = true;
+            this.c_puesto.Location = new System.Drawing.Point(310, 529);
+            this.c_puesto.Name = "c_puesto";
+            this.c_puesto.Size = new System.Drawing.Size(179, 28);
+            this.c_puesto.TabIndex = 222;
+            this.c_puesto.Text = "Filtrar puesto";
+            this.c_puesto.SelectedIndexChanged += new System.EventHandler(this.c_puesto_SelectedIndexChanged);
+            this.c_puesto.SelectedValueChanged += new System.EventHandler(this.c_puesto_SelectedValueChanged);
             // 
             // id_ter
             // 
@@ -941,6 +858,14 @@ namespace _911_RD.Administracion
             this.estado.Name = "estado";
             this.estado.ReadOnly = true;
             // 
+            // direcciones
+            // 
+            this.direcciones.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.direcciones.HeaderText = "DIRECCION";
+            this.direcciones.Name = "direcciones";
+            this.direcciones.ReadOnly = true;
+            this.direcciones.Width = 77;
+            // 
             // nacionalidad
             // 
             this.nacionalidad.HeaderText = "nacionalidad";
@@ -953,6 +878,7 @@ namespace _911_RD.Administracion
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1049, 780);
+            this.Controls.Add(this.c_puesto);
             this.Controls.Add(this.txt_error_cedula);
             this.Controls.Add(this.btn_filtro);
             this.Controls.Add(this.txt_id_cargo);
@@ -961,7 +887,7 @@ namespace _911_RD.Administracion
             this.Controls.Add(this.label22);
             this.Controls.Add(this.cb_nacionalidades);
             this.Controls.Add(this.label18);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.p_dir);
             this.Controls.Add(this.lbl_conductor);
             this.Controls.Add(this.p_conductor);
             this.Controls.Add(this.lbl_contacto);
@@ -1023,7 +949,7 @@ namespace _911_RD.Administracion
             this.Controls.SetChildIndex(this.lbl_contacto, 0);
             this.Controls.SetChildIndex(this.p_conductor, 0);
             this.Controls.SetChildIndex(this.lbl_conductor, 0);
-            this.Controls.SetChildIndex(this.panel1, 0);
+            this.Controls.SetChildIndex(this.p_dir, 0);
             this.Controls.SetChildIndex(this.label18, 0);
             this.Controls.SetChildIndex(this.cb_nacionalidades, 0);
             this.Controls.SetChildIndex(this.label22, 0);
@@ -1040,6 +966,7 @@ namespace _911_RD.Administracion
             this.Controls.SetChildIndex(this.txt_id_cargo, 0);
             this.Controls.SetChildIndex(this.btn_filtro, 0);
             this.Controls.SetChildIndex(this.txt_error_cedula, 0);
+            this.Controls.SetChildIndex(this.c_puesto, 0);
             ((System.ComponentModel.ISupportInitialize)(this.btn_buscar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_Cargo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -1048,9 +975,6 @@ namespace _911_RD.Administracion
             this.p_direccion.PerformLayout();
             this.p_conductor.ResumeLayout(false);
             this.p_conductor.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btn_busc_dir)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_filtro)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -1092,10 +1016,9 @@ namespace _911_RD.Administracion
         private System.Windows.Forms.Label lbl_conductor;
         private System.Windows.Forms.Panel p_conductor;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel p_dir;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.ComboBox cb_nacionalidades;
-        private System.Windows.Forms.Label lbl_estado_dir;
         private System.Windows.Forms.Label label23;
         private ErrorTxtBox txt_telefono;
         private System.Windows.Forms.Label label26;
@@ -1104,18 +1027,13 @@ namespace _911_RD.Administracion
         private ErrorTxtBox txt_numlicencia;
         private System.Windows.Forms.DateTimePicker fecha_licencia;
         private System.Windows.Forms.Label label28;
-        public System.Windows.Forms.PictureBox btn_busc_dir;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.Label label19;
-        public ErrorTxtBox txt_lat;
-        public ErrorTxtBox txt_long;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.ComboBox cb_tipoIdent;
         private ErrorTxtBox txt_id_cargo;
         public System.Windows.Forms.DataGridView dataGridView1;
         public System.Windows.Forms.PictureBox btn_filtro;
         private System.Windows.Forms.Label txt_error_cedula;
+        private System.Windows.Forms.ComboBox c_puesto;
         private System.Windows.Forms.DataGridViewTextBoxColumn id_ter;
         private System.Windows.Forms.DataGridViewTextBoxColumn id_per;
         private System.Windows.Forms.DataGridViewTextBoxColumn id_pue;
@@ -1130,6 +1048,7 @@ namespace _911_RD.Administracion
         private System.Windows.Forms.DataGridViewTextBoxColumn salario;
         private System.Windows.Forms.DataGridViewTextBoxColumn fecha_contrato;
         private System.Windows.Forms.DataGridViewTextBoxColumn estado;
+        private System.Windows.Forms.DataGridViewButtonColumn direcciones;
         private System.Windows.Forms.DataGridViewTextBoxColumn nacionalidad;
     }
 }

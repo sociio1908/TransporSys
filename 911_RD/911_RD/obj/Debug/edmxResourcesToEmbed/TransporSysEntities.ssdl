@@ -66,7 +66,7 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.ARTICULOS_VS_CATEGORIAS_VS_D
     <Key>
       <PropertyRef Name="id_ciudad" />
     </Key>
-    <Property Name="id_ciudad" Type="decimal" Precision="18" Scale="15" Nullable="false" />
+    <Property Name="id_ciudad" Type="int" Nullable="false" />
     <Property Name="id_provincia" Type="int" Nullable="false" />
     <Property Name="ciudad" Type="varchar" MaxLength="50" Nullable="false" />
   </EntityType>
@@ -219,6 +219,14 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.ARTICULOS_VS_CATEGORIAS_VS_D
     <Property Name="total" Type="float" Nullable="false" />
   </EntityType>
   <EntityType Name="DIRECCIONES">
+    <Key>
+      <PropertyRef Name="id_direccion" />
+    </Key>
+    <Property Name="id_direccion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_ciudad" Type="int" Nullable="false" />
+    <Property Name="descripcion" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DIRECCIONESLL">
     <Key>
       <PropertyRef Name="id_direccion" />
     </Key>
@@ -1149,7 +1157,7 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.VEHICULOS_VS_CONDUCTOR' no t
         <PropertyRef Name="id_ciudad" />
       </Principal>
       <Dependent Role="DIRECCIONES">
-        <PropertyRef Name="latitud" />
+        <PropertyRef Name="id_ciudad" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -1583,6 +1591,7 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.VEHICULOS_VS_CONDUCTOR' no t
     <EntitySet Name="DETALLES_SALIDAS" EntityType="Self.DETALLES_SALIDAS" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="DETALLES_VENTAS" EntityType="Self.DETALLES_VENTAS" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="DIRECCIONES" EntityType="Self.DIRECCIONES" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DIRECCIONESLL" EntityType="Self.DIRECCIONESLL" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="DVENTAS_SERVICIOS" EntityType="Self.DVENTAS_SERVICIOS" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="DVIAJES" EntityType="Self.DVIAJES" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="EMAILS" EntityType="Self.EMAILS" Schema="dbo" store:Type="Tables" />

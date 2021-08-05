@@ -229,6 +229,9 @@
     <Compile Include="DIRECCIONES.cs">
       <DependentUpon>TransporSysEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="DIRECCIONESLL.cs">
+      <DependentUpon>TransporSysEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="DVENTAS_SERVICIOS.cs">
       <DependentUpon>TransporSysEntities.tt</DependentUpon>
     </Compile>

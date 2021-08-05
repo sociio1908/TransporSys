@@ -20,7 +20,7 @@ namespace _911_RD
             this.DIRECCIONES = new HashSet<DIRECCIONES>();
         }
     
-        public decimal id_ciudad { get; set; }
+        public int id_ciudad { get; set; }
         public int id_provincia { get; set; }
         public string ciudad { get; set; }
     

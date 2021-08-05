@@ -231,6 +231,15 @@
       <EntityTypeMapping TypeName="TransporSysModel.DIRECCIONES">
         <MappingFragment StoreEntitySet="DIRECCIONES">
           <ScalarProperty Name="id_direccion" ColumnName="id_direccion" />
+          <ScalarProperty Name="id_ciudad" ColumnName="id_ciudad" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DIRECCIONESLL">
+      <EntityTypeMapping TypeName="TransporSysModel.DIRECCIONESLL">
+        <MappingFragment StoreEntitySet="DIRECCIONESLL">
+          <ScalarProperty Name="id_direccion" ColumnName="id_direccion" />
           <ScalarProperty Name="latitud" ColumnName="latitud" />
           <ScalarProperty Name="longitud" ColumnName="longitud" />
         </MappingFragment>

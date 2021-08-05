@@ -46,6 +46,7 @@ namespace _911_RD
         public virtual DbSet<DETALLES_SALIDAS> DETALLES_SALIDAS { get; set; }
         public virtual DbSet<DETALLES_VENTAS> DETALLES_VENTAS { get; set; }
         public virtual DbSet<DIRECCIONES> DIRECCIONES { get; set; }
+        public virtual DbSet<DIRECCIONESLL> DIRECCIONESLL { get; set; }
         public virtual DbSet<DVENTAS_SERVICIOS> DVENTAS_SERVICIOS { get; set; }
         public virtual DbSet<DVIAJES> DVIAJES { get; set; }
         public virtual DbSet<EMAILS> EMAILS { get; set; }

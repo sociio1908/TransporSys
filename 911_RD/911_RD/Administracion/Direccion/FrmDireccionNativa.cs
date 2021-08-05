@@ -33,35 +33,16 @@ namespace _911_RD.Administracion
         private void bt_agregar_pais_Click(object sender, EventArgs e)
         {
             FrmPais fm = new FrmPais();
-            fm.cb_continente.SelectedIndex = cb_continente.SelectedIndex;
             fm.ShowDialog();
             cargar_combox((cb_continente.SelectedItem.ToString()), "PAISES");
         }
 
-        void CargarCombos()
-        {
-            try
-            {
-                using (TransporSysEntities db = new TransporSysEntities())
-                {
-                    var listS = db.CONTINENTES;
-                    foreach (var cont in listS)
-                    {
-                        cb_continente.Items.Add(cont.continente.ToUpper());
-                    }
-                }
-            }
-            catch (Exception dfg)
-            {
-                // MessageBox.Show(lbl_titulo + " ERRORRRR");
 
-            }
-        }
+        MetodosCRUD metodosCRUD = new MetodosCRUD();
 
         private void btn_agregar_provincia_Click(object sender, EventArgs e)
         {
             FrmProvincia fm = new FrmProvincia();
-            fm.cb_pais.SelectedIndex = cb_pais.SelectedIndex;
             fm.ShowDialog();
             cargar_combox((cb_pais.SelectedItem.ToString()), "PROVINCIAS");
 
@@ -70,7 +51,6 @@ namespace _911_RD.Administracion
         private void bt_agregar_ciu_Click(object sender, EventArgs e)
         {
             FrmCiudad fm = new FrmCiudad();
-            fm.cb_provincia.SelectedIndex = cb_provincia.SelectedIndex;
             fm.ShowDialog();
             cargar_combox((cb_pais.SelectedItem.ToString()), "PROVINCIAS");
 
@@ -177,5 +157,46 @@ namespace _911_RD.Administracion
                 bt_agregar_ciu.Enabled = true;
             }
         }
+
+        private void btn_guardar_Click(object sender, EventArgs e)
+        {
+
+            insertarDireccion();
+            Utilidades.LimpiarControles(this);
+        }
+
+        public string id_tercero;
+
+        void insertarDireccion()
+        {
+            try
+            {
+                if (Utilidades.ValidarFormulario(this, errorProvider1) && validarCombo()==false)
+                    return;
+
+             int res  = metodosCRUD.InsertarDireccion(id_txt.Text, cb_ciudad.SelectedItem.ToString(), txt_descripcion.Text, id_tercero);
+                if(res>0)
+                    MessageBox.Show("Proceso exitoso");
+
+            }
+            catch (Exception ase)
+            {
+
+
+
+            }
+
+        }
+
+        bool validarCombo()
+        {
+            if (cb_ciudad.SelectedItem == null || cb_continente.SelectedItem == null || cb_pais.SelectedItem == null || cb_provincia.SelectedItem == null)
+                return false;
+
+            return true;
+        }
+
+
+
     }
 }

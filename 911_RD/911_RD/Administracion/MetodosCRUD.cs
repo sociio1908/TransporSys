@@ -368,29 +368,33 @@ namespace _911_RD.Administracion
             }
         }
 
-        public int InsertarDireccion(string latitud_, string longitud_, string id_tercero)
+        public int InsertarDireccion(string id_direccion, string id_ciudad, string descripcion, string id_tercero)
         {
             int id_result = 0;
             try
             {
                 using (TransporSysEntities db = new TransporSysEntities())
                 {
-                    var terceroquery = db.DIRECCIONES.FirstOrDefault(a => a.latitud.ToString() == latitud_.Trim() && a.longitud.ToString() == longitud_.Trim());
+
+                    int id_ciudad_int = db.CIUDADES.FirstOrDefault(a => a.ciudad.ToString() == id_ciudad.Trim()).id_ciudad;
+
+                    var terceroquery = db.DIRECCIONES.FirstOrDefault(a => a.id_direccion.ToString() == id_direccion.Trim());
+
                     if (terceroquery == null)
                     {
-                        DIRECCIONES core = new DIRECCIONES
-                        {
-                            
-                            latitud = Convert.ToDecimal(latitud_),
-                            longitud = Convert.ToDecimal(longitud_),
+                        DIRECCIONES dir = new DIRECCIONES{
+                            id_ciudad = id_ciudad_int,
+                            descripcion = descripcion.Trim(),
                         };
-                        db.DIRECCIONES.Add(core);
-                        db.SaveChanges();
+                        db.DIRECCIONES.Add(dir);
                     }
                     else
                     {
+                        terceroquery.id_ciudad = id_ciudad_int;
+                        terceroquery.descripcion = descripcion.Trim();
                         id_result = terceroquery.id_direccion;
                     }
+                    db.SaveChanges();
                     if (terceroquery == null)
                     {
                         id_result = db.DIRECCIONES.Max(x => x.id_direccion);
