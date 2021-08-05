@@ -102,6 +102,11 @@ namespace _911_RD.Administracion
 
         private void button14_Click(object sender, EventArgs e)
         {
+            if (Utilidades.ValidarFormulario(groupBox1, errorProvider1) == true)
+            {
+
+            }
+            
             if (txt_cantidad.Text == "0" || txt_id.Text == "")
             {
                 MessageBox.Show("NO HAY PRODUCTO SLECCIONADO o LA CANTIDAD DEL PRODUCTO NO PUEDE SER 0");
@@ -405,6 +410,11 @@ namespace _911_RD.Administracion
                     //Posible error
                 }
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

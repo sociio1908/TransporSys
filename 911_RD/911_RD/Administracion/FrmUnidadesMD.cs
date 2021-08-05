@@ -25,6 +25,7 @@ namespace _911_RD.Administracion
 
         private void btn_guardar_Click(object sender, EventArgs e)
         {
+            Utilidades.ValidarFormulario(groupBox1, errorProvider1);
             InsertarArticulo();
         }
 

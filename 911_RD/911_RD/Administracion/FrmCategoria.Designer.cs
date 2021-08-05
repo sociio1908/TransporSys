@@ -29,6 +29,7 @@ namespace _911_RD.Administracion
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -37,7 +38,6 @@ namespace _911_RD.Administracion
             this.label3 = new System.Windows.Forms.Label();
             this.txt_descripcion = new _911_RD.ErrorTxtBox();
             this.txt_nombre = new _911_RD.ErrorTxtBox();
-            this.label7 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.id_eme = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -45,12 +45,15 @@ namespace _911_RD.Administracion
             this.estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label13 = new System.Windows.Forms.Label();
             this.txt_filtro = new _911_RD.ErrorTxtBox();
-            this.cb_estado = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btn_enviar = new System.Windows.Forms.Button();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.label7 = new System.Windows.Forms.Label();
+            this.cb_estado = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.btn_buscar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // label15
@@ -140,18 +143,6 @@ namespace _911_RD.Administracion
             this.txt_nombre.TabIndex = 162;
             this.txt_nombre.Validar = true;
             this.txt_nombre.TextChanged += new System.EventHandler(this.txt_nombre_TextChanged);
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label7.Location = new System.Drawing.Point(318, 39);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(58, 16);
-            this.label7.TabIndex = 178;
-            this.label7.Text = "ESTADO";
-            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // dataGridView1
             // 
@@ -272,28 +263,15 @@ namespace _911_RD.Administracion
             this.txt_filtro.TextChanged += new System.EventHandler(this.txt_filtro_TextChanged);
             this.txt_filtro.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txt_filtro_KeyUp);
             // 
-            // cb_estado
-            // 
-            this.cb_estado.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.cb_estado.FormattingEnabled = true;
-            this.cb_estado.Items.AddRange(new object[] {
-            "ACTIVO",
-            "INACTIVO"});
-            this.cb_estado.Location = new System.Drawing.Point(321, 58);
-            this.cb_estado.Name = "cb_estado";
-            this.cb_estado.Size = new System.Drawing.Size(146, 28);
-            this.cb_estado.TabIndex = 177;
-            this.cb_estado.SelectedIndexChanged += new System.EventHandler(this.cb_estado_SelectedIndexChanged);
-            // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label7);
+            this.groupBox1.Controls.Add(this.cb_estado);
             this.groupBox1.Controls.Add(this.btn_enviar);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.txt_nombre);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.txt_descripcion);
-            this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.cb_estado);
             this.groupBox1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
             this.groupBox1.ForeColor = System.Drawing.Color.Firebrick;
             this.groupBox1.Location = new System.Drawing.Point(18, 46);
@@ -320,6 +298,33 @@ namespace _911_RD.Administracion
             this.btn_enviar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btn_enviar.UseVisualStyleBackColor = false;
             this.btn_enviar.Click += new System.EventHandler(this.btn_eliminar_Click);
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label7.Location = new System.Drawing.Point(318, 39);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(58, 16);
+            this.label7.TabIndex = 202;
+            this.label7.Text = "ESTADO";
+            // 
+            // cb_estado
+            // 
+            this.cb_estado.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.cb_estado.FormattingEnabled = true;
+            this.cb_estado.Items.AddRange(new object[] {
+            "ACTIVO",
+            "INACTIVO"});
+            this.cb_estado.Location = new System.Drawing.Point(321, 58);
+            this.cb_estado.Name = "cb_estado";
+            this.cb_estado.Size = new System.Drawing.Size(146, 28);
+            this.cb_estado.TabIndex = 201;
             // 
             // FrmCategoria
             // 
@@ -349,6 +354,7 @@ namespace _911_RD.Administracion
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -360,7 +366,6 @@ namespace _911_RD.Administracion
         private System.Windows.Forms.Label label3;
         public ErrorTxtBox txt_descripcion;
         public ErrorTxtBox txt_nombre;
-        private System.Windows.Forms.Label label7;
         public System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn id_eme;
         private System.Windows.Forms.DataGridViewTextBoxColumn categoria;
@@ -368,8 +373,10 @@ namespace _911_RD.Administracion
         private System.Windows.Forms.DataGridViewTextBoxColumn estado;
         private System.Windows.Forms.Label label13;
         private ErrorTxtBox txt_filtro;
-        private System.Windows.Forms.ComboBox cb_estado;
         private System.Windows.Forms.GroupBox groupBox1;
         public System.Windows.Forms.Button btn_enviar;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ComboBox cb_estado;
     }
 }

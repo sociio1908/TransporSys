@@ -53,7 +53,16 @@ namespace _911_RD.Administracion
 
         private void btn_guardar_Click(object sender, EventArgs e)
         {
-            InsertarArticulo();
+            if (Utilidades.ValidarFormulario(groupBox1, errorProvider1) == true)
+            {
+
+            }
+            else
+            {
+                InsertarArticulo();
+                id_txt.Text = "";
+            }
+            
         }
 
         private void cargarTabla()

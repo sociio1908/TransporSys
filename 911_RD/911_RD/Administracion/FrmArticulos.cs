@@ -48,7 +48,7 @@ namespace _911_RD.Administracion
         private void btn_guardar_Click(object sender, EventArgs e)
         {
             Utilidades va = new Utilidades();
-           if( Utilidades.ValidarFormulario(this, errorProvider1)==true)
+           if( Utilidades.ValidarFormulario(groupBox1, errorProvider1)==true)
             {
 
             }
@@ -437,6 +437,16 @@ namespace _911_RD.Administracion
         }
 
         private void txt_idcategoria_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txt_unidad_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txt_des_TextChanged(object sender, EventArgs e)
         {
 
         }

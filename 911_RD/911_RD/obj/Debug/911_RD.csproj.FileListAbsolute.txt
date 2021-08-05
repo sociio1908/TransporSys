@@ -223,3 +223,5 @@ C:\Users\harol\Documents\GitHub\TransporSys\911_RD\911_RD\obj\Debug\911_RD.exe.c
 C:\Users\harol\Documents\GitHub\TransporSys\911_RD\911_RD\obj\Debug\_911_RD.Administracion.FrmVentas.resources
 C:\Users\harol\Documents\GitHub\TransporSys\911_RD\911_RD\obj\Debug\_911_RD.Administracion.FrmCompra.resources
 C:\Users\harol\Documents\GitHub\TransporSys\911_RD\911_RD\obj\Debug\_911_RD.Administracion.FrmSuplidor.resources
+C:\Users\harol\Documents\GitHub\TransporSys\911_RD\911_RD\obj\Debug\_911_RD.Administracion.FrmUsuarios.resources
+C:\Users\harol\Documents\GitHub\TransporSys\911_RD\911_RD\obj\Debug\_911_RD.Administracion.FrmTipoUsuario.resources
