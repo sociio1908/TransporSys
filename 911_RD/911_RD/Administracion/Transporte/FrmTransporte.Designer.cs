@@ -151,9 +151,9 @@ namespace _911_RD.Administracion.Transporte
             this.lbl_titulo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.lbl_titulo.Location = new System.Drawing.Point(12, 9);
             this.lbl_titulo.Name = "lbl_titulo";
-            this.lbl_titulo.Size = new System.Drawing.Size(355, 32);
+            this.lbl_titulo.Size = new System.Drawing.Size(531, 32);
             this.lbl_titulo.TabIndex = 142;
-            this.lbl_titulo.Text = "SERIVICIO DE TRANSPORTE";
+            this.lbl_titulo.Text = "ASIGNAR DIRECCIONES DE TRANSPORTE";
             // 
             // radioButton1
             // 
@@ -209,7 +209,7 @@ namespace _911_RD.Administracion.Transporte
             // 
             this.btn_addDr.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_addDr.Image = global::_911_RD.Properties.Resources.list2;
-            this.btn_addDr.Location = new System.Drawing.Point(531, 119);
+            this.btn_addDr.Location = new System.Drawing.Point(531, 117);
             this.btn_addDr.Name = "btn_addDr";
             this.btn_addDr.Size = new System.Drawing.Size(37, 38);
             this.btn_addDr.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -222,7 +222,7 @@ namespace _911_RD.Administracion.Transporte
             this.btn_addDr2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_addDr2.Enabled = false;
             this.btn_addDr2.Image = global::_911_RD.Properties.Resources.list2;
-            this.btn_addDr2.Location = new System.Drawing.Point(1073, 120);
+            this.btn_addDr2.Location = new System.Drawing.Point(1073, 118);
             this.btn_addDr2.Name = "btn_addDr2";
             this.btn_addDr2.Size = new System.Drawing.Size(37, 38);
             this.btn_addDr2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -260,7 +260,7 @@ namespace _911_RD.Administracion.Transporte
             this.dataGridView2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dataGridView2.EnableHeadersVisualStyles = false;
             this.dataGridView2.GridColor = System.Drawing.Color.White;
-            this.dataGridView2.Location = new System.Drawing.Point(584, 163);
+            this.dataGridView2.Location = new System.Drawing.Point(584, 156);
             this.dataGridView2.MultiSelect = false;
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.ReadOnly = true;
@@ -327,7 +327,7 @@ namespace _911_RD.Administracion.Transporte
             this.dataGridView1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.GridColor = System.Drawing.Color.White;
-            this.dataGridView1.Location = new System.Drawing.Point(10, 163);
+            this.dataGridView1.Location = new System.Drawing.Point(10, 156);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
@@ -339,7 +339,7 @@ namespace _911_RD.Administracion.Transporte
             this.dataGridView1.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.WhiteSmoke;
             this.dataGridView1.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(526, 227);
+            this.dataGridView1.Size = new System.Drawing.Size(558, 227);
             this.dataGridView1.TabIndex = 168;
             this.dataGridView1.Visible = false;
             this.dataGridView1.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentDoubleClick);
@@ -406,12 +406,12 @@ namespace _911_RD.Administracion.Transporte
             // txt_hasta
             // 
             this.txt_hasta.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txt_hasta.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_hasta.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_hasta.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
             this.txt_hasta.Limpiar = true;
             this.txt_hasta.Location = new System.Drawing.Point(584, 125);
             this.txt_hasta.Name = "txt_hasta";
-            this.txt_hasta.Size = new System.Drawing.Size(483, 31);
+            this.txt_hasta.Size = new System.Drawing.Size(483, 29);
             this.txt_hasta.SoloNumeros = false;
             this.txt_hasta.TabIndex = 154;
             this.txt_hasta.Validar = true;
@@ -420,12 +420,12 @@ namespace _911_RD.Administracion.Transporte
             // txt_desde
             // 
             this.txt_desde.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txt_desde.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_desde.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_desde.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
             this.txt_desde.Limpiar = true;
             this.txt_desde.Location = new System.Drawing.Point(10, 125);
             this.txt_desde.Name = "txt_desde";
-            this.txt_desde.Size = new System.Drawing.Size(515, 31);
+            this.txt_desde.Size = new System.Drawing.Size(515, 29);
             this.txt_desde.SoloNumeros = false;
             this.txt_desde.TabIndex = 148;
             this.txt_desde.Validar = true;

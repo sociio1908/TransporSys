@@ -44,24 +44,24 @@ namespace _911_RD.Administracion.Transporte
                 {
 
                     var direcciones = from dir in db.DIRECCIONES
-                                   join ciu in db.CIUDADES on dir.id_ciudad equals ciu.id_ciudad
-                                   join provi in db.PROVINCIAS on ciu.id_provincia equals provi.id_provincia
-                                   join pai in db.PAISES on provi.id_pais equals pai.id_pais
-                                   select new
-                                   {
-                                      id_direccion = dir.id_direccion,
-                                      descripcion = dir.descripcion,
-                                      ciudad = ciu.ciudad,
-                                      pais = pai.pais,
-                                   };
+                                      join ciu in db.CIUDADES on dir.id_ciudad equals ciu.id_ciudad
+                                      join provi in db.PROVINCIAS on ciu.id_provincia equals provi.id_provincia
+                                      join pai in db.PAISES on provi.id_pais equals pai.id_pais
+                                      select new
+                                      {
+                                          id_direccion = dir.id_direccion,
+                                          descripcion = dir.descripcion,
+                                          ciudad = ciu.ciudad,
+                                          pais = pai.pais,
+                                      };
 
-                    if (condicion.Equals("")==false)
+                    if (condicion.Equals("") == false)
                     {
                         direcciones = direcciones.Where(di => di.descripcion.ToString().Contains(condicion) || di.ciudad.Contains(condicion));
                     }
                     if (direcciones != null && condicion.Equals("") == false)
                     {
-                    //    MessageBox.Show("ENTRO");
+                        //    MessageBox.Show("ENTRO");
                         dataGrid.Rows.Clear();
                         dataGrid.Visible = true;
                         dataGrid.Rows.Add("", "", "", "");
@@ -108,25 +108,25 @@ namespace _911_RD.Administracion.Transporte
             dataGridView2.Rows.Clear();
         }
 
-         void CargarCampos(DataGridView dataGrid, string txt)
+        void CargarCampos(DataGridView dataGrid, string txt)
         {
             try
             {
-                    if (txt == "Desde")
-                    {
-                        txt_id_desde.Text = dataGrid.SelectedRows[0].Cells[0].Value.ToString();
-                        txt_desde.Text = dataGrid.SelectedRows[0].Cells[1].Value.ToString() + ", " +
-                        dataGrid.SelectedRows[0].Cells[2].Value.ToString() + ", " +
-                        dataGrid.SelectedRows[0].Cells[3].Value.ToString();
-                    }
-                    else
-                    {
+                if (txt == "Desde")
+                {
+                    txt_id_desde.Text = dataGrid.SelectedRows[0].Cells[0].Value.ToString();
+                    txt_desde.Text = dataGrid.SelectedRows[0].Cells[1].Value.ToString() + ", " +
+                    dataGrid.SelectedRows[0].Cells[2].Value.ToString() + ", " +
+                    dataGrid.SelectedRows[0].Cells[3].Value.ToString();
+                }
+                else
+                {
 
-                    txt_id_hasta.Text = dataGrid.SelectedRows[0].Cells[0].Value.ToString(); 
-                        txt_hasta.Text = dataGrid.SelectedRows[0].Cells[1].Value.ToString() +", "+
-                        dataGrid.SelectedRows[0].Cells[2].Value.ToString() + ", " +
-                        dataGrid.SelectedRows[0].Cells[3].Value.ToString();
-                    }
+                    txt_id_hasta.Text = dataGrid.SelectedRows[0].Cells[0].Value.ToString();
+                    txt_hasta.Text = dataGrid.SelectedRows[0].Cells[1].Value.ToString() + ", " +
+                    dataGrid.SelectedRows[0].Cells[2].Value.ToString() + ", " +
+                    dataGrid.SelectedRows[0].Cells[3].Value.ToString();
+                }
             }
             catch (Exception ea)
             {
@@ -144,7 +144,7 @@ namespace _911_RD.Administracion.Transporte
         private void dataGridView1_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
 
-            if (e.RowIndex > 0 && dataGridView1.SelectedRows.Count>0)
+            if (e.RowIndex > 0 && dataGridView1.SelectedRows.Count > 0)
                 CargarCampos(dataGridView1, "Desde");
         }
 
@@ -155,9 +155,13 @@ namespace _911_RD.Administracion.Transporte
 
         private void btn_guardar_Click(object sender, EventArgs e)
         {
-            if (Utilidades.ValidarFormulario(this, errorProvider1))
+            if (Utilidades.ValidarFormulario(this, errorProvider1) || (txt_id_desde.Text.Trim().Equals(txt_id_hasta.Text.Trim())))
+            {
+                MessageBox.Show("Seleccione la direccion y no pueden ser la misma en caso de ida y vuelta.");
+
                 return;
 
+            }
 
 
         }
