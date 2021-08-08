@@ -165,7 +165,7 @@ namespace _911_RD.Administracion
             Utilidades.LimpiarControles(this);
         }
 
-        public string id_tercero;
+        public string id_tercero="";
 
         void insertarDireccion()
         {

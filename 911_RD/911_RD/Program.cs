@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using _911_RD.Administracion;
+using _911_RD.Administracion.Transporte;
 using _911_RD.Administracion.Vehiculo;
 
 namespace _911_RD
@@ -18,7 +19,7 @@ namespace _911_RD
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmEmpleado());
+            Application.Run(new FrmTransporte());
         }
 
 
