@@ -66,7 +66,7 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.ARTICULOS_VS_CATEGORIAS_VS_D
     <Key>
       <PropertyRef Name="id_ciudad" />
     </Key>
-    <Property Name="id_ciudad" Type="int" Nullable="false" />
+    <Property Name="id_ciudad" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="id_provincia" Type="int" Nullable="false" />
     <Property Name="ciudad" Type="varchar" MaxLength="50" Nullable="false" />
   </EntityType>

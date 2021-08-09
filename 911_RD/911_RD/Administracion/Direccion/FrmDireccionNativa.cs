@@ -17,6 +17,7 @@ namespace _911_RD.Administracion
         {
             InitializeComponent();
             cargar_combox("", "CONTINENTES");
+            cargarTabla("", dataGridView1);
         }
 
         private void FrmDireccionNativa_Load(object sender, EventArgs e)
@@ -45,7 +46,6 @@ namespace _911_RD.Administracion
             FrmProvincia fm = new FrmProvincia();
             fm.ShowDialog();
             cargar_combox((cb_pais.SelectedItem.ToString()), "PROVINCIAS");
-
         }
 
         private void bt_agregar_ciu_Click(object sender, EventArgs e)
@@ -163,6 +163,7 @@ namespace _911_RD.Administracion
 
             insertarDireccion();
             Utilidades.LimpiarControles(this);
+            cargarTabla("",dataGridView1);
         }
 
         public string id_tercero="";
@@ -171,10 +172,11 @@ namespace _911_RD.Administracion
         {
             try
             {
-                if (Utilidades.ValidarFormulario(this, errorProvider1) && validarCombo()==false)
+                if (Utilidades.ValidarFormulario(this, errorProvider1)==true || validarCombo()==false)
                     return;
 
-             int res  = metodosCRUD.InsertarDireccion(id_txt.Text, cb_ciudad.SelectedItem.ToString(), txt_descripcion.Text, id_tercero);
+                 int res  = metodosCRUD.InsertarDireccion(id_txt.Text, cb_ciudad.SelectedItem.ToString(), txt_descripcion.Text, id_tercero);
+                
                 if(res>0)
                     MessageBox.Show("Proceso exitoso");
 
@@ -197,6 +199,112 @@ namespace _911_RD.Administracion
         }
 
 
+        void cargarTabla(string condicion, DataGridView dataGrid)
+        {
+
+            try
+            {
+                using (TransporSysEntities db = new TransporSysEntities())
+                {
+
+                    var direcciones = from dir in db.DIRECCIONES
+                                      join ciu in db.CIUDADES on dir.id_ciudad equals ciu.id_ciudad
+                                      join provi in db.PROVINCIAS on ciu.id_provincia equals provi.id_provincia
+                                      join pai in db.PAISES on provi.id_pais equals pai.id_pais
+                                      join con in db.CONTINENTES on pai.id_continente equals con.id_continente
+                                       select new
+                                      {
+                                          id_direccion = dir.id_direccion,
+                                          descripcion = dir.descripcion,
+                                           id_continente = con.id_continente,
+                                           contienente = con.continente,
+                                           id_provincia = provi.id_provincia,
+                                           provincia = provi.provincia,
+                                           id_ciudad = ciu.id_ciudad,
+                                           ciudad = ciu.ciudad,
+                                           id_pais = pai.id_pais,
+                                           pais = pai.pais
+                                       };
+
+                    if (condicion.Equals("") == false)
+                    {
+                        direcciones = direcciones.Where(di => di.descripcion.ToString().Contains(condicion) || di.ciudad.Contains(condicion) || di.provincia.Contains(condicion) || di.contienente.Contains(condicion));
+                    }
+                    if (direcciones != null)
+                    {
+                        //    MessageBox.Show("ENTRO");
+                        dataGrid.Rows.Clear();
+                       
+                        dataGrid.Rows.Add("", "", "", "");
+                        foreach (var dire in direcciones.ToList())
+                        {
+                            dataGrid.Rows.Add(
+                             dire.id_direccion.ToString(),
+                             dire.descripcion.ToString(),
+                             dire.id_continente.ToString(),
+                             dire.contienente.ToString(),
+                             dire.id_pais.ToString(),
+                             dire.pais.ToString(),
+                             dire.id_provincia.ToString(),
+                             dire.provincia.ToString(),
+                             dire.id_ciudad.ToString(),
+                             dire.ciudad.ToString()
+                            );
+                        }
+                    }
+                    else
+                    {
+                        dataGrid.Visible = false;
+                    }
+                }
+            }
+            catch (Exception ass)
+            {
+
+            }
+        }
+
+        private void dataGridView1_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+            if (dataGridView1.Rows.Count > 0)
+                CargarCampos();
+        }
+
+        private void txt_filtro_TextChanged(object sender, EventArgs e)
+        {
+
+            if (dataGridView1.Rows.Count > 0)
+                cargarTabla(txt_filtro.Text.Trim(), dataGridView1);
+        }
+
+
+
+
+        private void CargarCampos()
+        {
+            try
+            {
+                id_txt.Text = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
+                txt_descripcion.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
+
+                cargar_combox("", "CONTINENTES");
+                cb_continente.SelectedIndex = cb_continente.FindString(dataGridView1.SelectedRows[0].Cells[3].Value.ToString());
+                cargar_combox(cb_continente.SelectedItem.ToString(), "PAISES");
+                cb_pais.SelectedIndex = cb_pais.FindString(dataGridView1.SelectedRows[0].Cells[5].Value.ToString());
+           
+                cargar_combox(cb_pais.SelectedItem.ToString(), "PROVINCIAS"); 
+                cb_provincia.SelectedIndex = cb_provincia.FindString(dataGridView1.SelectedRows[0].Cells[7].Value.ToString());
+
+                cargar_combox(cb_provincia.SelectedItem.ToString(), "CIUDADES");
+                cb_ciudad.SelectedIndex = cb_ciudad.FindString(dataGridView1.SelectedRows[0].Cells[9].Value.ToString());
+             
+            }
+            catch (Exception ea)
+            {
+                //
+            }
+        }
 
     }
 }

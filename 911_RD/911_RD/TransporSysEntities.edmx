@@ -71,7 +71,7 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.ARTICULOS_VS_CATEGORIAS_VS_D
           <Key>
             <PropertyRef Name="id_ciudad" />
           </Key>
-          <Property Name="id_ciudad" Type="int" Nullable="false" />
+          <Property Name="id_ciudad" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="id_provincia" Type="int" Nullable="false" />
           <Property Name="ciudad" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
@@ -2033,7 +2033,7 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.VEHICULOS_VS_CONDUCTOR' no t
           <Key>
             <PropertyRef Name="id_ciudad" />
           </Key>
-          <Property Name="id_ciudad" Type="Int32" Nullable="false" />
+          <Property Name="id_ciudad" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="id_provincia" Type="Int32" Nullable="false" />
           <Property Name="ciudad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="PROVINCIAS" Relationship="Self.FK_CIUDADES_PROVINCIAS" FromRole="CIUDADES" ToRole="PROVINCIAS" />
