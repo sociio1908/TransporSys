@@ -15,7 +15,7 @@ namespace _911_RD.Administracion.Email_Telefono
         public FrmEmail()
         {
             InitializeComponent();
-            cargarTabla();
+            cargarTabla("");
             txt_email.Focus();
         }
         int id = 0;
@@ -38,18 +38,32 @@ namespace _911_RD.Administracion.Email_Telefono
             }
         }
 
-        private void cargarTabla()
+        private void cargarTabla(string condicion)
         {
             using (TransporSysEntities db = new TransporSysEntities())
             {
                 try
                 {
                     dataGridView1.Rows.Clear();
-                    var list = db.EMAILS;
+                    var list = from mail in db.EMAILS
+                               select new
+                               {
+                                   id_email =mail.email,
+                                   email= mail.email
+                               };
+
+                    if (condicion.Trim() != "")
+                    {
+                        list = list.Where(a => a.email.Contains(condicion) || a.id_email.Contains(condicion));
+                    }
+
+                    if (list!=null)
                     foreach (var OPuestos in list)
                     {
                         dataGridView1.Rows.Add(OPuestos.id_email.ToString(), OPuestos.email.ToString());
                     }
+
+
                 }
                 catch (Exception dfg)
                 {
@@ -90,7 +104,7 @@ namespace _911_RD.Administracion.Email_Telefono
                     db.SaveChanges();
                 }
                 Utilidades.LimpiarControles(this);
-                cargarTabla();
+                cargarTabla("");
                 MessageBox.Show("Proceso exitoso.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             }
@@ -113,6 +127,13 @@ namespace _911_RD.Administracion.Email_Telefono
         private void dataGridView1_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             this.DialogResult = DialogResult.OK;
+        }
+
+        private void txt_filtro_TextChanged(object sender, EventArgs e)
+        {
+
+            if (dataGridView1.RowCount > 0)
+                cargarTabla(txt_filtro.Text.Trim());
         }
     }
 }

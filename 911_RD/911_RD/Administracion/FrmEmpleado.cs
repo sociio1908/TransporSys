@@ -177,9 +177,11 @@ namespace _911_RD.Administracion
                 int id_identificacion = metodoscrud.crudIdentificaciones(txt_cedula.Text, id_tipoIdentificacion.ToString(), tercero.ToString());
                 MessageBox.Show("ID_identificacion: " + id_identificacion);
                 //Correo
-              //  metodoscrud.crudCorreo("",txt_correo.Text, tercero.ToString());
+                if (tabla_correo.RowCount > 0) 
+                    AsignarTelefonos(tercero);
                 //Telefono
-               // metodoscrud.crudTelefono("", txt_telefono.Text, tercero.ToString());
+                if (tabla_tel.RowCount > 0)
+                    AsignarCorreos(tercero);
                 //Direccion
                 metodoscrud.crud_VS(tercero, int.Parse(txt_id_direccion.Text.Trim()), "TERCEROS_VS_DIRECCIONES", "id_direccion");
                 //Empleado
@@ -435,8 +437,8 @@ namespace _911_RD.Administracion
                     fecha_con.Value = DateTime.Parse(dataGridView1.SelectedRows[0].Cells[12].Value.ToString());
                     cb_estado.SelectedIndex = dataGridView1.SelectedRows[0].Cells[13].Value.ToString() == "ACTIVO" ? cb_estado.SelectedIndex = 0 : cb_estado.SelectedIndex = 1;
                     cb_nacionalidades.SelectedIndex = (int.Parse(dataGridView1.SelectedRows[0].Cells[14].Value.ToString()) -1);
-                    cargarTelefonos(dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
-                    cargarCorreos(dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
+                    cargarTelefonos(tercero.ToString());
+                    cargarCorreos(tercero.ToString());
 
 
                 }
@@ -577,8 +579,29 @@ namespace _911_RD.Administracion
                     DialogResult dr = frmCargo.ShowDialog();
                     if (dr == DialogResult.OK)
                     {
-                        tabla_tel.Rows.Add(frmCargo.dataGridView1.CurrentRow.Cells[0].Value.ToString(),
-                        frmCargo.dataGridView1.CurrentRow.Cells[3].Value.ToString());
+                        bool existe = false;
+                        if (tabla_tel.RowCount > 0)
+                        {
+                            // Primero averigua si el registro existe:
+                          
+                            for (int i = 0; i < tabla_tel.RowCount; i++)
+                            {
+                                if (tabla_tel.Rows[i].Cells[0].Value.ToString() == frmCargo.dataGridView1.CurrentRow.Cells[0].Value.ToString())
+                                {
+                                    MessageBox.Show("Ya le pertenece este numero.");
+                                    existe = true;
+                                    break; // debes salirte del ciclo si encuentras el registro, no es necesario seguir dentro
+                                }
+                            }
+                            // Luego, ya fuera del ciclo, solo si no existe, realizas la insercion:
+                          
+                        }
+                        if (existe == false)
+                        {
+                            tabla_tel.Rows.Add(frmCargo.dataGridView1.CurrentRow.Cells[0].Value.ToString(),
+                            frmCargo.dataGridView1.CurrentRow.Cells[3].Value.ToString());
+                        }
+
                     }
                 }
             }
@@ -587,6 +610,69 @@ namespace _911_RD.Administracion
                 //error
             }
         }
+
+
+        void AsignarCorreos(int id_tercero)
+        {
+            try
+            {
+                using (TransporSysEntities db = new TransporSysEntities())
+                {
+                    if (tabla_tel.RowCount > 0)
+                    {
+                        // Primero averigua si el registro existe:
+                        int _id = 0;
+                        for (int i = 0; i < tabla_correo.RowCount; i++)
+                        {
+                            _id = int.Parse(tabla_correo.Rows[i].Cells[0].Value.ToString());
+                            MessageBox.Show("ID: " + _id);
+                            MessageBox.Show("ID: " + id_tercero);
+                            var res = db.TERCEROS_VS_EMAILS.FirstOrDefault(a => a.id_email == _id && a.id_tercero == id_tercero);
+                            if (res == null)
+                            {
+                                metodoscrud.crud_VS(id_tercero, _id, "TERCEROS_VS_EMAILS", "id_email");
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ass)
+            {
+
+            }
+
+        }
+      
+        void AsignarTelefonos(int id_tercero)
+        {
+            try
+            {
+                using (TransporSysEntities db = new TransporSysEntities())
+                {
+                    if (tabla_tel.RowCount > 0)
+                    {
+                        // Primero averigua si el registro existe:
+                        int _id = 0;
+                        for (int i = 0; i < tabla_tel.RowCount; i++)
+                        {
+                            _id = int.Parse(tabla_tel.Rows[i].Cells[0].Value.ToString());
+                            MessageBox.Show("ID: " + _id);
+                            MessageBox.Show("ID: " + id_tercero);
+                            var res = db.TERCEROS_VS_TELEFONOS.FirstOrDefault(a => a.id_telefono == _id && a.id_tercero==id_tercero);
+                            if (res==null)
+                            {
+                               metodoscrud.crud_VS(id_tercero, _id, "TERCEROS_VS_TELEFONOS", "id_telefono");
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ass)
+            {
+
+            }
+        }
+
 
         private void btn_correo_Click(object sender, EventArgs e)
         {
@@ -597,8 +683,28 @@ namespace _911_RD.Administracion
                     DialogResult dr = frmCargo.ShowDialog();
                     if (dr == DialogResult.OK)
                     {
-                        tabla_correo.Rows.Add(frmCargo.dataGridView1.CurrentRow.Cells[0].Value.ToString(),
+                        bool existe = false;
+                        if (tabla_tel.RowCount > 0)
+                        {
+                            // Primero averigua si el registro existe:
+
+                            for (int i = 0; i < tabla_correo.RowCount; i++)
+                            {
+                                if (tabla_correo.Rows[i].Cells[0].Value.ToString() == frmCargo.dataGridView1.CurrentRow.Cells[0].Value.ToString())
+                                {
+                                    MessageBox.Show("Ya le pertenece este email.");
+                                    existe = true;
+                                    break; // debes salirte del ciclo si encuentras el registro, no es necesario seguir dentro
+                                }
+                            }
+                            // Luego, ya fuera del ciclo, solo si no existe, realizas la insercion:
+
+                        }
+                        if (existe == false)
+                        {
+                            tabla_correo.Rows.Add(frmCargo.dataGridView1.CurrentRow.Cells[0].Value.ToString(),
                         frmCargo.dataGridView1.CurrentRow.Cells[1].Value.ToString());
+                        }
                     }
                 }
             }

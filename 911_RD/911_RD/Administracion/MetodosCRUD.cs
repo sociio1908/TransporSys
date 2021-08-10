@@ -318,8 +318,8 @@ namespace _911_RD.Administracion
                     {
                         id_result = db.EMAILS.Max(x => x.id_email);
                     }
-                  
                 }
+                if(id_tercero!=null)
                 crud_VS(int.Parse(id_tercero), id_result, "TERCEROS_VS_EMAILS", "id_email");
 
             }
@@ -360,7 +360,8 @@ namespace _911_RD.Administracion
                         id_result = db.TELEFONOS.Max(x => x.id_telefono);
                     }
                 }
-                crud_VS(int.Parse(id_tercero), id_result, "TERCEROS_VS_TELEFONOS", "id_telefono");
+                if (id_tercero != null)
+                    crud_VS(int.Parse(id_tercero), id_result, "TERCEROS_VS_TELEFONOS", "id_telefono");
             }
             catch (Exception dfg)
             {

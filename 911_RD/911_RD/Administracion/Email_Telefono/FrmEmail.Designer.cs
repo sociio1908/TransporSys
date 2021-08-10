@@ -38,11 +38,11 @@ namespace _911_RD.Administracion.Email_Telefono
             this.label13 = new System.Windows.Forms.Label();
             this.txt_filtro = new _911_RD.ErrorTxtBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.txt_email = new _911_RD.ErrorTxtBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.id_eme = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cargo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Seleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.txt_email = new _911_RD.ErrorTxtBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.btn_buscar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -51,7 +51,7 @@ namespace _911_RD.Administracion.Email_Telefono
             // 
             // btn_guardar
             // 
-            this.btn_guardar.Location = new System.Drawing.Point(11, 203);
+            this.btn_guardar.Location = new System.Drawing.Point(11, 197);
             this.btn_guardar.Click += new System.EventHandler(this.btn_guardar_Click);
             // 
             // lbl_titulo
@@ -61,11 +61,11 @@ namespace _911_RD.Administracion.Email_Telefono
             // 
             // btn_limpiar
             // 
-            this.btn_limpiar.Location = new System.Drawing.Point(156, 203);
+            this.btn_limpiar.Location = new System.Drawing.Point(156, 197);
             // 
             // btn_salir
             // 
-            this.btn_salir.Location = new System.Drawing.Point(278, 203);
+            this.btn_salir.Location = new System.Drawing.Point(278, 197);
             // 
             // id_txt
             // 
@@ -102,6 +102,7 @@ namespace _911_RD.Administracion.Email_Telefono
             this.txt_filtro.SoloNumeros = false;
             this.txt_filtro.TabIndex = 183;
             this.txt_filtro.Validar = false;
+            this.txt_filtro.TextChanged += new System.EventHandler(this.txt_filtro_TextChanged);
             // 
             // dataGridView1
             // 
@@ -157,33 +158,10 @@ namespace _911_RD.Administracion.Email_Telefono
             dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
             this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(474, 132);
+            this.dataGridView1.Size = new System.Drawing.Size(474, 211);
             this.dataGridView1.TabIndex = 182;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentDoubleClick);
-            // 
-            // txt_email
-            // 
-            this.txt_email.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txt_email.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.txt_email.Limpiar = true;
-            this.txt_email.Location = new System.Drawing.Point(11, 161);
-            this.txt_email.Name = "txt_email";
-            this.txt_email.Size = new System.Drawing.Size(210, 26);
-            this.txt_email.SoloNumeros = false;
-            this.txt_email.TabIndex = 181;
-            this.txt_email.Validar = true;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label2.Location = new System.Drawing.Point(11, 142);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(108, 16);
-            this.label2.TabIndex = 180;
-            this.label2.Text = "EMAIL/CORREO";
             // 
             // id_eme
             // 
@@ -215,6 +193,29 @@ namespace _911_RD.Administracion.Email_Telefono
             this.Seleccionar.ReadOnly = true;
             this.Seleccionar.Text = "Editar";
             // 
+            // txt_email
+            // 
+            this.txt_email.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_email.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.txt_email.Limpiar = true;
+            this.txt_email.Location = new System.Drawing.Point(11, 161);
+            this.txt_email.Name = "txt_email";
+            this.txt_email.Size = new System.Drawing.Size(210, 26);
+            this.txt_email.SoloNumeros = false;
+            this.txt_email.TabIndex = 181;
+            this.txt_email.Validar = true;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label2.Location = new System.Drawing.Point(11, 142);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(108, 16);
+            this.label2.TabIndex = 180;
+            this.label2.Text = "EMAIL/CORREO";
+            // 
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
@@ -223,13 +224,14 @@ namespace _911_RD.Administracion.Email_Telefono
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(493, 435);
+            this.ClientSize = new System.Drawing.Size(493, 514);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.txt_filtro);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.txt_email);
             this.Controls.Add(this.label2);
             this.Name = "FrmEmail";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmEmail";
             this.Controls.SetChildIndex(this.lbl_titulo, 0);
             this.Controls.SetChildIndex(this.btn_guardar, 0);

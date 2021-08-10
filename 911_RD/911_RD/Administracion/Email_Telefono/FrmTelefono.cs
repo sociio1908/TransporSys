@@ -15,7 +15,7 @@ namespace _911_RD.Administracion.Email_Telefono
         public FrmTelefono()
         {
             InitializeComponent();
-            cargarTabla();
+            cargarTabla("");
             txt_tipo.Focus();
         }
         int id = 0;
@@ -40,15 +40,28 @@ namespace _911_RD.Administracion.Email_Telefono
             }
         }
 
-        private void cargarTabla()
+        private void cargarTabla(string condicion)
         {
             using (TransporSysEntities db = new TransporSysEntities())
             {
                 try
                 {
                     dataGridView1.Rows.Clear();
-                    var list = db.TELEFONOS;
-                    foreach (var OPuestos in list)
+                    var list = from mail in db.TELEFONOS
+                               select new
+                               {
+                                   id_telefono = mail.id_telefono,
+                                   id_tipo_telefono = mail.id_tipo_telefono,
+                                   telefono = mail.telefono
+                               };
+
+                    if (condicion.Trim() != "")
+                    {
+                        list = list.Where(a => a.telefono.Contains(condicion) || a.id_telefono.ToString().Contains(condicion));
+                    }
+
+                    if (list != null)
+                        foreach (var OPuestos in list)
                     {
                         dataGridView1.Rows.Add(OPuestos.id_telefono.ToString(), OPuestos.id_tipo_telefono.ToString(), db.TIPOS_TELEFONOS.FirstOrDefault(a=> a.id_tipo_telefono == OPuestos.id_tipo_telefono).tipo_telefono, OPuestos.telefono.ToString());
                     }
@@ -94,7 +107,7 @@ namespace _911_RD.Administracion.Email_Telefono
                     db.SaveChanges();
                 }
                 Utilidades.LimpiarControles(this);
-                cargarTabla();
+                cargarTabla("");
                 MessageBox.Show("Proceso exitoso.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             }
@@ -134,6 +147,12 @@ namespace _911_RD.Administracion.Email_Telefono
         private void dataGridView1_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             this.DialogResult = DialogResult.OK;
+        }
+
+        private void txt_filtro_TextChanged(object sender, EventArgs e)
+        {
+            if(dataGridView1.RowCount>0)
+            cargarTabla(txt_filtro.Text.Trim());
         }
     }
 }
