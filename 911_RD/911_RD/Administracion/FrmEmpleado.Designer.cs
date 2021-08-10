@@ -53,36 +53,6 @@ namespace _911_RD.Administracion
             this.label7 = new System.Windows.Forms.Label();
             this.cb_estado = new System.Windows.Forms.ComboBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.txt_filtro = new _911_RD.ErrorTxtBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.txt_apellido = new _911_RD.ErrorTxtBox();
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.label16 = new System.Windows.Forms.Label();
-            this.txt_salario = new _911_RD.ErrorTxtBox();
-            this.p_direccion = new System.Windows.Forms.Panel();
-            this.label26 = new System.Windows.Forms.Label();
-            this.txt_correo = new _911_RD.ErrorTxtBox();
-            this.label23 = new System.Windows.Forms.Label();
-            this.txt_telefono = new _911_RD.ErrorTxtBox();
-            this.lbl_contacto = new System.Windows.Forms.Label();
-            this.lbl_conductor = new System.Windows.Forms.Label();
-            this.p_conductor = new System.Windows.Forms.Panel();
-            this.fecha_licencia = new System.Windows.Forms.DateTimePicker();
-            this.label28 = new System.Windows.Forms.Label();
-            this.label27 = new System.Windows.Forms.Label();
-            this.txt_numlicencia = new _911_RD.ErrorTxtBox();
-            this.label18 = new System.Windows.Forms.Label();
-            this.p_dir = new System.Windows.Forms.Panel();
-            this.label22 = new System.Windows.Forms.Label();
-            this.cb_nacionalidades = new System.Windows.Forms.ComboBox();
-            this.label21 = new System.Windows.Forms.Label();
-            this.cb_tipoIdent = new System.Windows.Forms.ComboBox();
-            this.txt_id_cargo = new _911_RD.ErrorTxtBox();
-            this.btn_filtro = new System.Windows.Forms.PictureBox();
-            this.txt_error_cedula = new System.Windows.Forms.Label();
-            this.c_puesto = new System.Windows.Forms.ComboBox();
             this.id_ter = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.id_per = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.id_pue = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -96,15 +66,61 @@ namespace _911_RD.Administracion
             this.cargo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.salario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fecha_contrato = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.direcciones = new System.Windows.Forms.DataGridViewButtonColumn();
             this.nacionalidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.txt_filtro = new _911_RD.ErrorTxtBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.txt_apellido = new _911_RD.ErrorTxtBox();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.label16 = new System.Windows.Forms.Label();
+            this.txt_salario = new _911_RD.ErrorTxtBox();
+            this.p_direccion = new System.Windows.Forms.Panel();
+            this.tabla_correo = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btn_correo = new System.Windows.Forms.PictureBox();
+            this.btn_telefono = new System.Windows.Forms.PictureBox();
+            this.tabla_tel = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label26 = new System.Windows.Forms.Label();
+            this.txt_correo = new _911_RD.ErrorTxtBox();
+            this.label23 = new System.Windows.Forms.Label();
+            this.txt_telefono = new _911_RD.ErrorTxtBox();
+            this.lbl_contacto = new System.Windows.Forms.Label();
+            this.lbl_conductor = new System.Windows.Forms.Label();
+            this.p_conductor = new System.Windows.Forms.Panel();
+            this.fecha_licencia = new System.Windows.Forms.DateTimePicker();
+            this.label28 = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
+            this.txt_numlicencia = new _911_RD.ErrorTxtBox();
+            this.p_dir = new System.Windows.Forms.Panel();
+            this.btn_direccion = new System.Windows.Forms.PictureBox();
+            this.txt_id_direccion = new _911_RD.ErrorTxtBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.txt_des_direccion = new _911_RD.ErrorTxtBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this.cb_nacionalidades = new System.Windows.Forms.ComboBox();
+            this.label21 = new System.Windows.Forms.Label();
+            this.cb_tipoIdent = new System.Windows.Forms.ComboBox();
+            this.txt_id_cargo = new _911_RD.ErrorTxtBox();
+            this.btn_filtro = new System.Windows.Forms.PictureBox();
+            this.txt_error_cedula = new System.Windows.Forms.Label();
+            this.c_puesto = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.btn_buscar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_Cargo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.p_direccion.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tabla_correo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_correo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_telefono)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tabla_tel)).BeginInit();
             this.p_conductor.SuspendLayout();
+            this.p_dir.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_direccion)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_filtro)).BeginInit();
             this.SuspendLayout();
             // 
@@ -133,6 +149,7 @@ namespace _911_RD.Administracion
             // id_txt
             // 
             this.id_txt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.id_txt.Limpiar = true;
             this.id_txt.Size = new System.Drawing.Size(106, 29);
             // 
             // btn_buscar
@@ -175,7 +192,6 @@ namespace _911_RD.Administracion
             this.txt_nombre.Size = new System.Drawing.Size(205, 26);
             this.txt_nombre.SoloNumeros = false;
             this.txt_nombre.TabIndex = 147;
-            this.txt_nombre.Text = "Jerinel";
             this.txt_nombre.Validar = true;
             this.txt_nombre.TextChanged += new System.EventHandler(this.errorTxtBox3_TextChanged);
             // 
@@ -373,9 +389,8 @@ namespace _911_RD.Administracion
             this.cargo,
             this.salario,
             this.fecha_contrato,
-            this.estado,
-            this.direcciones,
-            this.nacionalidad});
+            this.nacionalidad,
+            this.estado});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -413,348 +428,6 @@ namespace _911_RD.Administracion
             this.dataGridView1.TabStop = false;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentDoubleClick);
-            this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label1.Location = new System.Drawing.Point(12, 190);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(113, 16);
-            this.label1.TabIndex = 168;
-            this.label1.Text = "IDENTIFICACION";
-            // 
-            // label13
-            // 
-            this.label13.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label13.Location = new System.Drawing.Point(12, 536);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(76, 16);
-            this.label13.TabIndex = 170;
-            this.label13.Text = "BUSQUEDA";
-            // 
-            // txt_filtro
-            // 
-            this.txt_filtro.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.txt_filtro.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txt_filtro.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.txt_filtro.Limpiar = false;
-            this.txt_filtro.Location = new System.Drawing.Point(94, 531);
-            this.txt_filtro.Name = "txt_filtro";
-            this.txt_filtro.Size = new System.Drawing.Size(170, 26);
-            this.txt_filtro.SoloNumeros = false;
-            this.txt_filtro.TabIndex = 169;
-            this.txt_filtro.Validar = false;
-            this.txt_filtro.TextChanged += new System.EventHandler(this.txt_filtro_TextChanged);
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label14.Location = new System.Drawing.Point(15, 299);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(68, 16);
-            this.label14.TabIndex = 172;
-            this.label14.Text = "APELLIDO";
-            // 
-            // txt_apellido
-            // 
-            this.txt_apellido.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txt_apellido.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.txt_apellido.Limpiar = true;
-            this.txt_apellido.Location = new System.Drawing.Point(12, 318);
-            this.txt_apellido.Name = "txt_apellido";
-            this.txt_apellido.Size = new System.Drawing.Size(205, 26);
-            this.txt_apellido.SoloNumeros = false;
-            this.txt_apellido.TabIndex = 171;
-            this.txt_apellido.Validar = true;
-            // 
-            // errorProvider1
-            // 
-            this.errorProvider1.ContainerControl = this;
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label16.Location = new System.Drawing.Point(247, 190);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(64, 16);
-            this.label16.TabIndex = 174;
-            this.label16.Text = "SALARIO";
-            // 
-            // txt_salario
-            // 
-            this.txt_salario.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txt_salario.Enabled = false;
-            this.txt_salario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.txt_salario.Limpiar = true;
-            this.txt_salario.Location = new System.Drawing.Point(247, 209);
-            this.txt_salario.Name = "txt_salario";
-            this.txt_salario.Size = new System.Drawing.Size(130, 26);
-            this.txt_salario.SoloNumeros = true;
-            this.txt_salario.TabIndex = 173;
-            this.txt_salario.Validar = true;
-            // 
-            // p_direccion
-            // 
-            this.p_direccion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.p_direccion.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.p_direccion.Controls.Add(this.label26);
-            this.p_direccion.Controls.Add(this.txt_correo);
-            this.p_direccion.Controls.Add(this.label23);
-            this.p_direccion.Controls.Add(this.txt_telefono);
-            this.p_direccion.Location = new System.Drawing.Point(498, 78);
-            this.p_direccion.Name = "p_direccion";
-            this.p_direccion.Size = new System.Drawing.Size(360, 103);
-            this.p_direccion.TabIndex = 177;
-            // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label26.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label26.Location = new System.Drawing.Point(3, 8);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(72, 16);
-            this.label26.TabIndex = 197;
-            this.label26.Text = "TELEFONO";
-            // 
-            // txt_correo
-            // 
-            this.txt_correo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txt_correo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.txt_correo.Limpiar = true;
-            this.txt_correo.Location = new System.Drawing.Point(140, 27);
-            this.txt_correo.Name = "txt_correo";
-            this.txt_correo.Size = new System.Drawing.Size(199, 26);
-            this.txt_correo.SoloNumeros = false;
-            this.txt_correo.TabIndex = 196;
-            this.txt_correo.Validar = false;
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label23.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label23.Location = new System.Drawing.Point(137, 7);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(63, 16);
-            this.label23.TabIndex = 195;
-            this.label23.Text = "CORREO";
-            // 
-            // txt_telefono
-            // 
-            this.txt_telefono.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txt_telefono.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.txt_telefono.Limpiar = true;
-            this.txt_telefono.Location = new System.Drawing.Point(6, 28);
-            this.txt_telefono.Name = "txt_telefono";
-            this.txt_telefono.Size = new System.Drawing.Size(128, 26);
-            this.txt_telefono.SoloNumeros = true;
-            this.txt_telefono.TabIndex = 194;
-            this.txt_telefono.Validar = true;
-            // 
-            // lbl_contacto
-            // 
-            this.lbl_contacto.AutoSize = true;
-            this.lbl_contacto.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
-            this.lbl_contacto.ForeColor = System.Drawing.Color.Firebrick;
-            this.lbl_contacto.Location = new System.Drawing.Point(494, 56);
-            this.lbl_contacto.Name = "lbl_contacto";
-            this.lbl_contacto.Size = new System.Drawing.Size(105, 19);
-            this.lbl_contacto.TabIndex = 178;
-            this.lbl_contacto.Text = "CONTACTOS";
-            // 
-            // lbl_conductor
-            // 
-            this.lbl_conductor.AutoSize = true;
-            this.lbl_conductor.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
-            this.lbl_conductor.ForeColor = System.Drawing.Color.Firebrick;
-            this.lbl_conductor.Location = new System.Drawing.Point(491, 458);
-            this.lbl_conductor.Name = "lbl_conductor";
-            this.lbl_conductor.Size = new System.Drawing.Size(108, 19);
-            this.lbl_conductor.TabIndex = 180;
-            this.lbl_conductor.Text = "CONDUCTOR";
-            this.lbl_conductor.Visible = false;
-            // 
-            // p_conductor
-            // 
-            this.p_conductor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.p_conductor.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.p_conductor.Controls.Add(this.fecha_licencia);
-            this.p_conductor.Controls.Add(this.label28);
-            this.p_conductor.Controls.Add(this.label27);
-            this.p_conductor.Controls.Add(this.txt_numlicencia);
-            this.p_conductor.Location = new System.Drawing.Point(495, 480);
-            this.p_conductor.Name = "p_conductor";
-            this.p_conductor.Size = new System.Drawing.Size(342, 75);
-            this.p_conductor.TabIndex = 179;
-            this.p_conductor.Visible = false;
-            // 
-            // fecha_licencia
-            // 
-            this.fecha_licencia.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fecha_licencia.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.fecha_licencia.Location = new System.Drawing.Point(158, 30);
-            this.fecha_licencia.Name = "fecha_licencia";
-            this.fecha_licencia.Size = new System.Drawing.Size(167, 22);
-            this.fecha_licencia.TabIndex = 191;
-            // 
-            // label28
-            // 
-            this.label28.AutoSize = true;
-            this.label28.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label28.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label28.Location = new System.Drawing.Point(158, 10);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(164, 16);
-            this.label28.TabIndex = 203;
-            this.label28.Text = "FECHA DE VENCIMIENTO";
-            // 
-            // label27
-            // 
-            this.label27.AutoSize = true;
-            this.label27.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label27.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label27.Location = new System.Drawing.Point(3, 10);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(149, 16);
-            this.label27.TabIndex = 201;
-            this.label27.Text = "NUMERO DE LICENCIA";
-            // 
-            // txt_numlicencia
-            // 
-            this.txt_numlicencia.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txt_numlicencia.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.txt_numlicencia.Limpiar = true;
-            this.txt_numlicencia.Location = new System.Drawing.Point(6, 30);
-            this.txt_numlicencia.Name = "txt_numlicencia";
-            this.txt_numlicencia.Size = new System.Drawing.Size(146, 26);
-            this.txt_numlicencia.SoloNumeros = true;
-            this.txt_numlicencia.TabIndex = 198;
-            this.txt_numlicencia.Validar = true;
-            this.txt_numlicencia.TextChanged += new System.EventHandler(this.txt_numlicencia_TextChanged);
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
-            this.label18.ForeColor = System.Drawing.Color.Firebrick;
-            this.label18.Location = new System.Drawing.Point(494, 190);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(94, 19);
-            this.label18.TabIndex = 182;
-            this.label18.Text = "DIRECCION";
-            // 
-            // p_dir
-            // 
-            this.p_dir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.p_dir.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.p_dir.Location = new System.Drawing.Point(498, 212);
-            this.p_dir.Name = "p_dir";
-            this.p_dir.Size = new System.Drawing.Size(427, 243);
-            this.p_dir.TabIndex = 181;
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label22.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label22.Location = new System.Drawing.Point(247, 301);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(111, 16);
-            this.label22.TabIndex = 190;
-            this.label22.Text = "NACIONALIDAD";
-            // 
-            // cb_nacionalidades
-            // 
-            this.cb_nacionalidades.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cb_nacionalidades.FormattingEnabled = true;
-            this.cb_nacionalidades.Location = new System.Drawing.Point(250, 320);
-            this.cb_nacionalidades.Name = "cb_nacionalidades";
-            this.cb_nacionalidades.Size = new System.Drawing.Size(167, 28);
-            this.cb_nacionalidades.TabIndex = 189;
-            this.cb_nacionalidades.SelectedIndexChanged += new System.EventHandler(this.cb_nacionalidades_SelectedIndexChanged);
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label21.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label21.Location = new System.Drawing.Point(9, 136);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(145, 16);
-            this.label21.TabIndex = 192;
-            this.label21.Text = "TIPO IDENTIFICACION";
-            // 
-            // cb_tipoIdent
-            // 
-            this.cb_tipoIdent.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.cb_tipoIdent.FormattingEnabled = true;
-            this.cb_tipoIdent.Location = new System.Drawing.Point(12, 155);
-            this.cb_tipoIdent.Name = "cb_tipoIdent";
-            this.cb_tipoIdent.Size = new System.Drawing.Size(142, 28);
-            this.cb_tipoIdent.TabIndex = 191;
-            // 
-            // txt_id_cargo
-            // 
-            this.txt_id_cargo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txt_id_cargo.Enabled = false;
-            this.txt_id_cargo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.txt_id_cargo.Limpiar = true;
-            this.txt_id_cargo.Location = new System.Drawing.Point(385, 99);
-            this.txt_id_cargo.Name = "txt_id_cargo";
-            this.txt_id_cargo.Size = new System.Drawing.Size(49, 26);
-            this.txt_id_cargo.SoloNumeros = false;
-            this.txt_id_cargo.TabIndex = 193;
-            this.txt_id_cargo.Validar = true;
-            // 
-            // btn_filtro
-            // 
-            this.btn_filtro.BackColor = System.Drawing.Color.LightGreen;
-            this.btn_filtro.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_filtro.Image = global::_911_RD.Properties.Resources.search;
-            this.btn_filtro.Location = new System.Drawing.Point(270, 531);
-            this.btn_filtro.Name = "btn_filtro";
-            this.btn_filtro.Size = new System.Drawing.Size(34, 26);
-            this.btn_filtro.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btn_filtro.TabIndex = 198;
-            this.btn_filtro.TabStop = false;
-            this.btn_filtro.Click += new System.EventHandler(this.btn_filtro_Click);
-            // 
-            // txt_error_cedula
-            // 
-            this.txt_error_cedula.AutoSize = true;
-            this.txt_error_cedula.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
-            this.txt_error_cedula.ForeColor = System.Drawing.Color.Red;
-            this.txt_error_cedula.Location = new System.Drawing.Point(188, 214);
-            this.txt_error_cedula.Name = "txt_error_cedula";
-            this.txt_error_cedula.Size = new System.Drawing.Size(17, 16);
-            this.txt_error_cedula.TabIndex = 221;
-            this.txt_error_cedula.Text = "X";
-            this.txt_error_cedula.Visible = false;
-            // 
-            // c_puesto
-            // 
-            this.c_puesto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.c_puesto.FormattingEnabled = true;
-            this.c_puesto.Location = new System.Drawing.Point(310, 529);
-            this.c_puesto.Name = "c_puesto";
-            this.c_puesto.Size = new System.Drawing.Size(179, 28);
-            this.c_puesto.TabIndex = 222;
-            this.c_puesto.Text = "Filtrar puesto";
-            this.c_puesto.SelectedIndexChanged += new System.EventHandler(this.c_puesto_SelectedIndexChanged);
-            this.c_puesto.SelectedValueChanged += new System.EventHandler(this.c_puesto_SelectedValueChanged);
             // 
             // id_ter
             // 
@@ -850,6 +523,13 @@ namespace _911_RD.Administracion
             this.fecha_contrato.Name = "fecha_contrato";
             this.fecha_contrato.ReadOnly = true;
             // 
+            // nacionalidad
+            // 
+            this.nacionalidad.HeaderText = "nacionalidad";
+            this.nacionalidad.Name = "nacionalidad";
+            this.nacionalidad.ReadOnly = true;
+            this.nacionalidad.Visible = false;
+            // 
             // estado
             // 
             this.estado.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
@@ -858,20 +538,515 @@ namespace _911_RD.Administracion
             this.estado.Name = "estado";
             this.estado.ReadOnly = true;
             // 
-            // direcciones
+            // label1
             // 
-            this.direcciones.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.direcciones.HeaderText = "DIRECCION";
-            this.direcciones.Name = "direcciones";
-            this.direcciones.ReadOnly = true;
-            this.direcciones.Width = 77;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label1.Location = new System.Drawing.Point(12, 190);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(113, 16);
+            this.label1.TabIndex = 168;
+            this.label1.Text = "IDENTIFICACION";
             // 
-            // nacionalidad
+            // label13
             // 
-            this.nacionalidad.HeaderText = "nacionalidad";
-            this.nacionalidad.Name = "nacionalidad";
-            this.nacionalidad.ReadOnly = true;
-            this.nacionalidad.Visible = false;
+            this.label13.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label13.Location = new System.Drawing.Point(12, 536);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(76, 16);
+            this.label13.TabIndex = 170;
+            this.label13.Text = "BUSQUEDA";
+            // 
+            // txt_filtro
+            // 
+            this.txt_filtro.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.txt_filtro.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_filtro.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.txt_filtro.Limpiar = true;
+            this.txt_filtro.Location = new System.Drawing.Point(94, 531);
+            this.txt_filtro.Name = "txt_filtro";
+            this.txt_filtro.Size = new System.Drawing.Size(170, 26);
+            this.txt_filtro.SoloNumeros = false;
+            this.txt_filtro.TabIndex = 169;
+            this.txt_filtro.Validar = false;
+            this.txt_filtro.TextChanged += new System.EventHandler(this.txt_filtro_TextChanged);
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label14.Location = new System.Drawing.Point(15, 299);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(68, 16);
+            this.label14.TabIndex = 172;
+            this.label14.Text = "APELLIDO";
+            // 
+            // txt_apellido
+            // 
+            this.txt_apellido.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_apellido.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.txt_apellido.Limpiar = true;
+            this.txt_apellido.Location = new System.Drawing.Point(12, 318);
+            this.txt_apellido.Name = "txt_apellido";
+            this.txt_apellido.Size = new System.Drawing.Size(205, 26);
+            this.txt_apellido.SoloNumeros = false;
+            this.txt_apellido.TabIndex = 171;
+            this.txt_apellido.Validar = true;
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label16.Location = new System.Drawing.Point(247, 190);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(64, 16);
+            this.label16.TabIndex = 174;
+            this.label16.Text = "SALARIO";
+            // 
+            // txt_salario
+            // 
+            this.txt_salario.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_salario.Enabled = false;
+            this.txt_salario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.txt_salario.Limpiar = true;
+            this.txt_salario.Location = new System.Drawing.Point(247, 209);
+            this.txt_salario.Name = "txt_salario";
+            this.txt_salario.Size = new System.Drawing.Size(130, 26);
+            this.txt_salario.SoloNumeros = true;
+            this.txt_salario.TabIndex = 173;
+            this.txt_salario.Validar = true;
+            // 
+            // p_direccion
+            // 
+            this.p_direccion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.p_direccion.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.p_direccion.Controls.Add(this.tabla_correo);
+            this.p_direccion.Controls.Add(this.btn_correo);
+            this.p_direccion.Controls.Add(this.btn_telefono);
+            this.p_direccion.Controls.Add(this.tabla_tel);
+            this.p_direccion.Controls.Add(this.label26);
+            this.p_direccion.Controls.Add(this.txt_correo);
+            this.p_direccion.Controls.Add(this.label23);
+            this.p_direccion.Controls.Add(this.txt_telefono);
+            this.p_direccion.Location = new System.Drawing.Point(498, 78);
+            this.p_direccion.Name = "p_direccion";
+            this.p_direccion.Size = new System.Drawing.Size(465, 234);
+            this.p_direccion.TabIndex = 177;
+            // 
+            // tabla_correo
+            // 
+            this.tabla_correo.AllowUserToAddRows = false;
+            this.tabla_correo.AllowUserToDeleteRows = false;
+            this.tabla_correo.AllowUserToResizeRows = false;
+            this.tabla_correo.BackgroundColor = System.Drawing.Color.White;
+            this.tabla_correo.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tabla_correo.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.tabla_correo.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.tabla_correo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.tabla_correo.ColumnHeadersVisible = false;
+            this.tabla_correo.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2});
+            this.tabla_correo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.tabla_correo.EnableHeadersVisualStyles = false;
+            this.tabla_correo.GridColor = System.Drawing.Color.White;
+            this.tabla_correo.Location = new System.Drawing.Point(243, 60);
+            this.tabla_correo.MultiSelect = false;
+            this.tabla_correo.Name = "tabla_correo";
+            this.tabla_correo.ReadOnly = true;
+            this.tabla_correo.RowHeadersVisible = false;
+            this.tabla_correo.RowHeadersWidth = 15;
+            this.tabla_correo.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.White;
+            this.tabla_correo.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabla_correo.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black;
+            this.tabla_correo.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.WhiteSmoke;
+            this.tabla_correo.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
+            this.tabla_correo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.tabla_correo.Size = new System.Drawing.Size(219, 171);
+            this.tabla_correo.TabIndex = 226;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.HeaderText = "ID";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn2.HeaderText = "correo";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // btn_correo
+            // 
+            this.btn_correo.BackColor = System.Drawing.Color.LightGreen;
+            this.btn_correo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_correo.Image = global::_911_RD.Properties.Resources.search;
+            this.btn_correo.Location = new System.Drawing.Point(288, 28);
+            this.btn_correo.Name = "btn_correo";
+            this.btn_correo.Size = new System.Drawing.Size(34, 26);
+            this.btn_correo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btn_correo.TabIndex = 225;
+            this.btn_correo.TabStop = false;
+            this.btn_correo.Click += new System.EventHandler(this.btn_correo_Click);
+            // 
+            // btn_telefono
+            // 
+            this.btn_telefono.BackColor = System.Drawing.Color.LightGreen;
+            this.btn_telefono.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_telefono.Image = global::_911_RD.Properties.Resources.search;
+            this.btn_telefono.Location = new System.Drawing.Point(50, 28);
+            this.btn_telefono.Name = "btn_telefono";
+            this.btn_telefono.Size = new System.Drawing.Size(34, 26);
+            this.btn_telefono.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btn_telefono.TabIndex = 223;
+            this.btn_telefono.TabStop = false;
+            this.btn_telefono.Click += new System.EventHandler(this.btn_telefono_Click);
+            // 
+            // tabla_tel
+            // 
+            this.tabla_tel.AllowUserToAddRows = false;
+            this.tabla_tel.AllowUserToDeleteRows = false;
+            this.tabla_tel.AllowUserToResizeRows = false;
+            this.tabla_tel.BackgroundColor = System.Drawing.Color.White;
+            this.tabla_tel.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tabla_tel.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.tabla_tel.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.tabla_tel.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.tabla_tel.ColumnHeadersVisible = false;
+            this.tabla_tel.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn5,
+            this.dataGridViewTextBoxColumn6});
+            this.tabla_tel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.tabla_tel.EnableHeadersVisualStyles = false;
+            this.tabla_tel.GridColor = System.Drawing.Color.White;
+            this.tabla_tel.Location = new System.Drawing.Point(6, 60);
+            this.tabla_tel.MultiSelect = false;
+            this.tabla_tel.Name = "tabla_tel";
+            this.tabla_tel.ReadOnly = true;
+            this.tabla_tel.RowHeadersVisible = false;
+            this.tabla_tel.RowHeadersWidth = 15;
+            this.tabla_tel.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.White;
+            this.tabla_tel.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabla_tel.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black;
+            this.tabla_tel.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.WhiteSmoke;
+            this.tabla_tel.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
+            this.tabla_tel.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.tabla_tel.Size = new System.Drawing.Size(231, 171);
+            this.tabla_tel.TabIndex = 223;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn5.HeaderText = "ID";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            this.dataGridViewTextBoxColumn5.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewTextBoxColumn5.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn6.HeaderText = "telefono";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label26.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label26.Location = new System.Drawing.Point(3, 8);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(72, 16);
+            this.label26.TabIndex = 197;
+            this.label26.Text = "TELEFONO";
+            // 
+            // txt_correo
+            // 
+            this.txt_correo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_correo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.txt_correo.Limpiar = true;
+            this.txt_correo.Location = new System.Drawing.Point(243, 28);
+            this.txt_correo.Name = "txt_correo";
+            this.txt_correo.Size = new System.Drawing.Size(79, 26);
+            this.txt_correo.SoloNumeros = false;
+            this.txt_correo.TabIndex = 196;
+            this.txt_correo.Validar = false;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label23.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label23.Location = new System.Drawing.Point(240, 8);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(63, 16);
+            this.label23.TabIndex = 195;
+            this.label23.Text = "CORREO";
+            // 
+            // txt_telefono
+            // 
+            this.txt_telefono.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_telefono.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.txt_telefono.Limpiar = true;
+            this.txt_telefono.Location = new System.Drawing.Point(6, 28);
+            this.txt_telefono.Name = "txt_telefono";
+            this.txt_telefono.Size = new System.Drawing.Size(46, 26);
+            this.txt_telefono.SoloNumeros = true;
+            this.txt_telefono.TabIndex = 194;
+            this.txt_telefono.Validar = true;
+            // 
+            // lbl_contacto
+            // 
+            this.lbl_contacto.AutoSize = true;
+            this.lbl_contacto.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
+            this.lbl_contacto.ForeColor = System.Drawing.Color.Firebrick;
+            this.lbl_contacto.Location = new System.Drawing.Point(494, 56);
+            this.lbl_contacto.Name = "lbl_contacto";
+            this.lbl_contacto.Size = new System.Drawing.Size(105, 19);
+            this.lbl_contacto.TabIndex = 178;
+            this.lbl_contacto.Text = "CONTACTOS";
+            // 
+            // lbl_conductor
+            // 
+            this.lbl_conductor.AutoSize = true;
+            this.lbl_conductor.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
+            this.lbl_conductor.ForeColor = System.Drawing.Color.Firebrick;
+            this.lbl_conductor.Location = new System.Drawing.Point(494, 453);
+            this.lbl_conductor.Name = "lbl_conductor";
+            this.lbl_conductor.Size = new System.Drawing.Size(108, 19);
+            this.lbl_conductor.TabIndex = 180;
+            this.lbl_conductor.Text = "CONDUCTOR";
+            this.lbl_conductor.Visible = false;
+            // 
+            // p_conductor
+            // 
+            this.p_conductor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.p_conductor.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.p_conductor.Controls.Add(this.fecha_licencia);
+            this.p_conductor.Controls.Add(this.label28);
+            this.p_conductor.Controls.Add(this.label27);
+            this.p_conductor.Controls.Add(this.txt_numlicencia);
+            this.p_conductor.Location = new System.Drawing.Point(498, 475);
+            this.p_conductor.Name = "p_conductor";
+            this.p_conductor.Size = new System.Drawing.Size(382, 75);
+            this.p_conductor.TabIndex = 179;
+            this.p_conductor.Visible = false;
+            // 
+            // fecha_licencia
+            // 
+            this.fecha_licencia.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fecha_licencia.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.fecha_licencia.Location = new System.Drawing.Point(158, 30);
+            this.fecha_licencia.Name = "fecha_licencia";
+            this.fecha_licencia.Size = new System.Drawing.Size(167, 22);
+            this.fecha_licencia.TabIndex = 191;
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label28.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label28.Location = new System.Drawing.Point(158, 10);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(164, 16);
+            this.label28.TabIndex = 203;
+            this.label28.Text = "FECHA DE VENCIMIENTO";
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label27.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label27.Location = new System.Drawing.Point(3, 10);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(149, 16);
+            this.label27.TabIndex = 201;
+            this.label27.Text = "NUMERO DE LICENCIA";
+            // 
+            // txt_numlicencia
+            // 
+            this.txt_numlicencia.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_numlicencia.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.txt_numlicencia.Limpiar = true;
+            this.txt_numlicencia.Location = new System.Drawing.Point(6, 30);
+            this.txt_numlicencia.Name = "txt_numlicencia";
+            this.txt_numlicencia.Size = new System.Drawing.Size(146, 26);
+            this.txt_numlicencia.SoloNumeros = true;
+            this.txt_numlicencia.TabIndex = 198;
+            this.txt_numlicencia.Validar = true;
+            this.txt_numlicencia.TextChanged += new System.EventHandler(this.txt_numlicencia_TextChanged);
+            // 
+            // p_dir
+            // 
+            this.p_dir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.p_dir.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.p_dir.Controls.Add(this.btn_direccion);
+            this.p_dir.Controls.Add(this.txt_id_direccion);
+            this.p_dir.Controls.Add(this.label17);
+            this.p_dir.Controls.Add(this.txt_des_direccion);
+            this.p_dir.Location = new System.Drawing.Point(498, 318);
+            this.p_dir.Name = "p_dir";
+            this.p_dir.Size = new System.Drawing.Size(382, 132);
+            this.p_dir.TabIndex = 181;
+            // 
+            // btn_direccion
+            // 
+            this.btn_direccion.BackColor = System.Drawing.Color.LightGreen;
+            this.btn_direccion.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_direccion.Image = global::_911_RD.Properties.Resources.search;
+            this.btn_direccion.Location = new System.Drawing.Point(69, 23);
+            this.btn_direccion.Name = "btn_direccion";
+            this.btn_direccion.Size = new System.Drawing.Size(32, 26);
+            this.btn_direccion.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btn_direccion.TabIndex = 225;
+            this.btn_direccion.TabStop = false;
+            this.btn_direccion.Click += new System.EventHandler(this.btn_direccion_Click);
+            // 
+            // txt_id_direccion
+            // 
+            this.txt_id_direccion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_id_direccion.Enabled = false;
+            this.txt_id_direccion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.txt_id_direccion.Limpiar = true;
+            this.txt_id_direccion.Location = new System.Drawing.Point(6, 23);
+            this.txt_id_direccion.Name = "txt_id_direccion";
+            this.txt_id_direccion.Size = new System.Drawing.Size(95, 26);
+            this.txt_id_direccion.SoloNumeros = false;
+            this.txt_id_direccion.TabIndex = 226;
+            this.txt_id_direccion.Validar = true;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label17.Location = new System.Drawing.Point(3, 7);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(81, 16);
+            this.label17.TabIndex = 224;
+            this.label17.Text = "DIRECCION";
+            // 
+            // txt_des_direccion
+            // 
+            this.txt_des_direccion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_des_direccion.Enabled = false;
+            this.txt_des_direccion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.txt_des_direccion.Limpiar = true;
+            this.txt_des_direccion.Location = new System.Drawing.Point(6, 55);
+            this.txt_des_direccion.Multiline = true;
+            this.txt_des_direccion.Name = "txt_des_direccion";
+            this.txt_des_direccion.Size = new System.Drawing.Size(342, 62);
+            this.txt_des_direccion.SoloNumeros = false;
+            this.txt_des_direccion.TabIndex = 223;
+            this.txt_des_direccion.Validar = true;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label22.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label22.Location = new System.Drawing.Point(247, 301);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(111, 16);
+            this.label22.TabIndex = 190;
+            this.label22.Text = "NACIONALIDAD";
+            // 
+            // cb_nacionalidades
+            // 
+            this.cb_nacionalidades.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cb_nacionalidades.FormattingEnabled = true;
+            this.cb_nacionalidades.Location = new System.Drawing.Point(250, 320);
+            this.cb_nacionalidades.Name = "cb_nacionalidades";
+            this.cb_nacionalidades.Size = new System.Drawing.Size(167, 28);
+            this.cb_nacionalidades.TabIndex = 189;
+            this.cb_nacionalidades.SelectedIndexChanged += new System.EventHandler(this.cb_nacionalidades_SelectedIndexChanged);
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label21.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label21.Location = new System.Drawing.Point(9, 136);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(145, 16);
+            this.label21.TabIndex = 192;
+            this.label21.Text = "TIPO IDENTIFICACION";
+            // 
+            // cb_tipoIdent
+            // 
+            this.cb_tipoIdent.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.cb_tipoIdent.FormattingEnabled = true;
+            this.cb_tipoIdent.Location = new System.Drawing.Point(12, 155);
+            this.cb_tipoIdent.Name = "cb_tipoIdent";
+            this.cb_tipoIdent.Size = new System.Drawing.Size(142, 28);
+            this.cb_tipoIdent.TabIndex = 191;
+            // 
+            // txt_id_cargo
+            // 
+            this.txt_id_cargo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_id_cargo.Enabled = false;
+            this.txt_id_cargo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.txt_id_cargo.Limpiar = true;
+            this.txt_id_cargo.Location = new System.Drawing.Point(385, 99);
+            this.txt_id_cargo.Name = "txt_id_cargo";
+            this.txt_id_cargo.Size = new System.Drawing.Size(49, 26);
+            this.txt_id_cargo.SoloNumeros = false;
+            this.txt_id_cargo.TabIndex = 193;
+            this.txt_id_cargo.Validar = true;
+            // 
+            // btn_filtro
+            // 
+            this.btn_filtro.BackColor = System.Drawing.Color.LightGreen;
+            this.btn_filtro.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_filtro.Image = global::_911_RD.Properties.Resources.search;
+            this.btn_filtro.Location = new System.Drawing.Point(270, 531);
+            this.btn_filtro.Name = "btn_filtro";
+            this.btn_filtro.Size = new System.Drawing.Size(34, 26);
+            this.btn_filtro.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btn_filtro.TabIndex = 198;
+            this.btn_filtro.TabStop = false;
+            this.btn_filtro.Click += new System.EventHandler(this.btn_filtro_Click);
+            // 
+            // txt_error_cedula
+            // 
+            this.txt_error_cedula.AutoSize = true;
+            this.txt_error_cedula.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
+            this.txt_error_cedula.ForeColor = System.Drawing.Color.Red;
+            this.txt_error_cedula.Location = new System.Drawing.Point(188, 214);
+            this.txt_error_cedula.Name = "txt_error_cedula";
+            this.txt_error_cedula.Size = new System.Drawing.Size(17, 16);
+            this.txt_error_cedula.TabIndex = 221;
+            this.txt_error_cedula.Text = "X";
+            this.txt_error_cedula.Visible = false;
+            // 
+            // c_puesto
+            // 
+            this.c_puesto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.c_puesto.FormattingEnabled = true;
+            this.c_puesto.Location = new System.Drawing.Point(310, 529);
+            this.c_puesto.Name = "c_puesto";
+            this.c_puesto.Size = new System.Drawing.Size(179, 28);
+            this.c_puesto.TabIndex = 222;
+            this.c_puesto.Text = "Filtrar puesto";
+            this.c_puesto.SelectedIndexChanged += new System.EventHandler(this.c_puesto_SelectedIndexChanged);
+            this.c_puesto.SelectedValueChanged += new System.EventHandler(this.c_puesto_SelectedValueChanged);
             // 
             // FrmEmpleado
             // 
@@ -886,7 +1061,6 @@ namespace _911_RD.Administracion
             this.Controls.Add(this.cb_tipoIdent);
             this.Controls.Add(this.label22);
             this.Controls.Add(this.cb_nacionalidades);
-            this.Controls.Add(this.label18);
             this.Controls.Add(this.p_dir);
             this.Controls.Add(this.lbl_conductor);
             this.Controls.Add(this.p_conductor);
@@ -950,7 +1124,6 @@ namespace _911_RD.Administracion
             this.Controls.SetChildIndex(this.p_conductor, 0);
             this.Controls.SetChildIndex(this.lbl_conductor, 0);
             this.Controls.SetChildIndex(this.p_dir, 0);
-            this.Controls.SetChildIndex(this.label18, 0);
             this.Controls.SetChildIndex(this.cb_nacionalidades, 0);
             this.Controls.SetChildIndex(this.label22, 0);
             this.Controls.SetChildIndex(this.lbl_titulo, 0);
@@ -973,8 +1146,15 @@ namespace _911_RD.Administracion
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.p_direccion.ResumeLayout(false);
             this.p_direccion.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tabla_correo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_correo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_telefono)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tabla_tel)).EndInit();
             this.p_conductor.ResumeLayout(false);
             this.p_conductor.PerformLayout();
+            this.p_dir.ResumeLayout(false);
+            this.p_dir.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_direccion)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_filtro)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -1015,7 +1195,6 @@ namespace _911_RD.Administracion
         private System.Windows.Forms.Label lbl_contacto;
         private System.Windows.Forms.Label lbl_conductor;
         private System.Windows.Forms.Panel p_conductor;
-        private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Panel p_dir;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.ComboBox cb_nacionalidades;
@@ -1034,6 +1213,16 @@ namespace _911_RD.Administracion
         public System.Windows.Forms.PictureBox btn_filtro;
         private System.Windows.Forms.Label txt_error_cedula;
         private System.Windows.Forms.ComboBox c_puesto;
+        private ErrorTxtBox txt_id_direccion;
+        private System.Windows.Forms.Label label17;
+        public System.Windows.Forms.PictureBox btn_direccion;
+        private ErrorTxtBox txt_des_direccion;
+        public System.Windows.Forms.DataGridView tabla_tel;
+        public System.Windows.Forms.PictureBox btn_telefono;
+        public System.Windows.Forms.PictureBox btn_correo;
+        public System.Windows.Forms.DataGridView tabla_correo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn id_ter;
         private System.Windows.Forms.DataGridViewTextBoxColumn id_per;
         private System.Windows.Forms.DataGridViewTextBoxColumn id_pue;
@@ -1047,8 +1236,9 @@ namespace _911_RD.Administracion
         private System.Windows.Forms.DataGridViewTextBoxColumn cargo;
         private System.Windows.Forms.DataGridViewTextBoxColumn salario;
         private System.Windows.Forms.DataGridViewTextBoxColumn fecha_contrato;
-        private System.Windows.Forms.DataGridViewTextBoxColumn estado;
-        private System.Windows.Forms.DataGridViewButtonColumn direcciones;
         private System.Windows.Forms.DataGridViewTextBoxColumn nacionalidad;
+        private System.Windows.Forms.DataGridViewTextBoxColumn estado;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
     }
 }

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using _911_RD.Administracion.Email_Telefono;
 
 namespace _911_RD.Administracion
 {
@@ -17,10 +18,10 @@ namespace _911_RD.Administracion
             InitializeComponent();
            cb_estado.SelectedIndex = 0;
            cargarComboxs(); 
-            dataGridView1.AllowUserToAddRows = false;
-            cargarTabla("");
+           dataGridView1.AllowUserToAddRows = false;
+           cargarTabla("");
             //  FALTAN LOS VS Y LAS CONSULTAS
-            cargarFormDIr();
+        //    cargarFormDIr();
         }
         int cont = 0;
         MetodosCRUD metodoscrud = new MetodosCRUD();
@@ -28,15 +29,15 @@ namespace _911_RD.Administracion
 
 
         FrmDireccionNativa FrmDir = new FrmDireccionNativa();
-        void cargarFormDIr()
-        {
-            FrmDir.TopLevel = false;
-            p_dir.Controls.Add(FrmDir);
-            FrmDir.btn_guardar.Visible = false;
-            FrmDir.btn_limpiar.Visible = false;
-            FrmDir.btn_salir.Visible = false;
-            FrmDir.Show();
-        }
+        //void cargarFormDIr()
+        //{
+        //    FrmDir.TopLevel = false;
+        //    p_dir.Controls.Add(FrmDir);
+        //    FrmDir.btn_guardar.Visible = false;
+        //    FrmDir.btn_limpiar.Visible = false;
+        //    FrmDir.btn_salir.Visible = false;
+        //    FrmDir.Show();
+        //}
 
        void cargarComboxs()
         {
@@ -176,11 +177,11 @@ namespace _911_RD.Administracion
                 int id_identificacion = metodoscrud.crudIdentificaciones(txt_cedula.Text, id_tipoIdentificacion.ToString(), tercero.ToString());
                 MessageBox.Show("ID_identificacion: " + id_identificacion);
                 //Correo
-                metodoscrud.crudCorreo("",txt_correo.Text, tercero.ToString());
+              //  metodoscrud.crudCorreo("",txt_correo.Text, tercero.ToString());
                 //Telefono
-                metodoscrud.crudTelefono("", txt_telefono.Text, tercero.ToString());
+               // metodoscrud.crudTelefono("", txt_telefono.Text, tercero.ToString());
                 //Direccion
-                 int id_direccion = metodoscrud.InsertarDireccion(FrmDir.id_txt.Text, FrmDir.cb_ciudad.SelectedItem.ToString(), FrmDir.txt_descripcion.Text, tercero.ToString());
+                metodoscrud.crud_VS(tercero, int.Parse(txt_id_direccion.Text.Trim()), "TERCEROS_VS_DIRECCIONES", "id_direccion");
                 //Empleado
                 int empleado = metodoscrud.crudEmpleado(txt_id_cargo.Text, persona.ToString(), fecha_con.Value, cb_estado.SelectedIndex == 0 ? true : false);
                 MessageBox.Show("ID_empleado: " + empleado);
@@ -190,6 +191,7 @@ namespace _911_RD.Administracion
                     MessageBox.Show("id_conductor: " + id_conductor);
                 }
 
+                Utilidades.LimpiarControles(this);
                 MessageBox.Show("DATOS GUARDADOS CORRECTAMENTE");
                 
             }
@@ -233,7 +235,6 @@ namespace _911_RD.Administracion
                                        Salario = pues.salario,
                                        Fecha_Contraro = emp.fecha_ingreso,
                                        Estado = emp.estado,
-                                  
                                    };
 
                     //aqui vas a ver klk con lo que quieres filtrar
@@ -249,7 +250,7 @@ namespace _911_RD.Administracion
                     if (empleado!=null)
                     {
                         dataGridView1.Rows.Clear();
-
+                        dataGridView1.Rows.Add("", "", "", "", "", "", "", "", "", "", "", "", "", "", "");
                         foreach (var emple in empleado.ToList())
                         {
                             dataGridView1.Rows.Add(
@@ -301,7 +302,6 @@ namespace _911_RD.Administracion
 
         private void btn_Cargo_Click(object sender, EventArgs e)
         {
-
             try
             {
                 using (FrmCargo frmCargo = new FrmCargo())
@@ -338,10 +338,15 @@ namespace _911_RD.Administracion
 
         private void btn_limpiar_Click(object sender, EventArgs e)
         {
+
+            MessageBox.Show("ENTRO");
+
+            //  dataGridView1.Rows.Clear();
             Utilidades.LimpiarControles(this);
+
             lbl_conductor.Visible = false;
             p_conductor.Visible = false;
-            cargarTabla("");
+          //  cargarTabla("");
         }
 
 
@@ -396,6 +401,8 @@ namespace _911_RD.Administracion
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+            if (e.RowIndex > 0 && dataGridView1.SelectedRows.Count > 0)
+                CargarCampos();
         }
 
 
@@ -406,9 +413,12 @@ namespace _911_RD.Administracion
         {
             try
             {
+
+                if (dataGridView1.SelectedRows[0].Cells[0].Value.ToString() == "")
+                    return;
+
                 using (TransporSysEntities db = new TransporSysEntities())
                 {
-
                     tercero = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
                     persona = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
                     txt_id_cargo.Text = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
@@ -425,6 +435,10 @@ namespace _911_RD.Administracion
                     fecha_con.Value = DateTime.Parse(dataGridView1.SelectedRows[0].Cells[12].Value.ToString());
                     cb_estado.SelectedIndex = dataGridView1.SelectedRows[0].Cells[13].Value.ToString() == "ACTIVO" ? cb_estado.SelectedIndex = 0 : cb_estado.SelectedIndex = 1;
                     cb_nacionalidades.SelectedIndex = (int.Parse(dataGridView1.SelectedRows[0].Cells[14].Value.ToString()) -1);
+                    cargarTelefonos(dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
+                    cargarCorreos(dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
+
+
                 }
             }
             catch (Exception ea)
@@ -433,17 +447,92 @@ namespace _911_RD.Administracion
             }
         }
 
+
+        private void cargarTelefonos(string id_tercero)
+        {
+            try
+            {
+                using (TransporSysEntities db = new TransporSysEntities())
+                {
+                    var tele = from tel in db.TELEFONOS
+                               join ter in db.TERCEROS on int.Parse(id_tercero) equals ter.id_tercero
+                               join telVs in db.TERCEROS_VS_TELEFONOS on ter.id_tercero equals telVs.id_tercero
+                               select new
+                               {
+                                   id_telefono = tel.id_telefono,
+                                   telefono = tel.telefono,
+                                   tipo = tel.TIPOS_TELEFONOS.tipo_telefono,
+                               };
+                    if (tele != null)
+                    {
+                        //    MessageBox.Show("ENTRO");
+                        tabla_tel.Rows.Clear();
+                        tabla_tel.Visible = true;
+                        tabla_tel.Rows.Add("", "", "");
+                        foreach (var dire in tele.ToList())
+                        {
+                            tabla_tel.Rows.Add(
+                             dire.id_telefono.ToString(),
+                             dire.telefono.ToString(),
+                             dire.tipo.ToString()
+                            );
+                        }
+                    }
+                }
+            }
+            catch (Exception ass)
+            {
+
+            }
+        }
+
+        private void cargarCorreos(string id_tercero)
+        {
+            try
+            {
+                using (TransporSysEntities db = new TransporSysEntities())
+                {
+                    var tele = from co in db.EMAILS
+                               join ter in db.TERCEROS on int.Parse(id_tercero) equals ter.id_tercero
+                               join coVS in db.TERCEROS_VS_EMAILS on ter.id_tercero equals coVS.id_tercero
+                               select new
+                               {
+                                   id_correo = co.id_email,
+                                   correo = co.email,
+                               };
+                    if (tele != null)
+                    {
+                        //    MessageBox.Show("ENTRO");
+                        tabla_correo.Rows.Clear();
+                        tabla_correo.Visible = true;
+                        tabla_correo.Rows.Add("", "", "");
+                        foreach (var dire in tele.ToList())
+                        {
+                            tabla_correo.Rows.Add(
+                             dire.id_correo.ToString(),
+                             dire.correo.ToString()
+                            );
+                        }
+                    }
+                }
+            }
+            catch (Exception ass)
+            {
+
+            }
+        }
+
+
         private void dataGridView1_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
 
+            if (e.RowIndex > 0 && dataGridView1.SelectedRows.Count > 0)
+                return;
         }
         
         private void dataGridView1_SelectionChanged(object sender, EventArgs e)
         {
 
-            if (dataGridView1.Rows.Count > 0 && cont >0)
-                CargarCampos();
-            cont++;
         }
 
         private void c_puesto_SelectedIndexChanged(object sender, EventArgs e)
@@ -454,6 +543,69 @@ namespace _911_RD.Administracion
         private void c_puesto_SelectedValueChanged(object sender, EventArgs e)
         {
             cargarTabla(txt_filtro.Text.Trim());
+        }
+
+        private void btn_direccion_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+                using (FrmDireccionNativa frmDir= new FrmDireccionNativa())
+                {
+                    DialogResult dr = frmDir.ShowDialog();
+                    if (dr == DialogResult.OK)
+                    {
+                        txt_id_direccion.Text = frmDir.dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
+                        txt_des_direccion.Text = frmDir.dataGridView1.SelectedRows[0].Cells[1].Value.ToString() + ", " +
+                        frmDir.dataGridView1.SelectedRows[0].Cells[9].Value.ToString() + ", " +
+                        frmDir.dataGridView1.SelectedRows[0].Cells[5].Value.ToString();
+                    }
+                }
+            }
+            catch (Exception asa)
+            {
+                //error
+            }
+        }
+
+        private void btn_telefono_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                using (FrmTelefono frmCargo = new FrmTelefono())
+                {
+                    DialogResult dr = frmCargo.ShowDialog();
+                    if (dr == DialogResult.OK)
+                    {
+                        tabla_tel.Rows.Add(frmCargo.dataGridView1.CurrentRow.Cells[0].Value.ToString(),
+                        frmCargo.dataGridView1.CurrentRow.Cells[3].Value.ToString());
+                    }
+                }
+            }
+            catch (Exception asa)
+            {
+                //error
+            }
+        }
+
+        private void btn_correo_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                using (FrmEmail frmCargo = new FrmEmail())
+                {
+                    DialogResult dr = frmCargo.ShowDialog();
+                    if (dr == DialogResult.OK)
+                    {
+                        tabla_correo.Rows.Add(frmCargo.dataGridView1.CurrentRow.Cells[0].Value.ToString(),
+                        frmCargo.dataGridView1.CurrentRow.Cells[1].Value.ToString());
+                    }
+                }
+            }
+            catch (Exception asa)
+            {
+                //error
+            }
         }
     }
 }

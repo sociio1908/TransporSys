@@ -267,8 +267,9 @@ namespace _911_RD.Administracion
         private void dataGridView1_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
 
-            if (dataGridView1.Rows.Count > 0)
-                CargarCampos();
+            if (dataGridView1.Rows.Count > 0) 
+                this.DialogResult = DialogResult.OK;
+ 
         }
 
         private void txt_filtro_TextChanged(object sender, EventArgs e)
@@ -306,5 +307,10 @@ namespace _911_RD.Administracion
             }
         }
 
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dataGridView1.Rows.Count > 0)
+              CargarCampos();
+        }
     }
 }

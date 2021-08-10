@@ -37,7 +37,6 @@ namespace _911_RD.Administracion.Transporte
 
         private void cargarTabla(string condicion, DataGridView dataGrid)
         {
-
             try
             {
                 using (TransporSysEntities db = new TransporSysEntities())
