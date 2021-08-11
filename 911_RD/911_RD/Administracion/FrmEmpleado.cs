@@ -20,8 +20,8 @@ namespace _911_RD.Administracion
            cargarComboxs(); 
            dataGridView1.AllowUserToAddRows = false;
            cargarTabla("");
-            //  FALTAN LOS VS Y LAS CONSULTAS
-        //    cargarFormDIr();
+
+
         }
         int cont = 0;
         MetodosCRUD metodoscrud = new MetodosCRUD();
@@ -138,10 +138,15 @@ namespace _911_RD.Administracion
           
              if (Utilidades.ValidarFormulario(this, errorProvider1) || validarCombo()==false || Utilidades.mayorEdad(fecha_nac.Value)==false)
             {
-                MessageBox.Show("Favor llenar todos los campos y tiene que ser mayor de edad (18 años)", "Se requiere persona mayor de edad", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Favor llenar todos los campos y tiene que ser mayor de edad (18 años)", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
+            if (tabla_direccion.RowCount < 0)
+            {
+                MessageBox.Show("Debe asignar al menos una direccion.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
             try
             {
@@ -158,42 +163,44 @@ namespace _911_RD.Administracion
 
         }
 
-        string id_tercero = "";
 
         private void InsertarEmpleado()
         {
             try
             {
-                //Tercero
-                int tercero = metodoscrud.crudTerceros(id_tercero, txt_nombre.Text.Trim());
-                MessageBox.Show("ID_TERCERO: " + tercero);
+
+
+
+
+
+
+                int tercero_t = 0;
+
+                if (id_txt.Text.Trim() != "")
+                    tercero_t = int.Parse(tercero);
+
+                tercero_t = metodoscrud.crudTerceros(tercero_t.ToString(), txt_nombre.Text.Trim());
                 //Persona
                 int id_sexo = cb_sexo.SelectedIndex + 1;
                 int id_nacionalidad = cb_nacionalidades.SelectedIndex + 1;
-                int persona = metodoscrud.crudPersonas(tercero.ToString(), id_sexo.ToString(), fecha_nac.Value, id_nacionalidad.ToString(), txt_apellido.Text);
-                MessageBox.Show("ID_PERSONA: " + persona);
+                int persona = metodoscrud.crudPersonas(tercero_t.ToString(), id_sexo.ToString(), fecha_nac.Value, id_nacionalidad.ToString(), txt_apellido.Text);
                 //Identificacion
                 int id_tipoIdentificacion = cb_tipoIdent.SelectedIndex + 1;
-                int id_identificacion = metodoscrud.crudIdentificaciones(txt_cedula.Text, id_tipoIdentificacion.ToString(), tercero.ToString());
-                MessageBox.Show("ID_identificacion: " + id_identificacion);
+                int id_identificacion = metodoscrud.crudIdentificaciones(txt_cedula.Text, id_tipoIdentificacion.ToString(), tercero_t.ToString());
                 //Correo
-                if (tabla_correo.RowCount > 0) 
-                    AsignarTelefonos(tercero);
+                    AsignarTelefonos(tercero_t);
                 //Telefono
-                if (tabla_tel.RowCount > 0)
-                    AsignarCorreos(tercero);
+                    AsignarCorreos(tercero_t);
                 //Direccion
-                metodoscrud.crud_VS(tercero, int.Parse(txt_id_direccion.Text.Trim()), "TERCEROS_VS_DIRECCIONES", "id_direccion");
+                    AsignarDIreccion(tercero_t);
                 //Empleado
                 int empleado = metodoscrud.crudEmpleado(txt_id_cargo.Text, persona.ToString(), fecha_con.Value, cb_estado.SelectedIndex == 0 ? true : false);
-                MessageBox.Show("ID_empleado: " + empleado);
                 if (conductor == true)
                 {
                     int id_conductor = metodoscrud.crudConductor(empleado.ToString(), txt_numlicencia.Text, fecha_licencia.Value); 
-                    MessageBox.Show("id_conductor: " + id_conductor);
                 }
 
-                Utilidades.LimpiarControles(this);
+            //    Utilidades.LimpiarControles(this);
                 MessageBox.Show("DATOS GUARDADOS CORRECTAMENTE");
                 
             }
@@ -238,7 +245,6 @@ namespace _911_RD.Administracion
                                        Fecha_Contraro = emp.fecha_ingreso,
                                        Estado = emp.estado,
                                    };
-
                     //aqui vas a ver klk con lo que quieres filtrar
                     if (condicion.Equals(""))
                     {
@@ -282,10 +288,6 @@ namespace _911_RD.Administracion
             {
 
             }
-
-          
-
-
         }
         
 
@@ -421,7 +423,10 @@ namespace _911_RD.Administracion
 
                 using (TransporSysEntities db = new TransporSysEntities())
                 {
-                    tercero = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
+                    tercero = dataGridView1.SelectedRows[0].Cells[0].Value.ToString(); 
+                    cargarTelefonos(int.Parse(tercero));
+                    cargarCorreos(int.Parse(tercero));
+                    cargarDirecciones(int.Parse(tercero));
                     persona = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
                     txt_id_cargo.Text = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
                     txt_des_puesto.Text = db.PUESTOS.FirstOrDefault(a=>a.id_puesto.ToString()== txt_id_cargo.Text).descripcion;
@@ -437,10 +442,6 @@ namespace _911_RD.Administracion
                     fecha_con.Value = DateTime.Parse(dataGridView1.SelectedRows[0].Cells[12].Value.ToString());
                     cb_estado.SelectedIndex = dataGridView1.SelectedRows[0].Cells[13].Value.ToString() == "ACTIVO" ? cb_estado.SelectedIndex = 0 : cb_estado.SelectedIndex = 1;
                     cb_nacionalidades.SelectedIndex = (int.Parse(dataGridView1.SelectedRows[0].Cells[14].Value.ToString()) -1);
-                    cargarTelefonos(tercero.ToString());
-                    cargarCorreos(tercero.ToString());
-
-
                 }
             }
             catch (Exception ea)
@@ -450,33 +451,29 @@ namespace _911_RD.Administracion
         }
 
 
-        private void cargarTelefonos(string id_tercero)
+        private void cargarTelefonos(int id_tercero)
         {
             try
             {
                 using (TransporSysEntities db = new TransporSysEntities())
                 {
-                    var tele = from tel in db.TELEFONOS
-                               join ter in db.TERCEROS on int.Parse(id_tercero) equals ter.id_tercero
-                               join telVs in db.TERCEROS_VS_TELEFONOS on ter.id_tercero equals telVs.id_tercero
-                               select new
+                    var telefono = from telVs in db.TERCEROS_VS_TELEFONOS where id_tercero ==telVs.id_tercero
+                               join tel in db.TELEFONOS on telVs.id_telefono equals tel.id_telefono
+                                   select new
                                {
                                    id_telefono = tel.id_telefono,
-                                   telefono = tel.telefono,
-                                   tipo = tel.TIPOS_TELEFONOS.tipo_telefono,
+                                   telefono = tel.telefono
                                };
-                    if (tele != null)
+
+                    if (telefono != null)
                     {
                         //    MessageBox.Show("ENTRO");
                         tabla_tel.Rows.Clear();
-                        tabla_tel.Visible = true;
-                        tabla_tel.Rows.Add("", "", "");
-                        foreach (var dire in tele.ToList())
+                        foreach (var tel in telefono.ToList())
                         {
                             tabla_tel.Rows.Add(
-                             dire.id_telefono.ToString(),
-                             dire.telefono.ToString(),
-                             dire.tipo.ToString()
+                             tel.id_telefono.ToString(),
+                             tel.telefono.ToString()
                             );
                         }
                     }
@@ -488,31 +485,84 @@ namespace _911_RD.Administracion
             }
         }
 
-        private void cargarCorreos(string id_tercero)
+
+        void removerFila(DataGridView tabla)
+        {
+            if (tabla.SelectedRows.Count > 0)
+            {
+                DialogResult dialogResult = MessageBox.Show("Quiere remover este campo ?", "Opcion", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.No)
+                    return;
+
+                foreach (DataGridViewRow row in tabla.SelectedRows)
+                {
+                    tabla.Rows.RemoveAt(row.Index);
+                }
+
+            }
+        }
+        
+        private void cargarCorreos(int id_tercero)
         {
             try
             {
                 using (TransporSysEntities db = new TransporSysEntities())
                 {
-                    var tele = from co in db.EMAILS
-                               join ter in db.TERCEROS on int.Parse(id_tercero) equals ter.id_tercero
-                               join coVS in db.TERCEROS_VS_EMAILS on ter.id_tercero equals coVS.id_tercero
-                               select new
+                    var correo = from telVs in db.TERCEROS_VS_EMAILS
+                                 where id_tercero == telVs.id_tercero
+                                 join tel in db.EMAILS on telVs.id_email equals tel.id_email
+                                 select new
                                {
-                                   id_correo = co.id_email,
-                                   correo = co.email,
+                                   id_correo = tel.id_email,
+                                   correo = tel.email
                                };
-                    if (tele != null)
+
+                    if (correo != null)
                     {
                         //    MessageBox.Show("ENTRO");
                         tabla_correo.Rows.Clear();
-                        tabla_correo.Visible = true;
-                        tabla_correo.Rows.Add("", "", "");
-                        foreach (var dire in tele.ToList())
+                        foreach (var dire in correo)
                         {
                             tabla_correo.Rows.Add(
                              dire.id_correo.ToString(),
                              dire.correo.ToString()
+                            );
+                        }
+                    }
+                }
+            }
+            catch (Exception ass)
+            {
+
+            }
+        }
+        private void cargarDirecciones(int id_tercero)
+        {
+            try
+            {
+                using (TransporSysEntities db = new TransporSysEntities())
+                {
+                    var correo = from telVs in db.TERCEROS_VS_DIRECCIONES
+                                 where id_tercero == telVs.id_tercero
+                                 join tel in db.DIRECCIONES on telVs.id_direccion equals tel.id_direccion
+                                 join ciu in db.CIUDADES on tel.id_ciudad equals ciu.id_ciudad
+                                 join pro in db.PROVINCIAS on ciu.id_provincia equals pro.id_provincia
+                                 join pa in db.PAISES on pro.id_pais equals pa.id_pais
+                                 select new
+                                 {
+                                     id_direccion = tel.id_direccion,
+                                     direccion = tel.descripcion + ", " + ciu.ciudad + ", " + pa.pais
+                                 };
+
+                    if (correo != null)
+                    {
+                        //    MessageBox.Show("ENTRO");
+                        tabla_direccion.Rows.Clear();
+                        foreach (var dire in correo)
+                        {
+                            tabla_direccion.Rows.Add(
+                             dire.id_direccion.ToString(),
+                             dire.direccion.ToString()
                             );
                         }
                     }
@@ -549,18 +599,36 @@ namespace _911_RD.Administracion
 
         private void btn_direccion_Click(object sender, EventArgs e)
         {
-
             try
             {
-                using (FrmDireccionNativa frmDir= new FrmDireccionNativa())
+                using (FrmDireccionNativa frmCargo = new FrmDireccionNativa())
                 {
-                    DialogResult dr = frmDir.ShowDialog();
+                    DialogResult dr = frmCargo.ShowDialog();
                     if (dr == DialogResult.OK)
                     {
-                        txt_id_direccion.Text = frmDir.dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
-                        txt_des_direccion.Text = frmDir.dataGridView1.SelectedRows[0].Cells[1].Value.ToString() + ", " +
-                        frmDir.dataGridView1.SelectedRows[0].Cells[9].Value.ToString() + ", " +
-                        frmDir.dataGridView1.SelectedRows[0].Cells[5].Value.ToString();
+                        bool existe = false;
+                        if (tabla_direccion.RowCount > 0)
+                        {
+                            // Primero averigua si el registro existe:
+
+                            for (int i = 0; i < tabla_direccion.RowCount; i++)
+                            {
+                                if (tabla_direccion.Rows[i].Cells[0].Value.ToString() == frmCargo.dataGridView1.CurrentRow.Cells[0].Value.ToString())
+                                {
+                                    MessageBox.Show("Ya le pertenece este numero.");
+                                    existe = true;
+                                    break; // debes salirte del ciclo si encuentras el registro, no es necesario seguir dentro
+                                }
+                            }
+
+                        }
+                        if (existe == false)
+                        {
+                            tabla_direccion.Rows.Add(frmCargo.dataGridView1.CurrentRow.Cells[0].Value.ToString(),
+                            frmCargo.dataGridView1.CurrentRow.Cells[1].Value.ToString() + ", " + frmCargo.dataGridView1.CurrentRow.Cells[9].Value.ToString() 
+                            + ", " + frmCargo.dataGridView1.CurrentRow.Cells[5].Value.ToString());
+                        }
+
                     }
                 }
             }
@@ -618,15 +686,13 @@ namespace _911_RD.Administracion
             {
                 using (TransporSysEntities db = new TransporSysEntities())
                 {
-                    if (tabla_tel.RowCount > 0)
+                    if (tabla_correo.RowCount > 0)
                     {
                         // Primero averigua si el registro existe:
                         int _id = 0;
-                        for (int i = 0; i < tabla_correo.RowCount; i++)
+                        foreach (DataGridViewRow i in tabla_correo.Rows)
                         {
-                            _id = int.Parse(tabla_correo.Rows[i].Cells[0].Value.ToString());
-                            MessageBox.Show("ID: " + _id);
-                            MessageBox.Show("ID: " + id_tercero);
+                            _id = int.Parse(i.Cells[0].Value.ToString());
                             var res = db.TERCEROS_VS_EMAILS.FirstOrDefault(a => a.id_email == _id && a.id_tercero == id_tercero);
                             if (res == null)
                             {
@@ -639,29 +705,55 @@ namespace _911_RD.Administracion
             catch (Exception ass)
             {
 
+                //MessageBox.Show("ERROR CORRE: " + ass.Message+"--LO OTRO: "+ ass.HelpLink);
             }
 
         }
-      
+
         void AsignarTelefonos(int id_tercero)
         {
             try
             {
                 using (TransporSysEntities db = new TransporSysEntities())
                 {
+                    int _id = 0;
                     if (tabla_tel.RowCount > 0)
+                    {
+                        foreach (DataGridViewRow i in tabla_tel.Rows)
+                        {
+                          _id = int.Parse(i.Cells[0].Value.ToString());
+                            var res = db.TERCEROS_VS_TELEFONOS.FirstOrDefault(a => a.id_telefono == _id && a.id_tercero == id_tercero);
+                            if (res == null)
+                            {
+                                metodoscrud.crud_VS(id_tercero, _id, "TERCEROS_VS_TELEFONOS", "id_telefono");
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ass)
+            {
+                //   MessageBox.Show("ERROR TEL: " + ass.Message + "--LO OTRO: " + ass.HelpLink);
+            }
+        }
+        void AsignarDIreccion(int id_tercero)
+        {
+            try
+            {
+                using (TransporSysEntities db = new TransporSysEntities())
+                {
+                    if (tabla_direccion.RowCount > 0)
                     {
                         // Primero averigua si el registro existe:
                         int _id = 0;
-                        for (int i = 0; i < tabla_tel.RowCount; i++)
+                        foreach (DataGridViewRow i in tabla_direccion.Rows)
                         {
-                            _id = int.Parse(tabla_tel.Rows[i].Cells[0].Value.ToString());
-                            MessageBox.Show("ID: " + _id);
-                            MessageBox.Show("ID: " + id_tercero);
-                            var res = db.TERCEROS_VS_TELEFONOS.FirstOrDefault(a => a.id_telefono == _id && a.id_tercero==id_tercero);
-                            if (res==null)
+
+                            _id = int.Parse(i.Cells[0].Value.ToString());
+                           var res = db.TERCEROS_VS_DIRECCIONES.FirstOrDefault(a => a.id_direccion == _id && a.id_tercero == id_tercero);
+                            if (res == null)
                             {
-                               metodoscrud.crud_VS(id_tercero, _id, "TERCEROS_VS_TELEFONOS", "id_telefono");
+                                metodoscrud.crud_VS(id_tercero, _id, "TERCEROS_VS_DIRECCIONES", "id_direccion");
                             }
                         }
                     }
@@ -670,6 +762,7 @@ namespace _911_RD.Administracion
             catch (Exception ass)
             {
 
+              //  MessageBox.Show("ERROR DIR: " + ass.Message + "--LO OTRO: " + ass.HelpLink);
             }
         }
 
@@ -712,6 +805,21 @@ namespace _911_RD.Administracion
             {
                 //error
             }
+        }
+
+        private void tabla_tel_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            removerFila(tabla_tel);
+        }
+
+        private void tabla_correo_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+                removerFila(tabla_correo);
+        }
+
+        private void tabla_direccion_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            removerFila(tabla_direccion);
         }
     }
 }

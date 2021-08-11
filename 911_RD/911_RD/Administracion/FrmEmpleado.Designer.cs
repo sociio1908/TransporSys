@@ -30,11 +30,11 @@ namespace _911_RD.Administracion
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txt_cedula = new _911_RD.ErrorTxtBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txt_nombre = new _911_RD.ErrorTxtBox();
@@ -76,7 +76,6 @@ namespace _911_RD.Administracion
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.label16 = new System.Windows.Forms.Label();
             this.txt_salario = new _911_RD.ErrorTxtBox();
-            this.p_direccion = new System.Windows.Forms.Panel();
             this.tabla_correo = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -96,11 +95,9 @@ namespace _911_RD.Administracion
             this.label28 = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
             this.txt_numlicencia = new _911_RD.ErrorTxtBox();
-            this.p_dir = new System.Windows.Forms.Panel();
             this.btn_direccion = new System.Windows.Forms.PictureBox();
             this.txt_id_direccion = new _911_RD.ErrorTxtBox();
             this.label17 = new System.Windows.Forms.Label();
-            this.txt_des_direccion = new _911_RD.ErrorTxtBox();
             this.label22 = new System.Windows.Forms.Label();
             this.cb_nacionalidades = new System.Windows.Forms.ComboBox();
             this.label21 = new System.Windows.Forms.Label();
@@ -109,19 +106,21 @@ namespace _911_RD.Administracion
             this.btn_filtro = new System.Windows.Forms.PictureBox();
             this.txt_error_cedula = new System.Windows.Forms.Label();
             this.c_puesto = new System.Windows.Forms.ComboBox();
+            this.tabla_direccion = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.btn_buscar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_Cargo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
-            this.p_direccion.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tabla_correo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_correo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_telefono)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabla_tel)).BeginInit();
             this.p_conductor.SuspendLayout();
-            this.p_dir.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btn_direccion)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_filtro)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tabla_direccion)).BeginInit();
             this.SuspendLayout();
             // 
             // btn_guardar
@@ -139,7 +138,6 @@ namespace _911_RD.Administracion
             // 
             this.btn_limpiar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)));
             this.btn_limpiar.Location = new System.Drawing.Point(156, 475);
-            this.btn_limpiar.Click += new System.EventHandler(this.btn_limpiar_Click);
             // 
             // btn_salir
             // 
@@ -366,14 +364,14 @@ namespace _911_RD.Administracion
             this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Firebrick;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle26.BackColor = System.Drawing.Color.Firebrick;
+            dataGridViewCellStyle26.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle26.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle26.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle26.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle26.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle26;
             this.dataGridView1.ColumnHeadersHeight = 40;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id_ter,
@@ -391,14 +389,14 @@ namespace _911_RD.Administracion
             this.fecha_contrato,
             this.nacionalidad,
             this.estado});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle28.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle28.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle28.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle28.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle28.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle28.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle28.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle28;
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.GridColor = System.Drawing.Color.White;
             this.dataGridView1.Location = new System.Drawing.Point(12, 564);
@@ -406,22 +404,22 @@ namespace _911_RD.Administracion
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle29.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle29.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle29.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle29.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle29.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle29.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle29.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle29;
             this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.DodgerBlue;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
-            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle30.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle30.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle30.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle30.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle30.SelectionBackColor = System.Drawing.Color.DodgerBlue;
+            dataGridViewCellStyle30.SelectionForeColor = System.Drawing.Color.White;
+            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle30;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(1025, 204);
             this.dataGridView1.TabIndex = 167;
@@ -460,8 +458,8 @@ namespace _911_RD.Administracion
             // id_eme
             // 
             this.id_eme.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.id_eme.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.id_eme.DefaultCellStyle = dataGridViewCellStyle27;
             this.id_eme.FillWeight = 50F;
             this.id_eme.HeaderText = "ID";
             this.id_eme.Name = "id_eme";
@@ -628,30 +626,12 @@ namespace _911_RD.Administracion
             this.txt_salario.TabIndex = 173;
             this.txt_salario.Validar = true;
             // 
-            // p_direccion
-            // 
-            this.p_direccion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.p_direccion.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.p_direccion.Controls.Add(this.tabla_correo);
-            this.p_direccion.Controls.Add(this.btn_correo);
-            this.p_direccion.Controls.Add(this.btn_telefono);
-            this.p_direccion.Controls.Add(this.tabla_tel);
-            this.p_direccion.Controls.Add(this.label26);
-            this.p_direccion.Controls.Add(this.txt_correo);
-            this.p_direccion.Controls.Add(this.label23);
-            this.p_direccion.Controls.Add(this.txt_telefono);
-            this.p_direccion.Location = new System.Drawing.Point(498, 78);
-            this.p_direccion.Name = "p_direccion";
-            this.p_direccion.Size = new System.Drawing.Size(465, 234);
-            this.p_direccion.TabIndex = 177;
-            // 
             // tabla_correo
             // 
             this.tabla_correo.AllowUserToAddRows = false;
             this.tabla_correo.AllowUserToDeleteRows = false;
             this.tabla_correo.AllowUserToResizeRows = false;
             this.tabla_correo.BackgroundColor = System.Drawing.Color.White;
-            this.tabla_correo.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tabla_correo.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.tabla_correo.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.tabla_correo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -662,7 +642,7 @@ namespace _911_RD.Administracion
             this.tabla_correo.Cursor = System.Windows.Forms.Cursors.Hand;
             this.tabla_correo.EnableHeadersVisualStyles = false;
             this.tabla_correo.GridColor = System.Drawing.Color.White;
-            this.tabla_correo.Location = new System.Drawing.Point(243, 60);
+            this.tabla_correo.Location = new System.Drawing.Point(735, 132);
             this.tabla_correo.MultiSelect = false;
             this.tabla_correo.Name = "tabla_correo";
             this.tabla_correo.ReadOnly = true;
@@ -674,8 +654,9 @@ namespace _911_RD.Administracion
             this.tabla_correo.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.WhiteSmoke;
             this.tabla_correo.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
             this.tabla_correo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.tabla_correo.Size = new System.Drawing.Size(219, 171);
+            this.tabla_correo.Size = new System.Drawing.Size(219, 103);
             this.tabla_correo.TabIndex = 226;
+            this.tabla_correo.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tabla_correo_CellContentDoubleClick);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -697,7 +678,7 @@ namespace _911_RD.Administracion
             this.btn_correo.BackColor = System.Drawing.Color.LightGreen;
             this.btn_correo.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_correo.Image = global::_911_RD.Properties.Resources.search;
-            this.btn_correo.Location = new System.Drawing.Point(288, 28);
+            this.btn_correo.Location = new System.Drawing.Point(780, 100);
             this.btn_correo.Name = "btn_correo";
             this.btn_correo.Size = new System.Drawing.Size(34, 26);
             this.btn_correo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -710,7 +691,7 @@ namespace _911_RD.Administracion
             this.btn_telefono.BackColor = System.Drawing.Color.LightGreen;
             this.btn_telefono.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_telefono.Image = global::_911_RD.Properties.Resources.search;
-            this.btn_telefono.Location = new System.Drawing.Point(50, 28);
+            this.btn_telefono.Location = new System.Drawing.Point(542, 100);
             this.btn_telefono.Name = "btn_telefono";
             this.btn_telefono.Size = new System.Drawing.Size(34, 26);
             this.btn_telefono.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -724,7 +705,6 @@ namespace _911_RD.Administracion
             this.tabla_tel.AllowUserToDeleteRows = false;
             this.tabla_tel.AllowUserToResizeRows = false;
             this.tabla_tel.BackgroundColor = System.Drawing.Color.White;
-            this.tabla_tel.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tabla_tel.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.tabla_tel.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.tabla_tel.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -735,7 +715,7 @@ namespace _911_RD.Administracion
             this.tabla_tel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.tabla_tel.EnableHeadersVisualStyles = false;
             this.tabla_tel.GridColor = System.Drawing.Color.White;
-            this.tabla_tel.Location = new System.Drawing.Point(6, 60);
+            this.tabla_tel.Location = new System.Drawing.Point(498, 132);
             this.tabla_tel.MultiSelect = false;
             this.tabla_tel.Name = "tabla_tel";
             this.tabla_tel.ReadOnly = true;
@@ -747,8 +727,9 @@ namespace _911_RD.Administracion
             this.tabla_tel.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.WhiteSmoke;
             this.tabla_tel.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
             this.tabla_tel.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.tabla_tel.Size = new System.Drawing.Size(231, 171);
+            this.tabla_tel.Size = new System.Drawing.Size(231, 103);
             this.tabla_tel.TabIndex = 223;
+            this.tabla_tel.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tabla_tel_CellContentDoubleClick);
             // 
             // dataGridViewTextBoxColumn5
             // 
@@ -771,18 +752,18 @@ namespace _911_RD.Administracion
             this.label26.AutoSize = true;
             this.label26.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.label26.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label26.Location = new System.Drawing.Point(3, 8);
+            this.label26.Location = new System.Drawing.Point(495, 80);
             this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(72, 16);
+            this.label26.Size = new System.Drawing.Size(79, 16);
             this.label26.TabIndex = 197;
-            this.label26.Text = "TELEFONO";
+            this.label26.Text = "TELEFONOS";
             // 
             // txt_correo
             // 
             this.txt_correo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txt_correo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.txt_correo.Limpiar = true;
-            this.txt_correo.Location = new System.Drawing.Point(243, 28);
+            this.txt_correo.Location = new System.Drawing.Point(735, 100);
             this.txt_correo.Name = "txt_correo";
             this.txt_correo.Size = new System.Drawing.Size(79, 26);
             this.txt_correo.SoloNumeros = false;
@@ -794,23 +775,23 @@ namespace _911_RD.Administracion
             this.label23.AutoSize = true;
             this.label23.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.label23.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label23.Location = new System.Drawing.Point(240, 8);
+            this.label23.Location = new System.Drawing.Point(732, 80);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(63, 16);
+            this.label23.Size = new System.Drawing.Size(70, 16);
             this.label23.TabIndex = 195;
-            this.label23.Text = "CORREO";
+            this.label23.Text = "CORREOS";
             // 
             // txt_telefono
             // 
             this.txt_telefono.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txt_telefono.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.txt_telefono.Limpiar = true;
-            this.txt_telefono.Location = new System.Drawing.Point(6, 28);
+            this.txt_telefono.Location = new System.Drawing.Point(498, 100);
             this.txt_telefono.Name = "txt_telefono";
             this.txt_telefono.Size = new System.Drawing.Size(46, 26);
             this.txt_telefono.SoloNumeros = true;
             this.txt_telefono.TabIndex = 194;
-            this.txt_telefono.Validar = true;
+            this.txt_telefono.Validar = false;
             // 
             // lbl_contacto
             // 
@@ -828,7 +809,7 @@ namespace _911_RD.Administracion
             this.lbl_conductor.AutoSize = true;
             this.lbl_conductor.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
             this.lbl_conductor.ForeColor = System.Drawing.Color.Firebrick;
-            this.lbl_conductor.Location = new System.Drawing.Point(494, 453);
+            this.lbl_conductor.Location = new System.Drawing.Point(494, 431);
             this.lbl_conductor.Name = "lbl_conductor";
             this.lbl_conductor.Size = new System.Drawing.Size(108, 19);
             this.lbl_conductor.TabIndex = 180;
@@ -843,7 +824,7 @@ namespace _911_RD.Administracion
             this.p_conductor.Controls.Add(this.label28);
             this.p_conductor.Controls.Add(this.label27);
             this.p_conductor.Controls.Add(this.txt_numlicencia);
-            this.p_conductor.Location = new System.Drawing.Point(498, 475);
+            this.p_conductor.Location = new System.Drawing.Point(498, 453);
             this.p_conductor.Name = "p_conductor";
             this.p_conductor.Size = new System.Drawing.Size(382, 75);
             this.p_conductor.TabIndex = 179;
@@ -893,25 +874,12 @@ namespace _911_RD.Administracion
             this.txt_numlicencia.Validar = true;
             this.txt_numlicencia.TextChanged += new System.EventHandler(this.txt_numlicencia_TextChanged);
             // 
-            // p_dir
-            // 
-            this.p_dir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.p_dir.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.p_dir.Controls.Add(this.btn_direccion);
-            this.p_dir.Controls.Add(this.txt_id_direccion);
-            this.p_dir.Controls.Add(this.label17);
-            this.p_dir.Controls.Add(this.txt_des_direccion);
-            this.p_dir.Location = new System.Drawing.Point(498, 318);
-            this.p_dir.Name = "p_dir";
-            this.p_dir.Size = new System.Drawing.Size(382, 132);
-            this.p_dir.TabIndex = 181;
-            // 
             // btn_direccion
             // 
             this.btn_direccion.BackColor = System.Drawing.Color.LightGreen;
             this.btn_direccion.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_direccion.Image = global::_911_RD.Properties.Resources.search;
-            this.btn_direccion.Location = new System.Drawing.Point(69, 23);
+            this.btn_direccion.Location = new System.Drawing.Point(561, 261);
             this.btn_direccion.Name = "btn_direccion";
             this.btn_direccion.Size = new System.Drawing.Size(32, 26);
             this.btn_direccion.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -925,37 +893,23 @@ namespace _911_RD.Administracion
             this.txt_id_direccion.Enabled = false;
             this.txt_id_direccion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.txt_id_direccion.Limpiar = true;
-            this.txt_id_direccion.Location = new System.Drawing.Point(6, 23);
+            this.txt_id_direccion.Location = new System.Drawing.Point(498, 261);
             this.txt_id_direccion.Name = "txt_id_direccion";
             this.txt_id_direccion.Size = new System.Drawing.Size(95, 26);
             this.txt_id_direccion.SoloNumeros = false;
             this.txt_id_direccion.TabIndex = 226;
-            this.txt_id_direccion.Validar = true;
+            this.txt_id_direccion.Validar = false;
             // 
             // label17
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.label17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label17.Location = new System.Drawing.Point(3, 7);
+            this.label17.Location = new System.Drawing.Point(495, 245);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(81, 16);
+            this.label17.Size = new System.Drawing.Size(95, 16);
             this.label17.TabIndex = 224;
-            this.label17.Text = "DIRECCION";
-            // 
-            // txt_des_direccion
-            // 
-            this.txt_des_direccion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txt_des_direccion.Enabled = false;
-            this.txt_des_direccion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.txt_des_direccion.Limpiar = true;
-            this.txt_des_direccion.Location = new System.Drawing.Point(6, 55);
-            this.txt_des_direccion.Multiline = true;
-            this.txt_des_direccion.Name = "txt_des_direccion";
-            this.txt_des_direccion.Size = new System.Drawing.Size(342, 62);
-            this.txt_des_direccion.SoloNumeros = false;
-            this.txt_des_direccion.TabIndex = 223;
-            this.txt_des_direccion.Validar = true;
+            this.label17.Text = "DIRECCIONES";
             // 
             // label22
             // 
@@ -1048,24 +1002,82 @@ namespace _911_RD.Administracion
             this.c_puesto.SelectedIndexChanged += new System.EventHandler(this.c_puesto_SelectedIndexChanged);
             this.c_puesto.SelectedValueChanged += new System.EventHandler(this.c_puesto_SelectedValueChanged);
             // 
+            // tabla_direccion
+            // 
+            this.tabla_direccion.AllowUserToAddRows = false;
+            this.tabla_direccion.AllowUserToDeleteRows = false;
+            this.tabla_direccion.AllowUserToResizeRows = false;
+            this.tabla_direccion.BackgroundColor = System.Drawing.Color.White;
+            this.tabla_direccion.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.tabla_direccion.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.tabla_direccion.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.tabla_direccion.ColumnHeadersVisible = false;
+            this.tabla_direccion.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4});
+            this.tabla_direccion.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.tabla_direccion.EnableHeadersVisualStyles = false;
+            this.tabla_direccion.GridColor = System.Drawing.Color.White;
+            this.tabla_direccion.Location = new System.Drawing.Point(498, 294);
+            this.tabla_direccion.MultiSelect = false;
+            this.tabla_direccion.Name = "tabla_direccion";
+            this.tabla_direccion.ReadOnly = true;
+            this.tabla_direccion.RowHeadersVisible = false;
+            this.tabla_direccion.RowHeadersWidth = 15;
+            this.tabla_direccion.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.White;
+            this.tabla_direccion.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabla_direccion.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black;
+            this.tabla_direccion.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.WhiteSmoke;
+            this.tabla_direccion.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
+            this.tabla_direccion.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.tabla_direccion.Size = new System.Drawing.Size(456, 103);
+            this.tabla_direccion.TabIndex = 227;
+            this.tabla_direccion.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tabla_direccion_CellContentDoubleClick);
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn3.HeaderText = "ID";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            this.dataGridViewTextBoxColumn3.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewTextBoxColumn3.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn4.HeaderText = "direccion";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            // 
             // FrmEmpleado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1049, 780);
+            this.Controls.Add(this.tabla_direccion);
+            this.Controls.Add(this.btn_direccion);
+            this.Controls.Add(this.tabla_correo);
+            this.Controls.Add(this.txt_id_direccion);
             this.Controls.Add(this.c_puesto);
+            this.Controls.Add(this.label17);
+            this.Controls.Add(this.btn_correo);
             this.Controls.Add(this.txt_error_cedula);
+            this.Controls.Add(this.btn_telefono);
             this.Controls.Add(this.btn_filtro);
+            this.Controls.Add(this.tabla_tel);
             this.Controls.Add(this.txt_id_cargo);
+            this.Controls.Add(this.label26);
+            this.Controls.Add(this.txt_correo);
             this.Controls.Add(this.label21);
+            this.Controls.Add(this.label23);
             this.Controls.Add(this.cb_tipoIdent);
+            this.Controls.Add(this.txt_telefono);
             this.Controls.Add(this.label22);
             this.Controls.Add(this.cb_nacionalidades);
-            this.Controls.Add(this.p_dir);
             this.Controls.Add(this.lbl_conductor);
             this.Controls.Add(this.p_conductor);
             this.Controls.Add(this.lbl_contacto);
-            this.Controls.Add(this.p_direccion);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.txt_salario);
             this.Controls.Add(this.label14);
@@ -1119,11 +1131,9 @@ namespace _911_RD.Administracion
             this.Controls.SetChildIndex(this.label14, 0);
             this.Controls.SetChildIndex(this.txt_salario, 0);
             this.Controls.SetChildIndex(this.label16, 0);
-            this.Controls.SetChildIndex(this.p_direccion, 0);
             this.Controls.SetChildIndex(this.lbl_contacto, 0);
             this.Controls.SetChildIndex(this.p_conductor, 0);
             this.Controls.SetChildIndex(this.lbl_conductor, 0);
-            this.Controls.SetChildIndex(this.p_dir, 0);
             this.Controls.SetChildIndex(this.cb_nacionalidades, 0);
             this.Controls.SetChildIndex(this.label22, 0);
             this.Controls.SetChildIndex(this.lbl_titulo, 0);
@@ -1134,28 +1144,37 @@ namespace _911_RD.Administracion
             this.Controls.SetChildIndex(this.btn_limpiar, 0);
             this.Controls.SetChildIndex(this.btn_salir, 0);
             this.Controls.SetChildIndex(this.id_txt, 0);
+            this.Controls.SetChildIndex(this.txt_telefono, 0);
             this.Controls.SetChildIndex(this.cb_tipoIdent, 0);
+            this.Controls.SetChildIndex(this.label23, 0);
             this.Controls.SetChildIndex(this.label21, 0);
+            this.Controls.SetChildIndex(this.txt_correo, 0);
+            this.Controls.SetChildIndex(this.label26, 0);
             this.Controls.SetChildIndex(this.txt_id_cargo, 0);
+            this.Controls.SetChildIndex(this.tabla_tel, 0);
             this.Controls.SetChildIndex(this.btn_filtro, 0);
+            this.Controls.SetChildIndex(this.btn_telefono, 0);
             this.Controls.SetChildIndex(this.txt_error_cedula, 0);
+            this.Controls.SetChildIndex(this.btn_correo, 0);
+            this.Controls.SetChildIndex(this.label17, 0);
             this.Controls.SetChildIndex(this.c_puesto, 0);
+            this.Controls.SetChildIndex(this.txt_id_direccion, 0);
+            this.Controls.SetChildIndex(this.tabla_correo, 0);
+            this.Controls.SetChildIndex(this.btn_direccion, 0);
+            this.Controls.SetChildIndex(this.tabla_direccion, 0);
             ((System.ComponentModel.ISupportInitialize)(this.btn_buscar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_Cargo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
-            this.p_direccion.ResumeLayout(false);
-            this.p_direccion.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tabla_correo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_correo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_telefono)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabla_tel)).EndInit();
             this.p_conductor.ResumeLayout(false);
             this.p_conductor.PerformLayout();
-            this.p_dir.ResumeLayout(false);
-            this.p_dir.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btn_direccion)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_filtro)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tabla_direccion)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1191,11 +1210,9 @@ namespace _911_RD.Administracion
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.Label label16;
         private ErrorTxtBox txt_salario;
-        private System.Windows.Forms.Panel p_direccion;
         private System.Windows.Forms.Label lbl_contacto;
         private System.Windows.Forms.Label lbl_conductor;
         private System.Windows.Forms.Panel p_conductor;
-        private System.Windows.Forms.Panel p_dir;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.ComboBox cb_nacionalidades;
         private System.Windows.Forms.Label label23;
@@ -1216,7 +1233,6 @@ namespace _911_RD.Administracion
         private ErrorTxtBox txt_id_direccion;
         private System.Windows.Forms.Label label17;
         public System.Windows.Forms.PictureBox btn_direccion;
-        private ErrorTxtBox txt_des_direccion;
         public System.Windows.Forms.DataGridView tabla_tel;
         public System.Windows.Forms.PictureBox btn_telefono;
         public System.Windows.Forms.PictureBox btn_correo;
@@ -1240,5 +1256,8 @@ namespace _911_RD.Administracion
         private System.Windows.Forms.DataGridViewTextBoxColumn estado;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        public System.Windows.Forms.DataGridView tabla_direccion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
     }
 }

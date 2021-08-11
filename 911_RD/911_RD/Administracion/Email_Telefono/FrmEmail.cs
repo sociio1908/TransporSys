@@ -48,13 +48,13 @@ namespace _911_RD.Administracion.Email_Telefono
                     var list = from mail in db.EMAILS
                                select new
                                {
-                                   id_email =mail.email,
+                                   id_email = mail.id_email,
                                    email= mail.email
                                };
 
                     if (condicion.Trim() != "")
                     {
-                        list = list.Where(a => a.email.Contains(condicion) || a.id_email.Contains(condicion));
+                        list = list.Where(a => a.email.Contains(condicion) || a.id_email.ToString().Contains(condicion));
                     }
 
                     if (list!=null)
@@ -88,7 +88,7 @@ namespace _911_RD.Administracion.Email_Telefono
                     {
                         EMAILS puesto = new EMAILS
                         {
-                            email = txt_email.Text.Trim(),
+                            email = txt_email.Text.Trim().ToLower(),
                         };
 
                         db.EMAILS.Add(puesto);

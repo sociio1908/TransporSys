@@ -131,7 +131,6 @@ namespace _911_RD.Administracion
                     }
                     else
                     {
-                        terceroquery.id_persona = int.Parse(id_persona.Trim());
                         terceroquery.id_puesto = int.Parse(id_puesto.Trim());
                         terceroquery.fecha_ingreso = fecha;
                         terceroquery.estado = estadoT;
@@ -171,7 +170,6 @@ namespace _911_RD.Administracion
                     }
                     else
                     {
-                        terceroquery.id_tercero = int.Parse(id_traido.Trim());
                         terceroquery.nombre = nombre_traido.Trim();
                         id_result = terceroquery.id_tercero;
                     }
