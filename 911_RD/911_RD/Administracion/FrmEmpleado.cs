@@ -153,7 +153,9 @@ namespace _911_RD.Administracion
 
               InsertarEmpleado();
                 cargarTabla("");
-              
+                Utilidades.LimpiarControles(this);
+                Utilidades.LimpiarControles(p_conductor);
+                clearTableAndMore();
 
             }
             catch (Exception dfg)
@@ -442,6 +444,22 @@ namespace _911_RD.Administracion
                     fecha_con.Value = DateTime.Parse(dataGridView1.SelectedRows[0].Cells[12].Value.ToString());
                     cb_estado.SelectedIndex = dataGridView1.SelectedRows[0].Cells[13].Value.ToString() == "ACTIVO" ? cb_estado.SelectedIndex = 0 : cb_estado.SelectedIndex = 1;
                     cb_nacionalidades.SelectedIndex = (int.Parse(dataGridView1.SelectedRows[0].Cells[14].Value.ToString()) -1);
+                    if (txt_cargo.Text.Trim().ToLower() == "conductor" || txt_cargo.Text.Trim().ToLower() == "chofer" || txt_cargo.Text.Trim().ToLower() == "piloto" || txt_cargo.Text.Trim().ToLower() == "automovilista")
+                    {
+                        lbl_conductor.Visible = true;
+                        p_conductor.Visible = true;
+                        conductor = true;
+                        var condu = db.CONDUCTOR.FirstOrDefault(a => a.id_empleado.ToString() == id_txt.Text.Trim());
+                        txt_numlicencia.Text = condu.num_licencia.ToString();
+                        fecha_licencia.Value = DateTime.Parse(condu.fecha_vencimiento.ToString());
+                    }
+                    else
+                    {
+                        lbl_conductor.Visible = false;
+                        p_conductor.Visible = false;
+                        conductor = false;
+                    }
+
                 }
             }
             catch (Exception ea)
@@ -485,22 +503,34 @@ namespace _911_RD.Administracion
             }
         }
 
-
-        void removerFila(DataGridView tabla)
+        void removerFila(DataGridView tabla, string campo, string table)
         {
+            try { 
+            int _id = 0;
             if (tabla.SelectedRows.Count > 0)
             {
                 DialogResult dialogResult = MessageBox.Show("Quiere remover este campo ?", "Opcion", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.No)
                     return;
-
+               
                 foreach (DataGridViewRow row in tabla.SelectedRows)
                 {
-                    tabla.Rows.RemoveAt(row.Index);
-                }
 
+                    tabla.Rows.RemoveAt(row.Index);
+                    _id = int.Parse(row.Cells[0].Value.ToString());
+                }
+                MessageBox.Show(": " + _id);
             }
-        }
+               
+            if (_id > 0)
+                metodoscrud.borrarVs(int.Parse(tercero), _id, table, campo);
+            }
+            catch (Exception ass)
+            {
+
+              //  MessageBox.Show("ERROR DIR: " + ass.Message + "--LO OTRO: " + ass.HelpLink);
+            }
+}
         
         private void cargarCorreos(int id_tercero)
         {
@@ -809,17 +839,48 @@ namespace _911_RD.Administracion
 
         private void tabla_tel_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            removerFila(tabla_tel);
+            removerFila(tabla_tel,"id_telefono", "TERCEROS_VS_TELEFONOS");
         }
-
+        
         private void tabla_correo_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-                removerFila(tabla_correo);
+                removerFila(tabla_correo, "id_email", "TERCEROS_VS_EMAILS");
         }
 
         private void tabla_direccion_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            removerFila(tabla_direccion);
+            removerFila(tabla_direccion, "id_direccion", "TERCEROS_VS_DIRECCIONES");
+        }
+
+        private void btn_limpiar_Click_1(object sender, EventArgs e)
+        {
+            Utilidades.LimpiarControles(this);
+            Utilidades.LimpiarControles(p_conductor);
+            clearTableAndMore();
+        }
+
+
+
+        void clearTableAndMore()
+        {
+            tabla_correo.Rows.Clear();
+            tabla_direccion.Rows.Clear();
+            tabla_tel.Rows.Clear();
+            txt_apellido.Text = "";
+            txt_nombre.Text = "";
+            txt_cedula.Text = "";
+            id_txt.Text = "";
+            txt_cargo.Text = "";
+            txt_des_puesto.Text = "";
+            txt_id_cargo.Text = "";
+            txt_salario.Text = "";
+            p_conductor.Visible = false;
+            lbl_conductor.Visible = false;
+        }
+
+        private void txt_cargo_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

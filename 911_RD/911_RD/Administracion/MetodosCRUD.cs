@@ -443,6 +443,24 @@ namespace _911_RD.Administracion
             }
         }
 
+
+        public void borrarVs(int id_tercero, int id_valor, string tabla, string campo)
+        {
+            try
+            {
+                    Utilidades.conexion.Open();
+                    string delete = "Delete from " + tabla + " where id_tercero = " + id_tercero + " and " + campo + " = " + id_valor;
+                    System.Diagnostics.Debug.WriteLine("DELETE: " + delete.ToString());
+                    SqlCommand comando = new SqlCommand(delete, Utilidades.conexion);
+                    comando.ExecuteNonQuery();
+                    Utilidades.conexion.Close();
+            }
+            catch (Exception asd)
+            {
+                //error
+            }
+        }
+
         public List<string> AsignarPaises(string continente)
         {
             List<string> result = new List<string>();
