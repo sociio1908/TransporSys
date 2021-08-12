@@ -155,6 +155,12 @@
     <Compile Include="Administracion\FrmPaciente.Designer.cs">
       <DependentUpon>FrmPaciente.cs</DependentUpon>
     </Compile>
+    <Compile Include="Administracion\FrmTipoCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administracion\FrmTipoCliente.Designer.cs">
+      <DependentUpon>FrmTipoCliente.cs</DependentUpon>
+    </Compile>
     <Compile Include="Administracion\MessageBoxTemporal.cs" />
     <Compile Include="Administracion\MetodosCRUD.cs" />
     <Compile Include="Administracion\Transporte\FrmTransporte.cs">
@@ -522,6 +528,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Administracion\FrmPaciente.resx">
       <DependentUpon>FrmPaciente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administracion\FrmTipoCliente.resx">
+      <DependentUpon>FrmTipoCliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Administracion\Transporte\FrmTransporte.resx">
       <DependentUpon>FrmTransporte.cs</DependentUpon>

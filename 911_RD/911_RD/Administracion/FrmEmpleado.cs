@@ -20,7 +20,7 @@ namespace _911_RD.Administracion
            cargarComboxs(); 
            dataGridView1.AllowUserToAddRows = false;
            cargarTabla("");
-
+            txt_cedula.Focus();
 
         }
         int cont = 0;
@@ -81,17 +81,33 @@ namespace _911_RD.Administracion
 
         private void errorTxtBox2_TextChanged(object sender, EventArgs e)
         {
+            CargarTercero();
+        }
+
+
+        void CargarTercero()
+        {
             try
             {
-                if (metodoscrud.ValidarIdentificacion(txt_cedula.Text.Trim())!=0 && id_txt.Text.Trim() == "")
+                using (TransporSysEntities db = new TransporSysEntities())
                 {
-                    txt_error_cedula.Visible = true;
-                    btn_guardar.Enabled = false;
-                }
-                else
-                {
-                    txt_error_cedula.Visible = false;
-                    btn_guardar.Enabled = true;
+
+                    int te = metodoscrud.ValidarIdentificacion(txt_cedula.Text.Trim()).Item1;
+                    int ide = metodoscrud.ValidarIdentificacion(txt_cedula.Text.Trim()).Item2;
+                    if (te > 0)
+                    {
+                        var ter = db.TERCEROS.FirstOrDefault(a => a.id_tercero == te);
+                        if (ter != null)
+                        {
+                            tercero = te.ToString();
+                            txt_nombre.Text = ter.nombre;
+                            cargarDirecciones(te);
+                            cargarCorreos(te);
+                            cargarTelefonos(te);
+                            MessageBox.Show("TIPO: " + (db.IDENTIFICACIONES.FirstOrDefault(a => a.id_identificacion == ide).id_tipo_identificacion - 1));
+                            cb_tipoIdent.SelectedIndex = (db.IDENTIFICACIONES.FirstOrDefault(a => a.id_identificacion == ide).id_tipo_identificacion - 1);
+                        }
+                    }
                 }
 
             }
@@ -154,7 +170,7 @@ namespace _911_RD.Administracion
               InsertarEmpleado();
                 cargarTabla("");
                 Utilidades.LimpiarControles(this);
-                Utilidades.LimpiarControles(p_conductor);
+                Utilidades.LimpiarControles(p_conductor);       tercero = "";
                 clearTableAndMore();
 
             }
@@ -171,17 +187,12 @@ namespace _911_RD.Administracion
             try
             {
 
-
-
-
-
-
                 int tercero_t = 0;
 
-                if (id_txt.Text.Trim() != "")
+                if (id_txt.Text.Trim() != "" || tercero.Trim() != "")
                     tercero_t = int.Parse(tercero);
 
-                tercero_t = metodoscrud.crudTerceros(tercero_t.ToString(), txt_nombre.Text.Trim());
+                tercero_t = metodoscrud.crudTerceros(tercero_t.ToString(), txt_nombre.Text.Trim(), txt_cedula.Text.Trim());
                 //Persona
                 int id_sexo = cb_sexo.SelectedIndex + 1;
                 int id_nacionalidad = cb_nacionalidades.SelectedIndex + 1;
@@ -645,7 +656,7 @@ namespace _911_RD.Administracion
                             {
                                 if (tabla_direccion.Rows[i].Cells[0].Value.ToString() == frmCargo.dataGridView1.CurrentRow.Cells[0].Value.ToString())
                                 {
-                                    MessageBox.Show("Ya le pertenece este numero.");
+                                    MessageBox.Show("Ya le pertenece esta direccion.");
                                     existe = true;
                                     break; // debes salirte del ciclo si encuentras el registro, no es necesario seguir dentro
                                 }
@@ -876,9 +887,15 @@ namespace _911_RD.Administracion
             txt_salario.Text = "";
             p_conductor.Visible = false;
             lbl_conductor.Visible = false;
+            tercero = "";
         }
 
         private void txt_cargo_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabla_tel_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }

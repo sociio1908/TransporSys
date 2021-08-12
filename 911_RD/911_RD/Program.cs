@@ -21,7 +21,6 @@ namespace _911_RD
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new FrmEmpleado());
 
-
         }
 
 

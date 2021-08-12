@@ -82,7 +82,7 @@ namespace _911_RD.Administracion
             return id_result;
         }
 
-        public int ValidarIdentificacion(string campo)
+        public Tuple<int, int> ValidarIdentificacion(string campo)
         {
             int id_result = 0;
 
@@ -96,7 +96,7 @@ namespace _911_RD.Administracion
                     {
                         var m = db.TERCEROS_VS_IDENTIFICACIONES.FirstOrDefault(a => a.id_identificacion == terceroquery.id_identificacion);
                         if (m!=null)
-                       return id_result = m.id_tercero;
+                       return Tuple.Create(id_result = m.id_tercero, id_result = m.id_identificacion);// return Tuple.Create(1, 2);
                     }
                 }
             }
@@ -104,8 +104,7 @@ namespace _911_RD.Administracion
             {
 
             }
-
-            return id_result;
+            return Tuple.Create(id_result, 0);// return Tuple.Create(1, 2);
         }
 
         public int crudEmpleado(string id_puesto, string id_persona, DateTime fecha, bool estadoT)
@@ -151,7 +150,51 @@ namespace _911_RD.Administracion
             return id_result;
         }
 
-        public int crudTerceros(string id_traido, string nombre_traido)
+
+        public int crudCliente(string id_tercero, string id_tipo, bool estadoT)
+        {
+            int id_result = 0;
+            //try
+            //{
+                //TransporSysEntities
+                using (TransporSysEntities db = new TransporSysEntities())
+                {
+                    var terceroquery = db.CLIENTES.FirstOrDefault(a => a.id_tercero.ToString() == id_tercero.Trim());
+                    if (terceroquery == null)
+                    {
+
+                        CLIENTES eMPLEADOS = new CLIENTES
+                        {
+                            id_tercero = int.Parse(id_tercero.Trim()),
+                            id_tipo_cliente = int.Parse(id_tipo.Trim()),
+                            estado = true
+                        };
+                        db.CLIENTES.Add(eMPLEADOS);
+                    }
+                    else
+                    {
+                        terceroquery.id_tercero = int.Parse(id_tercero.Trim());
+                        terceroquery.id_tipo_cliente = int.Parse(id_tipo.Trim());
+                        terceroquery.estado = estadoT;
+                        id_result = terceroquery.id_cliente;
+                    }
+                    db.SaveChanges();
+                        if (terceroquery == null)
+                        {
+                            id_result = db.CLIENTES.Max(x => x.id_cliente);
+                        }
+                }
+            //}
+            //catch (Exception asd)
+            //{
+
+            //}
+
+            return id_result;
+        }
+
+
+        public int crudTerceros(string id_traido, string nombre_traido, string identificacion)
         {
             int id_result = 0;
             try
@@ -159,7 +202,20 @@ namespace _911_RD.Administracion
                 //TransporSysEntities
                 using (TransporSysEntities db = new TransporSysEntities())
                 {
-                    var terceroquery = db.TERCEROS.FirstOrDefault(a => a.id_tercero.ToString() == id_traido.Trim());
+                    int id = 0;
+                    var iden = db.IDENTIFICACIONES.FirstOrDefault(a => a.identificacion.ToString() == identificacion.Trim());
+                    var VS = db.TERCEROS_VS_IDENTIFICACIONES.FirstOrDefault(a => a.id_identificacion == iden.id_identificacion && a.id_tercero.ToString()==id_traido.Trim());
+
+                    if (VS != null)
+                    {
+                        id = VS.id_tercero;
+                    }
+                    else
+                    {
+                        id = int.Parse(id_traido.Trim());
+                    }
+
+                    var terceroquery = db.TERCEROS.FirstOrDefault(a => a.id_tercero== id);
                     if (terceroquery == null)
                     {
                         TERCEROS tercero = new TERCEROS
