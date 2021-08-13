@@ -4,6 +4,7 @@
     <EntitySetMapping Name="ALERGIAS">
       <EntityTypeMapping TypeName="TransporSysModel.ALERGIAS">
         <MappingFragment StoreEntitySet="ALERGIAS">
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
           <ScalarProperty Name="id_alergia" ColumnName="id_alergia" />
           <ScalarProperty Name="alergia" ColumnName="alergia" />
         </MappingFragment>

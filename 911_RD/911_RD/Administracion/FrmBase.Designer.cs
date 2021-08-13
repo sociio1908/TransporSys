@@ -170,6 +170,7 @@ namespace _911_RD.Administracion
             this.Controls.Add(this.lbl_titulo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmBase";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmBase";
             this.Load += new System.EventHandler(this.FrmBase_Load);
             ((System.ComponentModel.ISupportInitialize)(this.btn_buscar)).EndInit();

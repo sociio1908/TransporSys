@@ -503,7 +503,6 @@ namespace _911_RD
 
         private void tabla_tel_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-
             removerFila(tabla_tel, "id_telefono", "TERCEROS_VS_TELEFONOS");
         }
 

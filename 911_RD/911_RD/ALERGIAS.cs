@@ -16,5 +16,6 @@ namespace _911_RD
     {
         public int id_alergia { get; set; }
         public string alergia { get; set; }
+        public string descripcion { get; set; }
     }
 }

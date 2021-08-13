@@ -5,7 +5,8 @@
       <PropertyRef Name="id_alergia" />
     </Key>
     <Property Name="id_alergia" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="alergia" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="alergia" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="descripcion" Type="varchar" MaxLength="100" Nullable="false" />
   </EntityType>
   <EntityType Name="ALMACENES">
     <Key>
