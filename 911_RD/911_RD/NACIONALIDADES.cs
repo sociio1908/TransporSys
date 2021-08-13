@@ -22,7 +22,7 @@ namespace _911_RD
     
         public int id_nacionalidad { get; set; }
         public string nacionalidad { get; set; }
-        public string pais { get; set; }
+        public int id_pais { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PERSONAS> PERSONAS { get; set; }

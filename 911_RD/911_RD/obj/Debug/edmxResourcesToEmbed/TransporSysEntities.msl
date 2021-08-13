@@ -49,7 +49,7 @@
     <EntitySetMapping Name="CATEGORIAS_SERVICIOS">
       <EntityTypeMapping TypeName="TransporSysModel.CATEGORIAS_SERVICIOS">
         <MappingFragment StoreEntitySet="CATEGORIAS_SERVICIOS">
-          <ScalarProperty Name="id_categoriaServicio" ColumnName="id_categoriaServicio" />
+          <ScalarProperty Name="id_categoria_servicio" ColumnName="id_categoria_servicio" />
           <ScalarProperty Name="categoria" ColumnName="categoria" />
           <ScalarProperty Name="descripcion" ColumnName="descripcion" />
           <ScalarProperty Name="estado" ColumnName="estado" />
@@ -375,7 +375,7 @@
         <MappingFragment StoreEntitySet="NACIONALIDADES">
           <ScalarProperty Name="id_nacionalidad" ColumnName="id_nacionalidad" />
           <ScalarProperty Name="nacionalidad" ColumnName="nacionalidad" />
-          <ScalarProperty Name="pais" ColumnName="pais" />
+          <ScalarProperty Name="id_pais" ColumnName="id_pais" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -477,7 +477,7 @@
       <EntityTypeMapping TypeName="TransporSysModel.SERVICIOS">
         <MappingFragment StoreEntitySet="SERVICIOS">
           <ScalarProperty Name="id_servicio" ColumnName="id_servicio" />
-          <ScalarProperty Name="id_categoriaServicio" ColumnName="id_categoriaServicio" />
+          <ScalarProperty Name="id_categoria_servicio" ColumnName="id_categoria_servicio" />
           <ScalarProperty Name="id_unidad_de_medida" ColumnName="id_unidad_de_medida" />
           <ScalarProperty Name="nombre" ColumnName="nombre" />
           <ScalarProperty Name="descripcion" ColumnName="descripcion" />

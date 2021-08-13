@@ -15,7 +15,7 @@ namespace _911_RD
     public partial class SERVICIOS
     {
         public int id_servicio { get; set; }
-        public int id_categoriaServicio { get; set; }
+        public int id_categoria_servicio { get; set; }
         public Nullable<int> id_unidad_de_medida { get; set; }
         public string nombre { get; set; }
         public string descripcion { get; set; }

@@ -55,9 +55,9 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.ARTICULOS_VS_CATEGORIAS_VS_D
   </EntityType>
   <EntityType Name="CATEGORIAS_SERVICIOS">
     <Key>
-      <PropertyRef Name="id_categoriaServicio" />
+      <PropertyRef Name="id_categoria_servicio" />
     </Key>
-    <Property Name="id_categoriaServicio" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_categoria_servicio" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="categoria" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="descripcion" Type="varchar" MaxLength="150" Nullable="false" />
     <Property Name="estado" Type="bit" Nullable="false" />
@@ -374,9 +374,9 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.GPS' no tiene definida ningu
     <Key>
       <PropertyRef Name="id_nacionalidad" />
     </Key>
-    <Property Name="id_nacionalidad" Type="int" Nullable="false" />
+    <Property Name="id_nacionalidad" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="nacionalidad" Type="varchar" MaxLength="150" Nullable="false" />
-    <Property Name="pais" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="id_pais" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="NCF">
     <Key>
@@ -479,7 +479,7 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.PUESTOS_VS_DEPARTAMENTOS' no
       <PropertyRef Name="id_servicio" />
     </Key>
     <Property Name="id_servicio" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="id_categoriaServicio" Type="int" Nullable="false" />
+    <Property Name="id_categoria_servicio" Type="int" Nullable="false" />
     <Property Name="id_unidad_de_medida" Type="int" />
     <Property Name="nombre" Type="varchar" MaxLength="50" />
     <Property Name="descripcion" Type="varchar" MaxLength="50" />

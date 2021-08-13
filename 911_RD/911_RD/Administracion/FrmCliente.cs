@@ -260,7 +260,7 @@ namespace _911_RD
                     id_txt.Text = dataGridView1.SelectedRows[0].Cells[3].Value.ToString();
                     txt_nombre.Text = dataGridView1.SelectedRows[0].Cells[4].Value.ToString();
                     txt_cedula.Text = dataGridView1.SelectedRows[0].Cells[5].Value.ToString();
-                    txt_tipo_cliente.Text = dataGridView1.SelectedRows[1].Cells[6].Value.ToString();
+                    txt_tipo_cliente.Text = dataGridView1.SelectedRows[0].Cells[6].Value.ToString();
                     cb_estado.SelectedIndex = dataGridView1.SelectedRows[0].Cells[7].Value.ToString() == "ACTIVO" ? cb_estado.SelectedIndex = 0 : cb_estado.SelectedIndex = 1;
 
                 }
