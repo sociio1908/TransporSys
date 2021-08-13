@@ -142,13 +142,14 @@ namespace _911_RD.Administracion
             // 
             // id_txt
             // 
-            this.id_txt.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.id_txt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.id_txt.Enabled = false;
             this.id_txt.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.id_txt.Limpiar = false;
+            this.id_txt.Limpiar = true;
             this.id_txt.Location = new System.Drawing.Point(12, 99);
             this.id_txt.Name = "id_txt";
-            this.id_txt.Size = new System.Drawing.Size(106, 22);
+            this.id_txt.Size = new System.Drawing.Size(106, 29);
+            this.id_txt.SoloNumeros = false;
             this.id_txt.TabIndex = 142;
             this.id_txt.Validar = false;
             this.id_txt.TextChanged += new System.EventHandler(this.id_txt_TextChanged);

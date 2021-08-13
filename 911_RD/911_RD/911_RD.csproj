@@ -155,10 +155,16 @@
     <Compile Include="Administracion\FrmNacionalidad.Designer.cs">
       <DependentUpon>FrmNacionalidad.cs</DependentUpon>
     </Compile>
-    <Compile Include="Administracion\FrmPaciente.cs">
+    <Compile Include="Administracion\Pacientes\FrmMedicamentos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Administracion\FrmPaciente.Designer.cs">
+    <Compile Include="Administracion\Pacientes\FrmMedicamentos.Designer.cs">
+      <DependentUpon>FrmMedicamentos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Administracion\Pacientes\FrmPaciente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administracion\Pacientes\FrmPaciente.Designer.cs">
       <DependentUpon>FrmPaciente.cs</DependentUpon>
     </Compile>
     <Compile Include="Administracion\FrmTipoCliente.cs">
@@ -169,6 +175,12 @@
     </Compile>
     <Compile Include="Administracion\MessageBoxTemporal.cs" />
     <Compile Include="Administracion\MetodosCRUD.cs" />
+    <Compile Include="Administracion\Pacientes\FrmTipoMedicamento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administracion\Pacientes\FrmTipoMedicamento.Designer.cs">
+      <DependentUpon>FrmTipoMedicamento.cs</DependentUpon>
+    </Compile>
     <Compile Include="Administracion\Transporte\FrmTransporte.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -198,6 +210,9 @@
     </Compile>
     <Compile Include="Administracion\Vehiculo\FrmVehiculos.Designer.cs">
       <DependentUpon>FrmVehiculos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ALERGIAS.cs">
+      <DependentUpon>TransporSysEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="ALMACENES.cs">
       <DependentUpon>TransporSysEntities.tt</DependentUpon>
@@ -361,6 +376,12 @@
     <Compile Include="MARCA.cs">
       <DependentUpon>TransporSysEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="MEDICAMENTOS.cs">
+      <DependentUpon>TransporSysEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MEDICAMENTOS_VS_ALERGIAS.cs">
+      <DependentUpon>TransporSysEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="MODELO.cs">
       <DependentUpon>TransporSysEntities.tt</DependentUpon>
     </Compile>
@@ -456,6 +477,9 @@
     <Compile Include="TIPOS_USUARIOS.cs">
       <DependentUpon>TransporSysEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="TIPO_MEDICAMENTOS.cs">
+      <DependentUpon>TransporSysEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="TransporSysEntities.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -535,11 +559,17 @@
     <EmbeddedResource Include="Administracion\FrmNacionalidad.resx">
       <DependentUpon>FrmNacionalidad.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Administracion\FrmPaciente.resx">
+    <EmbeddedResource Include="Administracion\Pacientes\FrmMedicamentos.resx">
+      <DependentUpon>FrmMedicamentos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administracion\Pacientes\FrmPaciente.resx">
       <DependentUpon>FrmPaciente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Administracion\FrmTipoCliente.resx">
       <DependentUpon>FrmTipoCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administracion\Pacientes\FrmTipoMedicamento.resx">
+      <DependentUpon>FrmTipoMedicamento.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Administracion\Transporte\FrmTransporte.resx">
       <DependentUpon>FrmTransporte.cs</DependentUpon>

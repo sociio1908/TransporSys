@@ -36,7 +36,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.txt_nombre = new _911_RD.ErrorTxtBox();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.p_mayor = new System.Windows.Forms.Panel();
             this.label21 = new System.Windows.Forms.Label();
             this.cb_tipoIdent = new System.Windows.Forms.ComboBox();
             this.lbl_mayor_menor = new System.Windows.Forms.Label();
@@ -56,12 +56,12 @@
             this.label12 = new System.Windows.Forms.Label();
             this.errorTxtBox3 = new _911_RD.ErrorTxtBox();
             ((System.ComponentModel.ISupportInitialize)(this.btn_buscar)).BeginInit();
-            this.panel1.SuspendLayout();
+            this.p_mayor.SuspendLayout();
             this.SuspendLayout();
             // 
             // btn_guardar
             // 
-            this.btn_guardar.Location = new System.Drawing.Point(12, 504);
+            this.btn_guardar.Location = new System.Drawing.Point(12, 609);
             // 
             // lbl_titulo
             // 
@@ -70,11 +70,11 @@
             // 
             // btn_limpiar
             // 
-            this.btn_limpiar.Location = new System.Drawing.Point(157, 504);
+            this.btn_limpiar.Location = new System.Drawing.Point(157, 609);
             // 
             // btn_salir
             // 
-            this.btn_salir.Location = new System.Drawing.Point(279, 504);
+            this.btn_salir.Location = new System.Drawing.Point(279, 609);
             // 
             // label9
             // 
@@ -144,6 +144,7 @@
             this.fecha_nac.Name = "fecha_nac";
             this.fecha_nac.Size = new System.Drawing.Size(167, 22);
             this.fecha_nac.TabIndex = 176;
+            this.fecha_nac.ValueChanged += new System.EventHandler(this.fecha_nac_ValueChanged);
             // 
             // label5
             // 
@@ -179,17 +180,17 @@
             this.txt_nombre.TabIndex = 173;
             this.txt_nombre.Validar = true;
             // 
-            // panel1
+            // p_mayor
             // 
-            this.panel1.Controls.Add(this.label21);
-            this.panel1.Controls.Add(this.cb_tipoIdent);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.txt_cedula);
-            this.panel1.Enabled = false;
-            this.panel1.Location = new System.Drawing.Point(16, 351);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(199, 125);
-            this.panel1.TabIndex = 179;
+            this.p_mayor.Controls.Add(this.label21);
+            this.p_mayor.Controls.Add(this.cb_tipoIdent);
+            this.p_mayor.Controls.Add(this.label1);
+            this.p_mayor.Controls.Add(this.txt_cedula);
+            this.p_mayor.Enabled = false;
+            this.p_mayor.Location = new System.Drawing.Point(16, 351);
+            this.p_mayor.Name = "p_mayor";
+            this.p_mayor.Size = new System.Drawing.Size(199, 125);
+            this.p_mayor.TabIndex = 179;
             // 
             // label21
             // 
@@ -250,7 +251,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label7.Location = new System.Drawing.Point(298, 436);
+            this.label7.Location = new System.Drawing.Point(281, 445);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(58, 16);
             this.label7.TabIndex = 207;
@@ -263,7 +264,7 @@
             this.cb_estado.Items.AddRange(new object[] {
             "ACTIVO",
             "INACTIVO"});
-            this.cb_estado.Location = new System.Drawing.Point(301, 455);
+            this.cb_estado.Location = new System.Drawing.Point(284, 464);
             this.cb_estado.Name = "cb_estado";
             this.cb_estado.Size = new System.Drawing.Size(114, 28);
             this.cb_estado.TabIndex = 206;
@@ -273,7 +274,7 @@
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label11.Location = new System.Drawing.Point(298, 84);
+            this.label11.Location = new System.Drawing.Point(281, 93);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(89, 16);
             this.label11.TabIndex = 200;
@@ -284,7 +285,7 @@
             this.txt_cargo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txt_cargo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.txt_cargo.Limpiar = true;
-            this.txt_cargo.Location = new System.Drawing.Point(298, 103);
+            this.txt_cargo.Location = new System.Drawing.Point(281, 112);
             this.txt_cargo.Multiline = true;
             this.txt_cargo.Name = "txt_cargo";
             this.txt_cargo.Size = new System.Drawing.Size(242, 77);
@@ -297,7 +298,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
             this.label6.ForeColor = System.Drawing.Color.Firebrick;
-            this.label6.Location = new System.Drawing.Point(292, 56);
+            this.label6.Location = new System.Drawing.Point(275, 65);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(134, 19);
             this.label6.TabIndex = 198;
@@ -309,7 +310,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label3.Location = new System.Drawing.Point(298, 187);
+            this.label3.Location = new System.Drawing.Point(281, 196);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(124, 16);
             this.label3.TabIndex = 213;
@@ -323,7 +324,7 @@
             "ACTIVO SINTOMATICO",
             "ACTIVO ASINTOMATICO",
             "INACTIVO"});
-            this.comboBox1.Location = new System.Drawing.Point(298, 204);
+            this.comboBox1.Location = new System.Drawing.Point(281, 213);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(199, 28);
             this.comboBox1.TabIndex = 214;
@@ -335,7 +336,7 @@
             this.comboBox2.Items.AddRange(new object[] {
             "SI",
             "NO"});
-            this.comboBox2.Location = new System.Drawing.Point(298, 257);
+            this.comboBox2.Location = new System.Drawing.Point(281, 266);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(74, 28);
             this.comboBox2.TabIndex = 216;
@@ -345,7 +346,7 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label8.Location = new System.Drawing.Point(298, 240);
+            this.label8.Location = new System.Drawing.Point(281, 249);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(74, 16);
             this.label8.TabIndex = 215;
@@ -356,7 +357,7 @@
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label10.Location = new System.Drawing.Point(298, 288);
+            this.label10.Location = new System.Drawing.Point(281, 297);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(204, 16);
             this.label10.TabIndex = 218;
@@ -367,7 +368,7 @@
             this.errorTxtBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.errorTxtBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.errorTxtBox2.Limpiar = true;
-            this.errorTxtBox2.Location = new System.Drawing.Point(301, 308);
+            this.errorTxtBox2.Location = new System.Drawing.Point(284, 317);
             this.errorTxtBox2.Multiline = true;
             this.errorTxtBox2.Name = "errorTxtBox2";
             this.errorTxtBox2.Size = new System.Drawing.Size(239, 45);
@@ -380,7 +381,7 @@
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label12.Location = new System.Drawing.Point(298, 361);
+            this.label12.Location = new System.Drawing.Point(281, 370);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(199, 16);
             this.label12.TabIndex = 220;
@@ -391,7 +392,7 @@
             this.errorTxtBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.errorTxtBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.errorTxtBox3.Limpiar = true;
-            this.errorTxtBox3.Location = new System.Drawing.Point(301, 381);
+            this.errorTxtBox3.Location = new System.Drawing.Point(284, 390);
             this.errorTxtBox3.Multiline = true;
             this.errorTxtBox3.Name = "errorTxtBox3";
             this.errorTxtBox3.Size = new System.Drawing.Size(239, 52);
@@ -404,7 +405,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(817, 566);
+            this.ClientSize = new System.Drawing.Size(989, 777);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.errorTxtBox3);
             this.Controls.Add(this.label10);
@@ -421,7 +422,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.errorTxtBox1);
             this.Controls.Add(this.lbl_mayor_menor);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.p_mayor);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.txt_apellido);
             this.Controls.Add(this.fecha_nac);
@@ -437,7 +438,7 @@
             this.Controls.SetChildIndex(this.fecha_nac, 0);
             this.Controls.SetChildIndex(this.txt_apellido, 0);
             this.Controls.SetChildIndex(this.label14, 0);
-            this.Controls.SetChildIndex(this.panel1, 0);
+            this.Controls.SetChildIndex(this.p_mayor, 0);
             this.Controls.SetChildIndex(this.lbl_mayor_menor, 0);
             this.Controls.SetChildIndex(this.errorTxtBox1, 0);
             this.Controls.SetChildIndex(this.label2, 0);
@@ -463,8 +464,8 @@
             this.Controls.SetChildIndex(this.btn_salir, 0);
             this.Controls.SetChildIndex(this.id_txt, 0);
             ((System.ComponentModel.ISupportInitialize)(this.btn_buscar)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.p_mayor.ResumeLayout(false);
+            this.p_mayor.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -480,7 +481,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private ErrorTxtBox txt_nombre;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel p_mayor;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.ComboBox cb_tipoIdent;
         private System.Windows.Forms.Label lbl_mayor_menor;

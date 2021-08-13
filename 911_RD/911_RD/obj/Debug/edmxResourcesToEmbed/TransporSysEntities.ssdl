@@ -1,5 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="TransporSysModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="ALERGIAS">
+    <Key>
+      <PropertyRef Name="id_alergia" />
+    </Key>
+    <Property Name="id_alergia" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="alergia" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
   <EntityType Name="ALMACENES">
     <Key>
       <PropertyRef Name="id_almacen" />
@@ -363,6 +370,23 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.GPS' no tiene definida ningu
     <Property Name="id_marca" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="marca" Type="varchar" MaxLength="50" />
   </EntityType>
+  <EntityType Name="MEDICAMENTOS">
+    <Key>
+      <PropertyRef Name="id_medicamento" />
+    </Key>
+    <Property Name="id_medicamento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="medicamento" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="id_tipo_medicamento" Type="int" Nullable="false" />
+    <Property Name="descripcion" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MEDICAMENTOS_VS_ALERGIAS">
+    <Key>
+      <PropertyRef Name="id_vs" />
+    </Key>
+    <Property Name="id_vs" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_alergia" Type="int" Nullable="false" />
+    <Property Name="id_medicamento" Type="int" />
+  </EntityType>
   <EntityType Name="MODELO">
     <Key>
       <PropertyRef Name="id_modelo" />
@@ -558,6 +582,14 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.PUESTOS_VS_DEPARTAMENTOS' no
     <Property Name="id_tercero" Type="int" Nullable="false" />
     <Property Name="id_telefono" Type="int" Nullable="false" />
     <Property Name="id_vs" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TIPO_MEDICAMENTOS">
+    <Key>
+      <PropertyRef Name="id_tipo_medicamento" />
+    </Key>
+    <Property Name="id_tipo_medicamento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tipo_medicamento" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="descripcion" Type="varchar" MaxLength="100" Nullable="false" />
   </EntityType>
   <!--Errores durante la generación:
 advertencia 6002: La tabla o vista 'TransporSys.dbo.TIPONCF' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
@@ -1570,6 +1602,7 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.VEHICULOS_VS_CONDUCTOR' no t
     </ReferentialConstraint>
   </Association>
   <EntityContainer Name="TransporSysModelStoreContainer">
+    <EntitySet Name="ALERGIAS" EntityType="Self.ALERGIAS" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ALMACENES" EntityType="Self.ALMACENES" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ARTICULOS" EntityType="Self.ARTICULOS" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="BENEFICIOS" EntityType="Self.BENEFICIOS" Schema="dbo" store:Type="Tables" />
@@ -1603,6 +1636,8 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.VEHICULOS_VS_CONDUCTOR' no t
     <EntitySet Name="IDENTIFICACIONES" EntityType="Self.IDENTIFICACIONES" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ITEBIS" EntityType="Self.ITEBIS" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="MARCA" EntityType="Self.MARCA" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MEDICAMENTOS" EntityType="Self.MEDICAMENTOS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MEDICAMENTOS_VS_ALERGIAS" EntityType="Self.MEDICAMENTOS_VS_ALERGIAS" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="MODELO" EntityType="Self.MODELO" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="NACIONALIDADES" EntityType="Self.NACIONALIDADES" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="NCF" EntityType="Self.NCF" Schema="dbo" store:Type="Tables" />
@@ -1623,6 +1658,7 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.VEHICULOS_VS_CONDUCTOR' no t
     <EntitySet Name="TERCEROS_VS_EMAILS" EntityType="Self.TERCEROS_VS_EMAILS" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TERCEROS_VS_IDENTIFICACIONES" EntityType="Self.TERCEROS_VS_IDENTIFICACIONES" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TERCEROS_VS_TELEFONOS" EntityType="Self.TERCEROS_VS_TELEFONOS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TIPO_MEDICAMENTOS" EntityType="Self.TIPO_MEDICAMENTOS" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TIPOS_CLIENTES" EntityType="Self.TIPOS_CLIENTES" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TIPOS_IDENTIFICACIONES" EntityType="Self.TIPOS_IDENTIFICACIONES" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TIPOS_MEMBRESIAS" EntityType="Self.TIPOS_MEMBRESIAS" Schema="dbo" store:Type="Tables" />

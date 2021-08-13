@@ -32,5 +32,16 @@ namespace _911_RD.Administracion
         {
 
         }
+
+        private void fecha_nac_ValueChanged(object sender, EventArgs e)
+        {
+           if( Utilidades.mayorEdad(fecha_nac.Value) == false)
+            {
+
+
+            }
+
+
+        }
     }
 }

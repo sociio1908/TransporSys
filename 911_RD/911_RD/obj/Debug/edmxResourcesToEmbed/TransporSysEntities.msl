@@ -1,6 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="TransporSysModelStoreContainer" CdmEntityContainer="TransporSysEntities">
+    <EntitySetMapping Name="ALERGIAS">
+      <EntityTypeMapping TypeName="TransporSysModel.ALERGIAS">
+        <MappingFragment StoreEntitySet="ALERGIAS">
+          <ScalarProperty Name="id_alergia" ColumnName="id_alergia" />
+          <ScalarProperty Name="alergia" ColumnName="alergia" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="ALMACENES">
       <EntityTypeMapping TypeName="TransporSysModel.ALMACENES">
         <MappingFragment StoreEntitySet="ALMACENES">
@@ -362,6 +370,25 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="MEDICAMENTOS">
+      <EntityTypeMapping TypeName="TransporSysModel.MEDICAMENTOS">
+        <MappingFragment StoreEntitySet="MEDICAMENTOS">
+          <ScalarProperty Name="id_medicamento" ColumnName="id_medicamento" />
+          <ScalarProperty Name="medicamento" ColumnName="medicamento" />
+          <ScalarProperty Name="id_tipo_medicamento" ColumnName="id_tipo_medicamento" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MEDICAMENTOS_VS_ALERGIAS">
+      <EntityTypeMapping TypeName="TransporSysModel.MEDICAMENTOS_VS_ALERGIAS">
+        <MappingFragment StoreEntitySet="MEDICAMENTOS_VS_ALERGIAS">
+          <ScalarProperty Name="id_vs" ColumnName="id_vs" />
+          <ScalarProperty Name="id_alergia" ColumnName="id_alergia" />
+          <ScalarProperty Name="id_medicamento" ColumnName="id_medicamento" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="MODELO">
       <EntityTypeMapping TypeName="TransporSysModel.MODELO">
         <MappingFragment StoreEntitySet="MODELO">
@@ -565,6 +592,15 @@
           <ScalarProperty Name="id_tercero" ColumnName="id_tercero" />
           <ScalarProperty Name="id_telefono" ColumnName="id_telefono" />
           <ScalarProperty Name="id_vs" ColumnName="id_vs" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TIPO_MEDICAMENTOS">
+      <EntityTypeMapping TypeName="TransporSysModel.TIPO_MEDICAMENTOS">
+        <MappingFragment StoreEntitySet="TIPO_MEDICAMENTOS">
+          <ScalarProperty Name="id_tipo_medicamento" ColumnName="id_tipo_medicamento" />
+          <ScalarProperty Name="tipo_medicamento" ColumnName="tipo_medicamento" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

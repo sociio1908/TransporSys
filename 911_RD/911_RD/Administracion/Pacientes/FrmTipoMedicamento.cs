@@ -8,14 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace _911_RD.Administracion.Email_Telefono
+namespace _911_RD.Administracion.Pacientes
 {
-    public partial class FrmTipoTelefono : FrmBase
+    public partial class FrmTipoMedicamento : FrmBase
     {
-        public FrmTipoTelefono()
+        public FrmTipoMedicamento()
         {
             InitializeComponent();
-            cargarTabla();
+            cargarTabla("");
             txt_tipo.Focus();
         }
         int id = 0;
@@ -39,18 +39,31 @@ namespace _911_RD.Administracion.Email_Telefono
             }
         }
 
-        private void cargarTabla()
+        private void cargarTabla(string condicion)
         {
             using (TransporSysEntities db = new TransporSysEntities())
             {
                 try
                 {
                     dataGridView1.Rows.Clear();
-                    var list = db.TIPOS_TELEFONOS;
+                    var list = from mail in db.TIPO_MEDICAMENTOS
+                                select new
+                               {
+                                   id_tipo_medicamento = mail.id_tipo_medicamento,
+                                   tipo_medicamento = mail.tipo_medicamento,
+                                   descripcion = mail.descripcion,
+                               };
+
+                    if (condicion.Trim() != "")
+                    {
+                        list = list.Where(a => a.tipo_medicamento.Contains(condicion) || a.descripcion.ToString().Contains(condicion));
+                    }
+
                     foreach (var OPuestos in list)
                     {
-                        dataGridView1.Rows.Add(OPuestos.id_tipo_telefono.ToString(), OPuestos.tipo_telefono.ToString(), OPuestos.descripcion.ToString());
+                        dataGridView1.Rows.Add(OPuestos.id_tipo_medicamento.ToString(), OPuestos.tipo_medicamento.ToString(), OPuestos.descripcion.ToString());
                     }
+
                 }
                 catch (Exception dfg)
                 {
@@ -73,27 +86,27 @@ namespace _911_RD.Administracion.Email_Telefono
                 {
                     if (id_txt.Text.Trim() == "")
                     {
-                        TIPOS_TELEFONOS puesto = new TIPOS_TELEFONOS
+                        TIPO_MEDICAMENTOS puesto = new TIPO_MEDICAMENTOS
                         {
-                            tipo_telefono = txt_tipo.Text.Trim(),
+                            tipo_medicamento = txt_tipo.Text.Trim(),
                             descripcion = txt_descripcion.Text.Trim(),
                         };
 
-                        db.TIPOS_TELEFONOS.Add(puesto);
+                        db.TIPO_MEDICAMENTOS.Add(puesto);
                     }
                     else
                     {
-                        var mail = db.TIPOS_TELEFONOS.FirstOrDefault(a => a.id_tipo_telefono.ToString() == id_txt.Text.Trim());
+                        var mail = db.TIPO_MEDICAMENTOS.FirstOrDefault(a => a.id_tipo_medicamento.ToString() == id_txt.Text.Trim());
                         if (mail != null)
                         {
-                            mail.tipo_telefono = txt_tipo.Text.Trim();
+                            mail.tipo_medicamento = txt_tipo.Text.Trim();
                             mail.descripcion = txt_descripcion.Text.Trim();
                         }
                     }
                     db.SaveChanges();
                 }
                 Utilidades.LimpiarControles(this);
-                cargarTabla();
+                cargarTabla("");
                 MessageBox.Show("Proceso exitoso.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             }
@@ -109,7 +122,6 @@ namespace _911_RD.Administracion.Email_Telefono
         {
             if (e.RowIndex < 0)
                 return;
-
             CargarCampos();
         }
 
@@ -121,6 +133,12 @@ namespace _911_RD.Administracion.Email_Telefono
         private void btn_limpiar_Click(object sender, EventArgs e)
         {
             Utilidades.LimpiarControles(this);
+
+        }
+
+        private void txt_filtro_TextChanged(object sender, EventArgs e)
+        {
+            cargarTabla(txt_filtro.Text.Trim());
 
         }
     }

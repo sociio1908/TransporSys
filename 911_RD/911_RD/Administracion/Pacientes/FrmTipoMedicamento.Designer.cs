@@ -1,7 +1,7 @@
 ﻿
-namespace _911_RD.Administracion.Email_Telefono
+namespace _911_RD.Administracion.Pacientes
 {
-    partial class FrmTipoTelefono
+    partial class FrmTipoMedicamento
     {
         /// <summary>
         /// Required designer variable.
@@ -35,18 +35,18 @@ namespace _911_RD.Administracion.Email_Telefono
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.txt_descripcion = new _911_RD.ErrorTxtBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
             this.txt_filtro = new _911_RD.ErrorTxtBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.txt_tipo = new _911_RD.ErrorTxtBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.id_tipo_telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tipo_telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Seleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.txt_tipo = new _911_RD.ErrorTxtBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.txt_descripcion = new _911_RD.ErrorTxtBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.btn_buscar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
@@ -54,22 +54,22 @@ namespace _911_RD.Administracion.Email_Telefono
             // 
             // btn_guardar
             // 
-            this.btn_guardar.Location = new System.Drawing.Point(11, 252);
+            this.btn_guardar.Location = new System.Drawing.Point(12, 259);
             this.btn_guardar.Click += new System.EventHandler(this.btn_guardar_Click);
             // 
             // lbl_titulo
             // 
-            this.lbl_titulo.Size = new System.Drawing.Size(210, 32);
-            this.lbl_titulo.Text = "TIPO TELEFONO";
+            this.lbl_titulo.Size = new System.Drawing.Size(292, 32);
+            this.lbl_titulo.Text = "TIPOS MEDICAMENTO";
             // 
             // btn_limpiar
             // 
-            this.btn_limpiar.Location = new System.Drawing.Point(156, 252);
+            this.btn_limpiar.Location = new System.Drawing.Point(157, 259);
             this.btn_limpiar.Click += new System.EventHandler(this.btn_limpiar_Click);
             // 
             // btn_salir
             // 
-            this.btn_salir.Location = new System.Drawing.Point(278, 252);
+            this.btn_salir.Location = new System.Drawing.Point(279, 259);
             // 
             // id_txt
             // 
@@ -78,7 +78,43 @@ namespace _911_RD.Administracion.Email_Telefono
             // 
             // btn_buscar
             // 
-            this.btn_buscar.Size = new System.Drawing.Size(34, 29);
+            this.btn_buscar.Size = new System.Drawing.Size(36, 29);
+            // 
+            // txt_descripcion
+            // 
+            this.txt_descripcion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_descripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.txt_descripcion.Limpiar = true;
+            this.txt_descripcion.Location = new System.Drawing.Point(13, 221);
+            this.txt_descripcion.Name = "txt_descripcion";
+            this.txt_descripcion.Size = new System.Drawing.Size(210, 26);
+            this.txt_descripcion.SoloNumeros = false;
+            this.txt_descripcion.TabIndex = 197;
+            this.txt_descripcion.Validar = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label1.Location = new System.Drawing.Point(14, 202);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(95, 16);
+            this.label1.TabIndex = 196;
+            this.label1.Text = "DESCRIPCION";
+            // 
+            // label13
+            // 
+            this.label13.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label13.Location = new System.Drawing.Point(21, 324);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(76, 16);
+            this.label13.TabIndex = 195;
+            this.label13.Text = "BUSQUEDA";
             // 
             // txt_filtro
             // 
@@ -87,12 +123,13 @@ namespace _911_RD.Administracion.Email_Telefono
             this.txt_filtro.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txt_filtro.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.txt_filtro.Limpiar = false;
-            this.txt_filtro.Location = new System.Drawing.Point(93, 306);
+            this.txt_filtro.Location = new System.Drawing.Point(103, 319);
             this.txt_filtro.Name = "txt_filtro";
             this.txt_filtro.Size = new System.Drawing.Size(170, 26);
             this.txt_filtro.SoloNumeros = false;
-            this.txt_filtro.TabIndex = 187;
+            this.txt_filtro.TabIndex = 194;
             this.txt_filtro.Validar = false;
+            this.txt_filtro.TextChanged += new System.EventHandler(this.txt_filtro_TextChanged);
             // 
             // dataGridView1
             // 
@@ -129,7 +166,7 @@ namespace _911_RD.Administracion.Email_Telefono
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.EnableHeadersVisualStyles = false;
-            this.dataGridView1.Location = new System.Drawing.Point(11, 338);
+            this.dataGridView1.Location = new System.Drawing.Point(14, 351);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
@@ -149,10 +186,37 @@ namespace _911_RD.Administracion.Email_Telefono
             dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
             this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(404, 180);
-            this.dataGridView1.TabIndex = 186;
+            this.dataGridView1.Size = new System.Drawing.Size(448, 232);
+            this.dataGridView1.TabIndex = 193;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentDoubleClick);
+            // 
+            // txt_tipo
+            // 
+            this.txt_tipo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_tipo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.txt_tipo.Limpiar = true;
+            this.txt_tipo.Location = new System.Drawing.Point(14, 164);
+            this.txt_tipo.Name = "txt_tipo";
+            this.txt_tipo.Size = new System.Drawing.Size(146, 26);
+            this.txt_tipo.SoloNumeros = false;
+            this.txt_tipo.TabIndex = 192;
+            this.txt_tipo.Validar = true;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label2.Location = new System.Drawing.Point(12, 145);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(138, 16);
+            this.label2.TabIndex = 191;
+            this.label2.Text = "TIPO MEDICAMENTO";
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
             // 
             // id_tipo_telefono
             // 
@@ -165,13 +229,13 @@ namespace _911_RD.Administracion.Email_Telefono
             // tipo_telefono
             // 
             this.tipo_telefono.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.tipo_telefono.FillWeight = 80F;
-            this.tipo_telefono.HeaderText = "TIPO TELEFONO";
+            this.tipo_telefono.HeaderText = "TIPO MEDICAMENTO";
             this.tipo_telefono.Name = "tipo_telefono";
             this.tipo_telefono.ReadOnly = true;
             // 
             // descripcion
             // 
+            this.descripcion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.descripcion.HeaderText = "DESCRIPCION";
             this.descripcion.Name = "descripcion";
             this.descripcion.ReadOnly = true;
@@ -184,80 +248,18 @@ namespace _911_RD.Administracion.Email_Telefono
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.Seleccionar.DefaultCellStyle = dataGridViewCellStyle2;
+            this.Seleccionar.FillWeight = 10F;
             this.Seleccionar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Seleccionar.HeaderText = "";
             this.Seleccionar.Name = "Seleccionar";
             this.Seleccionar.ReadOnly = true;
             this.Seleccionar.Text = "Editar";
             // 
-            // txt_tipo
-            // 
-            this.txt_tipo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txt_tipo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.txt_tipo.Limpiar = true;
-            this.txt_tipo.Location = new System.Drawing.Point(11, 161);
-            this.txt_tipo.Name = "txt_tipo";
-            this.txt_tipo.Size = new System.Drawing.Size(146, 26);
-            this.txt_tipo.SoloNumeros = false;
-            this.txt_tipo.TabIndex = 185;
-            this.txt_tipo.Validar = true;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label2.Location = new System.Drawing.Point(12, 142);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(104, 16);
-            this.label2.TabIndex = 184;
-            this.label2.Text = "TIPO TELEFONO";
-            // 
-            // label13
-            // 
-            this.label13.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label13.Location = new System.Drawing.Point(11, 311);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(76, 16);
-            this.label13.TabIndex = 188;
-            this.label13.Text = "BUSQUEDA";
-            // 
-            // txt_descripcion
-            // 
-            this.txt_descripcion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txt_descripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.txt_descripcion.Limpiar = true;
-            this.txt_descripcion.Location = new System.Drawing.Point(10, 218);
-            this.txt_descripcion.Name = "txt_descripcion";
-            this.txt_descripcion.Size = new System.Drawing.Size(210, 26);
-            this.txt_descripcion.SoloNumeros = false;
-            this.txt_descripcion.TabIndex = 190;
-            this.txt_descripcion.Validar = true;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label1.Location = new System.Drawing.Point(11, 199);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(95, 16);
-            this.label1.TabIndex = 189;
-            this.label1.Text = "DESCRIPCION";
-            // 
-            // errorProvider1
-            // 
-            this.errorProvider1.ContainerControl = this;
-            // 
-            // FrmTipoTelefono
+            // FrmTipoMedicamento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(428, 530);
+            this.ClientSize = new System.Drawing.Size(474, 595);
             this.Controls.Add(this.txt_descripcion);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label13);
@@ -265,9 +267,9 @@ namespace _911_RD.Administracion.Email_Telefono
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.txt_tipo);
             this.Controls.Add(this.label2);
-            this.Name = "FrmTipoTelefono";
+            this.Name = "FrmTipoMedicamento";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmTipoTelefono";
+            this.Text = "FrmTipoMedicamento";
             this.Controls.SetChildIndex(this.lbl_titulo, 0);
             this.Controls.SetChildIndex(this.btn_guardar, 0);
             this.Controls.SetChildIndex(this.label9, 0);
@@ -293,17 +295,17 @@ namespace _911_RD.Administracion.Email_Telefono
 
         #endregion
 
+        private ErrorTxtBox txt_descripcion;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label13;
         private ErrorTxtBox txt_filtro;
         public System.Windows.Forms.DataGridView dataGridView1;
         private ErrorTxtBox txt_tipo;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.DataGridViewTextBoxColumn id_tipo_telefono;
         private System.Windows.Forms.DataGridViewTextBoxColumn tipo_telefono;
         private System.Windows.Forms.DataGridViewTextBoxColumn descripcion;
         private System.Windows.Forms.DataGridViewButtonColumn Seleccionar;
-        private ErrorTxtBox txt_descripcion;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }
