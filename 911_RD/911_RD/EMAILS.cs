@@ -17,13 +17,13 @@ namespace _911_RD
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public EMAILS()
         {
-            this.TERCEROS = new HashSet<TERCEROS>();
+            this.TERCEROS_VS_EMAILS = new HashSet<TERCEROS_VS_EMAILS>();
         }
     
         public int id_email { get; set; }
         public string email { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TERCEROS> TERCEROS { get; set; }
+        public virtual ICollection<TERCEROS_VS_EMAILS> TERCEROS_VS_EMAILS { get; set; }
     }
 }

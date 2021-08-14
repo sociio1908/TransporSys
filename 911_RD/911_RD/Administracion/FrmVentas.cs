@@ -15,9 +15,7 @@ namespace _911_RD.Administracion
         public FrmVentas()
         {
             InitializeComponent();
-            int nf = Convert.ToInt32(txt_numfactura.Text.Trim());
-            int q = nf + 6;
-            txt_numfactura.Text = q.ToString();
+           // nofactura();
         }
 
         private void agregarNumero(string numero)
@@ -33,7 +31,7 @@ namespace _911_RD.Administracion
 
         private void FrmVentas_Load(object sender, EventArgs e)
         {
-
+            nofactura();
         }
 
         private void txt_codBarra_TextChanged(object sender, EventArgs e)
@@ -156,12 +154,12 @@ namespace _911_RD.Administracion
                     dataGridView1.Rows[n].Cells[1].Value = txt_nombre.Text;
                     dataGridView1.Rows[n].Cells[2].Value = txt_cantidad.Text.ToString();
                     dataGridView1.Rows[n].Cells[3].Value = txt_precio.Text.ToString();
-                    dataGridView1.Rows[n].Cells[4].Value = txt_descuento.Text.ToString();
+                    dataGridView1.Rows[n].Cells[4].Value = txt_descuentoEmple.Text.ToString();
                     txt_id.Text = "";
                     txt_nombre.Text = "";
                     txt_cantidad.Text = "0";
                     txt_precio.Text = "";
-                    //txt_descuento.Text = "";
+                    txt_descuento.Text = "";
                     txt_stock.Text = "";
                     txt_des.Text = "";
                     txt_codBarra.Text = "";
@@ -178,23 +176,28 @@ namespace _911_RD.Administracion
         {
             if (dataGridView1.Rows.Count > 0)
             {
-                double a = 0, b = 0, impTotal = 0, total = 0, subtotal = 0, itb = 0.18, itbTotal = 0;
+                double a = 0, b = 0, c = 0, d = 0, impTotal = 0, multotal = 0, subtotal = 0, itb = 0.18, itbTotal = 0, desTotal = 0, restotal = 0, total = 0;
 
                 foreach (DataGridViewRow row in dataGridView1.Rows)
                 {
 
                     a = Convert.ToDouble(row.Cells["cantidad"].Value);
                     b = Convert.ToDouble(row.Cells["precio"].Value);
-                    total = a * b;
+                    c = Convert.ToDouble(row.Cells["descuento"].Value);
+                    d = c / 100;
+                    multotal = a * b;
+                    restotal = multotal * d;
+                    total = multotal - restotal;
                     row.Cells["total"].Value = total.ToString();
                     subtotal += Convert.ToDouble(row.Cells["total"].Value);
                     itbTotal += total * itb;
                     impTotal = subtotal + itbTotal;
-
+                    desTotal = desTotal + restotal;
                 }
                 txt_subtotal.Text = subtotal.ToString();
                 txt_impuesto.Text = itbTotal.ToString();
                 txt_impTotal.Text = impTotal.ToString();
+                txt_descuento.Text = desTotal.ToString();
             }
         }
 
@@ -204,6 +207,14 @@ namespace _911_RD.Administracion
             InsertarDetalle();
             ActualizarStock();
             dataGridView1.Rows.Clear();
+            if (dataGridView1.Rows.Count == 0)
+            {
+                txt_subtotal.Text = "0.0";
+                txt_impuesto.Text = "0.0";
+                txt_impTotal.Text = "0.0";
+                txt_descuento.Text = "0.0";
+            }
+            nofactura();
         }
 
 
@@ -224,7 +235,7 @@ namespace _911_RD.Administracion
                         {
                             //ningun campo vacio
                             num_fact = Convert.ToInt32(txt_numfactura.Text.Trim()),
-                            id_cliente = 1,
+                            id_cliente = Convert.ToInt32(txt_id_cliente.Text.Trim()),
                             id_empleado = 1,
                             fecha = DateTime.Now,
                             estado = true,
@@ -265,7 +276,7 @@ namespace _911_RD.Administracion
                                 cantidad = Convert.ToDouble(row.Cells[2].Value.ToString()),
                                 precio = Convert.ToDouble(row.Cells[3].Value.ToString()),
                                 itbis = Convert.ToDouble(txt_impuesto.Text.Trim()),
-                                descuento = 0,
+                                descuento = Convert.ToDouble(txt_descuentoEmple.Text.Trim()),
                                 total = Convert.ToDouble(txt_impTotal.Text.Trim())
                             };
                             db.DETALLES_VENTAS.Add(Dvent);
@@ -397,6 +408,59 @@ namespace _911_RD.Administracion
 
         }
 
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                using (FrmDescuentos frmunidad = new FrmDescuentos())
+                {
+                    DialogResult dr = frmunidad.ShowDialog();
+                    if (dr == DialogResult.OK)
+                    {
+                        txt_descuentoEmple.Text = frmunidad.dataGridView1.CurrentRow.Cells[4].Value.ToString();
 
+                    }
+                }
+            }
+            catch (Exception asa)
+            {
+
+            }
+        }
+
+        private void bt_agregar_cont_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                using (FrmCliente frmcliente = new FrmCliente())
+                {
+                    DialogResult dr = frmcliente.ShowDialog();
+                    if (dr == DialogResult.OK)
+                    {
+                        txt_id_cliente.Text = frmcliente.dataGridView1.CurrentRow.Cells[3].Value.ToString();
+                        txt_nombre_cliente.Text = frmcliente.dataGridView1.CurrentRow.Cells[4].Value.ToString();
+
+                    }
+                }
+            }
+            catch (Exception asa)
+            {
+                //error
+            }
+        }
+
+        private void nofactura()
+        {
+            using (TransporSysEntities db = new TransporSysEntities())
+            {
+
+                var articulo = db.VENTAS.Max(j => j.num_fact);             
+
+                int c = Convert.ToInt32(articulo);
+                int b = c + 1;
+                txt_numfactura.Text = b.ToString();
+       
+            }
+        }
     }
 }

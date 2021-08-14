@@ -29,7 +29,6 @@ namespace _911_RD.Administracion
         {
             try
             {
-
             id_txt.Text = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
             txt_puesto.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
             txt_descripcion.Text = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
@@ -113,11 +112,7 @@ namespace _911_RD.Administracion
 
         }
 
-        private void dataGridView1_SelectionChanged(object sender, EventArgs e)
-        {
-         
-        }
-
+     
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
@@ -136,7 +131,7 @@ namespace _911_RD.Administracion
 
         private void dataGridView1_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            MessageBox.Show("ENTRO PAPAAAA");
+            this.DialogResult = DialogResult.OK;
         }
 
         private void btn_limpiar_Click(object sender, EventArgs e)
@@ -155,31 +150,6 @@ namespace _911_RD.Administracion
         private void txt_salario_KeyPress(object sender, KeyPressEventArgs e)
         {
            
-
-        }
-
-        private void btnEnviar_Click(object sender, EventArgs e)
-        {
-            FrmEmpleado frEmpl = new FrmEmpleado();
-            frEmpl.txt_cargo.Text = txt_puesto.Text;
-            frEmpl.txt_sueldo.Text = txt_descripcion.Text;
-            frEmpl.errorTxtBox2.Text = txt_salario.Text;
-            frEmpl.Show();
-           
-        }
-
-        private void label10_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btn_salir_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void FrmCargo_Load(object sender, EventArgs e)
-        {
 
         }
     }

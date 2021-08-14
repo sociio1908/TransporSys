@@ -31,7 +31,8 @@ namespace _911_RD
         {
             this.pnl_contenedor = new System.Windows.Forms.Panel();
             this.pnl_menu = new System.Windows.Forms.Panel();
-            this.button9 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.btn_gps = new System.Windows.Forms.Button();
             this.btn_empleado = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -40,15 +41,12 @@ namespace _911_RD
             this.label13 = new System.Windows.Forms.Label();
             this.btn_clientes = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btn_ventas = new System.Windows.Forms.Button();
             this.btn_paciente = new System.Windows.Forms.Button();
-            this.btn_viajes = new System.Windows.Forms.Button();
+            this.btn_servicios = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.btn_menu = new System.Windows.Forms.Button();
             this.pnl_barra = new System.Windows.Forms.Panel();
-            this.lbl_buscar = new System.Windows.Forms.Label();
-            this.txt_filtro = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.lbl_minimizar = new System.Windows.Forms.Label();
             this.lbl_cerrar = new System.Windows.Forms.Label();
@@ -70,17 +68,17 @@ namespace _911_RD
             // pnl_menu
             // 
             this.pnl_menu.BackColor = System.Drawing.Color.Brown;
-            this.pnl_menu.Controls.Add(this.button9);
+            this.pnl_menu.Controls.Add(this.button2);
+            this.pnl_menu.Controls.Add(this.btn_gps);
             this.pnl_menu.Controls.Add(this.btn_empleado);
             this.pnl_menu.Controls.Add(this.button7);
             this.pnl_menu.Controls.Add(this.button1);
             this.pnl_menu.Controls.Add(this.panel1);
             this.pnl_menu.Controls.Add(this.btn_clientes);
             this.pnl_menu.Controls.Add(this.button5);
-            this.pnl_menu.Controls.Add(this.button4);
-            this.pnl_menu.Controls.Add(this.button3);
+            this.pnl_menu.Controls.Add(this.btn_ventas);
             this.pnl_menu.Controls.Add(this.btn_paciente);
-            this.pnl_menu.Controls.Add(this.btn_viajes);
+            this.pnl_menu.Controls.Add(this.btn_servicios);
             this.pnl_menu.Controls.Add(this.label4);
             this.pnl_menu.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnl_menu.ForeColor = System.Drawing.Color.White;
@@ -90,20 +88,36 @@ namespace _911_RD
             this.pnl_menu.TabIndex = 1;
             this.pnl_menu.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
-            // button9
+            // button2
             // 
-            this.button9.BackColor = System.Drawing.Color.Brown;
-            this.button9.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button9.FlatAppearance.BorderSize = 0;
-            this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button9.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button9.ForeColor = System.Drawing.Color.White;
-            this.button9.Location = new System.Drawing.Point(-3, 384);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(177, 33);
-            this.button9.TabIndex = 15;
-            this.button9.Text = "Ajustes";
-            this.button9.UseVisualStyleBackColor = false;
+            this.button2.BackColor = System.Drawing.Color.Brown;
+            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.Color.White;
+            this.button2.Location = new System.Drawing.Point(0, 384);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(177, 33);
+            this.button2.TabIndex = 16;
+            this.button2.Text = "Ajustes";
+            this.button2.UseVisualStyleBackColor = false;
+            // 
+            // btn_gps
+            // 
+            this.btn_gps.BackColor = System.Drawing.Color.Brown;
+            this.btn_gps.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btn_gps.FlatAppearance.BorderSize = 0;
+            this.btn_gps.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_gps.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_gps.ForeColor = System.Drawing.Color.White;
+            this.btn_gps.Location = new System.Drawing.Point(3, 345);
+            this.btn_gps.Name = "btn_gps";
+            this.btn_gps.Size = new System.Drawing.Size(177, 33);
+            this.btn_gps.TabIndex = 15;
+            this.btn_gps.Text = "GPS";
+            this.btn_gps.UseVisualStyleBackColor = false;
+            this.btn_gps.Click += new System.EventHandler(this.btn_gps_Click);
             // 
             // btn_empleado
             // 
@@ -113,7 +127,7 @@ namespace _911_RD
             this.btn_empleado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_empleado.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_empleado.ForeColor = System.Drawing.Color.White;
-            this.btn_empleado.Location = new System.Drawing.Point(3, 307);
+            this.btn_empleado.Location = new System.Drawing.Point(0, 268);
             this.btn_empleado.Name = "btn_empleado";
             this.btn_empleado.Size = new System.Drawing.Size(177, 33);
             this.btn_empleado.TabIndex = 14;
@@ -129,7 +143,7 @@ namespace _911_RD
             this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button7.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button7.ForeColor = System.Drawing.Color.White;
-            this.button7.Location = new System.Drawing.Point(0, 346);
+            this.button7.Location = new System.Drawing.Point(3, 307);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(177, 33);
             this.button7.TabIndex = 13;
@@ -144,12 +158,13 @@ namespace _911_RD
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(0, 271);
+            this.button1.Location = new System.Drawing.Point(3, 232);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(177, 33);
             this.button1.TabIndex = 12;
             this.button1.Text = "Inventario";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // panel1
             // 
@@ -193,7 +208,7 @@ namespace _911_RD
             this.btn_clientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_clientes.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_clientes.ForeColor = System.Drawing.Color.White;
-            this.btn_clientes.Location = new System.Drawing.Point(0, 193);
+            this.btn_clientes.Location = new System.Drawing.Point(3, 154);
             this.btn_clientes.Name = "btn_clientes";
             this.btn_clientes.Size = new System.Drawing.Size(177, 33);
             this.btn_clientes.TabIndex = 11;
@@ -209,43 +224,28 @@ namespace _911_RD
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button5.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button5.ForeColor = System.Drawing.Color.White;
-            this.button5.Location = new System.Drawing.Point(-3, 232);
+            this.button5.Location = new System.Drawing.Point(0, 193);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(177, 33);
             this.button5.TabIndex = 10;
             this.button5.Text = "Cotizaciones";
             this.button5.UseVisualStyleBackColor = false;
             // 
-            // button4
+            // btn_ventas
             // 
-            this.button4.BackColor = System.Drawing.Color.Brown;
-            this.button4.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button4.FlatAppearance.BorderSize = 0;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.Color.White;
-            this.button4.Location = new System.Drawing.Point(0, 154);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(177, 33);
-            this.button4.TabIndex = 9;
-            this.button4.Text = "Planes";
-            this.button4.UseVisualStyleBackColor = false;
-            // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.Color.Brown;
-            this.button3.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(3, 115);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(177, 33);
-            this.button3.TabIndex = 9;
-            this.button3.Text = "Ventas";
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.btn_ventas.BackColor = System.Drawing.Color.Brown;
+            this.btn_ventas.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btn_ventas.FlatAppearance.BorderSize = 0;
+            this.btn_ventas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_ventas.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_ventas.ForeColor = System.Drawing.Color.White;
+            this.btn_ventas.Location = new System.Drawing.Point(3, 115);
+            this.btn_ventas.Name = "btn_ventas";
+            this.btn_ventas.Size = new System.Drawing.Size(177, 33);
+            this.btn_ventas.TabIndex = 9;
+            this.btn_ventas.Text = "Ventas";
+            this.btn_ventas.UseVisualStyleBackColor = false;
+            this.btn_ventas.Click += new System.EventHandler(this.btn_ventas_Click);
             // 
             // btn_paciente
             // 
@@ -263,20 +263,20 @@ namespace _911_RD
             this.btn_paciente.UseVisualStyleBackColor = false;
             this.btn_paciente.Click += new System.EventHandler(this.btn_paciente_Click);
             // 
-            // btn_viajes
+            // btn_servicios
             // 
-            this.btn_viajes.BackColor = System.Drawing.Color.Brown;
-            this.btn_viajes.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btn_viajes.FlatAppearance.BorderSize = 0;
-            this.btn_viajes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_viajes.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_viajes.ForeColor = System.Drawing.Color.White;
-            this.btn_viajes.Location = new System.Drawing.Point(0, 37);
-            this.btn_viajes.Name = "btn_viajes";
-            this.btn_viajes.Size = new System.Drawing.Size(177, 33);
-            this.btn_viajes.TabIndex = 6;
-            this.btn_viajes.Text = "Viajes";
-            this.btn_viajes.UseVisualStyleBackColor = false;
+            this.btn_servicios.BackColor = System.Drawing.Color.Brown;
+            this.btn_servicios.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btn_servicios.FlatAppearance.BorderSize = 0;
+            this.btn_servicios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_servicios.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_servicios.ForeColor = System.Drawing.Color.White;
+            this.btn_servicios.Location = new System.Drawing.Point(0, 37);
+            this.btn_servicios.Name = "btn_servicios";
+            this.btn_servicios.Size = new System.Drawing.Size(177, 33);
+            this.btn_servicios.TabIndex = 6;
+            this.btn_servicios.Text = "Servicios";
+            this.btn_servicios.UseVisualStyleBackColor = false;
             // 
             // label4
             // 
@@ -310,9 +310,7 @@ namespace _911_RD
             // 
             // pnl_barra
             // 
-            this.pnl_barra.BackColor = System.Drawing.Color.Brown;
-            this.pnl_barra.Controls.Add(this.lbl_buscar);
-            this.pnl_barra.Controls.Add(this.txt_filtro);
+            this.pnl_barra.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(54)))), ((int)(((byte)(54)))));
             this.pnl_barra.Controls.Add(this.label1);
             this.pnl_barra.Controls.Add(this.btn_menu);
             this.pnl_barra.Controls.Add(this.lbl_minimizar);
@@ -323,32 +321,6 @@ namespace _911_RD
             this.pnl_barra.Name = "pnl_barra";
             this.pnl_barra.Size = new System.Drawing.Size(902, 39);
             this.pnl_barra.TabIndex = 0;
-            // 
-            // lbl_buscar
-            // 
-            this.lbl_buscar.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.lbl_buscar.AutoSize = true;
-            this.lbl_buscar.BackColor = System.Drawing.Color.White;
-            this.lbl_buscar.Enabled = false;
-            this.lbl_buscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_buscar.ForeColor = System.Drawing.Color.DimGray;
-            this.lbl_buscar.Location = new System.Drawing.Point(181, 11);
-            this.lbl_buscar.Name = "lbl_buscar";
-            this.lbl_buscar.Size = new System.Drawing.Size(59, 20);
-            this.lbl_buscar.TabIndex = 0;
-            this.lbl_buscar.Text = "Buscar";
-            this.lbl_buscar.Click += new System.EventHandler(this.lbl_buscar_Click);
-            // 
-            // txt_filtro
-            // 
-            this.txt_filtro.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.txt_filtro.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txt_filtro.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_filtro.Location = new System.Drawing.Point(178, 9);
-            this.txt_filtro.Name = "txt_filtro";
-            this.txt_filtro.Size = new System.Drawing.Size(613, 24);
-            this.txt_filtro.TabIndex = 0;
-            this.txt_filtro.TextChanged += new System.EventHandler(this.txt_filtro_TextChanged);
             // 
             // label1
             // 
@@ -422,18 +394,16 @@ namespace _911_RD
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btn_clientes;
         private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btn_ventas;
         private System.Windows.Forms.Button btn_paciente;
-        private System.Windows.Forms.Button btn_viajes;
+        private System.Windows.Forms.Button btn_servicios;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button btn_empleado;
-        private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.TextBox txt_filtro;
-        private System.Windows.Forms.Label lbl_buscar;
+        private System.Windows.Forms.Button btn_gps;
+        private System.Windows.Forms.Button button2;
     }
 }

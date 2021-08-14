@@ -412,7 +412,7 @@ namespace _911_RD.Administracion
 
         private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex < 0)
+            if (e.RowIndex <0)
                 return;
 
             CargarCampos();

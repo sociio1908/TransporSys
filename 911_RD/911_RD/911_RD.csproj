@@ -120,6 +120,60 @@
     <Compile Include="Administracion\ConPrincipal.Designer.cs">
       <DependentUpon>ConPrincipal.cs</DependentUpon>
     </Compile>
+    <Compile Include="Administracion\Direccion\FrmCiudad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administracion\Direccion\FrmCiudad.designer.cs">
+      <DependentUpon>FrmCiudad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Administracion\Direccion\FrmContinente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administracion\Direccion\FrmContinente.designer.cs">
+      <DependentUpon>FrmContinente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Administracion\Direccion\FrmDireccionNativa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administracion\Direccion\FrmDireccionNativa.designer.cs">
+      <DependentUpon>FrmDireccionNativa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Administracion\Direccion\FrmPais.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administracion\Direccion\FrmPais.designer.cs">
+      <DependentUpon>FrmPais.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Administracion\Direccion\FrmProvincia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administracion\Direccion\FrmProvincia.designer.cs">
+      <DependentUpon>FrmProvincia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Administracion\Email_Telefono\FrmEmail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administracion\Email_Telefono\FrmEmail.designer.cs">
+      <DependentUpon>FrmEmail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Administracion\Email_Telefono\FrmTelefono.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administracion\Email_Telefono\FrmTelefono.designer.cs">
+      <DependentUpon>FrmTelefono.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Administracion\Email_Telefono\FrmTipoTelefono.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administracion\Email_Telefono\FrmTipoTelefono.designer.cs">
+      <DependentUpon>FrmTipoTelefono.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Administracion\FrmAdmVentas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administracion\FrmAdmVentas.Designer.cs">
+      <DependentUpon>FrmAdmVentas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Administracion\FrmArticulos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -150,11 +204,11 @@
     <Compile Include="Administracion\FrmCompra.Designer.cs">
       <DependentUpon>FrmCompra.cs</DependentUpon>
     </Compile>
-    <Compile Include="Administracion\FrmEmpleado.cs">
+    <Compile Include="Administracion\FrmDescuentos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Administracion\FrmEmpleado.Designer.cs">
-      <DependentUpon>FrmEmpleado.cs</DependentUpon>
+    <Compile Include="Administracion\FrmDescuentos.Designer.cs">
+      <DependentUpon>FrmDescuentos.cs</DependentUpon>
     </Compile>
     <Compile Include="Administracion\FrmPaciente.cs">
       <SubType>Form</SubType>
@@ -167,6 +221,12 @@
     </Compile>
     <Compile Include="Administracion\FrmSuplidor.Designer.cs">
       <DependentUpon>FrmSuplidor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Administracion\FrmTipoCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administracion\FrmTipoCliente.designer.cs">
+      <DependentUpon>FrmTipoCliente.cs</DependentUpon>
     </Compile>
     <Compile Include="Administracion\FrmTipoUsuario.cs">
       <SubType>Form</SubType>
@@ -191,6 +251,39 @@
     </Compile>
     <Compile Include="Administracion\FrmVentas.Designer.cs">
       <DependentUpon>FrmVentas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Administracion\Transporte\FrmTransporte.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administracion\Transporte\FrmTransporte.designer.cs">
+      <DependentUpon>FrmTransporte.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Administracion\Vehiculo\FrmCombustible.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administracion\Vehiculo\FrmCombustible.designer.cs">
+      <DependentUpon>FrmCombustible.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Administracion\Vehiculo\FrmMarca.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administracion\Vehiculo\FrmMarca.designer.cs">
+      <DependentUpon>FrmMarca.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Administracion\Vehiculo\FrmModelo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administracion\Vehiculo\FrmModelo.designer.cs">
+      <DependentUpon>FrmModelo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Administracion\Vehiculo\FrmVehiculos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administracion\Vehiculo\FrmVehiculos.designer.cs">
+      <DependentUpon>FrmVehiculos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ALERGIAS.cs">
+      <DependentUpon>TransporSysEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="ALMACENES.cs">
       <DependentUpon>TransporSysEntities.tt</DependentUpon>
@@ -258,6 +351,9 @@
     <Compile Include="DIRECCIONES.cs">
       <DependentUpon>TransporSysEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="DIRECCIONESLL.cs">
+      <DependentUpon>TransporSysEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="DVENTAS_SERVICIOS.cs">
       <DependentUpon>TransporSysEntities.tt</DependentUpon>
     </Compile>
@@ -297,6 +393,18 @@
     <Compile Include="Administracion\FrmCliente.Designer.cs">
       <DependentUpon>FrmCliente.cs</DependentUpon>
     </Compile>
+    <Compile Include="Administracion\FrmDirecciones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administracion\FrmDirecciones.designer.cs">
+      <DependentUpon>FrmDirecciones.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Administracion\FrmEmpleado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administracion\FrmEmpleado.designer.cs">
+      <DependentUpon>FrmEmpleado.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -308,6 +416,12 @@
     </Compile>
     <Compile Include="FrmPrincipal.Designer.cs">
       <DependentUpon>FrmPrincipal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmServicios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmServicios.designer.cs">
+      <DependentUpon>frmServicios.cs</DependentUpon>
     </Compile>
     <Compile Include="F_agenda.cs">
       <SubType>Form</SubType>
@@ -326,6 +440,12 @@
       <DependentUpon>TransporSysEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="MARCA.cs">
+      <DependentUpon>TransporSysEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MEDICAMENTOS.cs">
+      <DependentUpon>TransporSysEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MEDICAMENTOS_VS_ALERGIAS.cs">
       <DependentUpon>TransporSysEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="MODELO.cs">
@@ -381,6 +501,18 @@
     <Compile Include="TERCEROS.cs">
       <DependentUpon>TransporSysEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="TERCEROS_VS_DIRECCIONES.cs">
+      <DependentUpon>TransporSysEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TERCEROS_VS_EMAILS.cs">
+      <DependentUpon>TransporSysEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TERCEROS_VS_IDENTIFICACIONES.cs">
+      <DependentUpon>TransporSysEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TERCEROS_VS_TELEFONOS.cs">
+      <DependentUpon>TransporSysEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="TIPONCF.cs">
       <DependentUpon>TransporSysEntities.tt</DependentUpon>
     </Compile>
@@ -406,6 +538,9 @@
       <DependentUpon>TransporSysEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="TIPOS_USUARIOS.cs">
+      <DependentUpon>TransporSysEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TIPO_MEDICAMENTOS.cs">
       <DependentUpon>TransporSysEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="TransporSysEntities.Context.cs">
@@ -436,6 +571,9 @@
     <Compile Include="VEHICULO.cs">
       <DependentUpon>TransporSysEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="VEHICULOS_VS_CONDUCTOR.cs">
+      <DependentUpon>TransporSysEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="VENTAS.cs">
       <DependentUpon>TransporSysEntities.tt</DependentUpon>
     </Compile>
@@ -444,6 +582,33 @@
     </Compile>
     <EmbeddedResource Include="Administracion\ConPrincipal.resx">
       <DependentUpon>ConPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administracion\Direccion\FrmCiudad.resx">
+      <DependentUpon>FrmCiudad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administracion\Direccion\FrmContinente.resx">
+      <DependentUpon>FrmContinente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administracion\Direccion\FrmDireccionNativa.resx">
+      <DependentUpon>FrmDireccionNativa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administracion\Direccion\FrmPais.resx">
+      <DependentUpon>FrmPais.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administracion\Direccion\FrmProvincia.resx">
+      <DependentUpon>FrmProvincia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administracion\Email_Telefono\FrmEmail.resx">
+      <DependentUpon>FrmEmail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administracion\Email_Telefono\FrmTelefono.resx">
+      <DependentUpon>FrmTelefono.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administracion\Email_Telefono\FrmTipoTelefono.resx">
+      <DependentUpon>FrmTipoTelefono.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administracion\FrmAdmVentas.resx">
+      <DependentUpon>FrmAdmVentas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Administracion\FrmArticulos.resx">
       <DependentUpon>FrmArticulos.cs</DependentUpon>
@@ -460,14 +625,17 @@
     <EmbeddedResource Include="Administracion\FrmCompra.resx">
       <DependentUpon>FrmCompra.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Administracion\FrmEmpleado.resx">
-      <DependentUpon>FrmEmpleado.cs</DependentUpon>
+    <EmbeddedResource Include="Administracion\FrmDescuentos.resx">
+      <DependentUpon>FrmDescuentos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Administracion\FrmPaciente.resx">
       <DependentUpon>FrmPaciente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Administracion\FrmSuplidor.resx">
       <DependentUpon>FrmSuplidor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administracion\FrmTipoCliente.resx">
+      <DependentUpon>FrmTipoCliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Administracion\FrmTipoUsuario.resx">
       <DependentUpon>FrmTipoUsuario.cs</DependentUpon>
@@ -481,17 +649,41 @@
     <EmbeddedResource Include="Administracion\FrmVentas.resx">
       <DependentUpon>FrmVentas.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Administracion\Transporte\FrmTransporte.resx">
+      <DependentUpon>FrmTransporte.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administracion\Vehiculo\FrmCombustible.resx">
+      <DependentUpon>FrmCombustible.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administracion\Vehiculo\FrmMarca.resx">
+      <DependentUpon>FrmMarca.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administracion\Vehiculo\FrmModelo.resx">
+      <DependentUpon>FrmModelo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administracion\Vehiculo\FrmVehiculos.resx">
+      <DependentUpon>FrmVehiculos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Administracion\FrmCliente.resx">
       <DependentUpon>FrmCliente.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Administracion\FrmDirecciones.resx">
+      <DependentUpon>FrmDirecciones.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administracion\FrmEmpleado.resx">
+      <DependentUpon>FrmEmpleado.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmPrincipal.resx">
       <DependentUpon>FrmPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmServicios.resx">
+      <DependentUpon>frmServicios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="F_agenda.resx">
       <DependentUpon>F_agenda.cs</DependentUpon>
@@ -640,8 +832,11 @@
       <DependentUpon>TransporSysEntities.edmx</DependentUpon>
       <LastGenOutput>TransporSysEntities.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\informacion %281%29.png" />
+    <None Include="Resources\informacion.png" />
     <None Include="Resources\eraser.png" />
     <None Include="Resources\recibo.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

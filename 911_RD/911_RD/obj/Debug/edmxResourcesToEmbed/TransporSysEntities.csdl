@@ -1,5 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="TransporSysModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="ALERGIAS">
+    <Key>
+      <PropertyRef Name="id_alergia" />
+    </Key>
+    <Property Name="id_alergia" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="alergia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
   <EntityType Name="ALMACENES">
     <Key>
       <PropertyRef Name="id_almacen" />
@@ -57,9 +65,9 @@
   </EntityType>
   <EntityType Name="CATEGORIAS_SERVICIOS">
     <Key>
-      <PropertyRef Name="id_categoriaServicio" />
+      <PropertyRef Name="id_categoria_servicio" />
     </Key>
-    <Property Name="id_categoriaServicio" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_categoria_servicio" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="categoria" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="descripcion" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="estado" Type="Boolean" Nullable="false" />
@@ -68,7 +76,7 @@
     <Key>
       <PropertyRef Name="id_ciudad" />
     </Key>
-    <Property Name="id_ciudad" Type="Decimal" Precision="18" Scale="15" Nullable="false" />
+    <Property Name="id_ciudad" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="id_provincia" Type="Int32" Nullable="false" />
     <Property Name="ciudad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <NavigationProperty Name="PROVINCIAS" Relationship="Self.FK_CIUDADES_PROVINCIAS" FromRole="CIUDADES" ToRole="PROVINCIAS" />
@@ -109,7 +117,6 @@
     </Key>
     <Property Name="id_combustible" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="precio" Type="Double" Nullable="false" />
     <Property Name="estado" Type="Boolean" Nullable="false" />
   </EntityType>
   <EntityType Name="COMPRAS">
@@ -257,10 +264,18 @@
       <PropertyRef Name="id_direccion" />
     </Key>
     <Property Name="id_direccion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_ciudad" Type="Int32" Nullable="false" />
+    <Property Name="descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="CIUDADES" Relationship="Self.FK_DIRECCIONES_CIUDADES" FromRole="DIRECCIONES" ToRole="CIUDADES" />
+    <NavigationProperty Name="TERCEROS_VS_DIRECCIONES" Relationship="Self.FK__TERCEROS___id_di__3B95D2F1" FromRole="DIRECCIONES" ToRole="TERCEROS_VS_DIRECCIONES" />
+  </EntityType>
+  <EntityType Name="DIRECCIONESLL">
+    <Key>
+      <PropertyRef Name="id_direccion" />
+    </Key>
+    <Property Name="id_direccion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="latitud" Type="Decimal" Precision="18" Scale="15" Nullable="false" />
     <Property Name="longitud" Type="Decimal" Precision="18" Scale="15" Nullable="false" />
-    <NavigationProperty Name="CIUDADES" Relationship="Self.FK_DIRECCIONES_CIUDADES" FromRole="DIRECCIONES" ToRole="CIUDADES" />
-    <NavigationProperty Name="TERCEROS" Relationship="Self.TERCEROS_VS_DIRECCIONES" FromRole="DIRECCIONES" ToRole="TERCEROS" />
   </EntityType>
   <EntityType Name="DVENTAS_SERVICIOS">
     <Key>
@@ -299,7 +314,7 @@
     </Key>
     <Property Name="id_email" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-    <NavigationProperty Name="TERCEROS" Relationship="Self.TERCEROS_VS_EMAILS" FromRole="EMAILS" ToRole="TERCEROS" />
+    <NavigationProperty Name="TERCEROS_VS_EMAILS" Relationship="Self.FK__TERCEROS___id_em__3F6663D5" FromRole="EMAILS" ToRole="TERCEROS_VS_EMAILS" />
   </EntityType>
   <EntityType Name="EMPLEADOS">
     <Key>
@@ -315,7 +330,7 @@
     <NavigationProperty Name="CONDUCTOR" Relationship="Self.FK__CONDUCTOR__id_em__54CB950F" FromRole="EMPLEADOS" ToRole="CONDUCTOR" />
     <NavigationProperty Name="COTIZACIONES" Relationship="Self.FK_COTIZACIONES_EMPLEADOS" FromRole="EMPLEADOS" ToRole="COTIZACIONES" />
     <NavigationProperty Name="DESCUENTOS" Relationship="Self.FK_DESCUENTOS_EMPLEADOS" FromRole="EMPLEADOS" ToRole="DESCUENTOS" />
-    <NavigationProperty Name="PUESTOS" Relationship="Self.FK__EMPLEADOS__id_pu__3864608B" FromRole="EMPLEADOS" ToRole="PUESTOS" />
+    <NavigationProperty Name="PUESTOS" Relationship="Self.FK__EMPLEADOS__id_pu__46B27FE2" FromRole="EMPLEADOS" ToRole="PUESTOS" />
     <NavigationProperty Name="PERSONAS" Relationship="Self.FK_EMPLEADOS_PERSONAS" FromRole="EMPLEADOS" ToRole="PERSONAS" />
     <NavigationProperty Name="ENTRADAS" Relationship="Self.FK_ENTRADAS_EMPLEADOS" FromRole="EMPLEADOS" ToRole="ENTRADAS" />
     <NavigationProperty Name="FINANCIAMIENTOS" Relationship="Self.FK_FINANCIAMIENTOS_EMPLEADOS" FromRole="EMPLEADOS" ToRole="FINANCIAMIENTOS" />
@@ -380,8 +395,8 @@
     <Property Name="id_identificacion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="id_tipo_identificacion" Type="Int32" Nullable="false" />
     <Property Name="identificacion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="TERCEROS_VS_IDENTIFICACIONES" Relationship="Self.FK__TERCEROS___id_id__3D7E1B63" FromRole="IDENTIFICACIONES" ToRole="TERCEROS_VS_IDENTIFICACIONES" />
     <NavigationProperty Name="TIPOS_IDENTIFICACIONES" Relationship="Self.FK_IDENTIFICACIONES_TIPOS_IDENTIFICACIONES" FromRole="IDENTIFICACIONES" ToRole="TIPOS_IDENTIFICACIONES" />
-    <NavigationProperty Name="TERCEROS" Relationship="Self.TERCEROS_VS_IDENTIFICACIONES" FromRole="IDENTIFICACIONES" ToRole="TERCEROS" />
   </EntityType>
   <EntityType Name="ITEBIS">
     <Key>
@@ -400,6 +415,23 @@
     <Property Name="marca1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="VEHICULO" Relationship="Self.FK_vaehiculo" FromRole="MARCA" ToRole="VEHICULO" />
   </EntityType>
+  <EntityType Name="MEDICAMENTOS">
+    <Key>
+      <PropertyRef Name="id_medicamento" />
+    </Key>
+    <Property Name="id_medicamento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="medicamento" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="id_tipo_medicamento" Type="Int32" Nullable="false" />
+    <Property Name="descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MEDICAMENTOS_VS_ALERGIAS">
+    <Key>
+      <PropertyRef Name="id_vs" />
+    </Key>
+    <Property Name="id_vs" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_alergia" Type="Int32" Nullable="false" />
+    <Property Name="id_medicamento" Type="Int32" />
+  </EntityType>
   <EntityType Name="MODELO">
     <Key>
       <PropertyRef Name="id_modelo" />
@@ -412,9 +444,9 @@
     <Key>
       <PropertyRef Name="id_nacionalidad" />
     </Key>
-    <Property Name="id_nacionalidad" Type="Int32" Nullable="false" />
+    <Property Name="id_nacionalidad" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="nacionalidad" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="pais" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="id_pais" Type="Int32" Nullable="false" />
     <NavigationProperty Name="PERSONAS" Relationship="Self.FK_PERSONAS_NACIONALIDADES" FromRole="NACIONALIDADES" ToRole="PERSONAS" />
   </EntityType>
   <EntityType Name="NCF">
@@ -504,7 +536,7 @@
     <Property Name="descripcion" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="salario" Type="Double" Nullable="false" />
     <Property Name="estado" Type="Boolean" Nullable="false" />
-    <NavigationProperty Name="EMPLEADOS" Relationship="Self.FK__EMPLEADOS__id_pu__3864608B" FromRole="PUESTOS" ToRole="EMPLEADOS" />
+    <NavigationProperty Name="EMPLEADOS" Relationship="Self.FK__EMPLEADOS__id_pu__46B27FE2" FromRole="PUESTOS" ToRole="EMPLEADOS" />
     <NavigationProperty Name="EMPLEADOS1" Relationship="Self.EMPLEADOS_VS_PUESTOS" FromRole="PUESTOS" ToRole="EMPLEADOS" />
     <NavigationProperty Name="DEPARTAMENTOS" Relationship="Self.PUESTOS_VS_DEPARTAMENTOS" FromRole="PUESTOS" ToRole="DEPARTAMENTOS" />
   </EntityType>
@@ -525,7 +557,7 @@
       <PropertyRef Name="id_servicio" />
     </Key>
     <Property Name="id_servicio" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="id_categoriaServicio" Type="Int32" Nullable="false" />
+    <Property Name="id_categoria_servicio" Type="Int32" Nullable="false" />
     <Property Name="id_unidad_de_medida" Type="Int32" />
     <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
@@ -560,8 +592,8 @@
     <Property Name="id_telefono" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="id_tipo_telefono" Type="Int32" Nullable="false" />
     <Property Name="telefono" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="TERCEROS_VS_TELEFONOS" Relationship="Self.FK__TERCEROS___id_te__3AA1AEB8" FromRole="TELEFONOS" ToRole="TERCEROS_VS_TELEFONOS" />
     <NavigationProperty Name="TIPOS_TELEFONOS" Relationship="Self.FK_TELEFONOS_TIPOS_TELEFONOS" FromRole="TELEFONOS" ToRole="TIPOS_TELEFONOS" />
-    <NavigationProperty Name="TERCEROS" Relationship="Self.TERCEROS_VS_TELEFONOS" FromRole="TELEFONOS" ToRole="TERCEROS" />
   </EntityType>
   <EntityType Name="TERCEROS">
     <Key>
@@ -572,10 +604,58 @@
     <NavigationProperty Name="CLIENTES" Relationship="Self.FK_CLIENTES_TERCEROS" FromRole="TERCEROS" ToRole="CLIENTES" />
     <NavigationProperty Name="PERSONAS" Relationship="Self.FK_PERSONAS_TERCEROS" FromRole="TERCEROS" ToRole="PERSONAS" />
     <NavigationProperty Name="SUPLIDORES" Relationship="Self.FK_SUPLIDORES_TERCEROS" FromRole="TERCEROS" ToRole="SUPLIDORES" />
-    <NavigationProperty Name="DIRECCIONES" Relationship="Self.TERCEROS_VS_DIRECCIONES" FromRole="TERCEROS" ToRole="DIRECCIONES" />
-    <NavigationProperty Name="EMAILS" Relationship="Self.TERCEROS_VS_EMAILS" FromRole="TERCEROS" ToRole="EMAILS" />
-    <NavigationProperty Name="IDENTIFICACIONES" Relationship="Self.TERCEROS_VS_IDENTIFICACIONES" FromRole="TERCEROS" ToRole="IDENTIFICACIONES" />
-    <NavigationProperty Name="TELEFONOS" Relationship="Self.TERCEROS_VS_TELEFONOS" FromRole="TERCEROS" ToRole="TELEFONOS" />
+    <NavigationProperty Name="TERCEROS_VS_TELEFONOS" Relationship="Self.FK__TERCEROS___id_te__39AD8A7F" FromRole="TERCEROS" ToRole="TERCEROS_VS_TELEFONOS" />
+    <NavigationProperty Name="TERCEROS_VS_DIRECCIONES" Relationship="Self.FK__TERCEROS___id_te__3C89F72A" FromRole="TERCEROS" ToRole="TERCEROS_VS_DIRECCIONES" />
+    <NavigationProperty Name="TERCEROS_VS_IDENTIFICACIONES" Relationship="Self.FK__TERCEROS___id_te__3E723F9C" FromRole="TERCEROS" ToRole="TERCEROS_VS_IDENTIFICACIONES" />
+    <NavigationProperty Name="TERCEROS_VS_EMAILS" Relationship="Self.FK__TERCEROS___id_te__405A880E" FromRole="TERCEROS" ToRole="TERCEROS_VS_EMAILS" />
+  </EntityType>
+  <EntityType Name="TERCEROS_VS_DIRECCIONES">
+    <Key>
+      <PropertyRef Name="id_vs" />
+    </Key>
+    <Property Name="id_tercero" Type="Int32" Nullable="false" />
+    <Property Name="id_direccion" Type="Int32" Nullable="false" />
+    <Property Name="id_vs" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="DIRECCIONES" Relationship="Self.FK__TERCEROS___id_di__3B95D2F1" FromRole="TERCEROS_VS_DIRECCIONES" ToRole="DIRECCIONES" />
+    <NavigationProperty Name="TERCEROS" Relationship="Self.FK__TERCEROS___id_te__3C89F72A" FromRole="TERCEROS_VS_DIRECCIONES" ToRole="TERCEROS" />
+  </EntityType>
+  <EntityType Name="TERCEROS_VS_EMAILS">
+    <Key>
+      <PropertyRef Name="id_vs" />
+    </Key>
+    <Property Name="id_tercero" Type="Int32" Nullable="false" />
+    <Property Name="id_email" Type="Int32" Nullable="false" />
+    <Property Name="id_vs" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="EMAILS" Relationship="Self.FK__TERCEROS___id_em__3F6663D5" FromRole="TERCEROS_VS_EMAILS" ToRole="EMAILS" />
+    <NavigationProperty Name="TERCEROS" Relationship="Self.FK__TERCEROS___id_te__405A880E" FromRole="TERCEROS_VS_EMAILS" ToRole="TERCEROS" />
+  </EntityType>
+  <EntityType Name="TERCEROS_VS_IDENTIFICACIONES">
+    <Key>
+      <PropertyRef Name="id_vs" />
+    </Key>
+    <Property Name="id_tercero" Type="Int32" Nullable="false" />
+    <Property Name="id_identificacion" Type="Int32" Nullable="false" />
+    <Property Name="id_vs" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="IDENTIFICACIONES" Relationship="Self.FK__TERCEROS___id_id__3D7E1B63" FromRole="TERCEROS_VS_IDENTIFICACIONES" ToRole="IDENTIFICACIONES" />
+    <NavigationProperty Name="TERCEROS" Relationship="Self.FK__TERCEROS___id_te__3E723F9C" FromRole="TERCEROS_VS_IDENTIFICACIONES" ToRole="TERCEROS" />
+  </EntityType>
+  <EntityType Name="TERCEROS_VS_TELEFONOS">
+    <Key>
+      <PropertyRef Name="id_vs" />
+    </Key>
+    <Property Name="id_tercero" Type="Int32" Nullable="false" />
+    <Property Name="id_telefono" Type="Int32" Nullable="false" />
+    <Property Name="id_vs" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="TELEFONOS" Relationship="Self.FK__TERCEROS___id_te__3AA1AEB8" FromRole="TERCEROS_VS_TELEFONOS" ToRole="TELEFONOS" />
+    <NavigationProperty Name="TERCEROS" Relationship="Self.FK__TERCEROS___id_te__39AD8A7F" FromRole="TERCEROS_VS_TELEFONOS" ToRole="TERCEROS" />
+  </EntityType>
+  <EntityType Name="TIPO_MEDICAMENTOS">
+    <Key>
+      <PropertyRef Name="id_tipo_medicamento" />
+    </Key>
+    <Property Name="id_tipo_medicamento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="tipo_medicamento" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
   </EntityType>
   <EntityType Name="TIPOS_CLIENTES">
     <Key>
@@ -695,13 +775,13 @@
     <Property Name="id_vehiculo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="id_marca" Type="Int32" Nullable="false" />
     <Property Name="id_modelo" Type="Int32" Nullable="false" />
-    <Property Name="id_conductor" Type="Int32" />
     <Property Name="num_chasis" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="fecha_ingreso" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="ano_fabricacion" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="gasto_galon_combustible_kilometro" Type="Double" />
     <Property Name="id_combustible" Type="Int32" Nullable="false" />
     <Property Name="num_gps" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="num_placa" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="estado" Type="Boolean" Nullable="false" />
     <NavigationProperty Name="MARCA" Relationship="Self.FK_vaehiculo" FromRole="VEHICULO" ToRole="MARCA" />
     <NavigationProperty Name="MODELO" Relationship="Self.FK_vaehicualo" FromRole="VEHICULO" ToRole="MODELO" />
@@ -763,6 +843,14 @@
     </Key>
     <Property Name="numTipo" Type="Int32" Nullable="false" />
     <Property Name="tipo" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="VEHICULOS_VS_CONDUCTOR">
+    <Key>
+      <PropertyRef Name="id_vehiculo" />
+      <PropertyRef Name="id_conductor" />
+    </Key>
+    <Property Name="id_vehiculo" Type="Int32" Nullable="false" />
+    <Property Name="id_conductor" Type="Int32" Nullable="false" />
   </EntityType>
   <Association Name="FK_EXISTENCIAS_ALMACENES">
     <End Role="ALMACENES" Type="Self.ALMACENES" Multiplicity="1" />
@@ -940,7 +1028,7 @@
         <PropertyRef Name="id_ciudad" />
       </Principal>
       <Dependent Role="DIRECCIONES">
-        <PropertyRef Name="latitud" />
+        <PropertyRef Name="id_ciudad" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -1184,7 +1272,31 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__EMPLEADOS__id_pu__3864608B">
+  <Association Name="FK__TERCEROS___id_di__3B95D2F1">
+    <End Role="DIRECCIONES" Type="Self.DIRECCIONES" Multiplicity="1" />
+    <End Role="TERCEROS_VS_DIRECCIONES" Type="Self.TERCEROS_VS_DIRECCIONES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DIRECCIONES">
+        <PropertyRef Name="id_direccion" />
+      </Principal>
+      <Dependent Role="TERCEROS_VS_DIRECCIONES">
+        <PropertyRef Name="id_direccion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TERCEROS___id_em__3F6663D5">
+    <End Role="EMAILS" Type="Self.EMAILS" Multiplicity="1" />
+    <End Role="TERCEROS_VS_EMAILS" Type="Self.TERCEROS_VS_EMAILS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EMAILS">
+        <PropertyRef Name="id_email" />
+      </Principal>
+      <Dependent Role="TERCEROS_VS_EMAILS">
+        <PropertyRef Name="id_email" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__EMPLEADOS__id_pu__46B27FE2">
     <End Role="PUESTOS" Type="Self.PUESTOS" Multiplicity="1" />
     <End Role="EMPLEADOS" Type="Self.EMPLEADOS" Multiplicity="*" />
     <ReferentialConstraint>
@@ -1316,6 +1428,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK__TERCEROS___id_id__3D7E1B63">
+    <End Role="IDENTIFICACIONES" Type="Self.IDENTIFICACIONES" Multiplicity="1" />
+    <End Role="TERCEROS_VS_IDENTIFICACIONES" Type="Self.TERCEROS_VS_IDENTIFICACIONES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="IDENTIFICACIONES">
+        <PropertyRef Name="id_identificacion" />
+      </Principal>
+      <Dependent Role="TERCEROS_VS_IDENTIFICACIONES">
+        <PropertyRef Name="id_identificacion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_IDENTIFICACIONES_TIPOS_IDENTIFICACIONES">
     <End Role="TIPOS_IDENTIFICACIONES" Type="Self.TIPOS_IDENTIFICACIONES" Multiplicity="1" />
     <End Role="IDENTIFICACIONES" Type="Self.IDENTIFICACIONES" Multiplicity="*" />
@@ -1436,6 +1560,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK__TERCEROS___id_te__3AA1AEB8">
+    <End Role="TELEFONOS" Type="Self.TELEFONOS" Multiplicity="1" />
+    <End Role="TERCEROS_VS_TELEFONOS" Type="Self.TERCEROS_VS_TELEFONOS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TELEFONOS">
+        <PropertyRef Name="id_telefono" />
+      </Principal>
+      <Dependent Role="TERCEROS_VS_TELEFONOS">
+        <PropertyRef Name="id_telefono" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_TELEFONOS_TIPOS_TELEFONOS">
     <End Role="TIPOS_TELEFONOS" Type="Self.TIPOS_TELEFONOS" Multiplicity="1" />
     <End Role="TELEFONOS" Type="Self.TELEFONOS" Multiplicity="*" />
@@ -1445,6 +1581,54 @@
       </Principal>
       <Dependent Role="TELEFONOS">
         <PropertyRef Name="id_tipo_telefono" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TERCEROS___id_te__39AD8A7F">
+    <End Role="TERCEROS" Type="Self.TERCEROS" Multiplicity="1" />
+    <End Role="TERCEROS_VS_TELEFONOS" Type="Self.TERCEROS_VS_TELEFONOS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TERCEROS">
+        <PropertyRef Name="id_tercero" />
+      </Principal>
+      <Dependent Role="TERCEROS_VS_TELEFONOS">
+        <PropertyRef Name="id_tercero" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TERCEROS___id_te__3C89F72A">
+    <End Role="TERCEROS" Type="Self.TERCEROS" Multiplicity="1" />
+    <End Role="TERCEROS_VS_DIRECCIONES" Type="Self.TERCEROS_VS_DIRECCIONES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TERCEROS">
+        <PropertyRef Name="id_tercero" />
+      </Principal>
+      <Dependent Role="TERCEROS_VS_DIRECCIONES">
+        <PropertyRef Name="id_tercero" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TERCEROS___id_te__3E723F9C">
+    <End Role="TERCEROS" Type="Self.TERCEROS" Multiplicity="1" />
+    <End Role="TERCEROS_VS_IDENTIFICACIONES" Type="Self.TERCEROS_VS_IDENTIFICACIONES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TERCEROS">
+        <PropertyRef Name="id_tercero" />
+      </Principal>
+      <Dependent Role="TERCEROS_VS_IDENTIFICACIONES">
+        <PropertyRef Name="id_tercero" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TERCEROS___id_te__405A880E">
+    <End Role="TERCEROS" Type="Self.TERCEROS" Multiplicity="1" />
+    <End Role="TERCEROS_VS_EMAILS" Type="Self.TERCEROS_VS_EMAILS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TERCEROS">
+        <PropertyRef Name="id_tercero" />
+      </Principal>
+      <Dependent Role="TERCEROS_VS_EMAILS">
+        <PropertyRef Name="id_tercero" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -1480,23 +1664,8 @@
     <End Role="DEPARTAMENTOS" Type="Self.DEPARTAMENTOS" Multiplicity="*" />
     <End Role="PUESTOS" Type="Self.PUESTOS" Multiplicity="*" />
   </Association>
-  <Association Name="TERCEROS_VS_DIRECCIONES">
-    <End Role="DIRECCIONES" Type="Self.DIRECCIONES" Multiplicity="*" />
-    <End Role="TERCEROS" Type="Self.TERCEROS" Multiplicity="*" />
-  </Association>
-  <Association Name="TERCEROS_VS_EMAILS">
-    <End Role="EMAILS" Type="Self.EMAILS" Multiplicity="*" />
-    <End Role="TERCEROS" Type="Self.TERCEROS" Multiplicity="*" />
-  </Association>
-  <Association Name="TERCEROS_VS_IDENTIFICACIONES">
-    <End Role="IDENTIFICACIONES" Type="Self.IDENTIFICACIONES" Multiplicity="*" />
-    <End Role="TERCEROS" Type="Self.TERCEROS" Multiplicity="*" />
-  </Association>
-  <Association Name="TERCEROS_VS_TELEFONOS">
-    <End Role="TERCEROS" Type="Self.TERCEROS" Multiplicity="*" />
-    <End Role="TELEFONOS" Type="Self.TELEFONOS" Multiplicity="*" />
-  </Association>
   <EntityContainer Name="TransporSysEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="ALERGIAS" EntityType="Self.ALERGIAS" />
     <EntitySet Name="ALMACENES" EntityType="Self.ALMACENES" />
     <EntitySet Name="ARTICULOS" EntityType="Self.ARTICULOS" />
     <EntitySet Name="BENEFICIOS" EntityType="Self.BENEFICIOS" />
@@ -1518,6 +1687,7 @@
     <EntitySet Name="DETALLES_SALIDAS" EntityType="Self.DETALLES_SALIDAS" />
     <EntitySet Name="DETALLES_VENTAS" EntityType="Self.DETALLES_VENTAS" />
     <EntitySet Name="DIRECCIONES" EntityType="Self.DIRECCIONES" />
+    <EntitySet Name="DIRECCIONESLL" EntityType="Self.DIRECCIONESLL" />
     <EntitySet Name="DVENTAS_SERVICIOS" EntityType="Self.DVENTAS_SERVICIOS" />
     <EntitySet Name="DVIAJES" EntityType="Self.DVIAJES" />
     <EntitySet Name="EMAILS" EntityType="Self.EMAILS" />
@@ -1528,6 +1698,8 @@
     <EntitySet Name="IDENTIFICACIONES" EntityType="Self.IDENTIFICACIONES" />
     <EntitySet Name="ITEBIS" EntityType="Self.ITEBIS" />
     <EntitySet Name="MARCA" EntityType="Self.MARCA" />
+    <EntitySet Name="MEDICAMENTOS" EntityType="Self.MEDICAMENTOS" />
+    <EntitySet Name="MEDICAMENTOS_VS_ALERGIAS" EntityType="Self.MEDICAMENTOS_VS_ALERGIAS" />
     <EntitySet Name="MODELO" EntityType="Self.MODELO" />
     <EntitySet Name="NACIONALIDADES" EntityType="Self.NACIONALIDADES" />
     <EntitySet Name="NCF" EntityType="Self.NCF" />
@@ -1543,6 +1715,11 @@
     <EntitySet Name="SUPLIDORES" EntityType="Self.SUPLIDORES" />
     <EntitySet Name="TELEFONOS" EntityType="Self.TELEFONOS" />
     <EntitySet Name="TERCEROS" EntityType="Self.TERCEROS" />
+    <EntitySet Name="TERCEROS_VS_DIRECCIONES" EntityType="Self.TERCEROS_VS_DIRECCIONES" />
+    <EntitySet Name="TERCEROS_VS_EMAILS" EntityType="Self.TERCEROS_VS_EMAILS" />
+    <EntitySet Name="TERCEROS_VS_IDENTIFICACIONES" EntityType="Self.TERCEROS_VS_IDENTIFICACIONES" />
+    <EntitySet Name="TERCEROS_VS_TELEFONOS" EntityType="Self.TERCEROS_VS_TELEFONOS" />
+    <EntitySet Name="TIPO_MEDICAMENTOS" EntityType="Self.TIPO_MEDICAMENTOS" />
     <EntitySet Name="TIPOS_CLIENTES" EntityType="Self.TIPOS_CLIENTES" />
     <EntitySet Name="TIPOS_IDENTIFICACIONES" EntityType="Self.TIPOS_IDENTIFICACIONES" />
     <EntitySet Name="TIPOS_MEMBRESIAS" EntityType="Self.TIPOS_MEMBRESIAS" />
@@ -1560,6 +1737,7 @@
     <EntitySet Name="ARTICULOS_VS_CATEGORIAS_VS_DESCUENTOS" EntityType="Self.ARTICULOS_VS_CATEGORIAS_VS_DESCUENTOS" />
     <EntitySet Name="GPS" EntityType="Self.GPS" />
     <EntitySet Name="TIPONCF" EntityType="Self.TIPONCF" />
+    <EntitySet Name="VEHICULOS_VS_CONDUCTOR" EntityType="Self.VEHICULOS_VS_CONDUCTOR" />
     <AssociationSet Name="FK_EXISTENCIAS_ALMACENES" Association="Self.FK_EXISTENCIAS_ALMACENES">
       <End Role="ALMACENES" EntitySet="ALMACENES" />
       <End Role="EXISTENCIAS" EntitySet="EXISTENCIAS" />
@@ -1700,7 +1878,15 @@
       <End Role="VENTAS" EntitySet="VENTAS" />
       <End Role="DETALLES_VENTAS" EntitySet="DETALLES_VENTAS" />
     </AssociationSet>
-    <AssociationSet Name="FK__EMPLEADOS__id_pu__3864608B" Association="Self.FK__EMPLEADOS__id_pu__3864608B">
+    <AssociationSet Name="FK__TERCEROS___id_di__3B95D2F1" Association="Self.FK__TERCEROS___id_di__3B95D2F1">
+      <End Role="DIRECCIONES" EntitySet="DIRECCIONES" />
+      <End Role="TERCEROS_VS_DIRECCIONES" EntitySet="TERCEROS_VS_DIRECCIONES" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TERCEROS___id_em__3F6663D5" Association="Self.FK__TERCEROS___id_em__3F6663D5">
+      <End Role="EMAILS" EntitySet="EMAILS" />
+      <End Role="TERCEROS_VS_EMAILS" EntitySet="TERCEROS_VS_EMAILS" />
+    </AssociationSet>
+    <AssociationSet Name="FK__EMPLEADOS__id_pu__46B27FE2" Association="Self.FK__EMPLEADOS__id_pu__46B27FE2">
       <End Role="PUESTOS" EntitySet="PUESTOS" />
       <End Role="EMPLEADOS" EntitySet="EMPLEADOS" />
     </AssociationSet>
@@ -1744,6 +1930,10 @@
       <End Role="UNIDADES_DE_MEDIDA" EntitySet="UNIDADES_DE_MEDIDA" />
       <End Role="EXISTENCIAS" EntitySet="EXISTENCIAS" />
     </AssociationSet>
+    <AssociationSet Name="FK__TERCEROS___id_id__3D7E1B63" Association="Self.FK__TERCEROS___id_id__3D7E1B63">
+      <End Role="IDENTIFICACIONES" EntitySet="IDENTIFICACIONES" />
+      <End Role="TERCEROS_VS_IDENTIFICACIONES" EntitySet="TERCEROS_VS_IDENTIFICACIONES" />
+    </AssociationSet>
     <AssociationSet Name="FK_IDENTIFICACIONES_TIPOS_IDENTIFICACIONES" Association="Self.FK_IDENTIFICACIONES_TIPOS_IDENTIFICACIONES">
       <End Role="TIPOS_IDENTIFICACIONES" EntitySet="TIPOS_IDENTIFICACIONES" />
       <End Role="IDENTIFICACIONES" EntitySet="IDENTIFICACIONES" />
@@ -1784,9 +1974,29 @@
       <End Role="TIPOS_SUPLIDORES" EntitySet="TIPOS_SUPLIDORES" />
       <End Role="SUPLIDORES" EntitySet="SUPLIDORES" />
     </AssociationSet>
+    <AssociationSet Name="FK__TERCEROS___id_te__3AA1AEB8" Association="Self.FK__TERCEROS___id_te__3AA1AEB8">
+      <End Role="TELEFONOS" EntitySet="TELEFONOS" />
+      <End Role="TERCEROS_VS_TELEFONOS" EntitySet="TERCEROS_VS_TELEFONOS" />
+    </AssociationSet>
     <AssociationSet Name="FK_TELEFONOS_TIPOS_TELEFONOS" Association="Self.FK_TELEFONOS_TIPOS_TELEFONOS">
       <End Role="TIPOS_TELEFONOS" EntitySet="TIPOS_TELEFONOS" />
       <End Role="TELEFONOS" EntitySet="TELEFONOS" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TERCEROS___id_te__39AD8A7F" Association="Self.FK__TERCEROS___id_te__39AD8A7F">
+      <End Role="TERCEROS" EntitySet="TERCEROS" />
+      <End Role="TERCEROS_VS_TELEFONOS" EntitySet="TERCEROS_VS_TELEFONOS" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TERCEROS___id_te__3C89F72A" Association="Self.FK__TERCEROS___id_te__3C89F72A">
+      <End Role="TERCEROS" EntitySet="TERCEROS" />
+      <End Role="TERCEROS_VS_DIRECCIONES" EntitySet="TERCEROS_VS_DIRECCIONES" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TERCEROS___id_te__3E723F9C" Association="Self.FK__TERCEROS___id_te__3E723F9C">
+      <End Role="TERCEROS" EntitySet="TERCEROS" />
+      <End Role="TERCEROS_VS_IDENTIFICACIONES" EntitySet="TERCEROS_VS_IDENTIFICACIONES" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TERCEROS___id_te__405A880E" Association="Self.FK__TERCEROS___id_te__405A880E">
+      <End Role="TERCEROS" EntitySet="TERCEROS" />
+      <End Role="TERCEROS_VS_EMAILS" EntitySet="TERCEROS_VS_EMAILS" />
     </AssociationSet>
     <AssociationSet Name="FK_USUARIOS_TIPO_USUARIOS" Association="Self.FK_USUARIOS_TIPO_USUARIOS">
       <End Role="TIPOS_USUARIOS" EntitySet="TIPOS_USUARIOS" />
@@ -1803,22 +2013,6 @@
     <AssociationSet Name="PUESTOS_VS_DEPARTAMENTOS" Association="Self.PUESTOS_VS_DEPARTAMENTOS">
       <End Role="DEPARTAMENTOS" EntitySet="DEPARTAMENTOS" />
       <End Role="PUESTOS" EntitySet="PUESTOS" />
-    </AssociationSet>
-    <AssociationSet Name="TERCEROS_VS_DIRECCIONES" Association="Self.TERCEROS_VS_DIRECCIONES">
-      <End Role="DIRECCIONES" EntitySet="DIRECCIONES" />
-      <End Role="TERCEROS" EntitySet="TERCEROS" />
-    </AssociationSet>
-    <AssociationSet Name="TERCEROS_VS_EMAILS" Association="Self.TERCEROS_VS_EMAILS">
-      <End Role="EMAILS" EntitySet="EMAILS" />
-      <End Role="TERCEROS" EntitySet="TERCEROS" />
-    </AssociationSet>
-    <AssociationSet Name="TERCEROS_VS_IDENTIFICACIONES" Association="Self.TERCEROS_VS_IDENTIFICACIONES">
-      <End Role="IDENTIFICACIONES" EntitySet="IDENTIFICACIONES" />
-      <End Role="TERCEROS" EntitySet="TERCEROS" />
-    </AssociationSet>
-    <AssociationSet Name="TERCEROS_VS_TELEFONOS" Association="Self.TERCEROS_VS_TELEFONOS">
-      <End Role="TERCEROS" EntitySet="TERCEROS" />
-      <End Role="TELEFONOS" EntitySet="TELEFONOS" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

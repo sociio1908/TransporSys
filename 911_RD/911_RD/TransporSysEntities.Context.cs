@@ -25,6 +25,7 @@ namespace _911_RD
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<ALERGIAS> ALERGIAS { get; set; }
         public virtual DbSet<ALMACENES> ALMACENES { get; set; }
         public virtual DbSet<ARTICULOS> ARTICULOS { get; set; }
         public virtual DbSet<BENEFICIOS> BENEFICIOS { get; set; }
@@ -46,6 +47,7 @@ namespace _911_RD
         public virtual DbSet<DETALLES_SALIDAS> DETALLES_SALIDAS { get; set; }
         public virtual DbSet<DETALLES_VENTAS> DETALLES_VENTAS { get; set; }
         public virtual DbSet<DIRECCIONES> DIRECCIONES { get; set; }
+        public virtual DbSet<DIRECCIONESLL> DIRECCIONESLL { get; set; }
         public virtual DbSet<DVENTAS_SERVICIOS> DVENTAS_SERVICIOS { get; set; }
         public virtual DbSet<DVIAJES> DVIAJES { get; set; }
         public virtual DbSet<EMAILS> EMAILS { get; set; }
@@ -56,6 +58,8 @@ namespace _911_RD
         public virtual DbSet<IDENTIFICACIONES> IDENTIFICACIONES { get; set; }
         public virtual DbSet<ITEBIS> ITEBIS { get; set; }
         public virtual DbSet<MARCA> MARCA { get; set; }
+        public virtual DbSet<MEDICAMENTOS> MEDICAMENTOS { get; set; }
+        public virtual DbSet<MEDICAMENTOS_VS_ALERGIAS> MEDICAMENTOS_VS_ALERGIAS { get; set; }
         public virtual DbSet<MODELO> MODELO { get; set; }
         public virtual DbSet<NACIONALIDADES> NACIONALIDADES { get; set; }
         public virtual DbSet<NCF> NCF { get; set; }
@@ -71,6 +75,11 @@ namespace _911_RD
         public virtual DbSet<SUPLIDORES> SUPLIDORES { get; set; }
         public virtual DbSet<TELEFONOS> TELEFONOS { get; set; }
         public virtual DbSet<TERCEROS> TERCEROS { get; set; }
+        public virtual DbSet<TERCEROS_VS_DIRECCIONES> TERCEROS_VS_DIRECCIONES { get; set; }
+        public virtual DbSet<TERCEROS_VS_EMAILS> TERCEROS_VS_EMAILS { get; set; }
+        public virtual DbSet<TERCEROS_VS_IDENTIFICACIONES> TERCEROS_VS_IDENTIFICACIONES { get; set; }
+        public virtual DbSet<TERCEROS_VS_TELEFONOS> TERCEROS_VS_TELEFONOS { get; set; }
+        public virtual DbSet<TIPO_MEDICAMENTOS> TIPO_MEDICAMENTOS { get; set; }
         public virtual DbSet<TIPOS_CLIENTES> TIPOS_CLIENTES { get; set; }
         public virtual DbSet<TIPOS_IDENTIFICACIONES> TIPOS_IDENTIFICACIONES { get; set; }
         public virtual DbSet<TIPOS_MEMBRESIAS> TIPOS_MEMBRESIAS { get; set; }
@@ -88,5 +97,6 @@ namespace _911_RD
         public virtual DbSet<ARTICULOS_VS_CATEGORIAS_VS_DESCUENTOS> ARTICULOS_VS_CATEGORIAS_VS_DESCUENTOS { get; set; }
         public virtual DbSet<GPS> GPS { get; set; }
         public virtual DbSet<TIPONCF> TIPONCF { get; set; }
+        public virtual DbSet<VEHICULOS_VS_CONDUCTOR> VEHICULOS_VS_CONDUCTOR { get; set; }
     }
 }

@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace _911_RD.Administracion
 {
-    public partial class FrmPaciente : Form
+    public partial class FrmPaciente : FrmBase
     {
         public FrmPaciente()
         {
@@ -26,6 +26,11 @@ namespace _911_RD.Administracion
         {
             F_principal ds = new F_principal();
             ds.ShowDialog();
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

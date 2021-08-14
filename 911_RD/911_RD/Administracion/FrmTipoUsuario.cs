@@ -43,7 +43,7 @@ namespace _911_RD.Administracion
                     {
                         TIPOS_USUARIOS user = new TIPOS_USUARIOS
                         {
-                            tipo_usuario = txt_des.Text.Trim(),
+                            tipo_usuario = txt_nombre.Text.Trim(),
                             descripcion = txt_des.Text.Trim(),
                         };
                         db.TIPOS_USUARIOS.Add(user);

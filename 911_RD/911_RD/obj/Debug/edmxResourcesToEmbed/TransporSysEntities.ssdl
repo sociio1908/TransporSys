@@ -1,5 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="TransporSysModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="ALERGIAS">
+    <Key>
+      <PropertyRef Name="id_alergia" />
+    </Key>
+    <Property Name="id_alergia" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="alergia" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="descripcion" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
   <EntityType Name="ALMACENES">
     <Key>
       <PropertyRef Name="id_almacen" />
@@ -55,9 +63,9 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.ARTICULOS_VS_CATEGORIAS_VS_D
   </EntityType>
   <EntityType Name="CATEGORIAS_SERVICIOS">
     <Key>
-      <PropertyRef Name="id_categoriaServicio" />
+      <PropertyRef Name="id_categoria_servicio" />
     </Key>
-    <Property Name="id_categoriaServicio" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_categoria_servicio" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="categoria" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="descripcion" Type="varchar" MaxLength="150" Nullable="false" />
     <Property Name="estado" Type="bit" Nullable="false" />
@@ -66,7 +74,7 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.ARTICULOS_VS_CATEGORIAS_VS_D
     <Key>
       <PropertyRef Name="id_ciudad" />
     </Key>
-    <Property Name="id_ciudad" Type="decimal" Precision="18" Scale="15" Nullable="false" />
+    <Property Name="id_ciudad" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="id_provincia" Type="int" Nullable="false" />
     <Property Name="ciudad" Type="varchar" MaxLength="50" Nullable="false" />
   </EntityType>
@@ -98,7 +106,6 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.ARTICULOS_VS_CATEGORIAS_VS_D
     </Key>
     <Property Name="id_combustible" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="descripcion" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="precio" Type="float" Nullable="false" />
     <Property Name="estado" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="COMPRAS">
@@ -220,6 +227,14 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.ARTICULOS_VS_CATEGORIAS_VS_D
     <Property Name="total" Type="float" Nullable="false" />
   </EntityType>
   <EntityType Name="DIRECCIONES">
+    <Key>
+      <PropertyRef Name="id_direccion" />
+    </Key>
+    <Property Name="id_direccion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_ciudad" Type="int" Nullable="false" />
+    <Property Name="descripcion" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DIRECCIONESLL">
     <Key>
       <PropertyRef Name="id_direccion" />
     </Key>
@@ -356,6 +371,23 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.GPS' no tiene definida ningu
     <Property Name="id_marca" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="marca" Type="varchar" MaxLength="50" />
   </EntityType>
+  <EntityType Name="MEDICAMENTOS">
+    <Key>
+      <PropertyRef Name="id_medicamento" />
+    </Key>
+    <Property Name="id_medicamento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="medicamento" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="id_tipo_medicamento" Type="int" Nullable="false" />
+    <Property Name="descripcion" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MEDICAMENTOS_VS_ALERGIAS">
+    <Key>
+      <PropertyRef Name="id_vs" />
+    </Key>
+    <Property Name="id_vs" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_alergia" Type="int" Nullable="false" />
+    <Property Name="id_medicamento" Type="int" />
+  </EntityType>
   <EntityType Name="MODELO">
     <Key>
       <PropertyRef Name="id_modelo" />
@@ -367,9 +399,9 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.GPS' no tiene definida ningu
     <Key>
       <PropertyRef Name="id_nacionalidad" />
     </Key>
-    <Property Name="id_nacionalidad" Type="int" Nullable="false" />
+    <Property Name="id_nacionalidad" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="nacionalidad" Type="varchar" MaxLength="150" Nullable="false" />
-    <Property Name="pais" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="id_pais" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="NCF">
     <Key>
@@ -472,7 +504,7 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.PUESTOS_VS_DEPARTAMENTOS' no
       <PropertyRef Name="id_servicio" />
     </Key>
     <Property Name="id_servicio" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="id_categoriaServicio" Type="int" Nullable="false" />
+    <Property Name="id_categoria_servicio" Type="int" Nullable="false" />
     <Property Name="id_unidad_de_medida" Type="int" />
     <Property Name="nombre" Type="varchar" MaxLength="50" />
     <Property Name="descripcion" Type="varchar" MaxLength="50" />
@@ -510,45 +542,45 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.PUESTOS_VS_DEPARTAMENTOS' no
     <Property Name="id_tercero" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="nombre" Type="varchar" MaxLength="100" Nullable="false" />
   </EntityType>
-  <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'TransporSys.dbo.TERCEROS_VS_DIRECCIONES' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
   <EntityType Name="TERCEROS_VS_DIRECCIONES">
     <Key>
-      <PropertyRef Name="id_tercero" />
-      <PropertyRef Name="id_direccion" />
+      <PropertyRef Name="id_vs" />
     </Key>
     <Property Name="id_tercero" Type="int" Nullable="false" />
     <Property Name="id_direccion" Type="int" Nullable="false" />
+    <Property Name="id_vs" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
   </EntityType>
-  <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'TransporSys.dbo.TERCEROS_VS_EMAILS' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
   <EntityType Name="TERCEROS_VS_EMAILS">
     <Key>
-      <PropertyRef Name="id_tercero" />
-      <PropertyRef Name="id_email" />
+      <PropertyRef Name="id_vs" />
     </Key>
     <Property Name="id_tercero" Type="int" Nullable="false" />
     <Property Name="id_email" Type="int" Nullable="false" />
+    <Property Name="id_vs" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
   </EntityType>
-  <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'TransporSys.dbo.TERCEROS_VS_IDENTIFICACIONES' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
   <EntityType Name="TERCEROS_VS_IDENTIFICACIONES">
     <Key>
-      <PropertyRef Name="id_tercero" />
-      <PropertyRef Name="id_identificacion" />
+      <PropertyRef Name="id_vs" />
     </Key>
     <Property Name="id_tercero" Type="int" Nullable="false" />
     <Property Name="id_identificacion" Type="int" Nullable="false" />
+    <Property Name="id_vs" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
   </EntityType>
-  <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'TransporSys.dbo.TERCEROS_VS_TELEFONOS' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
   <EntityType Name="TERCEROS_VS_TELEFONOS">
     <Key>
-      <PropertyRef Name="id_tercero" />
-      <PropertyRef Name="id_telefono" />
+      <PropertyRef Name="id_vs" />
     </Key>
     <Property Name="id_tercero" Type="int" Nullable="false" />
     <Property Name="id_telefono" Type="int" Nullable="false" />
+    <Property Name="id_vs" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TIPO_MEDICAMENTOS">
+    <Key>
+      <PropertyRef Name="id_tipo_medicamento" />
+    </Key>
+    <Property Name="id_tipo_medicamento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tipo_medicamento" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="descripcion" Type="varchar" MaxLength="100" Nullable="false" />
   </EntityType>
   <!--Errores durante la generación:
 advertencia 6002: La tabla o vista 'TransporSys.dbo.TIPONCF' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
@@ -667,14 +699,24 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.TIPONCF' no tiene definida n
     <Property Name="id_vehiculo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="id_marca" Type="int" Nullable="false" />
     <Property Name="id_modelo" Type="int" Nullable="false" />
-    <Property Name="id_conductor" Type="int" />
     <Property Name="num_chasis" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="fecha_ingreso" Type="datetime" Nullable="false" />
     <Property Name="ano_fabricacion" Type="datetime" Nullable="false" />
     <Property Name="gasto_galon_combustible_kilometro" Type="float" />
     <Property Name="id_combustible" Type="int" Nullable="false" />
     <Property Name="num_gps" Type="varchar" MaxLength="50" />
+    <Property Name="num_placa" Type="varchar" MaxLength="50" />
     <Property Name="estado" Type="bit" Nullable="false" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'TransporSys.dbo.VEHICULOS_VS_CONDUCTOR' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="VEHICULOS_VS_CONDUCTOR">
+    <Key>
+      <PropertyRef Name="id_vehiculo" />
+      <PropertyRef Name="id_conductor" />
+    </Key>
+    <Property Name="id_vehiculo" Type="int" Nullable="false" />
+    <Property Name="id_conductor" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="VENTA_SERVICIOS">
     <Key>
@@ -710,7 +752,7 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.TIPONCF' no tiene definida n
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__EMPLEADOS__id_pu__3864608B">
+  <Association Name="FK__EMPLEADOS__id_pu__46B27FE2">
     <End Role="PUESTOS" Type="Self.PUESTOS" Multiplicity="1" />
     <End Role="EMPLEADOS" Type="Self.EMPLEADOS" Multiplicity="*" />
     <ReferentialConstraint>
@@ -734,7 +776,7 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.TIPONCF' no tiene definida n
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__TERCEROS___id_em__55F4C372">
+  <Association Name="FK__TERCEROS___id_em__3F6663D5">
     <End Role="EMAILS" Type="Self.EMAILS" Multiplicity="1" />
     <End Role="TERCEROS_VS_EMAILS" Type="Self.TERCEROS_VS_EMAILS" Multiplicity="*" />
     <ReferentialConstraint>
@@ -746,7 +788,7 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.TIPONCF' no tiene definida n
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__TERCEROS___id_id__57DD0BE4">
+  <Association Name="FK__TERCEROS___id_id__3D7E1B63">
     <End Role="IDENTIFICACIONES" Type="Self.IDENTIFICACIONES" Multiplicity="1" />
     <End Role="TERCEROS_VS_IDENTIFICACIONES" Type="Self.TERCEROS_VS_IDENTIFICACIONES" Multiplicity="*" />
     <ReferentialConstraint>
@@ -758,7 +800,31 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.TIPONCF' no tiene definida n
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__TERCEROS___id_te__55009F39">
+  <Association Name="FK__TERCEROS___id_te__39AD8A7F">
+    <End Role="TERCEROS" Type="Self.TERCEROS" Multiplicity="1" />
+    <End Role="TERCEROS_VS_TELEFONOS" Type="Self.TERCEROS_VS_TELEFONOS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TERCEROS">
+        <PropertyRef Name="id_tercero" />
+      </Principal>
+      <Dependent Role="TERCEROS_VS_TELEFONOS">
+        <PropertyRef Name="id_tercero" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TERCEROS___id_te__3AA1AEB8">
+    <End Role="TELEFONOS" Type="Self.TELEFONOS" Multiplicity="1" />
+    <End Role="TERCEROS_VS_TELEFONOS" Type="Self.TERCEROS_VS_TELEFONOS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TELEFONOS">
+        <PropertyRef Name="id_telefono" />
+      </Principal>
+      <Dependent Role="TERCEROS_VS_TELEFONOS">
+        <PropertyRef Name="id_telefono" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TERCEROS___id_te__3C89F72A">
     <End Role="TERCEROS" Type="Self.TERCEROS" Multiplicity="1" />
     <End Role="TERCEROS_VS_DIRECCIONES" Type="Self.TERCEROS_VS_DIRECCIONES" Multiplicity="*" />
     <ReferentialConstraint>
@@ -770,19 +836,7 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.TIPONCF' no tiene definida n
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__TERCEROS___id_te__56E8E7AB">
-    <End Role="TERCEROS" Type="Self.TERCEROS" Multiplicity="1" />
-    <End Role="TERCEROS_VS_EMAILS" Type="Self.TERCEROS_VS_EMAILS" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="TERCEROS">
-        <PropertyRef Name="id_tercero" />
-      </Principal>
-      <Dependent Role="TERCEROS_VS_EMAILS">
-        <PropertyRef Name="id_tercero" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__TERCEROS___id_te__58D1301D">
+  <Association Name="FK__TERCEROS___id_te__3E723F9C">
     <End Role="TERCEROS" Type="Self.TERCEROS" Multiplicity="1" />
     <End Role="TERCEROS_VS_IDENTIFICACIONES" Type="Self.TERCEROS_VS_IDENTIFICACIONES" Multiplicity="*" />
     <ReferentialConstraint>
@@ -794,27 +848,15 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.TIPONCF' no tiene definida n
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__TERCEROS___id_te__59C55456">
+  <Association Name="FK__TERCEROS___id_te__405A880E">
     <End Role="TERCEROS" Type="Self.TERCEROS" Multiplicity="1" />
-    <End Role="TERCEROS_VS_TELEFONOS" Type="Self.TERCEROS_VS_TELEFONOS" Multiplicity="*" />
+    <End Role="TERCEROS_VS_EMAILS" Type="Self.TERCEROS_VS_EMAILS" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="TERCEROS">
         <PropertyRef Name="id_tercero" />
       </Principal>
-      <Dependent Role="TERCEROS_VS_TELEFONOS">
+      <Dependent Role="TERCEROS_VS_EMAILS">
         <PropertyRef Name="id_tercero" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__TERCEROS___id_te__5AB9788F">
-    <End Role="TELEFONOS" Type="Self.TELEFONOS" Multiplicity="1" />
-    <End Role="TERCEROS_VS_TELEFONOS" Type="Self.TERCEROS_VS_TELEFONOS" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="TELEFONOS">
-        <PropertyRef Name="id_telefono" />
-      </Principal>
-      <Dependent Role="TERCEROS_VS_TELEFONOS">
-        <PropertyRef Name="id_telefono" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -1138,7 +1180,7 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.TIPONCF' no tiene definida n
         <PropertyRef Name="id_ciudad" />
       </Principal>
       <Dependent Role="DIRECCIONES">
-        <PropertyRef Name="latitud" />
+        <PropertyRef Name="id_ciudad" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -1551,6 +1593,7 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.TIPONCF' no tiene definida n
     </ReferentialConstraint>
   </Association>
   <EntityContainer Name="TransporSysModelStoreContainer">
+    <EntitySet Name="ALERGIAS" EntityType="Self.ALERGIAS" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ALMACENES" EntityType="Self.ALMACENES" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ARTICULOS" EntityType="Self.ARTICULOS" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="BENEFICIOS" EntityType="Self.BENEFICIOS" Schema="dbo" store:Type="Tables" />
@@ -1572,6 +1615,7 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.TIPONCF' no tiene definida n
     <EntitySet Name="DETALLES_SALIDAS" EntityType="Self.DETALLES_SALIDAS" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="DETALLES_VENTAS" EntityType="Self.DETALLES_VENTAS" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="DIRECCIONES" EntityType="Self.DIRECCIONES" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DIRECCIONESLL" EntityType="Self.DIRECCIONESLL" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="DVENTAS_SERVICIOS" EntityType="Self.DVENTAS_SERVICIOS" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="DVIAJES" EntityType="Self.DVIAJES" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="EMAILS" EntityType="Self.EMAILS" Schema="dbo" store:Type="Tables" />
@@ -1583,6 +1627,8 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.TIPONCF' no tiene definida n
     <EntitySet Name="IDENTIFICACIONES" EntityType="Self.IDENTIFICACIONES" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ITEBIS" EntityType="Self.ITEBIS" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="MARCA" EntityType="Self.MARCA" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MEDICAMENTOS" EntityType="Self.MEDICAMENTOS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MEDICAMENTOS_VS_ALERGIAS" EntityType="Self.MEDICAMENTOS_VS_ALERGIAS" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="MODELO" EntityType="Self.MODELO" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="NACIONALIDADES" EntityType="Self.NACIONALIDADES" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="NCF" EntityType="Self.NCF" Schema="dbo" store:Type="Tables" />
@@ -1598,6 +1644,11 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.TIPONCF' no tiene definida n
     <EntitySet Name="SUPLIDORES" EntityType="Self.SUPLIDORES" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TELEFONOS" EntityType="Self.TELEFONOS" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TERCEROS" EntityType="Self.TERCEROS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TERCEROS_VS_DIRECCIONES" EntityType="Self.TERCEROS_VS_DIRECCIONES" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TERCEROS_VS_EMAILS" EntityType="Self.TERCEROS_VS_EMAILS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TERCEROS_VS_IDENTIFICACIONES" EntityType="Self.TERCEROS_VS_IDENTIFICACIONES" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TERCEROS_VS_TELEFONOS" EntityType="Self.TERCEROS_VS_TELEFONOS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TIPO_MEDICAMENTOS" EntityType="Self.TIPO_MEDICAMENTOS" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TIPOS_CLIENTES" EntityType="Self.TIPOS_CLIENTES" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TIPOS_IDENTIFICACIONES" EntityType="Self.TIPOS_IDENTIFICACIONES" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TIPOS_MEMBRESIAS" EntityType="Self.TIPOS_MEMBRESIAS" Schema="dbo" store:Type="Tables" />
@@ -1633,41 +1684,23 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.TIPONCF' no tiene definida n
     [PUESTOS_VS_DEPARTAMENTOS].[id_departamento] AS [id_departamento]
     FROM [dbo].[PUESTOS_VS_DEPARTAMENTOS] AS [PUESTOS_VS_DEPARTAMENTOS]</DefiningQuery>
     </EntitySet>
-    <EntitySet Name="TERCEROS_VS_DIRECCIONES" EntityType="Self.TERCEROS_VS_DIRECCIONES" store:Type="Tables" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-    [TERCEROS_VS_DIRECCIONES].[id_tercero] AS [id_tercero], 
-    [TERCEROS_VS_DIRECCIONES].[id_direccion] AS [id_direccion]
-    FROM [dbo].[TERCEROS_VS_DIRECCIONES] AS [TERCEROS_VS_DIRECCIONES]</DefiningQuery>
-    </EntitySet>
-    <EntitySet Name="TERCEROS_VS_EMAILS" EntityType="Self.TERCEROS_VS_EMAILS" store:Type="Tables" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-    [TERCEROS_VS_EMAILS].[id_tercero] AS [id_tercero], 
-    [TERCEROS_VS_EMAILS].[id_email] AS [id_email]
-    FROM [dbo].[TERCEROS_VS_EMAILS] AS [TERCEROS_VS_EMAILS]</DefiningQuery>
-    </EntitySet>
-    <EntitySet Name="TERCEROS_VS_IDENTIFICACIONES" EntityType="Self.TERCEROS_VS_IDENTIFICACIONES" store:Type="Tables" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-    [TERCEROS_VS_IDENTIFICACIONES].[id_tercero] AS [id_tercero], 
-    [TERCEROS_VS_IDENTIFICACIONES].[id_identificacion] AS [id_identificacion]
-    FROM [dbo].[TERCEROS_VS_IDENTIFICACIONES] AS [TERCEROS_VS_IDENTIFICACIONES]</DefiningQuery>
-    </EntitySet>
-    <EntitySet Name="TERCEROS_VS_TELEFONOS" EntityType="Self.TERCEROS_VS_TELEFONOS" store:Type="Tables" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-    [TERCEROS_VS_TELEFONOS].[id_tercero] AS [id_tercero], 
-    [TERCEROS_VS_TELEFONOS].[id_telefono] AS [id_telefono]
-    FROM [dbo].[TERCEROS_VS_TELEFONOS] AS [TERCEROS_VS_TELEFONOS]</DefiningQuery>
-    </EntitySet>
     <EntitySet Name="TIPONCF" EntityType="Self.TIPONCF" store:Type="Tables" store:Schema="dbo">
       <DefiningQuery>SELECT 
     [TIPONCF].[numTipo] AS [numTipo], 
     [TIPONCF].[tipo] AS [tipo]
     FROM [dbo].[TIPONCF] AS [TIPONCF]</DefiningQuery>
     </EntitySet>
+    <EntitySet Name="VEHICULOS_VS_CONDUCTOR" EntityType="Self.VEHICULOS_VS_CONDUCTOR" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [VEHICULOS_VS_CONDUCTOR].[id_vehiculo] AS [id_vehiculo], 
+    [VEHICULOS_VS_CONDUCTOR].[id_conductor] AS [id_conductor]
+    FROM [dbo].[VEHICULOS_VS_CONDUCTOR] AS [VEHICULOS_VS_CONDUCTOR]</DefiningQuery>
+    </EntitySet>
     <AssociationSet Name="FK__CONDUCTOR__id_em__54CB950F" Association="Self.FK__CONDUCTOR__id_em__54CB950F">
       <End Role="EMPLEADOS" EntitySet="EMPLEADOS" />
       <End Role="CONDUCTOR" EntitySet="CONDUCTOR" />
     </AssociationSet>
-    <AssociationSet Name="FK__EMPLEADOS__id_pu__3864608B" Association="Self.FK__EMPLEADOS__id_pu__3864608B">
+    <AssociationSet Name="FK__EMPLEADOS__id_pu__46B27FE2" Association="Self.FK__EMPLEADOS__id_pu__46B27FE2">
       <End Role="PUESTOS" EntitySet="PUESTOS" />
       <End Role="EMPLEADOS" EntitySet="EMPLEADOS" />
     </AssociationSet>
@@ -1675,33 +1708,33 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.TIPONCF' no tiene definida n
       <End Role="DIRECCIONES" EntitySet="DIRECCIONES" />
       <End Role="TERCEROS_VS_DIRECCIONES" EntitySet="TERCEROS_VS_DIRECCIONES" />
     </AssociationSet>
-    <AssociationSet Name="FK__TERCEROS___id_em__55F4C372" Association="Self.FK__TERCEROS___id_em__55F4C372">
+    <AssociationSet Name="FK__TERCEROS___id_em__3F6663D5" Association="Self.FK__TERCEROS___id_em__3F6663D5">
       <End Role="EMAILS" EntitySet="EMAILS" />
       <End Role="TERCEROS_VS_EMAILS" EntitySet="TERCEROS_VS_EMAILS" />
     </AssociationSet>
-    <AssociationSet Name="FK__TERCEROS___id_id__57DD0BE4" Association="Self.FK__TERCEROS___id_id__57DD0BE4">
+    <AssociationSet Name="FK__TERCEROS___id_id__3D7E1B63" Association="Self.FK__TERCEROS___id_id__3D7E1B63">
       <End Role="IDENTIFICACIONES" EntitySet="IDENTIFICACIONES" />
       <End Role="TERCEROS_VS_IDENTIFICACIONES" EntitySet="TERCEROS_VS_IDENTIFICACIONES" />
     </AssociationSet>
-    <AssociationSet Name="FK__TERCEROS___id_te__55009F39" Association="Self.FK__TERCEROS___id_te__55009F39">
+    <AssociationSet Name="FK__TERCEROS___id_te__39AD8A7F" Association="Self.FK__TERCEROS___id_te__39AD8A7F">
+      <End Role="TERCEROS" EntitySet="TERCEROS" />
+      <End Role="TERCEROS_VS_TELEFONOS" EntitySet="TERCEROS_VS_TELEFONOS" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TERCEROS___id_te__3AA1AEB8" Association="Self.FK__TERCEROS___id_te__3AA1AEB8">
+      <End Role="TELEFONOS" EntitySet="TELEFONOS" />
+      <End Role="TERCEROS_VS_TELEFONOS" EntitySet="TERCEROS_VS_TELEFONOS" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TERCEROS___id_te__3C89F72A" Association="Self.FK__TERCEROS___id_te__3C89F72A">
       <End Role="TERCEROS" EntitySet="TERCEROS" />
       <End Role="TERCEROS_VS_DIRECCIONES" EntitySet="TERCEROS_VS_DIRECCIONES" />
     </AssociationSet>
-    <AssociationSet Name="FK__TERCEROS___id_te__56E8E7AB" Association="Self.FK__TERCEROS___id_te__56E8E7AB">
-      <End Role="TERCEROS" EntitySet="TERCEROS" />
-      <End Role="TERCEROS_VS_EMAILS" EntitySet="TERCEROS_VS_EMAILS" />
-    </AssociationSet>
-    <AssociationSet Name="FK__TERCEROS___id_te__58D1301D" Association="Self.FK__TERCEROS___id_te__58D1301D">
+    <AssociationSet Name="FK__TERCEROS___id_te__3E723F9C" Association="Self.FK__TERCEROS___id_te__3E723F9C">
       <End Role="TERCEROS" EntitySet="TERCEROS" />
       <End Role="TERCEROS_VS_IDENTIFICACIONES" EntitySet="TERCEROS_VS_IDENTIFICACIONES" />
     </AssociationSet>
-    <AssociationSet Name="FK__TERCEROS___id_te__59C55456" Association="Self.FK__TERCEROS___id_te__59C55456">
+    <AssociationSet Name="FK__TERCEROS___id_te__405A880E" Association="Self.FK__TERCEROS___id_te__405A880E">
       <End Role="TERCEROS" EntitySet="TERCEROS" />
-      <End Role="TERCEROS_VS_TELEFONOS" EntitySet="TERCEROS_VS_TELEFONOS" />
-    </AssociationSet>
-    <AssociationSet Name="FK__TERCEROS___id_te__5AB9788F" Association="Self.FK__TERCEROS___id_te__5AB9788F">
-      <End Role="TELEFONOS" EntitySet="TELEFONOS" />
-      <End Role="TERCEROS_VS_TELEFONOS" EntitySet="TERCEROS_VS_TELEFONOS" />
+      <End Role="TERCEROS_VS_EMAILS" EntitySet="TERCEROS_VS_EMAILS" />
     </AssociationSet>
     <AssociationSet Name="FK_ARTICULOS_CATEGORIAS" Association="Self.FK_ARTICULOS_CATEGORIAS">
       <End Role="CATEGORIAS" EntitySet="CATEGORIAS" />

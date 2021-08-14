@@ -17,15 +17,15 @@ namespace _911_RD
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public TELEFONOS()
         {
-            this.TERCEROS = new HashSet<TERCEROS>();
+            this.TERCEROS_VS_TELEFONOS = new HashSet<TERCEROS_VS_TELEFONOS>();
         }
     
         public int id_telefono { get; set; }
         public int id_tipo_telefono { get; set; }
         public string telefono { get; set; }
     
-        public virtual TIPOS_TELEFONOS TIPOS_TELEFONOS { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TERCEROS> TERCEROS { get; set; }
+        public virtual ICollection<TERCEROS_VS_TELEFONOS> TERCEROS_VS_TELEFONOS { get; set; }
+        public virtual TIPOS_TELEFONOS TIPOS_TELEFONOS { get; set; }
     }
 }

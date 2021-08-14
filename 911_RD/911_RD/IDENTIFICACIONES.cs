@@ -17,15 +17,15 @@ namespace _911_RD
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public IDENTIFICACIONES()
         {
-            this.TERCEROS = new HashSet<TERCEROS>();
+            this.TERCEROS_VS_IDENTIFICACIONES = new HashSet<TERCEROS_VS_IDENTIFICACIONES>();
         }
     
         public int id_identificacion { get; set; }
         public int id_tipo_identificacion { get; set; }
         public string identificacion { get; set; }
     
-        public virtual TIPOS_IDENTIFICACIONES TIPOS_IDENTIFICACIONES { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TERCEROS> TERCEROS { get; set; }
+        public virtual ICollection<TERCEROS_VS_IDENTIFICACIONES> TERCEROS_VS_IDENTIFICACIONES { get; set; }
+        public virtual TIPOS_IDENTIFICACIONES TIPOS_IDENTIFICACIONES { get; set; }
     }
 }

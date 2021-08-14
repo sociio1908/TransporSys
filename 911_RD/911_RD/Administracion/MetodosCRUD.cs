@@ -1,7 +1,4 @@
 ﻿
-
-
-
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -23,7 +20,7 @@ namespace _911_RD.Administracion
             int id_result = 0;
             try
             {
-                //TransporSysEntities4
+                //TransporSysEntities
                 using (TransporSysEntities db = new TransporSysEntities())
                 {
                     var terceroquery = db.CONDUCTOR.FirstOrDefault(a => a.id_empleado.ToString() == id_empleado.Trim());
@@ -59,12 +56,63 @@ namespace _911_RD.Administracion
             return id_result;
         }
 
+
+        public bool ValidarChasis_Placa(string campo)
+        {
+            bool id_result = false;
+
+            try
+            {
+                //TransporSysEntities
+                using (TransporSysEntities db = new TransporSysEntities())
+                {
+                    var terceroquery = db.VEHICULO.FirstOrDefault(a => a.num_chasis.ToString() == campo.Trim() || a.num_placa.ToString() == campo.Trim() || a.num_gps.ToString() == campo.Trim());
+                    if (terceroquery != null)
+                    {
+                        return true;
+                    }
+                 
+                }
+            }
+            catch (Exception asd)
+            {
+
+            }
+
+            return id_result;
+        }
+
+        public Tuple<int, int> ValidarIdentificacion(string campo)
+        {
+            int id_result = 0;
+
+            try
+            {
+                //TransporSysEntities
+                using (TransporSysEntities db = new TransporSysEntities())
+                {
+                    var terceroquery = db.IDENTIFICACIONES.FirstOrDefault(a => a.identificacion.ToString() == campo.Trim());
+                    if (terceroquery != null)
+                    {
+                        var m = db.TERCEROS_VS_IDENTIFICACIONES.FirstOrDefault(a => a.id_identificacion == terceroquery.id_identificacion);
+                        if (m!=null)
+                       return Tuple.Create(id_result = m.id_tercero, id_result = m.id_identificacion);// return Tuple.Create(1, 2);
+                    }
+                }
+            }
+            catch (Exception asd)
+            {
+
+            }
+            return Tuple.Create(id_result, 0);// return Tuple.Create(1, 2);
+        }
+
         public int crudEmpleado(string id_puesto, string id_persona, DateTime fecha, bool estadoT)
         {
             int id_result = 0;
             try
             {
-                //TransporSysEntities4
+                //TransporSysEntities
                 using (TransporSysEntities db = new TransporSysEntities())
                 {
                     var terceroquery = db.EMPLEADOS.FirstOrDefault(a => a.id_persona.ToString() == id_persona.Trim());
@@ -82,7 +130,6 @@ namespace _911_RD.Administracion
                     }
                     else
                     {
-                        terceroquery.id_persona = int.Parse(id_persona.Trim());
                         terceroquery.id_puesto = int.Parse(id_puesto.Trim());
                         terceroquery.fecha_ingreso = fecha;
                         terceroquery.estado = estadoT;
@@ -103,15 +150,72 @@ namespace _911_RD.Administracion
             return id_result;
         }
 
-        public int crudTerceros(string id_traido, string nombre_traido)
+
+        public int crudCliente(string id_tercero, string id_tipo, bool estadoT)
+        {
+            int id_result = 0;
+            //try
+            //{
+                //TransporSysEntities
+                using (TransporSysEntities db = new TransporSysEntities())
+                {
+                    var terceroquery = db.CLIENTES.FirstOrDefault(a => a.id_tercero.ToString() == id_tercero.Trim());
+                    if (terceroquery == null)
+                    {
+
+                        CLIENTES eMPLEADOS = new CLIENTES
+                        {
+                            id_tercero = int.Parse(id_tercero.Trim()),
+                            id_tipo_cliente = int.Parse(id_tipo.Trim()),
+                            estado = true
+                        };
+                        db.CLIENTES.Add(eMPLEADOS);
+                    }
+                    else
+                    {
+                        terceroquery.id_tercero = int.Parse(id_tercero.Trim());
+                        terceroquery.id_tipo_cliente = int.Parse(id_tipo.Trim());
+                        terceroquery.estado = estadoT;
+                        id_result = terceroquery.id_cliente;
+                    }
+                    db.SaveChanges();
+                        if (terceroquery == null)
+                        {
+                            id_result = db.CLIENTES.Max(x => x.id_cliente);
+                        }
+                }
+            //}
+            //catch (Exception asd)
+            //{
+
+            //}
+
+            return id_result;
+        }
+
+
+        public int crudTerceros(string id_traido, string nombre_traido, string identificacion)
         {
             int id_result = 0;
             try
             {
-                //TransporSysEntities4
+                //TransporSysEntities
                 using (TransporSysEntities db = new TransporSysEntities())
                 {
-                    var terceroquery = db.TERCEROS.FirstOrDefault(a => a.id_tercero.ToString() == id_traido.Trim());
+                    int id = 0;
+                    var iden = db.IDENTIFICACIONES.FirstOrDefault(a => a.identificacion.ToString() == identificacion.Trim());
+                    var VS = db.TERCEROS_VS_IDENTIFICACIONES.FirstOrDefault(a => a.id_identificacion == iden.id_identificacion && a.id_tercero.ToString()==id_traido.Trim());
+
+                    if (VS != null)
+                    {
+                        id = VS.id_tercero;
+                    }
+                    else
+                    {
+                        id = int.Parse(id_traido.Trim());
+                    }
+                    //toy working por eso tardo tu sabes que hay que estar parandose
+                    var terceroquery = db.TERCEROS.FirstOrDefault(a => a.id_tercero == id);
                     if (terceroquery == null)
                     {
                         TERCEROS tercero = new TERCEROS
@@ -122,7 +226,6 @@ namespace _911_RD.Administracion
                     }
                     else
                     {
-                        terceroquery.id_tercero = int.Parse(id_traido.Trim());
                         terceroquery.nombre = nombre_traido.Trim();
                         id_result = terceroquery.id_tercero;
                     }
@@ -136,58 +239,27 @@ namespace _911_RD.Administracion
             }
             catch (Exception asd)
             {
-                Console.WriteLine("ERROR: " + asd);
+               System.Diagnostics.Debug.WriteLine("ERROR: " + asd.ToString());
+
             }
 
             return id_result;
         }
 
 
-
-
-        public DataTable buscarEmpleado(string identidicacion, string codigo)
-        {
+        public DataTable buscarEmpleado(string identidicacion, string codigo){
             DataTable dt = new DataTable();
-            //try
-            //{
-            //    // List<string> Empleados = new List<string>();
+           
 
-            Utilidades.conexion.Open();
-            var query = "SELECT ter.id_tercero as ID_TERCERO, per.id_persona as ID_PERSONA, emp.id_empleado as ID_EMPLEADO, ter.nombre +' '+per.apellido as NOMBRE_COMPLETO, per.fecha_nacimiento as FECHANACIMIENTO, sex.descripcion as SEXO, " +
-                    " nac.nacionalidad as NACIONALIDAD, iden.identificacion as IDENTIFICACION, tipo_iden.nombre as TIPO_IDENTIFICACION," +
-                    " emp.fecha_ingreso as FECHACONTRATO, pue.puesto as PUESTO, pue.salario as SUELDO, tel.telefono as TELEFONO, cor.email as EMAIL, dir.latitud as LATITUD, dir.longitud as LONGITUD" +
-                    " from TERCEROS ter " +
-                    " inner join PERSONAS per on ter.id_tercero = per.id_tercero " +
-                    " inner join SEXOS sex on per.id_sexo = sex.id_sexo  " +
-                    " inner join NACIONALIDADES nac on per.id_nacionalidad = nac.id_nacionalidad " +
-                    " inner join TERCEROS_VS_IDENTIFICACIONES idenVS on ter.id_tercero = idenVS.id_tercero " +
-                    " inner join IDENTIFICACIONES iden on idenVS.id_identificacion = iden.id_identificacion " +
-                    " inner join TIPOS_IDENTIFICACIONES tipo_iden on iden.id_tipo_identificacion = tipo_iden.id_tipo_identificacion " +
-                    " inner join TERCEROS_VS_DIRECCIONES dirVS on ter.id_tercero = dirVS.id_tercero " +
-                    " inner join DIRECCIONES dir on dirVS.id_direccion = dir.id_direccion " +
-                    " inner join TERCEROS_VS_EMAILS corVS on ter.id_tercero = corVS.id_tercero " +
-                    " inner join EMAILS cor on corVS.id_email = cor.id_email " +
-                    " inner join TERCEROS_VS_TELEFONOS telVS on ter.id_tercero = telVS.id_tercero " +
-                    " inner join TELEFONOS tel on telVS.id_telefono = tel.id_telefono " +
-                    " inner join EMPLEADOS emp on per.id_persona = emp.id_persona " +
-                    " inner join PUESTOS pue on emp.id_puesto = pue.id_puesto";
+          
 
 
-            SqlCommand comandoSelect = new SqlCommand(query, Utilidades.conexion);
 
-            SqlDataAdapter adap = new SqlDataAdapter(comandoSelect);
-            adap.Fill(dt);
-            Utilidades.conexion.Close();
+
+
+
             return dt;
 
-
-            //}
-
-            //catch (Exception aas)
-            //{
-            //    //Posible error
-            //}
-            return dt;
         }
 
         public int crudIdentificaciones(string identificacion, string id_tipo, string id_tercero)
@@ -202,7 +274,7 @@ namespace _911_RD.Administracion
                     {
                         IDENTIFICACIONES ident = new IDENTIFICACIONES
                         {
-
+                            
                             id_tipo_identificacion = int.Parse(id_tipo.Trim()),
                             identificacion = identificacion.Trim(),
                         };
@@ -216,7 +288,7 @@ namespace _911_RD.Administracion
                     }
                     db.SaveChanges();
                     if (terceroquery == null)
-                        id_result = db.IDENTIFICACIONES.Max(x => x.id_identificacion);
+                       id_result = db.IDENTIFICACIONES.Max(x => x.id_identificacion);
 
                 }
                 crud_VS(int.Parse(id_tercero), id_result, "TERCEROS_VS_IDENTIFICACIONES", "id_identificacion");
@@ -301,8 +373,8 @@ namespace _911_RD.Administracion
                     {
                         id_result = db.EMAILS.Max(x => x.id_email);
                     }
-
                 }
+                if(id_tercero!=null)
                 crud_VS(int.Parse(id_tercero), id_result, "TERCEROS_VS_EMAILS", "id_email");
 
             }
@@ -325,9 +397,9 @@ namespace _911_RD.Administracion
                     {
                         TELEFONOS core = new TELEFONOS
                         {
-
+                                
                             telefono = telefono.Trim(),
-                            id_tipo_telefono = 1,
+                            id_tipo_telefono =1,
                         };
                         db.TELEFONOS.Add(core);
                     }
@@ -343,7 +415,8 @@ namespace _911_RD.Administracion
                         id_result = db.TELEFONOS.Max(x => x.id_telefono);
                     }
                 }
-                crud_VS(int.Parse(id_tercero), id_result, "TERCEROS_VS_TELEFONOS", "id_telefono");
+                if (id_tercero != null)
+                    crud_VS(int.Parse(id_tercero), id_result, "TERCEROS_VS_TELEFONOS", "id_telefono");
             }
             catch (Exception dfg)
             {
@@ -351,29 +424,33 @@ namespace _911_RD.Administracion
             }
         }
 
-        public int InsertarDireccion(string latitud_, string longitud_, string id_tercero)
+        public int InsertarDireccion(string id_direccion, string id_ciudad, string descripcion, string id_tercero)
         {
             int id_result = 0;
             try
             {
                 using (TransporSysEntities db = new TransporSysEntities())
                 {
-                    var terceroquery = db.DIRECCIONES.FirstOrDefault(a => a.latitud.ToString() == latitud_.Trim() && a.longitud.ToString() == longitud_.Trim());
+
+                    int id_ciudad_int = db.CIUDADES.FirstOrDefault(a => a.ciudad.ToString() == id_ciudad.Trim()).id_ciudad;
+
+                    var terceroquery = db.DIRECCIONES.FirstOrDefault(a => a.id_direccion.ToString() == id_direccion.Trim());
+
                     if (terceroquery == null)
                     {
-                        DIRECCIONES core = new DIRECCIONES
-                        {
-
-                            latitud = Convert.ToDecimal(latitud_),
-                            longitud = Convert.ToDecimal(longitud_),
+                        DIRECCIONES dir = new DIRECCIONES{
+                            id_ciudad = id_ciudad_int,
+                            descripcion = descripcion.Trim(),
                         };
-                        db.DIRECCIONES.Add(core);
-                        db.SaveChanges();
+                        db.DIRECCIONES.Add(dir);
                     }
                     else
                     {
+                        terceroquery.id_ciudad = id_ciudad_int;
+                        terceroquery.descripcion = descripcion.Trim();
                         id_result = terceroquery.id_direccion;
                     }
+                    db.SaveChanges();
                     if (terceroquery == null)
                     {
                         id_result = db.DIRECCIONES.Max(x => x.id_direccion);
@@ -394,8 +471,8 @@ namespace _911_RD.Administracion
         {
             try
             {
-                Utilidades.conexion.Open();
-                if (campo == "id_identificacion")
+               Utilidades.conexion.Open();
+                if(campo== "id_identificacion")
                 {
                     string delete = "Delete from " + tabla + " where id_tercero = " + id_tercero + " and " + campo + " = " + id_valor;
                     System.Diagnostics.Debug.WriteLine("DELETE: " + delete.ToString());
@@ -408,7 +485,7 @@ namespace _911_RD.Administracion
 
                 var resul = comandoSelect.ExecuteScalar();
 
-                if (resul == null)
+                if (resul ==null )
                 {
                     string cadena_insert = "insert into " + tabla + " ( id_tercero," + campo + ") values (" + id_tercero + "," + id_valor + ")";
                     System.Diagnostics.Debug.WriteLine("insert: " + cadena_insert);
@@ -416,6 +493,24 @@ namespace _911_RD.Administracion
                     comando.ExecuteNonQuery();
                 }
                 Utilidades.conexion.Close();
+            }
+            catch (Exception asd)
+            {
+                //error
+            }
+        }
+
+
+        public void borrarVs(int id_tercero, int id_valor, string tabla, string campo)
+        {
+            try
+            {
+                    Utilidades.conexion.Open();
+                    string delete = "Delete from " + tabla + " where id_tercero = " + id_tercero + " and " + campo + " = " + id_valor;
+                    System.Diagnostics.Debug.WriteLine("DELETE: " + delete.ToString());
+                    SqlCommand comando = new SqlCommand(delete, Utilidades.conexion);
+                    comando.ExecuteNonQuery();
+                    Utilidades.conexion.Close();
             }
             catch (Exception asd)
             {

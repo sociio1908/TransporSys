@@ -11,7 +11,7 @@ namespace _911_RD
     class Utilidades
     {
         //INGJERINELMENDO;initial catalog=TransporSys;integrated security=True;
-        public static SqlConnection conexion = new SqlConnection("server=INGJERINELMENDO ; database=TransporSys ; integrated security = true");
+        public static SqlConnection conexion = new SqlConnection("server=DESKTOP-5TGSPHM ; database=TransporSys ; integrated security = true");
 
         public static Tuple<string, string, Boolean> ExtraerDireccion(string link1)
         {

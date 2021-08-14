@@ -17,15 +17,15 @@ namespace _911_RD
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public DIRECCIONES()
         {
-            this.TERCEROS = new HashSet<TERCEROS>();
+            this.TERCEROS_VS_DIRECCIONES = new HashSet<TERCEROS_VS_DIRECCIONES>();
         }
     
         public int id_direccion { get; set; }
-        public decimal latitud { get; set; }
-        public decimal longitud { get; set; }
+        public int id_ciudad { get; set; }
+        public string descripcion { get; set; }
     
         public virtual CIUDADES CIUDADES { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TERCEROS> TERCEROS { get; set; }
+        public virtual ICollection<TERCEROS_VS_DIRECCIONES> TERCEROS_VS_DIRECCIONES { get; set; }
     }
 }

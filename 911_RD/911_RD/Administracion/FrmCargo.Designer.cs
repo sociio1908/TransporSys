@@ -52,7 +52,6 @@
             this.cb_estado = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txt_salario = new _911_RD.ErrorTxtBox();
-            this.btnEnviar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.btn_buscar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -80,7 +79,6 @@
             // btn_salir
             // 
             this.btn_salir.Location = new System.Drawing.Point(275, 387);
-            this.btn_salir.Click += new System.EventHandler(this.btn_salir_Click);
             // 
             // id_txt
             // 
@@ -103,7 +101,6 @@
             this.label10.Size = new System.Drawing.Size(54, 16);
             this.label10.TabIndex = 157;
             this.label10.Text = "PUESTO";
-            this.label10.Click += new System.EventHandler(this.label10_Click);
             // 
             // txt_puesto
             // 
@@ -151,7 +148,7 @@
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label13.Location = new System.Drawing.Point(15, 448);
+            this.label13.Location = new System.Drawing.Point(8, 448);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(76, 16);
             this.label13.TabIndex = 173;
@@ -164,7 +161,7 @@
             this.txt_filtro.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txt_filtro.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.txt_filtro.Limpiar = false;
-            this.txt_filtro.Location = new System.Drawing.Point(97, 443);
+            this.txt_filtro.Location = new System.Drawing.Point(90, 443);
             this.txt_filtro.Name = "txt_filtro";
             this.txt_filtro.Size = new System.Drawing.Size(170, 26);
             this.txt_filtro.SoloNumeros = false;
@@ -331,22 +328,11 @@
             this.txt_salario.TabIndex = 179;
             this.txt_salario.Validar = true;
             // 
-            // btnEnviar
-            // 
-            this.btnEnviar.Location = new System.Drawing.Point(313, 93);
-            this.btnEnviar.Name = "btnEnviar";
-            this.btnEnviar.Size = new System.Drawing.Size(110, 34);
-            this.btnEnviar.TabIndex = 180;
-            this.btnEnviar.Text = "Seleccionar";
-            this.btnEnviar.UseVisualStyleBackColor = true;
-            this.btnEnviar.Click += new System.EventHandler(this.btnEnviar_Click);
-            // 
             // FrmCargo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(594, 669);
-            this.Controls.Add(this.btnEnviar);
             this.Controls.Add(this.txt_salario);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label7);
@@ -361,7 +347,6 @@
             this.Name = "FrmCargo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmCargo";
-            this.Load += new System.EventHandler(this.FrmCargo_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.FrmCargo_Paint);
             this.Controls.SetChildIndex(this.txt_puesto, 0);
             this.Controls.SetChildIndex(this.label10, 0);
@@ -382,7 +367,6 @@
             this.Controls.SetChildIndex(this.label7, 0);
             this.Controls.SetChildIndex(this.label1, 0);
             this.Controls.SetChildIndex(this.txt_salario, 0);
-            this.Controls.SetChildIndex(this.btnEnviar, 0);
             ((System.ComponentModel.ISupportInitialize)(this.btn_buscar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -394,8 +378,10 @@
         #endregion
 
         private System.Windows.Forms.Label label10;
+        private ErrorTxtBox txt_puesto;
         private System.Windows.Forms.Label label2;
         private ErrorTxtBox errorTxtBox1;
+        private ErrorTxtBox txt_descripcion;
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.Label label13;
         private ErrorTxtBox txt_filtro;
@@ -409,9 +395,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn salario;
         private System.Windows.Forms.DataGridViewTextBoxColumn estado;
         private System.Windows.Forms.DataGridViewButtonColumn Seleccionar;
-        public ErrorTxtBox txt_puesto;
-        public ErrorTxtBox txt_descripcion;
-        public ErrorTxtBox txt_salario;
-        private System.Windows.Forms.Button btnEnviar;
+        private ErrorTxtBox txt_salario;
     }
 }
