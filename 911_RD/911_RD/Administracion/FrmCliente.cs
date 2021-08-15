@@ -153,8 +153,8 @@ namespace _911_RD
         private void InsertarPuesto()
         {
 
-            //try
-            //{
+            try
+            {
 
                 int tercero_t = 0;
 
@@ -183,12 +183,12 @@ namespace _911_RD
                 tercero = "";
                 cargarTabla(""); clearTableAndMore();
 
-            //}
-            //catch (Exception dfg)
-            //{
-            //    // MessageBox.Show(lbl_titulo + " ERRORRRR");
+            }
+            catch (Exception dfg)
+            {
+                // MessageBox.Show(lbl_titulo + " ERRORRRR");
 
-            //}
+            }
 
         }
 
