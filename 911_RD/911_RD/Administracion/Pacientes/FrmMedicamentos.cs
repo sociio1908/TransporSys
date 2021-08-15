@@ -163,6 +163,10 @@ namespace _911_RD.Administracion.Pacientes
                 cargarTabla(txt_filtro.Text.Trim());
         }
 
-
+        private void btn_limpiar_Click(object sender, EventArgs e)
+        {
+            Utilidades.LimpiarControles(this);
+            cargarTabla("");
+        }
     }
 }

@@ -240,6 +240,7 @@ namespace _911_RD.Administracion.Pacientes
                 //   MessageBox.Show("ERROR TEL: " + ass.Message + "--LO OTRO: " + ass.HelpLink);
             }
         }
+
         void removerFila(DataGridView tabla, string campo, string table)
         {
             try

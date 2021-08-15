@@ -40,6 +40,12 @@ namespace _911_RD.Administracion.Pacientes
             this.label13 = new System.Windows.Forms.Label();
             this.txt_filtro = new _911_RD.ErrorTxtBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.id_eme = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id_tipo_telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tipo_med = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.medicamento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Seleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.txt_medicamento = new _911_RD.ErrorTxtBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -47,12 +53,6 @@ namespace _911_RD.Administracion.Pacientes
             this.txt_descripcion = new _911_RD.ErrorTxtBox();
             this.label1 = new System.Windows.Forms.Label();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.id_eme = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.id_tipo_telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tipo_med = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.medicamento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Seleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.btn_buscar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_tipo_med)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -72,16 +72,11 @@ namespace _911_RD.Administracion.Pacientes
             // btn_limpiar
             // 
             this.btn_limpiar.Location = new System.Drawing.Point(154, 292);
+            this.btn_limpiar.Click += new System.EventHandler(this.btn_limpiar_Click);
             // 
             // btn_salir
             // 
             this.btn_salir.Location = new System.Drawing.Point(276, 292);
-            // 
-            // id_txt
-            // 
-            this.id_txt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.id_txt.Limpiar = true;
-            this.id_txt.Size = new System.Drawing.Size(106, 29);
             // 
             // btn_buscar
             // 
@@ -203,6 +198,58 @@ namespace _911_RD.Administracion.Pacientes
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentDoubleClick);
             // 
+            // id_eme
+            // 
+            this.id_eme.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.id_eme.FillWeight = 20F;
+            this.id_eme.HeaderText = "ID";
+            this.id_eme.Name = "id_eme";
+            this.id_eme.ReadOnly = true;
+            // 
+            // id_tipo_telefono
+            // 
+            this.id_tipo_telefono.HeaderText = "id_tipo_medicamento";
+            this.id_tipo_telefono.Name = "id_tipo_telefono";
+            this.id_tipo_telefono.ReadOnly = true;
+            this.id_tipo_telefono.Visible = false;
+            // 
+            // tipo_med
+            // 
+            this.tipo_med.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.tipo_med.FillWeight = 50F;
+            this.tipo_med.HeaderText = "TIPO";
+            this.tipo_med.Name = "tipo_med";
+            this.tipo_med.ReadOnly = true;
+            // 
+            // medicamento
+            // 
+            this.medicamento.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.medicamento.FillWeight = 98.03922F;
+            this.medicamento.HeaderText = "MEDICAMENTO";
+            this.medicamento.Name = "medicamento";
+            this.medicamento.ReadOnly = true;
+            // 
+            // descripcion
+            // 
+            this.descripcion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.descripcion.HeaderText = "DESCRPCION";
+            this.descripcion.Name = "descripcion";
+            this.descripcion.ReadOnly = true;
+            // 
+            // Seleccionar
+            // 
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.Seleccionar.DefaultCellStyle = dataGridViewCellStyle2;
+            this.Seleccionar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Seleccionar.HeaderText = "";
+            this.Seleccionar.Name = "Seleccionar";
+            this.Seleccionar.ReadOnly = true;
+            this.Seleccionar.Text = "Editar";
+            // 
             // txt_medicamento
             // 
             this.txt_medicamento.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -276,58 +323,6 @@ namespace _911_RD.Administracion.Pacientes
             // 
             this.errorProvider1.ContainerControl = this;
             // 
-            // id_eme
-            // 
-            this.id_eme.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.id_eme.FillWeight = 20F;
-            this.id_eme.HeaderText = "ID";
-            this.id_eme.Name = "id_eme";
-            this.id_eme.ReadOnly = true;
-            // 
-            // id_tipo_telefono
-            // 
-            this.id_tipo_telefono.HeaderText = "id_tipo_medicamento";
-            this.id_tipo_telefono.Name = "id_tipo_telefono";
-            this.id_tipo_telefono.ReadOnly = true;
-            this.id_tipo_telefono.Visible = false;
-            // 
-            // tipo_med
-            // 
-            this.tipo_med.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.tipo_med.FillWeight = 50F;
-            this.tipo_med.HeaderText = "TIPO";
-            this.tipo_med.Name = "tipo_med";
-            this.tipo_med.ReadOnly = true;
-            // 
-            // medicamento
-            // 
-            this.medicamento.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.medicamento.FillWeight = 98.03922F;
-            this.medicamento.HeaderText = "MEDICAMENTO";
-            this.medicamento.Name = "medicamento";
-            this.medicamento.ReadOnly = true;
-            // 
-            // descripcion
-            // 
-            this.descripcion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.descripcion.HeaderText = "DESCRPCION";
-            this.descripcion.Name = "descripcion";
-            this.descripcion.ReadOnly = true;
-            // 
-            // Seleccionar
-            // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.Seleccionar.DefaultCellStyle = dataGridViewCellStyle2;
-            this.Seleccionar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Seleccionar.HeaderText = "";
-            this.Seleccionar.Name = "Seleccionar";
-            this.Seleccionar.ReadOnly = true;
-            this.Seleccionar.Text = "Editar";
-            // 
             // FrmMedicamentos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -345,7 +340,6 @@ namespace _911_RD.Administracion.Pacientes
             this.Controls.Add(this.label10);
             this.Controls.Add(this.txt_tipo);
             this.Name = "FrmMedicamentos";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmMedicamentos";
             this.Controls.SetChildIndex(this.lbl_titulo, 0);
             this.Controls.SetChildIndex(this.btn_guardar, 0);
