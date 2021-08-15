@@ -671,5 +671,10 @@ namespace _911_RD
         {
             cargarTabla(txt_filtro.Text.Trim());
         }
+
+        private void dataGridView1_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            this.DialogResult = DialogResult.OK;
+        }
     }
 }

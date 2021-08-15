@@ -40,10 +40,6 @@ namespace _911_RD.Administracion
 
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void btn_guardar_Click(object sender, EventArgs e)
         {
@@ -412,8 +408,21 @@ namespace _911_RD.Administracion
 
         private void btn_enviar_Click(object sender, EventArgs e)
         {
-          
+            this.DialogResult = DialogResult.OK;
+        }
 
+        private void id_txt_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_salir_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
             this.DialogResult = DialogResult.OK;
         }
     }

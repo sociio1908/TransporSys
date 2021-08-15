@@ -20,7 +20,7 @@ namespace _911_RD
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmAlergias());
+            Application.Run(new FrmVentas());
 
         }
 
