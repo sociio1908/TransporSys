@@ -50,5 +50,10 @@ namespace _911_RD.Administracion.Configuracion
 
             AbrirFormEnPanel(new FrmCombustible());
         }
+
+        private void btn_empresa_Click(object sender, EventArgs e)
+        {
+            AbrirFormEnPanel(new FrmEmpresa());
+        }
     }
 }

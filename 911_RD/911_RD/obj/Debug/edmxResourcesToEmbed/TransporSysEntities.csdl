@@ -6,7 +6,7 @@
     </Key>
     <Property Name="id_alergia" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="alergia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="descripcion" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
   </EntityType>
   <EntityType Name="ALMACENES">
     <Key>
@@ -117,8 +117,8 @@
     </Key>
     <Property Name="id_combustible" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="estado" Type="Boolean" Nullable="false" />
     <Property Name="precio" Type="Double" />
+    <Property Name="estado" Type="Boolean" Nullable="false" />
   </EntityType>
   <EntityType Name="COMPRAS">
     <Key>
@@ -342,6 +342,15 @@
     <NavigationProperty Name="VENTAS" Relationship="Self.FK_VENTAS_EMPLEADOS" FromRole="EMPLEADOS" ToRole="VENTAS" />
     <NavigationProperty Name="PUESTOS1" Relationship="Self.EMPLEADOS_VS_PUESTOS" FromRole="EMPLEADOS" ToRole="PUESTOS" />
   </EntityType>
+  <EntityType Name="EMPRESA">
+    <Key>
+      <PropertyRef Name="id_empresa" />
+    </Key>
+    <Property Name="id_empresa" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_tercero" Type="Int32" Nullable="false" />
+    <Property Name="pagina_web" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="lema" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
   <EntityType Name="ENTRADAS">
     <Key>
       <PropertyRef Name="num_entrada" />
@@ -404,9 +413,7 @@
       <PropertyRef Name="intItebis" />
     </Key>
     <Property Name="intItebis" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="porcentaje" Type="Double" />
-    <Property Name="createdAt" Type="DateTime" Precision="3" />
-    <Property Name="updatedAt" Type="DateTime" Precision="3" />
+    <Property Name="porcentaje" Type="Double" Nullable="false" />
   </EntityType>
   <EntityType Name="MARCA">
     <Key>
@@ -440,6 +447,14 @@
     <Property Name="id_modelo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="modelo1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <NavigationProperty Name="VEHICULO" Relationship="Self.FK_vaehicualo" FromRole="MODELO" ToRole="VEHICULO" />
+  </EntityType>
+  <EntityType Name="MOTIVOS">
+    <Key>
+      <PropertyRef Name="id_motivo" />
+    </Key>
+    <Property Name="id_motivo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="motivo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="despcrion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
   </EntityType>
   <EntityType Name="NACIONALIDADES">
     <Key>
@@ -517,6 +532,16 @@
     <Property Name="estado" Type="Boolean" Nullable="false" />
     <NavigationProperty Name="ARTICULOS" Relationship="Self.FK_PRECIOS_ARTICULOS" FromRole="PRECIOS" ToRole="ARTICULOS" />
     <NavigationProperty Name="EMPLEADOS" Relationship="Self.FK_PRECIOS_EMPLEADOS" FromRole="PRECIOS" ToRole="EMPLEADOS" />
+  </EntityType>
+  <EntityType Name="PRECIOS_COMBUSTIBLE">
+    <Key>
+      <PropertyRef Name="id_precio_combustible" />
+    </Key>
+    <Property Name="id_precio_combustible" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_combustible" Type="Int32" Nullable="false" />
+    <Property Name="desde" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="hasta" Type="DateTime" Precision="3" />
+    <Property Name="precio" Type="Double" Nullable="false" />
   </EntityType>
   <EntityType Name="PROVINCIAS">
     <Key>
@@ -847,6 +872,18 @@
     <Property Name="longitud" Type="Geography" Nullable="false" />
     <NavigationProperty Name="EMPLEADOS" Relationship="Self.FK_GPsS" FromRole="GPS" ToRole="EMPLEADOS" />
     <NavigationProperty Name="VEHICULO" Relationship="Self.FK_GPS" FromRole="GPS" ToRole="VEHICULO" />
+  </EntityType>
+  <EntityType Name="HISTORIAL_PRECIO_COMBUSTIBLES">
+    <Key>
+      <PropertyRef Name="id_historial_com" />
+      <PropertyRef Name="id_combustible" />
+      <PropertyRef Name="precio" />
+      <PropertyRef Name="fecha" />
+    </Key>
+    <Property Name="id_historial_com" Type="Int32" Nullable="false" />
+    <Property Name="id_combustible" Type="Int32" Nullable="false" />
+    <Property Name="precio" Type="Double" Nullable="false" />
+    <Property Name="fecha" Type="DateTime" Nullable="false" Precision="3" />
   </EntityType>
   <EntityType Name="TIPONCF">
     <Key>
@@ -1703,6 +1740,7 @@
     <EntitySet Name="DVIAJES" EntityType="Self.DVIAJES" />
     <EntitySet Name="EMAILS" EntityType="Self.EMAILS" />
     <EntitySet Name="EMPLEADOS" EntityType="Self.EMPLEADOS" />
+    <EntitySet Name="EMPRESA" EntityType="Self.EMPRESA" />
     <EntitySet Name="ENTRADAS" EntityType="Self.ENTRADAS" />
     <EntitySet Name="EXISTENCIAS" EntityType="Self.EXISTENCIAS" />
     <EntitySet Name="FINANCIAMIENTOS" EntityType="Self.FINANCIAMIENTOS" />
@@ -1712,12 +1750,14 @@
     <EntitySet Name="MEDICAMENTOS" EntityType="Self.MEDICAMENTOS" />
     <EntitySet Name="MEDICAMENTOS_VS_ALERGIAS" EntityType="Self.MEDICAMENTOS_VS_ALERGIAS" />
     <EntitySet Name="MODELO" EntityType="Self.MODELO" />
+    <EntitySet Name="MOTIVOS" EntityType="Self.MOTIVOS" />
     <EntitySet Name="NACIONALIDADES" EntityType="Self.NACIONALIDADES" />
     <EntitySet Name="NCF" EntityType="Self.NCF" />
     <EntitySet Name="PACIENTES" EntityType="Self.PACIENTES" />
     <EntitySet Name="PAISES" EntityType="Self.PAISES" />
     <EntitySet Name="PERSONAS" EntityType="Self.PERSONAS" />
     <EntitySet Name="PRECIOS" EntityType="Self.PRECIOS" />
+    <EntitySet Name="PRECIOS_COMBUSTIBLE" EntityType="Self.PRECIOS_COMBUSTIBLE" />
     <EntitySet Name="PROVINCIAS" EntityType="Self.PROVINCIAS" />
     <EntitySet Name="PUESTOS" EntityType="Self.PUESTOS" />
     <EntitySet Name="SALIDAS" EntityType="Self.SALIDAS" />
@@ -1748,6 +1788,7 @@
     <EntitySet Name="VENTAS" EntityType="Self.VENTAS" />
     <EntitySet Name="ARTICULOS_VS_CATEGORIAS_VS_DESCUENTOS" EntityType="Self.ARTICULOS_VS_CATEGORIAS_VS_DESCUENTOS" />
     <EntitySet Name="GPS" EntityType="Self.GPS" />
+    <EntitySet Name="HISTORIAL_PRECIO_COMBUSTIBLES" EntityType="Self.HISTORIAL_PRECIO_COMBUSTIBLES" />
     <EntitySet Name="TIPONCF" EntityType="Self.TIPONCF" />
     <EntitySet Name="VEHICULOS_VS_CONDUCTOR" EntityType="Self.VEHICULOS_VS_CONDUCTOR" />
     <AssociationSet Name="FK_EXISTENCIAS_ALMACENES" Association="Self.FK_EXISTENCIAS_ALMACENES">

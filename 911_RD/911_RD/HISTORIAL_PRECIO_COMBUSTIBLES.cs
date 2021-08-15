@@ -12,9 +12,11 @@ namespace _911_RD
     using System;
     using System.Collections.Generic;
     
-    public partial class ITEBIS
+    public partial class HISTORIAL_PRECIO_COMBUSTIBLES
     {
-        public int intItebis { get; set; }
-        public double porcentaje { get; set; }
+        public int id_historial_com { get; set; }
+        public int id_combustible { get; set; }
+        public double precio { get; set; }
+        public System.DateTime fecha { get; set; }
     }
 }

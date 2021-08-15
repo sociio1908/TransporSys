@@ -12,9 +12,11 @@ namespace _911_RD
     using System;
     using System.Collections.Generic;
     
-    public partial class ITEBIS
+    public partial class EMPRESA
     {
-        public int intItebis { get; set; }
-        public double porcentaje { get; set; }
+        public int id_empresa { get; set; }
+        public int id_tercero { get; set; }
+        public string pagina_web { get; set; }
+        public string lema { get; set; }
     }
 }

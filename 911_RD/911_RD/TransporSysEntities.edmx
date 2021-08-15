@@ -304,6 +304,15 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.ARTICULOS_VS_CATEGORIAS_VS_D
           <Property Name="id_empleado" Type="int" Nullable="false" />
           <Property Name="id_puesto" Type="int" Nullable="false" />
         </EntityType>
+        <EntityType Name="EMPRESA">
+          <Key>
+            <PropertyRef Name="id_empresa" />
+          </Key>
+          <Property Name="id_empresa" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_tercero" Type="int" Nullable="false" />
+          <Property Name="pagina_web" Type="varchar" MaxLength="50" />
+          <Property Name="lema" Type="varchar" MaxLength="50" />
+        </EntityType>
         <EntityType Name="ENTRADAS">
           <Key>
             <PropertyRef Name="num_entrada" />
@@ -353,6 +362,20 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.GPS' no tiene definida ningu
           <Property Name="latitud" Type="geography" Nullable="false" />
           <Property Name="longitud" Type="geography" Nullable="false" />
         </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'TransporSys.dbo.HISTORIAL_PRECIO_COMBUSTIBLES' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="HISTORIAL_PRECIO_COMBUSTIBLES">
+          <Key>
+            <PropertyRef Name="id_historial_com" />
+            <PropertyRef Name="id_combustible" />
+            <PropertyRef Name="precio" />
+            <PropertyRef Name="fecha" />
+          </Key>
+          <Property Name="id_historial_com" Type="int" Nullable="false" />
+          <Property Name="id_combustible" Type="int" Nullable="false" />
+          <Property Name="precio" Type="float" Nullable="false" />
+          <Property Name="fecha" Type="datetime" Nullable="false" />
+        </EntityType>
         <EntityType Name="IDENTIFICACIONES">
           <Key>
             <PropertyRef Name="id_identificacion" />
@@ -366,9 +389,7 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.GPS' no tiene definida ningu
             <PropertyRef Name="intItebis" />
           </Key>
           <Property Name="intItebis" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="porcentaje" Type="float" />
-          <Property Name="createdAt" Type="datetime" />
-          <Property Name="updatedAt" Type="datetime" />
+          <Property Name="porcentaje" Type="float" Nullable="false" />
         </EntityType>
         <EntityType Name="MARCA">
           <Key>
@@ -400,6 +421,14 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.GPS' no tiene definida ningu
           </Key>
           <Property Name="id_modelo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="modelo" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MOTIVOS">
+          <Key>
+            <PropertyRef Name="id_motivo" />
+          </Key>
+          <Property Name="id_motivo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="motivo" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="despcrion" Type="varchar" MaxLength="100" Nullable="false" />
         </EntityType>
         <EntityType Name="NACIONALIDADES">
           <Key>
@@ -466,6 +495,16 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.GPS' no tiene definida ningu
           <Property Name="precio_neto" Type="float" Nullable="false" />
           <Property Name="precio_venta" Type="float" Nullable="false" />
           <Property Name="estado" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PRECIOS_COMBUSTIBLE">
+          <Key>
+            <PropertyRef Name="id_precio_combustible" />
+          </Key>
+          <Property Name="id_precio_combustible" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_combustible" Type="int" Nullable="false" />
+          <Property Name="desde" Type="datetime" Nullable="false" />
+          <Property Name="hasta" Type="datetime" />
+          <Property Name="precio" Type="float" Nullable="false" />
         </EntityType>
         <EntityType Name="PROVINCIAS">
           <Key>
@@ -1637,6 +1676,7 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.VEHICULOS_VS_CONDUCTOR' no t
           <EntitySet Name="EMAILS" EntityType="Self.EMAILS" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="EMPLEADOS" EntityType="Self.EMPLEADOS" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="EMPLEADOS_VS_PUESTOS" EntityType="Self.EMPLEADOS_VS_PUESTOS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EMPRESA" EntityType="Self.EMPRESA" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ENTRADAS" EntityType="Self.ENTRADAS" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="EXISTENCIAS" EntityType="Self.EXISTENCIAS" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="FINANCIAMIENTOS" EntityType="Self.FINANCIAMIENTOS" Schema="dbo" store:Type="Tables" />
@@ -1646,12 +1686,14 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.VEHICULOS_VS_CONDUCTOR' no t
           <EntitySet Name="MEDICAMENTOS" EntityType="Self.MEDICAMENTOS" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MEDICAMENTOS_VS_ALERGIAS" EntityType="Self.MEDICAMENTOS_VS_ALERGIAS" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MODELO" EntityType="Self.MODELO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MOTIVOS" EntityType="Self.MOTIVOS" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="NACIONALIDADES" EntityType="Self.NACIONALIDADES" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="NCF" EntityType="Self.NCF" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PACIENTES" EntityType="Self.PACIENTES" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PAISES" EntityType="Self.PAISES" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PERSONAS" EntityType="Self.PERSONAS" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PRECIOS" EntityType="Self.PRECIOS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PRECIOS_COMBUSTIBLE" EntityType="Self.PRECIOS_COMBUSTIBLE" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PROVINCIAS" EntityType="Self.PROVINCIAS" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PUESTOS" EntityType="Self.PUESTOS" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SALIDAS" EntityType="Self.SALIDAS" Schema="dbo" store:Type="Tables" />
@@ -1694,6 +1736,14 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.VEHICULOS_VS_CONDUCTOR' no t
     [GPS].[latitud] AS [latitud], 
     [GPS].[longitud] AS [longitud]
     FROM [dbo].[GPS] AS [GPS]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="HISTORIAL_PRECIO_COMBUSTIBLES" EntityType="Self.HISTORIAL_PRECIO_COMBUSTIBLES" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [HISTORIAL_PRECIO_COMBUSTIBLES].[id_historial_com] AS [id_historial_com], 
+    [HISTORIAL_PRECIO_COMBUSTIBLES].[id_combustible] AS [id_combustible], 
+    [HISTORIAL_PRECIO_COMBUSTIBLES].[precio] AS [precio], 
+    [HISTORIAL_PRECIO_COMBUSTIBLES].[fecha] AS [fecha]
+    FROM [dbo].[HISTORIAL_PRECIO_COMBUSTIBLES] AS [HISTORIAL_PRECIO_COMBUSTIBLES]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="PUESTOS_VS_DEPARTAMENTOS" EntityType="Self.PUESTOS_VS_DEPARTAMENTOS" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -2008,7 +2058,7 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.VEHICULOS_VS_CONDUCTOR' no t
           </Key>
           <Property Name="id_alergia" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="alergia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="descripcion" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
         </EntityType>
         <EntityType Name="ALMACENES">
           <Key>
@@ -2119,8 +2169,8 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.VEHICULOS_VS_CONDUCTOR' no t
           </Key>
           <Property Name="id_combustible" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="estado" Type="Boolean" Nullable="false" />
           <Property Name="precio" Type="Double" />
+          <Property Name="estado" Type="Boolean" Nullable="false" />
         </EntityType>
         <EntityType Name="COMPRAS">
           <Key>
@@ -2344,6 +2394,15 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.VEHICULOS_VS_CONDUCTOR' no t
           <NavigationProperty Name="VENTAS" Relationship="Self.FK_VENTAS_EMPLEADOS" FromRole="EMPLEADOS" ToRole="VENTAS" />
           <NavigationProperty Name="PUESTOS1" Relationship="Self.EMPLEADOS_VS_PUESTOS" FromRole="EMPLEADOS" ToRole="PUESTOS" />
         </EntityType>
+        <EntityType Name="EMPRESA">
+          <Key>
+            <PropertyRef Name="id_empresa" />
+          </Key>
+          <Property Name="id_empresa" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_tercero" Type="Int32" Nullable="false" />
+          <Property Name="pagina_web" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="lema" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
         <EntityType Name="ENTRADAS">
           <Key>
             <PropertyRef Name="num_entrada" />
@@ -2406,9 +2465,7 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.VEHICULOS_VS_CONDUCTOR' no t
             <PropertyRef Name="intItebis" />
           </Key>
           <Property Name="intItebis" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="porcentaje" Type="Double" />
-          <Property Name="createdAt" Type="DateTime" Precision="3" />
-          <Property Name="updatedAt" Type="DateTime" Precision="3" />
+          <Property Name="porcentaje" Type="Double" Nullable="false" />
         </EntityType>
         <EntityType Name="MARCA">
           <Key>
@@ -2442,6 +2499,14 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.VEHICULOS_VS_CONDUCTOR' no t
           <Property Name="id_modelo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="modelo1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="VEHICULO" Relationship="Self.FK_vaehicualo" FromRole="MODELO" ToRole="VEHICULO" />
+        </EntityType>
+        <EntityType Name="MOTIVOS">
+          <Key>
+            <PropertyRef Name="id_motivo" />
+          </Key>
+          <Property Name="id_motivo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="motivo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="despcrion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
         </EntityType>
         <EntityType Name="NACIONALIDADES">
           <Key>
@@ -2519,6 +2584,16 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.VEHICULOS_VS_CONDUCTOR' no t
           <Property Name="estado" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="ARTICULOS" Relationship="Self.FK_PRECIOS_ARTICULOS" FromRole="PRECIOS" ToRole="ARTICULOS" />
           <NavigationProperty Name="EMPLEADOS" Relationship="Self.FK_PRECIOS_EMPLEADOS" FromRole="PRECIOS" ToRole="EMPLEADOS" />
+        </EntityType>
+        <EntityType Name="PRECIOS_COMBUSTIBLE">
+          <Key>
+            <PropertyRef Name="id_precio_combustible" />
+          </Key>
+          <Property Name="id_precio_combustible" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_combustible" Type="Int32" Nullable="false" />
+          <Property Name="desde" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="hasta" Type="DateTime" Precision="3" />
+          <Property Name="precio" Type="Double" Nullable="false" />
         </EntityType>
         <EntityType Name="PROVINCIAS">
           <Key>
@@ -2849,6 +2924,18 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.VEHICULOS_VS_CONDUCTOR' no t
           <Property Name="longitud" Type="Geography" Nullable="false" />
           <NavigationProperty Name="EMPLEADOS" Relationship="Self.FK_GPsS" FromRole="GPS" ToRole="EMPLEADOS" />
           <NavigationProperty Name="VEHICULO" Relationship="Self.FK_GPS" FromRole="GPS" ToRole="VEHICULO" />
+        </EntityType>
+        <EntityType Name="HISTORIAL_PRECIO_COMBUSTIBLES">
+          <Key>
+            <PropertyRef Name="id_historial_com" />
+            <PropertyRef Name="id_combustible" />
+            <PropertyRef Name="precio" />
+            <PropertyRef Name="fecha" />
+          </Key>
+          <Property Name="id_historial_com" Type="Int32" Nullable="false" />
+          <Property Name="id_combustible" Type="Int32" Nullable="false" />
+          <Property Name="precio" Type="Double" Nullable="false" />
+          <Property Name="fecha" Type="DateTime" Nullable="false" Precision="3" />
         </EntityType>
         <EntityType Name="TIPONCF">
           <Key>
@@ -3705,6 +3792,7 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.VEHICULOS_VS_CONDUCTOR' no t
           <EntitySet Name="DVIAJES" EntityType="Self.DVIAJES" />
           <EntitySet Name="EMAILS" EntityType="Self.EMAILS" />
           <EntitySet Name="EMPLEADOS" EntityType="Self.EMPLEADOS" />
+          <EntitySet Name="EMPRESA" EntityType="Self.EMPRESA" />
           <EntitySet Name="ENTRADAS" EntityType="Self.ENTRADAS" />
           <EntitySet Name="EXISTENCIAS" EntityType="Self.EXISTENCIAS" />
           <EntitySet Name="FINANCIAMIENTOS" EntityType="Self.FINANCIAMIENTOS" />
@@ -3714,12 +3802,14 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.VEHICULOS_VS_CONDUCTOR' no t
           <EntitySet Name="MEDICAMENTOS" EntityType="Self.MEDICAMENTOS" />
           <EntitySet Name="MEDICAMENTOS_VS_ALERGIAS" EntityType="Self.MEDICAMENTOS_VS_ALERGIAS" />
           <EntitySet Name="MODELO" EntityType="Self.MODELO" />
+          <EntitySet Name="MOTIVOS" EntityType="Self.MOTIVOS" />
           <EntitySet Name="NACIONALIDADES" EntityType="Self.NACIONALIDADES" />
           <EntitySet Name="NCF" EntityType="Self.NCF" />
           <EntitySet Name="PACIENTES" EntityType="Self.PACIENTES" />
           <EntitySet Name="PAISES" EntityType="Self.PAISES" />
           <EntitySet Name="PERSONAS" EntityType="Self.PERSONAS" />
           <EntitySet Name="PRECIOS" EntityType="Self.PRECIOS" />
+          <EntitySet Name="PRECIOS_COMBUSTIBLE" EntityType="Self.PRECIOS_COMBUSTIBLE" />
           <EntitySet Name="PROVINCIAS" EntityType="Self.PROVINCIAS" />
           <EntitySet Name="PUESTOS" EntityType="Self.PUESTOS" />
           <EntitySet Name="SALIDAS" EntityType="Self.SALIDAS" />
@@ -3750,6 +3840,7 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.VEHICULOS_VS_CONDUCTOR' no t
           <EntitySet Name="VENTAS" EntityType="Self.VENTAS" />
           <EntitySet Name="ARTICULOS_VS_CATEGORIAS_VS_DESCUENTOS" EntityType="Self.ARTICULOS_VS_CATEGORIAS_VS_DESCUENTOS" />
           <EntitySet Name="GPS" EntityType="Self.GPS" />
+          <EntitySet Name="HISTORIAL_PRECIO_COMBUSTIBLES" EntityType="Self.HISTORIAL_PRECIO_COMBUSTIBLES" />
           <EntitySet Name="TIPONCF" EntityType="Self.TIPONCF" />
           <EntitySet Name="VEHICULOS_VS_CONDUCTOR" EntityType="Self.VEHICULOS_VS_CONDUCTOR" />
           <AssociationSet Name="FK_EXISTENCIAS_ALMACENES" Association="Self.FK_EXISTENCIAS_ALMACENES">
@@ -4038,9 +4129,9 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.VEHICULOS_VS_CONDUCTOR' no t
           <EntitySetMapping Name="ALERGIAS">
             <EntityTypeMapping TypeName="TransporSysModel.ALERGIAS">
               <MappingFragment StoreEntitySet="ALERGIAS">
-                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
                 <ScalarProperty Name="id_alergia" ColumnName="id_alergia" />
                 <ScalarProperty Name="alergia" ColumnName="alergia" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -4135,9 +4226,9 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.VEHICULOS_VS_CONDUCTOR' no t
           <EntitySetMapping Name="COMBUSTIBLE">
             <EntityTypeMapping TypeName="TransporSysModel.COMBUSTIBLE">
               <MappingFragment StoreEntitySet="COMBUSTIBLE">
-                <ScalarProperty Name="precio" ColumnName="precio" />
                 <ScalarProperty Name="id_combustible" ColumnName="id_combustible" />
                 <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="precio" ColumnName="precio" />
                 <ScalarProperty Name="estado" ColumnName="estado" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -4341,6 +4432,16 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.VEHICULOS_VS_CONDUCTOR' no t
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="EMPRESA">
+            <EntityTypeMapping TypeName="TransporSysModel.EMPRESA">
+              <MappingFragment StoreEntitySet="EMPRESA">
+                <ScalarProperty Name="id_empresa" ColumnName="id_empresa" />
+                <ScalarProperty Name="id_tercero" ColumnName="id_tercero" />
+                <ScalarProperty Name="pagina_web" ColumnName="pagina_web" />
+                <ScalarProperty Name="lema" ColumnName="lema" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="ENTRADAS">
             <EntityTypeMapping TypeName="TransporSysModel.ENTRADAS">
               <MappingFragment StoreEntitySet="ENTRADAS">
@@ -4393,8 +4494,6 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.VEHICULOS_VS_CONDUCTOR' no t
               <MappingFragment StoreEntitySet="ITEBIS">
                 <ScalarProperty Name="intItebis" ColumnName="intItebis" />
                 <ScalarProperty Name="porcentaje" ColumnName="porcentaje" />
-                <ScalarProperty Name="createdAt" ColumnName="createdAt" />
-                <ScalarProperty Name="updatedAt" ColumnName="updatedAt" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -4430,6 +4529,15 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.VEHICULOS_VS_CONDUCTOR' no t
               <MappingFragment StoreEntitySet="MODELO">
                 <ScalarProperty Name="id_modelo" ColumnName="id_modelo" />
                 <ScalarProperty Name="modelo1" ColumnName="modelo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MOTIVOS">
+            <EntityTypeMapping TypeName="TransporSysModel.MOTIVOS">
+              <MappingFragment StoreEntitySet="MOTIVOS">
+                <ScalarProperty Name="id_motivo" ColumnName="id_motivo" />
+                <ScalarProperty Name="motivo" ColumnName="motivo" />
+                <ScalarProperty Name="despcrion" ColumnName="despcrion" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -4502,6 +4610,17 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.VEHICULOS_VS_CONDUCTOR' no t
                 <ScalarProperty Name="precio_neto" ColumnName="precio_neto" />
                 <ScalarProperty Name="precio_venta" ColumnName="precio_venta" />
                 <ScalarProperty Name="estado" ColumnName="estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PRECIOS_COMBUSTIBLE">
+            <EntityTypeMapping TypeName="TransporSysModel.PRECIOS_COMBUSTIBLE">
+              <MappingFragment StoreEntitySet="PRECIOS_COMBUSTIBLE">
+                <ScalarProperty Name="id_precio_combustible" ColumnName="id_precio_combustible" />
+                <ScalarProperty Name="id_combustible" ColumnName="id_combustible" />
+                <ScalarProperty Name="desde" ColumnName="desde" />
+                <ScalarProperty Name="hasta" ColumnName="hasta" />
+                <ScalarProperty Name="precio" ColumnName="precio" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -4808,6 +4927,16 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.VEHICULOS_VS_CONDUCTOR' no t
                 <ScalarProperty Name="id_empleado" ColumnName="id_empleado" />
                 <ScalarProperty Name="latitud" ColumnName="latitud" />
                 <ScalarProperty Name="longitud" ColumnName="longitud" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HISTORIAL_PRECIO_COMBUSTIBLES">
+            <EntityTypeMapping TypeName="TransporSysModel.HISTORIAL_PRECIO_COMBUSTIBLES">
+              <MappingFragment StoreEntitySet="HISTORIAL_PRECIO_COMBUSTIBLES">
+                <ScalarProperty Name="id_historial_com" ColumnName="id_historial_com" />
+                <ScalarProperty Name="id_combustible" ColumnName="id_combustible" />
+                <ScalarProperty Name="precio" ColumnName="precio" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

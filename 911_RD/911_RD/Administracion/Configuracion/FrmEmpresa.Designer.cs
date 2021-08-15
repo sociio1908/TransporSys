@@ -29,10 +29,11 @@ namespace _911_RD.Administracion.Configuracion
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.txt_rnc = new _911_RD.ErrorTxtBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.txt_nombre = new System.Windows.Forms.Label();
-            this.txt_servicio = new _911_RD.ErrorTxtBox();
+            this.lbl = new System.Windows.Forms.Label();
+            this.txt_nombre = new _911_RD.ErrorTxtBox();
             this.txt_lema = new _911_RD.ErrorTxtBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -56,6 +57,7 @@ namespace _911_RD.Administracion.Configuracion
             this.label23 = new System.Windows.Forms.Label();
             this.txt_telefono = new _911_RD.ErrorTxtBox();
             this.lbl_contacto = new System.Windows.Forms.Label();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.btn_buscar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabla_direccion)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_direccion)).BeginInit();
@@ -63,11 +65,13 @@ namespace _911_RD.Administracion.Configuracion
             ((System.ComponentModel.ISupportInitialize)(this.btn_correo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_telefono)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabla_tel)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // btn_guardar
             // 
-            this.btn_guardar.Location = new System.Drawing.Point(15, 372);
+            this.btn_guardar.Location = new System.Drawing.Point(12, 401);
+            this.btn_guardar.Click += new System.EventHandler(this.btn_guardar_Click);
             // 
             // lbl_titulo
             // 
@@ -76,11 +80,13 @@ namespace _911_RD.Administracion.Configuracion
             // 
             // btn_limpiar
             // 
-            this.btn_limpiar.Location = new System.Drawing.Point(160, 372);
+            this.btn_limpiar.Location = new System.Drawing.Point(269, 401);
+            this.btn_limpiar.Visible = false;
+            this.btn_limpiar.Click += new System.EventHandler(this.btn_limpiar_Click);
             // 
             // btn_salir
             // 
-            this.btn_salir.Location = new System.Drawing.Point(282, 372);
+            this.btn_salir.Location = new System.Drawing.Point(157, 401);
             // 
             // btn_buscar
             // 
@@ -91,7 +97,7 @@ namespace _911_RD.Administracion.Configuracion
             this.txt_rnc.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txt_rnc.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.txt_rnc.Limpiar = true;
-            this.txt_rnc.Location = new System.Drawing.Point(13, 203);
+            this.txt_rnc.Location = new System.Drawing.Point(12, 201);
             this.txt_rnc.Name = "txt_rnc";
             this.txt_rnc.Size = new System.Drawing.Size(144, 26);
             this.txt_rnc.SoloNumeros = false;
@@ -103,42 +109,41 @@ namespace _911_RD.Administracion.Configuracion
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label2.Location = new System.Drawing.Point(13, 184);
+            this.label2.Location = new System.Drawing.Point(12, 182);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(36, 16);
             this.label2.TabIndex = 186;
             this.label2.Text = "RNC";
             // 
+            // lbl
+            // 
+            this.lbl.AutoSize = true;
+            this.lbl.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
+            this.lbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lbl.Location = new System.Drawing.Point(12, 133);
+            this.lbl.Name = "lbl";
+            this.lbl.Size = new System.Drawing.Size(64, 16);
+            this.lbl.TabIndex = 185;
+            this.lbl.Text = "NOMBRE";
+            // 
             // txt_nombre
             // 
-            this.txt_nombre.AutoSize = true;
-            this.txt_nombre.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
-            this.txt_nombre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txt_nombre.Location = new System.Drawing.Point(12, 133);
+            this.txt_nombre.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_nombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.txt_nombre.Limpiar = true;
+            this.txt_nombre.Location = new System.Drawing.Point(12, 152);
             this.txt_nombre.Name = "txt_nombre";
-            this.txt_nombre.Size = new System.Drawing.Size(64, 16);
-            this.txt_nombre.TabIndex = 185;
-            this.txt_nombre.Text = "NOMBRE";
-            // 
-            // txt_servicio
-            // 
-            this.txt_servicio.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txt_servicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.txt_servicio.Limpiar = true;
-            this.txt_servicio.Location = new System.Drawing.Point(12, 152);
-            this.txt_servicio.Name = "txt_servicio";
-            this.txt_servicio.Size = new System.Drawing.Size(243, 26);
-            this.txt_servicio.SoloNumeros = false;
-            this.txt_servicio.TabIndex = 184;
-            this.txt_servicio.Validar = true;
-            this.txt_servicio.TextChanged += new System.EventHandler(this.txt_servicio_TextChanged);
+            this.txt_nombre.Size = new System.Drawing.Size(243, 26);
+            this.txt_nombre.SoloNumeros = false;
+            this.txt_nombre.TabIndex = 184;
+            this.txt_nombre.Validar = true;
             // 
             // txt_lema
             // 
             this.txt_lema.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txt_lema.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.txt_lema.Limpiar = true;
-            this.txt_lema.Location = new System.Drawing.Point(16, 302);
+            this.txt_lema.Location = new System.Drawing.Point(15, 300);
             this.txt_lema.Multiline = true;
             this.txt_lema.Name = "txt_lema";
             this.txt_lema.Size = new System.Drawing.Size(288, 52);
@@ -151,7 +156,7 @@ namespace _911_RD.Administracion.Configuracion
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label1.Location = new System.Drawing.Point(16, 283);
+            this.label1.Location = new System.Drawing.Point(15, 281);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(43, 16);
             this.label1.TabIndex = 190;
@@ -162,7 +167,7 @@ namespace _911_RD.Administracion.Configuracion
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label3.Location = new System.Drawing.Point(15, 232);
+            this.label3.Location = new System.Drawing.Point(14, 230);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(91, 16);
             this.label3.TabIndex = 189;
@@ -173,13 +178,12 @@ namespace _911_RD.Administracion.Configuracion
             this.txt_web.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txt_web.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.txt_web.Limpiar = true;
-            this.txt_web.Location = new System.Drawing.Point(15, 251);
+            this.txt_web.Location = new System.Drawing.Point(14, 249);
             this.txt_web.Name = "txt_web";
             this.txt_web.Size = new System.Drawing.Size(243, 26);
             this.txt_web.SoloNumeros = false;
             this.txt_web.TabIndex = 188;
             this.txt_web.Validar = true;
-            this.txt_web.TextChanged += new System.EventHandler(this.errorTxtBox2_TextChanged);
             // 
             // tabla_direccion
             // 
@@ -211,6 +215,8 @@ namespace _911_RD.Administracion.Configuracion
             this.tabla_direccion.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.tabla_direccion.Size = new System.Drawing.Size(456, 85);
             this.tabla_direccion.TabIndex = 258;
+            this.tabla_direccion.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tabla_direccion_CellContentClick);
+            this.tabla_direccion.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tabla_direccion_CellContentDoubleClick);
             // 
             // dataGridViewTextBoxColumn3
             // 
@@ -239,6 +245,7 @@ namespace _911_RD.Administracion.Configuracion
             this.btn_direccion.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btn_direccion.TabIndex = 254;
             this.btn_direccion.TabStop = false;
+            this.btn_direccion.Click += new System.EventHandler(this.btn_direccion_Click);
             // 
             // tabla_correo
             // 
@@ -270,6 +277,7 @@ namespace _911_RD.Administracion.Configuracion
             this.tabla_correo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.tabla_correo.Size = new System.Drawing.Size(219, 66);
             this.tabla_correo.TabIndex = 256;
+            this.tabla_correo.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tabla_correo_CellContentDoubleClick);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -321,6 +329,7 @@ namespace _911_RD.Administracion.Configuracion
             this.btn_correo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btn_correo.TabIndex = 255;
             this.btn_correo.TabStop = false;
+            this.btn_correo.Click += new System.EventHandler(this.btn_correo_Click);
             // 
             // btn_telefono
             // 
@@ -333,6 +342,7 @@ namespace _911_RD.Administracion.Configuracion
             this.btn_telefono.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btn_telefono.TabIndex = 251;
             this.btn_telefono.TabStop = false;
+            this.btn_telefono.Click += new System.EventHandler(this.btn_telefono_Click);
             // 
             // tabla_tel
             // 
@@ -364,6 +374,7 @@ namespace _911_RD.Administracion.Configuracion
             this.tabla_tel.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.tabla_tel.Size = new System.Drawing.Size(231, 66);
             this.tabla_tel.TabIndex = 252;
+            this.tabla_tel.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tabla_tel_CellContentDoubleClick);
             // 
             // dataGridViewTextBoxColumn5
             // 
@@ -438,11 +449,15 @@ namespace _911_RD.Administracion.Configuracion
             this.lbl_contacto.TabIndex = 246;
             this.lbl_contacto.Text = "CONTACTOS";
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // FrmEmpresa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(794, 460);
+            this.ClientSize = new System.Drawing.Size(794, 478);
             this.Controls.Add(this.tabla_direccion);
             this.Controls.Add(this.btn_direccion);
             this.Controls.Add(this.tabla_correo);
@@ -462,11 +477,11 @@ namespace _911_RD.Administracion.Configuracion
             this.Controls.Add(this.txt_web);
             this.Controls.Add(this.txt_rnc);
             this.Controls.Add(this.label2);
+            this.Controls.Add(this.lbl);
             this.Controls.Add(this.txt_nombre);
-            this.Controls.Add(this.txt_servicio);
+            this.MaximumSize = new System.Drawing.Size(794, 478);
             this.Name = "FrmEmpresa";
             this.Text = "FrmEmpresa";
-            this.Load += new System.EventHandler(this.FrmEmpresa_Load);
             this.Controls.SetChildIndex(this.lbl_titulo, 0);
             this.Controls.SetChildIndex(this.btn_guardar, 0);
             this.Controls.SetChildIndex(this.label9, 0);
@@ -475,8 +490,8 @@ namespace _911_RD.Administracion.Configuracion
             this.Controls.SetChildIndex(this.btn_limpiar, 0);
             this.Controls.SetChildIndex(this.btn_salir, 0);
             this.Controls.SetChildIndex(this.id_txt, 0);
-            this.Controls.SetChildIndex(this.txt_servicio, 0);
             this.Controls.SetChildIndex(this.txt_nombre, 0);
+            this.Controls.SetChildIndex(this.lbl, 0);
             this.Controls.SetChildIndex(this.label2, 0);
             this.Controls.SetChildIndex(this.txt_rnc, 0);
             this.Controls.SetChildIndex(this.txt_web, 0);
@@ -503,6 +518,7 @@ namespace _911_RD.Administracion.Configuracion
             ((System.ComponentModel.ISupportInitialize)(this.btn_correo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_telefono)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabla_tel)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -512,8 +528,8 @@ namespace _911_RD.Administracion.Configuracion
 
         private ErrorTxtBox txt_rnc;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label txt_nombre;
-        private ErrorTxtBox txt_servicio;
+        private System.Windows.Forms.Label lbl;
+        private ErrorTxtBox txt_nombre;
         private ErrorTxtBox txt_lema;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
@@ -537,5 +553,6 @@ namespace _911_RD.Administracion.Configuracion
         private System.Windows.Forms.Label label23;
         private ErrorTxtBox txt_telefono;
         private System.Windows.Forms.Label lbl_contacto;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

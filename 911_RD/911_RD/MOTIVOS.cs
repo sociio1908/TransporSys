@@ -12,9 +12,10 @@ namespace _911_RD
     using System;
     using System.Collections.Generic;
     
-    public partial class ITEBIS
+    public partial class MOTIVOS
     {
-        public int intItebis { get; set; }
-        public double porcentaje { get; set; }
+        public int id_motivo { get; set; }
+        public string motivo { get; set; }
+        public string despcrion { get; set; }
     }
 }

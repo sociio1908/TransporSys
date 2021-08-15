@@ -365,6 +365,9 @@
     <Compile Include="EMPLEADOS.cs">
       <DependentUpon>TransporSysEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="EMPRESA.cs">
+      <DependentUpon>TransporSysEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="ENTRADAS.cs">
       <DependentUpon>TransporSysEntities.tt</DependentUpon>
     </Compile>
@@ -449,6 +452,9 @@
     <Compile Include="Harold_\FrmVentas.designer.cs">
       <DependentUpon>FrmVentas.cs</DependentUpon>
     </Compile>
+    <Compile Include="HISTORIAL_PRECIO_COMBUSTIBLES.cs">
+      <DependentUpon>TransporSysEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="IDENTIFICACIONES.cs">
       <DependentUpon>TransporSysEntities.tt</DependentUpon>
     </Compile>
@@ -467,6 +473,9 @@
     <Compile Include="MODELO.cs">
       <DependentUpon>TransporSysEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="MOTIVOS.cs">
+      <DependentUpon>TransporSysEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="NACIONALIDADES.cs">
       <DependentUpon>TransporSysEntities.tt</DependentUpon>
     </Compile>
@@ -483,6 +492,9 @@
       <DependentUpon>TransporSysEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="PRECIOS.cs">
+      <DependentUpon>TransporSysEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PRECIOS_COMBUSTIBLE.cs">
       <DependentUpon>TransporSysEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -845,6 +857,8 @@
     <None Include="Resources\informacion %281%291.png" />
     <None Include="Resources\informacion1.png" />
     <None Include="Resources\recibo1.png" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="TransporSysEntities.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>TransporSysEntities.edmx</DependentUpon>
@@ -856,6 +870,5 @@
       <LastGenOutput>TransporSysEntities.cs</LastGenOutput>
     </Content>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

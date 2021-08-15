@@ -154,9 +154,9 @@ namespace _911_RD.Administracion
         public int crudCliente(string id_tercero, string id_tipo, bool estadoT)
         {
             int id_result = 0;
-            //try
-            //{
-                //TransporSysEntities
+            try
+            {
+                // TransporSysEntities
                 using (TransporSysEntities db = new TransporSysEntities())
                 {
                     var terceroquery = db.CLIENTES.FirstOrDefault(a => a.id_tercero.ToString() == id_tercero.Trim());
@@ -179,16 +179,57 @@ namespace _911_RD.Administracion
                         id_result = terceroquery.id_cliente;
                     }
                     db.SaveChanges();
-                        if (terceroquery == null)
-                        {
-                            id_result = db.CLIENTES.Max(x => x.id_cliente);
-                        }
+                    if (terceroquery == null)
+                    {
+                        id_result = db.CLIENTES.Max(x => x.id_cliente);
+                    }
                 }
-            //}
-            //catch (Exception asd)
-            //{
+            }
+            catch (Exception asd)
+            {
 
-            //}
+            }
+
+            return id_result;
+        }
+        public int crudEmpresa(string id_tercero, string web, string lema)
+        {
+            int id_result = 0;
+            try
+            {
+                // TransporSysEntities
+                using (TransporSysEntities db = new TransporSysEntities())
+                {
+                    var terceroquery = db.EMPRESA.FirstOrDefault(a => a.id_tercero.ToString() == id_tercero.Trim());
+                    if (terceroquery == null)
+                    {
+
+                        EMPRESA eMPLEADOS = new EMPRESA
+                        {
+                            id_tercero = int.Parse(id_tercero.Trim()),
+                            pagina_web = web.Trim(),
+                            lema = lema.Trim(),
+                        };
+                        db.EMPRESA.Add(eMPLEADOS);
+                    }
+                    else
+                    {
+                        terceroquery.id_tercero = int.Parse(id_tercero.Trim());
+                        terceroquery.pagina_web = web.Trim();
+                        lema = lema.Trim();
+                        id_result = terceroquery.id_empresa;
+                    }
+                    db.SaveChanges();
+                    if (terceroquery == null)
+                    {
+                        id_result = db.EMPRESA.Max(x => x.id_empresa);
+                    }
+                }
+            }
+            catch (Exception asd)
+            {
+
+            }
 
             return id_result;
         }
