@@ -16,7 +16,8 @@ namespace _911_RD.Administracion.Vehiculo
         {
             InitializeComponent();
             cb_estado.SelectedIndex = 0;
-            cargarTabla();
+            cargarTabla("");
+
         }
 
 
@@ -41,6 +42,7 @@ namespace _911_RD.Administracion.Vehiculo
                     COMBUSTIBLE model = new COMBUSTIBLE
                     {
                         descripcion = txt_combustible.Text.Trim(),
+                        precio = double.Parse(txt_precio.Text.Trim()),
                         estado = true
                     };
 
@@ -53,13 +55,14 @@ namespace _911_RD.Administracion.Vehiculo
                     if (mod != null)
                     {
                         mod.descripcion = txt_combustible.Text.Trim();
+                        mod.precio = double.Parse(txt_precio.Text.Trim());
                         mod.estado = cb_estado.SelectedIndex == 0 ? true : false;
                     }
                 }
                 db.SaveChanges();
             }
             Utilidades.LimpiarControles(this);
-            cargarTabla();
+            cargarTabla("");
             MessageBox.Show("Proceso exitoso.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
         }
@@ -76,17 +79,9 @@ namespace _911_RD.Administracion.Vehiculo
         try
         {
             id_txt.Text = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
-            txt_combustible.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
-            if (dataGridView1.SelectedRows[0].Cells[2].Value.ToString() == "ACTIVO")
-            {
-                cb_estado.SelectedIndex = 0;
-
-            }
-            else
-            {
-                cb_estado.SelectedIndex = 1;
-
-            }
+                txt_combustible.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
+                txt_precio.Text = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
+                cb_estado.SelectedIndex = dataGridView1.SelectedRows[0].Cells[3].Value.ToString() == "ACTIVO" ? cb_estado.SelectedIndex = 0 : cb_estado.SelectedIndex = 1;
         }
         catch (Exception ea)
         {
@@ -94,28 +89,6 @@ namespace _911_RD.Administracion.Vehiculo
         }
     }
 
-    private void cargarTabla()
-    {
-        using (TransporSysEntities db = new TransporSysEntities())
-        {
-            try
-            {
-                dataGridView1.Rows.Clear();
-                var list = db.COMBUSTIBLE;
-                foreach (var OPuestos in list)
-                {
-                    dataGridView1.Rows.Add(OPuestos.id_combustible.ToString(), OPuestos.descripcion.ToString(), OPuestos.estado == true ? "ACTIVO" : "INACTIVO");
-                }
-            }
-            catch (Exception dfg)
-            {
-                // MessageBox.Show(lbl_titulo + " ERRORRRR");
-
-            }
-        }
-    }
-
- 
 
         private void id_txt_TextChanged(object sender, EventArgs e)
         {
@@ -136,6 +109,53 @@ namespace _911_RD.Administracion.Vehiculo
         private void dataGridView1_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             this.DialogResult = DialogResult.OK;
+        }
+
+        private void txt_filtro_TextChanged(object sender, EventArgs e)
+        {
+            cargarTabla(txt_filtro.Text.Trim());
+        }
+
+
+        private void cargarTabla(string condicion)
+        {
+            using (TransporSysEntities db = new TransporSysEntities())
+            {
+
+                try
+                {
+                    dataGridView1.Rows.Clear();
+                    var list = from mail in db.COMBUSTIBLE
+                               select new
+                               {
+                                   id_combustible = mail.id_combustible,
+                                   descripcion = mail.descripcion,
+                                   precio = mail.precio,
+                                   estado = mail.estado
+                               };
+                    if (condicion.Trim() != "")
+                    {
+                        list = list.Where(a => a.descripcion.Contains(condicion) || a.id_combustible.ToString().Contains(condicion));
+                    }
+                    dataGridView1.Rows.Add("", "", "");
+                    foreach (var OPuestos in list)
+                    {
+                        dataGridView1.Rows.Add(OPuestos.id_combustible.ToString(), OPuestos.descripcion.ToString(),
+                            OPuestos.precio.ToString(), OPuestos.estado == true ? "ACTIVO" : "INACTIVO");
+                    }
+                }
+                catch (Exception dfg)
+                {
+                    // MessageBox.Show(lbl_titulo + " ERRORRRR");
+
+                }
+            }
+        }
+
+        private void btn_limpiar_Click(object sender, EventArgs e)
+        {
+            Utilidades.LimpiarControles(this);
+            cargarTabla("");
         }
     }
 }

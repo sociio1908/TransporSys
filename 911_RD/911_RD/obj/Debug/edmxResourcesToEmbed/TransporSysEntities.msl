@@ -101,6 +101,7 @@
     <EntitySetMapping Name="COMBUSTIBLE">
       <EntityTypeMapping TypeName="TransporSysModel.COMBUSTIBLE">
         <MappingFragment StoreEntitySet="COMBUSTIBLE">
+          <ScalarProperty Name="precio" ColumnName="precio" />
           <ScalarProperty Name="id_combustible" ColumnName="id_combustible" />
           <ScalarProperty Name="descripcion" ColumnName="descripcion" />
           <ScalarProperty Name="estado" ColumnName="estado" />

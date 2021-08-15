@@ -8,15 +8,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace _911_RD.Administracion.Servicios
+namespace _911_RD.Administracion.PAGOS_COBROS
 {
-    public partial class FrmTipoServicios : FrmBase
+    public partial class FrmTiposPago : FrmBase
     {
-        public FrmTipoServicios()
+        public FrmTiposPago()
         {
             InitializeComponent();
             cargarTabla("");
-            txt_servicio.Focus();
+            txt_tipo.Focus();
             cb_estado.SelectedIndex = 0;
         }
         int id = 0;
@@ -30,9 +30,8 @@ namespace _911_RD.Administracion.Servicios
             try
             {
                 id_txt.Text = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
-                txt_servicio.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
-                txt_descripcion.Text = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
-                cb_estado.SelectedIndex = dataGridView1.SelectedRows[0].Cells[3].Value.ToString() == "ACTIVO" ? cb_estado.SelectedIndex = 0 : cb_estado.SelectedIndex = 1;
+                txt_tipo.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
+                cb_estado.SelectedIndex = dataGridView1.SelectedRows[0].Cells[2].Value.ToString() == "ACTIVO" ? cb_estado.SelectedIndex = 0 : cb_estado.SelectedIndex = 1;
             }
             catch (Exception ea)
             {
@@ -48,22 +47,21 @@ namespace _911_RD.Administracion.Servicios
                 try
                 {
                     dataGridView1.Rows.Clear();
-                    var list = from mail in db.CATEGORIAS_SERVICIOS
+                    var list = from mail in db.TIPOSPAGO
                                select new
                                {
-                                   id_categoria = mail.id_categoria_servicio,
-                                   categoria = mail.categoria,
+                                   id_tipo_pago = mail.id_tipoPago,
                                    descripcion = mail.descripcion,
                                    estado = mail.estado
                                };
                     if (condicion.Trim() != "")
                     {
-                        list = list.Where(a => a.categoria.Contains(condicion) || a.descripcion.ToString().Contains(condicion));
+                        list = list.Where(a => a.id_tipo_pago.ToString().Contains(condicion) || a.descripcion.ToString().Contains(condicion));
                     }
                     dataGridView1.Rows.Add("", "", "");
                     foreach (var OPuestos in list)
                     {
-                        dataGridView1.Rows.Add(OPuestos.id_categoria.ToString(), OPuestos.categoria.ToString(), OPuestos.descripcion.ToString(),
+                        dataGridView1.Rows.Add(OPuestos.id_tipo_pago.ToString(), OPuestos.descripcion.ToString(),
                            OPuestos.estado == true ? "ACTIVO" : "INACTIVO");
                     }
                 }
@@ -88,22 +86,20 @@ namespace _911_RD.Administracion.Servicios
                 {
                     if (id_txt.Text.Trim() == "")
                     {
-                        CATEGORIAS_SERVICIOS puesto = new CATEGORIAS_SERVICIOS
+                        TIPOSPAGO puesto = new TIPOSPAGO
                         {
-                            categoria = txt_servicio.Text.Trim(),
-                            descripcion = txt_descripcion.Text.Trim(),
+                            descripcion = txt_tipo.Text.Trim(),
                             estado = cb_estado.SelectedIndex == 0 ? true : false
                         };
 
-                        db.CATEGORIAS_SERVICIOS.Add(puesto);
+                        db.TIPOSPAGO.Add(puesto);
                     }
                     else
                     {
-                        var puesto = db.CATEGORIAS_SERVICIOS.FirstOrDefault(a => a.id_categoria_servicio.ToString() == id_txt.Text.Trim());
+                        var puesto = db.TIPOSPAGO.FirstOrDefault(a => a.id_tipoPago.ToString() == id_txt.Text.Trim());
                         if (puesto != null)
                         {
-                            puesto.categoria = txt_servicio.Text.Trim();
-                            puesto.descripcion = txt_descripcion.Text.Trim();
+                            puesto.descripcion = txt_tipo.Text.Trim();
                             puesto.estado = cb_estado.SelectedIndex == 0 ? true : false;
                         }
                     }
@@ -119,13 +115,11 @@ namespace _911_RD.Administracion.Servicios
                 // MessageBox.Show(lbl_titulo + " ERRORRRR");
 
             }
-
-
-
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+
             if (e.RowIndex > 0)
                 CargarCampos();
         }
@@ -141,24 +135,5 @@ namespace _911_RD.Administracion.Servicios
                 this.DialogResult = DialogResult.OK;
         }
 
-        private void label7_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cb_estado_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txt_descripcion_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

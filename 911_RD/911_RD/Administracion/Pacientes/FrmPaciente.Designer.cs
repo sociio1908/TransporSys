@@ -82,9 +82,7 @@
             // 
             // id_txt
             // 
-            this.id_txt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.id_txt.Location = new System.Drawing.Point(19, 103);
-            this.id_txt.Size = new System.Drawing.Size(106, 29);
             // 
             // btn_buscar
             // 
@@ -251,7 +249,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label7.Location = new System.Drawing.Point(281, 445);
+            this.label7.Location = new System.Drawing.Point(495, 515);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(58, 16);
             this.label7.TabIndex = 207;
@@ -264,7 +262,7 @@
             this.cb_estado.Items.AddRange(new object[] {
             "ACTIVO",
             "INACTIVO"});
-            this.cb_estado.Location = new System.Drawing.Point(284, 464);
+            this.cb_estado.Location = new System.Drawing.Point(498, 534);
             this.cb_estado.Name = "cb_estado";
             this.cb_estado.Size = new System.Drawing.Size(114, 28);
             this.cb_estado.TabIndex = 206;

@@ -17,5 +17,6 @@ namespace _911_RD
         public int id_combustible { get; set; }
         public string descripcion { get; set; }
         public bool estado { get; set; }
+        public Nullable<double> precio { get; set; }
     }
 }

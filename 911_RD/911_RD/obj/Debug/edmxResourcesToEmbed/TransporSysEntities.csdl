@@ -118,6 +118,7 @@
     <Property Name="id_combustible" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="estado" Type="Boolean" Nullable="false" />
+    <Property Name="precio" Type="Double" />
   </EntityType>
   <EntityType Name="COMPRAS">
     <Key>

@@ -106,6 +106,7 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.ARTICULOS_VS_CATEGORIAS_VS_D
     </Key>
     <Property Name="id_combustible" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="descripcion" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="precio" Type="float" />
     <Property Name="estado" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="COMPRAS">

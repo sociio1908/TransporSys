@@ -1,7 +1,7 @@
 ﻿
-namespace _911_RD.Administracion.Servicios
+namespace _911_RD.Administracion.PAGOS_COBROS
 {
-    partial class FrmTipoServicios
+    partial class FrmTiposPago
     {
         /// <summary>
         /// Required designer variable.
@@ -42,13 +42,10 @@ namespace _911_RD.Administracion.Servicios
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.id_eme = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Seleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.txt_descripcion = new _911_RD.ErrorTxtBox();
+            this.txt_tipo = new _911_RD.ErrorTxtBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.txt_servicio = new _911_RD.ErrorTxtBox();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.btn_buscar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -57,37 +54,43 @@ namespace _911_RD.Administracion.Servicios
             // 
             // btn_guardar
             // 
-            this.btn_guardar.Location = new System.Drawing.Point(12, 286);
+            this.btn_guardar.Location = new System.Drawing.Point(12, 232);
             this.btn_guardar.Click += new System.EventHandler(this.btn_guardar_Click);
             // 
             // lbl_titulo
             // 
-            this.lbl_titulo.Size = new System.Drawing.Size(258, 32);
-            this.lbl_titulo.Text = "TIPO DE SERVICIOS";
+            this.lbl_titulo.Size = new System.Drawing.Size(175, 32);
+            this.lbl_titulo.Text = "TIPOS PAGO";
+            this.lbl_titulo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // btn_limpiar
             // 
-            this.btn_limpiar.Location = new System.Drawing.Point(157, 286);
+            this.btn_limpiar.Location = new System.Drawing.Point(157, 232);
             // 
             // btn_salir
             // 
-            this.btn_salir.Location = new System.Drawing.Point(279, 286);
+            this.btn_salir.Location = new System.Drawing.Point(279, 232);
+            // 
+            // id_txt
+            // 
+            this.id_txt.Location = new System.Drawing.Point(11, 99);
+            this.id_txt.Size = new System.Drawing.Size(94, 29);
             // 
             // btn_buscar
             // 
-            this.btn_buscar.Size = new System.Drawing.Size(33, 29);
+            this.btn_buscar.Location = new System.Drawing.Point(111, 99);
+            this.btn_buscar.Size = new System.Drawing.Size(40, 29);
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label7.Location = new System.Drawing.Point(13, 233);
+            this.label7.Location = new System.Drawing.Point(12, 179);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(58, 16);
-            this.label7.TabIndex = 188;
+            this.label7.TabIndex = 195;
             this.label7.Text = "ESTADO";
-            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // cb_estado
             // 
@@ -96,11 +99,10 @@ namespace _911_RD.Administracion.Servicios
             this.cb_estado.Items.AddRange(new object[] {
             "ACTIVO",
             "INACTIVO"});
-            this.cb_estado.Location = new System.Drawing.Point(12, 252);
+            this.cb_estado.Location = new System.Drawing.Point(11, 198);
             this.cb_estado.Name = "cb_estado";
             this.cb_estado.Size = new System.Drawing.Size(114, 28);
-            this.cb_estado.TabIndex = 187;
-            this.cb_estado.SelectedIndexChanged += new System.EventHandler(this.cb_estado_SelectedIndexChanged);
+            this.cb_estado.TabIndex = 194;
             // 
             // label13
             // 
@@ -109,10 +111,10 @@ namespace _911_RD.Administracion.Servicios
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label13.Location = new System.Drawing.Point(18, 347);
+            this.label13.Location = new System.Drawing.Point(11, 293);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(76, 16);
-            this.label13.TabIndex = 186;
+            this.label13.TabIndex = 193;
             this.label13.Text = "BUSQUEDA";
             // 
             // txt_filtro
@@ -122,11 +124,11 @@ namespace _911_RD.Administracion.Servicios
             this.txt_filtro.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txt_filtro.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.txt_filtro.Limpiar = false;
-            this.txt_filtro.Location = new System.Drawing.Point(100, 342);
+            this.txt_filtro.Location = new System.Drawing.Point(93, 288);
             this.txt_filtro.Name = "txt_filtro";
             this.txt_filtro.Size = new System.Drawing.Size(170, 26);
             this.txt_filtro.SoloNumeros = false;
-            this.txt_filtro.TabIndex = 185;
+            this.txt_filtro.TabIndex = 192;
             this.txt_filtro.Validar = false;
             this.txt_filtro.TextChanged += new System.EventHandler(this.txt_filtro_TextChanged);
             // 
@@ -154,7 +156,6 @@ namespace _911_RD.Administracion.Servicios
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id_eme,
             this.tipo,
-            this.descripcion,
             this.estado,
             this.Seleccionar});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -166,7 +167,7 @@ namespace _911_RD.Administracion.Servicios
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.EnableHeadersVisualStyles = false;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 374);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 320);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
@@ -186,8 +187,8 @@ namespace _911_RD.Administracion.Servicios
             dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
             this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(552, 214);
-            this.dataGridView1.TabIndex = 184;
+            this.dataGridView1.Size = new System.Drawing.Size(373, 191);
+            this.dataGridView1.TabIndex = 191;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentDoubleClick);
             // 
@@ -206,105 +207,74 @@ namespace _911_RD.Administracion.Servicios
             this.tipo.Name = "tipo";
             this.tipo.ReadOnly = true;
             // 
-            // descripcion
-            // 
-            this.descripcion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.descripcion.FillWeight = 98.03922F;
-            this.descripcion.HeaderText = "DESCRIPCION";
-            this.descripcion.Name = "descripcion";
-            this.descripcion.ReadOnly = true;
-            // 
             // estado
             // 
-            this.estado.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.estado.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.estado.FillWeight = 40F;
             this.estado.HeaderText = "ESTADO";
             this.estado.Name = "estado";
             this.estado.ReadOnly = true;
-            this.estado.Width = 78;
             // 
             // Seleccionar
             // 
+            this.Seleccionar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.Seleccionar.DefaultCellStyle = dataGridViewCellStyle2;
+            this.Seleccionar.FillWeight = 20F;
             this.Seleccionar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Seleccionar.HeaderText = "";
             this.Seleccionar.Name = "Seleccionar";
             this.Seleccionar.ReadOnly = true;
             this.Seleccionar.Text = "Editar";
             // 
-            // txt_descripcion
+            // txt_tipo
             // 
-            this.txt_descripcion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txt_descripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.txt_descripcion.Limpiar = true;
-            this.txt_descripcion.Location = new System.Drawing.Point(13, 204);
-            this.txt_descripcion.Name = "txt_descripcion";
-            this.txt_descripcion.Size = new System.Drawing.Size(312, 26);
-            this.txt_descripcion.SoloNumeros = false;
-            this.txt_descripcion.TabIndex = 183;
-            this.txt_descripcion.Validar = true;
-            this.txt_descripcion.TextChanged += new System.EventHandler(this.txt_descripcion_TextChanged);
+            this.txt_tipo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_tipo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.txt_tipo.Limpiar = true;
+            this.txt_tipo.Location = new System.Drawing.Point(12, 150);
+            this.txt_tipo.Name = "txt_tipo";
+            this.txt_tipo.Size = new System.Drawing.Size(175, 26);
+            this.txt_tipo.SoloNumeros = false;
+            this.txt_tipo.TabIndex = 190;
+            this.txt_tipo.Validar = true;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label2.Location = new System.Drawing.Point(13, 185);
+            this.label2.Location = new System.Drawing.Point(12, 131);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(95, 16);
-            this.label2.TabIndex = 182;
-            this.label2.Text = "DESCRIPCION";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label10.Location = new System.Drawing.Point(12, 134);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(120, 16);
-            this.label10.TabIndex = 181;
-            this.label10.Text = "TIPO DE SERVICIO";
-            // 
-            // txt_servicio
-            // 
-            this.txt_servicio.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txt_servicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.txt_servicio.Limpiar = true;
-            this.txt_servicio.Location = new System.Drawing.Point(12, 153);
-            this.txt_servicio.Name = "txt_servicio";
-            this.txt_servicio.Size = new System.Drawing.Size(142, 26);
-            this.txt_servicio.SoloNumeros = false;
-            this.txt_servicio.TabIndex = 180;
-            this.txt_servicio.Validar = true;
+            this.label2.Size = new System.Drawing.Size(79, 16);
+            this.label2.TabIndex = 189;
+            this.label2.Text = "TIPO PAGO";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
             // 
-            // FrmTipoServicios
+            // FrmTiposPago
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(574, 600);
+            this.ClientSize = new System.Drawing.Size(396, 523);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.cb_estado);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.txt_filtro);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.txt_descripcion);
+            this.Controls.Add(this.txt_tipo);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.label10);
-            this.Controls.Add(this.txt_servicio);
-            this.Name = "FrmTipoServicios";
-            this.Text = "FrmTipoServicios";
+            this.MaximumSize = new System.Drawing.Size(396, 523);
+            this.MinimumSize = new System.Drawing.Size(396, 523);
+            this.Name = "FrmTiposPago";
+            this.Text = "FrmTiposPago";
             this.Controls.SetChildIndex(this.lbl_titulo, 0);
             this.Controls.SetChildIndex(this.btn_guardar, 0);
             this.Controls.SetChildIndex(this.label9, 0);
@@ -313,10 +283,8 @@ namespace _911_RD.Administracion.Servicios
             this.Controls.SetChildIndex(this.btn_limpiar, 0);
             this.Controls.SetChildIndex(this.btn_salir, 0);
             this.Controls.SetChildIndex(this.id_txt, 0);
-            this.Controls.SetChildIndex(this.txt_servicio, 0);
-            this.Controls.SetChildIndex(this.label10, 0);
             this.Controls.SetChildIndex(this.label2, 0);
-            this.Controls.SetChildIndex(this.txt_descripcion, 0);
+            this.Controls.SetChildIndex(this.txt_tipo, 0);
             this.Controls.SetChildIndex(this.dataGridView1, 0);
             this.Controls.SetChildIndex(this.txt_filtro, 0);
             this.Controls.SetChildIndex(this.label13, 0);
@@ -331,19 +299,17 @@ namespace _911_RD.Administracion.Servicios
         }
 
         #endregion
+
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox cb_estado;
         private System.Windows.Forms.Label label13;
         private ErrorTxtBox txt_filtro;
         public System.Windows.Forms.DataGridView dataGridView1;
-        private ErrorTxtBox txt_descripcion;
+        private ErrorTxtBox txt_tipo;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label10;
-        private ErrorTxtBox txt_servicio;
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.DataGridViewTextBoxColumn id_eme;
         private System.Windows.Forms.DataGridViewTextBoxColumn tipo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn descripcion;
         private System.Windows.Forms.DataGridViewTextBoxColumn estado;
         private System.Windows.Forms.DataGridViewButtonColumn Seleccionar;
     }

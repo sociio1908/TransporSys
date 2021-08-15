@@ -4,7 +4,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using _911_RD.Administracion;
+using _911_RD.Administracion.Configuracion;
 using _911_RD.Administracion.Pacientes;
+using _911_RD.Administracion.PAGOS_COBROS;
 using _911_RD.Administracion.Servicios;
 using _911_RD.Administracion.Transporte;
 using _911_RD.Administracion.Vehiculo;
@@ -21,7 +23,7 @@ namespace _911_RD
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmServicios());
+            Application.Run(new FrmConfiguracion());
         }
 
 
