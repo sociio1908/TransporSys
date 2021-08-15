@@ -592,7 +592,7 @@ namespace _911_RD.Administracion
                                  select new
                                  {
                                      id_direccion = tel.id_direccion,
-                                     direccion = tel.descripcion + ", " + ciu.ciudad + ", " + pa.pais
+                                     direccion = tel.referencia + ", " + ciu.ciudad + ", " + pa.pais
                                  };
 
                     if (correo != null)

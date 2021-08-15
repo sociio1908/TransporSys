@@ -254,3 +254,4 @@ C:\Users\Ing. Jerinel Mendoza\Documents\Proyecto C#\TranporSys\911_RD\911_RD\obj
 C:\Users\Ing. Jerinel Mendoza\Documents\Proyecto C#\TranporSys\911_RD\911_RD\obj\Debug\_911_RD.Administracion.PAGOS_COBROS.FrmTiposPago.resources
 C:\Users\Ing. Jerinel Mendoza\Documents\Proyecto C#\TranporSys\911_RD\911_RD\obj\Debug\_911_RD.Administracion.Configuracion.FrmConfiguracion.resources
 C:\Users\Ing. Jerinel Mendoza\Documents\Proyecto C#\TranporSys\911_RD\911_RD\obj\Debug\_911_RD.Administracion.Configuracion.FrmEmpresa.resources
+C:\Users\Ing. Jerinel Mendoza\Documents\Proyecto C#\TranporSys\911_RD\911_RD\obj\Debug\_911_RD.Administracion.Direccion.FrmCalle.resources

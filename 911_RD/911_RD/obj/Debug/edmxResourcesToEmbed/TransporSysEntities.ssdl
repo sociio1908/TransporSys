@@ -52,6 +52,13 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.ARTICULOS_VS_CATEGORIAS_VS_D
     <Property Name="descuento" Type="float" Nullable="false" />
     <Property Name="estado" Type="bit" Nullable="false" />
   </EntityType>
+  <EntityType Name="CALLES">
+    <Key>
+      <PropertyRef Name="id_calle" />
+    </Key>
+    <Property Name="id_calle" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
   <EntityType Name="CATEGORIAS">
     <Key>
       <PropertyRef Name="id_categoria" />
@@ -233,7 +240,9 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.ARTICULOS_VS_CATEGORIAS_VS_D
     </Key>
     <Property Name="id_direccion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="id_ciudad" Type="int" Nullable="false" />
-    <Property Name="descripcion" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="id_calle" Type="int" />
+    <Property Name="num_casa" Type="varchar" MaxLength="10" />
+    <Property Name="referencia" Type="varchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="DIRECCIONESLL">
     <Key>
@@ -1647,6 +1656,7 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.VEHICULOS_VS_CONDUCTOR' no t
     <EntitySet Name="ALMACENES" EntityType="Self.ALMACENES" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ARTICULOS" EntityType="Self.ARTICULOS" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="BENEFICIOS" EntityType="Self.BENEFICIOS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CALLES" EntityType="Self.CALLES" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CATEGORIAS" EntityType="Self.CATEGORIAS" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CATEGORIAS_SERVICIOS" EntityType="Self.CATEGORIAS_SERVICIOS" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CIUDADES" EntityType="Self.CIUDADES" Schema="dbo" store:Type="Tables" />

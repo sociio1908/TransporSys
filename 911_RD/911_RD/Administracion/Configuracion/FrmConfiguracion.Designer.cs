@@ -57,6 +57,7 @@ namespace _911_RD.Administracion.Configuracion
             // 
             // lbl_salir
             // 
+            this.lbl_salir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lbl_salir.AutoSize = true;
             this.lbl_salir.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_salir.Location = new System.Drawing.Point(1069, 8);

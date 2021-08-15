@@ -52,6 +52,13 @@
     <Property Name="estado" Type="Boolean" Nullable="false" />
     <NavigationProperty Name="TIPOS_MEMBRESIAS" Relationship="Self.FK_BENEFICIOS_TIPOS_MEMBRESIAS" FromRole="BENEFICIOS" ToRole="TIPOS_MEMBRESIAS" />
   </EntityType>
+  <EntityType Name="CALLES">
+    <Key>
+      <PropertyRef Name="id_calle" />
+    </Key>
+    <Property Name="id_calle" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
   <EntityType Name="CATEGORIAS">
     <Key>
       <PropertyRef Name="id_categoria" />
@@ -266,7 +273,9 @@
     </Key>
     <Property Name="id_direccion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="id_ciudad" Type="Int32" Nullable="false" />
-    <Property Name="descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="id_calle" Type="Int32" />
+    <Property Name="num_casa" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="referencia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="CIUDADES" Relationship="Self.FK_DIRECCIONES_CIUDADES" FromRole="DIRECCIONES" ToRole="CIUDADES" />
     <NavigationProperty Name="TERCEROS_VS_DIRECCIONES" Relationship="Self.FK__TERCEROS___id_di__3B95D2F1" FromRole="DIRECCIONES" ToRole="TERCEROS_VS_DIRECCIONES" />
   </EntityType>
@@ -1717,6 +1726,7 @@
     <EntitySet Name="ALMACENES" EntityType="Self.ALMACENES" />
     <EntitySet Name="ARTICULOS" EntityType="Self.ARTICULOS" />
     <EntitySet Name="BENEFICIOS" EntityType="Self.BENEFICIOS" />
+    <EntitySet Name="CALLES" EntityType="Self.CALLES" />
     <EntitySet Name="CATEGORIAS" EntityType="Self.CATEGORIAS" />
     <EntitySet Name="CATEGORIAS_SERVICIOS" EntityType="Self.CATEGORIAS_SERVICIOS" />
     <EntitySet Name="CIUDADES" EntityType="Self.CIUDADES" />

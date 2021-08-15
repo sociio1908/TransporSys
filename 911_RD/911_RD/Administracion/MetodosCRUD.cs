@@ -471,7 +471,7 @@ namespace _911_RD.Administracion
             }
         }
 
-        public int InsertarDireccion(string id_direccion, string id_ciudad, string descripcion, string id_tercero)
+        public int InsertarDireccion(string id_direccion, string id_ciudad, string id_calle, string casa, string referencia, string id_tercero)
         {
             int id_result = 0;
             try
@@ -482,19 +482,24 @@ namespace _911_RD.Administracion
                     int id_ciudad_int = db.CIUDADES.FirstOrDefault(a => a.ciudad.ToString() == id_ciudad.Trim()).id_ciudad;
 
                     var terceroquery = db.DIRECCIONES.FirstOrDefault(a => a.id_direccion.ToString() == id_direccion.Trim());
-
                     if (terceroquery == null)
                     {
-                        DIRECCIONES dir = new DIRECCIONES{
+                        DIRECCIONES dir = new DIRECCIONES
+                        {
                             id_ciudad = id_ciudad_int,
-                            descripcion = descripcion.Trim(),
+                            id_calle = int.Parse(id_calle.Trim()),
+                            num_casa = casa.Trim(),
+                            referencia = referencia.Trim()
+
                         };
                         db.DIRECCIONES.Add(dir);
                     }
                     else
                     {
                         terceroquery.id_ciudad = id_ciudad_int;
-                        terceroquery.descripcion = descripcion.Trim();
+                        terceroquery.id_calle = int.Parse(id_calle.Trim());
+                        terceroquery.num_casa = casa.Trim();
+                        terceroquery.referencia = referencia.Trim();
                         id_result = terceroquery.id_direccion;
                     }
                     db.SaveChanges();

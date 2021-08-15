@@ -44,19 +44,21 @@ namespace _911_RD.Administracion.Transporte
 
                     var direcciones = from dir in db.DIRECCIONES
                                       join ciu in db.CIUDADES on dir.id_ciudad equals ciu.id_ciudad
+                                      join ca in db.CALLES on dir.id_calle equals ca.id_calle
                                       join provi in db.PROVINCIAS on ciu.id_provincia equals provi.id_provincia
                                       join pai in db.PAISES on provi.id_pais equals pai.id_pais
                                       select new
                                       {
                                           id_direccion = dir.id_direccion,
-                                          descripcion = dir.descripcion,
+                                          descripcion = dir.referencia,
                                           ciudad = ciu.ciudad,
+                                          calle = ca.nombre,
                                           pais = pai.pais,
                                       };
 
                     if (condicion.Equals("") == false)
                     {
-                        direcciones = direcciones.Where(di => di.descripcion.ToString().Contains(condicion) || di.ciudad.Contains(condicion));
+                        direcciones = direcciones.Where(di => di.descripcion.ToString().Contains(condicion) || di.calle.ToString().Contains(condicion) || di.ciudad.Contains(condicion));
                     }
                     if (direcciones != null && condicion.Equals("") == false)
                     {
@@ -70,6 +72,7 @@ namespace _911_RD.Administracion.Transporte
                              dire.id_direccion.ToString(),
                              dire.descripcion.ToString(),
                              dire.ciudad.ToString(),
+                             dire.calle.ToString(),
                              dire.pais.ToString()
                             );
                         }

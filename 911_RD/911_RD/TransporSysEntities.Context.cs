@@ -29,6 +29,7 @@ namespace _911_RD
         public virtual DbSet<ALMACENES> ALMACENES { get; set; }
         public virtual DbSet<ARTICULOS> ARTICULOS { get; set; }
         public virtual DbSet<BENEFICIOS> BENEFICIOS { get; set; }
+        public virtual DbSet<CALLES> CALLES { get; set; }
         public virtual DbSet<CATEGORIAS> CATEGORIAS { get; set; }
         public virtual DbSet<CATEGORIAS_SERVICIOS> CATEGORIAS_SERVICIOS { get; set; }
         public virtual DbSet<CIUDADES> CIUDADES { get; set; }

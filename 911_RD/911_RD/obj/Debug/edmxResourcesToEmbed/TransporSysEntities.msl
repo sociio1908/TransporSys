@@ -45,6 +45,14 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="CALLES">
+      <EntityTypeMapping TypeName="TransporSysModel.CALLES">
+        <MappingFragment StoreEntitySet="CALLES">
+          <ScalarProperty Name="id_calle" ColumnName="id_calle" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="CATEGORIAS">
       <EntityTypeMapping TypeName="TransporSysModel.CATEGORIAS">
         <MappingFragment StoreEntitySet="CATEGORIAS">
@@ -242,7 +250,9 @@
         <MappingFragment StoreEntitySet="DIRECCIONES">
           <ScalarProperty Name="id_direccion" ColumnName="id_direccion" />
           <ScalarProperty Name="id_ciudad" ColumnName="id_ciudad" />
-          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="id_calle" ColumnName="id_calle" />
+          <ScalarProperty Name="num_casa" ColumnName="num_casa" />
+          <ScalarProperty Name="referencia" ColumnName="referencia" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

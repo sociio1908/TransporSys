@@ -304,5 +304,20 @@ namespace _911_RD.Administracion.Vehiculo
             CargarCampos();
 
         }
+
+        private void txt_id_marca_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txt_marca_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label22_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -241,7 +241,7 @@ namespace _911_RD.Administracion.Configuracion
                                  select new
                                  {
                                      id_direccion = tel.id_direccion,
-                                     direccion = tel.descripcion + ", " + ciu.ciudad + ", " + pa.pais
+                                     direccion = tel.referencia + ", " + ciu.ciudad + ", " + pa.pais
                                  };
 
                     if (correo != null)
@@ -463,8 +463,8 @@ namespace _911_RD.Administracion.Configuracion
                         if (existe == false)
                         {
                             tabla_direccion.Rows.Add(frmCargo.dataGridView1.CurrentRow.Cells[0].Value.ToString(),
-                            frmCargo.dataGridView1.CurrentRow.Cells[1].Value.ToString() + ", " + frmCargo.dataGridView1.CurrentRow.Cells[9].Value.ToString()
-                            + ", " + frmCargo.dataGridView1.CurrentRow.Cells[5].Value.ToString());
+                            frmCargo.dataGridView1.CurrentRow.Cells[1].Value.ToString() + ", " + frmCargo.dataGridView1.CurrentRow.Cells[5].Value.ToString()
+                            + ", " + frmCargo.dataGridView1.CurrentRow.Cells[9].Value.ToString());
                         }
 
                     }

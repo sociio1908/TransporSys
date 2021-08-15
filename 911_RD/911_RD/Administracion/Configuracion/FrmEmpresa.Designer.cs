@@ -480,6 +480,7 @@ namespace _911_RD.Administracion.Configuracion
             this.Controls.Add(this.lbl);
             this.Controls.Add(this.txt_nombre);
             this.MaximumSize = new System.Drawing.Size(794, 478);
+            this.MinimumSize = new System.Drawing.Size(794, 478);
             this.Name = "FrmEmpresa";
             this.Text = "FrmEmpresa";
             this.Controls.SetChildIndex(this.lbl_titulo, 0);

@@ -117,6 +117,12 @@
     <Compile Include="Administracion\ConPrincipal.Designer.cs">
       <DependentUpon>ConPrincipal.cs</DependentUpon>
     </Compile>
+    <Compile Include="Administracion\Direccion\FrmCalle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administracion\Direccion\FrmCalle.Designer.cs">
+      <DependentUpon>FrmCalle.cs</DependentUpon>
+    </Compile>
     <Compile Include="Administracion\Direccion\FrmCiudad.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -294,6 +300,9 @@
       <DependentUpon>TransporSysEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="BENEFICIOS.cs">
+      <DependentUpon>TransporSysEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CALLES.cs">
       <DependentUpon>TransporSysEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="CATEGORIAS.cs">
@@ -619,6 +628,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Administracion\ConPrincipal.resx">
       <DependentUpon>ConPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administracion\Direccion\FrmCalle.resx">
+      <DependentUpon>FrmCalle.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Administracion\Direccion\FrmCiudad.resx">
       <DependentUpon>FrmCiudad.cs</DependentUpon>

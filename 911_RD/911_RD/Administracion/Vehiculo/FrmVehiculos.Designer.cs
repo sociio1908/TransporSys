@@ -343,6 +343,7 @@ namespace _911_RD.Administracion.Vehiculo
             this.label22.Size = new System.Drawing.Size(58, 16);
             this.label22.TabIndex = 192;
             this.label22.Text = "MARCA";
+            this.label22.Click += new System.EventHandler(this.label22_Click);
             // 
             // label1
             // 
@@ -478,6 +479,7 @@ namespace _911_RD.Administracion.Vehiculo
             this.txt_id_marca.SoloNumeros = false;
             this.txt_id_marca.TabIndex = 211;
             this.txt_id_marca.Validar = true;
+            this.txt_id_marca.TextChanged += new System.EventHandler(this.txt_id_marca_TextChanged);
             // 
             // btn_marca
             // 
@@ -504,6 +506,7 @@ namespace _911_RD.Administracion.Vehiculo
             this.txt_marca.SoloNumeros = false;
             this.txt_marca.TabIndex = 208;
             this.txt_marca.Validar = true;
+            this.txt_marca.TextChanged += new System.EventHandler(this.txt_marca_TextChanged);
             // 
             // txt_id_modelo
             // 
