@@ -57,10 +57,10 @@ namespace _911_RD.Administracion.Configuracion
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.button3);
             this.panel2.Controls.Add(this.button6);
             this.panel2.Controls.Add(this.button5);
             this.panel2.Controls.Add(this.button4);
-            this.panel2.Controls.Add(this.button3);
             this.panel2.Controls.Add(this.btn_combustibles);
             this.panel2.Controls.Add(this.btn_Tipos_Pago);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
@@ -103,7 +103,7 @@ namespace _911_RD.Administracion.Configuracion
             // 
             this.btn_Tipos_Pago.FlatAppearance.BorderSize = 0;
             this.btn_Tipos_Pago.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Tipos_Pago.Location = new System.Drawing.Point(6, 16);
+            this.btn_Tipos_Pago.Location = new System.Drawing.Point(6, 94);
             this.btn_Tipos_Pago.Name = "btn_Tipos_Pago";
             this.btn_Tipos_Pago.Size = new System.Drawing.Size(146, 35);
             this.btn_Tipos_Pago.TabIndex = 0;
@@ -127,11 +127,11 @@ namespace _911_RD.Administracion.Configuracion
             // 
             this.button3.FlatAppearance.BorderSize = 0;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Location = new System.Drawing.Point(3, 98);
+            this.button3.Location = new System.Drawing.Point(3, 16);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(146, 35);
             this.button3.TabIndex = 2;
-            this.button3.Text = "TIPOS DE PAGO";
+            this.button3.Text = "EMPRESA";
             this.button3.UseVisualStyleBackColor = true;
             // 
             // button4

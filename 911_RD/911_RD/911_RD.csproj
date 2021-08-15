@@ -105,6 +105,12 @@
     <Compile Include="Administracion\Configuracion\FrmConfiguracion.Designer.cs">
       <DependentUpon>FrmConfiguracion.cs</DependentUpon>
     </Compile>
+    <Compile Include="Administracion\Configuracion\FrmEmpresa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administracion\Configuracion\FrmEmpresa.Designer.cs">
+      <DependentUpon>FrmEmpresa.cs</DependentUpon>
+    </Compile>
     <Compile Include="Administracion\ConPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -595,6 +601,9 @@
     </Compile>
     <EmbeddedResource Include="Administracion\Configuracion\FrmConfiguracion.resx">
       <DependentUpon>FrmConfiguracion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administracion\Configuracion\FrmEmpresa.resx">
+      <DependentUpon>FrmEmpresa.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Administracion\ConPrincipal.resx">
       <DependentUpon>ConPrincipal.cs</DependentUpon>
