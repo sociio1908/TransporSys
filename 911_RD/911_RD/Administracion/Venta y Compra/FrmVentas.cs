@@ -52,7 +52,8 @@ namespace _911_RD.Administracion
                     txt_des.Text = frmarticulos.dataGridView1.CurrentRow.Cells[2].Value.ToString();
                     txt_stock.Text = frmarticulos.dataGridView1.CurrentRow.Cells[3].Value.ToString();
                     txt_precio.Text = frmarticulos.dataGridView1.CurrentRow.Cells[4].Value.ToString();
-                    txt_codBarra.Text = frmarticulos.dataGridView1.CurrentRow.Cells[8].Value.ToString();
+                    txt_porcentaje_itb.Text = frmarticulos.dataGridView1.SelectedRows[0].Cells[5].Value.ToString();
+                    txt_codBarra.Text = frmarticulos.dataGridView1.CurrentRow.Cells[9].Value.ToString();
                     codigo_de_barra();
                 }
             }
@@ -146,28 +147,68 @@ namespace _911_RD.Administracion
                 {
                     MessageBox.Show("LA CANTIDAD A VENDER NO PUEDE SER MAYOR A LA DISPONIBLE");
                 }
-                else
+                else if(dataGridView1.RowCount > 0);
+
                 {
-                    int n = dataGridView1.Rows.Add();
+                    // Primero averigua si el registro existe:
+                    bool existe = false;
+                        for (int i = 0; i < dataGridView1.RowCount; i++)
+                        {
+                            int bart = 0, idT = 0;
+                            bart = Convert.ToInt32(dataGridView1.Rows[i].Cells["id_articulos"].Value.ToString());
+                            idT = Convert.ToInt32(txt_id.Text.Trim());
 
-                    dataGridView1.Rows[n].Cells[0].Value = txt_id.Text.ToString();
-                    dataGridView1.Rows[n].Cells[1].Value = txt_nombre.Text;
-                    dataGridView1.Rows[n].Cells[2].Value = txt_cantidad.Text.ToString();
-                    dataGridView1.Rows[n].Cells[3].Value = txt_precio.Text.ToString();
-                    dataGridView1.Rows[n].Cells[4].Value = txt_descuentoEmple.Text.ToString();
-                    txt_id.Text = "";
-                    txt_nombre.Text = "";
-                    txt_cantidad.Text = "0";
-                    txt_precio.Text = "";
-                    txt_descuento.Text = "";
-                    txt_stock.Text = "";
-                    txt_des.Text = "";
-                    txt_codBarra.Text = "";
-                    //pnl_cod.BackgroundImage.Dispose();
+                        if (bart == idT)
+                            {
+                                int q = 0, w = 0, suma = 0;
+                                q = Convert.ToInt32(dataGridView1.Rows[i].Cells["cantidad"].Value);
+                                w = Convert.ToInt32(txt_cantidad.Text.Trim());
+                                suma = q + w;
+                                dataGridView1.Rows[i].Cells["cantidad"].Value = suma;
+                                SumarFilas();
+                                txt_id.Text = "";
+                                txt_nombre.Text = "";
+                                txt_cantidad.Text = "0";
+                                txt_precio.Text = "";
+                                txt_descuento.Text = "";
+                                txt_stock.Text = "";
+                                txt_des.Text = "";
+                                txt_codBarra.Text = "";
+                                txt_porcentaje_itb.Text = "";
+                            existe = true;
+                                break; 
+                            }
+                        }
+
+                        // Luego, ya fuera del ciclo, solo si no existe, realizas la insercion:
+                        if (existe == false)
+                        {
+                            int n = dataGridView1.Rows.Add();
+
+                            dataGridView1.Rows[n].Cells[0].Value = txt_id.Text.ToString();
+                            dataGridView1.Rows[n].Cells[1].Value = txt_nombre.Text;
+                            dataGridView1.Rows[n].Cells[2].Value = txt_cantidad.Text.ToString();
+                            dataGridView1.Rows[n].Cells[3].Value = txt_precio.Text.ToString();
+                            dataGridView1.Rows[n].Cells[4].Value = txt_porcentaje_itb.Text.ToString();
+                            dataGridView1.Rows[n].Cells[5].Value = txt_descuentoEmple.Text.ToString();
+                            txt_id.Text = "";
+                            txt_nombre.Text = "";
+                            txt_cantidad.Text = "0";
+                            txt_precio.Text = "";
+                            txt_descuento.Text = "";
+                            txt_stock.Text = "";
+                            txt_des.Text = "";
+                            txt_codBarra.Text = "";
+                            txt_porcentaje_itb.Text = "";
+
+                        //pnl_cod.BackgroundImage.Dispose();
 
 
-                    SumarFilas();
+                        SumarFilas();
+                        }
                 }
+                    
+                
             }
 
         }
@@ -176,7 +217,8 @@ namespace _911_RD.Administracion
         {
             if (dataGridView1.Rows.Count > 0)
             {
-                double a = 0, b = 0, c = 0, d = 0, impTotal = 0, multotal = 0, subtotal = 0, itb = 0.18, itbTotal = 0, desTotal = 0, restotal = 0, total = 0;
+                double a = 0, b = 0, c = 0, d = 0, f = 0 ,impTotal = 0, multotal = 0, 
+                    subtotal = 0, itb = 0, itbTotal = 0, desTotal = 0, restotal = 0, total = 0;
 
                 foreach (DataGridViewRow row in dataGridView1.Rows)
                 {
@@ -184,14 +226,21 @@ namespace _911_RD.Administracion
                     a = Convert.ToDouble(row.Cells["cantidad"].Value);
                     b = Convert.ToDouble(row.Cells["precio"].Value);
                     c = Convert.ToDouble(row.Cells["descuento"].Value);
+                    f = Convert.ToDouble(row.Cells["itbis"].Value);
                     d = c / 100;
-                    multotal = a * b;
+                    double itbPor = f / 100;
+                    double itb_pre = b * itbPor;
+                    double precioTotal = b + itb_pre;
+                    multotal = a * precioTotal;
                     restotal = multotal * d;
                     total = multotal - restotal;
                     row.Cells["total"].Value = total.ToString();
                     subtotal += Convert.ToDouble(row.Cells["total"].Value);
-                    itbTotal += total * itb;
-                    impTotal = subtotal + itbTotal;
+                    double z = f / 100;
+                    double imp = 0;
+                    imp += z;
+                    itbTotal += total * imp;
+                    impTotal = subtotal;
                     desTotal = desTotal + restotal;
                 }
                 txt_subtotal.Text = subtotal.ToString();
@@ -361,7 +410,7 @@ namespace _911_RD.Administracion
                 try
                 {
                     var articulos = from pro in db.ARTICULOS
-
+                                    join itb in db.ITEBIS on pro.intItebis equals itb.intItebis
                                     select new
                                     {
                                         //aqui cargas los campos de tu tabla
@@ -370,7 +419,7 @@ namespace _911_RD.Administracion
                                         pro.descripcion,
                                         pro.reorden,
                                         pro.precio,
-
+                                        itb.porcentaje,
                                         pro.codigo_barras,
                                         //etc
                                     };
@@ -388,6 +437,7 @@ namespace _911_RD.Administracion
                         txt_stock.Text = OArticulos.reorden.ToString();
                         txt_precio.Text = OArticulos.precio.ToString();
                         txt_codBarra.Text = OArticulos.codigo_barras.ToString();
+                        txt_porcentaje_itb.Text = OArticulos.porcentaje.ToString();
                     }
 
                 }
@@ -461,6 +511,11 @@ namespace _911_RD.Administracion
                 txt_numfactura.Text = b.ToString();
        
             }
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -73,6 +73,7 @@ namespace _911_RD
         public virtual DbSet<SERVICIOS> SERVICIOS { get; set; }
         public virtual DbSet<SEXOS> SEXOS { get; set; }
         public virtual DbSet<SUPLIDORES> SUPLIDORES { get; set; }
+        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<TELEFONOS> TELEFONOS { get; set; }
         public virtual DbSet<TERCEROS> TERCEROS { get; set; }
         public virtual DbSet<TERCEROS_VS_DIRECCIONES> TERCEROS_VS_DIRECCIONES { get; set; }

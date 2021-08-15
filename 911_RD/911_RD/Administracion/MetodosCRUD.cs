@@ -201,28 +201,35 @@ namespace _911_RD.Administracion
             {
                 //TransporSysEntities
                 using (TransporSysEntities db = new TransporSysEntities())
-                {
-                    int id = 0;
+               {
+                
+                   int id = 0;
                     var iden = db.IDENTIFICACIONES.FirstOrDefault(a => a.identificacion.ToString() == identificacion.Trim());
-                    var VS = db.TERCEROS_VS_IDENTIFICACIONES.FirstOrDefault(a => a.id_identificacion == iden.id_identificacion && a.id_tercero.ToString()==id_traido.Trim());
-
-                    if (VS != null)
+                    int tercero=0 ;
+                    if (id_traido != "0")
                     {
-                        id = VS.id_tercero;
+                        tercero = db.TERCEROS_VS_IDENTIFICACIONES.FirstOrDefault(a => a.id_identificacion == iden.id_identificacion && a.id_tercero.ToString() == id_traido.Trim()).id_tercero;
+                        
+                    }
+
+                    if (tercero > 0)
+                    {
+                        id = tercero;
                     }
                     else
                     {
                         id = int.Parse(id_traido.Trim());
                     }
-                    //toy working por eso tardo tu sabes que hay que estar parandose
+
+
                     var terceroquery = db.TERCEROS.FirstOrDefault(a => a.id_tercero == id);
                     if (terceroquery == null)
                     {
-                        TERCEROS tercero = new TERCEROS
+                        TERCEROS terc = new TERCEROS
                         {
                             nombre = nombre_traido.Trim(),
                         };
-                        db.TERCEROS.Add(tercero);
+                        db.TERCEROS.Add(terc);
                     }
                     else
                     {
@@ -239,7 +246,7 @@ namespace _911_RD.Administracion
             }
             catch (Exception asd)
             {
-               System.Diagnostics.Debug.WriteLine("ERROR: " + asd.ToString());
+                System.Diagnostics.Debug.WriteLine("-----------ERROR: " + asd.ToString());
 
             }
 

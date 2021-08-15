@@ -34,6 +34,7 @@ namespace _911_RD.Administracion
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCompra));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -78,26 +79,46 @@ namespace _911_RD.Administracion
             this.btn_2 = new System.Windows.Forms.Button();
             this.btn_1 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.id_articulos = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.articulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descuento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.txt_cantidad = new _911_RD.ErrorTxtBox();
             this.txt_id = new _911_RD.ErrorTxtBox();
             this.txt_numfactura = new _911_RD.ErrorTxtBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.txt_id_cliente = new _911_RD.ErrorTxtBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.txt_nombre_cliente = new _911_RD.ErrorTxtBox();
+            this.bt_agregar_cont = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.txt_descuentoEmple = new _911_RD.ErrorTxtBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.id_articulos = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.articulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.itbis = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descuento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.total = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txt_porcentaje_itb = new _911_RD.ErrorTxtBox();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.txt_precio_compra = new _911_RD.ErrorTxtBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label22);
+            this.groupBox1.Controls.Add(this.txt_precio_compra);
+            this.groupBox1.Controls.Add(this.txt_porcentaje_itb);
+            this.groupBox1.Controls.Add(this.label21);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.txt_des);
@@ -124,7 +145,7 @@ namespace _911_RD.Administracion
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.label5.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label5.Location = new System.Drawing.Point(415, 28);
+            this.label5.Location = new System.Drawing.Point(426, 28);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(132, 16);
             this.label5.TabIndex = 200;
@@ -148,14 +169,14 @@ namespace _911_RD.Administracion
             this.txt_des.Limpiar = true;
             this.txt_des.Location = new System.Drawing.Point(35, 120);
             this.txt_des.Name = "txt_des";
-            this.txt_des.Size = new System.Drawing.Size(154, 26);
+            this.txt_des.Size = new System.Drawing.Size(128, 26);
             this.txt_des.SoloNumeros = false;
             this.txt_des.TabIndex = 198;
             this.txt_des.Validar = true;
             // 
             // txt_codBarra
             // 
-            this.txt_codBarra.Location = new System.Drawing.Point(418, 121);
+            this.txt_codBarra.Location = new System.Drawing.Point(429, 121);
             this.txt_codBarra.Name = "txt_codBarra";
             this.txt_codBarra.Size = new System.Drawing.Size(237, 27);
             this.txt_codBarra.TabIndex = 196;
@@ -163,7 +184,7 @@ namespace _911_RD.Administracion
             // 
             // pnl_cod
             // 
-            this.pnl_cod.Location = new System.Drawing.Point(418, 47);
+            this.pnl_cod.Location = new System.Drawing.Point(429, 47);
             this.pnl_cod.Name = "pnl_cod";
             this.pnl_cod.Size = new System.Drawing.Size(237, 70);
             this.pnl_cod.TabIndex = 197;
@@ -186,7 +207,7 @@ namespace _911_RD.Administracion
             this.txt_nombre.Limpiar = true;
             this.txt_nombre.Location = new System.Drawing.Point(35, 47);
             this.txt_nombre.Name = "txt_nombre";
-            this.txt_nombre.Size = new System.Drawing.Size(154, 26);
+            this.txt_nombre.Size = new System.Drawing.Size(128, 26);
             this.txt_nombre.SoloNumeros = false;
             this.txt_nombre.TabIndex = 185;
             this.txt_nombre.Validar = true;
@@ -196,7 +217,7 @@ namespace _911_RD.Administracion
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.label2.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label2.Location = new System.Drawing.Point(257, 28);
+            this.label2.Location = new System.Drawing.Point(184, 101);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(50, 16);
             this.label2.TabIndex = 189;
@@ -207,9 +228,9 @@ namespace _911_RD.Administracion
             this.txt_stock.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txt_stock.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.txt_stock.Limpiar = true;
-            this.txt_stock.Location = new System.Drawing.Point(260, 47);
+            this.txt_stock.Location = new System.Drawing.Point(187, 120);
             this.txt_stock.Name = "txt_stock";
-            this.txt_stock.Size = new System.Drawing.Size(114, 26);
+            this.txt_stock.Size = new System.Drawing.Size(76, 26);
             this.txt_stock.SoloNumeros = false;
             this.txt_stock.TabIndex = 186;
             this.txt_stock.Validar = true;
@@ -219,20 +240,21 @@ namespace _911_RD.Administracion
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.label4.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label4.Location = new System.Drawing.Point(257, 91);
+            this.label4.Location = new System.Drawing.Point(184, 28);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(55, 16);
             this.label4.TabIndex = 190;
             this.label4.Text = "PRECIO";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // txt_precio
             // 
             this.txt_precio.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txt_precio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.txt_precio.Limpiar = true;
-            this.txt_precio.Location = new System.Drawing.Point(260, 121);
+            this.txt_precio.Location = new System.Drawing.Point(187, 47);
             this.txt_precio.Name = "txt_precio";
-            this.txt_precio.Size = new System.Drawing.Size(114, 26);
+            this.txt_precio.Size = new System.Drawing.Size(73, 26);
             this.txt_precio.SoloNumeros = false;
             this.txt_precio.TabIndex = 187;
             this.txt_precio.Validar = true;
@@ -772,6 +794,7 @@ namespace _911_RD.Administracion
             this.articulo,
             this.cantidad,
             this.precio,
+            this.itbis,
             this.descuento,
             this.total});
             this.dataGridView1.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -806,46 +829,6 @@ namespace _911_RD.Administracion
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(791, 208);
             this.dataGridView1.TabIndex = 234;
-            // 
-            // id_articulos
-            // 
-            this.id_articulos.HeaderText = "ID";
-            this.id_articulos.Name = "id_articulos";
-            this.id_articulos.ReadOnly = true;
-            this.id_articulos.Width = 80;
-            // 
-            // articulo
-            // 
-            this.articulo.HeaderText = "ARTICULO";
-            this.articulo.Name = "articulo";
-            this.articulo.ReadOnly = true;
-            this.articulo.Width = 180;
-            // 
-            // cantidad
-            // 
-            this.cantidad.HeaderText = "CANTIDAD";
-            this.cantidad.Name = "cantidad";
-            this.cantidad.Width = 105;
-            // 
-            // precio
-            // 
-            this.precio.HeaderText = "PRECIO";
-            this.precio.Name = "precio";
-            this.precio.ReadOnly = true;
-            this.precio.Width = 130;
-            // 
-            // descuento
-            // 
-            this.descuento.HeaderText = "DESCUENTO";
-            this.descuento.Name = "descuento";
-            this.descuento.ReadOnly = true;
-            // 
-            // total
-            // 
-            this.total.HeaderText = "TOTAL";
-            this.total.Name = "total";
-            this.total.ReadOnly = true;
-            this.total.Width = 180;
             // 
             // button1
             // 
@@ -938,12 +921,231 @@ namespace _911_RD.Administracion
             this.txt_numfactura.Text = "1";
             this.txt_numfactura.Validar = true;
             // 
+            // groupBox3
+            // 
+            this.groupBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.groupBox3.Controls.Add(this.txt_id_cliente);
+            this.groupBox3.Controls.Add(this.label20);
+            this.groupBox3.Controls.Add(this.txt_nombre_cliente);
+            this.groupBox3.Controls.Add(this.bt_agregar_cont);
+            this.groupBox3.Controls.Add(this.pictureBox1);
+            this.groupBox3.Controls.Add(this.txt_descuentoEmple);
+            this.groupBox3.Controls.Add(this.label18);
+            this.groupBox3.Controls.Add(this.label19);
+            this.groupBox3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
+            this.groupBox3.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.groupBox3.Location = new System.Drawing.Point(29, 521);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(330, 140);
+            this.groupBox3.TabIndex = 251;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "SUPLIDOR";
+            // 
+            // txt_id_cliente
+            // 
+            this.txt_id_cliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(54)))), ((int)(((byte)(54)))));
+            this.txt_id_cliente.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_id_cliente.Enabled = false;
+            this.txt_id_cliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.txt_id_cliente.ForeColor = System.Drawing.SystemColors.Window;
+            this.txt_id_cliente.Limpiar = true;
+            this.txt_id_cliente.Location = new System.Drawing.Point(99, 73);
+            this.txt_id_cliente.Name = "txt_id_cliente";
+            this.txt_id_cliente.Size = new System.Drawing.Size(37, 26);
+            this.txt_id_cliente.SoloNumeros = false;
+            this.txt_id_cliente.TabIndex = 235;
+            this.txt_id_cliente.Validar = true;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Century Gothic", 9F);
+            this.label20.ForeColor = System.Drawing.Color.Snow;
+            this.label20.Location = new System.Drawing.Point(8, 75);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(61, 17);
+            this.label20.TabIndex = 234;
+            this.label20.Text = "NOMBRE:";
+            // 
+            // txt_nombre_cliente
+            // 
+            this.txt_nombre_cliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(54)))), ((int)(((byte)(54)))));
+            this.txt_nombre_cliente.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_nombre_cliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.txt_nombre_cliente.ForeColor = System.Drawing.SystemColors.Window;
+            this.txt_nombre_cliente.Limpiar = true;
+            this.txt_nombre_cliente.Location = new System.Drawing.Point(142, 73);
+            this.txt_nombre_cliente.Name = "txt_nombre_cliente";
+            this.txt_nombre_cliente.Size = new System.Drawing.Size(125, 26);
+            this.txt_nombre_cliente.SoloNumeros = false;
+            this.txt_nombre_cliente.TabIndex = 233;
+            this.txt_nombre_cliente.Validar = true;
+            // 
+            // bt_agregar_cont
+            // 
+            this.bt_agregar_cont.BackColor = System.Drawing.Color.LimeGreen;
+            this.bt_agregar_cont.FlatAppearance.BorderSize = 0;
+            this.bt_agregar_cont.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bt_agregar_cont.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bt_agregar_cont.ForeColor = System.Drawing.Color.White;
+            this.bt_agregar_cont.Location = new System.Drawing.Point(273, 73);
+            this.bt_agregar_cont.Name = "bt_agregar_cont";
+            this.bt_agregar_cont.Size = new System.Drawing.Size(34, 26);
+            this.bt_agregar_cont.TabIndex = 209;
+            this.bt_agregar_cont.Text = "+";
+            this.bt_agregar_cont.UseVisualStyleBackColor = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.LightGreen;
+            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(220, 24);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(34, 27);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 205;
+            this.pictureBox1.TabStop = false;
+            // 
+            // txt_descuentoEmple
+            // 
+            this.txt_descuentoEmple.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(56)))), ((int)(((byte)(56)))));
+            this.txt_descuentoEmple.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_descuentoEmple.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.txt_descuentoEmple.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.txt_descuentoEmple.Limpiar = true;
+            this.txt_descuentoEmple.Location = new System.Drawing.Point(99, 26);
+            this.txt_descuentoEmple.Multiline = true;
+            this.txt_descuentoEmple.Name = "txt_descuentoEmple";
+            this.txt_descuentoEmple.ReadOnly = true;
+            this.txt_descuentoEmple.Size = new System.Drawing.Size(82, 24);
+            this.txt_descuentoEmple.SoloNumeros = false;
+            this.txt_descuentoEmple.TabIndex = 204;
+            this.txt_descuentoEmple.Text = "0.0";
+            this.txt_descuentoEmple.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txt_descuentoEmple.Validar = true;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label18.Location = new System.Drawing.Point(187, 26);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(23, 19);
+            this.label18.TabIndex = 203;
+            this.label18.Text = "%";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label19.Location = new System.Drawing.Point(6, 29);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(87, 17);
+            this.label19.TabIndex = 202;
+            this.label19.Text = "DESCUENTOS:";
+            // 
+            // id_articulos
+            // 
+            this.id_articulos.HeaderText = "ID";
+            this.id_articulos.Name = "id_articulos";
+            this.id_articulos.ReadOnly = true;
+            this.id_articulos.Width = 80;
+            // 
+            // articulo
+            // 
+            this.articulo.HeaderText = "ARTICULO";
+            this.articulo.Name = "articulo";
+            this.articulo.ReadOnly = true;
+            this.articulo.Width = 180;
+            // 
+            // cantidad
+            // 
+            this.cantidad.HeaderText = "CANTIDAD";
+            this.cantidad.Name = "cantidad";
+            this.cantidad.Width = 105;
+            // 
+            // precio
+            // 
+            this.precio.HeaderText = "PRECIO";
+            this.precio.Name = "precio";
+            this.precio.ReadOnly = true;
+            this.precio.Width = 130;
+            // 
+            // itbis
+            // 
+            this.itbis.HeaderText = "ITBIS%";
+            this.itbis.Name = "itbis";
+            // 
+            // descuento
+            // 
+            this.descuento.HeaderText = "DESCUENTO";
+            this.descuento.Name = "descuento";
+            this.descuento.ReadOnly = true;
+            // 
+            // total
+            // 
+            this.total.HeaderText = "TOTAL";
+            this.total.Name = "total";
+            this.total.ReadOnly = true;
+            this.total.Width = 180;
+            // 
+            // txt_porcentaje_itb
+            // 
+            this.txt_porcentaje_itb.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_porcentaje_itb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.txt_porcentaje_itb.Limpiar = true;
+            this.txt_porcentaje_itb.Location = new System.Drawing.Point(287, 47);
+            this.txt_porcentaje_itb.Name = "txt_porcentaje_itb";
+            this.txt_porcentaje_itb.ReadOnly = true;
+            this.txt_porcentaje_itb.Size = new System.Drawing.Size(76, 26);
+            this.txt_porcentaje_itb.SoloNumeros = false;
+            this.txt_porcentaje_itb.TabIndex = 209;
+            this.txt_porcentaje_itb.Validar = true;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label21.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label21.Location = new System.Drawing.Point(284, 28);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(52, 16);
+            this.label21.TabIndex = 208;
+            this.label21.Text = "ITBIS %";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label22.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label22.Location = new System.Drawing.Point(287, 101);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(137, 16);
+            this.label22.TabIndex = 211;
+            this.label22.Text = "PRECIO DE COMPRA";
+            // 
+            // txt_precio_compra
+            // 
+            this.txt_precio_compra.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_precio_compra.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.txt_precio_compra.Limpiar = true;
+            this.txt_precio_compra.Location = new System.Drawing.Point(290, 120);
+            this.txt_precio_compra.Name = "txt_precio_compra";
+            this.txt_precio_compra.Size = new System.Drawing.Size(88, 26);
+            this.txt_precio_compra.SoloNumeros = true;
+            this.txt_precio_compra.TabIndex = 210;
+            this.txt_precio_compra.Validar = true;
+            // 
             // FrmCompra
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(44)))));
             this.ClientSize = new System.Drawing.Size(1200, 734);
+            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btn_factura);
@@ -979,6 +1181,9 @@ namespace _911_RD.Administracion
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1034,13 +1239,27 @@ namespace _911_RD.Administracion
         public System.Windows.Forms.Button btn_1;
         public System.Windows.Forms.DataGridView dataGridView1;
         public System.Windows.Forms.Button button1;
+        public System.Windows.Forms.Button button2;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private ErrorTxtBox txt_id_cliente;
+        private System.Windows.Forms.Label label20;
+        private ErrorTxtBox txt_nombre_cliente;
+        private System.Windows.Forms.Button bt_agregar_cont;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        public ErrorTxtBox txt_descuentoEmple;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label19;
         private System.Windows.Forms.DataGridViewTextBoxColumn id_articulos;
         private System.Windows.Forms.DataGridViewTextBoxColumn articulo;
         private System.Windows.Forms.DataGridViewTextBoxColumn cantidad;
         private System.Windows.Forms.DataGridViewTextBoxColumn precio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn itbis;
         private System.Windows.Forms.DataGridViewTextBoxColumn descuento;
         private System.Windows.Forms.DataGridViewTextBoxColumn total;
-        public System.Windows.Forms.Button button2;
-        private System.Windows.Forms.ErrorProvider errorProvider1;
+        public ErrorTxtBox txt_porcentaje_itb;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label label22;
+        public ErrorTxtBox txt_precio_compra;
     }
 }

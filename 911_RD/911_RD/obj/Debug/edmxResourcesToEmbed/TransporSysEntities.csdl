@@ -31,7 +31,8 @@
     <Property Name="codigo_barras" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="precio" Type="Double" Nullable="false" />
     <Property Name="estado" Type="Boolean" Nullable="false" />
-    <NavigationProperty Name="CATEGORIAS" Relationship="Self.FK_ARTICULOS_CATEGORIAS" FromRole="ARTICULOS" ToRole="CATEGORIAS" />
+    <Property Name="intItebis" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="ITEBIS" Relationship="Self.FK_ARTICULOS_ITEBIS" FromRole="ARTICULOS" ToRole="ITEBIS" />
     <NavigationProperty Name="ARTICULOS_VS_CATEGORIAS_VS_DESCUENTOS" Relationship="Self.FK_ARTICULOS_VS_CATEGORIAS_VS_DESCUENTOS_ARTICULOS" FromRole="ARTICULOS" ToRole="ARTICULOS_VS_CATEGORIAS_VS_DESCUENTOS" />
     <NavigationProperty Name="DETALLES_VENTAS" Relationship="Self.FK_DETALLE_VENTAS_ARTICULOS" FromRole="ARTICULOS" ToRole="DETALLES_VENTAS" />
     <NavigationProperty Name="DETALLES_COMPRAS" Relationship="Self.FK_DETALLES_COMPRAS_ARTICULOS" FromRole="ARTICULOS" ToRole="DETALLES_COMPRAS" />
@@ -60,7 +61,6 @@
     <Property Name="categoria" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="descripcion" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="estado" Type="Boolean" Nullable="false" />
-    <NavigationProperty Name="ARTICULOS" Relationship="Self.FK_ARTICULOS_CATEGORIAS" FromRole="CATEGORIAS" ToRole="ARTICULOS" />
     <NavigationProperty Name="ARTICULOS_VS_CATEGORIAS_VS_DESCUENTOS" Relationship="Self.FK_ARTICULOS_VS_CATEGORIAS_VS_DESCUENTOS_CATEGORIAS" FromRole="CATEGORIAS" ToRole="ARTICULOS_VS_CATEGORIAS_VS_DESCUENTOS" />
   </EntityType>
   <EntityType Name="CATEGORIAS_SERVICIOS">
@@ -406,6 +406,7 @@
     <Property Name="porcentaje" Type="Double" />
     <Property Name="createdAt" Type="DateTime" Precision="3" />
     <Property Name="updatedAt" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="ARTICULOS" Relationship="Self.FK_ARTICULOS_ITEBIS" FromRole="ITEBIS" ToRole="ARTICULOS" />
   </EntityType>
   <EntityType Name="MARCA">
     <Key>
@@ -584,6 +585,16 @@
     <NavigationProperty Name="ENTRADAS" Relationship="Self.FK_ENTRADAS_SUPLIDORES" FromRole="SUPLIDORES" ToRole="ENTRADAS" />
     <NavigationProperty Name="TERCEROS" Relationship="Self.FK_SUPLIDORES_TERCEROS" FromRole="SUPLIDORES" ToRole="TERCEROS" />
     <NavigationProperty Name="TIPOS_SUPLIDORES" Relationship="Self.FK_SUPLIDORES_TIPOS_SUPLIDORES" FromRole="SUPLIDORES" ToRole="TIPOS_SUPLIDORES" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
   </EntityType>
   <EntityType Name="TELEFONOS">
     <Key>
@@ -864,15 +875,15 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_ARTICULOS_CATEGORIAS">
-    <End Role="CATEGORIAS" Type="Self.CATEGORIAS" Multiplicity="1" />
+  <Association Name="FK_ARTICULOS_ITEBIS">
+    <End Role="ITEBIS" Type="Self.ITEBIS" Multiplicity="1" />
     <End Role="ARTICULOS" Type="Self.ARTICULOS" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="CATEGORIAS">
-        <PropertyRef Name="id_categoria" />
+      <Principal Role="ITEBIS">
+        <PropertyRef Name="intItebis" />
       </Principal>
       <Dependent Role="ARTICULOS">
-        <PropertyRef Name="id_categoria" />
+        <PropertyRef Name="intItebis" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -1713,6 +1724,7 @@
     <EntitySet Name="SERVICIOS" EntityType="Self.SERVICIOS" />
     <EntitySet Name="SEXOS" EntityType="Self.SEXOS" />
     <EntitySet Name="SUPLIDORES" EntityType="Self.SUPLIDORES" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
     <EntitySet Name="TELEFONOS" EntityType="Self.TELEFONOS" />
     <EntitySet Name="TERCEROS" EntityType="Self.TERCEROS" />
     <EntitySet Name="TERCEROS_VS_DIRECCIONES" EntityType="Self.TERCEROS_VS_DIRECCIONES" />
@@ -1742,8 +1754,8 @@
       <End Role="ALMACENES" EntitySet="ALMACENES" />
       <End Role="EXISTENCIAS" EntitySet="EXISTENCIAS" />
     </AssociationSet>
-    <AssociationSet Name="FK_ARTICULOS_CATEGORIAS" Association="Self.FK_ARTICULOS_CATEGORIAS">
-      <End Role="CATEGORIAS" EntitySet="CATEGORIAS" />
+    <AssociationSet Name="FK_ARTICULOS_ITEBIS" Association="Self.FK_ARTICULOS_ITEBIS">
+      <End Role="ITEBIS" EntitySet="ITEBIS" />
       <End Role="ARTICULOS" EntitySet="ARTICULOS" />
     </AssociationSet>
     <AssociationSet Name="FK_ARTICULOS_VS_CATEGORIAS_VS_DESCUENTOS_ARTICULOS" Association="Self.FK_ARTICULOS_VS_CATEGORIAS_VS_DESCUENTOS_ARTICULOS">

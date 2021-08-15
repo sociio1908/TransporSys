@@ -1,4 +1,5 @@
 ﻿using _911_RD.Administracion;
+using _911_RD.Administracion.Venta_y_Compra;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +18,7 @@ namespace _911_RD
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmCliente());
+            Application.Run(new FrmCompra());
         }
     }
 }

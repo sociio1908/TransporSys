@@ -15,7 +15,7 @@ namespace _911_RD.Administracion
         public FrmAdmVentas()
         {
             InitializeComponent();
-            LlenarDataGrid();
+            LlenarDataGrid("");
         }
 
         private void label15_Click(object sender, EventArgs e)
@@ -38,47 +38,48 @@ namespace _911_RD.Administracion
             this.Close();
         }
 
-        public void LlenarDataGrid()
+        public void LlenarDataGrid(string condicion)
         {
 
             using (TransporSysEntities db = new TransporSysEntities())
             {
                 try
                 {
-                    var articulos =  from pro in db.VENTAS
-                                    join cat in db.DETALLES_VENTAS on pro.num_fact
-                            equals cat.id_detalle
-                                   join articulo in db.ARTICULOS on pro.num_fact
-                           equals articulo.id_articulo
-                                   join cliente in db.CLIENTES on pro.id_cliente
-                           equals cliente.id_tercero
+                    var ventasD = from v in db.VENTAS
+                                    join dv in db.DETALLES_VENTAS on v.num_fact equals dv.num_fact
+                                    join a in db.ARTICULOS on dv.id_articulo equals a.id_articulo
+                                    join c in db.CLIENTES on v.id_cliente equals c.id_cliente
+                                    join t in db.TERCEROS on c.id_tercero equals t.id_tercero
+                                    join tVs in db.TERCEROS_VS_IDENTIFICACIONES on t.id_tercero equals tVs.id_tercero
+                                    join ide in db.IDENTIFICACIONES on tVs.id_identificacion equals ide.id_identificacion
                                     
-                                    select new
+                                    
+                                  select new
                                     {
                                         //aqui cargas los campos de tu tabla
-                                        cat.id_detalle,
-                                        pro.num_fact,
-                                        articulo.nombre,
-                                        cat.cantidad,
-                                        cat.precio,
-                                        cat.total,
-                                        cat.descuento,
-                                        pro.fecha,
-                                        cliente.id_tercero,
-                                        pro.EMPLEADOS.id_empleado,
-                                        pro.estado
-                                        //etc
+                                        Fact = v.num_fact,
+                                        id_cliente = c.id_cliente,
+                                        NomCli = t.nombre,
+                                        Identficacion = ide.identificacion,
+                                        nom_art = a.nombre,
+                                        cant = dv.cantidad,
+                                        precio = dv.precio,
+                                        total = dv.total,
+                                        descuento = dv.descuento,
+                                        Fecha = v.fecha,
+                                     //   cliente.id_tercero,
+                                        NomEmpl = v.id_empleado,
+                                        v.estado,
                                     };
-                    //aqui vas a ver klk con lo que quieres filtrar
-
-
-                    string status;
                     dataGridView1.Rows.Clear();
 
-                    foreach (var OArticulos in articulos)
+                    if (ventasD != null)
+                        ventasD = ventasD.Where(a => a.Identficacion.ToString().Contains(condicion) || a.Fact.ToString().Contains(condicion) || a.Fecha.ToString().Contains(condicion)  );
+
+                    foreach (var OArticulos in ventasD)
                     {
-                        dataGridView1.Rows.Add(OArticulos.num_fact.ToString(), OArticulos.nombre.ToString(), OArticulos.cantidad.ToString(),
-                            OArticulos.precio.ToString(), OArticulos.total.ToString(), OArticulos.descuento.ToString(), OArticulos.fecha.ToString(), OArticulos.id_tercero.ToString(), OArticulos.id_empleado.ToString(), status = OArticulos.estado == true ? "ACTIVO" : "INACTIVO");
+                        dataGridView1.Rows.Add(OArticulos.Fact.ToString(), OArticulos.nom_art.ToString(), OArticulos.cant.ToString(),
+                            OArticulos.precio.ToString(), OArticulos.total.ToString(), OArticulos.descuento.ToString(), OArticulos.Fecha.ToString(), OArticulos.NomCli.ToString(), OArticulos.NomEmpl.ToString(), OArticulos.estado == true ? "ACTIVO" : "INACTIVO");
                     }
 
                 }
@@ -107,7 +108,7 @@ namespace _911_RD.Administracion
 
                     db.SaveChanges();
                     Utilidades.LimpiarControles(this);
-                    LlenarDataGrid();
+                    LlenarDataGrid("");
                 }
                 catch (Exception) { }
             }

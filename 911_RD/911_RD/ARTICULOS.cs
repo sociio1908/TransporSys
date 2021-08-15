@@ -37,8 +37,9 @@ namespace _911_RD
         public string codigo_barras { get; set; }
         public double precio { get; set; }
         public bool estado { get; set; }
+        public int intItebis { get; set; }
     
-        public virtual CATEGORIAS CATEGORIAS { get; set; }
+        public virtual ITEBIS ITEBIS { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ARTICULOS_VS_CATEGORIAS_VS_DESCUENTOS> ARTICULOS_VS_CATEGORIAS_VS_DESCUENTOS { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

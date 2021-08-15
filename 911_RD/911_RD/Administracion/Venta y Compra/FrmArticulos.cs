@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using _911_RD.Administracion.Venta_y_Compra;
 using BarcodeLib;
 
 namespace _911_RD.Administracion
@@ -15,8 +16,9 @@ namespace _911_RD.Administracion
         public FrmArticulos()
         {
             InitializeComponent();
-            cargarTabla();
+            LlenarDataGrid();
             txt_filtro.Focus();
+            cb_estado.SelectedIndex = 0;
 
         }
 
@@ -48,9 +50,9 @@ namespace _911_RD.Administracion
         private void btn_guardar_Click(object sender, EventArgs e)
         {
             Utilidades va = new Utilidades();
-           if( Utilidades.ValidarFormulario(groupBox1, errorProvider1)==true)
+           if( Utilidades.ValidarFormulario(groupBox1, errorProvider1)==true||txt_precio.Text.ToString()=="0"|| txt_stock.Text.ToString() == "0")
             {
-
+                MessageBox.Show("HAY CAMPOS VACIOS O NO PUEDEN HABER CANTIDADES EN: 0");
             }
             else
             {
@@ -70,11 +72,16 @@ namespace _911_RD.Administracion
                 txt_des.Text = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
                 txt_stock.Text = dataGridView1.SelectedRows[0].Cells[3].Value.ToString();
                 txt_precio.Text = dataGridView1.SelectedRows[0].Cells[4].Value.ToString();
-                //txt_idcategoria.Text = dataGridView1.SelectedRows[0].Cells[5].Value.ToString();
-                cb_estado.SelectedIndex = dataGridView1.SelectedRows[0].Cells[6].Value.ToString() == "ACTIVO" ? cb_estado.SelectedIndex = 0 : cb_estado.SelectedIndex = 1;
-                txt_unidad.Text = dataGridView1.SelectedRows[0].Cells[7].Value.ToString();
-                txt_codBarra.Text = dataGridView1.SelectedRows[0].Cells[8].Value.ToString();
+                txt_porcentaje_itebis.Text = dataGridView1.SelectedRows[0].Cells[5].Value.ToString();
+                txt_idcategoria.Text = dataGridView1.SelectedRows[0].Cells[6].Value.ToString();
+                cb_estado.SelectedIndex = dataGridView1.SelectedRows[0].Cells[7].Value.ToString() == "ACTIVO" ? cb_estado.SelectedIndex = 0 : cb_estado.SelectedIndex = 1;
+                txt_unidad.Text = dataGridView1.SelectedRows[0].Cells[8].Value.ToString();
+                txt_codBarra.Text = dataGridView1.SelectedRows[0].Cells[9].Value.ToString();
                 codigo_de_barra();
+                txt_id_categoria.Text = dataGridView1.SelectedRows[0].Cells[10].Value.ToString();
+                txt_id_und.Text = dataGridView1.SelectedRows[0].Cells[11].Value.ToString();
+                txt_id_itebis.Text = dataGridView1.SelectedRows[0].Cells[12].Value.ToString();
+
             }
 
             catch (Exception ea)
@@ -83,7 +90,7 @@ namespace _911_RD.Administracion
             }
         }
 
-        private void cargarTabla()
+       /* private void cargarTabla()
         {
             
 
@@ -109,7 +116,7 @@ namespace _911_RD.Administracion
 
                 }
             }
-        }
+        }*/
         private void InsertarArticulo()
         {
 
@@ -124,7 +131,7 @@ namespace _911_RD.Administracion
                         ARTICULOS art = new ARTICULOS
                         {
                             //ningun campo vacio
-                            id_categoria = Convert.ToInt32(txt_idcategoria.Text.Trim()),  //debe existir en articulo
+                            id_categoria = Convert.ToInt32(txt_id_categoria.Text.Trim()),  //debe existir en articulo
                             nombre = txt_nombre.Text.Trim(), //debe ser string
                             descripcion = txt_des.Text.Trim(),//debe ser string
                             reorden = Convert.ToDouble(txt_stock.Text.Trim()),//debe ser int
@@ -132,7 +139,8 @@ namespace _911_RD.Administracion
                             //imagen = (txt_foto.Text.Trim()), //debe ser string
                             codigo_barras = txt_codBarra.Text.Trim(), //debe ser string
                             estado = cb_estado.SelectedIndex == 0 ? true : false, //debe ser tru/false
-                            id_unidad_de_medida = Convert.ToInt32(txt_unidad.Text.Trim())
+                            id_unidad_de_medida = Convert.ToInt32(txt_id_und.Text.Trim()),
+                            intItebis = Convert.ToInt32(txt_id_itebis.Text.Trim())
 
                         };
                         db.ARTICULOS.Add(art);
@@ -153,7 +161,7 @@ namespace _911_RD.Administracion
                         {
 
                             //pero aqui con ; porque es un objeto y no un tabla como alla arriba
-                            articulo.id_categoria = Convert.ToInt32(txt_idcategoria.Text.Trim());  //debe existir en articulo
+                            articulo.id_categoria = Convert.ToInt32(txt_id_categoria.Text.Trim());  //debe existir en articulo
                             articulo.nombre = txt_nombre.Text.Trim(); //debe ser string
                             articulo.descripcion = txt_des.Text.Trim();//debe ser string
                             articulo.reorden = Convert.ToDouble(txt_stock.Text.Trim());//debe ser int
@@ -161,14 +169,15 @@ namespace _911_RD.Administracion
                             articulo.codigo_barras = txt_codBarra.Text.Trim(); //debe ser string
                             articulo.estado = cb_estado.SelectedIndex == 0 ? true : false; //debe ser tru/false
                             articulo.precio = Convert.ToDouble(txt_precio.Text.Trim());
-                            articulo.id_unidad_de_medida = Convert.ToInt32(txt_unidad.Text.Trim());
+                            articulo.id_unidad_de_medida = Convert.ToInt32(txt_id_und.Text.Trim());
+                            articulo.intItebis = Convert.ToInt32(txt_id_itebis.Text.Trim());
                         }
 
                     }
                     MessageBox.Show("COMPLETO");
                     db.SaveChanges();
                     Utilidades.LimpiarControles(this);
-                    cargarTabla();
+                    LlenarDataGrid();
                 }
                 catch (Exception dfg)
                 {
@@ -188,7 +197,7 @@ namespace _911_RD.Administracion
         {
             Utilidades.LimpiarControles(this);
             id_txt.Text = "";
-            cargarTabla();
+            LlenarDataGrid();
         }
 
         private void FrmArticulos_Load(object sender, EventArgs e)
@@ -210,7 +219,8 @@ namespace _911_RD.Administracion
                 DialogResult dr = frmcategoria.ShowDialog();
                 if (dr == DialogResult.OK)
                 {
-                    txt_idcategoria.Text = frmcategoria.dataGridView1.CurrentRow.Cells[0].Value.ToString();
+                    txt_id_categoria.Text = frmcategoria.dataGridView1.CurrentRow.Cells[1].Value.ToString();
+                    txt_idcategoria.Text = frmcategoria.dataGridView1.CurrentRow.Cells[1].Value.ToString();
 
                 }
             }
@@ -224,15 +234,7 @@ namespace _911_RD.Administracion
         private void pictureBox1_Click_1(object sender, EventArgs e)
         {
 
-            using (FrmUnidadesMD frmunidad = new FrmUnidadesMD())
-            {
-                DialogResult dr = frmunidad.ShowDialog();
-                if (dr == DialogResult.OK)
-                {
-                    txt_unidad.Text = frmunidad.dataGridView1.CurrentRow.Cells[0].Value.ToString();
-
-                }
-            }
+           
         }
 
         private void codigo_de_barra()
@@ -276,11 +278,6 @@ namespace _911_RD.Administracion
 
         }
 
-        private void filtrar()
-        {
-
-
-        }
 
         private void btn_eliminar_Click(object sender, EventArgs e)
         {
@@ -299,7 +296,7 @@ namespace _911_RD.Administracion
 
                     db.SaveChanges();
                     Utilidades.LimpiarControles(this);
-                    cargarTabla();
+                    LlenarDataGrid();
                 }
                 catch (Exception) { }
             }
@@ -329,10 +326,9 @@ namespace _911_RD.Administracion
                 try
                 {
                     var articulos = from pro in db.ARTICULOS
-                                    join cat in db.CATEGORIAS on pro.id_categoria
-                            equals cat.id_categoria
-                                    join unidad_de_medida in db.UNIDADES_DE_MEDIDA on pro.id_unidad_de_medida
-                           equals unidad_de_medida.id_unidad_de_medida
+                                    join cat in db.CATEGORIAS on pro.id_categoria equals cat.id_categoria
+                                    join und in db.UNIDADES_DE_MEDIDA on pro.id_unidad_de_medida equals und.id_unidad_de_medida
+                                    join itb in db.ITEBIS on pro.intItebis equals itb.intItebis
                                     select new
                                     {
                                         //aqui cargas los campos de tu tabla
@@ -341,10 +337,15 @@ namespace _911_RD.Administracion
                                         pro.descripcion,
                                         pro.reorden,
                                         pro.precio,
-                                        cat.categoria,
+                                        Categoria = cat.categoria,
+                                        IdCat = pro.id_categoria,
                                         pro.estado,
                                         pro.id_unidad_de_medida,
                                         pro.codigo_barras,
+                                        und.abreviatura,
+                                        itb.porcentaje,
+                                        idIt = itb.intItebis
+                                        
                                         //etc
                                     };
                     //aqui vas a ver klk con lo que quieres filtrar
@@ -354,7 +355,7 @@ namespace _911_RD.Administracion
                     }
                     else
                     {
-                        articulos = articulos.Where(pro => pro.estado == true && (pro.id_articulo.ToString().Contains(condicion) || pro.nombre.Contains(condicion) || pro.categoria.Contains(condicion)));
+                        articulos = articulos.Where(pro => pro.estado == true && (pro.id_articulo.ToString().Contains(condicion) || pro.nombre.Contains(condicion) || pro.Categoria.Contains(condicion)));
                     }
 
 
@@ -363,7 +364,7 @@ namespace _911_RD.Administracion
                     foreach (var OArticulos in articulos)
                     {
                         dataGridView1.Rows.Add(OArticulos.id_articulo.ToString(), OArticulos.nombre.ToString(), OArticulos.descripcion.ToString(),
-                            OArticulos.reorden.ToString(), OArticulos.precio.ToString(), OArticulos.categoria.ToString(), status = OArticulos.estado == true ? "ACTIVO" : "INACTIVO", OArticulos.id_unidad_de_medida.ToString(), OArticulos.codigo_barras.ToString());
+                            OArticulos.reorden.ToString(), OArticulos.precio.ToString(), OArticulos.porcentaje.ToString(), OArticulos.Categoria.ToString(), status = OArticulos.estado == true ? "ACTIVO" : "INACTIVO", OArticulos.abreviatura.ToString(), OArticulos.codigo_barras.ToString(), OArticulos.IdCat.ToString(), OArticulos.id_unidad_de_medida.ToString(), OArticulos.idIt.ToString());
                     }
 
                 }
@@ -449,6 +450,56 @@ namespace _911_RD.Administracion
         private void txt_des_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void txt_filtro_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+            if (dataGridView1.Rows.Count > 0)
+                this.DialogResult = DialogResult.OK;
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txt_stock_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            using (FrmUnidadesMD frmunidad = new FrmUnidadesMD())
+            {
+                DialogResult dr = frmunidad.ShowDialog();
+                if (dr == DialogResult.OK)
+                {
+                    txt_id_und.Text = frmunidad.dataGridView1.CurrentRow.Cells[0].Value.ToString();
+                    txt_unidad.Text = frmunidad.dataGridView1.CurrentRow.Cells[3].Value.ToString();
+
+                }
+            }
+        }
+
+        private void pictureBox1_Click_2(object sender, EventArgs e)
+        {
+            using (FrmItebis frite = new FrmItebis())
+            {
+                DialogResult dr = frite.ShowDialog();
+                if (dr == DialogResult.OK)
+                {
+                    txt_id_itebis.Text = frite.dataGridView1.CurrentRow.Cells[0].Value.ToString();
+                    txt_porcentaje_itebis.Text = frite.dataGridView1.CurrentRow.Cells[1].Value.ToString();
+
+                }
+            }
         }
     }
 }

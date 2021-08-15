@@ -14,9 +14,18 @@ namespace _911_RD
     
     public partial class ITEBIS
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public ITEBIS()
+        {
+            this.ARTICULOS = new HashSet<ARTICULOS>();
+        }
+    
         public int intItebis { get; set; }
         public Nullable<double> porcentaje { get; set; }
         public Nullable<System.DateTime> createdAt { get; set; }
         public Nullable<System.DateTime> updatedAt { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ARTICULOS> ARTICULOS { get; set; }
     }
 }

@@ -163,6 +163,26 @@ namespace _911_RD.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap escaner_de_codigo_de_barras__1_ {
+            get {
+                object obj = ResourceManager.GetObject("escaner-de-codigo-de-barras (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap escaners {
+            get {
+                object obj = ResourceManager.GetObject("escaners", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap event_icon {
             get {
                 object obj = ResourceManager.GetObject("event_icon", resourceCulture);

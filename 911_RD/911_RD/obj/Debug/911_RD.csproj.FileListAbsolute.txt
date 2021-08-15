@@ -243,3 +243,4 @@ C:\Users\harol\Documents\GitHub\TransporSys\911_RD\911_RD\obj\Debug\_911_RD.Admi
 C:\Users\harol\Documents\GitHub\TransporSys\911_RD\911_RD\obj\Debug\_911_RD.Administracion.FrmTipoCliente.resources
 C:\Users\harol\Documents\GitHub\TransporSys\911_RD\911_RD\obj\Debug\_911_RD.frmServicios.resources
 C:\Users\harol\Documents\GitHub\TransporSys\911_RD\911_RD\obj\Debug\_911_RD.Administracion.FrmAdmVentas.resources
+C:\Users\harol\Documents\GitHub\TransporSys\911_RD\911_RD\obj\Debug\_911_RD.Administracion.Venta_y_Compra.FrmItebis.resources

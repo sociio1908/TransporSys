@@ -168,16 +168,16 @@
     <Compile Include="Administracion\Email_Telefono\FrmTipoTelefono.designer.cs">
       <DependentUpon>FrmTipoTelefono.cs</DependentUpon>
     </Compile>
-    <Compile Include="Administracion\FrmAdmVentas.cs">
+    <Compile Include="Administracion\Venta y Compra\FrmAdmVentas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Administracion\FrmAdmVentas.Designer.cs">
+    <Compile Include="Administracion\Venta y Compra\FrmAdmVentas.Designer.cs">
       <DependentUpon>FrmAdmVentas.cs</DependentUpon>
     </Compile>
-    <Compile Include="Administracion\FrmArticulos.cs">
+    <Compile Include="Administracion\Venta y Compra\FrmArticulos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Administracion\FrmArticulos.Designer.cs">
+    <Compile Include="Administracion\Venta y Compra\FrmArticulos.Designer.cs">
       <DependentUpon>FrmArticulos.cs</DependentUpon>
     </Compile>
     <Compile Include="Administracion\FrmBase.cs">
@@ -192,22 +192,22 @@
     <Compile Include="Administracion\FrmCargo.Designer.cs">
       <DependentUpon>FrmCargo.cs</DependentUpon>
     </Compile>
-    <Compile Include="Administracion\FrmCategoria.cs">
+    <Compile Include="Administracion\Venta y Compra\FrmCategoria.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Administracion\FrmCategoria.Designer.cs">
+    <Compile Include="Administracion\Venta y Compra\FrmCategoria.Designer.cs">
       <DependentUpon>FrmCategoria.cs</DependentUpon>
     </Compile>
-    <Compile Include="Administracion\FrmCompra.cs">
+    <Compile Include="Administracion\Venta y Compra\FrmCompra.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Administracion\FrmCompra.Designer.cs">
+    <Compile Include="Administracion\Venta y Compra\FrmCompra.Designer.cs">
       <DependentUpon>FrmCompra.cs</DependentUpon>
     </Compile>
-    <Compile Include="Administracion\FrmDescuentos.cs">
+    <Compile Include="Administracion\Venta y Compra\FrmDescuentos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Administracion\FrmDescuentos.Designer.cs">
+    <Compile Include="Administracion\Venta y Compra\FrmDescuentos.Designer.cs">
       <DependentUpon>FrmDescuentos.cs</DependentUpon>
     </Compile>
     <Compile Include="Administracion\FrmPaciente.cs">
@@ -234,10 +234,16 @@
     <Compile Include="Administracion\FrmTipoUsuario.Designer.cs">
       <DependentUpon>FrmTipoUsuario.cs</DependentUpon>
     </Compile>
-    <Compile Include="Administracion\FrmUnidadesMD.cs">
+    <Compile Include="Administracion\Venta y Compra\FrmItebis.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Administracion\FrmUnidadesMD.Designer.cs">
+    <Compile Include="Administracion\Venta y Compra\FrmItebis.Designer.cs">
+      <DependentUpon>FrmItebis.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Administracion\Venta y Compra\FrmUnidadesMD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administracion\Venta y Compra\FrmUnidadesMD.Designer.cs">
       <DependentUpon>FrmUnidadesMD.cs</DependentUpon>
     </Compile>
     <Compile Include="Administracion\FrmUsuarios.cs">
@@ -246,10 +252,10 @@
     <Compile Include="Administracion\FrmUsuarios.Designer.cs">
       <DependentUpon>FrmUsuarios.cs</DependentUpon>
     </Compile>
-    <Compile Include="Administracion\FrmVentas.cs">
+    <Compile Include="Administracion\Venta y Compra\FrmVentas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Administracion\FrmVentas.Designer.cs">
+    <Compile Include="Administracion\Venta y Compra\FrmVentas.Designer.cs">
       <DependentUpon>FrmVentas.cs</DependentUpon>
     </Compile>
     <Compile Include="Administracion\Transporte\FrmTransporte.cs">
@@ -495,6 +501,9 @@
     <Compile Include="SUPLIDORES.cs">
       <DependentUpon>TransporSysEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="sysdiagrams.cs">
+      <DependentUpon>TransporSysEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="TELEFONOS.cs">
       <DependentUpon>TransporSysEntities.tt</DependentUpon>
     </Compile>
@@ -607,10 +616,10 @@
     <EmbeddedResource Include="Administracion\Email_Telefono\FrmTipoTelefono.resx">
       <DependentUpon>FrmTipoTelefono.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Administracion\FrmAdmVentas.resx">
+    <EmbeddedResource Include="Administracion\Venta y Compra\FrmAdmVentas.resx">
       <DependentUpon>FrmAdmVentas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Administracion\FrmArticulos.resx">
+    <EmbeddedResource Include="Administracion\Venta y Compra\FrmArticulos.resx">
       <DependentUpon>FrmArticulos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Administracion\FrmBase.resx">
@@ -619,13 +628,13 @@
     <EmbeddedResource Include="Administracion\FrmCargo.resx">
       <DependentUpon>FrmCargo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Administracion\FrmCategoria.resx">
+    <EmbeddedResource Include="Administracion\Venta y Compra\FrmCategoria.resx">
       <DependentUpon>FrmCategoria.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Administracion\FrmCompra.resx">
+    <EmbeddedResource Include="Administracion\Venta y Compra\FrmCompra.resx">
       <DependentUpon>FrmCompra.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Administracion\FrmDescuentos.resx">
+    <EmbeddedResource Include="Administracion\Venta y Compra\FrmDescuentos.resx">
       <DependentUpon>FrmDescuentos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Administracion\FrmPaciente.resx">
@@ -640,13 +649,16 @@
     <EmbeddedResource Include="Administracion\FrmTipoUsuario.resx">
       <DependentUpon>FrmTipoUsuario.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Administracion\FrmUnidadesMD.resx">
+    <EmbeddedResource Include="Administracion\Venta y Compra\FrmItebis.resx">
+      <DependentUpon>FrmItebis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administracion\Venta y Compra\FrmUnidadesMD.resx">
       <DependentUpon>FrmUnidadesMD.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Administracion\FrmUsuarios.resx">
       <DependentUpon>FrmUsuarios.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Administracion\FrmVentas.resx">
+    <EmbeddedResource Include="Administracion\Venta y Compra\FrmVentas.resx">
       <DependentUpon>FrmVentas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Administracion\Transporte\FrmTransporte.resx">
@@ -832,6 +844,8 @@
       <DependentUpon>TransporSysEntities.edmx</DependentUpon>
       <LastGenOutput>TransporSysEntities.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\escaner-de-codigo-de-barras %281%29.png" />
+    <None Include="Resources\escaners.png" />
     <None Include="Resources\informacion %281%29.png" />
     <None Include="Resources\informacion.png" />
     <None Include="Resources\eraser.png" />

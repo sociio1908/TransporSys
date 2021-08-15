@@ -30,6 +30,7 @@
     <Property Name="codigo_barras" Type="varchar" MaxLength="200" Nullable="false" />
     <Property Name="precio" Type="float" Nullable="false" />
     <Property Name="estado" Type="bit" Nullable="false" />
+    <Property Name="intItebis" Type="int" Nullable="false" />
   </EntityType>
   <!--Errores durante la generación:
 advertencia 6002: La tabla o vista 'TransporSys.dbo.ARTICULOS_VS_CATEGORIAS_VS_DESCUENTOS' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
@@ -527,6 +528,16 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.PUESTOS_VS_DEPARTAMENTOS' no
     <Property Name="id_tipo_suplidor" Type="int" Nullable="false" />
     <Property Name="estado" Type="bit" Nullable="false" />
   </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
   <EntityType Name="TELEFONOS">
     <Key>
       <PropertyRef Name="id_telefono" />
@@ -860,15 +871,15 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.VEHICULOS_VS_CONDUCTOR' no t
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_ARTICULOS_CATEGORIAS">
-    <End Role="CATEGORIAS" Type="Self.CATEGORIAS" Multiplicity="1" />
+  <Association Name="FK_ARTICULOS_ITEBIS">
+    <End Role="ITEBIS" Type="Self.ITEBIS" Multiplicity="1" />
     <End Role="ARTICULOS" Type="Self.ARTICULOS" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="CATEGORIAS">
-        <PropertyRef Name="id_categoria" />
+      <Principal Role="ITEBIS">
+        <PropertyRef Name="intItebis" />
       </Principal>
       <Dependent Role="ARTICULOS">
-        <PropertyRef Name="id_categoria" />
+        <PropertyRef Name="intItebis" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -1642,6 +1653,7 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.VEHICULOS_VS_CONDUCTOR' no t
     <EntitySet Name="SERVICIOS" EntityType="Self.SERVICIOS" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="SEXOS" EntityType="Self.SEXOS" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="SUPLIDORES" EntityType="Self.SUPLIDORES" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TELEFONOS" EntityType="Self.TELEFONOS" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TERCEROS" EntityType="Self.TERCEROS" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TERCEROS_VS_DIRECCIONES" EntityType="Self.TERCEROS_VS_DIRECCIONES" Schema="dbo" store:Type="Tables" />
@@ -1736,8 +1748,8 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.VEHICULOS_VS_CONDUCTOR' no t
       <End Role="TERCEROS" EntitySet="TERCEROS" />
       <End Role="TERCEROS_VS_EMAILS" EntitySet="TERCEROS_VS_EMAILS" />
     </AssociationSet>
-    <AssociationSet Name="FK_ARTICULOS_CATEGORIAS" Association="Self.FK_ARTICULOS_CATEGORIAS">
-      <End Role="CATEGORIAS" EntitySet="CATEGORIAS" />
+    <AssociationSet Name="FK_ARTICULOS_ITEBIS" Association="Self.FK_ARTICULOS_ITEBIS">
+      <End Role="ITEBIS" EntitySet="ITEBIS" />
       <End Role="ARTICULOS" EntitySet="ARTICULOS" />
     </AssociationSet>
     <AssociationSet Name="FK_ARTICULOS_VS_CATEGORIAS_VS_DESCUENTOS_ARTICULOS" Association="Self.FK_ARTICULOS_VS_CATEGORIAS_VS_DESCUENTOS_ARTICULOS">

@@ -196,5 +196,11 @@ namespace _911_RD.Administracion
             dataGridView1.Rows.Clear();
             LlenarDataGrid(txt_filtro.Text.Trim());
         }
+
+        private void dataGridView1_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dataGridView1.Rows.Count > 0)
+                this.DialogResult = DialogResult.OK;
+        }
     }
 }
