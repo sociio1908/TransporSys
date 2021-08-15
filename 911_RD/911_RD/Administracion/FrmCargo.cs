@@ -17,6 +17,7 @@ namespace _911_RD.Administracion
             InitializeComponent();
             cargarTabla();
             txt_puesto.Focus();
+            cb_estado.SelectedIndex = 0;
         }
         int id = 0;
         private void btn_guardar_Click(object sender, EventArgs e)

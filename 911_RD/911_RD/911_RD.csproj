@@ -221,6 +221,18 @@
     <Compile Include="Administracion\Pacientes\FrmTipoMedicamento.Designer.cs">
       <DependentUpon>FrmTipoMedicamento.cs</DependentUpon>
     </Compile>
+    <Compile Include="Administracion\Servicios\FrmServicios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administracion\Servicios\FrmServicios.Designer.cs">
+      <DependentUpon>FrmServicios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Administracion\Servicios\FrmTipoServicios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administracion\Servicios\FrmTipoServicios.Designer.cs">
+      <DependentUpon>FrmTipoServicios.cs</DependentUpon>
+    </Compile>
     <Compile Include="Administracion\Transporte\FrmTransporte.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -629,6 +641,12 @@
     <EmbeddedResource Include="Administracion\Pacientes\FrmTipoMedicamento.resx">
       <DependentUpon>FrmTipoMedicamento.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Administracion\Servicios\FrmServicios.resx">
+      <DependentUpon>FrmServicios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administracion\Servicios\FrmTipoServicios.resx">
+      <DependentUpon>FrmTipoServicios.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Administracion\Transporte\FrmTransporte.resx">
       <DependentUpon>FrmTransporte.cs</DependentUpon>
     </EmbeddedResource>
@@ -811,5 +829,6 @@
       <LastGenOutput>TransporSysEntities.cs</LastGenOutput>
     </Content>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
