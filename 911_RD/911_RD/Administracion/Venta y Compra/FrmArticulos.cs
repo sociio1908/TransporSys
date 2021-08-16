@@ -219,7 +219,7 @@ namespace _911_RD.Administracion
                 DialogResult dr = frmcategoria.ShowDialog();
                 if (dr == DialogResult.OK)
                 {
-                    txt_id_categoria.Text = frmcategoria.dataGridView1.CurrentRow.Cells[1].Value.ToString();
+                    txt_id_categoria.Text = frmcategoria.dataGridView1.CurrentRow.Cells[0].Value.ToString();
                     txt_idcategoria.Text = frmcategoria.dataGridView1.CurrentRow.Cells[1].Value.ToString();
 
                 }

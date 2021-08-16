@@ -17,7 +17,7 @@ namespace _911_RD.Administracion
         {
             InitializeComponent();
             cargar_combox("", "CONTINENTES");
-            cargarTabla("");
+            cargarTabla("", dataGridView1);
         }
 
         private void FrmDireccionNativa_Load(object sender, EventArgs e)
@@ -160,10 +160,10 @@ namespace _911_RD.Administracion
 
         private void btn_guardar_Click(object sender, EventArgs e)
         {
-            //asi estaba
-            insertarDireccion();//inserto
-            Utilidades.LimpiarControles(this); //limpio, hasta la tabla
-            cargarTabla(""); // luego se me explota este por que la tabla se envia vacia
+
+            insertarDireccion();
+            Utilidades.LimpiarControles(this);
+            cargarTabla("",dataGridView1);
         }
 
         public string id_tercero="";
@@ -175,7 +175,7 @@ namespace _911_RD.Administracion
                 if (Utilidades.ValidarFormulario(this, errorProvider1)==true || validarCombo()==false)
                     return;
 
-                 int res  = metodosCRUD.InsertarDireccion(id_txt.Text, cb_ciudad.SelectedItem.ToString(), txt_descripcion.Text, id_tercero);
+                 int res  = metodosCRUD.InsertarDireccion(id_txt.Text, cb_ciudad.SelectedItem.ToString(), txt_id_calle.Text.Trim(), txt_num_casa.Text, txt_referencia.Text, id_tercero);
                 
                 if(res>0)
                     MessageBox.Show("Proceso exitoso");
@@ -199,23 +199,28 @@ namespace _911_RD.Administracion
         }
 
 
-        void cargarTabla(string condicion)
+        void cargarTabla(string condicion, DataGridView dataGrid)
         {
-            //try
-            //{
+
+            try
+            {
                 using (TransporSysEntities db = new TransporSysEntities())
                 {
 
                     var direcciones = from dir in db.DIRECCIONES
                                       join ciu in db.CIUDADES on dir.id_ciudad equals ciu.id_ciudad
+                                      join ca in db.CALLES on dir.id_calle equals ca.id_calle
                                       join provi in db.PROVINCIAS on ciu.id_provincia equals provi.id_provincia
                                       join pai in db.PAISES on provi.id_pais equals pai.id_pais
                                       join con in db.CONTINENTES on pai.id_continente equals con.id_continente
                                        select new
                                       {
-                                          id_direccion = dir.id_direccion,
-                                          descripcion = dir.descripcion,
+                                           id_direccion = dir.id_direccion,
+                                           referencia = dir.referencia,
                                            id_continente = con.id_continente,
+                                           id_calle = dir.id_calle,
+                                           calle = ca.nombre,
+                                           num_casa = dir.num_casa,
                                            contienente = con.continente,
                                            id_provincia = provi.id_provincia,
                                            provincia = provi.provincia,
@@ -225,38 +230,44 @@ namespace _911_RD.Administracion
                                            pais = pai.pais
                                        };
 
-                    if (condicion!= "")
+                    if (condicion.Equals("") == false)
                     {
-                        direcciones = direcciones.Where(di => di.descripcion.ToString().Contains(condicion) || di.ciudad.Contains(condicion) || di.provincia.Contains(condicion) || di.contienente.Contains(condicion));
+                        direcciones = direcciones.Where(di => di.calle.ToString().Contains(condicion) || di.ciudad.Contains(condicion) || di.referencia.Contains(condicion) || di.num_casa.Contains(condicion));
                     }
                     if (direcciones != null)
                     {
                         //    MessageBox.Show("ENTRO");
-                        dataGridView1.Rows.Clear();
-
-                        dataGridView1.Rows.Add("", "", "", "");
+                        dataGrid.Rows.Clear();
+                       
+                        dataGrid.Rows.Add("", "", "", "");
                         foreach (var dire in direcciones.ToList())
-                        {
-                            dataGridView1.Rows.Add(
+                        {   dataGrid.Rows.Add(
                              dire.id_direccion.ToString(),
-                             dire.descripcion.ToString(),
+                             dire.referencia.ToString(),
                              dire.id_continente.ToString(),
                              dire.contienente.ToString(),
                              dire.id_pais.ToString(),
+                             dire.calle.ToString(),
                              dire.pais.ToString(),
                              dire.id_provincia.ToString(),
                              dire.provincia.ToString(),
+                             dire.ciudad.ToString(),
                              dire.id_ciudad.ToString(),
-                             dire.ciudad.ToString()
+                             dire.num_casa.ToString(),
+                             dire.id_calle.ToString()
                             );
                         }
                     }
+                    else
+                    {
+                        dataGrid.Visible = false;
+                    }
                 }
-            //}
-            //catch (Exception ass)
-            //{
+            }
+            catch (Exception ass)
+            {
 
-            //}
+            }
         }
 
         private void dataGridView1_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -269,9 +280,8 @@ namespace _911_RD.Administracion
 
         private void txt_filtro_TextChanged(object sender, EventArgs e)
         {
-
             if (dataGridView1.Rows.Count > 0)
-                cargarTabla(txt_filtro.Text.Trim());
+                cargarTabla(txt_filtro.Text.Trim(), dataGridView1);
         }
 
 
@@ -281,19 +291,33 @@ namespace _911_RD.Administracion
         {
             try
             {
+
+
                 id_txt.Text = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
-                txt_descripcion.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
+
+                txt_referencia.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
 
                 cargar_combox("", "CONTINENTES");
                 cb_continente.SelectedIndex = cb_continente.FindString(dataGridView1.SelectedRows[0].Cells[3].Value.ToString());
+
+                txt_calle.Text = dataGridView1.SelectedRows[0].Cells[5].Value.ToString();
+
                 cargar_combox(cb_continente.SelectedItem.ToString(), "PAISES");
-                cb_pais.SelectedIndex = cb_pais.FindString(dataGridView1.SelectedRows[0].Cells[5].Value.ToString());
-           
-                cargar_combox(cb_pais.SelectedItem.ToString(), "PROVINCIAS"); 
-                cb_provincia.SelectedIndex = cb_provincia.FindString(dataGridView1.SelectedRows[0].Cells[7].Value.ToString());
+                cb_pais.SelectedIndex = cb_pais.FindString(dataGridView1.SelectedRows[0].Cells[6].Value.ToString());
+
+                cargar_combox(cb_pais.SelectedItem.ToString(), "PROVINCIAS");
+                cb_provincia.SelectedIndex = cb_provincia.FindString(dataGridView1.SelectedRows[0].Cells[8].Value.ToString());
 
                 cargar_combox(cb_provincia.SelectedItem.ToString(), "CIUDADES");
                 cb_ciudad.SelectedIndex = cb_ciudad.FindString(dataGridView1.SelectedRows[0].Cells[9].Value.ToString());
+
+                txt_num_casa.Text = dataGridView1.SelectedRows[0].Cells[11].Value.ToString();
+
+                txt_id_calle.Text = dataGridView1.SelectedRows[0].Cells[12].Value.ToString();
+               
+
+           
+
              
             }
             catch (Exception ea)
@@ -306,6 +330,32 @@ namespace _911_RD.Administracion
         {
             if (dataGridView1.Rows.Count > 0)
               CargarCampos();
+        }
+
+        private void btn_calle_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                using (FrmCalle frmMarca = new FrmCalle())
+                {
+                    DialogResult dr = frmMarca.ShowDialog();
+                    if (dr == DialogResult.OK)
+                    {
+                        txt_id_calle.Text = frmMarca.dataGridView1.CurrentRow.Cells[0].Value.ToString();
+                        txt_calle.Text = frmMarca.dataGridView1.CurrentRow.Cells[1].Value.ToString();
+                    }
+                }
+            }
+            catch (Exception asa)
+            {
+                //error
+            }
+        }
+
+        private void btn_limpiar_Click(object sender, EventArgs e)
+        {
+            Utilidades.LimpiarControles(this);
+            cargarTabla("", dataGridView1);
         }
     }
 }

@@ -154,9 +154,9 @@ namespace _911_RD.Administracion
         public int crudCliente(string id_tercero, string id_tipo, bool estadoT)
         {
             int id_result = 0;
-            //try
-            //{
-                //TransporSysEntities
+            try
+            {
+                // TransporSysEntities
                 using (TransporSysEntities db = new TransporSysEntities())
                 {
                     var terceroquery = db.CLIENTES.FirstOrDefault(a => a.id_tercero.ToString() == id_tercero.Trim());
@@ -179,16 +179,57 @@ namespace _911_RD.Administracion
                         id_result = terceroquery.id_cliente;
                     }
                     db.SaveChanges();
-                        if (terceroquery == null)
-                        {
-                            id_result = db.CLIENTES.Max(x => x.id_cliente);
-                        }
+                    if (terceroquery == null)
+                    {
+                        id_result = db.CLIENTES.Max(x => x.id_cliente);
+                    }
                 }
-            //}
-            //catch (Exception asd)
-            //{
+            }
+            catch (Exception asd)
+            {
 
-            //}
+            }
+
+            return id_result;
+        }
+        public int crudEmpresa(string id_tercero, string web, string lema)
+        {
+            int id_result = 0;
+            try
+            {
+                // TransporSysEntities
+                using (TransporSysEntities db = new TransporSysEntities())
+                {
+                    var terceroquery = db.EMPRESA.FirstOrDefault(a => a.id_tercero.ToString() == id_tercero.Trim());
+                    if (terceroquery == null)
+                    {
+
+                        EMPRESA eMPLEADOS = new EMPRESA
+                        {
+                            id_tercero = int.Parse(id_tercero.Trim()),
+                            pagina_web = web.Trim(),
+                            lema = lema.Trim(),
+                        };
+                        db.EMPRESA.Add(eMPLEADOS);
+                    }
+                    else
+                    {
+                        terceroquery.id_tercero = int.Parse(id_tercero.Trim());
+                        terceroquery.pagina_web = web.Trim();
+                        lema = lema.Trim();
+                        id_result = terceroquery.id_empresa;
+                    }
+                    db.SaveChanges();
+                    if (terceroquery == null)
+                    {
+                        id_result = db.EMPRESA.Max(x => x.id_empresa);
+                    }
+                }
+            }
+            catch (Exception asd)
+            {
+
+            }
 
             return id_result;
         }
@@ -201,15 +242,14 @@ namespace _911_RD.Administracion
             {
                 //TransporSysEntities
                 using (TransporSysEntities db = new TransporSysEntities())
-               {
-                
-                   int id = 0;
+                {
+
+                    int id = 0;
                     var iden = db.IDENTIFICACIONES.FirstOrDefault(a => a.identificacion.ToString() == identificacion.Trim());
-                    int tercero=0 ;
+                    int tercero = 0;
                     if (id_traido != "0")
                     {
                         tercero = db.TERCEROS_VS_IDENTIFICACIONES.FirstOrDefault(a => a.id_identificacion == iden.id_identificacion && a.id_tercero.ToString() == id_traido.Trim()).id_tercero;
-                        
                     }
 
                     if (tercero > 0)
@@ -246,7 +286,7 @@ namespace _911_RD.Administracion
             }
             catch (Exception asd)
             {
-                System.Diagnostics.Debug.WriteLine("-----------ERROR: " + asd.ToString());
+                //System.Diagnostics.Debug.WriteLine("-----------ERROR: " + asd.ToString());
 
             }
 
@@ -431,7 +471,7 @@ namespace _911_RD.Administracion
             }
         }
 
-        public int InsertarDireccion(string id_direccion, string id_ciudad, string descripcion, string id_tercero)
+        public int InsertarDireccion(string id_direccion, string id_ciudad, string id_calle, string casa, string referencia, string id_tercero)
         {
             int id_result = 0;
             try
@@ -442,19 +482,24 @@ namespace _911_RD.Administracion
                     int id_ciudad_int = db.CIUDADES.FirstOrDefault(a => a.ciudad.ToString() == id_ciudad.Trim()).id_ciudad;
 
                     var terceroquery = db.DIRECCIONES.FirstOrDefault(a => a.id_direccion.ToString() == id_direccion.Trim());
-
                     if (terceroquery == null)
                     {
-                        DIRECCIONES dir = new DIRECCIONES{
+                        DIRECCIONES dir = new DIRECCIONES
+                        {
                             id_ciudad = id_ciudad_int,
-                            descripcion = descripcion.Trim(),
+                            id_calle = int.Parse(id_calle.Trim()),
+                            num_casa = casa.Trim(),
+                            referencia = referencia.Trim()
+
                         };
                         db.DIRECCIONES.Add(dir);
                     }
                     else
                     {
                         terceroquery.id_ciudad = id_ciudad_int;
-                        terceroquery.descripcion = descripcion.Trim();
+                        terceroquery.id_calle = int.Parse(id_calle.Trim());
+                        terceroquery.num_casa = casa.Trim();
+                        terceroquery.referencia = referencia.Trim();
                         id_result = terceroquery.id_direccion;
                     }
                     db.SaveChanges();
@@ -512,12 +557,28 @@ namespace _911_RD.Administracion
         {
             try
             {
-                    Utilidades.conexion.Open();
-                    string delete = "Delete from " + tabla + " where id_tercero = " + id_tercero + " and " + campo + " = " + id_valor;
-                    System.Diagnostics.Debug.WriteLine("DELETE: " + delete.ToString());
-                    SqlCommand comando = new SqlCommand(delete, Utilidades.conexion);
-                    comando.ExecuteNonQuery();
-                    Utilidades.conexion.Close();
+                Utilidades.conexion.Open();
+                string delete = "Delete from " + tabla + " where id_tercero = " + id_tercero + " and " + campo + " = " + id_valor;
+                System.Diagnostics.Debug.WriteLine("DELETE: " + delete.ToString());
+                SqlCommand comando = new SqlCommand(delete, Utilidades.conexion);
+                comando.ExecuteNonQuery();
+                Utilidades.conexion.Close();
+            }
+            catch (Exception asd)
+            {
+                //error
+            }
+        }
+        public void borrarVsGen(string id_campo1,string columna1, string id_campo2, string columna2, string tabla)
+        {
+            try
+            {
+                Utilidades.conexion.Open();
+                string delete = "Delete from " + tabla + " where " + id_campo1 + " = " + columna1 + " and " + id_campo2 + " = " + columna2;
+                System.Diagnostics.Debug.WriteLine("DELETE: " + delete.ToString());
+                SqlCommand comando = new SqlCommand(delete, Utilidades.conexion);
+                comando.ExecuteNonQuery();
+                Utilidades.conexion.Close();
             }
             catch (Exception asd)
             {

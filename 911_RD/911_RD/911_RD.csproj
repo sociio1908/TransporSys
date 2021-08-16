@@ -114,11 +114,29 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Administracion\Configuracion\FrmConfiguracion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administracion\Configuracion\FrmConfiguracion.designer.cs">
+      <DependentUpon>FrmConfiguracion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Administracion\Configuracion\FrmEmpresa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administracion\Configuracion\FrmEmpresa.designer.cs">
+      <DependentUpon>FrmEmpresa.cs</DependentUpon>
+    </Compile>
     <Compile Include="Administracion\ConPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Administracion\ConPrincipal.Designer.cs">
       <DependentUpon>ConPrincipal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Administracion\Direccion\FrmCalle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administracion\Direccion\FrmCalle.designer.cs">
+      <DependentUpon>FrmCalle.cs</DependentUpon>
     </Compile>
     <Compile Include="Administracion\Direccion\FrmCiudad.cs">
       <SubType>Form</SubType>
@@ -168,6 +186,54 @@
     <Compile Include="Administracion\Email_Telefono\FrmTipoTelefono.designer.cs">
       <DependentUpon>FrmTipoTelefono.cs</DependentUpon>
     </Compile>
+    <Compile Include="Administracion\FrmNacionalidad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administracion\FrmNacionalidad.designer.cs">
+      <DependentUpon>FrmNacionalidad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Administracion\FrmTipoIdentificacione.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administracion\FrmTipoIdentificacione.designer.cs">
+      <DependentUpon>FrmTipoIdentificacione.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Administracion\Pacientes\FrmAlergias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administracion\Pacientes\FrmAlergias.designer.cs">
+      <DependentUpon>FrmAlergias.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Administracion\Pacientes\FrmMedicamentos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administracion\Pacientes\FrmMedicamentos.designer.cs">
+      <DependentUpon>FrmMedicamentos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Administracion\Pacientes\FrmTipoMedicamento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administracion\Pacientes\FrmTipoMedicamento.designer.cs">
+      <DependentUpon>FrmTipoMedicamento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Administracion\PAGOS_COBROS\FrmTiposPago.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administracion\PAGOS_COBROS\FrmTiposPago.designer.cs">
+      <DependentUpon>FrmTiposPago.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Administracion\Servicios\FrmServicios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administracion\Servicios\FrmServicios.designer.cs">
+      <DependentUpon>FrmServicios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Administracion\Servicios\FrmTipoServicios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administracion\Servicios\FrmTipoServicios.designer.cs">
+      <DependentUpon>FrmTipoServicios.cs</DependentUpon>
+    </Compile>
     <Compile Include="Administracion\Venta y Compra\FrmAdmVentas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -210,10 +276,10 @@
     <Compile Include="Administracion\Venta y Compra\FrmDescuentos.Designer.cs">
       <DependentUpon>FrmDescuentos.cs</DependentUpon>
     </Compile>
-    <Compile Include="Administracion\FrmPaciente.cs">
+    <Compile Include="Administracion\Pacientes\FrmPaciente.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Administracion\FrmPaciente.Designer.cs">
+    <Compile Include="Administracion\Pacientes\FrmPaciente.Designer.cs">
       <DependentUpon>FrmPaciente.cs</DependentUpon>
     </Compile>
     <Compile Include="Administracion\FrmSuplidor.cs">
@@ -303,6 +369,9 @@
     <Compile Include="BENEFICIOS.cs">
       <DependentUpon>TransporSysEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="CALLES.cs">
+      <DependentUpon>TransporSysEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="CATEGORIAS.cs">
       <DependentUpon>TransporSysEntities.tt</DependentUpon>
     </Compile>
@@ -372,6 +441,9 @@
     <Compile Include="EMPLEADOS.cs">
       <DependentUpon>TransporSysEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="EMPRESA.cs">
+      <DependentUpon>TransporSysEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="ENTRADAS.cs">
       <DependentUpon>TransporSysEntities.tt</DependentUpon>
     </Compile>
@@ -439,6 +511,9 @@
     <Compile Include="GPS.cs">
       <DependentUpon>TransporSysEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="HISTORIAL_PRECIO_COMBUSTIBLES.cs">
+      <DependentUpon>TransporSysEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="IDENTIFICACIONES.cs">
       <DependentUpon>TransporSysEntities.tt</DependentUpon>
     </Compile>
@@ -457,6 +532,9 @@
     <Compile Include="MODELO.cs">
       <DependentUpon>TransporSysEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="MOTIVOS.cs">
+      <DependentUpon>TransporSysEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="NACIONALIDADES.cs">
       <DependentUpon>TransporSysEntities.tt</DependentUpon>
     </Compile>
@@ -473,6 +551,9 @@
       <DependentUpon>TransporSysEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="PRECIOS.cs">
+      <DependentUpon>TransporSysEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PRECIOS_COMBUSTIBLE.cs">
       <DependentUpon>TransporSysEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -499,9 +580,6 @@
       <DependentUpon>TransporSysEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="SUPLIDORES.cs">
-      <DependentUpon>TransporSysEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="sysdiagrams.cs">
       <DependentUpon>TransporSysEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="TELEFONOS.cs">
@@ -589,8 +667,17 @@
     <Compile Include="VENTA_SERVICIOS.cs">
       <DependentUpon>TransporSysEntities.tt</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Administracion\Configuracion\FrmConfiguracion.resx">
+      <DependentUpon>FrmConfiguracion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administracion\Configuracion\FrmEmpresa.resx">
+      <DependentUpon>FrmEmpresa.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Administracion\ConPrincipal.resx">
       <DependentUpon>ConPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administracion\Direccion\FrmCalle.resx">
+      <DependentUpon>FrmCalle.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Administracion\Direccion\FrmCiudad.resx">
       <DependentUpon>FrmCiudad.cs</DependentUpon>
@@ -616,6 +703,30 @@
     <EmbeddedResource Include="Administracion\Email_Telefono\FrmTipoTelefono.resx">
       <DependentUpon>FrmTipoTelefono.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Administracion\FrmNacionalidad.resx">
+      <DependentUpon>FrmNacionalidad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administracion\FrmTipoIdentificacione.resx">
+      <DependentUpon>FrmTipoIdentificacione.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administracion\Pacientes\FrmAlergias.resx">
+      <DependentUpon>FrmAlergias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administracion\Pacientes\FrmMedicamentos.resx">
+      <DependentUpon>FrmMedicamentos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administracion\Pacientes\FrmTipoMedicamento.resx">
+      <DependentUpon>FrmTipoMedicamento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administracion\PAGOS_COBROS\FrmTiposPago.resx">
+      <DependentUpon>FrmTiposPago.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administracion\Servicios\FrmServicios.resx">
+      <DependentUpon>FrmServicios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administracion\Servicios\FrmTipoServicios.resx">
+      <DependentUpon>FrmTipoServicios.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Administracion\Venta y Compra\FrmAdmVentas.resx">
       <DependentUpon>FrmAdmVentas.cs</DependentUpon>
     </EmbeddedResource>
@@ -637,7 +748,7 @@
     <EmbeddedResource Include="Administracion\Venta y Compra\FrmDescuentos.resx">
       <DependentUpon>FrmDescuentos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Administracion\FrmPaciente.resx">
+    <EmbeddedResource Include="Administracion\Pacientes\FrmPaciente.resx">
       <DependentUpon>FrmPaciente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Administracion\FrmSuplidor.resx">

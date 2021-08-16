@@ -189,5 +189,11 @@ namespace _911_RD.Administracion
         {
             this.DialogResult = DialogResult.OK;
         }
+
+        private void dataGridView1_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dataGridView1.Rows.Count > 0)
+                this.DialogResult = DialogResult.OK;
+        }
     }
 }

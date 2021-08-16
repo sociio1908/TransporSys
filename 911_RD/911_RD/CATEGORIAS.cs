@@ -17,6 +17,7 @@ namespace _911_RD
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public CATEGORIAS()
         {
+            this.ARTICULOS = new HashSet<ARTICULOS>();
             this.ARTICULOS_VS_CATEGORIAS_VS_DESCUENTOS = new HashSet<ARTICULOS_VS_CATEGORIAS_VS_DESCUENTOS>();
         }
     
@@ -25,6 +26,8 @@ namespace _911_RD
         public string descripcion { get; set; }
         public bool estado { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ARTICULOS> ARTICULOS { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ARTICULOS_VS_CATEGORIAS_VS_DESCUENTOS> ARTICULOS_VS_CATEGORIAS_VS_DESCUENTOS { get; set; }
     }

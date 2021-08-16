@@ -21,7 +21,6 @@ namespace _911_RD.Administracion
            dataGridView1.AllowUserToAddRows = false;
            cargarTabla("");
             txt_cedula.Focus();
-
         }
         int cont = 0;
         MetodosCRUD metodoscrud = new MetodosCRUD();
@@ -47,24 +46,25 @@ namespace _911_RD.Administracion
             {
                 
                     var listS = db.SEXOS;
+                    cb_sexo.Items.Clear();
                         foreach (var sEXOS in listS){ 
                         cb_sexo.Items.Add(sEXOS.descripcion.ToUpper());
-                    
                     }
 
                     var listN  = db.NACIONALIDADES;
+                    cb_nacionalidades.Items.Clear();
                     foreach (var nACIONALIDADES in listN)
                     {
                         cb_nacionalidades.Items.Add(nACIONALIDADES.nacionalidad.ToUpper());
                     }
 
                     var listIden = db.TIPOS_IDENTIFICACIONES;
+                    cb_tipoIdent.Items.Clear();
                     foreach (var identi in listIden)
                     {
                         cb_tipoIdent.Items.Add(identi.nombre.ToUpper());
                     }
                 }
-
             }
             catch (Exception dfg)
             {
@@ -592,7 +592,7 @@ namespace _911_RD.Administracion
                                  select new
                                  {
                                      id_direccion = tel.id_direccion,
-                                     direccion = tel.descripcion + ", " + ciu.ciudad + ", " + pa.pais
+                                     direccion = tel.referencia + ", " + ciu.ciudad + ", " + pa.pais
                                  };
 
                     if (correo != null)
@@ -898,6 +898,13 @@ namespace _911_RD.Administracion
         private void tabla_tel_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void bt_agregar_nac_Click(object sender, EventArgs e)
+        {
+            FrmNacionalidad fm = new FrmNacionalidad();
+            fm.ShowDialog();
+            cargarComboxs();
         }
     }
 }

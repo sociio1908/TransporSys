@@ -39,7 +39,9 @@ namespace _911_RD
         public bool estado { get; set; }
         public int intItebis { get; set; }
     
+        public virtual CATEGORIAS CATEGORIAS { get; set; }
         public virtual ITEBIS ITEBIS { get; set; }
+        public virtual UNIDADES_DE_MEDIDA UNIDADES_DE_MEDIDA { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ARTICULOS_VS_CATEGORIAS_VS_DESCUENTOS> ARTICULOS_VS_CATEGORIAS_VS_DESCUENTOS { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

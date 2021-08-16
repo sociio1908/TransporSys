@@ -43,8 +43,7 @@ namespace _911_RD.Administracion.Venta_y_Compra
                         ITEBIS cont = new ITEBIS
                         {
                             porcentaje = Convert.ToDouble(txt_porcentaje.Text.Trim()),
-                            createdAt = dateTimePicker1.Value,
-                            updatedAt = DateTime.Now,
+                            
                         };
 
                         db.ITEBIS.Add(cont);
@@ -56,8 +55,7 @@ namespace _911_RD.Administracion.Venta_y_Compra
                         {
 
                             ite.porcentaje = Convert.ToDouble(txt_porcentaje.Text.Trim());
-                            ite.createdAt = dateTimePicker1.Value;
-                            ite.updatedAt = DateTime.Now;
+                           
                         }
                     }
                     db.SaveChanges();
@@ -86,7 +84,7 @@ namespace _911_RD.Administracion.Venta_y_Compra
                     var list = db.ITEBIS;
                     foreach (var conti in list)
                     {
-                        dataGridView1.Rows.Add(conti.intItebis.ToString(), conti.porcentaje.ToString(), conti.createdAt.ToString(),conti.updatedAt.ToString());
+                        dataGridView1.Rows.Add(conti.intItebis.ToString(), conti.porcentaje.ToString());
                     }
                 }
                 catch (Exception dfg)
@@ -103,7 +101,7 @@ namespace _911_RD.Administracion.Venta_y_Compra
             {
                 id_txt.Text = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
                 txt_porcentaje.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
-                dateTimePicker1.Value = Convert.ToDateTime(dataGridView1.SelectedRows[0].Cells[2].Value.ToString());
+                
 
             }
             catch (Exception ea)

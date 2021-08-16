@@ -193,7 +193,7 @@ namespace _911_RD.Administracion
                 DialogResult dr = frmunidad.ShowDialog();
                 if (dr == DialogResult.OK)
                 {
-                    //txt_idemple.Text = frmunidad.dataGridView1.CurrentRow.Cells[0].Value.ToString();
+                    txt_idemple.Text = frmunidad.dataGridView1.CurrentRow.Cells[3].Value.ToString();
 
                 }
             }

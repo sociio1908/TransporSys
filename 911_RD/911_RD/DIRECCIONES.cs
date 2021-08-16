@@ -22,7 +22,9 @@ namespace _911_RD
     
         public int id_direccion { get; set; }
         public int id_ciudad { get; set; }
-        public string descripcion { get; set; }
+        public Nullable<int> id_calle { get; set; }
+        public string num_casa { get; set; }
+        public string referencia { get; set; }
     
         public virtual CIUDADES CIUDADES { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

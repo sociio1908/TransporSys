@@ -1,4 +1,7 @@
 ﻿using _911_RD.Administracion;
+using _911_RD.Administracion.PAGOS_COBROS;
+using _911_RD.Administracion.Servicios;
+using _911_RD.Administracion.Transporte;
 using _911_RD.Administracion.Venta_y_Compra;
 using System;
 using System.Collections.Generic;
@@ -18,7 +21,7 @@ namespace _911_RD
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmCompra());
+            Application.Run(new FrmVentas());
         }
     }
 }

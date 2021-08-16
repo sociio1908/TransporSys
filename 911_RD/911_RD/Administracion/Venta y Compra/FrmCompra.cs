@@ -16,6 +16,10 @@ namespace _911_RD.Administracion
         {
             InitializeComponent();
             nofactura();
+            if (txt_numfactura.Text == "")
+            {
+                //txt_numfactura.Text = "0";
+            }
         }
 
         private void agregarNumero(string numero)
@@ -482,20 +486,22 @@ namespace _911_RD.Administracion
 
         private void nofactura()
         {
-            using (TransporSysEntities db = new TransporSysEntities())
+            try
             {
+                using (TransporSysEntities db = new TransporSysEntities())
+                {
 
-                var articulo = db.COMPRAS.Max(j => j.num_compra);
-                if(articulo.ToString() == null)
-                {
-                    txt_numfactura.Text = "1";
+                    var articulo = db.VENTAS.Max(j => j.num_fact);
+
+                    int c = Convert.ToInt32(articulo);
+                    int b = c + 1;
+                    txt_numfactura.Text = b.ToString();
+
                 }
-                else 
-                {
-                int c = Convert.ToInt32(articulo);
-                int b = c + 1;
-                txt_numfactura.Text = b.ToString();
-                }
+            }
+            catch (Exception asa)
+            {
+                //ERROR
             }
         }
 

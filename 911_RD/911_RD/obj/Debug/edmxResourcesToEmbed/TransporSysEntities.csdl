@@ -32,7 +32,9 @@
     <Property Name="precio" Type="Double" Nullable="false" />
     <Property Name="estado" Type="Boolean" Nullable="false" />
     <Property Name="intItebis" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="CATEGORIAS" Relationship="Self.FK_ARTICULOS_CATEGORIAS" FromRole="ARTICULOS" ToRole="CATEGORIAS" />
     <NavigationProperty Name="ITEBIS" Relationship="Self.FK_ARTICULOS_ITEBIS" FromRole="ARTICULOS" ToRole="ITEBIS" />
+    <NavigationProperty Name="UNIDADES_DE_MEDIDA" Relationship="Self.FK_ARTICULOS_UNIDADES_DE_MEDIDA" FromRole="ARTICULOS" ToRole="UNIDADES_DE_MEDIDA" />
     <NavigationProperty Name="ARTICULOS_VS_CATEGORIAS_VS_DESCUENTOS" Relationship="Self.FK_ARTICULOS_VS_CATEGORIAS_VS_DESCUENTOS_ARTICULOS" FromRole="ARTICULOS" ToRole="ARTICULOS_VS_CATEGORIAS_VS_DESCUENTOS" />
     <NavigationProperty Name="DETALLES_VENTAS" Relationship="Self.FK_DETALLE_VENTAS_ARTICULOS" FromRole="ARTICULOS" ToRole="DETALLES_VENTAS" />
     <NavigationProperty Name="DETALLES_COMPRAS" Relationship="Self.FK_DETALLES_COMPRAS_ARTICULOS" FromRole="ARTICULOS" ToRole="DETALLES_COMPRAS" />
@@ -53,6 +55,13 @@
     <Property Name="estado" Type="Boolean" Nullable="false" />
     <NavigationProperty Name="TIPOS_MEMBRESIAS" Relationship="Self.FK_BENEFICIOS_TIPOS_MEMBRESIAS" FromRole="BENEFICIOS" ToRole="TIPOS_MEMBRESIAS" />
   </EntityType>
+  <EntityType Name="CALLES">
+    <Key>
+      <PropertyRef Name="id_calle" />
+    </Key>
+    <Property Name="id_calle" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
   <EntityType Name="CATEGORIAS">
     <Key>
       <PropertyRef Name="id_categoria" />
@@ -61,6 +70,7 @@
     <Property Name="categoria" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="descripcion" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="estado" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="ARTICULOS" Relationship="Self.FK_ARTICULOS_CATEGORIAS" FromRole="CATEGORIAS" ToRole="ARTICULOS" />
     <NavigationProperty Name="ARTICULOS_VS_CATEGORIAS_VS_DESCUENTOS" Relationship="Self.FK_ARTICULOS_VS_CATEGORIAS_VS_DESCUENTOS_CATEGORIAS" FromRole="CATEGORIAS" ToRole="ARTICULOS_VS_CATEGORIAS_VS_DESCUENTOS" />
   </EntityType>
   <EntityType Name="CATEGORIAS_SERVICIOS">
@@ -117,6 +127,7 @@
     </Key>
     <Property Name="id_combustible" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="precio" Type="Double" />
     <Property Name="estado" Type="Boolean" Nullable="false" />
   </EntityType>
   <EntityType Name="COMPRAS">
@@ -265,7 +276,9 @@
     </Key>
     <Property Name="id_direccion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="id_ciudad" Type="Int32" Nullable="false" />
-    <Property Name="descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="id_calle" Type="Int32" />
+    <Property Name="num_casa" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="referencia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="CIUDADES" Relationship="Self.FK_DIRECCIONES_CIUDADES" FromRole="DIRECCIONES" ToRole="CIUDADES" />
     <NavigationProperty Name="TERCEROS_VS_DIRECCIONES" Relationship="Self.FK__TERCEROS___id_di__3B95D2F1" FromRole="DIRECCIONES" ToRole="TERCEROS_VS_DIRECCIONES" />
   </EntityType>
@@ -330,7 +343,7 @@
     <NavigationProperty Name="CONDUCTOR" Relationship="Self.FK__CONDUCTOR__id_em__54CB950F" FromRole="EMPLEADOS" ToRole="CONDUCTOR" />
     <NavigationProperty Name="COTIZACIONES" Relationship="Self.FK_COTIZACIONES_EMPLEADOS" FromRole="EMPLEADOS" ToRole="COTIZACIONES" />
     <NavigationProperty Name="DESCUENTOS" Relationship="Self.FK_DESCUENTOS_EMPLEADOS" FromRole="EMPLEADOS" ToRole="DESCUENTOS" />
-    <NavigationProperty Name="PUESTOS" Relationship="Self.FK__EMPLEADOS__id_pu__46B27FE2" FromRole="EMPLEADOS" ToRole="PUESTOS" />
+    <NavigationProperty Name="PUESTOS" Relationship="Self.FK__EMPLEADOS__id_pu__51300E55" FromRole="EMPLEADOS" ToRole="PUESTOS" />
     <NavigationProperty Name="PERSONAS" Relationship="Self.FK_EMPLEADOS_PERSONAS" FromRole="EMPLEADOS" ToRole="PERSONAS" />
     <NavigationProperty Name="ENTRADAS" Relationship="Self.FK_ENTRADAS_EMPLEADOS" FromRole="EMPLEADOS" ToRole="ENTRADAS" />
     <NavigationProperty Name="FINANCIAMIENTOS" Relationship="Self.FK_FINANCIAMIENTOS_EMPLEADOS" FromRole="EMPLEADOS" ToRole="FINANCIAMIENTOS" />
@@ -340,6 +353,15 @@
     <NavigationProperty Name="USUARIOS" Relationship="Self.FK_USUARIOS_EMPLEADOS" FromRole="EMPLEADOS" ToRole="USUARIOS" />
     <NavigationProperty Name="VENTAS" Relationship="Self.FK_VENTAS_EMPLEADOS" FromRole="EMPLEADOS" ToRole="VENTAS" />
     <NavigationProperty Name="PUESTOS1" Relationship="Self.EMPLEADOS_VS_PUESTOS" FromRole="EMPLEADOS" ToRole="PUESTOS" />
+  </EntityType>
+  <EntityType Name="EMPRESA">
+    <Key>
+      <PropertyRef Name="id_empresa" />
+    </Key>
+    <Property Name="id_empresa" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_tercero" Type="Int32" Nullable="false" />
+    <Property Name="pagina_web" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="lema" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="ENTRADAS">
     <Key>
@@ -403,9 +425,7 @@
       <PropertyRef Name="intItebis" />
     </Key>
     <Property Name="intItebis" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="porcentaje" Type="Double" />
-    <Property Name="createdAt" Type="DateTime" Precision="3" />
-    <Property Name="updatedAt" Type="DateTime" Precision="3" />
+    <Property Name="porcentaje" Type="Double" Nullable="false" />
     <NavigationProperty Name="ARTICULOS" Relationship="Self.FK_ARTICULOS_ITEBIS" FromRole="ITEBIS" ToRole="ARTICULOS" />
   </EntityType>
   <EntityType Name="MARCA">
@@ -440,6 +460,14 @@
     <Property Name="id_modelo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="modelo1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <NavigationProperty Name="VEHICULO" Relationship="Self.FK_vaehicualo" FromRole="MODELO" ToRole="VEHICULO" />
+  </EntityType>
+  <EntityType Name="MOTIVOS">
+    <Key>
+      <PropertyRef Name="id_motivo" />
+    </Key>
+    <Property Name="id_motivo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="motivo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="despcrion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
   </EntityType>
   <EntityType Name="NACIONALIDADES">
     <Key>
@@ -518,6 +546,16 @@
     <NavigationProperty Name="ARTICULOS" Relationship="Self.FK_PRECIOS_ARTICULOS" FromRole="PRECIOS" ToRole="ARTICULOS" />
     <NavigationProperty Name="EMPLEADOS" Relationship="Self.FK_PRECIOS_EMPLEADOS" FromRole="PRECIOS" ToRole="EMPLEADOS" />
   </EntityType>
+  <EntityType Name="PRECIOS_COMBUSTIBLE">
+    <Key>
+      <PropertyRef Name="id_precio_combustible" />
+    </Key>
+    <Property Name="id_precio_combustible" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_combustible" Type="Int32" Nullable="false" />
+    <Property Name="desde" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="hasta" Type="DateTime" Precision="3" />
+    <Property Name="precio" Type="Double" Nullable="false" />
+  </EntityType>
   <EntityType Name="PROVINCIAS">
     <Key>
       <PropertyRef Name="id_provincia" />
@@ -537,7 +575,7 @@
     <Property Name="descripcion" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="salario" Type="Double" Nullable="false" />
     <Property Name="estado" Type="Boolean" Nullable="false" />
-    <NavigationProperty Name="EMPLEADOS" Relationship="Self.FK__EMPLEADOS__id_pu__46B27FE2" FromRole="PUESTOS" ToRole="EMPLEADOS" />
+    <NavigationProperty Name="EMPLEADOS" Relationship="Self.FK__EMPLEADOS__id_pu__51300E55" FromRole="PUESTOS" ToRole="EMPLEADOS" />
     <NavigationProperty Name="EMPLEADOS1" Relationship="Self.EMPLEADOS_VS_PUESTOS" FromRole="PUESTOS" ToRole="EMPLEADOS" />
     <NavigationProperty Name="DEPARTAMENTOS" Relationship="Self.PUESTOS_VS_DEPARTAMENTOS" FromRole="PUESTOS" ToRole="DEPARTAMENTOS" />
   </EntityType>
@@ -585,16 +623,6 @@
     <NavigationProperty Name="ENTRADAS" Relationship="Self.FK_ENTRADAS_SUPLIDORES" FromRole="SUPLIDORES" ToRole="ENTRADAS" />
     <NavigationProperty Name="TERCEROS" Relationship="Self.FK_SUPLIDORES_TERCEROS" FromRole="SUPLIDORES" ToRole="TERCEROS" />
     <NavigationProperty Name="TIPOS_SUPLIDORES" Relationship="Self.FK_SUPLIDORES_TIPOS_SUPLIDORES" FromRole="SUPLIDORES" ToRole="TIPOS_SUPLIDORES" />
-  </EntityType>
-  <EntityType Name="sysdiagrams">
-    <Key>
-      <PropertyRef Name="diagram_id" />
-    </Key>
-    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="principal_id" Type="Int32" Nullable="false" />
-    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="version" Type="Int32" />
-    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
   </EntityType>
   <EntityType Name="TELEFONOS">
     <Key>
@@ -763,6 +791,7 @@
     <Property Name="unidad_de_medida" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="abreviatura" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="descripcion" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="ARTICULOS" Relationship="Self.FK_ARTICULOS_UNIDADES_DE_MEDIDA" FromRole="UNIDADES_DE_MEDIDA" ToRole="ARTICULOS" />
     <NavigationProperty Name="EXISTENCIAS" Relationship="Self.FK_EXISTENCIAS_UNIDADES_DE_MEDIDA" FromRole="UNIDADES_DE_MEDIDA" ToRole="EXISTENCIAS" />
   </EntityType>
   <EntityType Name="USUARIOS">
@@ -848,6 +877,18 @@
     <NavigationProperty Name="EMPLEADOS" Relationship="Self.FK_GPsS" FromRole="GPS" ToRole="EMPLEADOS" />
     <NavigationProperty Name="VEHICULO" Relationship="Self.FK_GPS" FromRole="GPS" ToRole="VEHICULO" />
   </EntityType>
+  <EntityType Name="HISTORIAL_PRECIO_COMBUSTIBLES">
+    <Key>
+      <PropertyRef Name="id_historial_com" />
+      <PropertyRef Name="id_combustible" />
+      <PropertyRef Name="precio" />
+      <PropertyRef Name="fecha" />
+    </Key>
+    <Property Name="id_historial_com" Type="Int32" Nullable="false" />
+    <Property Name="id_combustible" Type="Int32" Nullable="false" />
+    <Property Name="precio" Type="Double" Nullable="false" />
+    <Property Name="fecha" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
   <EntityType Name="TIPONCF">
     <Key>
       <PropertyRef Name="numTipo" />
@@ -875,6 +916,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_ARTICULOS_CATEGORIAS">
+    <End Role="CATEGORIAS" Type="Self.CATEGORIAS" Multiplicity="1" />
+    <End Role="ARTICULOS" Type="Self.ARTICULOS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CATEGORIAS">
+        <PropertyRef Name="id_categoria" />
+      </Principal>
+      <Dependent Role="ARTICULOS">
+        <PropertyRef Name="id_categoria" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_ARTICULOS_ITEBIS">
     <End Role="ITEBIS" Type="Self.ITEBIS" Multiplicity="1" />
     <End Role="ARTICULOS" Type="Self.ARTICULOS" Multiplicity="*" />
@@ -884,6 +937,18 @@
       </Principal>
       <Dependent Role="ARTICULOS">
         <PropertyRef Name="intItebis" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ARTICULOS_UNIDADES_DE_MEDIDA">
+    <End Role="UNIDADES_DE_MEDIDA" Type="Self.UNIDADES_DE_MEDIDA" Multiplicity="1" />
+    <End Role="ARTICULOS" Type="Self.ARTICULOS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UNIDADES_DE_MEDIDA">
+        <PropertyRef Name="id_unidad_de_medida" />
+      </Principal>
+      <Dependent Role="ARTICULOS">
+        <PropertyRef Name="id_unidad_de_medida" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -1307,7 +1372,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__EMPLEADOS__id_pu__46B27FE2">
+  <Association Name="FK__EMPLEADOS__id_pu__51300E55">
     <End Role="PUESTOS" Type="Self.PUESTOS" Multiplicity="1" />
     <End Role="EMPLEADOS" Type="Self.EMPLEADOS" Multiplicity="*" />
     <ReferentialConstraint>
@@ -1680,6 +1745,7 @@
     <EntitySet Name="ALMACENES" EntityType="Self.ALMACENES" />
     <EntitySet Name="ARTICULOS" EntityType="Self.ARTICULOS" />
     <EntitySet Name="BENEFICIOS" EntityType="Self.BENEFICIOS" />
+    <EntitySet Name="CALLES" EntityType="Self.CALLES" />
     <EntitySet Name="CATEGORIAS" EntityType="Self.CATEGORIAS" />
     <EntitySet Name="CATEGORIAS_SERVICIOS" EntityType="Self.CATEGORIAS_SERVICIOS" />
     <EntitySet Name="CIUDADES" EntityType="Self.CIUDADES" />
@@ -1703,6 +1769,7 @@
     <EntitySet Name="DVIAJES" EntityType="Self.DVIAJES" />
     <EntitySet Name="EMAILS" EntityType="Self.EMAILS" />
     <EntitySet Name="EMPLEADOS" EntityType="Self.EMPLEADOS" />
+    <EntitySet Name="EMPRESA" EntityType="Self.EMPRESA" />
     <EntitySet Name="ENTRADAS" EntityType="Self.ENTRADAS" />
     <EntitySet Name="EXISTENCIAS" EntityType="Self.EXISTENCIAS" />
     <EntitySet Name="FINANCIAMIENTOS" EntityType="Self.FINANCIAMIENTOS" />
@@ -1712,19 +1779,20 @@
     <EntitySet Name="MEDICAMENTOS" EntityType="Self.MEDICAMENTOS" />
     <EntitySet Name="MEDICAMENTOS_VS_ALERGIAS" EntityType="Self.MEDICAMENTOS_VS_ALERGIAS" />
     <EntitySet Name="MODELO" EntityType="Self.MODELO" />
+    <EntitySet Name="MOTIVOS" EntityType="Self.MOTIVOS" />
     <EntitySet Name="NACIONALIDADES" EntityType="Self.NACIONALIDADES" />
     <EntitySet Name="NCF" EntityType="Self.NCF" />
     <EntitySet Name="PACIENTES" EntityType="Self.PACIENTES" />
     <EntitySet Name="PAISES" EntityType="Self.PAISES" />
     <EntitySet Name="PERSONAS" EntityType="Self.PERSONAS" />
     <EntitySet Name="PRECIOS" EntityType="Self.PRECIOS" />
+    <EntitySet Name="PRECIOS_COMBUSTIBLE" EntityType="Self.PRECIOS_COMBUSTIBLE" />
     <EntitySet Name="PROVINCIAS" EntityType="Self.PROVINCIAS" />
     <EntitySet Name="PUESTOS" EntityType="Self.PUESTOS" />
     <EntitySet Name="SALIDAS" EntityType="Self.SALIDAS" />
     <EntitySet Name="SERVICIOS" EntityType="Self.SERVICIOS" />
     <EntitySet Name="SEXOS" EntityType="Self.SEXOS" />
     <EntitySet Name="SUPLIDORES" EntityType="Self.SUPLIDORES" />
-    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
     <EntitySet Name="TELEFONOS" EntityType="Self.TELEFONOS" />
     <EntitySet Name="TERCEROS" EntityType="Self.TERCEROS" />
     <EntitySet Name="TERCEROS_VS_DIRECCIONES" EntityType="Self.TERCEROS_VS_DIRECCIONES" />
@@ -1748,14 +1816,23 @@
     <EntitySet Name="VENTAS" EntityType="Self.VENTAS" />
     <EntitySet Name="ARTICULOS_VS_CATEGORIAS_VS_DESCUENTOS" EntityType="Self.ARTICULOS_VS_CATEGORIAS_VS_DESCUENTOS" />
     <EntitySet Name="GPS" EntityType="Self.GPS" />
+    <EntitySet Name="HISTORIAL_PRECIO_COMBUSTIBLES" EntityType="Self.HISTORIAL_PRECIO_COMBUSTIBLES" />
     <EntitySet Name="TIPONCF" EntityType="Self.TIPONCF" />
     <EntitySet Name="VEHICULOS_VS_CONDUCTOR" EntityType="Self.VEHICULOS_VS_CONDUCTOR" />
     <AssociationSet Name="FK_EXISTENCIAS_ALMACENES" Association="Self.FK_EXISTENCIAS_ALMACENES">
       <End Role="ALMACENES" EntitySet="ALMACENES" />
       <End Role="EXISTENCIAS" EntitySet="EXISTENCIAS" />
     </AssociationSet>
+    <AssociationSet Name="FK_ARTICULOS_CATEGORIAS" Association="Self.FK_ARTICULOS_CATEGORIAS">
+      <End Role="CATEGORIAS" EntitySet="CATEGORIAS" />
+      <End Role="ARTICULOS" EntitySet="ARTICULOS" />
+    </AssociationSet>
     <AssociationSet Name="FK_ARTICULOS_ITEBIS" Association="Self.FK_ARTICULOS_ITEBIS">
       <End Role="ITEBIS" EntitySet="ITEBIS" />
+      <End Role="ARTICULOS" EntitySet="ARTICULOS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ARTICULOS_UNIDADES_DE_MEDIDA" Association="Self.FK_ARTICULOS_UNIDADES_DE_MEDIDA">
+      <End Role="UNIDADES_DE_MEDIDA" EntitySet="UNIDADES_DE_MEDIDA" />
       <End Role="ARTICULOS" EntitySet="ARTICULOS" />
     </AssociationSet>
     <AssociationSet Name="FK_ARTICULOS_VS_CATEGORIAS_VS_DESCUENTOS_ARTICULOS" Association="Self.FK_ARTICULOS_VS_CATEGORIAS_VS_DESCUENTOS_ARTICULOS">
@@ -1898,7 +1975,7 @@
       <End Role="EMAILS" EntitySet="EMAILS" />
       <End Role="TERCEROS_VS_EMAILS" EntitySet="TERCEROS_VS_EMAILS" />
     </AssociationSet>
-    <AssociationSet Name="FK__EMPLEADOS__id_pu__46B27FE2" Association="Self.FK__EMPLEADOS__id_pu__46B27FE2">
+    <AssociationSet Name="FK__EMPLEADOS__id_pu__51300E55" Association="Self.FK__EMPLEADOS__id_pu__51300E55">
       <End Role="PUESTOS" EntitySet="PUESTOS" />
       <End Role="EMPLEADOS" EntitySet="EMPLEADOS" />
     </AssociationSet>

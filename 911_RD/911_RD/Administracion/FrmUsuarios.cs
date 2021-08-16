@@ -208,5 +208,39 @@ namespace _911_RD.Administracion
                 }
             }
         }
+
+        private void dataGridView1_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dataGridView1.Rows.Count > 0)
+                this.DialogResult = DialogResult.OK;
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cb_estado_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            using (FrmCliente frmunidad = new FrmCliente())
+            {
+                DialogResult dr = frmunidad.ShowDialog();
+                if (dr == DialogResult.OK)
+                {
+                    txt_idemple.Text = frmunidad.dataGridView1.CurrentRow.Cells[3].Value.ToString();
+
+                }
+            }
+        }
     }
 }

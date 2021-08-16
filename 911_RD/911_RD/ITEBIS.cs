@@ -21,9 +21,7 @@ namespace _911_RD
         }
     
         public int intItebis { get; set; }
-        public Nullable<double> porcentaje { get; set; }
-        public Nullable<System.DateTime> createdAt { get; set; }
-        public Nullable<System.DateTime> updatedAt { get; set; }
+        public double porcentaje { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ARTICULOS> ARTICULOS { get; set; }

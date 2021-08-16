@@ -29,6 +29,7 @@ namespace _911_RD
         public virtual DbSet<ALMACENES> ALMACENES { get; set; }
         public virtual DbSet<ARTICULOS> ARTICULOS { get; set; }
         public virtual DbSet<BENEFICIOS> BENEFICIOS { get; set; }
+        public virtual DbSet<CALLES> CALLES { get; set; }
         public virtual DbSet<CATEGORIAS> CATEGORIAS { get; set; }
         public virtual DbSet<CATEGORIAS_SERVICIOS> CATEGORIAS_SERVICIOS { get; set; }
         public virtual DbSet<CIUDADES> CIUDADES { get; set; }
@@ -52,6 +53,7 @@ namespace _911_RD
         public virtual DbSet<DVIAJES> DVIAJES { get; set; }
         public virtual DbSet<EMAILS> EMAILS { get; set; }
         public virtual DbSet<EMPLEADOS> EMPLEADOS { get; set; }
+        public virtual DbSet<EMPRESA> EMPRESA { get; set; }
         public virtual DbSet<ENTRADAS> ENTRADAS { get; set; }
         public virtual DbSet<EXISTENCIAS> EXISTENCIAS { get; set; }
         public virtual DbSet<FINANCIAMIENTOS> FINANCIAMIENTOS { get; set; }
@@ -61,19 +63,20 @@ namespace _911_RD
         public virtual DbSet<MEDICAMENTOS> MEDICAMENTOS { get; set; }
         public virtual DbSet<MEDICAMENTOS_VS_ALERGIAS> MEDICAMENTOS_VS_ALERGIAS { get; set; }
         public virtual DbSet<MODELO> MODELO { get; set; }
+        public virtual DbSet<MOTIVOS> MOTIVOS { get; set; }
         public virtual DbSet<NACIONALIDADES> NACIONALIDADES { get; set; }
         public virtual DbSet<NCF> NCF { get; set; }
         public virtual DbSet<PACIENTES> PACIENTES { get; set; }
         public virtual DbSet<PAISES> PAISES { get; set; }
         public virtual DbSet<PERSONAS> PERSONAS { get; set; }
         public virtual DbSet<PRECIOS> PRECIOS { get; set; }
+        public virtual DbSet<PRECIOS_COMBUSTIBLE> PRECIOS_COMBUSTIBLE { get; set; }
         public virtual DbSet<PROVINCIAS> PROVINCIAS { get; set; }
         public virtual DbSet<PUESTOS> PUESTOS { get; set; }
         public virtual DbSet<SALIDAS> SALIDAS { get; set; }
         public virtual DbSet<SERVICIOS> SERVICIOS { get; set; }
         public virtual DbSet<SEXOS> SEXOS { get; set; }
         public virtual DbSet<SUPLIDORES> SUPLIDORES { get; set; }
-        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<TELEFONOS> TELEFONOS { get; set; }
         public virtual DbSet<TERCEROS> TERCEROS { get; set; }
         public virtual DbSet<TERCEROS_VS_DIRECCIONES> TERCEROS_VS_DIRECCIONES { get; set; }
@@ -97,6 +100,7 @@ namespace _911_RD
         public virtual DbSet<VENTAS> VENTAS { get; set; }
         public virtual DbSet<ARTICULOS_VS_CATEGORIAS_VS_DESCUENTOS> ARTICULOS_VS_CATEGORIAS_VS_DESCUENTOS { get; set; }
         public virtual DbSet<GPS> GPS { get; set; }
+        public virtual DbSet<HISTORIAL_PRECIO_COMBUSTIBLES> HISTORIAL_PRECIO_COMBUSTIBLES { get; set; }
         public virtual DbSet<TIPONCF> TIPONCF { get; set; }
         public virtual DbSet<VEHICULOS_VS_CONDUCTOR> VEHICULOS_VS_CONDUCTOR { get; set; }
     }

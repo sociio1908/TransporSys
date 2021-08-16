@@ -25,7 +25,7 @@ namespace _911_RD
             txt_cedula.Focus();
         }
 
-        private void btn_TipoCliente_Click(object sender, EventArgs e)
+            private void btn_TipoCliente_Click(object sender, EventArgs e)
         {
             try
             {
@@ -153,41 +153,42 @@ namespace _911_RD
         private void InsertarPuesto()
         {
 
-            //try
-            //{
+            try
+            {
 
-            int tercero_t = 0;
+                int tercero_t = 0;
 
-            if (id_txt.Text.Trim() != "" || tercero.Trim() != "")
-                tercero_t = int.Parse(tercero);
+                if (id_txt.Text.Trim() != "" || tercero.Trim() != "")
+                    tercero_t = int.Parse(tercero);
 
-            tercero_t = metodoscrud.crudTerceros(tercero_t.ToString(), txt_nombre.Text.Trim(), txt_cedula.Text.Trim());
 
-            //Identificacion
-            int id_tipoIdentificacion = cb_tipoIdent.SelectedIndex + 1;
-            int id_identificacion = metodoscrud.crudIdentificaciones(txt_cedula.Text, id_tipoIdentificacion.ToString(), tercero_t.ToString());
-            //Correo
-            AsignarTelefonos(tercero_t);
-            //Telefono
-            AsignarCorreos(tercero_t);
-            //Direccion
-            AsignarDIreccion(tercero_t);
+                tercero_t = metodoscrud.crudTerceros(tercero_t.ToString(), txt_nombre.Text.Trim(), txt_cedula.Text.Trim());
+
+                //Identificacion
+                int id_tipoIdentificacion = cb_tipoIdent.SelectedIndex + 1;
+                int id_identificacion = metodoscrud.crudIdentificaciones(txt_cedula.Text, id_tipoIdentificacion.ToString(), tercero_t.ToString());
+                //Correo
+                AsignarTelefonos(tercero_t);
+                //Telefono
+                AsignarCorreos(tercero_t);
+                //Direccion
+                AsignarDIreccion(tercero_t);
 
 
             if (metodoscrud.crudCliente(tercero_t.ToString(), txt_id_tipo_cliente.Text.Trim().ToString(), cb_estado.SelectedIndex == 0 ? true : false) > 0)
                 MessageBox.Show("Proceso exitoso.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
 
-            Utilidades.LimpiarControles(this);
-            tercero = "";
-            cargarTabla(""); clearTableAndMore();
+            Utilidades.LimpiarControles(this); 
+                tercero = "";
+                cargarTabla(""); clearTableAndMore();
 
-            //}
-            //catch (Exception dfg)
-            //{
-            //    // MessageBox.Show(lbl_titulo + " ERRORRRR");
+            }
+            catch (Exception dfg)
+            {
+                // MessageBox.Show(lbl_titulo + " ERRORRRR");
 
-            //}
+            }
 
         }
 
@@ -371,7 +372,7 @@ namespace _911_RD
 
             }
         }
-
+       
         private void cargarDirecciones(int id_tercero)
         {
             try
@@ -387,11 +388,12 @@ namespace _911_RD
                                  select new
                                  {
                                      id_direccion = tel.id_direccion,
-                                     direccion = tel.descripcion + ", " + ciu.ciudad + ", " + pa.pais
+                                     direccion = tel.referencia + ", " + ciu.ciudad + ", " + pa.pais
                                  };
 
                     if (correo != null)
                     {
+                        //    MessageBox.Show("ENTRO");
                         tabla_direccion.Rows.Clear();
                         foreach (var dire in correo)
                         {
@@ -469,6 +471,8 @@ namespace _911_RD
                 //   MessageBox.Show("ERROR TEL: " + ass.Message + "--LO OTRO: " + ass.HelpLink);
             }
         }
+
+
         void AsignarDIreccion(int id_tercero)
         {
             try
@@ -519,7 +523,7 @@ namespace _911_RD
 
         private void txt_cedula_TextChanged(object sender, EventArgs e)
         {
-            CargarTercero();
+                   CargarTercero();
         }
 
 
@@ -630,8 +634,8 @@ namespace _911_RD
                         if (existe == false)
                         {
                             tabla_direccion.Rows.Add(frmCargo.dataGridView1.CurrentRow.Cells[0].Value.ToString(),
-                            frmCargo.dataGridView1.CurrentRow.Cells[1].Value.ToString() + ", " + frmCargo.dataGridView1.CurrentRow.Cells[9].Value.ToString()
-                            + ", " + frmCargo.dataGridView1.CurrentRow.Cells[5].Value.ToString());
+                            frmCargo.dataGridView1.CurrentRow.Cells[1].Value.ToString() + ", " + frmCargo.dataGridView1.CurrentRow.Cells[5].Value.ToString()
+                            + ", " + frmCargo.dataGridView1.CurrentRow.Cells[9].Value.ToString());
                         }
 
                     }
@@ -646,7 +650,7 @@ namespace _911_RD
         private void btn_limpiar_Click(object sender, EventArgs e)
         {
             Utilidades.LimpiarControles(this);
-            clearTableAndMore();
+           clearTableAndMore();
             cargarTabla("");
         }
 
@@ -672,13 +676,18 @@ namespace _911_RD
 
         private void dataGridView1_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            this.DialogResult = DialogResult.OK;
+             if (dataGridView1.Rows.Count > 0)
+                this.DialogResult = DialogResult.OK;
         }
 
-        private void dataGridView1_CellContentDoubleClick_1(object sender, DataGridViewCellEventArgs e)
+        private void dataGridView1_CellContextMenuStripChanged(object sender, DataGridViewCellEventArgs e)
         {
-            if (dataGridView1.Rows.Count > 0)
-                this.DialogResult = DialogResult.OK;
+
+        }
+
+        private void FrmCliente_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

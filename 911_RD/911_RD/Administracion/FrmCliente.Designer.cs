@@ -110,11 +110,6 @@ namespace _911_RD
             // 
             this.btn_salir.Location = new System.Drawing.Point(279, 366);
             // 
-            // id_txt
-            // 
-            this.id_txt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.id_txt.Size = new System.Drawing.Size(106, 29);
-            // 
             // btn_buscar
             // 
             this.btn_buscar.Location = new System.Drawing.Point(123, 99);
@@ -263,7 +258,7 @@ namespace _911_RD
             this.txt_cedula.Location = new System.Drawing.Point(15, 266);
             this.txt_cedula.Name = "txt_cedula";
             this.txt_cedula.Size = new System.Drawing.Size(170, 26);
-            this.txt_cedula.SoloNumeros = true;
+            this.txt_cedula.SoloNumeros = false;
             this.txt_cedula.TabIndex = 222;
             this.txt_cedula.Validar = true;
             this.txt_cedula.TextChanged += new System.EventHandler(this.txt_cedula_TextChanged);
@@ -613,7 +608,8 @@ namespace _911_RD
             this.dataGridView1.TabIndex = 246;
             this.dataGridView1.TabStop = false;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick_1);
-            this.dataGridView1.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentDoubleClick_1);
+            this.dataGridView1.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentDoubleClick);
+            this.dataGridView1.CellContextMenuStripChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContextMenuStripChanged);
             // 
             // id_ter
             // 
@@ -731,8 +727,8 @@ namespace _911_RD
             this.Controls.Add(this.label7);
             this.Controls.Add(this.cb_estado);
             this.Name = "FrmCliente";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CLIENTES";
+            this.Load += new System.EventHandler(this.FrmCliente_Load);
             this.Controls.SetChildIndex(this.lbl_titulo, 0);
             this.Controls.SetChildIndex(this.btn_guardar, 0);
             this.Controls.SetChildIndex(this.label9, 0);

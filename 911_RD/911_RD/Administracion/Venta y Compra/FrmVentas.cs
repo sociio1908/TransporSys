@@ -16,6 +16,7 @@ namespace _911_RD.Administracion
         {
             InitializeComponent();
            // nofactura();
+           
         }
 
         private void agregarNumero(string numero)
@@ -32,6 +33,10 @@ namespace _911_RD.Administracion
         private void FrmVentas_Load(object sender, EventArgs e)
         {
             nofactura();
+            if(txt_numfactura.Text == "")
+            {
+                txt_numfactura.Text = "1";
+            }
         }
 
         private void txt_codBarra_TextChanged(object sender, EventArgs e)
@@ -319,6 +324,7 @@ namespace _911_RD.Administracion
 
                             DETALLES_VENTAS Dvent = new DETALLES_VENTAS
                             {
+                                
 
                                 num_fact = Convert.ToInt32(txt_numfactura.Text.Trim()),
                                 id_articulo = Convert.ToInt32(row.Cells[0].Value.ToString()),
@@ -501,15 +507,21 @@ namespace _911_RD.Administracion
 
         private void nofactura()
         {
-            using (TransporSysEntities db = new TransporSysEntities())
+            try 
             {
+                using (TransporSysEntities db = new TransporSysEntities())
+                {
 
-                var articulo = db.VENTAS.Max(j => j.num_fact);             
+                    var articulo = db.VENTAS.Max(j => j.num_fact);             
 
-                int c = Convert.ToInt32(articulo);
-                int b = c + 1;
-                txt_numfactura.Text = b.ToString();
+                    int c = Convert.ToInt32(articulo);
+                    int b = c + 1;
+                    txt_numfactura.Text = b.ToString();
        
+                }
+            }catch(Exception asa)
+            {
+                //ERROR
             }
         }
 

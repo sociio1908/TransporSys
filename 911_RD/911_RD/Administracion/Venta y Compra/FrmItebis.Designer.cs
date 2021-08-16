@@ -40,14 +40,10 @@ namespace _911_RD.Administracion.Venta_y_Compra
             this.label13 = new System.Windows.Forms.Label();
             this.txt_filtro = new _911_RD.ErrorTxtBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.id_itebi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.porcentaje = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.creado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.actualizar = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Seleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.label2 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.btn_buscar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
@@ -55,7 +51,7 @@ namespace _911_RD.Administracion.Venta_y_Compra
             // 
             // btn_guardar
             // 
-            this.btn_guardar.Location = new System.Drawing.Point(29, 258);
+            this.btn_guardar.Location = new System.Drawing.Point(11, 214);
             this.btn_guardar.Size = new System.Drawing.Size(137, 50);
             this.btn_guardar.Click += new System.EventHandler(this.btn_guardar_Click);
             // 
@@ -66,13 +62,13 @@ namespace _911_RD.Administracion.Venta_y_Compra
             // 
             // btn_limpiar
             // 
-            this.btn_limpiar.Location = new System.Drawing.Point(174, 258);
+            this.btn_limpiar.Location = new System.Drawing.Point(154, 214);
             this.btn_limpiar.Size = new System.Drawing.Size(114, 50);
             this.btn_limpiar.Click += new System.EventHandler(this.btn_limpiar_Click);
             // 
             // btn_salir
             // 
-            this.btn_salir.Location = new System.Drawing.Point(296, 258);
+            this.btn_salir.Location = new System.Drawing.Point(274, 214);
             this.btn_salir.Size = new System.Drawing.Size(114, 50);
             // 
             // label9
@@ -118,7 +114,7 @@ namespace _911_RD.Administracion.Venta_y_Compra
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label13.Location = new System.Drawing.Point(28, 329);
+            this.label13.Location = new System.Drawing.Point(15, 284);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(76, 16);
             this.label13.TabIndex = 189;
@@ -131,9 +127,9 @@ namespace _911_RD.Administracion.Venta_y_Compra
             this.txt_filtro.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txt_filtro.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.txt_filtro.Limpiar = false;
-            this.txt_filtro.Location = new System.Drawing.Point(110, 324);
+            this.txt_filtro.Location = new System.Drawing.Point(97, 279);
             this.txt_filtro.Name = "txt_filtro";
-            this.txt_filtro.Size = new System.Drawing.Size(170, 26);
+            this.txt_filtro.Size = new System.Drawing.Size(197, 26);
             this.txt_filtro.SoloNumeros = false;
             this.txt_filtro.TabIndex = 188;
             this.txt_filtro.Validar = false;
@@ -162,8 +158,6 @@ namespace _911_RD.Administracion.Venta_y_Compra
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id_itebi,
             this.porcentaje,
-            this.creado,
-            this.actualizar,
             this.Seleccionar});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.Teal;
@@ -174,7 +168,7 @@ namespace _911_RD.Administracion.Venta_y_Compra
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.EnableHeadersVisualStyles = false;
-            this.dataGridView1.Location = new System.Drawing.Point(31, 356);
+            this.dataGridView1.Location = new System.Drawing.Point(18, 311);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
@@ -194,10 +188,14 @@ namespace _911_RD.Administracion.Venta_y_Compra
             dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
             this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(460, 137);
+            this.dataGridView1.Size = new System.Drawing.Size(370, 88);
             this.dataGridView1.TabIndex = 187;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentDoubleClick);
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
             // 
             // id_itebi
             // 
@@ -215,20 +213,6 @@ namespace _911_RD.Administracion.Venta_y_Compra
             this.porcentaje.Name = "porcentaje";
             this.porcentaje.ReadOnly = true;
             // 
-            // creado
-            // 
-            this.creado.HeaderText = "CREADO";
-            this.creado.Name = "creado";
-            this.creado.ReadOnly = true;
-            // 
-            // actualizar
-            // 
-            this.actualizar.FillWeight = 60F;
-            this.actualizar.HeaderText = "ACTUALIZADO";
-            this.actualizar.Name = "actualizar";
-            this.actualizar.ReadOnly = true;
-            this.actualizar.Width = 90;
-            // 
             // Seleccionar
             // 
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -243,35 +227,11 @@ namespace _911_RD.Administracion.Venta_y_Compra
             this.Seleccionar.ReadOnly = true;
             this.Seleccionar.Text = "Editar";
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label2.Location = new System.Drawing.Point(11, 197);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(63, 16);
-            this.label2.TabIndex = 192;
-            this.label2.Text = "CREADO";
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(14, 216);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker1.TabIndex = 193;
-            // 
-            // errorProvider1
-            // 
-            this.errorProvider1.ContainerControl = this;
-            // 
             // FrmItebis
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(541, 505);
-            this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.label2);
+            this.ClientSize = new System.Drawing.Size(401, 456);
             this.Controls.Add(this.txt_porcentaje);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label13);
@@ -293,8 +253,6 @@ namespace _911_RD.Administracion.Venta_y_Compra
             this.Controls.SetChildIndex(this.label13, 0);
             this.Controls.SetChildIndex(this.label1, 0);
             this.Controls.SetChildIndex(this.txt_porcentaje, 0);
-            this.Controls.SetChildIndex(this.label2, 0);
-            this.Controls.SetChildIndex(this.dateTimePicker1, 0);
             ((System.ComponentModel.ISupportInitialize)(this.btn_buscar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
@@ -310,13 +268,9 @@ namespace _911_RD.Administracion.Venta_y_Compra
         private System.Windows.Forms.Label label13;
         private ErrorTxtBox txt_filtro;
         public System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.DataGridViewTextBoxColumn id_itebi;
         private System.Windows.Forms.DataGridViewTextBoxColumn porcentaje;
-        private System.Windows.Forms.DataGridViewTextBoxColumn creado;
-        private System.Windows.Forms.DataGridViewTextBoxColumn actualizar;
         private System.Windows.Forms.DataGridViewButtonColumn Seleccionar;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

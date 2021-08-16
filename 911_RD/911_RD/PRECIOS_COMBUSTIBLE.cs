@@ -12,12 +12,12 @@ namespace _911_RD
     using System;
     using System.Collections.Generic;
     
-    public partial class sysdiagrams
+    public partial class PRECIOS_COMBUSTIBLE
     {
-        public string name { get; set; }
-        public int principal_id { get; set; }
-        public int diagram_id { get; set; }
-        public Nullable<int> version { get; set; }
-        public byte[] definition { get; set; }
+        public int id_precio_combustible { get; set; }
+        public int id_combustible { get; set; }
+        public System.DateTime desde { get; set; }
+        public Nullable<System.DateTime> hasta { get; set; }
+        public double precio { get; set; }
     }
 }

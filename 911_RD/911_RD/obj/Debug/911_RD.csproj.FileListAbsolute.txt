@@ -244,3 +244,14 @@ C:\Users\harol\Documents\GitHub\TransporSys\911_RD\911_RD\obj\Debug\_911_RD.Admi
 C:\Users\harol\Documents\GitHub\TransporSys\911_RD\911_RD\obj\Debug\_911_RD.frmServicios.resources
 C:\Users\harol\Documents\GitHub\TransporSys\911_RD\911_RD\obj\Debug\_911_RD.Administracion.FrmAdmVentas.resources
 C:\Users\harol\Documents\GitHub\TransporSys\911_RD\911_RD\obj\Debug\_911_RD.Administracion.Venta_y_Compra.FrmItebis.resources
+C:\Users\harol\Documents\GitHub\TransporSys\911_RD\911_RD\obj\Debug\_911_RD.Administracion.Direccion.FrmCalle.resources
+C:\Users\harol\Documents\GitHub\TransporSys\911_RD\911_RD\obj\Debug\_911_RD.Administracion.FrmNacionalidad.resources
+C:\Users\harol\Documents\GitHub\TransporSys\911_RD\911_RD\obj\Debug\_911_RD.Administracion.FrmTipoIdentificacione.resources
+C:\Users\harol\Documents\GitHub\TransporSys\911_RD\911_RD\obj\Debug\_911_RD.Administracion.Pacientes.FrmAlergias.resources
+C:\Users\harol\Documents\GitHub\TransporSys\911_RD\911_RD\obj\Debug\_911_RD.Administracion.Pacientes.FrmMedicamentos.resources
+C:\Users\harol\Documents\GitHub\TransporSys\911_RD\911_RD\obj\Debug\_911_RD.Administracion.Pacientes.FrmTipoMedicamento.resources
+C:\Users\harol\Documents\GitHub\TransporSys\911_RD\911_RD\obj\Debug\_911_RD.Administracion.PAGOS_COBROS.FrmTiposPago.resources
+C:\Users\harol\Documents\GitHub\TransporSys\911_RD\911_RD\obj\Debug\_911_RD.Administracion.Servicios.FrmServicios.resources
+C:\Users\harol\Documents\GitHub\TransporSys\911_RD\911_RD\obj\Debug\_911_RD.Administracion.Servicios.FrmTipoServicios.resources
+C:\Users\harol\Documents\GitHub\TransporSys\911_RD\911_RD\obj\Debug\_911_RD.Administracion.Configuracion.FrmConfiguracion.resources
+C:\Users\harol\Documents\GitHub\TransporSys\911_RD\911_RD\obj\Debug\_911_RD.Administracion.Configuracion.FrmEmpresa.resources

@@ -229,5 +229,15 @@ namespace _911_RD.Administracion
             dataGridView1.Rows.Clear();
             LlenarDataGrid(txt_filtro.Text.Trim());
         }
+
+        private void dataGridView1_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            this.DialogResult = DialogResult.OK;
+        }
+
+        private void btn_buscar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
