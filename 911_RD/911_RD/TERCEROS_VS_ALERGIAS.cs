@@ -12,18 +12,13 @@ namespace _911_RD
     using System;
     using System.Collections.Generic;
     
-    public partial class ITEBIS
+    public partial class TERCEROS_VS_ALERGIAS
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public ITEBIS()
-        {
-            this.ARTICULOS = new HashSet<ARTICULOS>();
-        }
+        public int id_tercero { get; set; }
+        public int id_alergia { get; set; }
+        public int id_vs { get; set; }
     
-        public int intItebis { get; set; }
-        public double porcentaje { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ARTICULOS> ARTICULOS { get; set; }
+        public virtual ALERGIAS ALERGIAS { get; set; }
+        public virtual TERCEROS TERCEROS { get; set; }
     }
 }

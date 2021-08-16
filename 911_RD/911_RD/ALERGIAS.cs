@@ -14,8 +14,17 @@ namespace _911_RD
     
     public partial class ALERGIAS
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public ALERGIAS()
+        {
+            this.TERCEROS_VS_ALERGIAS = new HashSet<TERCEROS_VS_ALERGIAS>();
+        }
+    
         public int id_alergia { get; set; }
         public string alergia { get; set; }
         public string descripcion { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<TERCEROS_VS_ALERGIAS> TERCEROS_VS_ALERGIAS { get; set; }
     }
 }

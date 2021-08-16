@@ -24,9 +24,7 @@ namespace _911_RD.Administracion
         }
         int cont = 0;
         MetodosCRUD metodoscrud = new MetodosCRUD();
-
-
-
+         
         FrmDireccionNativa FrmDir = new FrmDireccionNativa();
         //void cargarFormDIr()
         //{
@@ -44,7 +42,6 @@ namespace _911_RD.Administracion
             {
                 using (TransporSysEntities db = new TransporSysEntities())
             {
-                
                     var listS = db.SEXOS;
                     cb_sexo.Items.Clear();
                         foreach (var sEXOS in listS){ 
@@ -368,12 +365,7 @@ namespace _911_RD.Administracion
 
 
         //Seleccionar direccion
-        private void btn_busc_dir_Click(object sender, EventArgs e)
-        {
-         
-
-        }
-
+   
         private void cb_nacionalidades_SelectedIndexChanged(object sender, EventArgs e)
         {
           
@@ -381,26 +373,11 @@ namespace _911_RD.Administracion
 
         DataTable DatosEm = new DataTable();
 
-        private void cb_puestos_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            
-        }
+ 
 
         private void txt_numlicencia_TextChanged(object sender, EventArgs e)
         {
 
-        }
-
-        private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
-        {
-            if (this.dataGridView1.Columns[e.ColumnIndex].Name == "salario")
-            {
-                if (e.Value != null)
-                {
-                            e.CellStyle.BackColor = Color.LightSalmon;
-                            e.CellStyle.ForeColor = Color.Black;
-                }
-            }
         }
 
         private void btn_filtro_Click(object sender, EventArgs e)

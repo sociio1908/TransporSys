@@ -24,6 +24,7 @@ namespace _911_RD
             this.TERCEROS_VS_DIRECCIONES = new HashSet<TERCEROS_VS_DIRECCIONES>();
             this.TERCEROS_VS_IDENTIFICACIONES = new HashSet<TERCEROS_VS_IDENTIFICACIONES>();
             this.TERCEROS_VS_EMAILS = new HashSet<TERCEROS_VS_EMAILS>();
+            this.TERCEROS_VS_ALERGIAS = new HashSet<TERCEROS_VS_ALERGIAS>();
         }
     
         public int id_tercero { get; set; }
@@ -43,5 +44,7 @@ namespace _911_RD
         public virtual ICollection<TERCEROS_VS_IDENTIFICACIONES> TERCEROS_VS_IDENTIFICACIONES { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TERCEROS_VS_EMAILS> TERCEROS_VS_EMAILS { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<TERCEROS_VS_ALERGIAS> TERCEROS_VS_ALERGIAS { get; set; }
     }
 }

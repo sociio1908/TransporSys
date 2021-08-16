@@ -110,10 +110,15 @@ namespace _911_RD
             // 
             this.btn_salir.Location = new System.Drawing.Point(279, 366);
             // 
+            // id_txt
+            // 
+            this.id_txt.TextChanged += new System.EventHandler(this.id_txt_TextChanged);
+            // 
             // btn_buscar
             // 
             this.btn_buscar.Location = new System.Drawing.Point(123, 99);
             this.btn_buscar.Size = new System.Drawing.Size(34, 29);
+            this.btn_buscar.Click += new System.EventHandler(this.btn_buscar_Click);
             // 
             // label7
             // 
@@ -125,6 +130,7 @@ namespace _911_RD
             this.label7.Size = new System.Drawing.Size(58, 16);
             this.label7.TabIndex = 185;
             this.label7.Text = "ESTADO";
+            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // cb_estado
             // 
@@ -138,6 +144,7 @@ namespace _911_RD
             this.cb_estado.Name = "cb_estado";
             this.cb_estado.Size = new System.Drawing.Size(104, 28);
             this.cb_estado.TabIndex = 184;
+            this.cb_estado.SelectedIndexChanged += new System.EventHandler(this.cb_estado_SelectedIndexChanged);
             // 
             // label13
             // 
@@ -151,6 +158,7 @@ namespace _911_RD
             this.label13.Size = new System.Drawing.Size(76, 16);
             this.label13.TabIndex = 190;
             this.label13.Text = "BUSQUEDA";
+            this.label13.Click += new System.EventHandler(this.label13_Click);
             // 
             // txt_filtro
             // 
@@ -178,6 +186,7 @@ namespace _911_RD
             this.txt_error_cedula.TabIndex = 231;
             this.txt_error_cedula.Text = "X";
             this.txt_error_cedula.Visible = false;
+            this.txt_error_cedula.Click += new System.EventHandler(this.txt_error_cedula_Click);
             // 
             // label21
             // 
@@ -189,6 +198,7 @@ namespace _911_RD
             this.label21.Size = new System.Drawing.Size(110, 16);
             this.label21.TabIndex = 230;
             this.label21.Text = "TIPO DE CLIENTE";
+            this.label21.Click += new System.EventHandler(this.label21_Click);
             // 
             // label1
             // 
@@ -200,6 +210,7 @@ namespace _911_RD
             this.label1.Size = new System.Drawing.Size(92, 16);
             this.label1.TabIndex = 228;
             this.label1.Text = "RNC/CEDULA";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // btn_TipoCliente
             // 
@@ -226,6 +237,7 @@ namespace _911_RD
             this.txt_tipo_cliente.SoloNumeros = false;
             this.txt_tipo_cliente.TabIndex = 225;
             this.txt_tipo_cliente.Validar = true;
+            this.txt_tipo_cliente.TextChanged += new System.EventHandler(this.txt_tipo_cliente_TextChanged);
             // 
             // label4
             // 
@@ -237,6 +249,7 @@ namespace _911_RD
             this.label4.Size = new System.Drawing.Size(64, 16);
             this.label4.TabIndex = 224;
             this.label4.Text = "NOMBRE";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // txt_nombre
             // 
@@ -249,6 +262,7 @@ namespace _911_RD
             this.txt_nombre.SoloNumeros = false;
             this.txt_nombre.TabIndex = 223;
             this.txt_nombre.Validar = true;
+            this.txt_nombre.TextChanged += new System.EventHandler(this.txt_nombre_TextChanged);
             // 
             // txt_cedula
             // 
@@ -275,6 +289,7 @@ namespace _911_RD
             this.txt_id_tipo_cliente.SoloNumeros = false;
             this.txt_id_tipo_cliente.TabIndex = 232;
             this.txt_id_tipo_cliente.Validar = true;
+            this.txt_id_tipo_cliente.TextChanged += new System.EventHandler(this.txt_id_tipo_cliente_TextChanged);
             // 
             // errorProvider1
             // 
@@ -310,6 +325,7 @@ namespace _911_RD
             this.tabla_direccion.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.tabla_direccion.Size = new System.Drawing.Size(456, 72);
             this.tabla_direccion.TabIndex = 245;
+            this.tabla_direccion.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tabla_direccion_CellContentClick);
             this.tabla_direccion.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tabla_direccion_CellContentDoubleClick);
             // 
             // dataGridViewTextBoxColumn3
@@ -371,6 +387,7 @@ namespace _911_RD
             this.tabla_correo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.tabla_correo.Size = new System.Drawing.Size(219, 66);
             this.tabla_correo.TabIndex = 243;
+            this.tabla_correo.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tabla_correo_CellContentClick);
             this.tabla_correo.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tabla_correo_CellContentDoubleClick);
             // 
             // dataGridViewTextBoxColumn1
@@ -400,6 +417,7 @@ namespace _911_RD
             this.txt_id_direccion.SoloNumeros = false;
             this.txt_id_direccion.TabIndex = 244;
             this.txt_id_direccion.Validar = false;
+            this.txt_id_direccion.TextChanged += new System.EventHandler(this.txt_id_direccion_TextChanged);
             // 
             // label17
             // 
@@ -411,6 +429,7 @@ namespace _911_RD
             this.label17.Size = new System.Drawing.Size(95, 16);
             this.label17.TabIndex = 240;
             this.label17.Text = "DIRECCIONES";
+            this.label17.Click += new System.EventHandler(this.label17_Click);
             // 
             // btn_correo
             // 
@@ -468,6 +487,7 @@ namespace _911_RD
             this.tabla_tel.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.tabla_tel.Size = new System.Drawing.Size(231, 66);
             this.tabla_tel.TabIndex = 239;
+            this.tabla_tel.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tabla_tel_CellContentClick);
             this.tabla_tel.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tabla_tel_CellContentDoubleClick);
             // 
             // dataGridViewTextBoxColumn5
@@ -496,6 +516,7 @@ namespace _911_RD
             this.label26.Size = new System.Drawing.Size(79, 16);
             this.label26.TabIndex = 237;
             this.label26.Text = "TELEFONOS";
+            this.label26.Click += new System.EventHandler(this.label26_Click);
             // 
             // txt_correo
             // 
@@ -508,6 +529,7 @@ namespace _911_RD
             this.txt_correo.SoloNumeros = false;
             this.txt_correo.TabIndex = 236;
             this.txt_correo.Validar = false;
+            this.txt_correo.TextChanged += new System.EventHandler(this.txt_correo_TextChanged);
             // 
             // label23
             // 
@@ -519,6 +541,7 @@ namespace _911_RD
             this.label23.Size = new System.Drawing.Size(70, 16);
             this.label23.TabIndex = 235;
             this.label23.Text = "CORREOS";
+            this.label23.Click += new System.EventHandler(this.label23_Click);
             // 
             // txt_telefono
             // 
@@ -531,6 +554,7 @@ namespace _911_RD
             this.txt_telefono.SoloNumeros = true;
             this.txt_telefono.TabIndex = 234;
             this.txt_telefono.Validar = false;
+            this.txt_telefono.TextChanged += new System.EventHandler(this.txt_telefono_TextChanged);
             // 
             // lbl_contacto
             // 
@@ -680,6 +704,7 @@ namespace _911_RD
             this.label2.Size = new System.Drawing.Size(145, 16);
             this.label2.TabIndex = 248;
             this.label2.Text = "TIPO IDENTIFICACION";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // cb_tipoIdent
             // 
@@ -689,6 +714,7 @@ namespace _911_RD
             this.cb_tipoIdent.Name = "cb_tipoIdent";
             this.cb_tipoIdent.Size = new System.Drawing.Size(142, 28);
             this.cb_tipoIdent.TabIndex = 247;
+            this.cb_tipoIdent.SelectedIndexChanged += new System.EventHandler(this.cb_tipoIdent_SelectedIndexChanged);
             // 
             // FrmCliente
             // 
