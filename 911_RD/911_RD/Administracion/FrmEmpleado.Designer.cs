@@ -1117,6 +1117,7 @@ namespace _911_RD.Administracion
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txt_nombre);
             this.Controls.Add(this.txt_cedula);
+            this.MaximumSize = new System.Drawing.Size(1049, 780);
             this.Name = "FrmEmpleado";
             this.Text = "W";
             this.Load += new System.EventHandler(this.FrmEmpleado_Load);

@@ -1,6 +1,9 @@
 ﻿using _911_RD.Administracion;
 using _911_RD.Administracion.Configuracion;
+using _911_RD.Administracion.Pacientes;
+using _911_RD.Administracion.Servicios;
 using _911_RD.Administracion.Vehiculo;
+using _911_RD.Administracion.Venta_y_Compra;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,6 +24,20 @@ namespace _911_RD
 
             AbrirFormEnPanel(new ConPrincipal());
              pnl_menu.Width = 180;
+
+            label13.Text = Utilidades.nomusuario +" " +Utilidades.Apeuser;
+            label12.Text = Utilidades.puestouser;
+
+            if ( Utilidades.puestouser == "1")
+            {
+            //    btn_empleado.Enabled = false;
+            //    btn_servicios.Enabled = false;
+            //    btn_empleado.Enabled = false;
+            //    btn_empleado.Enabled = false;
+            //    btn_empleado.Enabled = false;
+            //    btn_empleado.Enabled = false;
+
+            }
         }
 
         private void panel2_Paint(object sender, PaintEventArgs e)
@@ -97,38 +114,31 @@ namespace _911_RD
 
         private void btn_clientes_Click(object sender, EventArgs e)
         {
-
-            AbrirFormEnPanel(new FrmCliente());
+            new FrmCliente().ShowDialog();
         }
 
         private void btn_paciente_Click(object sender, EventArgs e)
         {
-            AbrirFormEnPanel(new FrmPaciente());
+            new FrmPaciente().ShowDialog();
 
         }
-
-     
-
      
         private void btn_empleado_Click(object sender, EventArgs e)
-        {
+        { 
+            new FrmEmpleado().ShowDialog();
 
-            AbrirFormEnPanel(new FrmEmpleado());
         }
 
         private void btn_ventas_Click(object sender, EventArgs e)
         {
-            AbrirFormEnPanel(new frmServicios());
+            new frmServicios().ShowDialog();
         }
 
-        private void btn_gps_Click(object sender, EventArgs e)
-        {
-            AbrirFormEnPanel(new F_principal());
-        }
+      
 
         private void button1_Click(object sender, EventArgs e)
         {
-            AbrirFormEnPanel(new FrmArticulos());
+            new FrmCompra().ShowDialog();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -139,6 +149,53 @@ namespace _911_RD
         private void btn_vehiculos_Click(object sender, EventArgs e)
         {
             new FrmVehiculos().ShowDialog();
+        }
+
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            new FrmUsuarios().ShowDialog();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            new FrmAdmVenta_Servios().ShowDialog();
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+
+            new FrmAdmVentas().ShowDialog();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            new FrmAlergias().ShowDialog();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+            new FrmServicios().ShowDialog();
+        }
+
+        private void btn_add_art_Click(object sender, EventArgs e)
+        {
+
+            new FrmArticulos().ShowDialog();
+
+        }
+
+        private void btn_servicios_Click_1(object sender, EventArgs e)
+        {
+            new FrmArticulos().ShowDialog(); 
+
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
+            new FrmLogin().Show();
         }
     }
 }

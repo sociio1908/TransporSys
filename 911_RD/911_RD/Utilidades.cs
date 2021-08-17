@@ -117,6 +117,11 @@ namespace _911_RD
             return true;
         }
 
+        public static int idusuario = 0;
+        public static String nomusuario = "";
+        public static string puestouser = "";
+        public static string Apeuser = "";
+
         public class Encrypt
         {
             public static string GetSHA256(string str)

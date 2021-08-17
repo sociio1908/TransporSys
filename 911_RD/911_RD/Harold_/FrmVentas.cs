@@ -257,27 +257,27 @@ namespace _911_RD.Administracion
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            try
-            { 
-
-            CargarFact();
-            InsertarDetalle();
-            ActualizarStock();
-            dataGridView1.Rows.Clear();
-            if (dataGridView1.Rows.Count == 0)
+            if (Utilidades.ValidarFormulario(groupBoxCli, errorProvider1) == true)
             {
-                txt_subtotal.Text = "0.0";
-                txt_impuesto.Text = "0.0";
-                txt_impTotal.Text = "0.0";
-                txt_descuento.Text = "0.0";
+                MessageBox.Show("Por favor completar todos los campos");
             }
-            nofactura();
-
-
-            }catch(Exception sdfsd)
+            else
             {
+                CargarFact();
+                InsertarDetalle();
+                ActualizarStock();
+                dataGridView1.Rows.Clear();
+                if (dataGridView1.Rows.Count == 0)
+                {
+                    txt_subtotal.Text = "0.0";
+                    txt_impuesto.Text = "0.0";
+                    txt_impTotal.Text = "0.0";
+                    txt_descuento.Text = "0.0";
+                }
+                nofactura();
 
             }
+            
         }
 
 
@@ -289,7 +289,6 @@ namespace _911_RD.Administracion
                 if (dataGridView1.Rows.Count <= 0)
                 {
                     MessageBox.Show("ESTA VACIO");
-                    return;
                 }
                 else
                 {
@@ -300,7 +299,7 @@ namespace _911_RD.Administracion
                             //ningun campo vacio
                             num_fact = Convert.ToInt32(txt_numfactura.Text.Trim()),
                             id_cliente = Convert.ToInt32(txt_id_cliente.Text.Trim()),
-                            id_empleado = 1,
+                            id_empleado = Utilidades.idusuario,
                             fecha = DateTime.Now,
                             estado = true,
                         };

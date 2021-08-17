@@ -116,6 +116,7 @@ namespace _911_RD.Administracion
             this.btn_guardar.Text = "GUARDAR";
             this.btn_guardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btn_guardar.UseVisualStyleBackColor = false;
+            this.btn_guardar.Click += new System.EventHandler(this.btn_guardar_Click);
             // 
             // label9
             // 

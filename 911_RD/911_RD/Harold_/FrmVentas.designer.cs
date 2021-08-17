@@ -82,7 +82,7 @@ namespace _911_RD.Administracion
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.groupBoxCli = new System.Windows.Forms.GroupBox();
             this.txt_id_cliente = new _911_RD.ErrorTxtBox();
             this.label20 = new System.Windows.Forms.Label();
             this.txt_nombre_cliente = new _911_RD.ErrorTxtBox();
@@ -106,7 +106,7 @@ namespace _911_RD.Administracion
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
+            this.groupBoxCli.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
@@ -807,25 +807,25 @@ namespace _911_RD.Administracion
             this.label6.TabIndex = 189;
             this.label6.Text = "DESCUENTOS:";
             // 
-            // groupBox3
+            // groupBoxCli
             // 
-            this.groupBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.groupBox3.Controls.Add(this.txt_id_cliente);
-            this.groupBox3.Controls.Add(this.label20);
-            this.groupBox3.Controls.Add(this.txt_nombre_cliente);
-            this.groupBox3.Controls.Add(this.bt_agregar_cont);
-            this.groupBox3.Controls.Add(this.pictureBox1);
-            this.groupBox3.Controls.Add(this.txt_descuentoEmple);
-            this.groupBox3.Controls.Add(this.label18);
-            this.groupBox3.Controls.Add(this.label19);
-            this.groupBox3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
-            this.groupBox3.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.groupBox3.Location = new System.Drawing.Point(46, 509);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(330, 140);
-            this.groupBox3.TabIndex = 223;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "CLIENTE";
+            this.groupBoxCli.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.groupBoxCli.Controls.Add(this.txt_id_cliente);
+            this.groupBoxCli.Controls.Add(this.label20);
+            this.groupBoxCli.Controls.Add(this.txt_nombre_cliente);
+            this.groupBoxCli.Controls.Add(this.bt_agregar_cont);
+            this.groupBoxCli.Controls.Add(this.pictureBox1);
+            this.groupBoxCli.Controls.Add(this.txt_descuentoEmple);
+            this.groupBoxCli.Controls.Add(this.label18);
+            this.groupBoxCli.Controls.Add(this.label19);
+            this.groupBoxCli.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
+            this.groupBoxCli.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.groupBoxCli.Location = new System.Drawing.Point(46, 509);
+            this.groupBoxCli.Name = "groupBoxCli";
+            this.groupBoxCli.Size = new System.Drawing.Size(330, 140);
+            this.groupBoxCli.TabIndex = 223;
+            this.groupBoxCli.TabStop = false;
+            this.groupBoxCli.Text = "CLIENTE";
             // 
             // txt_id_cliente
             // 
@@ -1137,7 +1137,7 @@ namespace _911_RD.Administracion
             this.Controls.Add(this.txt_numfactura);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.btn_limpiar_cantidad);
-            this.Controls.Add(this.groupBox3);
+            this.Controls.Add(this.groupBoxCli);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.button14);
             this.Controls.Add(this.label3);
@@ -1164,8 +1164,8 @@ namespace _911_RD.Administracion
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
+            this.groupBoxCli.ResumeLayout(false);
+            this.groupBoxCli.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
@@ -1214,7 +1214,7 @@ namespace _911_RD.Administracion
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label13;
         public ErrorTxtBox txt_impTotal;
-        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.GroupBox groupBoxCli;
         public System.Windows.Forms.Button btn_limpiar_cantidad;
         private System.Windows.Forms.Label label15;
         public ErrorTxtBox txt_numfactura;

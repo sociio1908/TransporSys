@@ -751,6 +751,7 @@ namespace _911_RD
             this.Controls.Add(this.txt_filtro);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.cb_estado);
+            this.MaximumSize = new System.Drawing.Size(736, 675);
             this.Name = "FrmCliente";
             this.Text = "CLIENTES";
             this.Controls.SetChildIndex(this.lbl_titulo, 0);

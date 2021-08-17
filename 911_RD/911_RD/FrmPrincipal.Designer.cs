@@ -32,10 +32,9 @@ namespace _911_RD
             this.pnl_contenedor = new System.Windows.Forms.Panel();
             this.pnl_menu = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
-            this.btn_gps = new System.Windows.Forms.Button();
             this.btn_empleado = new System.Windows.Forms.Button();
             this.btn_vehiculos = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btn_compra = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
@@ -49,6 +48,13 @@ namespace _911_RD
             this.label1 = new System.Windows.Forms.Label();
             this.lbl_minimizar = new System.Windows.Forms.Label();
             this.lbl_cerrar = new System.Windows.Forms.Label();
+            this.btn_reg_ser = new System.Windows.Forms.Button();
+            this.btn_add_art = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
+            this.button8 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.pnl_menu.SuspendLayout();
             this.panel1.SuspendLayout();
             this.pnl_barra.SuspendLayout();
@@ -67,11 +73,17 @@ namespace _911_RD
             // pnl_menu
             // 
             this.pnl_menu.BackColor = System.Drawing.Color.Brown;
+            this.pnl_menu.Controls.Add(this.button1);
+            this.pnl_menu.Controls.Add(this.button8);
+            this.pnl_menu.Controls.Add(this.button6);
+            this.pnl_menu.Controls.Add(this.button7);
+            this.pnl_menu.Controls.Add(this.button5);
+            this.pnl_menu.Controls.Add(this.btn_add_art);
+            this.pnl_menu.Controls.Add(this.btn_reg_ser);
             this.pnl_menu.Controls.Add(this.button2);
-            this.pnl_menu.Controls.Add(this.btn_gps);
             this.pnl_menu.Controls.Add(this.btn_empleado);
             this.pnl_menu.Controls.Add(this.btn_vehiculos);
-            this.pnl_menu.Controls.Add(this.button1);
+            this.pnl_menu.Controls.Add(this.btn_compra);
             this.pnl_menu.Controls.Add(this.panel1);
             this.pnl_menu.Controls.Add(this.btn_clientes);
             this.pnl_menu.Controls.Add(this.btn_ventas);
@@ -94,29 +106,13 @@ namespace _911_RD
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(-3, 345);
+            this.button2.Location = new System.Drawing.Point(3, 544);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(177, 33);
             this.button2.TabIndex = 16;
             this.button2.Text = "Configuraciones";
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // btn_gps
-            // 
-            this.btn_gps.BackColor = System.Drawing.Color.Brown;
-            this.btn_gps.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btn_gps.FlatAppearance.BorderSize = 0;
-            this.btn_gps.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_gps.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_gps.ForeColor = System.Drawing.Color.White;
-            this.btn_gps.Location = new System.Drawing.Point(0, 306);
-            this.btn_gps.Name = "btn_gps";
-            this.btn_gps.Size = new System.Drawing.Size(177, 33);
-            this.btn_gps.TabIndex = 15;
-            this.btn_gps.Text = "GPS";
-            this.btn_gps.UseVisualStyleBackColor = false;
-            this.btn_gps.Click += new System.EventHandler(this.btn_gps_Click);
             // 
             // btn_empleado
             // 
@@ -126,7 +122,7 @@ namespace _911_RD
             this.btn_empleado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_empleado.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_empleado.ForeColor = System.Drawing.Color.White;
-            this.btn_empleado.Location = new System.Drawing.Point(-3, 229);
+            this.btn_empleado.Location = new System.Drawing.Point(0, 505);
             this.btn_empleado.Name = "btn_empleado";
             this.btn_empleado.Size = new System.Drawing.Size(177, 33);
             this.btn_empleado.TabIndex = 14;
@@ -142,7 +138,7 @@ namespace _911_RD
             this.btn_vehiculos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_vehiculos.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_vehiculos.ForeColor = System.Drawing.Color.White;
-            this.btn_vehiculos.Location = new System.Drawing.Point(0, 268);
+            this.btn_vehiculos.Location = new System.Drawing.Point(3, 466);
             this.btn_vehiculos.Name = "btn_vehiculos";
             this.btn_vehiculos.Size = new System.Drawing.Size(177, 33);
             this.btn_vehiculos.TabIndex = 13;
@@ -150,21 +146,21 @@ namespace _911_RD
             this.btn_vehiculos.UseVisualStyleBackColor = false;
             this.btn_vehiculos.Click += new System.EventHandler(this.btn_vehiculos_Click);
             // 
-            // button1
+            // btn_compra
             // 
-            this.button1.BackColor = System.Drawing.Color.Brown;
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(0, 193);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(177, 33);
-            this.button1.TabIndex = 12;
-            this.button1.Text = "Inventario";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btn_compra.BackColor = System.Drawing.Color.Brown;
+            this.btn_compra.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btn_compra.FlatAppearance.BorderSize = 0;
+            this.btn_compra.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_compra.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_compra.ForeColor = System.Drawing.Color.White;
+            this.btn_compra.Location = new System.Drawing.Point(0, 193);
+            this.btn_compra.Name = "btn_compra";
+            this.btn_compra.Size = new System.Drawing.Size(177, 33);
+            this.btn_compra.TabIndex = 12;
+            this.btn_compra.Text = "Compra";
+            this.btn_compra.UseVisualStyleBackColor = false;
+            this.btn_compra.Click += new System.EventHandler(this.button1_Click);
             // 
             // panel1
             // 
@@ -262,6 +258,7 @@ namespace _911_RD
             this.btn_servicios.TabIndex = 6;
             this.btn_servicios.Text = "Servicios";
             this.btn_servicios.UseVisualStyleBackColor = false;
+            this.btn_servicios.Click += new System.EventHandler(this.btn_servicios_Click_1);
             // 
             // label4
             // 
@@ -342,6 +339,118 @@ namespace _911_RD
             this.lbl_cerrar.Text = "X";
             this.lbl_cerrar.Click += new System.EventHandler(this.lbl_cerrar_Click);
             // 
+            // btn_reg_ser
+            // 
+            this.btn_reg_ser.BackColor = System.Drawing.Color.Brown;
+            this.btn_reg_ser.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btn_reg_ser.FlatAppearance.BorderSize = 0;
+            this.btn_reg_ser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_reg_ser.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_reg_ser.ForeColor = System.Drawing.Color.White;
+            this.btn_reg_ser.Location = new System.Drawing.Point(3, 271);
+            this.btn_reg_ser.Name = "btn_reg_ser";
+            this.btn_reg_ser.Size = new System.Drawing.Size(177, 33);
+            this.btn_reg_ser.TabIndex = 17;
+            this.btn_reg_ser.Text = "Registro Servicio";
+            this.btn_reg_ser.UseVisualStyleBackColor = false;
+            this.btn_reg_ser.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // btn_add_art
+            // 
+            this.btn_add_art.BackColor = System.Drawing.Color.Brown;
+            this.btn_add_art.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btn_add_art.FlatAppearance.BorderSize = 0;
+            this.btn_add_art.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_add_art.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_add_art.ForeColor = System.Drawing.Color.White;
+            this.btn_add_art.Location = new System.Drawing.Point(3, 232);
+            this.btn_add_art.Name = "btn_add_art";
+            this.btn_add_art.Size = new System.Drawing.Size(177, 33);
+            this.btn_add_art.TabIndex = 18;
+            this.btn_add_art.Text = "Registro Articulo";
+            this.btn_add_art.UseVisualStyleBackColor = false;
+            this.btn_add_art.Click += new System.EventHandler(this.btn_add_art_Click);
+            // 
+            // button5
+            // 
+            this.button5.BackColor = System.Drawing.Color.Brown;
+            this.button5.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.button5.FlatAppearance.BorderSize = 0;
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button5.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button5.ForeColor = System.Drawing.Color.White;
+            this.button5.Location = new System.Drawing.Point(3, 310);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(177, 33);
+            this.button5.TabIndex = 19;
+            this.button5.Text = "Enfermedades";
+            this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // button6
+            // 
+            this.button6.BackColor = System.Drawing.Color.Brown;
+            this.button6.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.button6.FlatAppearance.BorderSize = 0;
+            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button6.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button6.ForeColor = System.Drawing.Color.White;
+            this.button6.Location = new System.Drawing.Point(3, 388);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(177, 33);
+            this.button6.TabIndex = 21;
+            this.button6.Text = "Adm. Servicio";
+            this.button6.UseVisualStyleBackColor = false;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
+            // button7
+            // 
+            this.button7.BackColor = System.Drawing.Color.Brown;
+            this.button7.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.button7.FlatAppearance.BorderSize = 0;
+            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button7.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button7.ForeColor = System.Drawing.Color.White;
+            this.button7.Location = new System.Drawing.Point(3, 349);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(177, 33);
+            this.button7.TabIndex = 20;
+            this.button7.Text = "Adm. Ventas";
+            this.button7.UseVisualStyleBackColor = false;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
+            // 
+            // button8
+            // 
+            this.button8.BackColor = System.Drawing.Color.Brown;
+            this.button8.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.button8.FlatAppearance.BorderSize = 0;
+            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button8.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button8.ForeColor = System.Drawing.Color.White;
+            this.button8.Location = new System.Drawing.Point(3, 427);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(177, 33);
+            this.button8.TabIndex = 22;
+            this.button8.Text = "Usuarios";
+            this.button8.UseVisualStyleBackColor = false;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.White;
+            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.Firebrick;
+            this.button1.Location = new System.Drawing.Point(3, 624);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(174, 33);
+            this.button1.TabIndex = 23;
+            this.button1.Text = "SALIR";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
             // FrmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -384,10 +493,16 @@ namespace _911_RD
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btn_compra;
         private System.Windows.Forms.Button btn_vehiculos;
         private System.Windows.Forms.Button btn_empleado;
-        private System.Windows.Forms.Button btn_gps;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btn_add_art;
+        private System.Windows.Forms.Button btn_reg_ser;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button button1;
     }
 }

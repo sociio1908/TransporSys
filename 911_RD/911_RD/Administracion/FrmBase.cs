@@ -15,7 +15,7 @@ namespace _911_RD.Administracion
         public FrmBase()
         {
             InitializeComponent();
-
+            ValidarUser();
         }
 
         private void btn_salir_Click(object sender, EventArgs e)
@@ -39,11 +39,6 @@ namespace _911_RD.Administracion
 
         }
 
-        private void errorTxtBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void id_txt_TextChanged(object sender, EventArgs e)
         {
 
@@ -53,5 +48,23 @@ namespace _911_RD.Administracion
         {
 
         }
+
+        private void btn_guardar_Click(object sender, EventArgs e)
+        {
+          
+
+        }
+
+
+         protected bool ValidarUser()
+        {
+            if (Utilidades.puestouser!= "1")
+            {
+                btn_guardar.Visible = false;
+                return true;
+            }
+            return false;
+        }
+
     }
 }

@@ -221,5 +221,21 @@ namespace _911_RD.Administracion.Transporte
                 //error
             }
         }
+
+        private void txt_id_transporte_TextChanged(object sender, EventArgs e)
+        {
+            if (txt_id_transporte.Text.Trim() != "")
+                cargarCampos();
+
+        }
+
+
+        void cargarCampos()
+        { 
+               
+
+        
+        }
+
     }
 }

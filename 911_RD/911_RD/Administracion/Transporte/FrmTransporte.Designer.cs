@@ -37,7 +37,6 @@ namespace _911_RD.Administracion.Transporte
             this.btn_guardar = new System.Windows.Forms.Button();
             this.lbl_titulo = new System.Windows.Forms.Label();
             this.btn_addDr = new System.Windows.Forms.PictureBox();
-            this.entityCommand1 = new System.Data.Entity.Core.EntityClient.EntityCommand();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -58,6 +57,7 @@ namespace _911_RD.Administracion.Transporte
             this.txt_id_vehiculo = new _911_RD.ErrorTxtBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.txt_id_transporte = new _911_RD.ErrorTxtBox();
             ((System.ComponentModel.ISupportInitialize)(this.btn_addDr)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -166,14 +166,6 @@ namespace _911_RD.Administracion.Transporte
             this.btn_addDr.TabIndex = 163;
             this.btn_addDr.TabStop = false;
             this.btn_addDr.Click += new System.EventHandler(this.btn_Cargo_Click);
-            // 
-            // entityCommand1
-            // 
-            this.entityCommand1.CommandTimeout = 0;
-            this.entityCommand1.CommandTree = null;
-            this.entityCommand1.Connection = null;
-            this.entityCommand1.EnablePlanCaching = true;
-            this.entityCommand1.Transaction = null;
             // 
             // errorProvider1
             // 
@@ -419,12 +411,29 @@ namespace _911_RD.Administracion.Transporte
             this.label5.TabIndex = 241;
             this.label5.Text = "ID VEHICULO";
             // 
+            // txt_id_transporte
+            // 
+            this.txt_id_transporte.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_id_transporte.Enabled = false;
+            this.txt_id_transporte.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_id_transporte.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
+            this.txt_id_transporte.Limpiar = true;
+            this.txt_id_transporte.Location = new System.Drawing.Point(15, 74);
+            this.txt_id_transporte.Name = "txt_id_transporte";
+            this.txt_id_transporte.Size = new System.Drawing.Size(51, 21);
+            this.txt_id_transporte.SoloNumeros = false;
+            this.txt_id_transporte.TabIndex = 245;
+            this.txt_id_transporte.Validar = false;
+            this.txt_id_transporte.Visible = false;
+            this.txt_id_transporte.TextChanged += new System.EventHandler(this.txt_id_transporte_TextChanged);
+            // 
             // FrmTransporte
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(687, 656);
+            this.Controls.Add(this.txt_id_transporte);
             this.Controls.Add(this.txt_id_vehiculo);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label5);
@@ -471,7 +480,6 @@ namespace _911_RD.Administracion.Transporte
         public System.Windows.Forms.Label lbl_titulo;
         public ErrorTxtBox txt_desde;
         public System.Windows.Forms.PictureBox btn_addDr;
-        private System.Data.Entity.Core.EntityClient.EntityCommand entityCommand1;
         public ErrorTxtBox txt_id_desde;
         private System.Windows.Forms.ErrorProvider errorProvider1;
         public System.Windows.Forms.DataGridView dataGridView1;
@@ -491,5 +499,6 @@ namespace _911_RD.Administracion.Transporte
         public ErrorTxtBox txt_id_vehiculo;
         public System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label5;
+        public ErrorTxtBox txt_id_transporte;
     }
 }

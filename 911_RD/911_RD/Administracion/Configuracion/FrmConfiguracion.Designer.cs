@@ -26,9 +26,6 @@ namespace _911_RD.Administracion.Configuracion
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btn_empresa = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
             this.btn_combustibles = new System.Windows.Forms.Button();
             this.btn_Tipos_Pago = new System.Windows.Forms.Button();
             this.p_container = new System.Windows.Forms.Panel();
@@ -73,9 +70,6 @@ namespace _911_RD.Administracion.Configuracion
             // panel2
             // 
             this.panel2.Controls.Add(this.btn_empresa);
-            this.panel2.Controls.Add(this.button6);
-            this.panel2.Controls.Add(this.button5);
-            this.panel2.Controls.Add(this.button4);
             this.panel2.Controls.Add(this.btn_combustibles);
             this.panel2.Controls.Add(this.btn_Tipos_Pago);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
@@ -95,39 +89,6 @@ namespace _911_RD.Administracion.Configuracion
             this.btn_empresa.Text = "EMPRESA";
             this.btn_empresa.UseVisualStyleBackColor = true;
             this.btn_empresa.Click += new System.EventHandler(this.btn_empresa_Click);
-            // 
-            // button6
-            // 
-            this.button6.FlatAppearance.BorderSize = 0;
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.Location = new System.Drawing.Point(3, 221);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(146, 35);
-            this.button6.TabIndex = 5;
-            this.button6.Text = "TIPOS DE PAGO";
-            this.button6.UseVisualStyleBackColor = true;
-            // 
-            // button5
-            // 
-            this.button5.FlatAppearance.BorderSize = 0;
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Location = new System.Drawing.Point(3, 180);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(146, 35);
-            this.button5.TabIndex = 4;
-            this.button5.Text = "TIPOS DE PAGO";
-            this.button5.UseVisualStyleBackColor = true;
-            // 
-            // button4
-            // 
-            this.button4.FlatAppearance.BorderSize = 0;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Location = new System.Drawing.Point(3, 139);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(146, 35);
-            this.button4.TabIndex = 3;
-            this.button4.Text = "TIPOS DE PAGO";
-            this.button4.UseVisualStyleBackColor = true;
             // 
             // btn_combustibles
             // 
@@ -189,9 +150,6 @@ namespace _911_RD.Administracion.Configuracion
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lbl_salir;
         private System.Windows.Forms.Button btn_Tipos_Pago;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button btn_empresa;
         private System.Windows.Forms.Button btn_combustibles;
     }

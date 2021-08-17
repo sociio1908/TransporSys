@@ -33,6 +33,15 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.id_transporte = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.paciente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.conductor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.num_fact = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.desde = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.hasta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id_vehiculo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.estado_eme = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel7 = new System.Windows.Forms.Panel();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.lbl_con = new System.Windows.Forms.Label();
@@ -51,19 +60,10 @@
             this.lbl_cli = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.id_transporte = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.paciente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.conductor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.num_fact = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.desde = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.hasta = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.id_vehiculo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.estado_eme = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bt_creado = new System.Windows.Forms.Button();
+            this.btn_listo = new System.Windows.Forms.Button();
+            this.btn_cancelar = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
             this.txt_filtro = new _911_RD.ErrorTxtBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel7.SuspendLayout();
@@ -84,20 +84,20 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedHeaders;
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dataGridView1.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableWithoutHeaderText;
             this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Firebrick;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridView1.ColumnHeadersHeight = 50;
+            this.dataGridView1.ColumnHeadersHeight = 30;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id_transporte,
             this.paciente,
@@ -109,41 +109,116 @@
             this.id_vehiculo,
             this.estado_eme});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Teal;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.EnableHeadersVisualStyles = false;
-            this.dataGridView1.Location = new System.Drawing.Point(548, 184);
+            this.dataGridView1.GridColor = System.Drawing.Color.White;
+            this.dataGridView1.Location = new System.Drawing.Point(28, 284);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Aqua;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.DarkSlateGray;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridView1.RowHeadersWidth = 20;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.ActiveCaption;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.DarkSlateGray;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.DodgerBlue;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
             this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.dataGridView1.RowTemplate.Height = 30;
+            this.dataGridView1.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
+            this.dataGridView1.RowTemplate.Height = 60;
             this.dataGridView1.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(323, 316);
+            this.dataGridView1.Size = new System.Drawing.Size(1172, 264);
             this.dataGridView1.TabIndex = 9;
             this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
+            // 
+            // id_transporte
+            // 
+            this.id_transporte.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.id_transporte.FillWeight = 40F;
+            this.id_transporte.Frozen = true;
+            this.id_transporte.HeaderText = "TRANSPORTE";
+            this.id_transporte.Name = "id_transporte";
+            this.id_transporte.ReadOnly = true;
+            this.id_transporte.Width = 210;
+            // 
+            // paciente
+            // 
+            this.paciente.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.paciente.HeaderText = "PACIENTE";
+            this.paciente.Name = "paciente";
+            this.paciente.ReadOnly = true;
+            // 
+            // conductor
+            // 
+            this.conductor.FillWeight = 50F;
+            this.conductor.HeaderText = "CONDUCTOR";
+            this.conductor.Name = "conductor";
+            this.conductor.ReadOnly = true;
+            // 
+            // num_fact
+            // 
+            this.num_fact.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.num_fact.FillWeight = 50F;
+            this.num_fact.HeaderText = "NUM FACTURA";
+            this.num_fact.Name = "num_fact";
+            this.num_fact.ReadOnly = true;
+            // 
+            // fecha
+            // 
+            this.fecha.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.fecha.FillWeight = 80F;
+            this.fecha.HeaderText = "FECHA";
+            this.fecha.Name = "fecha";
+            this.fecha.ReadOnly = true;
+            // 
+            // desde
+            // 
+            this.desde.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.desde.FillWeight = 50F;
+            this.desde.HeaderText = "DESDE";
+            this.desde.Name = "desde";
+            this.desde.ReadOnly = true;
+            this.desde.Visible = false;
+            // 
+            // hasta
+            // 
+            this.hasta.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.hasta.FillWeight = 50F;
+            this.hasta.HeaderText = "HASTA";
+            this.hasta.Name = "hasta";
+            this.hasta.ReadOnly = true;
+            this.hasta.Visible = false;
+            // 
+            // id_vehiculo
+            // 
+            this.id_vehiculo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.id_vehiculo.FillWeight = 50F;
+            this.id_vehiculo.HeaderText = "VEHICULO";
+            this.id_vehiculo.Name = "id_vehiculo";
+            this.id_vehiculo.ReadOnly = true;
+            // 
+            // estado_eme
+            // 
+            this.estado_eme.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.estado_eme.HeaderText = "ESTADO";
+            this.estado_eme.Name = "estado_eme";
+            this.estado_eme.ReadOnly = true;
             // 
             // panel7
             // 
@@ -329,147 +404,77 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Gray;
-            this.label1.Location = new System.Drawing.Point(544, 83);
+            this.label1.Location = new System.Drawing.Point(535, 223);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(204, 20);
+            this.label1.Size = new System.Drawing.Size(240, 20);
             this.label1.TabIndex = 175;
-            this.label1.Text = "FILTRAR VIAJES DE HOY";
+            this.label1.Text = "FILTRAR VIAJES / PACIENTES";
             // 
-            // button3
+            // bt_creado
             // 
-            this.button3.BackColor = System.Drawing.Color.RoyalBlue;
-            this.button3.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(548, 145);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(76, 33);
-            this.button3.TabIndex = 179;
-            this.button3.Text = "VER";
-            this.button3.UseVisualStyleBackColor = false;
+            this.bt_creado.BackColor = System.Drawing.Color.RoyalBlue;
+            this.bt_creado.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.bt_creado.FlatAppearance.BorderSize = 0;
+            this.bt_creado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bt_creado.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bt_creado.ForeColor = System.Drawing.Color.White;
+            this.bt_creado.Location = new System.Drawing.Point(956, 252);
+            this.bt_creado.Name = "bt_creado";
+            this.bt_creado.Size = new System.Drawing.Size(98, 26);
+            this.bt_creado.TabIndex = 179;
+            this.bt_creado.Text = "PROCESADO";
+            this.bt_creado.UseVisualStyleBackColor = false;
+            this.bt_creado.Click += new System.EventHandler(this.button3_Click);
             // 
-            // button1
+            // btn_listo
             // 
-            this.button1.BackColor = System.Drawing.Color.OrangeRed;
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(630, 145);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(76, 33);
-            this.button1.TabIndex = 180;
-            this.button1.Text = "EDITAR";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btn_listo.BackColor = System.Drawing.Color.LimeGreen;
+            this.btn_listo.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btn_listo.FlatAppearance.BorderSize = 0;
+            this.btn_listo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_listo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_listo.ForeColor = System.Drawing.Color.White;
+            this.btn_listo.Location = new System.Drawing.Point(1060, 252);
+            this.btn_listo.Name = "btn_listo";
+            this.btn_listo.Size = new System.Drawing.Size(50, 26);
+            this.btn_listo.TabIndex = 181;
+            this.btn_listo.Text = "LISTO";
+            this.btn_listo.UseVisualStyleBackColor = false;
+            this.btn_listo.Click += new System.EventHandler(this.btn_listo_Click);
             // 
-            // button2
+            // btn_cancelar
             // 
-            this.button2.BackColor = System.Drawing.Color.LimeGreen;
-            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(794, 145);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(76, 33);
-            this.button2.TabIndex = 181;
-            this.button2.Text = "ESTADO";
-            this.button2.UseVisualStyleBackColor = false;
+            this.btn_cancelar.BackColor = System.Drawing.Color.IndianRed;
+            this.btn_cancelar.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btn_cancelar.FlatAppearance.BorderSize = 0;
+            this.btn_cancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_cancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_cancelar.ForeColor = System.Drawing.Color.White;
+            this.btn_cancelar.Location = new System.Drawing.Point(1116, 252);
+            this.btn_cancelar.Name = "btn_cancelar";
+            this.btn_cancelar.Size = new System.Drawing.Size(84, 26);
+            this.btn_cancelar.TabIndex = 182;
+            this.btn_cancelar.Text = "CANCELAR";
+            this.btn_cancelar.UseVisualStyleBackColor = false;
+            this.btn_cancelar.Click += new System.EventHandler(this.btn_cancelar_Click);
             // 
-            // button4
+            // label4
             // 
-            this.button4.BackColor = System.Drawing.Color.IndianRed;
-            this.button4.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button4.FlatAppearance.BorderSize = 0;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.Color.White;
-            this.button4.Location = new System.Drawing.Point(712, 145);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(76, 33);
-            this.button4.TabIndex = 182;
-            this.button4.Text = "CANCEL";
-            this.button4.UseVisualStyleBackColor = false;
-            // 
-            // id_transporte
-            // 
-            this.id_transporte.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.id_transporte.HeaderText = "TRANSPORTE";
-            this.id_transporte.Name = "id_transporte";
-            this.id_transporte.ReadOnly = true;
-            // 
-            // paciente
-            // 
-            this.paciente.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.paciente.HeaderText = "PACIENTE";
-            this.paciente.Name = "paciente";
-            this.paciente.ReadOnly = true;
-            // 
-            // conductor
-            // 
-            this.conductor.HeaderText = "CONDUCTOR";
-            this.conductor.Name = "conductor";
-            this.conductor.ReadOnly = true;
-            // 
-            // num_fact
-            // 
-            this.num_fact.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.num_fact.FillWeight = 70F;
-            this.num_fact.HeaderText = "NUM FACTURA";
-            this.num_fact.Name = "num_fact";
-            this.num_fact.ReadOnly = true;
-            // 
-            // fecha
-            // 
-            this.fecha.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.fecha.FillWeight = 80F;
-            this.fecha.HeaderText = "FECHA";
-            this.fecha.Name = "fecha";
-            this.fecha.ReadOnly = true;
-            // 
-            // desde
-            // 
-            this.desde.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.desde.FillWeight = 50F;
-            this.desde.HeaderText = "DESDE";
-            this.desde.Name = "desde";
-            this.desde.ReadOnly = true;
-            this.desde.Visible = false;
-            // 
-            // hasta
-            // 
-            this.hasta.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.hasta.FillWeight = 50F;
-            this.hasta.HeaderText = "HASTA";
-            this.hasta.Name = "hasta";
-            this.hasta.ReadOnly = true;
-            this.hasta.Visible = false;
-            // 
-            // id_vehiculo
-            // 
-            this.id_vehiculo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.id_vehiculo.HeaderText = "VEHICULO";
-            this.id_vehiculo.Name = "id_vehiculo";
-            this.id_vehiculo.ReadOnly = true;
-            // 
-            // estado_eme
-            // 
-            this.estado_eme.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.estado_eme.FillWeight = 40F;
-            this.estado_eme.HeaderText = "ESTADO";
-            this.estado_eme.Name = "estado_eme";
-            this.estado_eme.ReadOnly = true;
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.Gray;
+            this.label4.Location = new System.Drawing.Point(961, 223);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(239, 20);
+            this.label4.TabIndex = 183;
+            this.label4.Text = "CAMBIAR ESTADO DEL VIAJE";
             // 
             // txt_filtro
             // 
             this.txt_filtro.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txt_filtro.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.txt_filtro.Limpiar = true;
-            this.txt_filtro.Location = new System.Drawing.Point(548, 112);
+            this.txt_filtro.Location = new System.Drawing.Point(539, 252);
             this.txt_filtro.Name = "txt_filtro";
             this.txt_filtro.Size = new System.Drawing.Size(240, 26);
             this.txt_filtro.SoloNumeros = false;
@@ -482,11 +487,11 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(21)))), ((int)(((byte)(21)))));
-            this.ClientSize = new System.Drawing.Size(883, 512);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.button3);
+            this.ClientSize = new System.Drawing.Size(1212, 560);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.btn_cancelar);
+            this.Controls.Add(this.btn_listo);
+            this.Controls.Add(this.bt_creado);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txt_filtro);
             this.Controls.Add(this.dataGridView1);
@@ -499,7 +504,6 @@
             this.Name = "ConPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ConPrincipal";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
@@ -540,10 +544,10 @@
         private System.Windows.Forms.Label label3;
         private ErrorTxtBox txt_filtro;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button bt_creado;
+        private System.Windows.Forms.Button btn_listo;
+        private System.Windows.Forms.Button btn_cancelar;
+        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DataGridViewTextBoxColumn id_transporte;
         private System.Windows.Forms.DataGridViewTextBoxColumn paciente;
         private System.Windows.Forms.DataGridViewTextBoxColumn conductor;

@@ -257,6 +257,7 @@ C:\Users\Ing. Jerinel Mendoza\Documents\Proyecto C#\TranporSys\911_RD\911_RD\obj
 C:\Users\Ing. Jerinel Mendoza\Documents\Proyecto C#\TranporSys\911_RD\911_RD\obj\Debug\_911_RD.Administracion.FrmAdmVentas.resources
 C:\Users\Ing. Jerinel Mendoza\Documents\Proyecto C#\TranporSys\911_RD\911_RD\obj\Debug\_911_RD.Administracion.FrmCompra.resources
 C:\Users\Ing. Jerinel Mendoza\Documents\Proyecto C#\TranporSys\911_RD\911_RD\obj\Debug\_911_RD.Administracion.Venta_y_Compra.FrmItebis.resources
-C:\Users\Ing. Jerinel Mendoza\Documents\Proyecto C#\TranporSys\911_RD\911_RD\obj\Debug\911_RD.csproj.AssemblyReference.cache
 C:\Users\Ing. Jerinel Mendoza\Documents\Proyecto C#\TranporSys\911_RD\911_RD\obj\Debug\_911_RD.Administracion.FrmTipoUsuario.resources
 C:\Users\Ing. Jerinel Mendoza\Documents\Proyecto C#\TranporSys\911_RD\911_RD\obj\Debug\_911_RD.Administracion.FrmUsuarios.resources
+C:\Users\Ing. Jerinel Mendoza\Documents\Proyecto C#\TranporSys\911_RD\911_RD\obj\Debug\_911_RD.Administracion.Venta_y_Compra.FrmAdmVenta_Servios.resources
+C:\Users\Ing. Jerinel Mendoza\Documents\Proyecto C#\TranporSys\911_RD\911_RD\obj\Debug\911_RD.csproj.AssemblyReference.cache

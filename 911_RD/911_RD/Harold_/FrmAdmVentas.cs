@@ -46,40 +46,47 @@ namespace _911_RD.Administracion
                 try
                 {
                     var ventasD = from v in db.VENTAS
-                                    join dv in db.DETALLES_VENTAS on v.num_fact equals dv.num_fact
-                                    join a in db.ARTICULOS on dv.id_articulo equals a.id_articulo
-                                    join c in db.CLIENTES on v.id_cliente equals c.id_cliente
-                                    join t in db.TERCEROS on c.id_tercero equals t.id_tercero
-                                    join tVs in db.TERCEROS_VS_IDENTIFICACIONES on t.id_tercero equals tVs.id_tercero
-                                    join ide in db.IDENTIFICACIONES on tVs.id_identificacion equals ide.id_identificacion
-                                    
-                                    
-                                  select new
-                                    {
-                                        //aqui cargas los campos de tu tabla
-                                        Fact = v.num_fact,
-                                        id_cliente = c.id_cliente,
-                                        NomCli = t.nombre,
-                                        Identficacion = ide.identificacion,
-                                        nom_art = a.nombre,
-                                        cant = dv.cantidad,
-                                        precio = dv.precio,
-                                        total = dv.total,
-                                        descuento = dv.descuento,
-                                        Fecha = v.fecha,
-                                     //   cliente.id_tercero,
-                                        NomEmpl = v.id_empleado,
-                                        v.estado,
-                                    };
-                    dataGridView1.Rows.Clear();
+                                  join dv in db.DETALLES_VENTAS on v.num_fact equals dv.num_fact
+                                  join a in db.ARTICULOS on dv.id_articulo equals a.id_articulo
+                                  join c in db.CLIENTES on v.id_cliente equals c.id_cliente
+                                  join t in db.TERCEROS on c.id_tercero equals t.id_tercero
+                                  join tVs in db.TERCEROS_VS_IDENTIFICACIONES on t.id_tercero equals tVs.id_tercero
+                                  join ide in db.IDENTIFICACIONES on tVs.id_identificacion equals ide.id_identificacion
 
-                    if (ventasD != null)
-                        ventasD = ventasD.Where(a => a.Identficacion.ToString().Contains(condicion) || a.Fact.ToString().Contains(condicion) || a.Fecha.ToString().Contains(condicion)  );
+
+                                  select new
+                                  {
+                                      //aqui cargas los campos de tu tabla
+                                      Fact = v.num_fact,
+                                      id_cliente = c.id_cliente,
+                                      NomCli = t.nombre,
+                                      Identficacion = ide.identificacion,
+                                      nom_art = a.nombre,
+                                      cant = dv.cantidad,
+                                      precio = dv.precio,
+                                      total = dv.total,
+                                      descuento = dv.descuento,
+                                      Fecha = v.fecha,
+                                      idArt = dv.id_articulo,
+                                      NomEmpl = v.EMPLEADOS.PERSONAS.TERCEROS.nombre,
+                                      v.estado,
+                                  };
+                    
+
+                    if (condicion.Equals(""))
+                    {
+
+                    }
+                    else
+                    {
+                        ventasD = ventasD.Where(a => a.Identficacion.ToString().Contains(condicion) || a.Fact.ToString().Contains(condicion) || a.Fecha.ToString().Contains(condicion)|| a.NomEmpl.ToString().Contains(condicion) || a.idArt.ToString().Contains(condicion));
+
+                    }
 
                     foreach (var OArticulos in ventasD)
                     {
                         dataGridView1.Rows.Add(OArticulos.Fact.ToString(), OArticulos.nom_art.ToString(), OArticulos.cant.ToString(),
-                            OArticulos.precio.ToString(), OArticulos.total.ToString(), OArticulos.descuento.ToString(), OArticulos.Fecha.ToString(), OArticulos.NomCli.ToString(), OArticulos.NomEmpl.ToString(), OArticulos.estado == true ? "ACTIVO" : "INACTIVO");
+                            OArticulos.precio.ToString(), OArticulos.total.ToString(), OArticulos.descuento.ToString(), OArticulos.Fecha.ToString(), OArticulos.NomCli.ToString(), OArticulos.NomEmpl.ToString(), OArticulos.estado == true ? "ACTIVO" : "INACTIVO", OArticulos.idArt.ToString());
                     }
 
                 }
@@ -92,28 +99,99 @@ namespace _911_RD.Administracion
 
         private void button1_Click(object sender, EventArgs e)
         {
+            ActualizarStock();
+            Cancelar();
+            
+        }
+
+        private void Cancelar()
+        {
             using (TransporSysEntities db = new TransporSysEntities())
             {
-                try
+                int num = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells["numfact"].Value.ToString());
+                foreach (DataGridViewRow row in dataGridView1.Rows)
                 {
-                    MessageBox.Show(dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[0].Value.ToString());
-                    var articulo = db.VENTAS.FirstOrDefault(a => a.num_fact.ToString() == dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[0].Value.ToString());
-                    // si esa variable no esta vacia... pues el articulo existe y pues lo modificamos...
-                    if (articulo != null)
+                    int idT = 0, bart = 0;
+                    int num2 = Convert.ToInt32(row.Cells["numfact"].Value.ToString());
+                    
+                    var factura = db.VENTAS.FirstOrDefault(a => a.num_fact.ToString() == num.ToString());
+                    idT = Convert.ToInt32(factura.num_fact);
+                    
+                    if (num2 == idT)
                     {
 
-                        articulo.estado = false; //debe ser tru/false
+                        factura.estado = false; //debe ser tru/false
+                        ActualizarStock();
 
                     }
-
                     db.SaveChanges();
-                    Utilidades.LimpiarControles(this);
+                    dataGridView1.Rows.Clear();
                     LlenarDataGrid("");
                 }
-                catch (Exception) { }
             }
+        }
 
-            MessageBox.Show("");
+        /*
+         var factura = db.VENTAS.FirstOrDefault(a => a.num_fact.ToString() == numfact.ToString());
+                        // si esa variable no esta vacia... pues el articulo existe y pues lo modificamos...
+                        if (factura != null)
+                        {
+                            factura.estado = false; //debe ser tru/false
+                            
+                        }
+         
+         */
+
+
+
+        private void ActualizarStock()
+        {
+            using (TransporSysEntities db = new TransporSysEntities())
+            {
+                int num = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells["numfact"].Value.ToString());
+                
+                foreach (DataGridViewRow row in dataGridView1.Rows)
+                {
+                    int a = Convert.ToInt32(row.Cells["id_articulos"].Value.ToString());
+                    int num2 = Convert.ToInt32(row.Cells["numfact"].Value.ToString());
+
+                    
+                        int c = Convert.ToInt32(row.Cells["cantidad"].Value.ToString());
+                         
+                    var result = db.ARTICULOS.SingleOrDefault(b => b.id_articulo == a);
+                    int t = Convert.ToInt32(result.id_articulo.ToString());
+                    
+                    var stockactual = db.ARTICULOS.SingleOrDefault(b => b.id_articulo == a);
+                    
+                    int d = Convert.ToInt32(stockactual.reorden.ToString());
+                    
+                    
+
+                    double actstock = d + c;
+                    
+                    if (result != null)
+                    {
+                        if(a==t && num == num2)
+                        {
+                            result.reorden = actstock;
+                            db.SaveChanges();
+                        }
+                            
+                    }
+                 }
+               
+            }
+        }
+
+        private void dataGridView1_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+           
+        }
+
+        private void txt_filtro_TextChanged(object sender, EventArgs e)
+        {
+            dataGridView1.Rows.Clear();
+            LlenarDataGrid(txt_filtro.Text.Trim());
         }
     }
 }

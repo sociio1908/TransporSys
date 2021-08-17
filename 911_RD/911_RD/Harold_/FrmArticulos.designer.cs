@@ -127,7 +127,6 @@ namespace _911_RD.Administracion
             // 
             // id_txt
             // 
-            this.id_txt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.id_txt.Enabled = true;
             this.id_txt.Location = new System.Drawing.Point(200, 14);
             this.id_txt.ReadOnly = true;
@@ -326,7 +325,7 @@ namespace _911_RD.Administracion
             this.btn_generar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_generar.ForeColor = System.Drawing.Color.FloralWhite;
             this.errorProvider1.SetIconAlignment(this.btn_generar, System.Windows.Forms.ErrorIconAlignment.TopLeft);
-            this.btn_generar.Image = global::_911_RD.Properties.Resources.search;
+            this.btn_generar.Image = global::_911_RD.Properties.Resources.escaner_de_codigo_de_barras;
             this.btn_generar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_generar.Location = new System.Drawing.Point(40, 151);
             this.btn_generar.Name = "btn_generar";

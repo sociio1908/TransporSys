@@ -31,7 +31,6 @@ namespace _911_RD.Administracion
             }
             txt_cantidad.Text += numero;
         }
-
         private void btn_0_Click(object sender, EventArgs e)
         {
             agregarNumero(btn_0.Text);
@@ -234,7 +233,7 @@ namespace _911_RD.Administracion
                             //ningun campo vacio
                             num_compra = Convert.ToInt32(txt_numfactura.Text.Trim()),
                             id_suplidor = 1,
-                            id_empleado = 1,
+                            id_empleado = Utilidades.idusuario,
                             fecha = DateTime.Now,
                             estado = true,
                         };
@@ -292,7 +291,7 @@ namespace _911_RD.Administracion
 
         private void ActualizarStock()
         {
-            using (var db = new TransporSysEntities())
+            using (TransporSysEntities db = new TransporSysEntities())
             {
                 try
                 {

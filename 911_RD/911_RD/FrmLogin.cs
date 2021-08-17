@@ -26,5 +26,46 @@ namespace _911_RD
         {
             this.WindowState = FormWindowState.Minimized;
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string sPass = Utilidades.Encrypt.GetSHA256(txt_password.Text.Trim());
+
+            using (TransporSysEntities db = new TransporSysEntities())
+            {
+                var lst = from d in db.USUARIOS
+                          where d.usuario == txt_user.Text
+                          && d.contrasena == sPass
+                          select d;
+                foreach (var ouser in lst)
+                {
+                    string a = ouser.usuario;
+                    
+                    int b = ouser.id_empleado;
+                    
+                    if (a == txt_user.Text.Trim())
+                    {
+                        Utilidades.nomusuario = ouser.EMPLEADOS.PERSONAS.TERCEROS.nombre;
+                        Utilidades.idusuario = ouser.id_empleado;
+                        Utilidades.puestouser = ouser.TIPOS_USUARIOS.id_tipo_usuario.ToString();
+                        Utilidades.Apeuser = ouser.EMPLEADOS.PERSONAS.apellido;
+                    }
+                }
+
+                if (lst.Count() > 0)
+                {
+
+                    FrmPrincipal frmp = new FrmPrincipal();
+                    frmp.ShowDialog();
+                    this.Hide();
+                }
+                else
+                {
+                    MessageBox.Show("Usuario O Contraseña Incorrectos");
+                }
+            }
+
+        }
+
     }
 }

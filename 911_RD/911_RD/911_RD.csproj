@@ -437,6 +437,12 @@
     <Compile Include="Harold_\FrmAdmVentas.designer.cs">
       <DependentUpon>FrmAdmVentas.cs</DependentUpon>
     </Compile>
+    <Compile Include="Harold_\FrmAdmVenta_Servios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Harold_\FrmAdmVenta_Servios.designer.cs">
+      <DependentUpon>FrmAdmVenta_Servios.cs</DependentUpon>
+    </Compile>
     <Compile Include="Harold_\FrmArticulos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -767,6 +773,9 @@
     <EmbeddedResource Include="Harold_\FrmAdmVentas.resx">
       <DependentUpon>FrmAdmVentas.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Harold_\FrmAdmVenta_Servios.resx">
+      <DependentUpon>FrmAdmVenta_Servios.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Harold_\FrmArticulos.resx">
       <DependentUpon>FrmArticulos.cs</DependentUpon>
     </EmbeddedResource>
@@ -919,6 +928,7 @@
     <None Include="Resources\recibo1.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\escaner-de-codigo-de-barras.png" />
     <Content Include="TransporSysEntities.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>TransporSysEntities.edmx</DependentUpon>
