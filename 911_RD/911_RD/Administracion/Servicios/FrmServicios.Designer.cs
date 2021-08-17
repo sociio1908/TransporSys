@@ -75,7 +75,7 @@ namespace _911_RD.Administracion.Servicios
             // 
             // btn_guardar
             // 
-            this.btn_guardar.Location = new System.Drawing.Point(12, 460);
+            this.btn_guardar.Location = new System.Drawing.Point(12, 453);
             this.btn_guardar.Click += new System.EventHandler(this.btn_guardar_Click);
             // 
             // lbl_titulo
@@ -85,12 +85,12 @@ namespace _911_RD.Administracion.Servicios
             // 
             // btn_limpiar
             // 
-            this.btn_limpiar.Location = new System.Drawing.Point(157, 460);
+            this.btn_limpiar.Location = new System.Drawing.Point(157, 453);
             this.btn_limpiar.Click += new System.EventHandler(this.btn_limpiar_Click);
             // 
             // btn_salir
             // 
-            this.btn_salir.Location = new System.Drawing.Point(279, 460);
+            this.btn_salir.Location = new System.Drawing.Point(279, 453);
             // 
             // btn_buscar
             // 
@@ -363,7 +363,7 @@ namespace _911_RD.Administracion.Servicios
             dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
             this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(780, 242);
+            this.dataGridView1.Size = new System.Drawing.Size(780, 228);
             this.dataGridView1.TabIndex = 251;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentDoubleClick);
@@ -490,7 +490,7 @@ namespace _911_RD.Administracion.Servicios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(807, 802);
+            this.ClientSize = new System.Drawing.Size(807, 788);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.txt_filtro);
             this.Controls.Add(this.dataGridView1);

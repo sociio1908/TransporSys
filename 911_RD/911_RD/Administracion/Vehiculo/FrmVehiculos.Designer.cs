@@ -93,7 +93,7 @@ namespace _911_RD.Administracion.Vehiculo
             // 
             // btn_guardar
             // 
-            this.btn_guardar.Location = new System.Drawing.Point(12, 465);
+            this.btn_guardar.Location = new System.Drawing.Point(12, 444);
             this.btn_guardar.Click += new System.EventHandler(this.btn_guardar_Click);
             // 
             // lbl_titulo
@@ -103,11 +103,11 @@ namespace _911_RD.Administracion.Vehiculo
             // 
             // btn_limpiar
             // 
-            this.btn_limpiar.Location = new System.Drawing.Point(157, 465);
+            this.btn_limpiar.Location = new System.Drawing.Point(157, 444);
             // 
             // btn_salir
             // 
-            this.btn_salir.Location = new System.Drawing.Point(279, 465);
+            this.btn_salir.Location = new System.Drawing.Point(279, 444);
             // 
             // btn_buscar
             // 
@@ -207,7 +207,7 @@ namespace _911_RD.Administracion.Vehiculo
             dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
             this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(1145, 265);
+            this.dataGridView1.Size = new System.Drawing.Size(1145, 223);
             this.dataGridView1.TabIndex = 174;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentDoubleClick);
@@ -694,7 +694,7 @@ namespace _911_RD.Administracion.Vehiculo
             // FrmVehiculos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.ClientSize = new System.Drawing.Size(1169, 830);
+            this.ClientSize = new System.Drawing.Size(1169, 788);
             this.Controls.Add(this.txt_error_gps);
             this.Controls.Add(this.txt_error_placa);
             this.Controls.Add(this.txt_error_chasis);

@@ -33,12 +33,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.id_eme = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tip_viaje = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.VIAJE = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tipo_eme = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.estado_eme = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel7 = new System.Windows.Forms.Panel();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.lbl_con = new System.Windows.Forms.Label();
@@ -56,13 +50,21 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lbl_cli = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.btn_guardar = new System.Windows.Forms.Button();
-            this.txt_nombre = new _911_RD.ErrorTxtBox();
             this.label1 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
+            this.id_transporte = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.paciente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.conductor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.num_fact = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.desde = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.hasta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id_vehiculo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.estado_eme = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txt_filtro = new _911_RD.ErrorTxtBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -84,22 +86,27 @@
             this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedHeaders;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dataGridView1.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableWithoutHeaderText;
             this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.ColumnHeadersHeight = 50;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.id_eme,
-            this.tip_viaje,
-            this.cliente,
-            this.VIAJE,
-            this.tipo_eme,
+            this.id_transporte,
+            this.paciente,
+            this.conductor,
+            this.num_fact,
+            this.fecha,
+            this.desde,
+            this.hasta,
+            this.id_vehiculo,
             this.estado_eme});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.Teal;
@@ -111,6 +118,7 @@
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.Location = new System.Drawing.Point(548, 184);
+            this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -125,59 +133,17 @@
             this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.DarkSlateGray;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.ActiveCaption;
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.DarkSlateGray;
             this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.dataGridView1.RowTemplate.Height = 30;
+            this.dataGridView1.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(323, 316);
             this.dataGridView1.TabIndex = 9;
-            // 
-            // id_eme
-            // 
-            this.id_eme.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.id_eme.FillWeight = 40F;
-            this.id_eme.HeaderText = "ID VIAJE";
-            this.id_eme.Name = "id_eme";
-            this.id_eme.ReadOnly = true;
-            // 
-            // tip_viaje
-            // 
-            this.tip_viaje.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.tip_viaje.FillWeight = 50F;
-            this.tip_viaje.HeaderText = "TIPO";
-            this.tip_viaje.Name = "tip_viaje";
-            this.tip_viaje.ReadOnly = true;
-            // 
-            // cliente
-            // 
-            this.cliente.FillWeight = 80F;
-            this.cliente.HeaderText = "CLIENTE";
-            this.cliente.Name = "cliente";
-            this.cliente.ReadOnly = true;
-            // 
-            // VIAJE
-            // 
-            this.VIAJE.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.VIAJE.HeaderText = "DESDE";
-            this.VIAJE.Name = "VIAJE";
-            this.VIAJE.ReadOnly = true;
-            // 
-            // tipo_eme
-            // 
-            this.tipo_eme.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.tipo_eme.HeaderText = "HASTA";
-            this.tipo_eme.Name = "tipo_eme";
-            this.tipo_eme.ReadOnly = true;
-            // 
-            // estado_eme
-            // 
-            this.estado_eme.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.estado_eme.FillWeight = 40F;
-            this.estado_eme.HeaderText = "ESTADO";
-            this.estado_eme.Name = "estado_eme";
-            this.estado_eme.ReadOnly = true;
+            this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
             // 
             // panel7
             // 
@@ -358,35 +324,6 @@
             this.label3.TabIndex = 4;
             this.label3.Text = "Clientes";
             // 
-            // btn_guardar
-            // 
-            this.btn_guardar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btn_guardar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_guardar.FlatAppearance.BorderSize = 0;
-            this.btn_guardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_guardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_guardar.ForeColor = System.Drawing.Color.White;
-            this.btn_guardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_guardar.Location = new System.Drawing.Point(712, 112);
-            this.btn_guardar.Name = "btn_guardar";
-            this.btn_guardar.Size = new System.Drawing.Size(76, 26);
-            this.btn_guardar.TabIndex = 120;
-            this.btn_guardar.Text = "BUSCAR";
-            this.btn_guardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btn_guardar.UseVisualStyleBackColor = false;
-            // 
-            // txt_nombre
-            // 
-            this.txt_nombre.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txt_nombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.txt_nombre.Limpiar = true;
-            this.txt_nombre.Location = new System.Drawing.Point(548, 112);
-            this.txt_nombre.Name = "txt_nombre";
-            this.txt_nombre.Size = new System.Drawing.Size(158, 26);
-            this.txt_nombre.SoloNumeros = false;
-            this.txt_nombre.TabIndex = 174;
-            this.txt_nombre.Validar = true;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -458,6 +395,88 @@
             this.button4.Text = "CANCEL";
             this.button4.UseVisualStyleBackColor = false;
             // 
+            // id_transporte
+            // 
+            this.id_transporte.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.id_transporte.HeaderText = "TRANSPORTE";
+            this.id_transporte.Name = "id_transporte";
+            this.id_transporte.ReadOnly = true;
+            // 
+            // paciente
+            // 
+            this.paciente.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.paciente.HeaderText = "PACIENTE";
+            this.paciente.Name = "paciente";
+            this.paciente.ReadOnly = true;
+            // 
+            // conductor
+            // 
+            this.conductor.HeaderText = "CONDUCTOR";
+            this.conductor.Name = "conductor";
+            this.conductor.ReadOnly = true;
+            // 
+            // num_fact
+            // 
+            this.num_fact.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.num_fact.FillWeight = 70F;
+            this.num_fact.HeaderText = "NUM FACTURA";
+            this.num_fact.Name = "num_fact";
+            this.num_fact.ReadOnly = true;
+            // 
+            // fecha
+            // 
+            this.fecha.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.fecha.FillWeight = 80F;
+            this.fecha.HeaderText = "FECHA";
+            this.fecha.Name = "fecha";
+            this.fecha.ReadOnly = true;
+            // 
+            // desde
+            // 
+            this.desde.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.desde.FillWeight = 50F;
+            this.desde.HeaderText = "DESDE";
+            this.desde.Name = "desde";
+            this.desde.ReadOnly = true;
+            this.desde.Visible = false;
+            // 
+            // hasta
+            // 
+            this.hasta.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.hasta.FillWeight = 50F;
+            this.hasta.HeaderText = "HASTA";
+            this.hasta.Name = "hasta";
+            this.hasta.ReadOnly = true;
+            this.hasta.Visible = false;
+            // 
+            // id_vehiculo
+            // 
+            this.id_vehiculo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.id_vehiculo.HeaderText = "VEHICULO";
+            this.id_vehiculo.Name = "id_vehiculo";
+            this.id_vehiculo.ReadOnly = true;
+            // 
+            // estado_eme
+            // 
+            this.estado_eme.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.estado_eme.FillWeight = 40F;
+            this.estado_eme.HeaderText = "ESTADO";
+            this.estado_eme.Name = "estado_eme";
+            this.estado_eme.ReadOnly = true;
+            // 
+            // txt_filtro
+            // 
+            this.txt_filtro.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_filtro.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.txt_filtro.Limpiar = true;
+            this.txt_filtro.Location = new System.Drawing.Point(548, 112);
+            this.txt_filtro.Name = "txt_filtro";
+            this.txt_filtro.Size = new System.Drawing.Size(240, 26);
+            this.txt_filtro.SoloNumeros = false;
+            this.txt_filtro.TabIndex = 174;
+            this.txt_filtro.Validar = true;
+            this.txt_filtro.TextChanged += new System.EventHandler(this.txt_filtro_TextChanged);
+            // 
             // ConPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -469,8 +488,7 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.txt_nombre);
-            this.Controls.Add(this.btn_guardar);
+            this.Controls.Add(this.txt_filtro);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.panel7);
             this.Controls.Add(this.label2);
@@ -479,7 +497,9 @@
             this.Controls.Add(this.panel4);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ConPrincipal";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ConPrincipal";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
@@ -518,18 +538,20 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label lbl_cli;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id_eme;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tip_viaje;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cliente;
-        private System.Windows.Forms.DataGridViewTextBoxColumn VIAJE;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tipo_eme;
-        private System.Windows.Forms.DataGridViewTextBoxColumn estado_eme;
-        public System.Windows.Forms.Button btn_guardar;
-        private ErrorTxtBox txt_nombre;
+        private ErrorTxtBox txt_filtro;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id_transporte;
+        private System.Windows.Forms.DataGridViewTextBoxColumn paciente;
+        private System.Windows.Forms.DataGridViewTextBoxColumn conductor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn num_fact;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fecha;
+        private System.Windows.Forms.DataGridViewTextBoxColumn desde;
+        private System.Windows.Forms.DataGridViewTextBoxColumn hasta;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id_vehiculo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn estado_eme;
     }
 }
