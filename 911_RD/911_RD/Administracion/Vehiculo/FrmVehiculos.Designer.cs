@@ -30,26 +30,14 @@ namespace _911_RD.Administracion.Vehiculo
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label13 = new System.Windows.Forms.Label();
             this.txt_filtro = new _911_RD.ErrorTxtBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.id_eme = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cargo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.salario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.num_gps = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fecha_fab = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.combustible = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rendimiento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Fecha_Ingreso_sis = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.estatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Seleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.txt_num_chasis = new _911_RD.ErrorTxtBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
@@ -80,6 +68,21 @@ namespace _911_RD.Administracion.Vehiculo
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.txt_error_gps = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.id_combustible = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id_marca = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id_modelo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id_eme = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cargo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.salario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.num_gps = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fecha_fab = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.combustible = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rendimiento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Fecha_Ingreso_sis = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.estatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Seleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.btn_buscar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_marca)).BeginInit();
@@ -136,6 +139,7 @@ namespace _911_RD.Administracion.Vehiculo
             this.txt_filtro.SoloNumeros = false;
             this.txt_filtro.TabIndex = 175;
             this.txt_filtro.Validar = false;
+            this.txt_filtro.TextChanged += new System.EventHandler(this.txt_filtro_TextChanged);
             // 
             // dataGridView1
             // 
@@ -149,16 +153,19 @@ namespace _911_RD.Administracion.Vehiculo
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Firebrick;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.Firebrick;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridView1.ColumnHeadersHeight = 25;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.id_combustible,
+            this.id_marca,
+            this.id_modelo,
             this.id_eme,
             this.cargo,
             this.descripcion,
@@ -171,142 +178,38 @@ namespace _911_RD.Administracion.Vehiculo
             this.Fecha_Ingreso_sis,
             this.estatus,
             this.Seleccionar});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Teal;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.Teal;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle8;
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.Location = new System.Drawing.Point(12, 553);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Aqua;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Aqua;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.dataGridView1.RowHeadersWidth = 30;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.DodgerBlue;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
-            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.DodgerBlue;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.White;
+            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle10;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(1145, 265);
             this.dataGridView1.TabIndex = 174;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // id_eme
-            // 
-            this.id_eme.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.id_eme.FillWeight = 15F;
-            this.id_eme.HeaderText = "ID";
-            this.id_eme.Name = "id_eme";
-            this.id_eme.ReadOnly = true;
-            // 
-            // cargo
-            // 
-            this.cargo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.cargo.FillWeight = 40F;
-            this.cargo.HeaderText = "MARCA";
-            this.cargo.Name = "cargo";
-            this.cargo.ReadOnly = true;
-            // 
-            // descripcion
-            // 
-            this.descripcion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.descripcion.FillWeight = 60F;
-            this.descripcion.HeaderText = "MODELO";
-            this.descripcion.Name = "descripcion";
-            this.descripcion.ReadOnly = true;
-            // 
-            // salario
-            // 
-            this.salario.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.salario.FillWeight = 40F;
-            this.salario.HeaderText = "CHASIS";
-            this.salario.Name = "salario";
-            this.salario.ReadOnly = true;
-            // 
-            // estado
-            // 
-            this.estado.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.estado.FillWeight = 40F;
-            this.estado.HeaderText = "PLACA";
-            this.estado.Name = "estado";
-            this.estado.ReadOnly = true;
-            // 
-            // num_gps
-            // 
-            this.num_gps.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.num_gps.FillWeight = 30F;
-            this.num_gps.HeaderText = "GPS";
-            this.num_gps.Name = "num_gps";
-            this.num_gps.ReadOnly = true;
-            // 
-            // fecha_fab
-            // 
-            this.fecha_fab.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.fecha_fab.FillWeight = 30F;
-            this.fecha_fab.HeaderText = "FABRICADO";
-            this.fecha_fab.Name = "fecha_fab";
-            this.fecha_fab.ReadOnly = true;
-            // 
-            // combustible
-            // 
-            this.combustible.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.combustible.FillWeight = 40F;
-            this.combustible.HeaderText = "COMBUSTIBLE";
-            this.combustible.Name = "combustible";
-            this.combustible.ReadOnly = true;
-            // 
-            // rendimiento
-            // 
-            this.rendimiento.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.rendimiento.FillWeight = 40F;
-            this.rendimiento.HeaderText = "RENDIMIENTO K/GL";
-            this.rendimiento.Name = "rendimiento";
-            this.rendimiento.ReadOnly = true;
-            // 
-            // Fecha_Ingreso_sis
-            // 
-            this.Fecha_Ingreso_sis.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Fecha_Ingreso_sis.FillWeight = 40F;
-            this.Fecha_Ingreso_sis.HeaderText = "INGRESADO";
-            this.Fecha_Ingreso_sis.Name = "Fecha_Ingreso_sis";
-            this.Fecha_Ingreso_sis.ReadOnly = true;
-            // 
-            // estatus
-            // 
-            this.estatus.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.estatus.FillWeight = 25F;
-            this.estatus.HeaderText = "ESTADO";
-            this.estatus.Name = "estatus";
-            this.estatus.ReadOnly = true;
-            // 
-            // Seleccionar
-            // 
-            this.Seleccionar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.Seleccionar.DefaultCellStyle = dataGridViewCellStyle2;
-            this.Seleccionar.FillWeight = 20F;
-            this.Seleccionar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Seleccionar.HeaderText = "";
-            this.Seleccionar.Name = "Seleccionar";
-            this.Seleccionar.ReadOnly = true;
-            this.Seleccionar.Text = "Editar";
             // 
             // txt_num_chasis
             // 
@@ -662,6 +565,131 @@ namespace _911_RD.Administracion.Vehiculo
             this.label7.TabIndex = 206;
             this.label7.Text = "ESTADO";
             // 
+            // id_combustible
+            // 
+            this.id_combustible.HeaderText = "id_combustible";
+            this.id_combustible.Name = "id_combustible";
+            this.id_combustible.ReadOnly = true;
+            this.id_combustible.Visible = false;
+            // 
+            // id_marca
+            // 
+            this.id_marca.HeaderText = "id_marca";
+            this.id_marca.Name = "id_marca";
+            this.id_marca.ReadOnly = true;
+            this.id_marca.Visible = false;
+            // 
+            // id_modelo
+            // 
+            this.id_modelo.HeaderText = "id_modelo";
+            this.id_modelo.Name = "id_modelo";
+            this.id_modelo.ReadOnly = true;
+            this.id_modelo.Visible = false;
+            // 
+            // id_eme
+            // 
+            this.id_eme.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.id_eme.FillWeight = 15F;
+            this.id_eme.HeaderText = "ID";
+            this.id_eme.Name = "id_eme";
+            this.id_eme.ReadOnly = true;
+            // 
+            // cargo
+            // 
+            this.cargo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.cargo.FillWeight = 40F;
+            this.cargo.HeaderText = "MARCA";
+            this.cargo.Name = "cargo";
+            this.cargo.ReadOnly = true;
+            // 
+            // descripcion
+            // 
+            this.descripcion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.descripcion.FillWeight = 60F;
+            this.descripcion.HeaderText = "MODELO";
+            this.descripcion.Name = "descripcion";
+            this.descripcion.ReadOnly = true;
+            // 
+            // salario
+            // 
+            this.salario.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.salario.FillWeight = 40F;
+            this.salario.HeaderText = "CHASIS";
+            this.salario.Name = "salario";
+            this.salario.ReadOnly = true;
+            // 
+            // estado
+            // 
+            this.estado.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.estado.FillWeight = 40F;
+            this.estado.HeaderText = "PLACA";
+            this.estado.Name = "estado";
+            this.estado.ReadOnly = true;
+            // 
+            // num_gps
+            // 
+            this.num_gps.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.num_gps.FillWeight = 30F;
+            this.num_gps.HeaderText = "GPS";
+            this.num_gps.Name = "num_gps";
+            this.num_gps.ReadOnly = true;
+            // 
+            // fecha_fab
+            // 
+            this.fecha_fab.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.fecha_fab.FillWeight = 30F;
+            this.fecha_fab.HeaderText = "FABRICADO";
+            this.fecha_fab.Name = "fecha_fab";
+            this.fecha_fab.ReadOnly = true;
+            // 
+            // combustible
+            // 
+            this.combustible.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.combustible.FillWeight = 40F;
+            this.combustible.HeaderText = "COMBUSTIBLE";
+            this.combustible.Name = "combustible";
+            this.combustible.ReadOnly = true;
+            // 
+            // rendimiento
+            // 
+            this.rendimiento.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.rendimiento.FillWeight = 40F;
+            this.rendimiento.HeaderText = "RENDIMIENTO K/GL";
+            this.rendimiento.Name = "rendimiento";
+            this.rendimiento.ReadOnly = true;
+            // 
+            // Fecha_Ingreso_sis
+            // 
+            this.Fecha_Ingreso_sis.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Fecha_Ingreso_sis.FillWeight = 40F;
+            this.Fecha_Ingreso_sis.HeaderText = "INGRESADO";
+            this.Fecha_Ingreso_sis.Name = "Fecha_Ingreso_sis";
+            this.Fecha_Ingreso_sis.ReadOnly = true;
+            // 
+            // estatus
+            // 
+            this.estatus.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.estatus.FillWeight = 25F;
+            this.estatus.HeaderText = "ESTADO";
+            this.estatus.Name = "estatus";
+            this.estatus.ReadOnly = true;
+            // 
+            // Seleccionar
+            // 
+            this.Seleccionar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.Seleccionar.DefaultCellStyle = dataGridViewCellStyle7;
+            this.Seleccionar.FillWeight = 20F;
+            this.Seleccionar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Seleccionar.HeaderText = "";
+            this.Seleccionar.Name = "Seleccionar";
+            this.Seleccionar.ReadOnly = true;
+            this.Seleccionar.Text = "Editar";
+            // 
             // FrmVehiculos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -784,6 +812,10 @@ namespace _911_RD.Administracion.Vehiculo
         private System.Windows.Forms.Label txt_error_placa;
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.Label txt_error_gps;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id_combustible;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id_marca;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id_modelo;
         private System.Windows.Forms.DataGridViewTextBoxColumn id_eme;
         private System.Windows.Forms.DataGridViewTextBoxColumn cargo;
         private System.Windows.Forms.DataGridViewTextBoxColumn descripcion;
@@ -796,6 +828,5 @@ namespace _911_RD.Administracion.Vehiculo
         private System.Windows.Forms.DataGridViewTextBoxColumn Fecha_Ingreso_sis;
         private System.Windows.Forms.DataGridViewTextBoxColumn estatus;
         private System.Windows.Forms.DataGridViewButtonColumn Seleccionar;
-        private System.Windows.Forms.Label label7;
     }
 }

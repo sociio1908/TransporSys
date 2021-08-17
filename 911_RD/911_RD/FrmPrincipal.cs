@@ -1,4 +1,6 @@
 ﻿using _911_RD.Administracion;
+using _911_RD.Administracion.Configuracion;
+using _911_RD.Administracion.Vehiculo;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,9 +18,9 @@ namespace _911_RD
         public FrmPrincipal()
         {
             InitializeComponent();
-            AbrirFormEnPanel(new ConPrincipal());
 
-            pnl_menu.Width = 180;
+            AbrirFormEnPanel(new ConPrincipal());
+             pnl_menu.Width = 180;
         }
 
         private void panel2_Paint(object sender, PaintEventArgs e)
@@ -127,6 +129,16 @@ namespace _911_RD
         private void button1_Click(object sender, EventArgs e)
         {
             AbrirFormEnPanel(new FrmArticulos());
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            new FrmConfiguracion().ShowDialog();
+        }
+
+        private void btn_vehiculos_Click(object sender, EventArgs e)
+        {
+            new FrmVehiculos().ShowDialog();
         }
     }
 }

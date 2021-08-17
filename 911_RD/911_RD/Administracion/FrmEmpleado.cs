@@ -353,8 +353,6 @@ namespace _911_RD.Administracion
         private void btn_limpiar_Click(object sender, EventArgs e)
         {
 
-            MessageBox.Show("ENTRO");
-
             //  dataGridView1.Rows.Clear();
             Utilidades.LimpiarControles(this);
 
@@ -507,7 +505,6 @@ namespace _911_RD.Administracion
                     tabla.Rows.RemoveAt(row.Index);
                     _id = int.Parse(row.Cells[0].Value.ToString());
                 }
-                MessageBox.Show(": " + _id);
             }
                
             if (_id > 0)

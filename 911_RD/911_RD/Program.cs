@@ -24,7 +24,7 @@ namespace _911_RD
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmPaciente());
+            Application.Run(new FrmPrincipal());
         }
 
 
