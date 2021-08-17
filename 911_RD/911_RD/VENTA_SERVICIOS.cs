@@ -15,11 +15,10 @@ namespace _911_RD
     public partial class VENTA_SERVICIOS
     {
         public int num_fact { get; set; }
-        public int id_cliente { get; set; }
         public int id_empleado { get; set; }
         public System.DateTime fecha { get; set; }
         public int id_paciente { get; set; }
-        public int tipo_pago { get; set; }
+        public int id_tipo_pago { get; set; }
         public bool estado { get; set; }
     }
 }

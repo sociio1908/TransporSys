@@ -17,11 +17,9 @@ namespace _911_RD
         public int id_transporte { get; set; }
         public Nullable<int> id_conductor { get; set; }
         public string num_fact { get; set; }
-        public Nullable<bool> ida_vuelta { get; set; }
         public System.DateTime fecha_transporte { get; set; }
         public string notas_viaje { get; set; }
-        public Nullable<int> id_direccionA { get; set; }
-        public Nullable<int> id_direccionB { get; set; }
+        public Nullable<int> id_direccion { get; set; }
         public int estado { get; set; }
     
         public virtual CONDUCTOR CONDUCTOR { get; set; }

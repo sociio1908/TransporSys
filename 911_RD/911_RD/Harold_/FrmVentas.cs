@@ -257,6 +257,9 @@ namespace _911_RD.Administracion
 
         private void button1_Click_1(object sender, EventArgs e)
         {
+            try
+            { 
+
             CargarFact();
             InsertarDetalle();
             ActualizarStock();
@@ -269,6 +272,12 @@ namespace _911_RD.Administracion
                 txt_descuento.Text = "0.0";
             }
             nofactura();
+
+
+            }catch(Exception sdfsd)
+            {
+
+            }
         }
 
 
@@ -280,6 +289,7 @@ namespace _911_RD.Administracion
                 if (dataGridView1.Rows.Count <= 0)
                 {
                     MessageBox.Show("ESTA VACIO");
+                    return;
                 }
                 else
                 {

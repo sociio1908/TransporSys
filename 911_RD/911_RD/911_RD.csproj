@@ -404,9 +404,6 @@
     <Compile Include="Administracion\FrmCliente.Designer.cs">
       <DependentUpon>FrmCliente.cs</DependentUpon>
     </Compile>
-    <Compile Include="GPS.cs">
-      <DependentUpon>TransporSysEntities.tt</DependentUpon>
-    </Compile>
     <Compile Include="FrmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -430,6 +427,9 @@
     </Compile>
     <Compile Include="F_agenda.Designer.cs">
       <DependentUpon>F_agenda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GPS.cs">
+      <DependentUpon>TransporSysEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Harold_\FrmAdmVentas.cs">
       <SubType>Form</SubType>
@@ -912,6 +912,5 @@
       <LastGenOutput>TransporSysEntities.cs</LastGenOutput>
     </Content>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

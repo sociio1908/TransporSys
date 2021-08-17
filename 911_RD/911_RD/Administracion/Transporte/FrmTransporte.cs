@@ -96,18 +96,13 @@ namespace _911_RD.Administracion.Transporte
             this.Close();
         }
 
-        private void txt_hasta_TextChanged(object sender, EventArgs e)
-        {
-
-            cargarTabla(txt_hasta.Text.Trim(), dataGridView2);
-        }
+   
 
         private void btn_Cargo_Click(object sender, EventArgs e)
         {
             FrmDireccionNativa direcciones = new FrmDireccionNativa();
             direcciones.ShowDialog();
             dataGridView1.Rows.Clear();
-            dataGridView2.Rows.Clear();
         }
 
         void CargarCampos(DataGridView dataGrid, string txt)
@@ -121,14 +116,7 @@ namespace _911_RD.Administracion.Transporte
                     dataGrid.SelectedRows[0].Cells[2].Value.ToString() + ", " +
                     dataGrid.SelectedRows[0].Cells[3].Value.ToString();
                 }
-                else
-                {
-
-                    txt_id_hasta.Text = dataGrid.SelectedRows[0].Cells[0].Value.ToString();
-                    txt_hasta.Text = dataGrid.SelectedRows[0].Cells[1].Value.ToString() + ", " +
-                    dataGrid.SelectedRows[0].Cells[2].Value.ToString() + ", " +
-                    dataGrid.SelectedRows[0].Cells[3].Value.ToString();
-                }
+           
             }
             catch (Exception ea)
             {
@@ -136,12 +124,6 @@ namespace _911_RD.Administracion.Transporte
             }
         }
 
-        private void dataGridView2_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-            if (e.RowIndex > 0 && dataGridView1.SelectedRows.Count > 0)
-                CargarCampos(dataGridView2, "Hasta");
-        }
 
         private void dataGridView1_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -157,12 +139,10 @@ namespace _911_RD.Administracion.Transporte
 
         private void btn_guardar_Click(object sender, EventArgs e)
         {
-            if (Utilidades.ValidarFormulario(this, errorProvider1) || (txt_id_desde.Text.Trim().Equals(txt_id_hasta.Text.Trim())))
+            if (Utilidades.ValidarFormulario(this, errorProvider1))
             {
-                MessageBox.Show("Seleccione la direccion y no pueden ser la misma en caso de ida y vuelta.");
-
+                MessageBox.Show("Seleccione la direccion.");
                 return;
-
             }
 
 
