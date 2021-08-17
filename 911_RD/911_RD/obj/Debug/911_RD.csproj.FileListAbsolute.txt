@@ -134,7 +134,6 @@ C:\Users\Ing. Jerinel Mendoza\Documents\Proyecto C#\TranporSys\911_RD\911_RD\obj
 C:\Users\Ing. Jerinel Mendoza\Documents\Proyecto C#\TranporSys\911_RD\911_RD\obj\Debug\_911_RD.Administracion.Pacientes.FrmMedicamentos.resources
 C:\Users\Ing. Jerinel Mendoza\Documents\Proyecto C#\TranporSys\911_RD\911_RD\obj\Debug\_911_RD.Administracion.Pacientes.FrmTipoMedicamento.resources
 C:\Users\Ing. Jerinel Mendoza\Documents\Proyecto C#\TranporSys\911_RD\911_RD\obj\Debug\_911_RD.Administracion.Pacientes.FrmAlergias.resources
-C:\Users\Ing. Jerinel Mendoza\Documents\Proyecto C#\TranporSys\911_RD\911_RD\obj\Debug\911_RD.csproj.AssemblyReference.cache
 C:\Users\Ing. Jerinel Mendoza\Documents\Proyecto C#\TranporSys\911_RD\911_RD\obj\Debug\_911_RD.Administracion.FrmVentas.resources
 C:\Users\Ing. Jerinel Mendoza\Documents\Proyecto C#\TranporSys\911_RD\911_RD\obj\Debug\_911_RD.Administracion.FrmDescuentos.resources
 C:\Users\Ing. Jerinel Mendoza\Documents\Proyecto C#\TranporSys\911_RD\911_RD\bin\Debug\Microsoft.Win32.Primitives.dll
@@ -255,3 +254,6 @@ C:\Users\Ing. Jerinel Mendoza\Documents\Proyecto C#\TranporSys\911_RD\911_RD\obj
 C:\Users\Ing. Jerinel Mendoza\Documents\Proyecto C#\TranporSys\911_RD\911_RD\obj\Debug\_911_RD.Administracion.Configuracion.FrmConfiguracion.resources
 C:\Users\Ing. Jerinel Mendoza\Documents\Proyecto C#\TranporSys\911_RD\911_RD\obj\Debug\_911_RD.Administracion.Configuracion.FrmEmpresa.resources
 C:\Users\Ing. Jerinel Mendoza\Documents\Proyecto C#\TranporSys\911_RD\911_RD\obj\Debug\_911_RD.Administracion.Direccion.FrmCalle.resources
+C:\Users\Ing. Jerinel Mendoza\Documents\Proyecto C#\TranporSys\911_RD\911_RD\obj\Debug\_911_RD.Administracion.FrmAdmVentas.resources
+C:\Users\Ing. Jerinel Mendoza\Documents\Proyecto C#\TranporSys\911_RD\911_RD\obj\Debug\_911_RD.Administracion.FrmCompra.resources
+C:\Users\Ing. Jerinel Mendoza\Documents\Proyecto C#\TranporSys\911_RD\911_RD\obj\Debug\_911_RD.Administracion.Venta_y_Compra.FrmItebis.resources

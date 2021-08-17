@@ -17,6 +17,7 @@ namespace _911_RD.Administracion
             InitializeComponent();
             CargarResumen();
         }
+
         void CargarResumen()
         {
             using (TransporSysEntities db = new TransporSysEntities())

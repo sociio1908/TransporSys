@@ -25,6 +25,7 @@ namespace _911_RD.Administracion
 
         private void btn_guardar_Click(object sender, EventArgs e)
         {
+            Utilidades.ValidarFormulario(groupBox1, errorProvider1);
             InsertarArticulo();
         }
 
@@ -74,43 +75,48 @@ namespace _911_RD.Administracion
 
             using (TransporSysEntities db = new TransporSysEntities())
             {
-                //desactiva validar el id y ten pendiente que solo se va a usar para actualizar un producto
-
-                if (id_txt.Text.Trim() == "")
+                try
                 {
-                    UNIDADES_DE_MEDIDA und_med = new UNIDADES_DE_MEDIDA
+                    if (txt_abreviatura.Text == "" || txt_descripcion.Text == "" || txt_unidad.Text == "")
                     {
-                        unidad_de_medida = txt_unidad.Text.Trim(),
-                        descripcion = txt_descripcion.Text.Trim(),
-                        abreviatura = txt_abreviatura.Text.Trim()
-
-                    };
-                    db.UNIDADES_DE_MEDIDA.Add(und_med);
-                }
-                else
-                {
-
-
-                    //es int pero para no estar jodiendo convirtiendo el del txt lo hago directo, pero ese dato es int
-                    var unidades = db.UNIDADES_DE_MEDIDA.FirstOrDefault(a => a.id_unidad_de_medida.ToString() == id_txt.Text.Trim());
-                    // si esa variable no esta vacia... pues el articulo existe y pues lo modificamos...
-                    if (unidades != null)
-                    {
-
-                        unidades.unidad_de_medida = txt_unidad.Text.Trim();
-                        unidades.descripcion = txt_descripcion.Text.Trim();
-                        unidades.abreviatura = txt_abreviatura.Text.Trim();
-
-
+                        MessageBox.Show("NINGUN CAMPO PUEDE ESTAR VACIO");
                     }
+                    else
+                    if (id_txt.Text.Trim() == "")
+                    {
+                        UNIDADES_DE_MEDIDA und_med = new UNIDADES_DE_MEDIDA
+                        {
+                            unidad_de_medida = txt_unidad.Text.Trim(),
+                            descripcion = txt_descripcion.Text.Trim(),
+                            abreviatura = txt_abreviatura.Text.Trim()
+
+                        };
+                        db.UNIDADES_DE_MEDIDA.Add(und_med);
+                    }
+                    else
+                    {
+
+
+                        //es int pero para no estar jodiendo convirtiendo el del txt lo hago directo, pero ese dato es int
+                        var unidades = db.UNIDADES_DE_MEDIDA.FirstOrDefault(a => a.id_unidad_de_medida.ToString() == id_txt.Text.Trim());
+                        // si esa variable no esta vacia... pues el articulo existe y pues lo modificamos...
+                        if (unidades != null)
+                        {
+
+                            unidades.unidad_de_medida = txt_unidad.Text.Trim();
+                            unidades.descripcion = txt_descripcion.Text.Trim();
+                            unidades.abreviatura = txt_abreviatura.Text.Trim();
+
+
+                        }
+                        MessageBox.Show("COMPLETO");
+                    }
+                    db.SaveChanges();
+                    Utilidades.LimpiarControles(this);
+                    cargarTabla();
                 }
-                db.SaveChanges();
-                Utilidades.LimpiarControles(this);
-                cargarTabla();
+                catch (Exception) { }
             }
-
-            MessageBox.Show("");
-
 
         }
 
@@ -142,12 +148,17 @@ namespace _911_RD.Administracion
                 using (TransporSysEntities db = new TransporSysEntities())
                 {
                     var categoria = from pro in db.UNIDADES_DE_MEDIDA
+                                    join cat in db.UNIDADES_DE_MEDIDA on pro.id_unidad_de_medida
+                            equals cat.id_unidad_de_medida
+
                                     select new
                                     {
                                         //aqui cargas los campos de tu tabla
                                         pro.id_unidad_de_medida,
                                         pro.unidad_de_medida,
                                         pro.descripcion,
+
+                                        
                                         pro.abreviatura,
 
                                         //etc
@@ -188,17 +199,8 @@ namespace _911_RD.Administracion
 
         private void dataGridView1_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            this.DialogResult = DialogResult.OK;
-        }
-
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label15_Click(object sender, EventArgs e)
-        {
-
+            if (dataGridView1.Rows.Count > 0)
+                this.DialogResult = DialogResult.OK;
         }
     }
 }

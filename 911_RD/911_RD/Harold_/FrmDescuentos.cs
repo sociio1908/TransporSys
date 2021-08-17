@@ -193,7 +193,7 @@ namespace _911_RD.Administracion
                 DialogResult dr = frmunidad.ShowDialog();
                 if (dr == DialogResult.OK)
                 {
-                    //txt_idemple.Text = frmunidad.dataGridView1.CurrentRow.Cells[0].Value.ToString();
+                    txt_idemple.Text = frmunidad.dataGridView1.CurrentRow.Cells[3].Value.ToString();
 
                 }
             }
@@ -215,6 +215,12 @@ namespace _911_RD.Administracion
         private void btn_enviar_Click(object sender, EventArgs e)
         {
              this.DialogResult = DialogResult.OK;
+        }
+
+        private void dataGridView1_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dataGridView1.Rows.Count > 0)
+                this.DialogResult = DialogResult.OK;
         }
     }
 }

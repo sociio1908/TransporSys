@@ -29,6 +29,7 @@ namespace _911_RD.Administracion
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -37,7 +38,6 @@ namespace _911_RD.Administracion
             this.label3 = new System.Windows.Forms.Label();
             this.txt_descripcion = new _911_RD.ErrorTxtBox();
             this.txt_nombre = new _911_RD.ErrorTxtBox();
-            this.label7 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.id_eme = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -45,12 +45,14 @@ namespace _911_RD.Administracion
             this.estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label13 = new System.Windows.Forms.Label();
             this.txt_filtro = new _911_RD.ErrorTxtBox();
-            this.cb_estado = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btn_enviar = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.cb_estado = new System.Windows.Forms.ComboBox();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.btn_buscar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // label15
@@ -60,7 +62,7 @@ namespace _911_RD.Administracion
             // 
             // btn_guardar
             // 
-            this.btn_guardar.Location = new System.Drawing.Point(568, 51);
+            this.btn_guardar.Location = new System.Drawing.Point(18, 305);
             this.btn_guardar.Click += new System.EventHandler(this.btn_guardar_Click);
             // 
             // lbl_titulo
@@ -70,13 +72,13 @@ namespace _911_RD.Administracion
             // 
             // btn_limpiar
             // 
-            this.btn_limpiar.Location = new System.Drawing.Point(568, 123);
+            this.btn_limpiar.Location = new System.Drawing.Point(163, 305);
             this.btn_limpiar.Size = new System.Drawing.Size(139, 50);
             this.btn_limpiar.Click += new System.EventHandler(this.btn_limpiar_Click);
             // 
             // btn_salir
             // 
-            this.btn_salir.Location = new System.Drawing.Point(568, 197);
+            this.btn_salir.Location = new System.Drawing.Point(308, 305);
             this.btn_salir.Size = new System.Drawing.Size(139, 50);
             // 
             // label9
@@ -91,7 +93,8 @@ namespace _911_RD.Administracion
             // 
             this.btn_buscar.BackColor = System.Drawing.Color.CornflowerBlue;
             this.btn_buscar.Image = global::_911_RD.Properties.Resources.search;
-            this.btn_buscar.Location = new System.Drawing.Point(255, 291);
+            this.btn_buscar.Location = new System.Drawing.Point(308, 372);
+            this.btn_buscar.Click += new System.EventHandler(this.btn_buscar_Click);
             // 
             // label1
             // 
@@ -110,7 +113,7 @@ namespace _911_RD.Administracion
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label3.Location = new System.Drawing.Point(21, 121);
+            this.label3.Location = new System.Drawing.Point(21, 97);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(95, 16);
             this.label3.TabIndex = 160;
@@ -121,7 +124,7 @@ namespace _911_RD.Administracion
             this.txt_descripcion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txt_descripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.txt_descripcion.Limpiar = true;
-            this.txt_descripcion.Location = new System.Drawing.Point(24, 142);
+            this.txt_descripcion.Location = new System.Drawing.Point(24, 118);
             this.txt_descripcion.Name = "txt_descripcion";
             this.txt_descripcion.Size = new System.Drawing.Size(165, 26);
             this.txt_descripcion.SoloNumeros = false;
@@ -140,18 +143,6 @@ namespace _911_RD.Administracion
             this.txt_nombre.TabIndex = 162;
             this.txt_nombre.Validar = true;
             this.txt_nombre.TextChanged += new System.EventHandler(this.txt_nombre_TextChanged);
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label7.Location = new System.Drawing.Point(318, 39);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(58, 16);
-            this.label7.TabIndex = 178;
-            this.label7.Text = "ESTADO";
-            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // dataGridView1
             // 
@@ -188,7 +179,7 @@ namespace _911_RD.Administracion
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.EnableHeadersVisualStyles = false;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 324);
+            this.dataGridView1.Location = new System.Drawing.Point(18, 404);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
@@ -208,9 +199,10 @@ namespace _911_RD.Administracion
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
             this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(695, 152);
+            this.dataGridView1.Size = new System.Drawing.Size(501, 159);
             this.dataGridView1.TabIndex = 179;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.dataGridView1.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentDoubleClick);
             // 
             // id_eme
             // 
@@ -249,7 +241,7 @@ namespace _911_RD.Administracion
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label13.Location = new System.Drawing.Point(15, 297);
+            this.label13.Location = new System.Drawing.Point(21, 378);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(76, 16);
             this.label13.TabIndex = 185;
@@ -263,14 +255,42 @@ namespace _911_RD.Administracion
             this.txt_filtro.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txt_filtro.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.txt_filtro.Limpiar = false;
-            this.txt_filtro.Location = new System.Drawing.Point(97, 291);
+            this.txt_filtro.Location = new System.Drawing.Point(103, 372);
             this.txt_filtro.Name = "txt_filtro";
-            this.txt_filtro.Size = new System.Drawing.Size(152, 26);
+            this.txt_filtro.Size = new System.Drawing.Size(239, 26);
             this.txt_filtro.SoloNumeros = false;
             this.txt_filtro.TabIndex = 184;
             this.txt_filtro.Validar = false;
             this.txt_filtro.TextChanged += new System.EventHandler(this.txt_filtro_TextChanged);
             this.txt_filtro.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txt_filtro_KeyUp);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.label7);
+            this.groupBox1.Controls.Add(this.cb_estado);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.txt_nombre);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.txt_descripcion);
+            this.groupBox1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
+            this.groupBox1.ForeColor = System.Drawing.Color.Firebrick;
+            this.groupBox1.Location = new System.Drawing.Point(18, 46);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(501, 227);
+            this.groupBox1.TabIndex = 186;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "DATOS GENERALES";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label7.Location = new System.Drawing.Point(21, 160);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(58, 16);
+            this.label7.TabIndex = 202;
+            this.label7.Text = "ESTADO";
             // 
             // cb_estado
             // 
@@ -279,53 +299,20 @@ namespace _911_RD.Administracion
             this.cb_estado.Items.AddRange(new object[] {
             "ACTIVO",
             "INACTIVO"});
-            this.cb_estado.Location = new System.Drawing.Point(321, 58);
+            this.cb_estado.Location = new System.Drawing.Point(24, 179);
             this.cb_estado.Name = "cb_estado";
             this.cb_estado.Size = new System.Drawing.Size(146, 28);
-            this.cb_estado.TabIndex = 177;
-            this.cb_estado.SelectedIndexChanged += new System.EventHandler(this.cb_estado_SelectedIndexChanged);
+            this.cb_estado.TabIndex = 201;
             // 
-            // groupBox1
+            // errorProvider1
             // 
-            this.groupBox1.Controls.Add(this.btn_enviar);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.txt_nombre);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.txt_descripcion);
-            this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.cb_estado);
-            this.groupBox1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
-            this.groupBox1.ForeColor = System.Drawing.Color.Firebrick;
-            this.groupBox1.Location = new System.Drawing.Point(18, 46);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(501, 201);
-            this.groupBox1.TabIndex = 186;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "DATOS GENERALES";
-            // 
-            // btn_enviar
-            // 
-            this.btn_enviar.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.btn_enviar.BackColor = System.Drawing.Color.RoyalBlue;
-            this.btn_enviar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_enviar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_enviar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_enviar.ForeColor = System.Drawing.Color.White;
-            this.btn_enviar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_enviar.Location = new System.Drawing.Point(321, 121);
-            this.btn_enviar.Name = "btn_enviar";
-            this.btn_enviar.Size = new System.Drawing.Size(146, 50);
-            this.btn_enviar.TabIndex = 200;
-            this.btn_enviar.Text = "SELECCIONAR";
-            this.btn_enviar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btn_enviar.UseVisualStyleBackColor = false;
-            this.btn_enviar.Click += new System.EventHandler(this.btn_eliminar_Click);
+            this.errorProvider1.ContainerControl = this;
             // 
             // FrmCategoria
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(742, 488);
+            this.ClientSize = new System.Drawing.Size(563, 575);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.txt_filtro);
@@ -349,6 +336,7 @@ namespace _911_RD.Administracion
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -360,7 +348,6 @@ namespace _911_RD.Administracion
         private System.Windows.Forms.Label label3;
         public ErrorTxtBox txt_descripcion;
         public ErrorTxtBox txt_nombre;
-        private System.Windows.Forms.Label label7;
         public System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn id_eme;
         private System.Windows.Forms.DataGridViewTextBoxColumn categoria;
@@ -368,8 +355,9 @@ namespace _911_RD.Administracion
         private System.Windows.Forms.DataGridViewTextBoxColumn estado;
         private System.Windows.Forms.Label label13;
         private ErrorTxtBox txt_filtro;
-        private System.Windows.Forms.ComboBox cb_estado;
         private System.Windows.Forms.GroupBox groupBox1;
-        public System.Windows.Forms.Button btn_enviar;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ComboBox cb_estado;
     }
 }

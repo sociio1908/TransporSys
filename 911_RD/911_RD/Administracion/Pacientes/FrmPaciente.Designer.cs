@@ -29,14 +29,28 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label2 = new System.Windows.Forms.Label();
             this.cb_tipoIdent = new System.Windows.Forms.ComboBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.id_ter = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id_persona = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id_nacionalidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id_tipo_identificacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id_eme = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SOLICITUD = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cedula = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nacionalidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sexo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.seguro = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.peso = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabla_direccion = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -85,20 +99,6 @@
             this.label10 = new System.Windows.Forms.Label();
             this.txt_seguro = new _911_RD.ErrorTxtBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.id_ter = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.id_persona = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.id_nacionalidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.id_tipo_identificacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.id_eme = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SOLICITUD = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cedula = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nacionalidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sexo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.seguro = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.peso = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.btn_buscar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabla_direccion)).BeginInit();
@@ -179,14 +179,14 @@
             this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.Firebrick;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.Firebrick;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridView1.ColumnHeadersHeight = 40;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id_ter,
@@ -203,14 +203,14 @@
             this.seguro,
             this.peso,
             this.estado});
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle13.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle8;
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.GridColor = System.Drawing.Color.White;
             this.dataGridView1.Location = new System.Drawing.Point(6, 496);
@@ -218,28 +218,138 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle15.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.DodgerBlue;
-            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.White;
-            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.DodgerBlue;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.White;
+            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle10;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(1076, 269);
             this.dataGridView1.TabIndex = 274;
             this.dataGridView1.TabStop = false;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentDoubleClick);
+            // 
+            // id_ter
+            // 
+            this.id_ter.HeaderText = "id_tercero";
+            this.id_ter.Name = "id_ter";
+            this.id_ter.ReadOnly = true;
+            this.id_ter.Visible = false;
+            // 
+            // id_persona
+            // 
+            this.id_persona.HeaderText = "id_persona";
+            this.id_persona.Name = "id_persona";
+            this.id_persona.ReadOnly = true;
+            this.id_persona.Visible = false;
+            // 
+            // id_nacionalidad
+            // 
+            this.id_nacionalidad.HeaderText = "id_nacionalidad";
+            this.id_nacionalidad.Name = "id_nacionalidad";
+            this.id_nacionalidad.ReadOnly = true;
+            this.id_nacionalidad.Visible = false;
+            // 
+            // id_tipo_identificacion
+            // 
+            this.id_tipo_identificacion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.id_tipo_identificacion.HeaderText = "id_tipo_identificacion";
+            this.id_tipo_identificacion.Name = "id_tipo_identificacion";
+            this.id_tipo_identificacion.ReadOnly = true;
+            this.id_tipo_identificacion.Visible = false;
+            // 
+            // id_eme
+            // 
+            this.id_eme.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.id_eme.DefaultCellStyle = dataGridViewCellStyle7;
+            this.id_eme.FillWeight = 20F;
+            this.id_eme.HeaderText = "ID";
+            this.id_eme.Name = "id_eme";
+            this.id_eme.ReadOnly = true;
+            // 
+            // SOLICITUD
+            // 
+            this.SOLICITUD.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.SOLICITUD.FillWeight = 90F;
+            this.SOLICITUD.HeaderText = "NOMBRE";
+            this.SOLICITUD.Name = "SOLICITUD";
+            this.SOLICITUD.ReadOnly = true;
+            // 
+            // apellido
+            // 
+            this.apellido.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.apellido.FillWeight = 90F;
+            this.apellido.HeaderText = "APELLIDO";
+            this.apellido.Name = "apellido";
+            this.apellido.ReadOnly = true;
+            // 
+            // fecha
+            // 
+            this.fecha.FillWeight = 70F;
+            this.fecha.HeaderText = "FECHA NACIMIENTO";
+            this.fecha.Name = "fecha";
+            this.fecha.ReadOnly = true;
+            // 
+            // cedula
+            // 
+            this.cedula.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.cedula.FillWeight = 70F;
+            this.cedula.HeaderText = "IDENTIFICACION";
+            this.cedula.Name = "cedula";
+            this.cedula.ReadOnly = true;
+            // 
+            // nacionalidad
+            // 
+            this.nacionalidad.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.nacionalidad.FillWeight = 60F;
+            this.nacionalidad.HeaderText = "NACIONALIDAD";
+            this.nacionalidad.Name = "nacionalidad";
+            this.nacionalidad.ReadOnly = true;
+            // 
+            // sexo
+            // 
+            this.sexo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.sexo.FillWeight = 50F;
+            this.sexo.HeaderText = "SEXO";
+            this.sexo.Name = "sexo";
+            this.sexo.ReadOnly = true;
+            this.sexo.Width = 63;
+            // 
+            // seguro
+            // 
+            this.seguro.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.seguro.FillWeight = 60F;
+            this.seguro.HeaderText = "NUM-SEGURO";
+            this.seguro.Name = "seguro";
+            this.seguro.ReadOnly = true;
+            // 
+            // peso
+            // 
+            this.peso.FillWeight = 40F;
+            this.peso.HeaderText = "PESO";
+            this.peso.Name = "peso";
+            this.peso.ReadOnly = true;
+            // 
+            // estado
+            // 
+            this.estado.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.estado.FillWeight = 40F;
+            this.estado.HeaderText = "ESTADO";
+            this.estado.Name = "estado";
+            this.estado.ReadOnly = true;
             // 
             // tabla_direccion
             // 
@@ -844,116 +954,6 @@
             this.label11.TabIndex = 294;
             this.label11.Text = "Lbs";
             // 
-            // id_ter
-            // 
-            this.id_ter.HeaderText = "id_tercero";
-            this.id_ter.Name = "id_ter";
-            this.id_ter.ReadOnly = true;
-            this.id_ter.Visible = false;
-            // 
-            // id_persona
-            // 
-            this.id_persona.HeaderText = "id_persona";
-            this.id_persona.Name = "id_persona";
-            this.id_persona.ReadOnly = true;
-            this.id_persona.Visible = false;
-            // 
-            // id_nacionalidad
-            // 
-            this.id_nacionalidad.HeaderText = "id_nacionalidad";
-            this.id_nacionalidad.Name = "id_nacionalidad";
-            this.id_nacionalidad.ReadOnly = true;
-            this.id_nacionalidad.Visible = false;
-            // 
-            // id_tipo_identificacion
-            // 
-            this.id_tipo_identificacion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.id_tipo_identificacion.HeaderText = "id_tipo_identificacion";
-            this.id_tipo_identificacion.Name = "id_tipo_identificacion";
-            this.id_tipo_identificacion.ReadOnly = true;
-            this.id_tipo_identificacion.Visible = false;
-            // 
-            // id_eme
-            // 
-            this.id_eme.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.id_eme.DefaultCellStyle = dataGridViewCellStyle12;
-            this.id_eme.FillWeight = 20F;
-            this.id_eme.HeaderText = "ID";
-            this.id_eme.Name = "id_eme";
-            this.id_eme.ReadOnly = true;
-            // 
-            // SOLICITUD
-            // 
-            this.SOLICITUD.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.SOLICITUD.FillWeight = 90F;
-            this.SOLICITUD.HeaderText = "NOMBRE";
-            this.SOLICITUD.Name = "SOLICITUD";
-            this.SOLICITUD.ReadOnly = true;
-            // 
-            // apellido
-            // 
-            this.apellido.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.apellido.FillWeight = 90F;
-            this.apellido.HeaderText = "APELLIDO";
-            this.apellido.Name = "apellido";
-            this.apellido.ReadOnly = true;
-            // 
-            // fecha
-            // 
-            this.fecha.FillWeight = 70F;
-            this.fecha.HeaderText = "FECHA NACIMIENTO";
-            this.fecha.Name = "fecha";
-            this.fecha.ReadOnly = true;
-            // 
-            // cedula
-            // 
-            this.cedula.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.cedula.FillWeight = 70F;
-            this.cedula.HeaderText = "IDENTIFICACION";
-            this.cedula.Name = "cedula";
-            this.cedula.ReadOnly = true;
-            // 
-            // nacionalidad
-            // 
-            this.nacionalidad.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.nacionalidad.FillWeight = 60F;
-            this.nacionalidad.HeaderText = "NACIONALIDAD";
-            this.nacionalidad.Name = "nacionalidad";
-            this.nacionalidad.ReadOnly = true;
-            // 
-            // sexo
-            // 
-            this.sexo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.sexo.FillWeight = 50F;
-            this.sexo.HeaderText = "SEXO";
-            this.sexo.Name = "sexo";
-            this.sexo.ReadOnly = true;
-            this.sexo.Width = 63;
-            // 
-            // seguro
-            // 
-            this.seguro.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.seguro.FillWeight = 60F;
-            this.seguro.HeaderText = "NUM-SEGURO";
-            this.seguro.Name = "seguro";
-            this.seguro.ReadOnly = true;
-            // 
-            // peso
-            // 
-            this.peso.FillWeight = 40F;
-            this.peso.HeaderText = "PESO";
-            this.peso.Name = "peso";
-            this.peso.ReadOnly = true;
-            // 
-            // estado
-            // 
-            this.estado.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.estado.FillWeight = 40F;
-            this.estado.HeaderText = "ESTADO";
-            this.estado.Name = "estado";
-            this.estado.ReadOnly = true;
-            // 
             // FrmPaciente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1004,7 +1004,7 @@
             this.Controls.Add(this.cb_estado);
             this.Name = "FrmPaciente";
             this.Text = "S";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.FrmPaciente_Load);
             this.Controls.SetChildIndex(this.cb_estado, 0);
             this.Controls.SetChildIndex(this.label7, 0);
             this.Controls.SetChildIndex(this.txt_filtro, 0);

@@ -17,6 +17,8 @@ namespace _911_RD.Administracion
             InitializeComponent();
             cargarTabla();
             txt_filtro.Focus();
+        
+
         }
 
         private void FrmCategoria_Load(object sender, EventArgs e)
@@ -51,7 +53,16 @@ namespace _911_RD.Administracion
 
         private void btn_guardar_Click(object sender, EventArgs e)
         {
-            InsertarArticulo();
+            if (Utilidades.ValidarFormulario(groupBox1, errorProvider1) == true)
+            {
+
+            }
+            else
+            {
+                InsertarArticulo();
+                id_txt.Text = "";
+            }
+            
         }
 
         private void cargarTabla()
@@ -83,37 +94,43 @@ namespace _911_RD.Administracion
 
             using (TransporSysEntities db = new TransporSysEntities())
             {
-              
-
-                if (id_txt.Text.Trim() == "")
+                try
                 {
-                    CATEGORIAS cate = new CATEGORIAS
+
+                    if (txt_nombre.Text == "" || txt_descripcion.Text == "" || cb_estado.Text == "")
                     {
-                        categoria = txt_nombre.Text.Trim(), 
-                        descripcion = txt_descripcion.Text.Trim(),
-                        estado = cb_estado.SelectedIndex == 0 ? true : false 
-                    };
-                    db.CATEGORIAS.Add(cate);
-                }
-                else
-                {
-
-                    var categoria = db.CATEGORIAS.FirstOrDefault(a => a.id_categoria.ToString() == id_txt.Text.Trim());
-                    
-                    if (categoria != null)
-                    { 
-                        categoria.categoria = txt_nombre.Text.Trim(); 
-                        categoria.descripcion = txt_descripcion.Text.Trim();
-                        categoria.estado = cb_estado.SelectedIndex == 0 ? true : false; 
+                        MessageBox.Show("NINGUN CAMPO PUEDE ESTAR VACIO");
                     }
+                    else
+                   if (id_txt.Text.Trim() == "")
+                    {
+                        CATEGORIAS cate = new CATEGORIAS
+                        {
+                            categoria = txt_nombre.Text.Trim(),
+                            descripcion = txt_descripcion.Text.Trim(),
+                            estado = cb_estado.SelectedIndex == 0 ? true : false
+                        };
+                        db.CATEGORIAS.Add(cate);
+                    }
+                    else
+                    {
+
+                        var categoria = db.CATEGORIAS.FirstOrDefault(a => a.id_categoria.ToString() == id_txt.Text.Trim());
+
+                        if (categoria != null)
+                        {
+                            categoria.categoria = txt_nombre.Text.Trim();
+                            categoria.descripcion = txt_descripcion.Text.Trim();
+                            categoria.estado = cb_estado.SelectedIndex == 0 ? true : false;
+                        }
+                        MessageBox.Show("COMPLETO");
+                    }
+                    db.SaveChanges();
+                    Utilidades.LimpiarControles(this);
+                    cargarTabla();
                 }
-                db.SaveChanges();
-                Utilidades.LimpiarControles(this);
-                cargarTabla();
+                catch (Exception) { }
             }
-
-            MessageBox.Show("");
-
 
         }
 
@@ -211,6 +228,16 @@ namespace _911_RD.Administracion
         {
             dataGridView1.Rows.Clear();
             LlenarDataGrid(txt_filtro.Text.Trim());
+        }
+
+        private void dataGridView1_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            this.DialogResult = DialogResult.OK;
+        }
+
+        private void btn_buscar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

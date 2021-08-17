@@ -872,5 +872,10 @@ namespace _911_RD.Administracion
         {
             this.DialogResult = DialogResult.OK;
         }
+
+        private void FrmPaciente_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

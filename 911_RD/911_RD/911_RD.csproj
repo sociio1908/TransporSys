@@ -407,18 +407,6 @@
     <Compile Include="GPS.cs">
       <DependentUpon>TransporSysEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Harold_\FrmArticulos.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Harold_\FrmArticulos.designer.cs">
-      <DependentUpon>FrmArticulos.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Harold_\FrmCategoria.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Harold_\FrmCategoria.designer.cs">
-      <DependentUpon>FrmCategoria.cs</DependentUpon>
-    </Compile>
     <Compile Include="FrmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -437,23 +425,53 @@
     <Compile Include="frmServicios.Designer.cs">
       <DependentUpon>frmServicios.cs</DependentUpon>
     </Compile>
+    <Compile Include="F_agenda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="F_agenda.Designer.cs">
+      <DependentUpon>F_agenda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Harold_\FrmAdmVentas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Harold_\FrmAdmVentas.designer.cs">
+      <DependentUpon>FrmAdmVentas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Harold_\FrmArticulos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Harold_\FrmArticulos.designer.cs">
+      <DependentUpon>FrmArticulos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Harold_\FrmCategoria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Harold_\FrmCategoria.designer.cs">
+      <DependentUpon>FrmCategoria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Harold_\FrmCompra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Harold_\FrmCompra.designer.cs">
+      <DependentUpon>FrmCompra.cs</DependentUpon>
+    </Compile>
     <Compile Include="Harold_\FrmDescuentos.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Harold_\FrmDescuentos.designer.cs">
       <DependentUpon>FrmDescuentos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Harold_\FrmItebis.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Harold_\FrmItebis.designer.cs">
+      <DependentUpon>FrmItebis.cs</DependentUpon>
+    </Compile>
     <Compile Include="Harold_\FrmUnidadesMD.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Harold_\FrmUnidadesMD.designer.cs">
       <DependentUpon>FrmUnidadesMD.cs</DependentUpon>
-    </Compile>
-    <Compile Include="F_agenda.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="F_agenda.Designer.cs">
-      <DependentUpon>F_agenda.cs</DependentUpon>
     </Compile>
     <Compile Include="Harold_\FrmVentas.cs">
       <SubType>Form</SubType>
@@ -722,12 +740,6 @@
     <EmbeddedResource Include="Administracion\FrmCliente.resx">
       <DependentUpon>FrmCliente.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Harold_\FrmArticulos.resx">
-      <DependentUpon>FrmArticulos.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Harold_\FrmCategoria.resx">
-      <DependentUpon>FrmCategoria.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </EmbeddedResource>
@@ -737,14 +749,29 @@
     <EmbeddedResource Include="frmServicios.resx">
       <DependentUpon>frmServicios.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="F_agenda.resx">
+      <DependentUpon>F_agenda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Harold_\FrmAdmVentas.resx">
+      <DependentUpon>FrmAdmVentas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Harold_\FrmArticulos.resx">
+      <DependentUpon>FrmArticulos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Harold_\FrmCategoria.resx">
+      <DependentUpon>FrmCategoria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Harold_\FrmCompra.resx">
+      <DependentUpon>FrmCompra.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Harold_\FrmDescuentos.resx">
       <DependentUpon>FrmDescuentos.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Harold_\FrmItebis.resx">
+      <DependentUpon>FrmItebis.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Harold_\FrmUnidadesMD.resx">
       <DependentUpon>FrmUnidadesMD.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="F_agenda.resx">
-      <DependentUpon>F_agenda.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Harold_\FrmVentas.resx">
       <DependentUpon>FrmVentas.cs</DependentUpon>
@@ -885,5 +912,6 @@
       <LastGenOutput>TransporSysEntities.cs</LastGenOutput>
     </Content>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
