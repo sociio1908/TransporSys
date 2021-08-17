@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using _911_RD.Administracion;
 using _911_RD.Administracion.Servicios;
+using _911_RD.Administracion.Transporte;
 
 namespace _911_RD
 {
@@ -448,7 +449,7 @@ namespace _911_RD
                 using (TransporSysEntities db = new TransporSysEntities())
                 {
                     VENTA_SERVICIOS vent = new VENTA_SERVICIOS
-                            {
+                    {
                                 //ningun campo vacio
                                 id_paciente = int.Parse(txt_id_cliente.Text.Trim()),
                                 id_empleado = 21,
@@ -458,8 +459,7 @@ namespace _911_RD
                             };
                             db.VENTA_SERVICIOS.Add(vent);
                             db.SaveChanges();
-
-                    int num_fact = db.VENTA_SERVICIOS.Max(a => a.num_fact);
+                            int num_fact = db.VENTA_SERVICIOS.Max(a => a.num_fact);
                             foreach (DataGridViewRow row in dataGridView1.Rows)
                             {
                                 DVENTAS_SERVICIOS Dvent = new DVENTAS_SERVICIOS
@@ -476,11 +476,42 @@ namespace _911_RD
                             }
                             db.SaveChanges();
 
+                    DialogResult dialogResult = MessageBox.Show("Esta factura lleva transporte ?", "Opcion", MessageBoxButtons.YesNo);
+                    if (dialogResult == DialogResult.No)
+                    {
+                        dialogResult = MessageBox.Show("No hay que hacer un viaje?", "Opcion", MessageBoxButtons.YesNo);
+                        if (dialogResult == DialogResult.No)
+                            return;
+                    }
+
+                    using (FrmTransporte Trna = new FrmTransporte())
+                    {
+                        DialogResult dr = Trna.ShowDialog();
+                        if (dr == DialogResult.OK)
+                        {
+                            TRANSPORTE tran = new TRANSPORTE
+                            {
+                                id_conductor = int.Parse(Trna.txt_id_emp.Text),
+                                id_vehiculo = int.Parse(Trna.txt_id_vehiculo.Text),
+                                fecha = Trna.fecha_tra.Value,
+                                num_fact = num_fact.ToString(),
+                                notas_viaje = "",
+                                id_dir_desde = int.Parse(Trna.txt_id_vehiculo.Text),
+                                id_dir_hasta = int.Parse(Trna.txt_id_vehiculo.Text),
+                                estado = 0
+                            };
+                            db.TRANSPORTE.Add(tran);
+                        }
+                        db.SaveChanges();
+                    }
+
+                    }
+
+
+
                     Utilidades.LimpiarControles(this);
                     dataGridView1.Rows.Clear();
-
-
-                }
+                
 
             }catch(Exception sadjfh)
             {

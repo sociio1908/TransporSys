@@ -192,7 +192,6 @@ namespace _911_RD.Administracion.Servicios
             {
                 //error
             }
-
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -223,6 +222,21 @@ namespace _911_RD.Administracion.Servicios
         {
             Utilidades.LimpiarControles(this);
             cargarTabla("");
+        }
+
+        private void txt_id_und_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txt_und_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -400,6 +400,7 @@ namespace _911_RD.Administracion
 
         string tercero = "";
         string persona = "";
+        public string id_conductor = "";
 
         private void CargarCampos()
         {
@@ -436,6 +437,8 @@ namespace _911_RD.Administracion
                         p_conductor.Visible = true;
                         conductor = true;
                         var condu = db.CONDUCTOR.FirstOrDefault(a => a.id_empleado.ToString() == id_txt.Text.Trim());
+                        id_conductor = condu.id_conductor.ToString();
+
                         txt_numlicencia.Text = condu.num_licencia.ToString();
                         fecha_licencia.Value = DateTime.Parse(condu.fecha_vencimiento.ToString());
                     }
@@ -593,8 +596,9 @@ namespace _911_RD.Administracion
         private void dataGridView1_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
 
-            if (e.RowIndex > 0 && dataGridView1.SelectedRows.Count > 0)
+            if (e.RowIndex < 0 && dataGridView1.SelectedRows.Count < 0)
                 return;
+            this.DialogResult = DialogResult.OK;
         }
         
         private void dataGridView1_SelectionChanged(object sender, EventArgs e)

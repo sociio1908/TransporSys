@@ -46,9 +46,23 @@ namespace _911_RD.Administracion.Transporte
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txt_id_desde = new _911_RD.ErrorTxtBox();
             this.txt_desde = new _911_RD.ErrorTxtBox();
+            this.txt_id_hasta = new _911_RD.ErrorTxtBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txt_id_emp = new _911_RD.ErrorTxtBox();
+            this.btn_und = new System.Windows.Forms.PictureBox();
+            this.txt_emp = new _911_RD.ErrorTxtBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.fecha_tra = new System.Windows.Forms.DateTimePicker();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txt_id_vehiculo = new _911_RD.ErrorTxtBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.btn_addDr)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_und)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // btn_salir
@@ -61,7 +75,7 @@ namespace _911_RD.Administracion.Transporte
             this.btn_salir.ForeColor = System.Drawing.Color.White;
             this.btn_salir.Image = global::_911_RD.Properties.Resources.cancel32x32;
             this.btn_salir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_salir.Location = new System.Drawing.Point(314, 459);
+            this.btn_salir.Location = new System.Drawing.Point(314, 594);
             this.btn_salir.Name = "btn_salir";
             this.btn_salir.Size = new System.Drawing.Size(106, 50);
             this.btn_salir.TabIndex = 147;
@@ -80,7 +94,7 @@ namespace _911_RD.Administracion.Transporte
             this.btn_limpiar.ForeColor = System.Drawing.Color.White;
             this.btn_limpiar.Image = global::_911_RD.Properties.Resources.limpiar;
             this.btn_limpiar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_limpiar.Location = new System.Drawing.Point(192, 459);
+            this.btn_limpiar.Location = new System.Drawing.Point(192, 594);
             this.btn_limpiar.Name = "btn_limpiar";
             this.btn_limpiar.Size = new System.Drawing.Size(116, 50);
             this.btn_limpiar.TabIndex = 146;
@@ -105,7 +119,7 @@ namespace _911_RD.Administracion.Transporte
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label9.Location = new System.Drawing.Point(8, 106);
+            this.label9.Location = new System.Drawing.Point(7, 299);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(47, 16);
             this.label9.TabIndex = 144;
@@ -121,7 +135,7 @@ namespace _911_RD.Administracion.Transporte
             this.btn_guardar.ForeColor = System.Drawing.Color.White;
             this.btn_guardar.Image = global::_911_RD.Properties.Resources.save_32x32;
             this.btn_guardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_guardar.Location = new System.Drawing.Point(10, 459);
+            this.btn_guardar.Location = new System.Drawing.Point(10, 594);
             this.btn_guardar.Name = "btn_guardar";
             this.btn_guardar.Size = new System.Drawing.Size(176, 50);
             this.btn_guardar.TabIndex = 143;
@@ -145,9 +159,9 @@ namespace _911_RD.Administracion.Transporte
             // 
             this.btn_addDr.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_addDr.Image = global::_911_RD.Properties.Resources.list2;
-            this.btn_addDr.Location = new System.Drawing.Point(531, 117);
+            this.btn_addDr.Location = new System.Drawing.Point(426, 345);
             this.btn_addDr.Name = "btn_addDr";
-            this.btn_addDr.Size = new System.Drawing.Size(37, 38);
+            this.btn_addDr.Size = new System.Drawing.Size(35, 29);
             this.btn_addDr.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btn_addDr.TabIndex = 163;
             this.btn_addDr.TabStop = false;
@@ -184,7 +198,7 @@ namespace _911_RD.Administracion.Transporte
             this.dataGridView1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.GridColor = System.Drawing.Color.White;
-            this.dataGridView1.Location = new System.Drawing.Point(10, 156);
+            this.dataGridView1.Location = new System.Drawing.Point(10, 380);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
@@ -196,9 +210,10 @@ namespace _911_RD.Administracion.Transporte
             this.dataGridView1.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.WhiteSmoke;
             this.dataGridView1.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(558, 297);
+            this.dataGridView1.Size = new System.Drawing.Size(606, 208);
             this.dataGridView1.TabIndex = 168;
             this.dataGridView1.Visible = false;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentDoubleClick);
             // 
             // dataGridViewTextBoxColumn5
@@ -235,16 +250,16 @@ namespace _911_RD.Administracion.Transporte
             // txt_id_desde
             // 
             this.txt_id_desde.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_id_desde.Enabled = false;
             this.txt_id_desde.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_id_desde.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
             this.txt_id_desde.Limpiar = true;
-            this.txt_id_desde.Location = new System.Drawing.Point(61, 101);
+            this.txt_id_desde.Location = new System.Drawing.Point(60, 295);
             this.txt_id_desde.Name = "txt_id_desde";
             this.txt_id_desde.Size = new System.Drawing.Size(51, 21);
             this.txt_id_desde.SoloNumeros = false;
             this.txt_id_desde.TabIndex = 165;
             this.txt_id_desde.Validar = true;
-            this.txt_id_desde.Visible = false;
             // 
             // txt_desde
             // 
@@ -252,20 +267,176 @@ namespace _911_RD.Administracion.Transporte
             this.txt_desde.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_desde.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
             this.txt_desde.Limpiar = true;
-            this.txt_desde.Location = new System.Drawing.Point(10, 125);
+            this.txt_desde.Location = new System.Drawing.Point(10, 345);
             this.txt_desde.Name = "txt_desde";
-            this.txt_desde.Size = new System.Drawing.Size(515, 29);
+            this.txt_desde.Size = new System.Drawing.Size(410, 29);
             this.txt_desde.SoloNumeros = false;
             this.txt_desde.TabIndex = 148;
             this.txt_desde.Validar = true;
             this.txt_desde.TextChanged += new System.EventHandler(this.id_txt_TextChanged);
+            // 
+            // txt_id_hasta
+            // 
+            this.txt_id_hasta.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_id_hasta.Enabled = false;
+            this.txt_id_hasta.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_id_hasta.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
+            this.txt_id_hasta.Limpiar = true;
+            this.txt_id_hasta.Location = new System.Drawing.Point(170, 294);
+            this.txt_id_hasta.Name = "txt_id_hasta";
+            this.txt_id_hasta.Size = new System.Drawing.Size(51, 21);
+            this.txt_id_hasta.SoloNumeros = false;
+            this.txt_id_hasta.TabIndex = 170;
+            this.txt_id_hasta.Validar = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label1.Location = new System.Drawing.Point(117, 297);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(50, 16);
+            this.label1.TabIndex = 169;
+            this.label1.Text = "HASTA";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label2.Location = new System.Drawing.Point(8, 326);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(179, 16);
+            this.label2.TabIndex = 171;
+            this.label2.Text = "FILTRE LA DIRECCION AQUI";
+            // 
+            // txt_id_emp
+            // 
+            this.txt_id_emp.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_id_emp.Enabled = false;
+            this.txt_id_emp.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.txt_id_emp.Limpiar = true;
+            this.txt_id_emp.Location = new System.Drawing.Point(202, 170);
+            this.txt_id_emp.Name = "txt_id_emp";
+            this.txt_id_emp.Size = new System.Drawing.Size(49, 26);
+            this.txt_id_emp.SoloNumeros = true;
+            this.txt_id_emp.TabIndex = 236;
+            this.txt_id_emp.Validar = true;
+            // 
+            // btn_und
+            // 
+            this.btn_und.BackColor = System.Drawing.Color.LightGreen;
+            this.btn_und.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_und.Image = global::_911_RD.Properties.Resources.search;
+            this.btn_und.Location = new System.Drawing.Point(165, 170);
+            this.btn_und.Name = "btn_und";
+            this.btn_und.Size = new System.Drawing.Size(34, 26);
+            this.btn_und.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btn_und.TabIndex = 235;
+            this.btn_und.TabStop = false;
+            this.btn_und.Click += new System.EventHandler(this.btn_und_Click);
+            // 
+            // txt_emp
+            // 
+            this.txt_emp.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_emp.Enabled = false;
+            this.txt_emp.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.txt_emp.Limpiar = true;
+            this.txt_emp.Location = new System.Drawing.Point(12, 170);
+            this.txt_emp.Name = "txt_emp";
+            this.txt_emp.Size = new System.Drawing.Size(187, 26);
+            this.txt_emp.SoloNumeros = false;
+            this.txt_emp.TabIndex = 234;
+            this.txt_emp.Validar = true;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label3.Location = new System.Drawing.Point(12, 151);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(91, 16);
+            this.label3.TabIndex = 233;
+            this.label3.Text = "CONDUCTOR";
+            // 
+            // fecha_tra
+            // 
+            this.fecha_tra.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fecha_tra.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.fecha_tra.Location = new System.Drawing.Point(15, 114);
+            this.fecha_tra.Name = "fecha_tra";
+            this.fecha_tra.Size = new System.Drawing.Size(134, 22);
+            this.fecha_tra.TabIndex = 240;
+            this.fecha_tra.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label4.Location = new System.Drawing.Point(12, 98);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(104, 16);
+            this.label4.TabIndex = 239;
+            this.label4.Text = "FECHA Y HORA";
+            // 
+            // txt_id_vehiculo
+            // 
+            this.txt_id_vehiculo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_id_vehiculo.Enabled = false;
+            this.txt_id_vehiculo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.txt_id_vehiculo.Limpiar = true;
+            this.txt_id_vehiculo.Location = new System.Drawing.Point(18, 235);
+            this.txt_id_vehiculo.Name = "txt_id_vehiculo";
+            this.txt_id_vehiculo.Size = new System.Drawing.Size(74, 26);
+            this.txt_id_vehiculo.SoloNumeros = true;
+            this.txt_id_vehiculo.TabIndex = 244;
+            this.txt_id_vehiculo.Validar = true;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.LightGreen;
+            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox1.Image = global::_911_RD.Properties.Resources.search;
+            this.pictureBox1.Location = new System.Drawing.Point(98, 235);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(34, 26);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 243;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label5.Location = new System.Drawing.Point(12, 216);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(89, 16);
+            this.label5.TabIndex = 241;
+            this.label5.Text = "ID VEHICULO";
             // 
             // FrmTransporte
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(675, 521);
+            this.ClientSize = new System.Drawing.Size(687, 656);
+            this.Controls.Add(this.txt_id_vehiculo);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.fecha_tra);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.txt_id_emp);
+            this.Controls.Add(this.btn_und);
+            this.Controls.Add(this.txt_emp);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.txt_id_hasta);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.txt_id_desde);
             this.Controls.Add(this.btn_addDr);
@@ -283,6 +454,8 @@ namespace _911_RD.Administracion.Transporte
             ((System.ComponentModel.ISupportInitialize)(this.btn_addDr)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_und)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -306,5 +479,17 @@ namespace _911_RD.Administracion.Transporte
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        public ErrorTxtBox txt_id_hasta;
+        public System.Windows.Forms.Label label1;
+        public System.Windows.Forms.Label label2;
+        public System.Windows.Forms.PictureBox btn_und;
+        private ErrorTxtBox txt_emp;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        public ErrorTxtBox txt_id_emp;
+        public System.Windows.Forms.DateTimePicker fecha_tra;
+        public ErrorTxtBox txt_id_vehiculo;
+        public System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label label5;
     }
 }

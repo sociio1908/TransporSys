@@ -726,10 +726,12 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.TIPONCF' no tiene definida n
     <Property Name="id_transporte" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="id_conductor" Type="int" />
     <Property Name="num_fact" Type="nchar" MaxLength="10" />
-    <Property Name="fecha_transporte" Type="datetime" Nullable="false" />
+    <Property Name="fecha" Type="datetime" Nullable="false" />
     <Property Name="notas_viaje" Type="varchar" MaxLength="50" />
-    <Property Name="id_direccion" Type="int" />
+    <Property Name="id_dir_desde" Type="int" />
+    <Property Name="id_dir_hasta" Type="int" />
     <Property Name="estado" Type="int" Nullable="false" />
+    <Property Name="id_vehiculo" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="UNIDADES_DE_MEDIDA">
     <Key>

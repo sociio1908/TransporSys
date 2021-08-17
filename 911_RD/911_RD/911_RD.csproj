@@ -467,11 +467,23 @@
     <Compile Include="Harold_\FrmItebis.designer.cs">
       <DependentUpon>FrmItebis.cs</DependentUpon>
     </Compile>
+    <Compile Include="Harold_\FrmTipoUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Harold_\FrmTipoUsuario.designer.cs">
+      <DependentUpon>FrmTipoUsuario.cs</DependentUpon>
+    </Compile>
     <Compile Include="Harold_\FrmUnidadesMD.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Harold_\FrmUnidadesMD.designer.cs">
       <DependentUpon>FrmUnidadesMD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Harold_\FrmUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Harold_\FrmUsuarios.designer.cs">
+      <DependentUpon>FrmUsuarios.cs</DependentUpon>
     </Compile>
     <Compile Include="Harold_\FrmVentas.cs">
       <SubType>Form</SubType>
@@ -770,8 +782,14 @@
     <EmbeddedResource Include="Harold_\FrmItebis.resx">
       <DependentUpon>FrmItebis.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Harold_\FrmTipoUsuario.resx">
+      <DependentUpon>FrmTipoUsuario.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Harold_\FrmUnidadesMD.resx">
       <DependentUpon>FrmUnidadesMD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Harold_\FrmUsuarios.resx">
+      <DependentUpon>FrmUsuarios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Harold_\FrmVentas.resx">
       <DependentUpon>FrmVentas.cs</DependentUpon>

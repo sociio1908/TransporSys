@@ -161,11 +161,11 @@ namespace _911_RD.Administracion.Vehiculo
 
                     id_txt.Text = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
 
-                    txt_marca.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
-                    txt_id_marca.Text = db.MARCA.FirstOrDefault(a => a.marca1.ToString() == txt_marca.Text.Trim()).id_marca.ToString();
-                    
-                    txt_modelo.Text = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
-                    txt_id_modelo.Text = db.MODELO.FirstOrDefault(a => a.modelo1.ToString() == txt_modelo.Text.Trim()).id_modelo.ToString();
+                    txt_marca.Text = dataGridView1.SelectedRows[0].Cells[4].Value.ToString();
+                    txt_id_marca.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
+
+                    txt_modelo.Text = dataGridView1.SelectedRows[0].Cells[5].Value.ToString();
+                    txt_id_modelo.Text = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
 
                     txt_num_chasis.Text = dataGridView1.SelectedRows[0].Cells[3].Value.ToString();
                     txt_num_placa.Text = dataGridView1.SelectedRows[0].Cells[4].Value.ToString();
@@ -368,6 +368,11 @@ namespace _911_RD.Administracion.Vehiculo
         {
             if(dataGridView1.Rows.Count>0)
             cargarTabla(txt_filtro.Text.Trim());
+        }
+
+        private void dataGridView1_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            this.DialogResult = DialogResult.OK;
         }
     }
 }

@@ -728,10 +728,12 @@
           <ScalarProperty Name="id_transporte" ColumnName="id_transporte" />
           <ScalarProperty Name="id_conductor" ColumnName="id_conductor" />
           <ScalarProperty Name="num_fact" ColumnName="num_fact" />
-          <ScalarProperty Name="fecha_transporte" ColumnName="fecha_transporte" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
           <ScalarProperty Name="notas_viaje" ColumnName="notas_viaje" />
-          <ScalarProperty Name="id_direccion" ColumnName="id_direccion" />
+          <ScalarProperty Name="id_dir_desde" ColumnName="id_dir_desde" />
+          <ScalarProperty Name="id_dir_hasta" ColumnName="id_dir_hasta" />
           <ScalarProperty Name="estado" ColumnName="estado" />
+          <ScalarProperty Name="id_vehiculo" ColumnName="id_vehiculo" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

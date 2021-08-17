@@ -131,6 +131,7 @@ namespace _911_RD.Administracion.Servicios
             this.txt_id_und.SoloNumeros = true;
             this.txt_id_und.TabIndex = 232;
             this.txt_id_und.Validar = true;
+            this.txt_id_und.TextChanged += new System.EventHandler(this.txt_id_und_TextChanged);
             // 
             // btn_und
             // 
@@ -157,6 +158,7 @@ namespace _911_RD.Administracion.Servicios
             this.txt_und.SoloNumeros = false;
             this.txt_und.TabIndex = 230;
             this.txt_und.Validar = true;
+            this.txt_und.TextChanged += new System.EventHandler(this.txt_und_TextChanged);
             // 
             // txt_id_tipo_servicio
             // 
@@ -219,6 +221,7 @@ namespace _911_RD.Administracion.Servicios
             this.label1.Size = new System.Drawing.Size(133, 16);
             this.label1.TabIndex = 225;
             this.label1.Text = "UNIDAD DE MEDIDA";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label22
             // 

@@ -731,10 +731,12 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.TIPONCF' no tiene definida n
           <Property Name="id_transporte" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="id_conductor" Type="int" />
           <Property Name="num_fact" Type="nchar" MaxLength="10" />
-          <Property Name="fecha_transporte" Type="datetime" Nullable="false" />
+          <Property Name="fecha" Type="datetime" Nullable="false" />
           <Property Name="notas_viaje" Type="varchar" MaxLength="50" />
-          <Property Name="id_direccion" Type="int" />
+          <Property Name="id_dir_desde" Type="int" />
+          <Property Name="id_dir_hasta" Type="int" />
           <Property Name="estado" Type="int" Nullable="false" />
+          <Property Name="id_vehiculo" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="UNIDADES_DE_MEDIDA">
           <Key>
@@ -2919,10 +2921,12 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.VEHICULOS_VS_CONDUCTOR' no t
           <Property Name="id_transporte" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="id_conductor" Type="Int32" />
           <Property Name="num_fact" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="fecha_transporte" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="fecha" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="notas_viaje" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="id_direccion" Type="Int32" />
+          <Property Name="id_dir_desde" Type="Int32" />
+          <Property Name="id_dir_hasta" Type="Int32" />
           <Property Name="estado" Type="Int32" Nullable="false" />
+          <Property Name="id_vehiculo" Type="Int32" Nullable="false" />
           <NavigationProperty Name="CONDUCTOR" Relationship="Self.FK_conducto" FromRole="TRANSPORTE" ToRole="CONDUCTOR" />
         </EntityType>
         <EntityType Name="UNIDADES_DE_MEDIDA">
@@ -5012,10 +5016,12 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.VEHICULOS_VS_CONDUCTOR' no t
                 <ScalarProperty Name="id_transporte" ColumnName="id_transporte" />
                 <ScalarProperty Name="id_conductor" ColumnName="id_conductor" />
                 <ScalarProperty Name="num_fact" ColumnName="num_fact" />
-                <ScalarProperty Name="fecha_transporte" ColumnName="fecha_transporte" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
                 <ScalarProperty Name="notas_viaje" ColumnName="notas_viaje" />
-                <ScalarProperty Name="id_direccion" ColumnName="id_direccion" />
+                <ScalarProperty Name="id_dir_desde" ColumnName="id_dir_desde" />
+                <ScalarProperty Name="id_dir_hasta" ColumnName="id_dir_hasta" />
                 <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="id_vehiculo" ColumnName="id_vehiculo" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
