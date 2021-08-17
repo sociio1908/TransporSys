@@ -10,8 +10,8 @@ namespace _911_RD
 {
     class Utilidades
     {
-        //INGJERINELMENDO;initial catalog=TransporSys;integrated security=True;
-        public static SqlConnection conexion = new SqlConnection("server=DESKTOP-5TGSPHM ; database=TransporSys ; integrated security = true");
+                                                             //INGJERINELMENDO;initial catalog=TransporSys;integrated security=True;
+        public static SqlConnection conexion = new SqlConnection("server=INGJERINELMENDO ; database=TransporSys ; integrated security = true");
 
         public static Tuple<string, string, Boolean> ExtraerDireccion(string link1)
         {
@@ -19,35 +19,35 @@ namespace _911_RD
             string latitud = null, longitud = null;
             try
             {
-                char[] data = link1.ToCharArray();
-                int coma = 0;
+            char[] data = link1.ToCharArray();
+            int coma = 0;
 
-                for (int a = 0; a < data.Length; a++)
+            for (int a = 0; a < data.Length; a++)
+            {
+                if (data[a].ToString().Equals("@") || (coma > 0 && coma < 3))
                 {
-                    if (data[a].ToString().Equals("@") || (coma > 0 && coma < 3))
+                    if (coma == 1 && data[a].ToString() != (","))
                     {
-                        if (coma == 1 && data[a].ToString() != (","))
-                        {
-                            latitud += data[a].ToString();
-                        }
-                        if (coma == 2 && data[a].ToString() != (","))
-                        {
-                            longitud += data[a].ToString();
-                        }
-                        if (data[a].ToString().Equals("@"))
-                        {
-                            coma++;
-                        }
-                        if (data[a].ToString().Equals(","))
-                        {
-                            coma++;
-                        }
+                        latitud += data[a].ToString();
+                    }
+                    if (coma == 2 && data[a].ToString() != (","))
+                    {
+                        longitud += data[a].ToString();
+                    }
+                    if (data[a].ToString().Equals("@"))
+                    {
+                        coma++;
+                    }
+                    if (data[a].ToString().Equals(","))
+                    {
+                        coma++;
                     }
                 }
-                latitud.Trim();
-                longitud.Trim();
-                latitud.Replace(",", "");
-                longitud.Replace(",", "");
+            }
+            latitud.Trim();
+            longitud.Trim();
+            latitud.Replace(",", "");
+            longitud.Replace(",", "");
                 if ((latitud != null || latitud != "") && (longitud != null || longitud != ""))
                     listo = true;
 
@@ -81,12 +81,11 @@ namespace _911_RD
                         }
                         if (obj.SoloNumeros == true)
                         {
-                            int cont = 0, letrasEncontradas = 0;
+                            int cont = 0, letrasEncontradas=0;
                             foreach (char letra in obj.Text.Trim())
                             {
 
-                                if (char.IsLetter(obj.Text.Trim(), cont))
-                                {
+                                if(char.IsLetter(obj.Text.Trim(), cont)){
                                     letrasEncontradas++;
                                 }
                                 cont++;
@@ -116,6 +115,48 @@ namespace _911_RD
                 return false;
             }
             return true;
+        }
+
+        public class Encrypt
+        {
+            public static string GetSHA256(string str)
+            {
+                SHA256 sha256 = SHA256Managed.Create();
+                ASCIIEncoding encoding = new ASCIIEncoding();
+                byte[] stream = null;
+                StringBuilder sb = new StringBuilder();
+                stream = sha256.ComputeHash(encoding.GetBytes(str));
+                for (int i = 0; i < stream.Length; i++) sb.AppendFormat("{0:x2}", stream[i]);
+                return sb.ToString();
+            }
+
+        }
+
+        public static int CalcularEdad(DateTime fechaNacimiento)
+        {
+            // Obtiene la fecha actual:
+            DateTime fechaActual = DateTime.Today;
+
+            // Comprueba que la se haya introducido una fecha válida; si 
+            // la fecha de nacimiento es mayor a la fecha actual se muestra mensaje 
+            // de advertencia:
+            if (fechaNacimiento > fechaActual)
+            {
+                return -1;
+            }
+            else
+            {
+                int edad = fechaActual.Year - fechaNacimiento.Year;
+
+                // Comprueba que el mes de la fecha de nacimiento es mayor 
+                // que el mes de la fecha actual:
+                if (fechaNacimiento.Month > fechaActual.Month)
+                {
+                    --edad;
+                }
+
+                return edad;
+            }
         }
 
 
@@ -160,37 +201,58 @@ namespace _911_RD
 
         }
 
+        public static int idusuario = 0;
+        public static String nomusuario = "";
+        public static string puestouser = "";
+        public static string Apeuser = "";
 
-        public class Encrypt
+        public static int obtenerEmple(int id)
         {
-            public static string GetSHA256(string str)
+            int idEm = 0;
+
+            using (TransporSysEntities db = new TransporSysEntities())
             {
-                SHA256 sha256 = SHA256Managed.Create();
-                ASCIIEncoding encoding = new ASCIIEncoding();
-                byte[] stream = null;
-                StringBuilder sb = new StringBuilder();
-                stream = sha256.ComputeHash(encoding.GetBytes(str));
-                for (int i = 0; i < stream.Length; i++) sb.AppendFormat("{0:x2}", stream[i]);
-                return sb.ToString();
+                try
+                {
+                    var usuario = from u in db.USUARIOS
+                                  join ide in db.EMPLEADOS on u.id_empleado equals ide.id_empleado
+                                  
+
+                                  select new
+                                  {
+                                      //aqui cargas los campos de tu tabla
+                                      idEmp = u.id_empleado,
+                                      NomEmpl = ide.PERSONAS.TERCEROS.nombre,
+                                      
+                                  };
+
+                    foreach (var Ouser in usuario)
+                    {
+                        idEm = Ouser.idEmp;
+                    }
+
+                }
+                catch (Exception aas)
+                {
+                    //Posible error
+                }
             }
 
+            return idEm;
         }
 
-
-
-
         const int WM_CLOSE = 0x0010;
-        [System.Runtime.InteropServices.DllImport("user32.dll", SetLastError = true)]
-        static extern IntPtr FindWindow(string lpClassName, string lpWindowName);
-        [System.Runtime.InteropServices.DllImport("user32.dll",
-            CharSet = System.Runtime.InteropServices.CharSet.Auto)]
-        static extern IntPtr SendMessage(IntPtr hWnd, UInt32 Msg, IntPtr wParam, IntPtr lParam);
-        [System.Runtime.InteropServices.DllImport("user32.dll", SetLastError = true,
-            CharSet = System.Runtime.InteropServices.CharSet.Auto)]
-        static extern IntPtr FindWindowEx(IntPtr hwndParent, IntPtr hwndChildAfter,
-            string lpszClass, string lpszWindow);
-        [System.Runtime.InteropServices.DllImport("user32.dll", SetLastError = true,
-            CharSet = System.Runtime.InteropServices.CharSet.Auto)]
-        static extern bool SetWindowText(IntPtr hwnd, string lpString);
+            [System.Runtime.InteropServices.DllImport("user32.dll", SetLastError = true)]
+            static extern IntPtr FindWindow(string lpClassName, string lpWindowName);
+            [System.Runtime.InteropServices.DllImport("user32.dll",
+                CharSet = System.Runtime.InteropServices.CharSet.Auto)]
+            static extern IntPtr SendMessage(IntPtr hWnd, UInt32 Msg, IntPtr wParam, IntPtr lParam);
+            [System.Runtime.InteropServices.DllImport("user32.dll", SetLastError = true,
+                CharSet = System.Runtime.InteropServices.CharSet.Auto)]
+            static extern IntPtr FindWindowEx(IntPtr hwndParent, IntPtr hwndChildAfter,
+                string lpszClass, string lpszWindow);
+            [System.Runtime.InteropServices.DllImport("user32.dll", SetLastError = true,
+                CharSet = System.Runtime.InteropServices.CharSet.Auto)]
+            static extern bool SetWindowText(IntPtr hwnd, string lpString);
     }
 }

@@ -24,9 +24,7 @@ namespace _911_RD.Administracion
         }
         int cont = 0;
         MetodosCRUD metodoscrud = new MetodosCRUD();
-
-
-
+         
         FrmDireccionNativa FrmDir = new FrmDireccionNativa();
         //void cargarFormDIr()
         //{
@@ -44,7 +42,6 @@ namespace _911_RD.Administracion
             {
                 using (TransporSysEntities db = new TransporSysEntities())
             {
-                
                     var listS = db.SEXOS;
                     cb_sexo.Items.Clear();
                         foreach (var sEXOS in listS){ 
@@ -356,8 +353,6 @@ namespace _911_RD.Administracion
         private void btn_limpiar_Click(object sender, EventArgs e)
         {
 
-            MessageBox.Show("ENTRO");
-
             //  dataGridView1.Rows.Clear();
             Utilidades.LimpiarControles(this);
 
@@ -368,12 +363,7 @@ namespace _911_RD.Administracion
 
 
         //Seleccionar direccion
-        private void btn_busc_dir_Click(object sender, EventArgs e)
-        {
-         
-
-        }
-
+   
         private void cb_nacionalidades_SelectedIndexChanged(object sender, EventArgs e)
         {
           
@@ -381,26 +371,11 @@ namespace _911_RD.Administracion
 
         DataTable DatosEm = new DataTable();
 
-        private void cb_puestos_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            
-        }
+ 
 
         private void txt_numlicencia_TextChanged(object sender, EventArgs e)
         {
 
-        }
-
-        private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
-        {
-            if (this.dataGridView1.Columns[e.ColumnIndex].Name == "salario")
-            {
-                if (e.Value != null)
-                {
-                            e.CellStyle.BackColor = Color.LightSalmon;
-                            e.CellStyle.ForeColor = Color.Black;
-                }
-            }
         }
 
         private void btn_filtro_Click(object sender, EventArgs e)
@@ -425,6 +400,7 @@ namespace _911_RD.Administracion
 
         string tercero = "";
         string persona = "";
+        public string id_conductor = "";
 
         private void CargarCampos()
         {
@@ -461,6 +437,8 @@ namespace _911_RD.Administracion
                         p_conductor.Visible = true;
                         conductor = true;
                         var condu = db.CONDUCTOR.FirstOrDefault(a => a.id_empleado.ToString() == id_txt.Text.Trim());
+                        id_conductor = condu.id_conductor.ToString();
+
                         txt_numlicencia.Text = condu.num_licencia.ToString();
                         fecha_licencia.Value = DateTime.Parse(condu.fecha_vencimiento.ToString());
                     }
@@ -530,7 +508,6 @@ namespace _911_RD.Administracion
                     tabla.Rows.RemoveAt(row.Index);
                     _id = int.Parse(row.Cells[0].Value.ToString());
                 }
-                MessageBox.Show(": " + _id);
             }
                
             if (_id > 0)
@@ -619,8 +596,9 @@ namespace _911_RD.Administracion
         private void dataGridView1_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
 
-            if (dataGridView1.Rows.Count > 0)
-                this.DialogResult = DialogResult.OK;
+            if (e.RowIndex < 0 && dataGridView1.SelectedRows.Count < 0)
+                return;
+            this.DialogResult = DialogResult.OK;
         }
         
         private void dataGridView1_SelectionChanged(object sender, EventArgs e)

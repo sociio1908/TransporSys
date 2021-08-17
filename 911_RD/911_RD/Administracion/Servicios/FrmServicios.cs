@@ -80,6 +80,7 @@ namespace _911_RD.Administracion.Servicios
                     }
 
                     if (list != null)
+                        dataGridView1.Rows.Add("", "", "", "", "", "", "","", "", "");
                         foreach (var OPuestos in list)
                         {
                             dataGridView1.Rows.Add(OPuestos.id_categoria.ToString(), OPuestos.id_und.ToString(),
@@ -170,7 +171,6 @@ namespace _911_RD.Administracion.Servicios
             {
                 //error
             }
-
         }
 
         private void btn_modelo_Click(object sender, EventArgs e)
@@ -192,7 +192,6 @@ namespace _911_RD.Administracion.Servicios
             {
                 //error
             }
-
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -209,6 +208,7 @@ namespace _911_RD.Administracion.Servicios
                 MessageBox.Show("ESTE SERVICIO NO ESTA ACTIVO.");
                 return;
             }
+
             this.DialogResult = DialogResult.OK;
         }
 
@@ -222,6 +222,21 @@ namespace _911_RD.Administracion.Servicios
         {
             Utilidades.LimpiarControles(this);
             cargarTabla("");
+        }
+
+        private void txt_id_und_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txt_und_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -14,7 +14,7 @@ namespace _911_RD.Administracion.Vehiculo
         public FrmVehiculos()
         {
             InitializeComponent();
-            cargarTabla();
+            cargarTabla("");
         }
 
         private void btn_marca_Click(object sender, EventArgs e)
@@ -140,7 +140,7 @@ namespace _911_RD.Administracion.Vehiculo
                     db.SaveChanges();
                 }
                 Utilidades.LimpiarControles(this);
-                cargarTabla();
+                cargarTabla("");
                 MessageBox.Show("Proceso exitoso.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             }
@@ -161,11 +161,11 @@ namespace _911_RD.Administracion.Vehiculo
 
                     id_txt.Text = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
 
-                    txt_marca.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
-                    txt_id_marca.Text = db.MARCA.FirstOrDefault(a => a.marca1.ToString() == txt_marca.Text.Trim()).id_marca.ToString();
-                    
-                    txt_modelo.Text = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
-                    txt_id_modelo.Text = db.MODELO.FirstOrDefault(a => a.modelo1.ToString() == txt_modelo.Text.Trim()).id_modelo.ToString();
+                    txt_marca.Text = dataGridView1.SelectedRows[0].Cells[4].Value.ToString();
+                    txt_id_marca.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
+
+                    txt_modelo.Text = dataGridView1.SelectedRows[0].Cells[5].Value.ToString();
+                    txt_id_modelo.Text = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
 
                     txt_num_chasis.Text = dataGridView1.SelectedRows[0].Cells[3].Value.ToString();
                     txt_num_placa.Text = dataGridView1.SelectedRows[0].Cells[4].Value.ToString();
@@ -187,26 +187,70 @@ namespace _911_RD.Administracion.Vehiculo
             }
         }
 
-        private void cargarTabla()
+        private void cargarTabla(string condicion)
         {
             using (TransporSysEntities db = new TransporSysEntities())
             {
+
                 try
                 {
-                    dataGridView1.Rows.Clear();
-                    var list = db.VEHICULO;
-                    foreach (var OPuestos in list)
-                    {
-                            string combustible = db.COMBUSTIBLE.FirstOrDefault(a => a.id_combustible == OPuestos.id_combustible).descripcion.ToString();
-                            dataGridView1.Rows.Add(OPuestos.id_vehiculo.ToString(), OPuestos.MARCA.marca1.ToString(), OPuestos.MODELO.modelo1.ToString(), OPuestos.num_chasis.ToString(),
-                            OPuestos.num_placa.ToString(), OPuestos.num_gps.ToString(), OPuestos.ano_fabricacion.ToString(), combustible, OPuestos.gasto_galon_combustible_kilometro.ToString(), OPuestos.fecha_ingreso.ToString()
-                           ,OPuestos.estado==true? "ACTIVO": "INACTIVO"
-                        );
-                    }
+                        var empleado = from ve in db.VEHICULO
+                                       join mar in db.MARCA on ve.id_marca equals mar.id_marca
+                                       join mo in db.MODELO on ve.id_modelo equals mo.id_modelo
+                                       join com in db.COMBUSTIBLE on ve.id_combustible equals com.id_combustible
+                                       select new
+                                       {
+                                           id_combustible = ve.id_combustible,
+                                           id_marca = ve.id_marca,
+                                           id_modelo = ve.id_modelo,
+                                           id_vehiculo = ve.id_vehiculo,
+                                           marca = mar.marca1,
+                                           modelo = mo.modelo1,
+                                           combustible = com.descripcion,
+                                           chasis = ve.num_chasis,
+                                           placa = ve.num_placa,
+                                           gps = ve.num_gps,
+                                           fecha_f = ve.ano_fabricacion,
+                                           rendimiento = ve.gasto_galon_combustible_kilometro,
+                                           fecha_ing = ve.fecha_ingreso,
+                                           Estado = ve.estado
+                                       };
+                   
+                        if(condicion!="")
+                        {
+                            empleado = empleado.Where(em => (em.chasis.ToString().Contains(condicion) || em.placa.Contains(condicion)) || em.marca.Contains(condicion) || em.modelo.Contains(condicion) || em.gps.Contains(condicion));
+                        }
+
+                        if (empleado != null)
+                        {
+                            dataGridView1.Rows.Clear();
+                            dataGridView1.Rows.Add("", "", "", "", "", "", "", "", "", "", "", "", "", "", "");
+                            foreach (var emple in empleado.ToList())
+                            {
+                                dataGridView1.Rows.Add(
+                                 emple.id_combustible.ToString(),
+                                 emple.id_marca.ToString(),
+                                 emple.id_modelo.ToString(),
+                                 emple.id_vehiculo.ToString(),
+                                 emple.marca.ToString(),
+                                 emple.modelo.ToString(),
+                                 emple.chasis.ToString(),
+                                 emple.placa.ToString(),
+                                 emple.gps.ToString(),
+                                 emple.fecha_f.ToString(),
+                                 emple.combustible.ToString(),
+                                 emple.rendimiento.ToString(),
+                                 emple.fecha_ing.ToString(),
+                                 emple.Estado == true ? "DISPONIBLE" : "OCUPADO"
+                                );
+
+                            }
+
+                        }
+                    
                 }
-                catch (Exception dfg)
+                catch (Exception ass)
                 {
-                    // MessageBox.Show(lbl_titulo + " ERRORRRR");
 
                 }
             }
@@ -303,6 +347,32 @@ namespace _911_RD.Administracion.Vehiculo
 
             CargarCampos();
 
+        }
+
+        private void txt_id_marca_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txt_marca_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label22_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txt_filtro_TextChanged(object sender, EventArgs e)
+        {
+            if(dataGridView1.Rows.Count>0)
+            cargarTabla(txt_filtro.Text.Trim());
+        }
+
+        private void dataGridView1_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            this.DialogResult = DialogResult.OK;
         }
     }
 }

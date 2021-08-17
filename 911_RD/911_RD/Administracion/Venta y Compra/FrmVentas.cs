@@ -299,7 +299,7 @@ namespace _911_RD.Administracion
                             //ningun campo vacio
                             num_fact = Convert.ToInt32(txt_numfactura.Text.Trim()),
                             id_cliente = Convert.ToInt32(txt_id_cliente.Text.Trim()),
-                            id_empleado = 1,
+                            id_empleado = Utilidades.idusuario,
                             fecha = DateTime.Now,
                             estado = true,
                         };

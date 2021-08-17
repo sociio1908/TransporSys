@@ -37,9 +37,24 @@ namespace _911_RD
                           where d.usuario == txt_user.Text
                           && d.contrasena == sPass
                           select d;
+                foreach (var ouser in lst)
+                {
+                    string a = ouser.usuario;
+                    
+                    int b = ouser.id_empleado;
+                    
+                    if (a == txt_user.Text.Trim())
+                    {
+                        Utilidades.nomusuario = ouser.EMPLEADOS.PERSONAS.TERCEROS.nombre;
+                        Utilidades.idusuario = ouser.id_empleado;
+                        Utilidades.puestouser = ouser.EMPLEADOS.PUESTOS.puesto;
+                        Utilidades.Apeuser = ouser.EMPLEADOS.PERSONAS.apellido;
+                    }
+                }
 
                 if (lst.Count() > 0)
                 {
+
                     FrmPrincipal frmp = new FrmPrincipal();
                     frmp.ShowDialog();
                     this.Close();

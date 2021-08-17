@@ -233,7 +233,7 @@ namespace _911_RD.Administracion
                             //ningun campo vacio
                             num_compra = Convert.ToInt32(txt_numfactura.Text.Trim()),
                             id_suplidor = 1,
-                            id_empleado = 1,
+                            id_empleado = Utilidades.idusuario,
                             fecha = DateTime.Now,
                             estado = true,
                         };

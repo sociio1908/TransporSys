@@ -243,6 +243,12 @@
     <Compile Include="Administracion\Venta y Compra\FrmAdmVentas.Designer.cs">
       <DependentUpon>FrmAdmVentas.cs</DependentUpon>
     </Compile>
+    <Compile Include="Administracion\Venta y Compra\FrmAdmVenta_Servios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administracion\Venta y Compra\FrmAdmVenta_Servios.Designer.cs">
+      <DependentUpon>FrmAdmVenta_Servios.cs</DependentUpon>
+    </Compile>
     <Compile Include="Administracion\Venta y Compra\FrmArticulos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -736,6 +742,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Administracion\Venta y Compra\FrmAdmVentas.resx">
       <DependentUpon>FrmAdmVentas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administracion\Venta y Compra\FrmAdmVenta_Servios.resx">
+      <DependentUpon>FrmAdmVenta_Servios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Administracion\Venta y Compra\FrmArticulos.resx">
       <DependentUpon>FrmArticulos.cs</DependentUpon>

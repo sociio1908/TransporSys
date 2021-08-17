@@ -68,7 +68,7 @@ namespace _911_RD.Administracion
                                       descuento = dv.descuento,
                                       Fecha = v.fecha,
                                       idArt = dv.id_articulo,
-                                      NomEmpl = v.id_empleado,
+                                      NomEmpl = v.EMPLEADOS.PERSONAS.TERCEROS.nombre,
                                       v.estado,
                                   };
                     

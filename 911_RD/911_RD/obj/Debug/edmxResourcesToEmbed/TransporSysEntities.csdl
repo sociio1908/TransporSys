@@ -781,12 +781,12 @@
     <Property Name="id_transporte" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="id_conductor" Type="Int32" />
     <Property Name="num_fact" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-    <Property Name="ida_vuelta" Type="Boolean" />
-    <Property Name="fecha_transporte" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="fecha" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="notas_viaje" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="id_direccionA" Type="Int32" />
-    <Property Name="id_direccionB" Type="Int32" />
+    <Property Name="id_dir_desde" Type="Int32" />
+    <Property Name="id_dir_hasta" Type="Int32" />
     <Property Name="estado" Type="Int32" Nullable="false" />
+    <Property Name="id_vehiculo" Type="Int32" Nullable="false" />
     <NavigationProperty Name="CONDUCTOR" Relationship="Self.FK_conducto" FromRole="TRANSPORTE" ToRole="CONDUCTOR" />
   </EntityType>
   <EntityType Name="UNIDADES_DE_MEDIDA">
@@ -838,11 +838,10 @@
       <PropertyRef Name="num_fact" />
     </Key>
     <Property Name="num_fact" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="id_cliente" Type="Int32" Nullable="false" />
     <Property Name="id_empleado" Type="Int32" Nullable="false" />
     <Property Name="fecha" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="id_paciente" Type="Int32" Nullable="false" />
-    <Property Name="tipo_pago" Type="Int32" Nullable="false" />
+    <Property Name="id_tipo_pago" Type="Int32" Nullable="false" />
     <Property Name="estado" Type="Boolean" Nullable="false" />
   </EntityType>
   <EntityType Name="VENTAS">

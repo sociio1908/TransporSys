@@ -669,6 +669,7 @@ namespace _911_RD.Administracion
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+            CargarCampos();
         }
 
         private void btn_telefono_Click(object sender, EventArgs e)
@@ -869,7 +870,12 @@ namespace _911_RD.Administracion
 
         private void dataGridView1_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            CargarCampos();
+            this.DialogResult = DialogResult.OK;
+        }
+
+        private void FrmPaciente_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

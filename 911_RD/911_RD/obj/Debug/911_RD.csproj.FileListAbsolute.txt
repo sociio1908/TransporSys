@@ -260,3 +260,4 @@ C:\Users\harol\Documents\GitHub\TransporSys\911_RD\911_RD\bin\Debug\SqlServerTyp
 C:\Users\harol\Documents\GitHub\TransporSys\911_RD\911_RD\bin\Debug\SqlServerTypes\x86\msvcr120.dll
 C:\Users\harol\Documents\GitHub\TransporSys\911_RD\911_RD\bin\Debug\SqlServerTypes\x86\SqlServerSpatial140.dll
 C:\Users\harol\Documents\GitHub\TransporSys\911_RD\911_RD\bin\Debug\Microsoft.SqlServer.Types.dll
+C:\Users\harol\Documents\GitHub\TransporSys\911_RD\911_RD\obj\Debug\_911_RD.Administracion.Venta_y_Compra.FrmAdmVenta_Servios.resources

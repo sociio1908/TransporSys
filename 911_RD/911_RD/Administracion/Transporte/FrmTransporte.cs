@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using _911_RD.Administracion.Vehiculo;
 
 namespace _911_RD.Administracion.Transporte
 {
@@ -96,58 +97,62 @@ namespace _911_RD.Administracion.Transporte
             this.Close();
         }
 
-        private void txt_hasta_TextChanged(object sender, EventArgs e)
-        {
-
-            cargarTabla(txt_hasta.Text.Trim(), dataGridView2);
-        }
+   
 
         private void btn_Cargo_Click(object sender, EventArgs e)
         {
             FrmDireccionNativa direcciones = new FrmDireccionNativa();
             direcciones.ShowDialog();
             dataGridView1.Rows.Clear();
-            dataGridView2.Rows.Clear();
         }
 
         void CargarCampos(DataGridView dataGrid, string txt)
         {
             try
             {
-                if (txt == "Desde")
+                if (txt_id_desde.Text=="")
                 {
                     txt_id_desde.Text = dataGrid.SelectedRows[0].Cells[0].Value.ToString();
                     txt_desde.Text = dataGrid.SelectedRows[0].Cells[1].Value.ToString() + ", " +
                     dataGrid.SelectedRows[0].Cells[2].Value.ToString() + ", " +
                     dataGrid.SelectedRows[0].Cells[3].Value.ToString();
+                    txt_desde.Text = "";
                 }
-                else
+                else if (txt_id_hasta.Text == "" && txt_id_desde.Text != "" && (txt_id_desde.Text != dataGrid.SelectedRows[0].Cells[0].Value.ToString()))
                 {
-
                     txt_id_hasta.Text = dataGrid.SelectedRows[0].Cells[0].Value.ToString();
-                    txt_hasta.Text = dataGrid.SelectedRows[0].Cells[1].Value.ToString() + ", " +
+                    txt_desde.Text = dataGrid.SelectedRows[0].Cells[1].Value.ToString() + ", " +
                     dataGrid.SelectedRows[0].Cells[2].Value.ToString() + ", " +
                     dataGrid.SelectedRows[0].Cells[3].Value.ToString();
+                    txt_desde.Text = "";
                 }
+
             }
             catch (Exception ea)
             {
                 //
             }
+
+
         }
 
-        private void dataGridView2_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        
+
+        void Fecha(DateTime fecha, DateTime hora)
         {
 
-            if (e.RowIndex > 0 && dataGridView1.SelectedRows.Count > 0)
-                CargarCampos(dataGridView2, "Hasta");
+            DateTime fechaConvertida = fecha.AddHours(hora.Hour).AddMinutes(hora.Minute).AddSeconds(hora.Second);
+
+
         }
+
 
         private void dataGridView1_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
 
             if (e.RowIndex > 0 && dataGridView1.SelectedRows.Count > 0)
                 CargarCampos(dataGridView1, "Desde");
+
         }
 
         private void btn_limpiar_Click(object sender, EventArgs e)
@@ -157,15 +162,64 @@ namespace _911_RD.Administracion.Transporte
 
         private void btn_guardar_Click(object sender, EventArgs e)
         {
-            if (Utilidades.ValidarFormulario(this, errorProvider1) || (txt_id_desde.Text.Trim().Equals(txt_id_hasta.Text.Trim())))
+            if (Utilidades.ValidarFormulario(this, errorProvider1))
             {
-                MessageBox.Show("Seleccione la direccion y no pueden ser la misma en caso de ida y vuelta.");
-
+                MessageBox.Show("Seleccione la direccion.");
                 return;
-
             }
 
+            this.DialogResult = DialogResult.OK;
 
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+            MessageBox.Show(fecha_tra.Value.ToString());
+        }
+
+        private void btn_und_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                using (FrmEmpleado frmCargo = new FrmEmpleado())
+                {
+                    DialogResult dr = frmCargo.ShowDialog();
+                    if (dr == DialogResult.OK)
+                    {
+                        txt_id_emp.Text = frmCargo.id_conductor;
+                        txt_emp.Text = frmCargo.txt_nombre.Text;
+                    }
+                }
+            }
+            catch (Exception asa)
+            {
+                //error
+            }
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                using (FrmVehiculos frmCargo = new FrmVehiculos())
+                {
+                    DialogResult dr = frmCargo.ShowDialog();
+                    if (dr == DialogResult.OK)
+                    {
+                        txt_id_vehiculo.Text = frmCargo.dataGridView1.CurrentRow.Cells[3].Value.ToString();
+                    }
+                }
+            }
+            catch (Exception asa)
+            {
+                //error
+            }
         }
     }
 }
