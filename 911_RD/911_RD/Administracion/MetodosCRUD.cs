@@ -150,6 +150,49 @@ namespace _911_RD.Administracion
             return id_result;
         }
 
+        public int crudPaciente(string id_paciente, string id_persona, string peso, string seguro, bool estadoT)
+        {
+            int id_result = 0;
+            try
+            {
+                //TransporSysEntities
+                using (TransporSysEntities db = new TransporSysEntities())
+                {
+                    var terceroquery = db.PACIENTES.FirstOrDefault(a => a.id_paciente.ToString() == id_paciente.Trim());
+                    if (terceroquery == null)
+                    { 
+                        PACIENTES eMPLEADOS = new PACIENTES
+                        {
+                            id_persona = int.Parse(id_persona.Trim()),
+                            peso = double.Parse(peso.Trim()),
+                            num_seguro = seguro.Trim(), 
+                            estado = true
+                        };
+                        db.PACIENTES.Add(eMPLEADOS);
+                    }
+                    else
+                    {
+                        terceroquery.id_persona = int.Parse(id_persona.Trim());
+                        terceroquery.peso = double.Parse(peso.Trim());
+                        terceroquery.num_seguro = seguro.Trim();
+                        terceroquery.estado = true;
+                        id_result = terceroquery.id_paciente;
+                    }
+                    db.SaveChanges(); if (terceroquery == null)
+                        if (terceroquery == null)
+                        {
+                            id_result = db.PACIENTES.Max(x => x.id_paciente);
+                        }
+                }
+            }
+            catch (Exception asd)
+            {
+
+            }
+
+            return id_result;
+        }
+
 
         public int crudCliente(string id_tercero, string id_tipo, bool estadoT)
         {

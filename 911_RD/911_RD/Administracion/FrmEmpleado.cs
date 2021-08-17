@@ -619,8 +619,8 @@ namespace _911_RD.Administracion
         private void dataGridView1_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
 
-            if (e.RowIndex > 0 && dataGridView1.SelectedRows.Count > 0)
-                return;
+            if (dataGridView1.Rows.Count > 0)
+                this.DialogResult = DialogResult.OK;
         }
         
         private void dataGridView1_SelectionChanged(object sender, EventArgs e)

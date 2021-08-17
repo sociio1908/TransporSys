@@ -79,6 +79,7 @@ namespace _911_RD
         public virtual DbSet<SUPLIDORES> SUPLIDORES { get; set; }
         public virtual DbSet<TELEFONOS> TELEFONOS { get; set; }
         public virtual DbSet<TERCEROS> TERCEROS { get; set; }
+        public virtual DbSet<TERCEROS_VS_ALERGIAS> TERCEROS_VS_ALERGIAS { get; set; }
         public virtual DbSet<TERCEROS_VS_DIRECCIONES> TERCEROS_VS_DIRECCIONES { get; set; }
         public virtual DbSet<TERCEROS_VS_EMAILS> TERCEROS_VS_EMAILS { get; set; }
         public virtual DbSet<TERCEROS_VS_IDENTIFICACIONES> TERCEROS_VS_IDENTIFICACIONES { get; set; }

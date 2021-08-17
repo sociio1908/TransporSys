@@ -255,3 +255,8 @@ C:\Users\harol\Documents\GitHub\TransporSys\911_RD\911_RD\obj\Debug\_911_RD.Admi
 C:\Users\harol\Documents\GitHub\TransporSys\911_RD\911_RD\obj\Debug\_911_RD.Administracion.Servicios.FrmTipoServicios.resources
 C:\Users\harol\Documents\GitHub\TransporSys\911_RD\911_RD\obj\Debug\_911_RD.Administracion.Configuracion.FrmConfiguracion.resources
 C:\Users\harol\Documents\GitHub\TransporSys\911_RD\911_RD\obj\Debug\_911_RD.Administracion.Configuracion.FrmEmpresa.resources
+C:\Users\harol\Documents\GitHub\TransporSys\911_RD\911_RD\bin\Debug\SqlServerTypes\x64\msvcr120.dll
+C:\Users\harol\Documents\GitHub\TransporSys\911_RD\911_RD\bin\Debug\SqlServerTypes\x64\SqlServerSpatial140.dll
+C:\Users\harol\Documents\GitHub\TransporSys\911_RD\911_RD\bin\Debug\SqlServerTypes\x86\msvcr120.dll
+C:\Users\harol\Documents\GitHub\TransporSys\911_RD\911_RD\bin\Debug\SqlServerTypes\x86\SqlServerSpatial140.dll
+C:\Users\harol\Documents\GitHub\TransporSys\911_RD\911_RD\bin\Debug\Microsoft.SqlServer.Types.dll
