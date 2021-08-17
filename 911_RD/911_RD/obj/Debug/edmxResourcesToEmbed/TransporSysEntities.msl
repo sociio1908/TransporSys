@@ -455,12 +455,6 @@
           <ScalarProperty Name="id_persona" ColumnName="id_persona" />
           <ScalarProperty Name="peso" ColumnName="peso" />
           <ScalarProperty Name="num_seguro" ColumnName="num_seguro" />
-          <ScalarProperty Name="fecha_nacimiento" ColumnName="fecha_nacimiento" />
-          <ScalarProperty Name="alergias" ColumnName="alergias" />
-          <ScalarProperty Name="estado_covid" ColumnName="estado_covid" />
-          <ScalarProperty Name="epilectico" ColumnName="epilectico" />
-          <ScalarProperty Name="historial_medico" ColumnName="historial_medico" />
-          <ScalarProperty Name="medicamentos" ColumnName="medicamentos" />
           <ScalarProperty Name="estado" ColumnName="estado" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -586,6 +580,15 @@
         <MappingFragment StoreEntitySet="TERCEROS">
           <ScalarProperty Name="id_tercero" ColumnName="id_tercero" />
           <ScalarProperty Name="nombre" ColumnName="nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TERCEROS_VS_ALERGIAS">
+      <EntityTypeMapping TypeName="TransporSysModel.TERCEROS_VS_ALERGIAS">
+        <MappingFragment StoreEntitySet="TERCEROS_VS_ALERGIAS">
+          <ScalarProperty Name="id_tercero" ColumnName="id_tercero" />
+          <ScalarProperty Name="id_alergia" ColumnName="id_alergia" />
+          <ScalarProperty Name="id_vs" ColumnName="id_vs" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

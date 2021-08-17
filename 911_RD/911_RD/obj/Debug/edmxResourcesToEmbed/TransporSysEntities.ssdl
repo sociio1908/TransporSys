@@ -462,12 +462,6 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.HISTORIAL_PRECIO_COMBUSTIBLE
     <Property Name="id_persona" Type="int" Nullable="false" />
     <Property Name="peso" Type="float" Nullable="false" />
     <Property Name="num_seguro" Type="varchar" MaxLength="50" />
-    <Property Name="fecha_nacimiento" Type="datetime" Nullable="false" />
-    <Property Name="alergias" Type="varchar" MaxLength="200" />
-    <Property Name="estado_covid" Type="int" Nullable="false" />
-    <Property Name="epilectico" Type="bit" Nullable="false" />
-    <Property Name="historial_medico" Type="varchar" MaxLength="200" Nullable="false" />
-    <Property Name="medicamentos" Type="varchar" MaxLength="200" Nullable="false" />
     <Property Name="estado" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="PAISES">
@@ -591,6 +585,14 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.PUESTOS_VS_DEPARTAMENTOS' no
     </Key>
     <Property Name="id_tercero" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="nombre" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TERCEROS_VS_ALERGIAS">
+    <Key>
+      <PropertyRef Name="id_vs" />
+    </Key>
+    <Property Name="id_tercero" Type="int" Nullable="false" />
+    <Property Name="id_alergia" Type="int" Nullable="false" />
+    <Property Name="id_vs" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
   </EntityType>
   <EntityType Name="TERCEROS_VS_DIRECCIONES">
     <Key>
@@ -802,7 +804,7 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.VEHICULOS_VS_CONDUCTOR' no t
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__EMPLEADOS__id_pu__51300E55">
+  <Association Name="FK__EMPLEADOS__id_pu__531856C7">
     <End Role="PUESTOS" Type="Self.PUESTOS" Multiplicity="1" />
     <End Role="EMPLEADOS" Type="Self.EMPLEADOS" Multiplicity="*" />
     <ReferentialConstraint>
@@ -1594,6 +1596,30 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.VEHICULOS_VS_CONDUCTOR' no t
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_TERCEROS_VS_ALERGIAS_ALERGIAS">
+    <End Role="ALERGIAS" Type="Self.ALERGIAS" Multiplicity="1" />
+    <End Role="TERCEROS_VS_ALERGIAS" Type="Self.TERCEROS_VS_ALERGIAS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ALERGIAS">
+        <PropertyRef Name="id_alergia" />
+      </Principal>
+      <Dependent Role="TERCEROS_VS_ALERGIAS">
+        <PropertyRef Name="id_alergia" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TERCEROS_VS_ALERGIAS_TERCEROS">
+    <End Role="TERCEROS" Type="Self.TERCEROS" Multiplicity="1" />
+    <End Role="TERCEROS_VS_ALERGIAS" Type="Self.TERCEROS_VS_ALERGIAS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TERCEROS">
+        <PropertyRef Name="id_tercero" />
+      </Principal>
+      <Dependent Role="TERCEROS_VS_ALERGIAS">
+        <PropertyRef Name="id_tercero" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_USUARIOS_EMPLEADOS">
     <End Role="EMPLEADOS" Type="Self.EMPLEADOS" Multiplicity="1" />
     <End Role="USUARIOS" Type="Self.USUARIOS" Multiplicity="*" />
@@ -1722,6 +1748,7 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.VEHICULOS_VS_CONDUCTOR' no t
     <EntitySet Name="SUPLIDORES" EntityType="Self.SUPLIDORES" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TELEFONOS" EntityType="Self.TELEFONOS" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TERCEROS" EntityType="Self.TERCEROS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TERCEROS_VS_ALERGIAS" EntityType="Self.TERCEROS_VS_ALERGIAS" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TERCEROS_VS_DIRECCIONES" EntityType="Self.TERCEROS_VS_DIRECCIONES" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TERCEROS_VS_EMAILS" EntityType="Self.TERCEROS_VS_EMAILS" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TERCEROS_VS_IDENTIFICACIONES" EntityType="Self.TERCEROS_VS_IDENTIFICACIONES" Schema="dbo" store:Type="Tables" />
@@ -1786,7 +1813,7 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.VEHICULOS_VS_CONDUCTOR' no t
       <End Role="EMPLEADOS" EntitySet="EMPLEADOS" />
       <End Role="CONDUCTOR" EntitySet="CONDUCTOR" />
     </AssociationSet>
-    <AssociationSet Name="FK__EMPLEADOS__id_pu__51300E55" Association="Self.FK__EMPLEADOS__id_pu__51300E55">
+    <AssociationSet Name="FK__EMPLEADOS__id_pu__531856C7" Association="Self.FK__EMPLEADOS__id_pu__531856C7">
       <End Role="PUESTOS" EntitySet="PUESTOS" />
       <End Role="EMPLEADOS" EntitySet="EMPLEADOS" />
     </AssociationSet>
@@ -2049,6 +2076,14 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.VEHICULOS_VS_CONDUCTOR' no t
     <AssociationSet Name="FK_TELEFONOS_TIPOS_TELEFONOS" Association="Self.FK_TELEFONOS_TIPOS_TELEFONOS">
       <End Role="TIPOS_TELEFONOS" EntitySet="TIPOS_TELEFONOS" />
       <End Role="TELEFONOS" EntitySet="TELEFONOS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TERCEROS_VS_ALERGIAS_ALERGIAS" Association="Self.FK_TERCEROS_VS_ALERGIAS_ALERGIAS">
+      <End Role="ALERGIAS" EntitySet="ALERGIAS" />
+      <End Role="TERCEROS_VS_ALERGIAS" EntitySet="TERCEROS_VS_ALERGIAS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TERCEROS_VS_ALERGIAS_TERCEROS" Association="Self.FK_TERCEROS_VS_ALERGIAS_TERCEROS">
+      <End Role="TERCEROS" EntitySet="TERCEROS" />
+      <End Role="TERCEROS_VS_ALERGIAS" EntitySet="TERCEROS_VS_ALERGIAS" />
     </AssociationSet>
     <AssociationSet Name="FK_USUARIOS_EMPLEADOS" Association="Self.FK_USUARIOS_EMPLEADOS">
       <End Role="EMPLEADOS" EntitySet="EMPLEADOS" />

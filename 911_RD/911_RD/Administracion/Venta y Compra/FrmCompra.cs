@@ -291,7 +291,7 @@ namespace _911_RD.Administracion
 
         private void ActualizarStock()
         {
-            using (var db = new TransporSysEntities())
+            using (TransporSysEntities db = new TransporSysEntities())
             {
                 try
                 {

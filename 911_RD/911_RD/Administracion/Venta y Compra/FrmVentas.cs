@@ -257,18 +257,27 @@ namespace _911_RD.Administracion
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            CargarFact();
-            InsertarDetalle();
-            ActualizarStock();
-            dataGridView1.Rows.Clear();
-            if (dataGridView1.Rows.Count == 0)
+            if (Utilidades.ValidarFormulario(groupBoxCli, errorProvider1) == true)
             {
-                txt_subtotal.Text = "0.0";
-                txt_impuesto.Text = "0.0";
-                txt_impTotal.Text = "0.0";
-                txt_descuento.Text = "0.0";
+                MessageBox.Show("Por favor completar todos los campos");
             }
-            nofactura();
+            else
+            {
+                CargarFact();
+                InsertarDetalle();
+                ActualizarStock();
+                dataGridView1.Rows.Clear();
+                if (dataGridView1.Rows.Count == 0)
+                {
+                    txt_subtotal.Text = "0.0";
+                    txt_impuesto.Text = "0.0";
+                    txt_impTotal.Text = "0.0";
+                    txt_descuento.Text = "0.0";
+                }
+                nofactura();
+
+            }
+            
         }
 
 

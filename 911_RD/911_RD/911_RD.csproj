@@ -592,6 +592,9 @@
     <Compile Include="TERCEROS.cs">
       <DependentUpon>TransporSysEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="TERCEROS_VS_ALERGIAS.cs">
+      <DependentUpon>TransporSysEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="TERCEROS_VS_DIRECCIONES.cs">
       <DependentUpon>TransporSysEntities.tt</DependentUpon>
     </Compile>
