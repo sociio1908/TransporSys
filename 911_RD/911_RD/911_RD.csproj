@@ -263,6 +263,12 @@
     <Compile Include="Administracion\Servicios\FrmTipoServicios.Designer.cs">
       <DependentUpon>FrmTipoServicios.cs</DependentUpon>
     </Compile>
+    <Compile Include="Administracion\FrmTipoSuplidor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administracion\FrmTipoSuplidor.Designer.cs">
+      <DependentUpon>FrmTipoSuplidor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Administracion\Transporte\FrmTransporte.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -721,6 +727,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Administracion\FrmTipoIdentificacione.resx">
       <DependentUpon>FrmTipoIdentificacione.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administracion\FrmTipoSuplidor.resx">
+      <DependentUpon>FrmTipoSuplidor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Administracion\Pacientes\FrmAlergias.resx">
       <DependentUpon>FrmAlergias.cs</DependentUpon>
