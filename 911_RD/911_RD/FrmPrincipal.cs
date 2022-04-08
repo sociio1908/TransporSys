@@ -64,6 +64,7 @@ namespace _911_RD
         private void lbl_cerrar_Click(object sender, EventArgs e)
         {
             this.Close();
+            new FrmLogin().Show();
         }
 
         private void lbl_minimizar_Click(object sender, EventArgs e)
@@ -131,7 +132,7 @@ namespace _911_RD
 
         private void btn_ventas_Click(object sender, EventArgs e)
         {
-            new frmServicios().ShowDialog();
+            new FrmVentas().ShowDialog();
         }
 
       
@@ -188,14 +189,14 @@ namespace _911_RD
 
         private void btn_servicios_Click_1(object sender, EventArgs e)
         {
-            new FrmArticulos().ShowDialog(); 
+            new frmServicios().ShowDialog(); 
 
         }
 
         private void button1_Click_1(object sender, EventArgs e)
         {
             this.Close();
-            new FrmLogin().Show();
+        new FrmLogin().Show();
         }
     }
 }

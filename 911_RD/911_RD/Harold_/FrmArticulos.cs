@@ -50,9 +50,9 @@ namespace _911_RD.Administracion
         private void btn_guardar_Click(object sender, EventArgs e)
         {
             Utilidades va = new Utilidades();
-           if( Utilidades.ValidarFormulario(groupBox1, errorProvider1)==true||txt_precio.Text.ToString()=="0"|| txt_stock.Text.ToString() == "0")
+           if( Utilidades.ValidarFormulario(groupBox1, errorProvider1))
             {
-                MessageBox.Show("HAY CAMPOS VACIOS O NO PUEDEN HABER CANTIDADES EN: 0");
+                MessageBox.Show("HAY CAMPOS VACIOS, AGREGUE 0");
             }
             else
             {
@@ -72,15 +72,17 @@ namespace _911_RD.Administracion
                 txt_des.Text = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
                 txt_stock.Text = dataGridView1.SelectedRows[0].Cells[3].Value.ToString();
                 txt_precio.Text = dataGridView1.SelectedRows[0].Cells[4].Value.ToString();
-                txt_porcentaje_itebis.Text = dataGridView1.SelectedRows[0].Cells[5].Value.ToString();
-                txt_idcategoria.Text = dataGridView1.SelectedRows[0].Cells[6].Value.ToString();
-                cb_estado.SelectedIndex = dataGridView1.SelectedRows[0].Cells[7].Value.ToString() == "ACTIVO" ? cb_estado.SelectedIndex = 0 : cb_estado.SelectedIndex = 1;
-                txt_unidad.Text = dataGridView1.SelectedRows[0].Cells[8].Value.ToString();
-                txt_codBarra.Text = dataGridView1.SelectedRows[0].Cells[9].Value.ToString();
+                txt_reorden.Text = dataGridView1.SelectedRows[0].Cells[5].Value.ToString();
+                txt_recompra.Text = dataGridView1.SelectedRows[0].Cells[6].Value.ToString();
+                txt_porcentaje_itebis.Text = dataGridView1.SelectedRows[0].Cells[7].Value.ToString();
+                txt_categoria.Text = dataGridView1.SelectedRows[0].Cells[8].Value.ToString();
+                cb_estado.SelectedIndex = dataGridView1.SelectedRows[0].Cells[9].Value.ToString() == "ACTIVO" ? cb_estado.SelectedIndex = 0 : cb_estado.SelectedIndex = 1;
+                txt_unidad.Text = dataGridView1.SelectedRows[0].Cells[10].Value.ToString();
+                txt_codBarra.Text = dataGridView1.SelectedRows[0].Cells[11].Value.ToString();
                 codigo_de_barra();
-                txt_id_categoria.Text = dataGridView1.SelectedRows[0].Cells[10].Value.ToString();
-                txt_id_und.Text = dataGridView1.SelectedRows[0].Cells[11].Value.ToString();
-                txt_id_itebis.Text = dataGridView1.SelectedRows[0].Cells[12].Value.ToString();
+                txt_id_categoria.Text = dataGridView1.SelectedRows[0].Cells[12].Value.ToString();
+                txt_id_und.Text = dataGridView1.SelectedRows[0].Cells[13].Value.ToString();
+                txt_id_itebis.Text = dataGridView1.SelectedRows[0].Cells[14].Value.ToString();
 
             }
 
@@ -134,38 +136,32 @@ namespace _911_RD.Administracion
                             id_categoria = Convert.ToInt32(txt_id_categoria.Text.Trim()),  //debe existir en articulo
                             nombre = txt_nombre.Text.Trim(), //debe ser string
                             descripcion = txt_des.Text.Trim(),//debe ser string
-                            reorden = Convert.ToDouble(txt_stock.Text.Trim()),//debe ser int
+                            reorden = Convert.ToDouble(txt_reorden.Text.Trim()),//debe ser int
+                            stock = Convert.ToDouble(txt_stock.Text.Trim()),//debe ser int
+                            recompra = Convert.ToDouble(txt_recompra.Text.Trim()),//debe ser int
                             precio = Convert.ToDouble(txt_precio.Text.Trim()),
                             //imagen = (txt_foto.Text.Trim()), //debe ser string
                             codigo_barras = txt_codBarra.Text.Trim(), //debe ser string
                             estado = cb_estado.SelectedIndex == 0 ? true : false, //debe ser tru/false
                             id_unidad_de_medida = Convert.ToInt32(txt_id_und.Text.Trim()),
                             intItebis = Convert.ToInt32(txt_id_itebis.Text.Trim())
-
                         };
                         db.ARTICULOS.Add(art);
                     }
                     else
                     {
-
-
-                        //TODO TUYO CABALLO Dale !
-                        //validamos que el articulo exista... SIEMPRE VA A EXISTIR, PORQUE?
-                        //Pues porque ese txt_id solo va a estar lleno si cuando le doy click en la tabla se carga el dato...
-                        //de lo contrario nunca estara lleno, pero validamos por si las moscas
-
                         //es int pero para no estar jodiendo convirtiendo el del txt lo hago directo, pero ese dato es int
                         var articulo = db.ARTICULOS.FirstOrDefault(a => a.id_articulo.ToString() == id_txt.Text.Trim());
                         // si esa variable no esta vacia... pues el articulo existe y pues lo modificamos...
                         if (articulo != null)
                         {
-
                             //pero aqui con ; porque es un objeto y no un tabla como alla arriba
                             articulo.id_categoria = Convert.ToInt32(txt_id_categoria.Text.Trim());  //debe existir en articulo
                             articulo.nombre = txt_nombre.Text.Trim(); //debe ser string
                             articulo.descripcion = txt_des.Text.Trim();//debe ser string
-                            articulo.reorden = Convert.ToDouble(txt_stock.Text.Trim());//debe ser int
-                                                                                       // articulo.imagen = (txt_foto.Text.Trim()); //debe ser string
+                            articulo.reorden = Convert.ToDouble(txt_reorden.Text.Trim());//debe ser int
+                            articulo.recompra = Convert.ToDouble(txt_recompra.Text.Trim());//debe ser int
+                            articulo.stock = Convert.ToDouble(txt_stock.Text.Trim());//debe ser int
                             articulo.codigo_barras = txt_codBarra.Text.Trim(); //debe ser string
                             articulo.estado = cb_estado.SelectedIndex == 0 ? true : false; //debe ser tru/false
                             articulo.precio = Convert.ToDouble(txt_precio.Text.Trim());
@@ -220,7 +216,7 @@ namespace _911_RD.Administracion
                 if (dr == DialogResult.OK)
                 {
                     txt_id_categoria.Text = frmcategoria.dataGridView1.CurrentRow.Cells[0].Value.ToString();
-                    txt_idcategoria.Text = frmcategoria.dataGridView1.CurrentRow.Cells[1].Value.ToString();
+                    txt_categoria.Text = frmcategoria.dataGridView1.CurrentRow.Cells[1].Value.ToString();
 
                 }
             }
@@ -335,17 +331,18 @@ namespace _911_RD.Administracion
                                         pro.id_articulo,
                                         pro.nombre,
                                         pro.descripcion,
-                                        pro.reorden,
+                                        pro.stock,
                                         pro.precio,
-                                        Categoria = cat.categoria,
-                                        IdCat = pro.id_categoria,
-                                        pro.estado,
-                                        pro.id_unidad_de_medida,
-                                        pro.codigo_barras,
-                                        und.abreviatura,
+                                        pro.reorden,
+                                        pro.recompra,
                                         itb.porcentaje,
+                                        Categoria = cat.categoria,
+                                        pro.estado,
+                                        und.unidad_de_medida,
+                                        pro.codigo_barras,
+                                        IdCat = pro.id_categoria,
+                                        pro.id_unidad_de_medida,
                                         idIt = itb.intItebis
-                                        
                                         //etc
                                     };
                     //aqui vas a ver klk con lo que quieres filtrar
@@ -364,7 +361,9 @@ namespace _911_RD.Administracion
                     foreach (var OArticulos in articulos)
                     {
                         dataGridView1.Rows.Add(OArticulos.id_articulo.ToString(), OArticulos.nombre.ToString(), OArticulos.descripcion.ToString(),
-                            OArticulos.reorden.ToString(), OArticulos.precio.ToString(), OArticulos.porcentaje.ToString(), OArticulos.Categoria.ToString(), status = OArticulos.estado == true ? "ACTIVO" : "INACTIVO", OArticulos.abreviatura.ToString(), OArticulos.codigo_barras.ToString(), OArticulos.IdCat.ToString(), OArticulos.id_unidad_de_medida.ToString(), OArticulos.idIt.ToString());
+                            OArticulos.stock.ToString(), OArticulos.precio.ToString(), OArticulos.reorden.ToString(), OArticulos.recompra.ToString(),
+                            OArticulos.porcentaje.ToString(), OArticulos.Categoria.ToString(), status = OArticulos.estado == true ? "ACTIVO" : "INACTIVO",
+                             OArticulos.unidad_de_medida.ToString(), OArticulos.codigo_barras.ToString(), OArticulos.IdCat.ToString(), OArticulos.id_unidad_de_medida.ToString(), OArticulos.idIt.ToString());
                     }
 
                 }
@@ -500,6 +499,16 @@ namespace _911_RD.Administracion
 
                 }
             }
+        }
+
+        private void groupBox1_Enter_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_salir_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

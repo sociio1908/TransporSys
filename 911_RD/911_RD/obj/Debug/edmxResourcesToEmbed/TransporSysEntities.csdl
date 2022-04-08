@@ -45,6 +45,8 @@
     <NavigationProperty Name="EXISTENCIAS" Relationship="Self.FK_EXISTENCIAS_ARTICULOS" FromRole="ARTICULOS" ToRole="EXISTENCIAS" />
     <NavigationProperty Name="FINANCIAMIENTOS" Relationship="Self.FK_FINANCIAMIENTOS_ARTICULOS" FromRole="ARTICULOS" ToRole="FINANCIAMIENTOS" />
     <NavigationProperty Name="PRECIOS" Relationship="Self.FK_PRECIOS_ARTICULOS" FromRole="ARTICULOS" ToRole="PRECIOS" />
+    <Property Name="stock" Type="Double" />
+    <Property Name="recompra" Type="Double" />
   </EntityType>
   <EntityType Name="BENEFICIOS">
     <Key>

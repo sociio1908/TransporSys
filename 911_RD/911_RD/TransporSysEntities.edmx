@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="TransporSysModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="TransporSysModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="ALERGIAS">
           <Key>
             <PropertyRef Name="id_alergia" />
@@ -36,6 +36,8 @@
           <Property Name="precio" Type="float" Nullable="false" />
           <Property Name="estado" Type="bit" Nullable="false" />
           <Property Name="intItebis" Type="int" Nullable="false" />
+          <Property Name="stock" Type="float" />
+          <Property Name="recompra" Type="float" />
         </EntityType>
         <!--Errores durante la generación:
 advertencia 6002: La tabla o vista 'TransporSys.dbo.ARTICULOS_VS_CATEGORIAS_VS_DESCUENTOS' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
@@ -2125,8 +2127,7 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.VEHICULOS_VS_CONDUCTOR' no t
             <End Role="VENTAS" EntitySet="VENTAS" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="TransporSysModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -2175,6 +2176,8 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.VEHICULOS_VS_CONDUCTOR' no t
           <NavigationProperty Name="EXISTENCIAS" Relationship="Self.FK_EXISTENCIAS_ARTICULOS" FromRole="ARTICULOS" ToRole="EXISTENCIAS" />
           <NavigationProperty Name="FINANCIAMIENTOS" Relationship="Self.FK_FINANCIAMIENTOS_ARTICULOS" FromRole="ARTICULOS" ToRole="FINANCIAMIENTOS" />
           <NavigationProperty Name="PRECIOS" Relationship="Self.FK_PRECIOS_ARTICULOS" FromRole="ARTICULOS" ToRole="PRECIOS" />
+          <Property Name="stock" Type="Double" />
+          <Property Name="recompra" Type="Double" />
         </EntityType>
         <EntityType Name="BENEFICIOS">
           <Key>
@@ -4311,6 +4314,8 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.VEHICULOS_VS_CONDUCTOR' no t
           <EntitySetMapping Name="ARTICULOS">
             <EntityTypeMapping TypeName="TransporSysModel.ARTICULOS">
               <MappingFragment StoreEntitySet="ARTICULOS">
+                <ScalarProperty Name="recompra" ColumnName="recompra" />
+                <ScalarProperty Name="stock" ColumnName="stock" />
                 <ScalarProperty Name="id_articulo" ColumnName="id_articulo" />
                 <ScalarProperty Name="id_categoria" ColumnName="id_categoria" />
                 <ScalarProperty Name="id_unidad_de_medida" ColumnName="id_unidad_de_medida" />

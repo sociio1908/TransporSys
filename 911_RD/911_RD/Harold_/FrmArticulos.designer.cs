@@ -30,10 +30,10 @@ namespace _911_RD.Administracion
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txt_nombre = new _911_RD.ErrorTxtBox();
             this.txt_stock = new _911_RD.ErrorTxtBox();
             this.txt_des = new _911_RD.ErrorTxtBox();
@@ -50,7 +50,7 @@ namespace _911_RD.Administracion
             this.label7 = new System.Windows.Forms.Label();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.btn_generar = new System.Windows.Forms.Button();
-            this.txt_idcategoria = new _911_RD.ErrorTxtBox();
+            this.txt_categoria = new _911_RD.ErrorTxtBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.txt_unidad = new _911_RD.ErrorTxtBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -58,21 +58,12 @@ namespace _911_RD.Administracion
             this.pnl_cod = new System.Windows.Forms.Panel();
             this.btn_eliminar = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.id_articulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nom_art = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.des_art = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pre_art = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.itebis = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.id_cat = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.id_unidad_de_medida = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cod_barra = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.id_categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ID_uni = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.itb_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txt_recompra = new _911_RD.ErrorTxtBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.txt_reorden = new _911_RD.ErrorTxtBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.txt_id_itebis = new _911_RD.ErrorTxtBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -80,6 +71,21 @@ namespace _911_RD.Administracion
             this.txt_id_und = new _911_RD.ErrorTxtBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.txt_id_categoria = new _911_RD.ErrorTxtBox();
+            this.id_articulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nom_art = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.des_art = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pre_art = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.reorden = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.recompra = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.itebis = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id_cat = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.und = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cod_barra = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id_categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ID_uni = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.itb_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.btn_buscar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -119,6 +125,7 @@ namespace _911_RD.Administracion
             // 
             this.btn_salir.Location = new System.Drawing.Point(452, 444);
             this.btn_salir.Size = new System.Drawing.Size(130, 50);
+            this.btn_salir.Click += new System.EventHandler(this.btn_salir_Click);
             // 
             // label9
             // 
@@ -163,6 +170,7 @@ namespace _911_RD.Administracion
             this.txt_stock.Size = new System.Drawing.Size(114, 26);
             this.txt_stock.SoloNumeros = false;
             this.txt_stock.TabIndex = 159;
+            this.txt_stock.Text = "0";
             this.txt_stock.Validar = true;
             this.txt_stock.TextChanged += new System.EventHandler(this.txt_stock_TextChanged);
             // 
@@ -189,6 +197,7 @@ namespace _911_RD.Administracion
             this.txt_precio.Size = new System.Drawing.Size(114, 26);
             this.txt_precio.SoloNumeros = true;
             this.txt_precio.TabIndex = 161;
+            this.txt_precio.Text = "0";
             this.txt_precio.Validar = true;
             this.txt_precio.TextChanged += new System.EventHandler(this.txt_precio_TextChanged);
             // 
@@ -199,7 +208,7 @@ namespace _911_RD.Administracion
             this.cb_estado.Items.AddRange(new object[] {
             "ACTIVO",
             "INACTIVO"});
-            this.cb_estado.Location = new System.Drawing.Point(264, 195);
+            this.cb_estado.Location = new System.Drawing.Point(265, 325);
             this.cb_estado.Name = "cb_estado";
             this.cb_estado.Size = new System.Drawing.Size(114, 28);
             this.cb_estado.TabIndex = 176;
@@ -243,7 +252,7 @@ namespace _911_RD.Administracion
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label3.Location = new System.Drawing.Point(265, 176);
+            this.label3.Location = new System.Drawing.Point(266, 306);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(58, 16);
             this.label3.TabIndex = 180;
@@ -335,20 +344,20 @@ namespace _911_RD.Administracion
             this.btn_generar.UseVisualStyleBackColor = false;
             this.btn_generar.Click += new System.EventHandler(this.btn_generar_Click);
             // 
-            // txt_idcategoria
+            // txt_categoria
             // 
-            this.txt_idcategoria.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txt_idcategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.txt_idcategoria.Limpiar = true;
-            this.txt_idcategoria.Location = new System.Drawing.Point(65, 196);
-            this.txt_idcategoria.Multiline = true;
-            this.txt_idcategoria.Name = "txt_idcategoria";
-            this.txt_idcategoria.ReadOnly = true;
-            this.txt_idcategoria.Size = new System.Drawing.Size(146, 27);
-            this.txt_idcategoria.SoloNumeros = false;
-            this.txt_idcategoria.TabIndex = 190;
-            this.txt_idcategoria.Validar = true;
-            this.txt_idcategoria.TextChanged += new System.EventHandler(this.txt_idcategoria_TextChanged);
+            this.txt_categoria.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_categoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.txt_categoria.Limpiar = true;
+            this.txt_categoria.Location = new System.Drawing.Point(65, 196);
+            this.txt_categoria.Multiline = true;
+            this.txt_categoria.Name = "txt_categoria";
+            this.txt_categoria.ReadOnly = true;
+            this.txt_categoria.Size = new System.Drawing.Size(146, 27);
+            this.txt_categoria.SoloNumeros = false;
+            this.txt_categoria.TabIndex = 190;
+            this.txt_categoria.Validar = true;
+            this.txt_categoria.TextChanged += new System.EventHandler(this.txt_idcategoria_TextChanged);
             // 
             // pictureBox2
             // 
@@ -438,14 +447,14 @@ namespace _911_RD.Administracion
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Firebrick;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.Firebrick;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridView1.ColumnHeadersHeight = 25;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id_articulo,
@@ -453,139 +462,51 @@ namespace _911_RD.Administracion
             this.des_art,
             this.stock,
             this.pre_art,
+            this.reorden,
+            this.recompra,
             this.itebis,
             this.id_cat,
             this.estado,
-            this.id_unidad_de_medida,
+            this.und,
             this.cod_barra,
             this.id_categoria,
             this.ID_uni,
             this.itb_id});
             this.dataGridView1.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Teal;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.Teal;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.Location = new System.Drawing.Point(12, 542);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Aqua;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Aqua;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.DodgerBlue;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
-            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.DodgerBlue;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.White;
+            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(911, 158);
             this.dataGridView1.TabIndex = 202;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick_1);
             this.dataGridView1.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentDoubleClick);
             this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting_1);
-            // 
-            // id_articulo
-            // 
-            this.id_articulo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.id_articulo.FillWeight = 20F;
-            this.id_articulo.HeaderText = "ID";
-            this.id_articulo.Name = "id_articulo";
-            this.id_articulo.ReadOnly = true;
-            // 
-            // nom_art
-            // 
-            this.nom_art.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.nom_art.FillWeight = 80F;
-            this.nom_art.HeaderText = "NOMBRE";
-            this.nom_art.Name = "nom_art";
-            this.nom_art.ReadOnly = true;
-            // 
-            // des_art
-            // 
-            this.des_art.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.des_art.FillWeight = 98.03922F;
-            this.des_art.HeaderText = "DESCRIPCION";
-            this.des_art.Name = "des_art";
-            this.des_art.ReadOnly = true;
-            // 
-            // stock
-            // 
-            this.stock.HeaderText = "STOCK";
-            this.stock.Name = "stock";
-            this.stock.ReadOnly = true;
-            this.stock.Width = 80;
-            // 
-            // pre_art
-            // 
-            this.pre_art.HeaderText = "PRECIO";
-            this.pre_art.Name = "pre_art";
-            this.pre_art.ReadOnly = true;
-            // 
-            // itebis
-            // 
-            this.itebis.HeaderText = "ITEBIS %";
-            this.itebis.Name = "itebis";
-            this.itebis.ReadOnly = true;
-            // 
-            // id_cat
-            // 
-            this.id_cat.HeaderText = "CATEGORIA";
-            this.id_cat.Name = "id_cat";
-            this.id_cat.ReadOnly = true;
-            // 
-            // estado
-            // 
-            this.estado.HeaderText = "ESTADO";
-            this.estado.Name = "estado";
-            this.estado.ReadOnly = true;
-            // 
-            // id_unidad_de_medida
-            // 
-            this.id_unidad_de_medida.HeaderText = "UNIDAD";
-            this.id_unidad_de_medida.Name = "id_unidad_de_medida";
-            this.id_unidad_de_medida.ReadOnly = true;
-            this.id_unidad_de_medida.Width = 70;
-            // 
-            // cod_barra
-            // 
-            this.cod_barra.HeaderText = "CODIGO DE BARRA";
-            this.cod_barra.Name = "cod_barra";
-            this.cod_barra.ReadOnly = true;
-            this.cod_barra.Width = 130;
-            // 
-            // id_categoria
-            // 
-            this.id_categoria.HeaderText = "Id Cat";
-            this.id_categoria.Name = "id_categoria";
-            this.id_categoria.ReadOnly = true;
-            this.id_categoria.Visible = false;
-            // 
-            // ID_uni
-            // 
-            this.ID_uni.HeaderText = "ID_ UNINA";
-            this.ID_uni.Name = "ID_uni";
-            this.ID_uni.ReadOnly = true;
-            this.ID_uni.Visible = false;
-            // 
-            // itb_id
-            // 
-            this.itb_id.HeaderText = "itb_id";
-            this.itb_id.Name = "itb_id";
-            this.itb_id.ReadOnly = true;
-            this.itb_id.Visible = false;
             // 
             // label6
             // 
@@ -599,6 +520,10 @@ namespace _911_RD.Administracion
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txt_recompra);
+            this.groupBox1.Controls.Add(this.label12);
+            this.groupBox1.Controls.Add(this.txt_reorden);
+            this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Controls.Add(this.txt_id_itebis);
             this.groupBox1.Controls.Add(this.pictureBox1);
             this.groupBox1.Controls.Add(this.label8);
@@ -607,7 +532,7 @@ namespace _911_RD.Administracion
             this.groupBox1.Controls.Add(this.pictureBox3);
             this.groupBox1.Controls.Add(this.txt_id_categoria);
             this.groupBox1.Controls.Add(this.pictureBox2);
-            this.groupBox1.Controls.Add(this.txt_idcategoria);
+            this.groupBox1.Controls.Add(this.txt_categoria);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.txt_nombre);
             this.groupBox1.Controls.Add(this.label10);
@@ -630,6 +555,53 @@ namespace _911_RD.Administracion
             this.groupBox1.TabIndex = 204;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "DATOS GENARELES";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter_1);
+            // 
+            // txt_recompra
+            // 
+            this.txt_recompra.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_recompra.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.txt_recompra.Limpiar = true;
+            this.txt_recompra.Location = new System.Drawing.Point(265, 258);
+            this.txt_recompra.Name = "txt_recompra";
+            this.txt_recompra.Size = new System.Drawing.Size(114, 26);
+            this.txt_recompra.SoloNumeros = true;
+            this.txt_recompra.TabIndex = 242;
+            this.txt_recompra.Validar = true;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label12.Location = new System.Drawing.Point(265, 239);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(153, 16);
+            this.label12.TabIndex = 243;
+            this.label12.Text = "CANTIDAD RECOMPRA";
+            // 
+            // txt_reorden
+            // 
+            this.txt_reorden.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_reorden.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.txt_reorden.Limpiar = true;
+            this.txt_reorden.Location = new System.Drawing.Point(265, 195);
+            this.txt_reorden.Name = "txt_reorden";
+            this.txt_reorden.Size = new System.Drawing.Size(114, 26);
+            this.txt_reorden.SoloNumeros = true;
+            this.txt_reorden.TabIndex = 240;
+            this.txt_reorden.Validar = true;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label11.Location = new System.Drawing.Point(265, 176);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(68, 16);
+            this.label11.TabIndex = 241;
+            this.label11.Text = "REORDEN";
             // 
             // txt_id_itebis
             // 
@@ -724,6 +696,115 @@ namespace _911_RD.Administracion
             this.txt_id_categoria.TabIndex = 233;
             this.txt_id_categoria.Validar = true;
             // 
+            // id_articulo
+            // 
+            this.id_articulo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.id_articulo.FillWeight = 20F;
+            this.id_articulo.HeaderText = "ID";
+            this.id_articulo.Name = "id_articulo";
+            this.id_articulo.ReadOnly = true;
+            // 
+            // nom_art
+            // 
+            this.nom_art.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.nom_art.FillWeight = 80F;
+            this.nom_art.HeaderText = "NOMBRE";
+            this.nom_art.Name = "nom_art";
+            this.nom_art.ReadOnly = true;
+            // 
+            // des_art
+            // 
+            this.des_art.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.des_art.HeaderText = "DESCRIPCION";
+            this.des_art.Name = "des_art";
+            this.des_art.ReadOnly = true;
+            // 
+            // stock
+            // 
+            this.stock.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.stock.HeaderText = "STOCK";
+            this.stock.Name = "stock";
+            this.stock.ReadOnly = true;
+            // 
+            // pre_art
+            // 
+            this.pre_art.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.pre_art.HeaderText = "PRECIO";
+            this.pre_art.Name = "pre_art";
+            this.pre_art.ReadOnly = true;
+            // 
+            // reorden
+            // 
+            this.reorden.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.reorden.HeaderText = "REORDEN";
+            this.reorden.Name = "reorden";
+            this.reorden.ReadOnly = true;
+            // 
+            // recompra
+            // 
+            this.recompra.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.recompra.HeaderText = "RECOMPRA";
+            this.recompra.Name = "recompra";
+            this.recompra.ReadOnly = true;
+            // 
+            // itebis
+            // 
+            this.itebis.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.itebis.HeaderText = "ITEBIS %";
+            this.itebis.Name = "itebis";
+            this.itebis.ReadOnly = true;
+            this.itebis.Width = 81;
+            // 
+            // id_cat
+            // 
+            this.id_cat.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.id_cat.HeaderText = "CATEGORIA";
+            this.id_cat.Name = "id_cat";
+            this.id_cat.ReadOnly = true;
+            this.id_cat.Width = 97;
+            // 
+            // estado
+            // 
+            this.estado.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.estado.HeaderText = "ESTADO";
+            this.estado.Name = "estado";
+            this.estado.ReadOnly = true;
+            // 
+            // und
+            // 
+            this.und.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.und.HeaderText = "UNIDAD";
+            this.und.Name = "und";
+            this.und.ReadOnly = true;
+            // 
+            // cod_barra
+            // 
+            this.cod_barra.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.cod_barra.HeaderText = "CODIGO DE BARRA";
+            this.cod_barra.Name = "cod_barra";
+            this.cod_barra.ReadOnly = true;
+            // 
+            // id_categoria
+            // 
+            this.id_categoria.HeaderText = "Id Cat";
+            this.id_categoria.Name = "id_categoria";
+            this.id_categoria.ReadOnly = true;
+            this.id_categoria.Visible = false;
+            // 
+            // ID_uni
+            // 
+            this.ID_uni.HeaderText = "ID_ UNINA";
+            this.ID_uni.Name = "ID_uni";
+            this.ID_uni.ReadOnly = true;
+            this.ID_uni.Visible = false;
+            // 
+            // itb_id
+            // 
+            this.itb_id.HeaderText = "itb_id";
+            this.itb_id.Name = "itb_id";
+            this.itb_id.ReadOnly = true;
+            this.itb_id.Visible = false;
+            // 
             // FrmArticulos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -741,6 +822,7 @@ namespace _911_RD.Administracion
             this.Controls.SetChildIndex(this.btn_eliminar, 0);
             this.Controls.SetChildIndex(this.dataGridView1, 0);
             this.Controls.SetChildIndex(this.label6, 0);
+            this.Controls.SetChildIndex(this.groupBox1, 0);
             this.Controls.SetChildIndex(this.lbl_titulo, 0);
             this.Controls.SetChildIndex(this.btn_guardar, 0);
             this.Controls.SetChildIndex(this.label9, 0);
@@ -749,7 +831,6 @@ namespace _911_RD.Administracion
             this.Controls.SetChildIndex(this.btn_limpiar, 0);
             this.Controls.SetChildIndex(this.btn_salir, 0);
             this.Controls.SetChildIndex(this.id_txt, 0);
-            this.Controls.SetChildIndex(this.groupBox1, 0);
             ((System.ComponentModel.ISupportInitialize)(this.btn_buscar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
@@ -783,7 +864,7 @@ namespace _911_RD.Administracion
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.PictureBox pictureBox2;
-        public ErrorTxtBox txt_idcategoria;
+        public ErrorTxtBox txt_categoria;
         public ErrorTxtBox txt_unidad;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.TextBox txt_codBarra;
@@ -800,15 +881,21 @@ namespace _911_RD.Administracion
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label8;
         public ErrorTxtBox txt_porcentaje_itebis;
+        public ErrorTxtBox txt_recompra;
+        private System.Windows.Forms.Label label12;
+        public ErrorTxtBox txt_reorden;
+        private System.Windows.Forms.Label label11;
         private System.Windows.Forms.DataGridViewTextBoxColumn id_articulo;
         private System.Windows.Forms.DataGridViewTextBoxColumn nom_art;
         private System.Windows.Forms.DataGridViewTextBoxColumn des_art;
         private System.Windows.Forms.DataGridViewTextBoxColumn stock;
         private System.Windows.Forms.DataGridViewTextBoxColumn pre_art;
+        private System.Windows.Forms.DataGridViewTextBoxColumn reorden;
+        private System.Windows.Forms.DataGridViewTextBoxColumn recompra;
         private System.Windows.Forms.DataGridViewTextBoxColumn itebis;
         private System.Windows.Forms.DataGridViewTextBoxColumn id_cat;
         private System.Windows.Forms.DataGridViewTextBoxColumn estado;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id_unidad_de_medida;
+        private System.Windows.Forms.DataGridViewTextBoxColumn und;
         private System.Windows.Forms.DataGridViewTextBoxColumn cod_barra;
         private System.Windows.Forms.DataGridViewTextBoxColumn id_categoria;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID_uni;

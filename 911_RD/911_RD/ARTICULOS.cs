@@ -38,6 +38,8 @@ namespace _911_RD
         public double precio { get; set; }
         public bool estado { get; set; }
         public int intItebis { get; set; }
+        public Nullable<double> stock { get; set; }
+        public Nullable<double> recompra { get; set; }
     
         public virtual CATEGORIAS CATEGORIAS { get; set; }
         public virtual ITEBIS ITEBIS { get; set; }

@@ -31,6 +31,8 @@
     <Property Name="precio" Type="float" Nullable="false" />
     <Property Name="estado" Type="bit" Nullable="false" />
     <Property Name="intItebis" Type="int" Nullable="false" />
+    <Property Name="stock" Type="float" />
+    <Property Name="recompra" Type="float" />
   </EntityType>
   <!--Errores durante la generación:
 advertencia 6002: La tabla o vista 'TransporSys.dbo.ARTICULOS_VS_CATEGORIAS_VS_DESCUENTOS' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->

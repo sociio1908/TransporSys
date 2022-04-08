@@ -23,6 +23,8 @@
     <EntitySetMapping Name="ARTICULOS">
       <EntityTypeMapping TypeName="TransporSysModel.ARTICULOS">
         <MappingFragment StoreEntitySet="ARTICULOS">
+          <ScalarProperty Name="recompra" ColumnName="recompra" />
+          <ScalarProperty Name="stock" ColumnName="stock" />
           <ScalarProperty Name="id_articulo" ColumnName="id_articulo" />
           <ScalarProperty Name="id_categoria" ColumnName="id_categoria" />
           <ScalarProperty Name="id_unidad_de_medida" ColumnName="id_unidad_de_medida" />

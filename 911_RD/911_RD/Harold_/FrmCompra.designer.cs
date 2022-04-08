@@ -37,20 +37,14 @@ namespace _911_RD.Administracion
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCompra));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label22 = new System.Windows.Forms.Label();
-            this.txt_precio_compra = new _911_RD.ErrorTxtBox();
-            this.txt_porcentaje_itb = new _911_RD.ErrorTxtBox();
             this.label21 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.txt_des = new _911_RD.ErrorTxtBox();
             this.txt_codBarra = new System.Windows.Forms.TextBox();
             this.pnl_cod = new System.Windows.Forms.Panel();
             this.label10 = new System.Windows.Forms.Label();
-            this.txt_nombre = new _911_RD.ErrorTxtBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.txt_stock = new _911_RD.ErrorTxtBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.txt_precio = new _911_RD.ErrorTxtBox();
             this.btn_traer = new System.Windows.Forms.Button();
             this.label17 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
@@ -59,10 +53,6 @@ namespace _911_RD.Administracion
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.txt_impTotal = new _911_RD.ErrorTxtBox();
-            this.txt_impuesto = new _911_RD.ErrorTxtBox();
-            this.txt_subtotal = new _911_RD.ErrorTxtBox();
-            this.txt_descuento = new _911_RD.ErrorTxtBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -94,17 +84,27 @@ namespace _911_RD.Administracion
             this.button2 = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.txt_id_cliente = new _911_RD.ErrorTxtBox();
             this.label20 = new System.Windows.Forms.Label();
-            this.txt_nombre_cliente = new _911_RD.ErrorTxtBox();
             this.bt_agregar_cont = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.txt_descuentoEmple = new _911_RD.ErrorTxtBox();
             this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
+            this.txt_id_cliente = new _911_RD.ErrorTxtBox();
+            this.txt_nombre_cliente = new _911_RD.ErrorTxtBox();
+            this.txt_descuentoEmple = new _911_RD.ErrorTxtBox();
+            this.txt_impTotal = new _911_RD.ErrorTxtBox();
+            this.txt_impuesto = new _911_RD.ErrorTxtBox();
+            this.txt_subtotal = new _911_RD.ErrorTxtBox();
+            this.txt_descuento = new _911_RD.ErrorTxtBox();
             this.txt_cantidad = new _911_RD.ErrorTxtBox();
             this.txt_id = new _911_RD.ErrorTxtBox();
             this.txt_numfactura = new _911_RD.ErrorTxtBox();
+            this.txt_precio_compra = new _911_RD.ErrorTxtBox();
+            this.txt_porcentaje_itb = new _911_RD.ErrorTxtBox();
+            this.txt_des = new _911_RD.ErrorTxtBox();
+            this.txt_nombre = new _911_RD.ErrorTxtBox();
+            this.txt_stock = new _911_RD.ErrorTxtBox();
+            this.txt_precio = new _911_RD.ErrorTxtBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -151,31 +151,6 @@ namespace _911_RD.Administracion
             this.label22.TabIndex = 211;
             this.label22.Text = "PRECIO DE COMPRA";
             // 
-            // txt_precio_compra
-            // 
-            this.txt_precio_compra.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txt_precio_compra.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.txt_precio_compra.Limpiar = true;
-            this.txt_precio_compra.Location = new System.Drawing.Point(290, 120);
-            this.txt_precio_compra.Name = "txt_precio_compra";
-            this.txt_precio_compra.Size = new System.Drawing.Size(88, 26);
-            this.txt_precio_compra.SoloNumeros = true;
-            this.txt_precio_compra.TabIndex = 210;
-            this.txt_precio_compra.Validar = true;
-            // 
-            // txt_porcentaje_itb
-            // 
-            this.txt_porcentaje_itb.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txt_porcentaje_itb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.txt_porcentaje_itb.Limpiar = true;
-            this.txt_porcentaje_itb.Location = new System.Drawing.Point(287, 47);
-            this.txt_porcentaje_itb.Name = "txt_porcentaje_itb";
-            this.txt_porcentaje_itb.ReadOnly = true;
-            this.txt_porcentaje_itb.Size = new System.Drawing.Size(76, 26);
-            this.txt_porcentaje_itb.SoloNumeros = false;
-            this.txt_porcentaje_itb.TabIndex = 209;
-            this.txt_porcentaje_itb.Validar = true;
-            // 
             // label21
             // 
             this.label21.AutoSize = true;
@@ -209,20 +184,9 @@ namespace _911_RD.Administracion
             this.label1.TabIndex = 199;
             this.label1.Text = "DESCRIPCION";
             // 
-            // txt_des
-            // 
-            this.txt_des.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txt_des.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.txt_des.Limpiar = true;
-            this.txt_des.Location = new System.Drawing.Point(35, 120);
-            this.txt_des.Name = "txt_des";
-            this.txt_des.Size = new System.Drawing.Size(128, 26);
-            this.txt_des.SoloNumeros = false;
-            this.txt_des.TabIndex = 198;
-            this.txt_des.Validar = true;
-            // 
             // txt_codBarra
             // 
+            this.txt_codBarra.Enabled = false;
             this.txt_codBarra.Location = new System.Drawing.Point(429, 121);
             this.txt_codBarra.Name = "txt_codBarra";
             this.txt_codBarra.Size = new System.Drawing.Size(237, 27);
@@ -247,18 +211,6 @@ namespace _911_RD.Administracion
             this.label10.TabIndex = 188;
             this.label10.Text = "NOMBRE";
             // 
-            // txt_nombre
-            // 
-            this.txt_nombre.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txt_nombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.txt_nombre.Limpiar = true;
-            this.txt_nombre.Location = new System.Drawing.Point(35, 47);
-            this.txt_nombre.Name = "txt_nombre";
-            this.txt_nombre.Size = new System.Drawing.Size(128, 26);
-            this.txt_nombre.SoloNumeros = false;
-            this.txt_nombre.TabIndex = 185;
-            this.txt_nombre.Validar = true;
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -269,18 +221,6 @@ namespace _911_RD.Administracion
             this.label2.Size = new System.Drawing.Size(50, 16);
             this.label2.TabIndex = 189;
             this.label2.Text = "STOCK";
-            // 
-            // txt_stock
-            // 
-            this.txt_stock.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txt_stock.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.txt_stock.Limpiar = true;
-            this.txt_stock.Location = new System.Drawing.Point(187, 120);
-            this.txt_stock.Name = "txt_stock";
-            this.txt_stock.Size = new System.Drawing.Size(76, 26);
-            this.txt_stock.SoloNumeros = false;
-            this.txt_stock.TabIndex = 186;
-            this.txt_stock.Validar = true;
             // 
             // label4
             // 
@@ -293,18 +233,6 @@ namespace _911_RD.Administracion
             this.label4.TabIndex = 190;
             this.label4.Text = "PRECIO";
             this.label4.Click += new System.EventHandler(this.label4_Click);
-            // 
-            // txt_precio
-            // 
-            this.txt_precio.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txt_precio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.txt_precio.Limpiar = true;
-            this.txt_precio.Location = new System.Drawing.Point(187, 47);
-            this.txt_precio.Name = "txt_precio";
-            this.txt_precio.Size = new System.Drawing.Size(73, 26);
-            this.txt_precio.SoloNumeros = false;
-            this.txt_precio.TabIndex = 187;
-            this.txt_precio.Validar = true;
             // 
             // btn_traer
             // 
@@ -426,75 +354,6 @@ namespace _911_RD.Administracion
             this.label13.Size = new System.Drawing.Size(152, 23);
             this.label13.TabIndex = 205;
             this.label13.Text = "IMPORTE TOTAL:";
-            // 
-            // txt_impTotal
-            // 
-            this.txt_impTotal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(56)))), ((int)(((byte)(56)))));
-            this.txt_impTotal.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txt_impTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_impTotal.ForeColor = System.Drawing.Color.DarkRed;
-            this.txt_impTotal.Limpiar = true;
-            this.txt_impTotal.Location = new System.Drawing.Point(208, 90);
-            this.txt_impTotal.Multiline = true;
-            this.txt_impTotal.Name = "txt_impTotal";
-            this.txt_impTotal.ReadOnly = true;
-            this.txt_impTotal.Size = new System.Drawing.Size(178, 30);
-            this.txt_impTotal.SoloNumeros = true;
-            this.txt_impTotal.TabIndex = 204;
-            this.txt_impTotal.Text = "0.0";
-            this.txt_impTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txt_impTotal.Validar = false;
-            // 
-            // txt_impuesto
-            // 
-            this.txt_impuesto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(56)))), ((int)(((byte)(56)))));
-            this.txt_impuesto.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txt_impuesto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.txt_impuesto.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.txt_impuesto.Limpiar = true;
-            this.txt_impuesto.Location = new System.Drawing.Point(304, 56);
-            this.txt_impuesto.Name = "txt_impuesto";
-            this.txt_impuesto.ReadOnly = true;
-            this.txt_impuesto.Size = new System.Drawing.Size(82, 19);
-            this.txt_impuesto.SoloNumeros = false;
-            this.txt_impuesto.TabIndex = 203;
-            this.txt_impuesto.Text = "0.0";
-            this.txt_impuesto.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txt_impuesto.Validar = true;
-            // 
-            // txt_subtotal
-            // 
-            this.txt_subtotal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(56)))), ((int)(((byte)(56)))));
-            this.txt_subtotal.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txt_subtotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.txt_subtotal.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.txt_subtotal.Limpiar = true;
-            this.txt_subtotal.Location = new System.Drawing.Point(304, 26);
-            this.txt_subtotal.Name = "txt_subtotal";
-            this.txt_subtotal.ReadOnly = true;
-            this.txt_subtotal.Size = new System.Drawing.Size(82, 19);
-            this.txt_subtotal.SoloNumeros = false;
-            this.txt_subtotal.TabIndex = 202;
-            this.txt_subtotal.Text = "0.0";
-            this.txt_subtotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txt_subtotal.Validar = true;
-            // 
-            // txt_descuento
-            // 
-            this.txt_descuento.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(56)))), ((int)(((byte)(56)))));
-            this.txt_descuento.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txt_descuento.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.txt_descuento.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.txt_descuento.Limpiar = true;
-            this.txt_descuento.Location = new System.Drawing.Point(117, 24);
-            this.txt_descuento.Name = "txt_descuento";
-            this.txt_descuento.ReadOnly = true;
-            this.txt_descuento.Size = new System.Drawing.Size(82, 19);
-            this.txt_descuento.SoloNumeros = false;
-            this.txt_descuento.TabIndex = 201;
-            this.txt_descuento.Text = "0.0";
-            this.txt_descuento.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txt_descuento.Validar = true;
             // 
             // label12
             // 
@@ -982,21 +841,6 @@ namespace _911_RD.Administracion
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "SUPLIDOR";
             // 
-            // txt_id_cliente
-            // 
-            this.txt_id_cliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(54)))), ((int)(((byte)(54)))));
-            this.txt_id_cliente.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txt_id_cliente.Enabled = false;
-            this.txt_id_cliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.txt_id_cliente.ForeColor = System.Drawing.SystemColors.Window;
-            this.txt_id_cliente.Limpiar = true;
-            this.txt_id_cliente.Location = new System.Drawing.Point(99, 73);
-            this.txt_id_cliente.Name = "txt_id_cliente";
-            this.txt_id_cliente.Size = new System.Drawing.Size(37, 26);
-            this.txt_id_cliente.SoloNumeros = false;
-            this.txt_id_cliente.TabIndex = 235;
-            this.txt_id_cliente.Validar = true;
-            // 
             // label20
             // 
             this.label20.AutoSize = true;
@@ -1007,20 +851,6 @@ namespace _911_RD.Administracion
             this.label20.Size = new System.Drawing.Size(61, 17);
             this.label20.TabIndex = 234;
             this.label20.Text = "NOMBRE:";
-            // 
-            // txt_nombre_cliente
-            // 
-            this.txt_nombre_cliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(54)))), ((int)(((byte)(54)))));
-            this.txt_nombre_cliente.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txt_nombre_cliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.txt_nombre_cliente.ForeColor = System.Drawing.SystemColors.Window;
-            this.txt_nombre_cliente.Limpiar = true;
-            this.txt_nombre_cliente.Location = new System.Drawing.Point(142, 73);
-            this.txt_nombre_cliente.Name = "txt_nombre_cliente";
-            this.txt_nombre_cliente.Size = new System.Drawing.Size(125, 26);
-            this.txt_nombre_cliente.SoloNumeros = false;
-            this.txt_nombre_cliente.TabIndex = 233;
-            this.txt_nombre_cliente.Validar = true;
             // 
             // bt_agregar_cont
             // 
@@ -1048,24 +878,6 @@ namespace _911_RD.Administracion
             this.pictureBox1.TabIndex = 205;
             this.pictureBox1.TabStop = false;
             // 
-            // txt_descuentoEmple
-            // 
-            this.txt_descuentoEmple.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(56)))), ((int)(((byte)(56)))));
-            this.txt_descuentoEmple.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txt_descuentoEmple.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.txt_descuentoEmple.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.txt_descuentoEmple.Limpiar = true;
-            this.txt_descuentoEmple.Location = new System.Drawing.Point(99, 26);
-            this.txt_descuentoEmple.Multiline = true;
-            this.txt_descuentoEmple.Name = "txt_descuentoEmple";
-            this.txt_descuentoEmple.ReadOnly = true;
-            this.txt_descuentoEmple.Size = new System.Drawing.Size(82, 24);
-            this.txt_descuentoEmple.SoloNumeros = false;
-            this.txt_descuentoEmple.TabIndex = 204;
-            this.txt_descuentoEmple.Text = "0.0";
-            this.txt_descuentoEmple.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txt_descuentoEmple.Validar = true;
-            // 
             // label18
             // 
             this.label18.AutoSize = true;
@@ -1087,6 +899,122 @@ namespace _911_RD.Administracion
             this.label19.Size = new System.Drawing.Size(87, 17);
             this.label19.TabIndex = 202;
             this.label19.Text = "DESCUENTOS:";
+            // 
+            // txt_id_cliente
+            // 
+            this.txt_id_cliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(54)))), ((int)(((byte)(54)))));
+            this.txt_id_cliente.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_id_cliente.Enabled = false;
+            this.txt_id_cliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.txt_id_cliente.ForeColor = System.Drawing.SystemColors.Window;
+            this.txt_id_cliente.Limpiar = true;
+            this.txt_id_cliente.Location = new System.Drawing.Point(99, 73);
+            this.txt_id_cliente.Name = "txt_id_cliente";
+            this.txt_id_cliente.Size = new System.Drawing.Size(37, 26);
+            this.txt_id_cliente.SoloNumeros = false;
+            this.txt_id_cliente.TabIndex = 235;
+            this.txt_id_cliente.Validar = true;
+            // 
+            // txt_nombre_cliente
+            // 
+            this.txt_nombre_cliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(54)))), ((int)(((byte)(54)))));
+            this.txt_nombre_cliente.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_nombre_cliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.txt_nombre_cliente.ForeColor = System.Drawing.SystemColors.Window;
+            this.txt_nombre_cliente.Limpiar = true;
+            this.txt_nombre_cliente.Location = new System.Drawing.Point(142, 73);
+            this.txt_nombre_cliente.Name = "txt_nombre_cliente";
+            this.txt_nombre_cliente.Size = new System.Drawing.Size(125, 26);
+            this.txt_nombre_cliente.SoloNumeros = false;
+            this.txt_nombre_cliente.TabIndex = 233;
+            this.txt_nombre_cliente.Validar = true;
+            // 
+            // txt_descuentoEmple
+            // 
+            this.txt_descuentoEmple.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(56)))), ((int)(((byte)(56)))));
+            this.txt_descuentoEmple.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_descuentoEmple.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.txt_descuentoEmple.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.txt_descuentoEmple.Limpiar = true;
+            this.txt_descuentoEmple.Location = new System.Drawing.Point(99, 26);
+            this.txt_descuentoEmple.Multiline = true;
+            this.txt_descuentoEmple.Name = "txt_descuentoEmple";
+            this.txt_descuentoEmple.ReadOnly = true;
+            this.txt_descuentoEmple.Size = new System.Drawing.Size(82, 24);
+            this.txt_descuentoEmple.SoloNumeros = false;
+            this.txt_descuentoEmple.TabIndex = 204;
+            this.txt_descuentoEmple.Text = "0.0";
+            this.txt_descuentoEmple.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txt_descuentoEmple.Validar = true;
+            // 
+            // txt_impTotal
+            // 
+            this.txt_impTotal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(56)))), ((int)(((byte)(56)))));
+            this.txt_impTotal.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_impTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_impTotal.ForeColor = System.Drawing.Color.DarkRed;
+            this.txt_impTotal.Limpiar = true;
+            this.txt_impTotal.Location = new System.Drawing.Point(208, 90);
+            this.txt_impTotal.Multiline = true;
+            this.txt_impTotal.Name = "txt_impTotal";
+            this.txt_impTotal.ReadOnly = true;
+            this.txt_impTotal.Size = new System.Drawing.Size(178, 30);
+            this.txt_impTotal.SoloNumeros = true;
+            this.txt_impTotal.TabIndex = 204;
+            this.txt_impTotal.Text = "0.0";
+            this.txt_impTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txt_impTotal.Validar = false;
+            // 
+            // txt_impuesto
+            // 
+            this.txt_impuesto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(56)))), ((int)(((byte)(56)))));
+            this.txt_impuesto.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_impuesto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.txt_impuesto.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.txt_impuesto.Limpiar = true;
+            this.txt_impuesto.Location = new System.Drawing.Point(304, 56);
+            this.txt_impuesto.Name = "txt_impuesto";
+            this.txt_impuesto.ReadOnly = true;
+            this.txt_impuesto.Size = new System.Drawing.Size(82, 19);
+            this.txt_impuesto.SoloNumeros = false;
+            this.txt_impuesto.TabIndex = 203;
+            this.txt_impuesto.Text = "0.0";
+            this.txt_impuesto.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txt_impuesto.Validar = true;
+            // 
+            // txt_subtotal
+            // 
+            this.txt_subtotal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(56)))), ((int)(((byte)(56)))));
+            this.txt_subtotal.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_subtotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.txt_subtotal.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.txt_subtotal.Limpiar = true;
+            this.txt_subtotal.Location = new System.Drawing.Point(304, 26);
+            this.txt_subtotal.Name = "txt_subtotal";
+            this.txt_subtotal.ReadOnly = true;
+            this.txt_subtotal.Size = new System.Drawing.Size(82, 19);
+            this.txt_subtotal.SoloNumeros = false;
+            this.txt_subtotal.TabIndex = 202;
+            this.txt_subtotal.Text = "0.0";
+            this.txt_subtotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txt_subtotal.Validar = true;
+            // 
+            // txt_descuento
+            // 
+            this.txt_descuento.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(56)))), ((int)(((byte)(56)))));
+            this.txt_descuento.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_descuento.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.txt_descuento.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.txt_descuento.Limpiar = true;
+            this.txt_descuento.Location = new System.Drawing.Point(117, 24);
+            this.txt_descuento.Name = "txt_descuento";
+            this.txt_descuento.ReadOnly = true;
+            this.txt_descuento.Size = new System.Drawing.Size(82, 19);
+            this.txt_descuento.SoloNumeros = false;
+            this.txt_descuento.TabIndex = 201;
+            this.txt_descuento.Text = "0.0";
+            this.txt_descuento.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txt_descuento.Validar = true;
             // 
             // txt_cantidad
             // 
@@ -1138,6 +1066,84 @@ namespace _911_RD.Administracion
             this.txt_numfactura.TabIndex = 229;
             this.txt_numfactura.Text = "1";
             this.txt_numfactura.Validar = true;
+            // 
+            // txt_precio_compra
+            // 
+            this.txt_precio_compra.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_precio_compra.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.txt_precio_compra.Limpiar = true;
+            this.txt_precio_compra.Location = new System.Drawing.Point(290, 120);
+            this.txt_precio_compra.Name = "txt_precio_compra";
+            this.txt_precio_compra.Size = new System.Drawing.Size(110, 26);
+            this.txt_precio_compra.SoloNumeros = true;
+            this.txt_precio_compra.TabIndex = 210;
+            this.txt_precio_compra.Validar = true;
+            // 
+            // txt_porcentaje_itb
+            // 
+            this.txt_porcentaje_itb.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_porcentaje_itb.Enabled = false;
+            this.txt_porcentaje_itb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.txt_porcentaje_itb.Limpiar = true;
+            this.txt_porcentaje_itb.Location = new System.Drawing.Point(287, 47);
+            this.txt_porcentaje_itb.Name = "txt_porcentaje_itb";
+            this.txt_porcentaje_itb.ReadOnly = true;
+            this.txt_porcentaje_itb.Size = new System.Drawing.Size(76, 26);
+            this.txt_porcentaje_itb.SoloNumeros = false;
+            this.txt_porcentaje_itb.TabIndex = 209;
+            this.txt_porcentaje_itb.Validar = true;
+            // 
+            // txt_des
+            // 
+            this.txt_des.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_des.Enabled = false;
+            this.txt_des.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.txt_des.Limpiar = true;
+            this.txt_des.Location = new System.Drawing.Point(35, 120);
+            this.txt_des.Name = "txt_des";
+            this.txt_des.Size = new System.Drawing.Size(128, 26);
+            this.txt_des.SoloNumeros = false;
+            this.txt_des.TabIndex = 198;
+            this.txt_des.Validar = true;
+            // 
+            // txt_nombre
+            // 
+            this.txt_nombre.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_nombre.Enabled = false;
+            this.txt_nombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.txt_nombre.Limpiar = true;
+            this.txt_nombre.Location = new System.Drawing.Point(35, 47);
+            this.txt_nombre.Name = "txt_nombre";
+            this.txt_nombre.Size = new System.Drawing.Size(128, 26);
+            this.txt_nombre.SoloNumeros = false;
+            this.txt_nombre.TabIndex = 185;
+            this.txt_nombre.Validar = true;
+            // 
+            // txt_stock
+            // 
+            this.txt_stock.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_stock.Enabled = false;
+            this.txt_stock.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.txt_stock.Limpiar = true;
+            this.txt_stock.Location = new System.Drawing.Point(187, 120);
+            this.txt_stock.Name = "txt_stock";
+            this.txt_stock.Size = new System.Drawing.Size(86, 26);
+            this.txt_stock.SoloNumeros = false;
+            this.txt_stock.TabIndex = 186;
+            this.txt_stock.Validar = true;
+            // 
+            // txt_precio
+            // 
+            this.txt_precio.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_precio.Enabled = false;
+            this.txt_precio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.txt_precio.Limpiar = true;
+            this.txt_precio.Location = new System.Drawing.Point(187, 47);
+            this.txt_precio.Name = "txt_precio";
+            this.txt_precio.Size = new System.Drawing.Size(73, 26);
+            this.txt_precio.SoloNumeros = false;
+            this.txt_precio.TabIndex = 187;
+            this.txt_precio.Validar = true;
             // 
             // FrmCompra
             // 

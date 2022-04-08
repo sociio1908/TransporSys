@@ -166,6 +166,7 @@
             this.txt_password.Name = "txt_password";
             this.txt_password.Size = new System.Drawing.Size(219, 31);
             this.txt_password.TabIndex = 6;
+            this.txt_password.Text = "1234";
             this.txt_password.UseSystemPasswordChar = true;
             // 
             // label2
@@ -200,6 +201,7 @@
             this.txt_user.Name = "txt_user";
             this.txt_user.Size = new System.Drawing.Size(219, 31);
             this.txt_user.TabIndex = 0;
+            this.txt_user.Text = "pepe";
             // 
             // panel3
             // 

@@ -107,17 +107,16 @@ namespace _911_RD.Administracion
 
         private void button14_Click(object sender, EventArgs e)
         {
-            if (Utilidades.ValidarFormulario(groupBox1, errorProvider1) == true)
-            {
 
-            }
+            MessageBox.Show("ENTROOO");
+
+
 
             if (txt_cantidad.Text == "0" || txt_id.Text == "")
             {
                 MessageBox.Show("NO HAY PRODUCTO SLECCIONADO o LA CANTIDAD DEL PRODUCTO NO PUEDE SER 0");
             }
-            else if (dataGridView1.RowCount > 0) ;
-
+            else if (dataGridView1.RowCount > 0) 
             {
                 // Primero averigua si el registro existe:
                 bool existe = false;
@@ -181,6 +180,10 @@ namespace _911_RD.Administracion
 
         private void SumarFilas()
         {
+
+            if (txt_precio_compra.Text.Trim()=="")
+                return;
+
             if (dataGridView1.Rows.Count > 0)
             {
                 double a = 0, b = 0, c = 0, d = 0, f = 0, impTotal = 0, multotal = 0,
@@ -317,17 +320,25 @@ namespace _911_RD.Administracion
 
         private void btn_factura_Click(object sender, EventArgs e)
         {
-            CargarFact();
-            InsertarDetalle();
-            ActualizarStock();
-            dataGridView1.Rows.Clear();
-            if (dataGridView1.Rows.Count == 0)
+            try
             {
-                txt_subtotal.Text = "0.0";
-                txt_impuesto.Text = "0.0";
-                txt_impTotal.Text = "0.0";
-                txt_descuento.Text = "0.0";
-                
+
+                CargarFact();
+                InsertarDetalle();
+                ActualizarStock();
+                dataGridView1.Rows.Clear();
+                if (dataGridView1.Rows.Count == 0)
+                {
+                    txt_subtotal.Text = "0.0";
+                    txt_impuesto.Text = "0.0";
+                    txt_impTotal.Text = "0.0";
+                    txt_descuento.Text = "0.0";
+
+                }
+
+            }catch(Exception aa)
+            {
+                //error
             }
         }
 
