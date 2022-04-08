@@ -235,6 +235,49 @@ namespace _911_RD.Administracion
 
             return id_result;
         }
+
+        public int crudSuplidor(string id_tercero, string id_tipo, bool estadoT)
+        {
+            int id_result = 0;
+            try
+            {
+                // TransporSysEntities
+                using (TransporSysEntities db = new TransporSysEntities())
+                {
+                    var terceroquery = db.SUPLIDORES.FirstOrDefault(a => a.id_tercero.ToString() == id_tercero.Trim());
+                    if (terceroquery == null)
+                    {
+
+                        SUPLIDORES eMPLEADOS = new SUPLIDORES
+                        {
+                            id_tercero = int.Parse(id_tercero.Trim()),
+                            id_tipo_suplidor = int.Parse(id_tipo.Trim()),
+                            estado = true
+                        };
+                        db.SUPLIDORES.Add(eMPLEADOS);
+                    }
+                    else
+                    {
+                        terceroquery.id_tercero = int.Parse(id_tercero.Trim());
+                        terceroquery.id_tipo_suplidor = int.Parse(id_tipo.Trim());
+                        terceroquery.estado = estadoT;
+                        id_result = terceroquery.id_suplidor;
+                    }
+                    db.SaveChanges();
+                    if (terceroquery == null)
+                    {
+                        id_result = db.SUPLIDORES.Max(x => x.id_suplidor);
+                    }
+                }
+            }
+            catch (Exception asd)
+            {
+
+            }
+
+            return id_result;
+        }
+
         public int crudEmpresa(string id_tercero, string web, string lema)
         {
             int id_result = 0;

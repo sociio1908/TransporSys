@@ -198,5 +198,11 @@ namespace _911_RD
             this.Close();
         new FrmLogin().Show();
         }
+
+        private void button3_Click_1(object sender, EventArgs e)
+        {
+            new FrmSuplidor().ShowDialog();
+
+        }
     }
 }
