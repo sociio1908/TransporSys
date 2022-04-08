@@ -201,6 +201,12 @@
     <Compile Include="Administracion\FrmNacionalidad.Designer.cs">
       <DependentUpon>FrmNacionalidad.cs</DependentUpon>
     </Compile>
+    <Compile Include="Administracion\FrmSuplidor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administracion\FrmSuplidor.Designer.cs">
+      <DependentUpon>FrmSuplidor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Administracion\FrmTipoIdentificacione.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -709,6 +715,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Administracion\FrmNacionalidad.resx">
       <DependentUpon>FrmNacionalidad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administracion\FrmSuplidor.resx">
+      <DependentUpon>FrmSuplidor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Administracion\FrmTipoIdentificacione.resx">
       <DependentUpon>FrmTipoIdentificacione.cs</DependentUpon>
