@@ -23,8 +23,6 @@
     <EntitySetMapping Name="ARTICULOS">
       <EntityTypeMapping TypeName="TransporSysModel.ARTICULOS">
         <MappingFragment StoreEntitySet="ARTICULOS">
-          <ScalarProperty Name="recompra" ColumnName="recompra" />
-          <ScalarProperty Name="stock" ColumnName="stock" />
           <ScalarProperty Name="id_articulo" ColumnName="id_articulo" />
           <ScalarProperty Name="id_categoria" ColumnName="id_categoria" />
           <ScalarProperty Name="id_unidad_de_medida" ColumnName="id_unidad_de_medida" />
@@ -35,6 +33,8 @@
           <ScalarProperty Name="precio" ColumnName="precio" />
           <ScalarProperty Name="estado" ColumnName="estado" />
           <ScalarProperty Name="intItebis" ColumnName="intItebis" />
+          <ScalarProperty Name="stock" ColumnName="stock" />
+          <ScalarProperty Name="recompra" ColumnName="recompra" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -470,6 +470,18 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="PEDIDOS">
+      <EntityTypeMapping TypeName="TransporSysModel.PEDIDOS">
+        <MappingFragment StoreEntitySet="PEDIDOS">
+          <ScalarProperty Name="num_pedido" ColumnName="num_pedido" />
+          <ScalarProperty Name="id_suplidor" ColumnName="id_suplidor" />
+          <ScalarProperty Name="total" ColumnName="total" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+          <ScalarProperty Name="creado" ColumnName="creado" />
+          <ScalarProperty Name="fechaEntrega" ColumnName="fechaEntrega" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="PERSONAS">
       <EntityTypeMapping TypeName="TransporSysModel.PERSONAS">
         <MappingFragment StoreEntitySet="PERSONAS">
@@ -807,6 +819,16 @@
           <ScalarProperty Name="id_articulo" ColumnName="id_articulo" />
           <ScalarProperty Name="id_categoria" ColumnName="id_categoria" />
           <ScalarProperty Name="id_descuento" ColumnName="id_descuento" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DETALLES_PEDIDOS">
+      <EntityTypeMapping TypeName="TransporSysModel.DETALLES_PEDIDOS">
+        <MappingFragment StoreEntitySet="DETALLES_PEDIDOS">
+          <ScalarProperty Name="num_pedido" ColumnName="num_pedido" />
+          <ScalarProperty Name="id_articulo" ColumnName="id_articulo" />
+          <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+          <ScalarProperty Name="precio" ColumnName="precio" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

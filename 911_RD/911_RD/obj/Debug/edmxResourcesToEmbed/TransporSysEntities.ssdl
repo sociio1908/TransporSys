@@ -212,6 +212,20 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.ARTICULOS_VS_CATEGORIAS_VS_D
     <Property Name="descuento" Type="float" Nullable="false" />
     <Property Name="total" Type="float" Nullable="false" />
   </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'TransporSys.dbo.DETALLES_PEDIDOS' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="DETALLES_PEDIDOS">
+    <Key>
+      <PropertyRef Name="num_pedido" />
+      <PropertyRef Name="id_articulo" />
+      <PropertyRef Name="cantidad" />
+      <PropertyRef Name="precio" />
+    </Key>
+    <Property Name="num_pedido" Type="int" Nullable="false" />
+    <Property Name="id_articulo" Type="int" Nullable="false" />
+    <Property Name="cantidad" Type="float" Nullable="false" />
+    <Property Name="precio" Type="float" Nullable="false" />
+  </EntityType>
   <EntityType Name="DETALLES_SALIDAS">
     <Key>
       <PropertyRef Name="num_salida" />
@@ -473,6 +487,17 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.HISTORIAL_PRECIO_COMBUSTIBLE
     <Property Name="id_pais" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="id_continente" Type="int" Nullable="false" />
     <Property Name="pais" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PEDIDOS">
+    <Key>
+      <PropertyRef Name="num_pedido" />
+    </Key>
+    <Property Name="num_pedido" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_suplidor" Type="int" Nullable="false" />
+    <Property Name="total" Type="float" Nullable="false" />
+    <Property Name="estado" Type="int" Nullable="false" />
+    <Property Name="creado" Type="datetime" Nullable="false" />
+    <Property Name="fechaEntrega" Type="datetime" />
   </EntityType>
   <EntityType Name="PERSONAS">
     <Key>
@@ -815,6 +840,30 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.VEHICULOS_VS_CONDUCTOR' no t
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK__DETALLES___id_ar__469D7149">
+    <End Role="ARTICULOS" Type="Self.ARTICULOS" Multiplicity="1" />
+    <End Role="DETALLES_PEDIDOS" Type="Self.DETALLES_PEDIDOS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ARTICULOS">
+        <PropertyRef Name="id_articulo" />
+      </Principal>
+      <Dependent Role="DETALLES_PEDIDOS">
+        <PropertyRef Name="id_articulo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__DETALLES___num_p__47919582">
+    <End Role="PEDIDOS" Type="Self.PEDIDOS" Multiplicity="1" />
+    <End Role="DETALLES_PEDIDOS" Type="Self.DETALLES_PEDIDOS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PEDIDOS">
+        <PropertyRef Name="num_pedido" />
+      </Principal>
+      <Dependent Role="DETALLES_PEDIDOS">
+        <PropertyRef Name="num_pedido" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK__EMPLEADOS__id_pu__640DD89F">
     <End Role="PUESTOS" Type="Self.PUESTOS" Multiplicity="1" />
     <End Role="EMPLEADOS" Type="Self.EMPLEADOS" Multiplicity="*" />
@@ -824,6 +873,18 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.VEHICULOS_VS_CONDUCTOR' no t
       </Principal>
       <Dependent Role="EMPLEADOS">
         <PropertyRef Name="id_puesto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PEDIDOS__id_supl__45A94D10">
+    <End Role="SUPLIDORES" Type="Self.SUPLIDORES" Multiplicity="1" />
+    <End Role="PEDIDOS" Type="Self.PEDIDOS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SUPLIDORES">
+        <PropertyRef Name="id_suplidor" />
+      </Principal>
+      <Dependent Role="PEDIDOS">
+        <PropertyRef Name="id_suplidor" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -1748,6 +1809,7 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.VEHICULOS_VS_CONDUCTOR' no t
     <EntitySet Name="NCF" EntityType="Self.NCF" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="PACIENTES" EntityType="Self.PACIENTES" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="PAISES" EntityType="Self.PAISES" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PEDIDOS" EntityType="Self.PEDIDOS" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="PERSONAS" EntityType="Self.PERSONAS" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="PRECIOS" EntityType="Self.PRECIOS" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="PRECIOS_COMBUSTIBLE" EntityType="Self.PRECIOS_COMBUSTIBLE" Schema="dbo" store:Type="Tables" />
@@ -1787,6 +1849,14 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.VEHICULOS_VS_CONDUCTOR' no t
     [ARTICULOS_VS_CATEGORIAS_VS_DESCUENTOS].[id_descuento] AS [id_descuento]
     FROM [dbo].[ARTICULOS_VS_CATEGORIAS_VS_DESCUENTOS] AS [ARTICULOS_VS_CATEGORIAS_VS_DESCUENTOS]</DefiningQuery>
     </EntitySet>
+    <EntitySet Name="DETALLES_PEDIDOS" EntityType="Self.DETALLES_PEDIDOS" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [DETALLES_PEDIDOS].[num_pedido] AS [num_pedido], 
+    [DETALLES_PEDIDOS].[id_articulo] AS [id_articulo], 
+    [DETALLES_PEDIDOS].[cantidad] AS [cantidad], 
+    [DETALLES_PEDIDOS].[precio] AS [precio]
+    FROM [dbo].[DETALLES_PEDIDOS] AS [DETALLES_PEDIDOS]</DefiningQuery>
+    </EntitySet>
     <EntitySet Name="GPS" EntityType="Self.GPS" store:Type="Tables" store:Schema="dbo">
       <DefiningQuery>SELECT 
     [GPS].[id_vehiculo] AS [id_vehiculo], 
@@ -1825,9 +1895,21 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.VEHICULOS_VS_CONDUCTOR' no t
       <End Role="EMPLEADOS" EntitySet="EMPLEADOS" />
       <End Role="CONDUCTOR" EntitySet="CONDUCTOR" />
     </AssociationSet>
+    <AssociationSet Name="FK__DETALLES___id_ar__469D7149" Association="Self.FK__DETALLES___id_ar__469D7149">
+      <End Role="ARTICULOS" EntitySet="ARTICULOS" />
+      <End Role="DETALLES_PEDIDOS" EntitySet="DETALLES_PEDIDOS" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DETALLES___num_p__47919582" Association="Self.FK__DETALLES___num_p__47919582">
+      <End Role="PEDIDOS" EntitySet="PEDIDOS" />
+      <End Role="DETALLES_PEDIDOS" EntitySet="DETALLES_PEDIDOS" />
+    </AssociationSet>
     <AssociationSet Name="FK__EMPLEADOS__id_pu__640DD89F" Association="Self.FK__EMPLEADOS__id_pu__640DD89F">
       <End Role="PUESTOS" EntitySet="PUESTOS" />
       <End Role="EMPLEADOS" EntitySet="EMPLEADOS" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PEDIDOS__id_supl__45A94D10" Association="Self.FK__PEDIDOS__id_supl__45A94D10">
+      <End Role="SUPLIDORES" EntitySet="SUPLIDORES" />
+      <End Role="PEDIDOS" EntitySet="PEDIDOS" />
     </AssociationSet>
     <AssociationSet Name="FK__TERCEROS___id_di__3B95D2F1" Association="Self.FK__TERCEROS___id_di__3B95D2F1">
       <End Role="DIRECCIONES" EntitySet="DIRECCIONES" />

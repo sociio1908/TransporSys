@@ -33,6 +33,9 @@
     <Property Name="precio" Type="Double" Nullable="false" />
     <Property Name="estado" Type="Boolean" Nullable="false" />
     <Property Name="intItebis" Type="Int32" Nullable="false" />
+    <Property Name="stock" Type="Double" />
+    <Property Name="recompra" Type="Double" />
+    <NavigationProperty Name="DETALLES_PEDIDOS" Relationship="Self.FK__DETALLES___id_ar__469D7149" FromRole="ARTICULOS" ToRole="DETALLES_PEDIDOS" />
     <NavigationProperty Name="CATEGORIAS" Relationship="Self.FK_ARTICULOS_CATEGORIAS" FromRole="ARTICULOS" ToRole="CATEGORIAS" />
     <NavigationProperty Name="ITEBIS" Relationship="Self.FK_ARTICULOS_ITEBIS" FromRole="ARTICULOS" ToRole="ITEBIS" />
     <NavigationProperty Name="UNIDADES_DE_MEDIDA" Relationship="Self.FK_ARTICULOS_UNIDADES_DE_MEDIDA" FromRole="ARTICULOS" ToRole="UNIDADES_DE_MEDIDA" />
@@ -45,8 +48,6 @@
     <NavigationProperty Name="EXISTENCIAS" Relationship="Self.FK_EXISTENCIAS_ARTICULOS" FromRole="ARTICULOS" ToRole="EXISTENCIAS" />
     <NavigationProperty Name="FINANCIAMIENTOS" Relationship="Self.FK_FINANCIAMIENTOS_ARTICULOS" FromRole="ARTICULOS" ToRole="FINANCIAMIENTOS" />
     <NavigationProperty Name="PRECIOS" Relationship="Self.FK_PRECIOS_ARTICULOS" FromRole="ARTICULOS" ToRole="PRECIOS" />
-    <Property Name="stock" Type="Double" />
-    <Property Name="recompra" Type="Double" />
   </EntityType>
   <EntityType Name="BENEFICIOS">
     <Key>
@@ -513,6 +514,19 @@
     <NavigationProperty Name="CONTINENTES" Relationship="Self.FK_PAISES_CONTINENTES" FromRole="PAISES" ToRole="CONTINENTES" />
     <NavigationProperty Name="PROVINCIAS" Relationship="Self.FK_PROVINCIAS_PAISES" FromRole="PAISES" ToRole="PROVINCIAS" />
   </EntityType>
+  <EntityType Name="PEDIDOS">
+    <Key>
+      <PropertyRef Name="num_pedido" />
+    </Key>
+    <Property Name="num_pedido" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_suplidor" Type="Int32" Nullable="false" />
+    <Property Name="total" Type="Double" Nullable="false" />
+    <Property Name="estado" Type="Int32" Nullable="false" />
+    <Property Name="creado" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="fechaEntrega" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="SUPLIDORES" Relationship="Self.FK__PEDIDOS__id_supl__45A94D10" FromRole="PEDIDOS" ToRole="SUPLIDORES" />
+    <NavigationProperty Name="DETALLES_PEDIDOS" Relationship="TransporSysModel.FK__DETALLES___num_p__47919582" FromRole="PEDIDOS" ToRole="DETALLES_PEDIDOS" />
+  </EntityType>
   <EntityType Name="PERSONAS">
     <Key>
       <PropertyRef Name="id_persona" />
@@ -618,6 +632,7 @@
     <Property Name="estado" Type="Boolean" Nullable="false" />
     <NavigationProperty Name="COMPRAS" Relationship="Self.FK_COMPRAS_SUPLIDORES" FromRole="SUPLIDORES" ToRole="COMPRAS" />
     <NavigationProperty Name="ENTRADAS" Relationship="Self.FK_ENTRADAS_SUPLIDORES" FromRole="SUPLIDORES" ToRole="ENTRADAS" />
+    <NavigationProperty Name="PEDIDOS" Relationship="Self.FK__PEDIDOS__id_supl__45A94D10" FromRole="SUPLIDORES" ToRole="PEDIDOS" />
     <NavigationProperty Name="TERCEROS" Relationship="Self.FK_SUPLIDORES_TERCEROS" FromRole="SUPLIDORES" ToRole="TERCEROS" />
     <NavigationProperty Name="TIPOS_SUPLIDORES" Relationship="Self.FK_SUPLIDORES_TIPOS_SUPLIDORES" FromRole="SUPLIDORES" ToRole="TIPOS_SUPLIDORES" />
   </EntityType>
@@ -882,6 +897,20 @@
     <NavigationProperty Name="CATEGORIAS" Relationship="Self.FK_ARTICULOS_VS_CATEGORIAS_VS_DESCUENTOS_CATEGORIAS" FromRole="ARTICULOS_VS_CATEGORIAS_VS_DESCUENTOS" ToRole="CATEGORIAS" />
     <NavigationProperty Name="DESCUENTOS" Relationship="Self.FK_ARTICULOS_VS_CATEGORIAS_VS_DESCUENTOS_DESCUENTOS" FromRole="ARTICULOS_VS_CATEGORIAS_VS_DESCUENTOS" ToRole="DESCUENTOS" />
   </EntityType>
+  <EntityType Name="DETALLES_PEDIDOS">
+    <Key>
+      <PropertyRef Name="num_pedido" />
+      <PropertyRef Name="id_articulo" />
+      <PropertyRef Name="cantidad" />
+      <PropertyRef Name="precio" />
+    </Key>
+    <Property Name="num_pedido" Type="Int32" Nullable="false" />
+    <Property Name="id_articulo" Type="Int32" Nullable="false" />
+    <Property Name="cantidad" Type="Double" Nullable="false" />
+    <Property Name="precio" Type="Double" Nullable="false" />
+    <NavigationProperty Name="ARTICULOS" Relationship="Self.FK__DETALLES___id_ar__469D7149" FromRole="DETALLES_PEDIDOS" ToRole="ARTICULOS" />
+    <NavigationProperty Name="PEDIDOS" Relationship="TransporSysModel.FK__DETALLES___num_p__47919582" FromRole="DETALLES_PEDIDOS" ToRole="PEDIDOS" />
+  </EntityType>
   <EntityType Name="GPS">
     <Key>
       <PropertyRef Name="id_vehiculo" />
@@ -942,6 +971,18 @@
       </Principal>
       <Dependent Role="EXISTENCIAS">
         <PropertyRef Name="id_almacen" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__DETALLES___id_ar__469D7149">
+    <End Role="ARTICULOS" Type="Self.ARTICULOS" Multiplicity="1" />
+    <End Role="DETALLES_PEDIDOS" Type="Self.DETALLES_PEDIDOS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ARTICULOS">
+        <PropertyRef Name="id_articulo" />
+      </Principal>
+      <Dependent Role="DETALLES_PEDIDOS">
+        <PropertyRef Name="id_articulo" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -1617,6 +1658,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK__PEDIDOS__id_supl__45A94D10">
+    <End Role="SUPLIDORES" Type="Self.SUPLIDORES" Multiplicity="1" />
+    <End Role="PEDIDOS" Type="Self.PEDIDOS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SUPLIDORES">
+        <PropertyRef Name="id_suplidor" />
+      </Principal>
+      <Dependent Role="PEDIDOS">
+        <PropertyRef Name="id_suplidor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_PERSONAS_SEXOS">
     <End Role="SEXOS" Type="Self.SEXOS" Multiplicity="1" />
     <End Role="PERSONAS" Type="Self.PERSONAS" Multiplicity="*" />
@@ -1825,6 +1878,7 @@
     <EntitySet Name="NCF" EntityType="Self.NCF" />
     <EntitySet Name="PACIENTES" EntityType="Self.PACIENTES" />
     <EntitySet Name="PAISES" EntityType="Self.PAISES" />
+    <EntitySet Name="PEDIDOS" EntityType="Self.PEDIDOS" />
     <EntitySet Name="PERSONAS" EntityType="Self.PERSONAS" />
     <EntitySet Name="PRECIOS" EntityType="Self.PRECIOS" />
     <EntitySet Name="PRECIOS_COMBUSTIBLE" EntityType="Self.PRECIOS_COMBUSTIBLE" />
@@ -1858,6 +1912,7 @@
     <EntitySet Name="VENTA_SERVICIOS" EntityType="Self.VENTA_SERVICIOS" />
     <EntitySet Name="VENTAS" EntityType="Self.VENTAS" />
     <EntitySet Name="ARTICULOS_VS_CATEGORIAS_VS_DESCUENTOS" EntityType="Self.ARTICULOS_VS_CATEGORIAS_VS_DESCUENTOS" />
+    <EntitySet Name="DETALLES_PEDIDOS" EntityType="Self.DETALLES_PEDIDOS" />
     <EntitySet Name="GPS" EntityType="Self.GPS" />
     <EntitySet Name="HISTORIAL_PRECIO_COMBUSTIBLES" EntityType="Self.HISTORIAL_PRECIO_COMBUSTIBLES" />
     <EntitySet Name="TIPONCF" EntityType="Self.TIPONCF" />
@@ -1869,6 +1924,10 @@
     <AssociationSet Name="FK_EXISTENCIAS_ALMACENES" Association="Self.FK_EXISTENCIAS_ALMACENES">
       <End Role="ALMACENES" EntitySet="ALMACENES" />
       <End Role="EXISTENCIAS" EntitySet="EXISTENCIAS" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DETALLES___id_ar__469D7149" Association="Self.FK__DETALLES___id_ar__469D7149">
+      <End Role="ARTICULOS" EntitySet="ARTICULOS" />
+      <End Role="DETALLES_PEDIDOS" EntitySet="DETALLES_PEDIDOS" />
     </AssociationSet>
     <AssociationSet Name="FK_ARTICULOS_CATEGORIAS" Association="Self.FK_ARTICULOS_CATEGORIAS">
       <End Role="CATEGORIAS" EntitySet="CATEGORIAS" />
@@ -2094,6 +2153,10 @@
       <End Role="PAISES" EntitySet="PAISES" />
       <End Role="PROVINCIAS" EntitySet="PROVINCIAS" />
     </AssociationSet>
+    <AssociationSet Name="FK__PEDIDOS__id_supl__45A94D10" Association="Self.FK__PEDIDOS__id_supl__45A94D10">
+      <End Role="SUPLIDORES" EntitySet="SUPLIDORES" />
+      <End Role="PEDIDOS" EntitySet="PEDIDOS" />
+    </AssociationSet>
     <AssociationSet Name="FK_PERSONAS_SEXOS" Association="Self.FK_PERSONAS_SEXOS">
       <End Role="SEXOS" EntitySet="SEXOS" />
       <End Role="PERSONAS" EntitySet="PERSONAS" />
@@ -2154,5 +2217,21 @@
       <End Role="DEPARTAMENTOS" EntitySet="DEPARTAMENTOS" />
       <End Role="PUESTOS" EntitySet="PUESTOS" />
     </AssociationSet>
+    <AssociationSet Name="FK__DETALLES___num_p__47919582" Association="TransporSysModel.FK__DETALLES___num_p__47919582">
+      <End Role="PEDIDOS" EntitySet="PEDIDOS" />
+      <End Role="DETALLES_PEDIDOS" EntitySet="DETALLES_PEDIDOS" />
+    </AssociationSet>
   </EntityContainer>
+  <Association Name="FK__DETALLES___num_p__47919582">
+    <End Type="TransporSysModel.PEDIDOS" Role="PEDIDOS" Multiplicity="1" />
+    <End Type="TransporSysModel.DETALLES_PEDIDOS" Role="DETALLES_PEDIDOS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PEDIDOS">
+        <PropertyRef Name="num_pedido" />
+      </Principal>
+      <Dependent Role="DETALLES_PEDIDOS">
+        <PropertyRef Name="num_pedido" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

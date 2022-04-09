@@ -362,6 +362,9 @@
     <Compile Include="DETALLES_ENTRADAS.cs">
       <DependentUpon>TransporSysEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="DETALLES_PEDIDOS.cs">
+      <DependentUpon>TransporSysEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="DETALLES_SALIDAS.cs">
       <DependentUpon>TransporSysEntities.tt</DependentUpon>
     </Compile>
@@ -421,6 +424,12 @@
     </Compile>
     <Compile Include="FrmLogin.Designer.cs">
       <DependentUpon>FrmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmPedidos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmPedidos.Designer.cs">
+      <DependentUpon>FrmPedidos.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmPrincipal.cs">
       <SubType>Form</SubType>
@@ -543,6 +552,9 @@
       <DependentUpon>TransporSysEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="PAISES.cs">
+      <DependentUpon>TransporSysEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PEDIDOS.cs">
       <DependentUpon>TransporSysEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="PERSONAS.cs">
@@ -779,6 +791,9 @@
     <EmbeddedResource Include="FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmPedidos.resx">
+      <DependentUpon>FrmPedidos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmPrincipal.resx">
       <DependentUpon>FrmPrincipal.cs</DependentUpon>
     </EmbeddedResource>
@@ -947,6 +962,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\escaner-de-codigo-de-barras.png" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="TransporSysEntities.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>TransporSysEntities.edmx</DependentUpon>

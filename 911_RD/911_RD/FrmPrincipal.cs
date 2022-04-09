@@ -204,5 +204,10 @@ namespace _911_RD
             new FrmSuplidor().ShowDialog();
 
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            new FrmPedidos().ShowDialog();
+        }
     }
 }
