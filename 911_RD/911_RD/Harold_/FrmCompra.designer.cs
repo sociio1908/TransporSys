@@ -84,14 +84,11 @@ namespace _911_RD.Administracion
             this.button2 = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.btn_suplidor = new System.Windows.Forms.PictureBox();
             this.label20 = new System.Windows.Forms.Label();
-            this.bt_agregar_cont = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label18 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.txt_id_cliente = new _911_RD.ErrorTxtBox();
-            this.txt_nombre_cliente = new _911_RD.ErrorTxtBox();
-            this.txt_descuentoEmple = new _911_RD.ErrorTxtBox();
+            this.txt_id_suplidor = new _911_RD.ErrorTxtBox();
+            this.txt_nombre_suplidor = new _911_RD.ErrorTxtBox();
             this.txt_impTotal = new _911_RD.ErrorTxtBox();
             this.txt_impuesto = new _911_RD.ErrorTxtBox();
             this.txt_subtotal = new _911_RD.ErrorTxtBox();
@@ -110,7 +107,7 @@ namespace _911_RD.Administracion
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_suplidor)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -824,14 +821,11 @@ namespace _911_RD.Administracion
             // groupBox3
             // 
             this.groupBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.groupBox3.Controls.Add(this.txt_id_cliente);
-            this.groupBox3.Controls.Add(this.label20);
-            this.groupBox3.Controls.Add(this.txt_nombre_cliente);
-            this.groupBox3.Controls.Add(this.bt_agregar_cont);
-            this.groupBox3.Controls.Add(this.pictureBox1);
-            this.groupBox3.Controls.Add(this.txt_descuentoEmple);
             this.groupBox3.Controls.Add(this.label18);
-            this.groupBox3.Controls.Add(this.label19);
+            this.groupBox3.Controls.Add(this.txt_id_suplidor);
+            this.groupBox3.Controls.Add(this.label20);
+            this.groupBox3.Controls.Add(this.txt_nombre_suplidor);
+            this.groupBox3.Controls.Add(this.btn_suplidor);
             this.groupBox3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.groupBox3.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.groupBox3.Location = new System.Drawing.Point(29, 521);
@@ -841,111 +835,70 @@ namespace _911_RD.Administracion
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "SUPLIDOR";
             // 
+            // btn_suplidor
+            // 
+            this.btn_suplidor.BackColor = System.Drawing.Color.LightGreen;
+            this.btn_suplidor.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_suplidor.Image = ((System.Drawing.Image)(resources.GetObject("btn_suplidor.Image")));
+            this.btn_suplidor.Location = new System.Drawing.Point(116, 23);
+            this.btn_suplidor.Name = "btn_suplidor";
+            this.btn_suplidor.Size = new System.Drawing.Size(34, 27);
+            this.btn_suplidor.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btn_suplidor.TabIndex = 205;
+            this.btn_suplidor.TabStop = false;
+            this.btn_suplidor.Click += new System.EventHandler(this.btn_suplidor_Click);
+            // 
             // label20
             // 
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Century Gothic", 9F);
             this.label20.ForeColor = System.Drawing.Color.Snow;
-            this.label20.Location = new System.Drawing.Point(8, 75);
+            this.label20.Location = new System.Drawing.Point(6, 27);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(61, 17);
+            this.label20.Size = new System.Drawing.Size(23, 17);
             this.label20.TabIndex = 234;
-            this.label20.Text = "NOMBRE:";
-            // 
-            // bt_agregar_cont
-            // 
-            this.bt_agregar_cont.BackColor = System.Drawing.Color.LimeGreen;
-            this.bt_agregar_cont.FlatAppearance.BorderSize = 0;
-            this.bt_agregar_cont.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bt_agregar_cont.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bt_agregar_cont.ForeColor = System.Drawing.Color.White;
-            this.bt_agregar_cont.Location = new System.Drawing.Point(273, 73);
-            this.bt_agregar_cont.Name = "bt_agregar_cont";
-            this.bt_agregar_cont.Size = new System.Drawing.Size(34, 26);
-            this.bt_agregar_cont.TabIndex = 209;
-            this.bt_agregar_cont.Text = "+";
-            this.bt_agregar_cont.UseVisualStyleBackColor = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.LightGreen;
-            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(220, 24);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(34, 27);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 205;
-            this.pictureBox1.TabStop = false;
+            this.label20.Text = "ID:";
             // 
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label18.Location = new System.Drawing.Point(187, 26);
+            this.label18.Font = new System.Drawing.Font("Century Gothic", 9F);
+            this.label18.ForeColor = System.Drawing.Color.Snow;
+            this.label18.Location = new System.Drawing.Point(6, 66);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(23, 19);
-            this.label18.TabIndex = 203;
-            this.label18.Text = "%";
+            this.label18.Size = new System.Drawing.Size(61, 17);
+            this.label18.TabIndex = 236;
+            this.label18.Text = "NOMBRE:";
             // 
-            // label19
+            // txt_id_suplidor
             // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label19.Location = new System.Drawing.Point(6, 29);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(87, 17);
-            this.label19.TabIndex = 202;
-            this.label19.Text = "DESCUENTOS:";
+            this.txt_id_suplidor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(54)))), ((int)(((byte)(54)))));
+            this.txt_id_suplidor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_id_suplidor.Enabled = false;
+            this.txt_id_suplidor.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_id_suplidor.ForeColor = System.Drawing.SystemColors.Window;
+            this.txt_id_suplidor.Limpiar = true;
+            this.txt_id_suplidor.Location = new System.Drawing.Point(73, 23);
+            this.txt_id_suplidor.Name = "txt_id_suplidor";
+            this.txt_id_suplidor.Size = new System.Drawing.Size(37, 24);
+            this.txt_id_suplidor.SoloNumeros = false;
+            this.txt_id_suplidor.TabIndex = 235;
+            this.txt_id_suplidor.Validar = true;
             // 
-            // txt_id_cliente
+            // txt_nombre_suplidor
             // 
-            this.txt_id_cliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(54)))), ((int)(((byte)(54)))));
-            this.txt_id_cliente.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txt_id_cliente.Enabled = false;
-            this.txt_id_cliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.txt_id_cliente.ForeColor = System.Drawing.SystemColors.Window;
-            this.txt_id_cliente.Limpiar = true;
-            this.txt_id_cliente.Location = new System.Drawing.Point(99, 73);
-            this.txt_id_cliente.Name = "txt_id_cliente";
-            this.txt_id_cliente.Size = new System.Drawing.Size(37, 26);
-            this.txt_id_cliente.SoloNumeros = false;
-            this.txt_id_cliente.TabIndex = 235;
-            this.txt_id_cliente.Validar = true;
-            // 
-            // txt_nombre_cliente
-            // 
-            this.txt_nombre_cliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(54)))), ((int)(((byte)(54)))));
-            this.txt_nombre_cliente.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txt_nombre_cliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.txt_nombre_cliente.ForeColor = System.Drawing.SystemColors.Window;
-            this.txt_nombre_cliente.Limpiar = true;
-            this.txt_nombre_cliente.Location = new System.Drawing.Point(142, 73);
-            this.txt_nombre_cliente.Name = "txt_nombre_cliente";
-            this.txt_nombre_cliente.Size = new System.Drawing.Size(125, 26);
-            this.txt_nombre_cliente.SoloNumeros = false;
-            this.txt_nombre_cliente.TabIndex = 233;
-            this.txt_nombre_cliente.Validar = true;
-            // 
-            // txt_descuentoEmple
-            // 
-            this.txt_descuentoEmple.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(56)))), ((int)(((byte)(56)))));
-            this.txt_descuentoEmple.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txt_descuentoEmple.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.txt_descuentoEmple.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.txt_descuentoEmple.Limpiar = true;
-            this.txt_descuentoEmple.Location = new System.Drawing.Point(99, 26);
-            this.txt_descuentoEmple.Multiline = true;
-            this.txt_descuentoEmple.Name = "txt_descuentoEmple";
-            this.txt_descuentoEmple.ReadOnly = true;
-            this.txt_descuentoEmple.Size = new System.Drawing.Size(82, 24);
-            this.txt_descuentoEmple.SoloNumeros = false;
-            this.txt_descuentoEmple.TabIndex = 204;
-            this.txt_descuentoEmple.Text = "0.0";
-            this.txt_descuentoEmple.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txt_descuentoEmple.Validar = true;
+            this.txt_nombre_suplidor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(54)))), ((int)(((byte)(54)))));
+            this.txt_nombre_suplidor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_nombre_suplidor.Enabled = false;
+            this.txt_nombre_suplidor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.txt_nombre_suplidor.ForeColor = System.Drawing.SystemColors.Window;
+            this.txt_nombre_suplidor.Limpiar = true;
+            this.txt_nombre_suplidor.Location = new System.Drawing.Point(73, 61);
+            this.txt_nombre_suplidor.Name = "txt_nombre_suplidor";
+            this.txt_nombre_suplidor.Size = new System.Drawing.Size(160, 26);
+            this.txt_nombre_suplidor.SoloNumeros = false;
+            this.txt_nombre_suplidor.TabIndex = 233;
+            this.txt_nombre_suplidor.Validar = true;
             // 
             // txt_impTotal
             // 
@@ -1038,6 +991,7 @@ namespace _911_RD.Administracion
             // 
             this.txt_id.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(69)))), ((int)(((byte)(69)))));
             this.txt_id.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_id.Enabled = false;
             this.txt_id.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.txt_id.ForeColor = System.Drawing.SystemColors.Window;
             this.txt_id.Limpiar = true;
@@ -1054,6 +1008,7 @@ namespace _911_RD.Administracion
             // 
             this.txt_numfactura.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(69)))), ((int)(((byte)(69)))));
             this.txt_numfactura.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_numfactura.Enabled = false;
             this.txt_numfactura.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.txt_numfactura.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.txt_numfactura.Limpiar = true;
@@ -1064,7 +1019,7 @@ namespace _911_RD.Administracion
             this.txt_numfactura.Size = new System.Drawing.Size(114, 20);
             this.txt_numfactura.SoloNumeros = false;
             this.txt_numfactura.TabIndex = 229;
-            this.txt_numfactura.Text = "1";
+            this.txt_numfactura.Text = "0";
             this.txt_numfactura.Validar = true;
             // 
             // txt_precio_compra
@@ -1190,7 +1145,7 @@ namespace _911_RD.Administracion
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_suplidor)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1249,14 +1204,8 @@ namespace _911_RD.Administracion
         public System.Windows.Forms.Button button2;
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.GroupBox groupBox3;
-        private ErrorTxtBox txt_id_cliente;
-        private System.Windows.Forms.Label label20;
-        private ErrorTxtBox txt_nombre_cliente;
-        private System.Windows.Forms.Button bt_agregar_cont;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        public ErrorTxtBox txt_descuentoEmple;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Label label19;
+        private ErrorTxtBox txt_id_suplidor;
+        private ErrorTxtBox txt_nombre_suplidor;
         private System.Windows.Forms.DataGridViewTextBoxColumn id_articulos;
         private System.Windows.Forms.DataGridViewTextBoxColumn articulo;
         private System.Windows.Forms.DataGridViewTextBoxColumn cantidad;
@@ -1268,5 +1217,8 @@ namespace _911_RD.Administracion
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label22;
         public ErrorTxtBox txt_precio_compra;
+        private System.Windows.Forms.PictureBox btn_suplidor;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label20;
     }
 }

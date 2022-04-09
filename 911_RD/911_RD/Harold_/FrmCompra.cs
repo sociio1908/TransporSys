@@ -108,16 +108,12 @@ namespace _911_RD.Administracion
         private void button14_Click(object sender, EventArgs e)
         {
 
-            MessageBox.Show("ENTROOO");
-
-
-
             if (txt_cantidad.Text == "0" || txt_id.Text == "")
             {
                 MessageBox.Show("NO HAY PRODUCTO SLECCIONADO o LA CANTIDAD DEL PRODUCTO NO PUEDE SER 0");
+                return;
             }
-            else if (dataGridView1.RowCount > 0) 
-            {
+          
                 // Primero averigua si el registro existe:
                 bool existe = false;
                 for (int i = 0; i < dataGridView1.RowCount; i++)
@@ -138,7 +134,7 @@ namespace _911_RD.Administracion
                         txt_nombre.Text = "";
                         txt_cantidad.Text = "0";
                         txt_precio.Text = "";
-                        txt_descuento.Text = "";
+                        txt_descuento.Text = "0.0";
                         txt_stock.Text = "";
                         txt_des.Text = "";
                         txt_codBarra.Text = "";
@@ -159,12 +155,11 @@ namespace _911_RD.Administracion
                     dataGridView1.Rows[n].Cells[2].Value = txt_cantidad.Text.ToString();
                     dataGridView1.Rows[n].Cells[3].Value = txt_precio_compra.Text.ToString();
                     dataGridView1.Rows[n].Cells[4].Value = txt_porcentaje_itb.Text.ToString();
-                    dataGridView1.Rows[n].Cells[5].Value = txt_descuentoEmple.Text.ToString();
                     txt_id.Text = "";
                     txt_nombre.Text = "";
                     txt_cantidad.Text = "0";
                     txt_precio.Text = "";
-                    txt_descuento.Text = "";
+                    txt_descuento.Text = "0.0";
                     txt_stock.Text = "";
                     txt_des.Text = "";
                     txt_codBarra.Text = "";
@@ -175,7 +170,6 @@ namespace _911_RD.Administracion
 
                     SumarFilas();
                 }
-            }
         }
 
         private void SumarFilas()
@@ -194,7 +188,6 @@ namespace _911_RD.Administracion
 
                     a = Convert.ToDouble(row.Cells["cantidad"].Value);
                     b = Convert.ToDouble(row.Cells["precio"].Value);
-                    c = Convert.ToDouble(row.Cells["descuento"].Value);
                     f = Convert.ToDouble(row.Cells["itbis"].Value);
                     d = c / 100;
                     double itbPor = f / 100;
@@ -215,7 +208,7 @@ namespace _911_RD.Administracion
                 txt_subtotal.Text = subtotal.ToString();
                 txt_impuesto.Text = itbTotal.ToString();
                 txt_impTotal.Text = impTotal.ToString();
-                txt_descuento.Text = desTotal.ToString();
+                txt_descuento.Text = "0.0";
             }
         }
 
@@ -235,7 +228,7 @@ namespace _911_RD.Administracion
                         {
                             //ningun campo vacio
                             num_compra = Convert.ToInt32(txt_numfactura.Text.Trim()),
-                            id_suplidor = 1,
+                            id_suplidor = int.Parse(txt_id_suplidor.Text),
                             id_empleado = Utilidades.idusuario,
                             fecha = DateTime.Now,
                             estado = true,
@@ -275,7 +268,7 @@ namespace _911_RD.Administracion
                                 cantidad = Convert.ToDouble(row.Cells[2].Value.ToString()),
                                 precio = Convert.ToDouble(row.Cells[3].Value.ToString()),
                                 itbis = Convert.ToDouble(txt_impuesto.Text.Trim()),
-                                descuento = 0,
+                                descuento = 0.0,
                                 total = Convert.ToDouble(txt_impTotal.Text.Trim())
                             };
                             db.DETALLES_COMPRAS.Add(Dcomp);
@@ -305,11 +298,11 @@ namespace _911_RD.Administracion
 
                         var result = db.ARTICULOS.SingleOrDefault(b => b.id_articulo == a);
                         var stockactual = db.ARTICULOS.SingleOrDefault(b => b.id_articulo == a);
-                        int d = Convert.ToInt32(stockactual.reorden.ToString());
+                        int d = Convert.ToInt32(stockactual.stock.ToString());
                         double actstock = d + c;
                         if (result != null)
                         {
-                            result.reorden = actstock;
+                            result.stock = actstock;
                             db.SaveChanges();
                         }
                     }
@@ -323,6 +316,11 @@ namespace _911_RD.Administracion
             try
             {
 
+                if (txt_id_suplidor.Text=="")
+                {
+                    MessageBox.Show("SELECCIONE UN SUPLIDOR.");
+                    return;
+                }
                 CargarFact();
                 InsertarDetalle();
                 ActualizarStock();
@@ -459,7 +457,7 @@ namespace _911_RD.Administracion
                                         pro.id_articulo,
                                         pro.nombre,
                                         pro.descripcion,
-                                        pro.reorden,
+                                        pro.stock,
                                         pro.precio,
                                         itb.porcentaje,
                                         pro.codigo_barras,
@@ -476,7 +474,7 @@ namespace _911_RD.Administracion
                         txt_id.Text = OArticulos.id_articulo.ToString();
                         txt_nombre.Text = OArticulos.nombre.ToString();
                         txt_des.Text = OArticulos.descripcion.ToString();
-                        txt_stock.Text = OArticulos.reorden.ToString();
+                        txt_stock.Text = OArticulos.stock.ToString();
                         txt_precio.Text = OArticulos.precio.ToString();
                         txt_codBarra.Text = OArticulos.codigo_barras.ToString();
                         txt_porcentaje_itb.Text = OArticulos.porcentaje.ToString();
@@ -502,12 +500,8 @@ namespace _911_RD.Administracion
                 using (TransporSysEntities db = new TransporSysEntities())
                 {
 
-                    var articulo = db.VENTAS.Max(j => j.num_fact);
-
-                    int c = Convert.ToInt32(articulo);
-                    int b = c + 1;
-                    txt_numfactura.Text = b.ToString();
-
+                    var articulo = db.COMPRAS.Max(j => j.num_compra);
+                    txt_numfactura.Text = (int.Parse(articulo.ToString())+1).ToString();
                 }
             }
             catch (Exception asa)
@@ -519,6 +513,26 @@ namespace _911_RD.Administracion
         private void label4_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btn_suplidor_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                using (FrmSuplidor frmcliente = new FrmSuplidor())
+                {
+                    DialogResult dr = frmcliente.ShowDialog();
+                    if (dr == DialogResult.OK)
+                    {
+                        txt_id_suplidor.Text = frmcliente.dataGridView1.CurrentRow.Cells[3].Value.ToString();
+                        txt_nombre_suplidor.Text = frmcliente.dataGridView1.CurrentRow.Cells[4].Value.ToString();
+                    }
+                }
+            }
+            catch (Exception asa)
+            {
+                //error
+            }
         }
     }
 }
