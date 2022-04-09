@@ -31,6 +31,7 @@ namespace _911_RD
         {
             this.pnl_contenedor = new System.Windows.Forms.Panel();
             this.pnl_menu = new System.Windows.Forms.Panel();
+            this.button3 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
@@ -55,7 +56,6 @@ namespace _911_RD
             this.label1 = new System.Windows.Forms.Label();
             this.lbl_minimizar = new System.Windows.Forms.Label();
             this.lbl_cerrar = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
             this.pnl_menu.SuspendLayout();
             this.panel1.SuspendLayout();
             this.pnl_barra.SuspendLayout();
@@ -99,6 +99,22 @@ namespace _911_RD
             this.pnl_menu.Size = new System.Drawing.Size(180, 710);
             this.pnl_menu.TabIndex = 1;
             this.pnl_menu.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.Brown;
+            this.button3.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.button3.FlatAppearance.BorderSize = 0;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.ForeColor = System.Drawing.Color.White;
+            this.button3.Location = new System.Drawing.Point(0, 271);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(177, 33);
+            this.button3.TabIndex = 24;
+            this.button3.Text = "Suplidores";
+            this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click_1);
             // 
             // button1
             // 
@@ -192,7 +208,7 @@ namespace _911_RD
             this.btn_add_art.Name = "btn_add_art";
             this.btn_add_art.Size = new System.Drawing.Size(177, 33);
             this.btn_add_art.TabIndex = 18;
-            this.btn_add_art.Text = "Articulo";
+            this.btn_add_art.Text = "Articulos";
             this.btn_add_art.UseVisualStyleBackColor = false;
             this.btn_add_art.Click += new System.EventHandler(this.btn_add_art_Click);
             // 
@@ -272,7 +288,7 @@ namespace _911_RD
             this.btn_compra.Name = "btn_compra";
             this.btn_compra.Size = new System.Drawing.Size(177, 33);
             this.btn_compra.TabIndex = 12;
-            this.btn_compra.Text = "Compra";
+            this.btn_compra.Text = "Compras";
             this.btn_compra.UseVisualStyleBackColor = false;
             this.btn_compra.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -452,22 +468,6 @@ namespace _911_RD
             this.lbl_cerrar.TabIndex = 1;
             this.lbl_cerrar.Text = "X";
             this.lbl_cerrar.Click += new System.EventHandler(this.lbl_cerrar_Click);
-            // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.Color.Brown;
-            this.button3.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(0, 271);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(177, 33);
-            this.button3.TabIndex = 24;
-            this.button3.Text = "Suplidores";
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click_1);
             // 
             // FrmPrincipal
             // 
