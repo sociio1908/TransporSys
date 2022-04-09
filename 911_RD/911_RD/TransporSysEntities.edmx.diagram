@@ -4,89 +4,92 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="423a5ff37e90483f8514766ce982c58d" Name="Diagram1">
-        <EntityTypeShape EntityType="TransporSysModel.ALERGIAS" Width="1.5" PointX="0.75" PointY="40.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="TransporSysModel.ALMACENES" Width="1.5" PointX="8.25" PointY="12.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="TransporSysModel.ARTICULOS" Width="1.5" PointX="8.25" PointY="15" IsExpanded="true" />
+      <Diagram DiagramId="56ebd9bd9e29427f9008c80b5ab38adc" Name="Diagram1">
+        <EntityTypeShape EntityType="TransporSysModel.ALERGIAS" Width="1.5" PointX="0.75" PointY="40.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TransporSysModel.ALMACENES" Width="1.5" PointX="8.25" PointY="15.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TransporSysModel.ARTICULOS" Width="1.5" PointX="8.25" PointY="18.875" IsExpanded="true" />
         <EntityTypeShape EntityType="TransporSysModel.BENEFICIOS" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
         <EntityTypeShape EntityType="TransporSysModel.CALLES" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="TransporSysModel.CATEGORIAS" Width="1.5" PointX="6" PointY="13.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TransporSysModel.CATEGORIAS" Width="1.5" PointX="6" PointY="18" IsExpanded="true" />
         <EntityTypeShape EntityType="TransporSysModel.CATEGORIAS_SERVICIOS" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="TransporSysModel.CIUDADES" Width="1.5" PointX="1.5" PointY="25.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="TransporSysModel.CLIENTES" Width="1.5" PointX="3" PointY="33.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="TransporSysModel.COBROS" Width="1.5" PointX="16.5" PointY="29.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TransporSysModel.CIUDADES" Width="1.5" PointX="1.5" PointY="22.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TransporSysModel.CLIENTES" Width="1.5" PointX="3" PointY="33.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TransporSysModel.COBROS" Width="1.5" PointX="16.5" PointY="29.25" IsExpanded="true" />
         <EntityTypeShape EntityType="TransporSysModel.COMBUSTIBLE" Width="1.5" PointX="4.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="TransporSysModel.COMPRAS" Width="1.5" PointX="19.5" PointY="30" IsExpanded="true" />
-        <EntityTypeShape EntityType="TransporSysModel.CONDUCTOR" Width="1.5" PointX="16.5" PointY="33.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="TransporSysModel.CONTINENTES" Width="1.5" PointX="1.5" PointY="16.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="TransporSysModel.COTIZACIONES" Width="1.5" PointX="8.25" PointY="36.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="TransporSysModel.DEPARTAMENTOS" Width="1.5" PointX="20.25" PointY="23.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="TransporSysModel.DESCUENTOS" Width="1.5" PointX="16.5" PointY="37" IsExpanded="true" />
-        <EntityTypeShape EntityType="TransporSysModel.DETALLES_COMPRAS" Width="1.5" PointX="24.75" PointY="29.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="TransporSysModel.DETALLES_COTIZACIONES" Width="1.5" PointX="10.5" PointY="37.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="TransporSysModel.CONDUCTOR" Width="1.5" PointX="16.5" PointY="33.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TransporSysModel.CONTINENTES" Width="1.5" PointX="1.5" PointY="14" IsExpanded="true" />
+        <EntityTypeShape EntityType="TransporSysModel.COTIZACIONES" Width="1.5" PointX="8.25" PointY="36.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TransporSysModel.DEPARTAMENTOS" Width="1.5" PointX="20.25" PointY="23.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TransporSysModel.DESCUENTOS" Width="1.5" PointX="16.5" PointY="37.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TransporSysModel.DETALLES_COMPRAS" Width="1.5" PointX="21.75" PointY="26.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TransporSysModel.DETALLES_COTIZACIONES" Width="1.5" PointX="10.5" PointY="37.375" IsExpanded="true" />
         <EntityTypeShape EntityType="TransporSysModel.DETALLES_ENTRADAS" Width="1.5" PointX="23.75" PointY="33.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="TransporSysModel.DETALLES_SALIDAS" Width="1.5" PointX="18.75" PointY="50.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="TransporSysModel.DETALLES_VENTAS" Width="1.5" PointX="10.5" PointY="26.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="TransporSysModel.DIRECCIONES" Width="1.5" PointX="3.75" PointY="25.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TransporSysModel.DETALLES_SALIDAS" Width="1.5" PointX="18.75" PointY="50.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TransporSysModel.DETALLES_VENTAS" Width="1.5" PointX="10.5" PointY="26.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="TransporSysModel.DIRECCIONES" Width="1.5" PointX="3.75" PointY="22.625" IsExpanded="true" />
         <EntityTypeShape EntityType="TransporSysModel.DIRECCIONESLL" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="TransporSysModel.DVENTAS_SERVICIOS" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
         <EntityTypeShape EntityType="TransporSysModel.DVIAJES" Width="1.5" PointX="2.75" PointY="6.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="TransporSysModel.EMAILS" Width="1.5" PointX="3.75" PointY="49.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="TransporSysModel.EMPLEADOS" Width="1.5" PointX="14.25" PointY="32.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="TransporSysModel.EMAILS" Width="1.5" PointX="3.75" PointY="52" IsExpanded="true" />
+        <EntityTypeShape EntityType="TransporSysModel.EMPLEADOS" Width="1.5" PointX="14.25" PointY="32.375" IsExpanded="true" />
         <EntityTypeShape EntityType="TransporSysModel.EMPRESA" Width="1.5" PointX="6.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="TransporSysModel.ENTRADAS" Width="1.5" PointX="21.5" PointY="33.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="TransporSysModel.EXISTENCIAS" Width="1.5" PointX="10.5" PointY="17" IsExpanded="true" />
-        <EntityTypeShape EntityType="TransporSysModel.FINANCIAMIENTOS" Width="1.5" PointX="11.25" PointY="32.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="TransporSysModel.IDENTIFICACIONES" Width="1.5" PointX="6.75" PointY="46.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="TransporSysModel.ITEBIS" Width="1.5" PointX="6" PointY="16.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="TransporSysModel.MARCA" Width="1.5" PointX="15" PointY="23.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="TransporSysModel.EXISTENCIAS" Width="1.5" PointX="10.5" PointY="19" IsExpanded="true" />
+        <EntityTypeShape EntityType="TransporSysModel.FINANCIAMIENTOS" Width="1.5" PointX="11.25" PointY="32.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TransporSysModel.IDENTIFICACIONES" Width="1.5" PointX="6.75" PointY="48.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TransporSysModel.ITEBIS" Width="1.5" PointX="6" PointY="21" IsExpanded="true" />
+        <EntityTypeShape EntityType="TransporSysModel.MARCA" Width="1.5" PointX="15" PointY="23.75" IsExpanded="true" />
         <EntityTypeShape EntityType="TransporSysModel.MEDICAMENTOS" Width="1.5" PointX="4.75" PointY="6.75" IsExpanded="true" />
         <EntityTypeShape EntityType="TransporSysModel.MEDICAMENTOS_VS_ALERGIAS" Width="1.5" PointX="6.75" PointY="6.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="TransporSysModel.MODELO" Width="1.5" PointX="15" PointY="26" IsExpanded="true" />
+        <EntityTypeShape EntityType="TransporSysModel.MODELO" Width="1.5" PointX="15" PointY="26.125" IsExpanded="true" />
         <EntityTypeShape EntityType="TransporSysModel.MOTIVOS" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="TransporSysModel.NACIONALIDADES" Width="1.5" PointX="3.75" PointY="40.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="TransporSysModel.NACIONALIDADES" Width="1.5" PointX="3.75" PointY="43.75" IsExpanded="true" />
         <EntityTypeShape EntityType="TransporSysModel.NCF" Width="1.5" PointX="8.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="TransporSysModel.PACIENTES" Width="1.5" PointX="8.25" PointY="43.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="TransporSysModel.PAISES" Width="1.5" PointX="1.5" PointY="19.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="TransporSysModel.PERSONAS" Width="1.5" PointX="6" PointY="33.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="TransporSysModel.PRECIOS" Width="1.5" PointX="21.5" PointY="38.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="TransporSysModel.PACIENTES" Width="1.5" PointX="8.25" PointY="43.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TransporSysModel.PAISES" Width="1.5" PointX="1.5" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TransporSysModel.PEDIDOS" Width="1.5" PointX="5.25" PointY="26.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="TransporSysModel.PERSONAS" Width="1.5" PointX="6" PointY="33.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="TransporSysModel.PRECIOS" Width="1.5" PointX="21.5" PointY="37.375" IsExpanded="true" />
         <EntityTypeShape EntityType="TransporSysModel.PRECIOS_COMBUSTIBLE" Width="1.5" PointX="8.75" PointY="6.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="TransporSysModel.PROVINCIAS" Width="1.5" PointX="1.5" PointY="22.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="TransporSysModel.PUESTOS" Width="1.5" PointX="22.5" PointY="30.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="TransporSysModel.SALIDAS" Width="1.5" PointX="16.5" PointY="50.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="TransporSysModel.PROVINCIAS" Width="1.5" PointX="1.5" PointY="19.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TransporSysModel.PUESTOS" Width="1.5" PointX="22.5" PointY="30.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TransporSysModel.SALIDAS" Width="1.5" PointX="16.5" PointY="50.75" IsExpanded="true" />
         <EntityTypeShape EntityType="TransporSysModel.SERVICIOS" Width="1.5" PointX="4.75" PointY="9.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="TransporSysModel.SEXOS" Width="1.5" PointX="3.75" PointY="43.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TransporSysModel.SEXOS" Width="1.5" PointX="3.75" PointY="46.25" IsExpanded="true" />
         <EntityTypeShape EntityType="TransporSysModel.SUPLIDORES" Width="1.5" PointX="3" PointY="29.375" IsExpanded="true" />
         <EntityTypeShape EntityType="TransporSysModel.sysdiagrams" Width="1.5" PointX="9.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="TransporSysModel.TELEFONOS" Width="1.5" PointX="6.75" PointY="22.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="TransporSysModel.TERCEROS" Width="1.5" PointX="0.75" PointY="33.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="TransporSysModel.TERCEROS_VS_ALERGIAS" Width="1.5" PointX="3" PointY="37.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="TransporSysModel.TERCEROS_VS_DIRECCIONES" Width="1.5" PointX="6" PointY="29.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="TransporSysModel.TERCEROS_VS_EMAILS" Width="1.5" PointX="6" PointY="37.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="TransporSysModel.TERCEROS_VS_IDENTIFICACIONES" Width="1.5" PointX="9" PointY="33.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="TransporSysModel.TERCEROS_VS_TELEFONOS" Width="1.5" PointX="9" PointY="30.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="TransporSysModel.TELEFONOS" Width="1.5" PointX="6.75" PointY="40.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TransporSysModel.TERCEROS" Width="1.5" PointX="0.75" PointY="33.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="TransporSysModel.TERCEROS_VS_ALERGIAS" Width="1.5" PointX="3" PointY="37.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TransporSysModel.TERCEROS_VS_DIRECCIONES" Width="1.5" PointX="6" PointY="29.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TransporSysModel.TERCEROS_VS_EMAILS" Width="1.5" PointX="6" PointY="37.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TransporSysModel.TERCEROS_VS_IDENTIFICACIONES" Width="1.5" PointX="9" PointY="33.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TransporSysModel.TERCEROS_VS_TELEFONOS" Width="1.5" PointX="9" PointY="30.75" IsExpanded="true" />
         <EntityTypeShape EntityType="TransporSysModel.TIPO_MEDICAMENTOS" Width="1.5" PointX="6.75" PointY="9.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="TransporSysModel.TIPOS_CLIENTES" Width="1.5" PointX="0.75" PointY="37.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="TransporSysModel.TIPOS_IDENTIFICACIONES" Width="1.5" PointX="4.5" PointY="46.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TransporSysModel.TIPOS_CLIENTES" Width="1.5" PointX="0.75" PointY="37.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TransporSysModel.TIPOS_IDENTIFICACIONES" Width="1.5" PointX="4.5" PointY="48.875" IsExpanded="true" />
         <EntityTypeShape EntityType="TransporSysModel.TIPOS_MEMBRESIAS" Width="1.5" PointX="0.75" PointY="0.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="TransporSysModel.TIPOS_SUPLIDORES" Width="1.5" PointX="0.75" PointY="29.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="TransporSysModel.TIPOS_TELEFONOS" Width="1.5" PointX="4.5" PointY="22.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="TransporSysModel.TIPOS_USUARIOS" Width="1.5" PointX="14.25" PointY="40.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TransporSysModel.TIPOS_SUPLIDORES" Width="1.5" PointX="0.75" PointY="29.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TransporSysModel.TIPOS_TELEFONOS" Width="1.5" PointX="4.5" PointY="40.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TransporSysModel.TIPOS_USUARIOS" Width="1.5" PointX="14.25" PointY="40.875" IsExpanded="true" />
         <EntityTypeShape EntityType="TransporSysModel.TIPOSPAGO" Width="1.5" PointX="8.75" PointY="9.75" IsExpanded="true" />
         <EntityTypeShape EntityType="TransporSysModel.TIPOSVIAJES" Width="1.5" PointX="10.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="TransporSysModel.TRANSPORTE" Width="1.5" PointX="18.75" PointY="33.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="TransporSysModel.UNIDADES_DE_MEDIDA" Width="1.5" PointX="6" PointY="19.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="TransporSysModel.USUARIOS" Width="1.5" PointX="16.5" PointY="40.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="TransporSysModel.VEHICULO" Width="1.5" PointX="17.25" PointY="23.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TransporSysModel.TRANSPORTE" Width="1.5" PointX="18.75" PointY="33.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TransporSysModel.UNIDADES_DE_MEDIDA" Width="1.5" PointX="6" PointY="23.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="TransporSysModel.USUARIOS" Width="1.5" PointX="16.5" PointY="40.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TransporSysModel.VEHICULO" Width="1.5" PointX="17.25" PointY="23.875" IsExpanded="true" />
         <EntityTypeShape EntityType="TransporSysModel.VENTA_SERVICIOS" Width="1.5" PointX="10.75" PointY="6.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="TransporSysModel.VENTAS" Width="1.5" PointX="8.25" PointY="27.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="TransporSysModel.ARTICULOS_VS_CATEGORIAS_VS_DESCUENTOS" Width="1.5" PointX="18.75" PointY="37.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TransporSysModel.VENTAS" Width="1.5" PointX="8.25" PointY="27.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TransporSysModel.ARTICULOS_VS_CATEGORIAS_VS_DESCUENTOS" Width="1.5" PointX="18.75" PointY="37.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="TransporSysModel.DETALLES_PEDIDOS" Width="1.5" PointX="10.5" PointY="22.875" IsExpanded="true" />
         <EntityTypeShape EntityType="TransporSysModel.GPS" Width="1.5" PointX="19.5" PointY="26.625" IsExpanded="true" />
         <EntityTypeShape EntityType="TransporSysModel.HISTORIAL_PRECIO_COMBUSTIBLES" Width="1.5" PointX="10.75" PointY="9.75" IsExpanded="true" />
         <EntityTypeShape EntityType="TransporSysModel.TIPONCF" Width="1.5" PointX="11.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="TransporSysModel.VEHICULOS_VS_CONDUCTOR" Width="1.5" PointX="0.75" PointY="11.75" IsExpanded="true" />
         <AssociationConnector Association="TransporSysModel.FK_TERCEROS_VS_ALERGIAS_ALERGIAS" ManuallyRouted="false" />
         <AssociationConnector Association="TransporSysModel.FK_EXISTENCIAS_ALMACENES" ManuallyRouted="false" />
+        <AssociationConnector Association="TransporSysModel.FK__DETALLES___id_ar__469D7149" ManuallyRouted="false" />
         <AssociationConnector Association="TransporSysModel.FK_ARTICULOS_CATEGORIAS" ManuallyRouted="false" />
         <AssociationConnector Association="TransporSysModel.FK_ARTICULOS_ITEBIS" ManuallyRouted="false" />
         <AssociationConnector Association="TransporSysModel.FK_ARTICULOS_UNIDADES_DE_MEDIDA" ManuallyRouted="false" />
@@ -143,6 +146,7 @@
         <AssociationConnector Association="TransporSysModel.FK_PERSONAS_NACIONALIDADES" ManuallyRouted="false" />
         <AssociationConnector Association="TransporSysModel.FK_id_Ppersona" ManuallyRouted="false" />
         <AssociationConnector Association="TransporSysModel.FK_PROVINCIAS_PAISES" ManuallyRouted="false" />
+        <AssociationConnector Association="TransporSysModel.FK__PEDIDOS__id_supl__45A94D10" ManuallyRouted="false" />
         <AssociationConnector Association="TransporSysModel.FK_PERSONAS_SEXOS" ManuallyRouted="false" />
         <AssociationConnector Association="TransporSysModel.FK_PERSONAS_TERCEROS" ManuallyRouted="false" />
         <AssociationConnector Association="TransporSysModel.FK_SUPLIDORES_TERCEROS" ManuallyRouted="false" />
@@ -158,6 +162,7 @@
         <AssociationConnector Association="TransporSysModel.FK_GPS" ManuallyRouted="false" />
         <AssociationConnector Association="TransporSysModel.EMPLEADOS_VS_PUESTOS" ManuallyRouted="false" />
         <AssociationConnector Association="TransporSysModel.PUESTOS_VS_DEPARTAMENTOS" ManuallyRouted="false" />
+        <AssociationConnector Association="TransporSysModel.FK__DETALLES___num_p__47919582" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

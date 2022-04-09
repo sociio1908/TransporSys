@@ -17,6 +17,7 @@ namespace _911_RD
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public ARTICULOS()
         {
+            this.DETALLES_PEDIDOS = new HashSet<DETALLES_PEDIDOS>();
             this.ARTICULOS_VS_CATEGORIAS_VS_DESCUENTOS = new HashSet<ARTICULOS_VS_CATEGORIAS_VS_DESCUENTOS>();
             this.DETALLES_VENTAS = new HashSet<DETALLES_VENTAS>();
             this.DETALLES_COMPRAS = new HashSet<DETALLES_COMPRAS>();
@@ -41,6 +42,8 @@ namespace _911_RD
         public Nullable<double> stock { get; set; }
         public Nullable<double> recompra { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<DETALLES_PEDIDOS> DETALLES_PEDIDOS { get; set; }
         public virtual CATEGORIAS CATEGORIAS { get; set; }
         public virtual ITEBIS ITEBIS { get; set; }
         public virtual UNIDADES_DE_MEDIDA UNIDADES_DE_MEDIDA { get; set; }

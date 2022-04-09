@@ -19,6 +19,7 @@ namespace _911_RD
         {
             this.COMPRAS = new HashSet<COMPRAS>();
             this.ENTRADAS = new HashSet<ENTRADAS>();
+            this.PEDIDOS = new HashSet<PEDIDOS>();
         }
     
         public int id_suplidor { get; set; }
@@ -30,6 +31,8 @@ namespace _911_RD
         public virtual ICollection<COMPRAS> COMPRAS { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ENTRADAS> ENTRADAS { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<PEDIDOS> PEDIDOS { get; set; }
         public virtual TERCEROS TERCEROS { get; set; }
         public virtual TIPOS_SUPLIDORES TIPOS_SUPLIDORES { get; set; }
     }
