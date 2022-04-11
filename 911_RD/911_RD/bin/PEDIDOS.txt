@@ -1,0 +1,4 @@
+PEDIDOS
+ 0: Realizado
+ 1: Recibido
+ 2: Cancelado

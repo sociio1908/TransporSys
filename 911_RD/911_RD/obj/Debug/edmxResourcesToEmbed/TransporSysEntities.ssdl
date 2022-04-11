@@ -212,19 +212,15 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.ARTICULOS_VS_CATEGORIAS_VS_D
     <Property Name="descuento" Type="float" Nullable="false" />
     <Property Name="total" Type="float" Nullable="false" />
   </EntityType>
-  <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'TransporSys.dbo.DETALLES_PEDIDOS' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
   <EntityType Name="DETALLES_PEDIDOS">
     <Key>
-      <PropertyRef Name="num_pedido" />
-      <PropertyRef Name="id_articulo" />
-      <PropertyRef Name="cantidad" />
-      <PropertyRef Name="precio" />
+      <PropertyRef Name="ID" />
     </Key>
     <Property Name="num_pedido" Type="int" Nullable="false" />
     <Property Name="id_articulo" Type="int" Nullable="false" />
     <Property Name="cantidad" Type="float" Nullable="false" />
     <Property Name="precio" Type="float" Nullable="false" />
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
   </EntityType>
   <EntityType Name="DETALLES_SALIDAS">
     <Key>
@@ -1785,6 +1781,7 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.VEHICULOS_VS_CONDUCTOR' no t
     <EntitySet Name="DETALLES_COMPRAS" EntityType="Self.DETALLES_COMPRAS" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="DETALLES_COTIZACIONES" EntityType="Self.DETALLES_COTIZACIONES" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="DETALLES_ENTRADAS" EntityType="Self.DETALLES_ENTRADAS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DETALLES_PEDIDOS" EntityType="Self.DETALLES_PEDIDOS" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="DETALLES_SALIDAS" EntityType="Self.DETALLES_SALIDAS" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="DETALLES_VENTAS" EntityType="Self.DETALLES_VENTAS" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="DIRECCIONES" EntityType="Self.DIRECCIONES" Schema="dbo" store:Type="Tables" />
@@ -1848,14 +1845,6 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.VEHICULOS_VS_CONDUCTOR' no t
     [ARTICULOS_VS_CATEGORIAS_VS_DESCUENTOS].[id_categoria] AS [id_categoria], 
     [ARTICULOS_VS_CATEGORIAS_VS_DESCUENTOS].[id_descuento] AS [id_descuento]
     FROM [dbo].[ARTICULOS_VS_CATEGORIAS_VS_DESCUENTOS] AS [ARTICULOS_VS_CATEGORIAS_VS_DESCUENTOS]</DefiningQuery>
-    </EntitySet>
-    <EntitySet Name="DETALLES_PEDIDOS" EntityType="Self.DETALLES_PEDIDOS" store:Type="Tables" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-    [DETALLES_PEDIDOS].[num_pedido] AS [num_pedido], 
-    [DETALLES_PEDIDOS].[id_articulo] AS [id_articulo], 
-    [DETALLES_PEDIDOS].[cantidad] AS [cantidad], 
-    [DETALLES_PEDIDOS].[precio] AS [precio]
-    FROM [dbo].[DETALLES_PEDIDOS] AS [DETALLES_PEDIDOS]</DefiningQuery>
     </EntitySet>
     <EntitySet Name="GPS" EntityType="Self.GPS" store:Type="Tables" store:Schema="dbo">
       <DefiningQuery>SELECT 

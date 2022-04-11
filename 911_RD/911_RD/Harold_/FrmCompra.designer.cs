@@ -825,6 +825,7 @@ namespace _911_RD.Administracion
             this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedHeaders;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(35)))));
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -885,27 +886,23 @@ namespace _911_RD.Administracion
             this.id_articulos.HeaderText = "ID";
             this.id_articulos.Name = "id_articulos";
             this.id_articulos.ReadOnly = true;
-            this.id_articulos.Width = 80;
             // 
             // articulo
             // 
             this.articulo.HeaderText = "ARTICULO";
             this.articulo.Name = "articulo";
             this.articulo.ReadOnly = true;
-            this.articulo.Width = 180;
             // 
             // cantidad
             // 
             this.cantidad.HeaderText = "CANTIDAD";
             this.cantidad.Name = "cantidad";
-            this.cantidad.Width = 105;
             // 
             // precio
             // 
             this.precio.HeaderText = "PRECIO";
             this.precio.Name = "precio";
             this.precio.ReadOnly = true;
-            this.precio.Width = 130;
             // 
             // itbis
             // 
@@ -923,7 +920,6 @@ namespace _911_RD.Administracion
             this.total.HeaderText = "TOTAL";
             this.total.Name = "total";
             this.total.ReadOnly = true;
-            this.total.Width = 180;
             // 
             // button1
             // 

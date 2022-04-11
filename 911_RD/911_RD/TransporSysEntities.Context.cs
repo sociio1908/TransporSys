@@ -45,6 +45,7 @@ namespace _911_RD
         public virtual DbSet<DETALLES_COMPRAS> DETALLES_COMPRAS { get; set; }
         public virtual DbSet<DETALLES_COTIZACIONES> DETALLES_COTIZACIONES { get; set; }
         public virtual DbSet<DETALLES_ENTRADAS> DETALLES_ENTRADAS { get; set; }
+        public virtual DbSet<DETALLES_PEDIDOS> DETALLES_PEDIDOS { get; set; }
         public virtual DbSet<DETALLES_SALIDAS> DETALLES_SALIDAS { get; set; }
         public virtual DbSet<DETALLES_VENTAS> DETALLES_VENTAS { get; set; }
         public virtual DbSet<DIRECCIONES> DIRECCIONES { get; set; }
@@ -102,7 +103,6 @@ namespace _911_RD
         public virtual DbSet<VENTA_SERVICIOS> VENTA_SERVICIOS { get; set; }
         public virtual DbSet<VENTAS> VENTAS { get; set; }
         public virtual DbSet<ARTICULOS_VS_CATEGORIAS_VS_DESCUENTOS> ARTICULOS_VS_CATEGORIAS_VS_DESCUENTOS { get; set; }
-        public virtual DbSet<DETALLES_PEDIDOS> DETALLES_PEDIDOS { get; set; }
         public virtual DbSet<GPS> GPS { get; set; }
         public virtual DbSet<HISTORIAL_PRECIO_COMBUSTIBLES> HISTORIAL_PRECIO_COMBUSTIBLES { get; set; }
         public virtual DbSet<TIPONCF> TIPONCF { get; set; }

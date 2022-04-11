@@ -16,10 +16,6 @@ namespace _911_RD.Administracion
         {
             InitializeComponent();
             nofactura();
-            if (txt_numfactura.Text == "")
-            {
-                //txt_numfactura.Text = "0";
-            }
         }
 
         private void agregarNumero(string numero)
@@ -416,12 +412,12 @@ namespace _911_RD.Administracion
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            if (dataGridView1.Rows.Count == 0)
+            if (dataGridView1.Rows.Count <1)
             {
                 MessageBox.Show("NO HAY ELEMENTOS");
+                return;
             }
-            else
-            {
+        
                 dataGridView1.Rows.RemoveAt(dataGridView1.CurrentRow.Index);
                 SumarFilas();
                 if (dataGridView1.Rows.Count == 0)
@@ -430,7 +426,7 @@ namespace _911_RD.Administracion
                     txt_impuesto.Text = "0.0";
                     txt_impTotal.Text = "0.0";
                 }
-            }
+            
         }
 
         private void txt_codBarra_KeyPress(object sender, KeyPressEventArgs e)

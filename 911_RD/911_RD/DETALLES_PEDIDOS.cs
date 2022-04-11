@@ -18,6 +18,7 @@ namespace _911_RD
         public int id_articulo { get; set; }
         public double cantidad { get; set; }
         public double precio { get; set; }
+        public int ID { get; set; }
     
         public virtual ARTICULOS ARTICULOS { get; set; }
         public virtual PEDIDOS PEDIDOS { get; set; }

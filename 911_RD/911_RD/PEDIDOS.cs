@@ -27,8 +27,8 @@ namespace _911_RD
         public System.DateTime creado { get; set; }
         public Nullable<System.DateTime> fechaEntrega { get; set; }
     
-        public virtual SUPLIDORES SUPLIDORES { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DETALLES_PEDIDOS> DETALLES_PEDIDOS { get; set; }
+        public virtual SUPLIDORES SUPLIDORES { get; set; }
     }
 }
