@@ -237,8 +237,6 @@ namespace _911_RD.Administracion
 
                 MessageBox.Show("");
             }
-
-
         }
 
         private void InsertarDetalle()
@@ -277,8 +275,6 @@ namespace _911_RD.Administracion
 
                 MessageBox.Show("");
             }
-
-
         }
 
         private void ActualizarStock()

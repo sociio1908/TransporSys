@@ -211,7 +211,7 @@ namespace _911_RD
                         id_suplidor = int.Parse(txt_id_suplidor.Text),
                         total = double.Parse(txt_impTotal.Text.Trim()),
                         creado = DateTime.Now,
-                        estado = 1,
+                        estado = 0,
                         };
                         db.PEDIDOS.Add(comp);
                         db.SaveChanges();
