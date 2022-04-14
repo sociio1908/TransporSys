@@ -118,6 +118,11 @@ namespace _911_RD.Administracion
                 MessageBox.Show("Accion incorrecta: Este pedido ya esta cancelado.");
                 return;
             }
+            if ((dataGridView1.SelectedRows[0].Cells["estado"].Value.ToString()) == "Recibido")
+            {
+                MessageBox.Show("Accion incorrecta: Este pedido ya esta recibido, no se puede cancelar.");
+                return;
+            }
 
             string _pedido = (dataGridView1.SelectedRows[0].Cells["num_pedido"].Value.ToString());
             string _supldior = (dataGridView1.SelectedRows[0].Cells["suplidor"].Value.ToString());
@@ -158,7 +163,7 @@ namespace _911_RD.Administracion
             int _pedido = int.Parse(dataGridView1.SelectedRows[0].Cells["num_pedido"].Value.ToString());
             string _supldior = (dataGridView1.SelectedRows[0].Cells["suplidor"].Value.ToString());
 
-            DialogResult dialogResult = MessageBox.Show("Seguro que desea recibir el pedido #" + _pedido + " del suplidor " + _supldior + " ?", "Precaución", MessageBoxButtons.YesNo);
+            DialogResult dialogResult = MessageBox.Show("Asegurese de querer recibir el pedido #" + _pedido + " del suplidor " + _supldior + " NO SE PODRA CANCELAR", "Precaución", MessageBoxButtons.YesNo);
 
             if (dialogResult == DialogResult.Yes)
                 CargarFact(_pedido);
