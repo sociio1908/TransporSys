@@ -637,8 +637,7 @@ namespace _911_RD.Administracion
                 //error
             }
         }
-
-
+         
         public void borrarVs(int id_tercero, int id_valor, string tabla, string campo)
         {
             try
@@ -655,13 +654,29 @@ namespace _911_RD.Administracion
                 //error
             }
         }
-        public void borrarVsGen(string id_campo1,string columna1, string id_campo2, string columna2, string tabla)
+        public void borrarVsGen(string id_campo1, string columna1, string id_campo2, string columna2, string tabla)
         {
             try
             {
                 Utilidades.conexion.Open();
                 string delete = "Delete from " + tabla + " where " + id_campo1 + " = " + columna1 + " and " + id_campo2 + " = " + columna2;
                 System.Diagnostics.Debug.WriteLine("DELETE: " + delete.ToString());
+                SqlCommand comando = new SqlCommand(delete, Utilidades.conexion);
+                comando.ExecuteNonQuery();
+                Utilidades.conexion.Close();
+            }
+            catch (Exception asd)
+            {
+                //error
+            }
+        }
+        public void borrarVsConfArt(string id_articulo )
+        {
+            try
+            {
+                Utilidades.conexion.Open();
+                string delete = "Delete from ARTICULOS_VS_CONFIGURACION_PEDIDO where id_articulo =  "+ id_articulo;
+                System.Diagnostics.Debug.WriteLine("\n\n\n\nDELETE: " + delete.ToString()+ "\n\n\n\n");
                 SqlCommand comando = new SqlCommand(delete, Utilidades.conexion);
                 comando.ExecuteNonQuery();
                 Utilidades.conexion.Close();

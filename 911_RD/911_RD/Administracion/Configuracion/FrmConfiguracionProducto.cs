@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+ 
 
 namespace _911_RD.Administracion.Configuracion
 {
@@ -29,12 +30,55 @@ namespace _911_RD.Administracion.Configuracion
                         txt_id.Text = frmarticulos.dataGridView1.CurrentRow.Cells[0].Value.ToString();
                         txt_articulo.Text = frmarticulos.dataGridView1.CurrentRow.Cells[1].Value.ToString();
                         txt_descripcion.Text = frmarticulos.dataGridView1.CurrentRow.Cells[2].Value.ToString();
+                        cargarTabla(frmarticulos.dataGridView1.CurrentRow.Cells[0].Value.ToString());
                     }
                 }
             }
             catch (Exception asdd)
             {
 
+            }
+        }
+        private void cargarTabla(string id_art)
+        {
+            using (TransporSysEntities db = new TransporSysEntities())
+            {
+                try
+                {
+                    dataGridView1.Rows.Clear();
+                    var pedidosD = from vs in db.ARTICULOS_VS_CONFIGURACION_PEDIDO
+                                   join art in db.ARTICULOS on vs.id_articulo equals art.id_articulo 
+                                   join s in db.CONFIGURACION_PEDIDOS on vs.id_configuracion equals s.id_configuracion 
+                                   select new
+                                   {
+                                       //aqui cargas los campos de tu tabla
+                                       id_articulo = art.id_articulo,
+                                       articulo = art.nombre,
+                                       descart = art.descripcion,
+                                       idcon = s.id_configuracion,
+                                       descon = s.descripcion,
+                                       nump = vs.num_prioridad
+                                   };
+                    if (id_art.Trim().Equals("") == false)
+                    {
+                        pedidosD = pedidosD.Where(a => a.id_articulo.ToString().Contains(id_art));
+                    }
+                    if (pedidosD != null)
+                        foreach (var OPuestos in pedidosD)
+                        {
+                            txt_id.Text = OPuestos.id_articulo.ToString();
+                            txt_articulo.Text = OPuestos.articulo.ToString();
+                            txt_descripcion.Text = OPuestos.descart.ToString(); 
+                            dataGridView1.Rows.Add(OPuestos.idcon.ToString(), OPuestos.descon.ToString(), OPuestos.nump.ToString());
+                        }
+
+
+                }
+                catch (Exception dfg)
+                {
+                    // MessageBox.Show(lbl_titulo + " ERRORRRR");
+
+                }
             }
         }
 
@@ -100,27 +144,61 @@ namespace _911_RD.Administracion.Configuracion
             DialogResult dialogResult = MessageBox.Show("SEGURO QUE DESEA QUITAR ESTA CONFIGURACION ?", "Precaución", MessageBoxButtons.YesNo);
 
             if (dialogResult == DialogResult.Yes)
-               dataGridView1.Rows.RemoveAt(dataGridView1.CurrentCell.RowIndex);
-            
-        }
-
-        private void btn_agregar_Click(object sender, EventArgs e)
-        {
+                dataGridView1.Rows.RemoveAt(dataGridView1.CurrentCell.RowIndex);
 
         }
+         
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (Utilidades.ValidarFormulario(this, errorProvider1))
+            if (Utilidades.ValidarFormulario(this, errorProvider1) || dataGridView1.Rows.Count<1)
                 return;
 
             DialogResult dialogResult = MessageBox.Show("DESEA ASIGNAR ESTA CONFIGURACION ?", "Precaución", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
+                InsertarConfiguracion();
+            } 
+        }
+
+        MetodosCRUD MetodosCRUD = new MetodosCRUD();
+        void InsertarConfiguracion()
+        {
+
+            try
+            {
+                if (Utilidades.ValidarFormulario(this, errorProvider1) == true)
+                        return;
+
+                MetodosCRUD.borrarVsConfArt(txt_id.Text);
+                    using (TransporSysEntities db = new TransporSysEntities())
+                   {
+                    for (int a = 0; a < dataGridView1.Rows.Count; a++)
+                    {
+                        dataGridView1.Rows[a].Cells["prioridad"].Value = a + 1;
+                        ARTICULOS_VS_CONFIGURACION_PEDIDO puesto = new ARTICULOS_VS_CONFIGURACION_PEDIDO
+                        {
+                            id_articulo = int.Parse(txt_id.Text),
+                            id_configuracion = int.Parse(dataGridView1.Rows[a].Cells["id_eme"].Value.ToString()),
+                            num_prioridad = int.Parse(dataGridView1.Rows[a].Cells["prioridad"].Value.ToString())
+                        };
+                        db.ARTICULOS_VS_CONFIGURACION_PEDIDO.Add(puesto);
+                    }
+                    db.SaveChanges();
+                    }
+                     Utilidades.LimpiarControles(this); 
+                    MessageBox.Show("Proceso exitoso.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            }
+            catch (Exception dfg)
+            {
+                // MessageBox.Show(lbl_titulo + " ERRORRRR");
 
             }
 
-        }
+        } 
+         
+
 
         private void dataGridView1_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
         {
@@ -152,6 +230,8 @@ namespace _911_RD.Administracion.Configuracion
 
         private void btn_subir_Click(object sender, EventArgs e)
         {
+            if (dataGridView1.Rows.Count < 1)
+                return;
             int totalRows = dataGridView1.Rows.Count;
             int idx = dataGridView1.SelectedCells[0].OwningRow.Index;
             if (idx == 0)
