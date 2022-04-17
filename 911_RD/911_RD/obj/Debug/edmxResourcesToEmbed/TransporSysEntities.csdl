@@ -59,6 +59,7 @@
     <Property Name="id_articulo" Type="Int32" Nullable="false" />
     <NavigationProperty Name="ARTICULOS" Relationship="Self.FK__ARTICULOS__id_ar__520F23F5" FromRole="ARTICULOS_VS_CONFIGURACION_PEDIDO" ToRole="ARTICULOS" />
     <NavigationProperty Name="CONFIGURACION_PEDIDOS" Relationship="Self.FK__ARTICULOS__id_co__5303482E" FromRole="ARTICULOS_VS_CONFIGURACION_PEDIDO" ToRole="CONFIGURACION_PEDIDOS" />
+    <Property Name="num_prioridad" Type="Int32" Nullable="false" />
   </EntityType>
   <EntityType Name="BENEFICIOS">
     <Key>

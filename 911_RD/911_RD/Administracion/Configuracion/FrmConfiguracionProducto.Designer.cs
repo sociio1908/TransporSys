@@ -29,6 +29,7 @@ namespace _911_RD.Administracion.Configuracion
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmConfiguracionProducto));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -42,23 +43,25 @@ namespace _911_RD.Administracion.Configuracion
             this.btn_articulo = new System.Windows.Forms.PictureBox();
             this.label6 = new System.Windows.Forms.Label();
             this.btn_configuracion = new System.Windows.Forms.PictureBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label7 = new System.Windows.Forms.Label();
-            this.txt_descripcion = new _911_RD.ErrorTxtBox();
-            this.txt_articulo = new _911_RD.ErrorTxtBox();
-            this.txt_id = new _911_RD.ErrorTxtBox();
             this.id_eme = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.prioridad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label7 = new System.Windows.Forms.Label();
             this.btn_quitar = new System.Windows.Forms.Button();
             this.btn_limpiar = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.subir = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.btn_subir = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
-            this.bajar = new System.Windows.Forms.Button();
+            this.txt_descripcion = new _911_RD.ErrorTxtBox();
+            this.txt_articulo = new _911_RD.ErrorTxtBox();
+            this.txt_id = new _911_RD.ErrorTxtBox();
             ((System.ComponentModel.ISupportInitialize)(this.btn_articulo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_configuracion)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // label13
@@ -94,7 +97,7 @@ namespace _911_RD.Administracion.Configuracion
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label3.Location = new System.Drawing.Point(13, 84);
+            this.label3.Location = new System.Drawing.Point(13, 74);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(21, 16);
             this.label3.TabIndex = 200;
@@ -107,7 +110,7 @@ namespace _911_RD.Administracion.Configuracion
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label4.Location = new System.Drawing.Point(60, 84);
+            this.label4.Location = new System.Drawing.Point(60, 74);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(71, 16);
             this.label4.TabIndex = 202;
@@ -120,7 +123,7 @@ namespace _911_RD.Administracion.Configuracion
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label5.Location = new System.Drawing.Point(15, 138);
+            this.label5.Location = new System.Drawing.Point(15, 128);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(95, 16);
             this.label5.TabIndex = 204;
@@ -131,7 +134,7 @@ namespace _911_RD.Administracion.Configuracion
             this.btn_articulo.BackColor = System.Drawing.Color.LightGreen;
             this.btn_articulo.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_articulo.Image = ((System.Drawing.Image)(resources.GetObject("btn_articulo.Image")));
-            this.btn_articulo.Location = new System.Drawing.Point(229, 103);
+            this.btn_articulo.Location = new System.Drawing.Point(229, 93);
             this.btn_articulo.Name = "btn_articulo";
             this.btn_articulo.Size = new System.Drawing.Size(34, 26);
             this.btn_articulo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -144,7 +147,7 @@ namespace _911_RD.Administracion.Configuracion
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.Firebrick;
-            this.label6.Location = new System.Drawing.Point(10, 57);
+            this.label6.Location = new System.Drawing.Point(10, 47);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(182, 21);
             this.label6.TabIndex = 207;
@@ -155,26 +158,13 @@ namespace _911_RD.Administracion.Configuracion
             this.btn_configuracion.BackColor = System.Drawing.Color.LightGreen;
             this.btn_configuracion.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_configuracion.Image = ((System.Drawing.Image)(resources.GetObject("btn_configuracion.Image")));
-            this.btn_configuracion.Location = new System.Drawing.Point(225, 212);
+            this.btn_configuracion.Location = new System.Drawing.Point(160, 220);
             this.btn_configuracion.Name = "btn_configuracion";
-            this.btn_configuracion.Size = new System.Drawing.Size(32, 30);
+            this.btn_configuracion.Size = new System.Drawing.Size(32, 25);
             this.btn_configuracion.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btn_configuracion.TabIndex = 208;
             this.btn_configuracion.TabStop = false;
             this.btn_configuracion.Click += new System.EventHandler(this.btn_configuracion_Click);
-            // 
-            // label2
-            // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label2.Location = new System.Drawing.Point(12, 224);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(207, 19);
-            this.label2.TabIndex = 209;
-            this.label2.Text = "BUSCAR CONFIGURACION";
             // 
             // dataGridView1
             // 
@@ -199,9 +189,11 @@ namespace _911_RD.Administracion.Configuracion
             dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridView1.ColumnHeadersHeight = 25;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id_eme,
-            this.descripcion});
+            this.descripcion,
+            this.prioridad});
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle6.BackColor = System.Drawing.Color.Teal;
             dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -212,6 +204,7 @@ namespace _911_RD.Administracion.Configuracion
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.Location = new System.Drawing.Point(12, 248);
+            this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
@@ -238,62 +231,8 @@ namespace _911_RD.Administracion.Configuracion
             this.dataGridView1.Size = new System.Drawing.Size(720, 228);
             this.dataGridView1.TabIndex = 210;
             this.dataGridView1.TabStop = false;
-            // 
-            // label7
-            // 
-            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label7.Location = new System.Drawing.Point(15, 185);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(708, 16);
-            this.label7.TabIndex = 211;
-            this.label7.Text = "_________________________________________________________________________________" +
-    "___________________";
-            // 
-            // txt_descripcion
-            // 
-            this.txt_descripcion.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.txt_descripcion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txt_descripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.txt_descripcion.Limpiar = true;
-            this.txt_descripcion.Location = new System.Drawing.Point(16, 157);
-            this.txt_descripcion.Name = "txt_descripcion";
-            this.txt_descripcion.Size = new System.Drawing.Size(247, 26);
-            this.txt_descripcion.SoloNumeros = false;
-            this.txt_descripcion.TabIndex = 203;
-            this.txt_descripcion.Validar = true;
-            // 
-            // txt_articulo
-            // 
-            this.txt_articulo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.txt_articulo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txt_articulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.txt_articulo.Limpiar = true;
-            this.txt_articulo.Location = new System.Drawing.Point(61, 103);
-            this.txt_articulo.Name = "txt_articulo";
-            this.txt_articulo.Size = new System.Drawing.Size(162, 26);
-            this.txt_articulo.SoloNumeros = false;
-            this.txt_articulo.TabIndex = 201;
-            this.txt_articulo.Validar = true;
-            // 
-            // txt_id
-            // 
-            this.txt_id.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.txt_id.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txt_id.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.txt_id.Limpiar = true;
-            this.txt_id.Location = new System.Drawing.Point(14, 103);
-            this.txt_id.Name = "txt_id";
-            this.txt_id.Size = new System.Drawing.Size(41, 26);
-            this.txt_id.SoloNumeros = false;
-            this.txt_id.TabIndex = 198;
-            this.txt_id.Validar = true;
+            this.dataGridView1.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dataGridView1_RowsAdded);
+            this.dataGridView1.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.dataGridView1_RowsRemoved);
             // 
             // id_eme
             // 
@@ -310,18 +249,40 @@ namespace _911_RD.Administracion.Configuracion
             this.descripcion.Name = "descripcion";
             this.descripcion.ReadOnly = true;
             // 
+            // prioridad
+            // 
+            this.prioridad.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.prioridad.FillWeight = 50F;
+            this.prioridad.HeaderText = "PRIORIDAD";
+            this.prioridad.Name = "prioridad";
+            this.prioridad.ReadOnly = true;
+            // 
+            // label7
+            // 
+            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label7.Location = new System.Drawing.Point(15, 179);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(708, 16);
+            this.label7.TabIndex = 211;
+            this.label7.Text = "_________________________________________________________________________________" +
+    "___________________";
+            // 
             // btn_quitar
             // 
             this.btn_quitar.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.btn_quitar.BackColor = System.Drawing.Color.Firebrick;
             this.btn_quitar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_quitar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_quitar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_quitar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_quitar.ForeColor = System.Drawing.Color.White;
             this.btn_quitar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_quitar.Location = new System.Drawing.Point(263, 212);
+            this.btn_quitar.Location = new System.Drawing.Point(359, 214);
             this.btn_quitar.Name = "btn_quitar";
-            this.btn_quitar.Size = new System.Drawing.Size(73, 31);
+            this.btn_quitar.Size = new System.Drawing.Size(61, 31);
             this.btn_quitar.TabIndex = 214;
             this.btn_quitar.Text = "QUITAR";
             this.btn_quitar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -338,9 +299,9 @@ namespace _911_RD.Administracion.Configuracion
             this.btn_limpiar.ForeColor = System.Drawing.Color.White;
             this.btn_limpiar.Image = global::_911_RD.Properties.Resources.limpiar;
             this.btn_limpiar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_limpiar.Location = new System.Drawing.Point(606, 148);
+            this.btn_limpiar.Location = new System.Drawing.Point(606, 149);
             this.btn_limpiar.Name = "btn_limpiar";
-            this.btn_limpiar.Size = new System.Drawing.Size(126, 42);
+            this.btn_limpiar.Size = new System.Drawing.Size(126, 38);
             this.btn_limpiar.TabIndex = 213;
             this.btn_limpiar.Text = "LIMPIAR";
             this.btn_limpiar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -364,51 +325,99 @@ namespace _911_RD.Administracion.Configuracion
             this.button1.Text = "GUARDAR";
             this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // subir
+            // label2
             // 
-            this.subir.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.subir.BackColor = System.Drawing.Color.Olive;
-            this.subir.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.subir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.subir.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.subir.ForeColor = System.Drawing.Color.White;
-            this.subir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.subir.Location = new System.Drawing.Point(439, 211);
-            this.subir.Name = "subir";
-            this.subir.Size = new System.Drawing.Size(65, 31);
-            this.subir.TabIndex = 215;
-            this.subir.Text = "SUBIR";
-            this.subir.UseVisualStyleBackColor = false;
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label2.Location = new System.Drawing.Point(15, 226);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(138, 18);
+            this.label2.TabIndex = 209;
+            this.label2.Text = "CONFIGURACION";
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
+            // btn_subir
+            // 
+            this.btn_subir.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.btn_subir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.btn_subir.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_subir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_subir.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_subir.ForeColor = System.Drawing.Color.White;
+            this.btn_subir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_subir.Location = new System.Drawing.Point(291, 214);
+            this.btn_subir.Name = "btn_subir";
+            this.btn_subir.Size = new System.Drawing.Size(62, 31);
+            this.btn_subir.TabIndex = 219;
+            this.btn_subir.Text = "SUBIR";
+            this.btn_subir.UseVisualStyleBackColor = false;
+            this.btn_subir.Click += new System.EventHandler(this.btn_subir_Click);
             // 
             // label8
             // 
             this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label8.Location = new System.Drawing.Point(342, 224);
+            this.label8.Location = new System.Drawing.Point(198, 226);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(91, 19);
-            this.label8.TabIndex = 216;
-            this.label8.Text = "PRIORIDAD";
+            this.label8.Size = new System.Drawing.Size(87, 18);
+            this.label8.TabIndex = 220;
+            this.label8.Text = "ACCIONES";
             // 
-            // bajar
+            // txt_descripcion
             // 
-            this.bajar.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.bajar.BackColor = System.Drawing.Color.Olive;
-            this.bajar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bajar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bajar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bajar.ForeColor = System.Drawing.Color.White;
-            this.bajar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.bajar.Location = new System.Drawing.Point(510, 211);
-            this.bajar.Name = "bajar";
-            this.bajar.Size = new System.Drawing.Size(65, 31);
-            this.bajar.TabIndex = 217;
-            this.bajar.Text = "BAJAR";
-            this.bajar.UseVisualStyleBackColor = false;
+            this.txt_descripcion.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.txt_descripcion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_descripcion.Enabled = false;
+            this.txt_descripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.txt_descripcion.Limpiar = true;
+            this.txt_descripcion.Location = new System.Drawing.Point(16, 149);
+            this.txt_descripcion.Name = "txt_descripcion";
+            this.txt_descripcion.Size = new System.Drawing.Size(247, 26);
+            this.txt_descripcion.SoloNumeros = false;
+            this.txt_descripcion.TabIndex = 203;
+            this.txt_descripcion.Validar = true;
+            // 
+            // txt_articulo
+            // 
+            this.txt_articulo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.txt_articulo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_articulo.Enabled = false;
+            this.txt_articulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.txt_articulo.Limpiar = true;
+            this.txt_articulo.Location = new System.Drawing.Point(61, 93);
+            this.txt_articulo.Name = "txt_articulo";
+            this.txt_articulo.Size = new System.Drawing.Size(162, 26);
+            this.txt_articulo.SoloNumeros = false;
+            this.txt_articulo.TabIndex = 201;
+            this.txt_articulo.Validar = true;
+            // 
+            // txt_id
+            // 
+            this.txt_id.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.txt_id.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_id.Enabled = false;
+            this.txt_id.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.txt_id.Limpiar = true;
+            this.txt_id.Location = new System.Drawing.Point(14, 93);
+            this.txt_id.Name = "txt_id";
+            this.txt_id.Size = new System.Drawing.Size(41, 26);
+            this.txt_id.SoloNumeros = false;
+            this.txt_id.TabIndex = 198;
+            this.txt_id.Validar = true;
             // 
             // FrmConfiguracionProducto
             // 
@@ -416,9 +425,8 @@ namespace _911_RD.Administracion.Configuracion
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(744, 504);
-            this.Controls.Add(this.bajar);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.subir);
+            this.Controls.Add(this.btn_subir);
             this.Controls.Add(this.btn_quitar);
             this.Controls.Add(this.btn_limpiar);
             this.Controls.Add(this.button1);
@@ -444,6 +452,7 @@ namespace _911_RD.Administracion.Configuracion
             ((System.ComponentModel.ISupportInitialize)(this.btn_articulo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_configuracion)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -462,16 +471,17 @@ namespace _911_RD.Administracion.Configuracion
         private System.Windows.Forms.PictureBox btn_articulo;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.PictureBox btn_configuracion;
-        private System.Windows.Forms.Label label2;
         public System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id_eme;
-        private System.Windows.Forms.DataGridViewTextBoxColumn descripcion;
         public System.Windows.Forms.Button btn_quitar;
         public System.Windows.Forms.Button btn_limpiar;
         public System.Windows.Forms.Button button1;
-        public System.Windows.Forms.Button subir;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id_eme;
+        private System.Windows.Forms.DataGridViewTextBoxColumn descripcion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn prioridad;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
+        public System.Windows.Forms.Button btn_subir;
         private System.Windows.Forms.Label label8;
-        public System.Windows.Forms.Button bajar;
     }
 }

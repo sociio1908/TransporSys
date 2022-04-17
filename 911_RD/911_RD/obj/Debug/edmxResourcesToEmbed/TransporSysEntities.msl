@@ -41,6 +41,7 @@
     <EntitySetMapping Name="ARTICULOS_VS_CONFIGURACION_PEDIDO">
       <EntityTypeMapping TypeName="TransporSysModel.ARTICULOS_VS_CONFIGURACION_PEDIDO">
         <MappingFragment StoreEntitySet="ARTICULOS_VS_CONFIGURACION_PEDIDO">
+          <ScalarProperty Name="num_prioridad" ColumnName="num_prioridad" />
           <ScalarProperty Name="id_vs" ColumnName="id_vs" />
           <ScalarProperty Name="id_configuracion" ColumnName="id_configuracion" />
           <ScalarProperty Name="id_articulo" ColumnName="id_articulo" />

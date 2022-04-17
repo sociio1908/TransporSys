@@ -53,6 +53,7 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.ARTICULOS_VS_CATEGORIAS_VS_D
     <Property Name="id_vs" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="id_configuracion" Type="int" Nullable="false" />
     <Property Name="id_articulo" Type="int" Nullable="false" />
+    <Property Name="num_prioridad" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="BENEFICIOS">
     <Key>
