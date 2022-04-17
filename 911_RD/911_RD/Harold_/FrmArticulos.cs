@@ -64,9 +64,7 @@ namespace _911_RD.Administracion
         private void CargarCampos()
         {
             try
-            {
-
-
+            { 
                 id_txt.Text = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
                 txt_nombre.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
                 txt_des.Text = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();

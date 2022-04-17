@@ -17,7 +17,7 @@ namespace _911_RD.Administracion.Configuracion
         public FrmConfiguracion()
         {
             InitializeComponent();
-        bool a = metodosCRUD.ValidarChasis_Placa("123");
+               bool a = metodosCRUD.ValidarChasis_Placa("123");
 
         }
 
@@ -54,6 +54,11 @@ namespace _911_RD.Administracion.Configuracion
         private void btn_empresa_Click(object sender, EventArgs e)
         {
             AbrirFormEnPanel(new FrmEmpresa());
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            AbrirFormEnPanel(new FrmConfiguracionProducto());
         }
     }
 }

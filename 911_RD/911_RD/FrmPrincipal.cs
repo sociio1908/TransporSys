@@ -214,5 +214,10 @@ namespace _911_RD
         {
             new FrmAdmPedios().ShowDialog();
         }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            new FrmConfiguracionPedido().ShowDialog();
+        }
     }
 }

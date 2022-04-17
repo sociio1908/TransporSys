@@ -194,6 +194,7 @@ namespace _911_RD.Administracion
                         var pedidoXX = db.PEDIDOS.FirstOrDefault(a => a.num_pedido == numPEDIDO);
                         if (pedidoXX != null)
                         {
+                            pedidoXX.fechaEntrega = DateTime.Now;
                             pedidoXX.estado = 1;
                         }
                         db.SaveChanges(); 

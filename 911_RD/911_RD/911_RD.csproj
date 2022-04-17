@@ -106,6 +106,12 @@
     <Compile Include="Administracion\Configuracion\FrmConfiguracion.Designer.cs">
       <DependentUpon>FrmConfiguracion.cs</DependentUpon>
     </Compile>
+    <Compile Include="Administracion\Configuracion\FrmConfiguracionProducto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administracion\Configuracion\FrmConfiguracionProducto.Designer.cs">
+      <DependentUpon>FrmConfiguracionProducto.cs</DependentUpon>
+    </Compile>
     <Compile Include="Administracion\Configuracion\FrmEmpresa.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -166,10 +172,10 @@
     <Compile Include="Administracion\Email_Telefono\FrmTipoTelefono.Designer.cs">
       <DependentUpon>FrmTipoTelefono.cs</DependentUpon>
     </Compile>
-    <Compile Include="Administracion\FrmAdmPedios.cs">
+    <Compile Include="Administracion\Pedidos\FrmAdmPedios.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Administracion\FrmAdmPedios.Designer.cs">
+    <Compile Include="Administracion\Pedidos\FrmAdmPedios.Designer.cs">
       <DependentUpon>FrmAdmPedios.cs</DependentUpon>
     </Compile>
     <Compile Include="Administracion\FrmBase.cs">
@@ -183,6 +189,12 @@
     </Compile>
     <Compile Include="Administracion\FrmCargo.Designer.cs">
       <DependentUpon>FrmCargo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Administracion\Pedidos\FrmConfiguracionPedido.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administracion\Pedidos\FrmConfiguracionPedido.Designer.cs">
+      <DependentUpon>FrmConfiguracionPedido.cs</DependentUpon>
     </Compile>
     <Compile Include="Administracion\FrmDirecciones.cs">
       <SubType>Form</SubType>
@@ -318,6 +330,9 @@
     <Compile Include="ARTICULOS_VS_CATEGORIAS_VS_DESCUENTOS.cs">
       <DependentUpon>TransporSysEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="ARTICULOS_VS_CONFIGURACION_PEDIDO.cs">
+      <DependentUpon>TransporSysEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="BENEFICIOS.cs">
       <DependentUpon>TransporSysEntities.tt</DependentUpon>
     </Compile>
@@ -346,6 +361,9 @@
       <DependentUpon>TransporSysEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="CONDUCTOR.cs">
+      <DependentUpon>TransporSysEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CONFIGURACION_PEDIDOS.cs">
       <DependentUpon>TransporSysEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="CONTINENTES.cs">
@@ -432,10 +450,10 @@
     <Compile Include="FrmLogin.Designer.cs">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmPedidos.cs">
+    <Compile Include="Administracion\Pedidos\FrmPedidos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmPedidos.Designer.cs">
+    <Compile Include="Administracion\Pedidos\FrmPedidos.Designer.cs">
       <DependentUpon>FrmPedidos.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmPrincipal.cs">
@@ -693,6 +711,9 @@
     <EmbeddedResource Include="Administracion\Configuracion\FrmConfiguracion.resx">
       <DependentUpon>FrmConfiguracion.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Administracion\Configuracion\FrmConfiguracionProducto.resx">
+      <DependentUpon>FrmConfiguracionProducto.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Administracion\Configuracion\FrmEmpresa.resx">
       <DependentUpon>FrmEmpresa.cs</DependentUpon>
     </EmbeddedResource>
@@ -723,7 +744,7 @@
     <EmbeddedResource Include="Administracion\Email_Telefono\FrmTipoTelefono.resx">
       <DependentUpon>FrmTipoTelefono.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Administracion\FrmAdmPedios.resx">
+    <EmbeddedResource Include="Administracion\Pedidos\FrmAdmPedios.resx">
       <DependentUpon>FrmAdmPedios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Administracion\FrmBase.resx">
@@ -731,6 +752,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Administracion\FrmCargo.resx">
       <DependentUpon>FrmCargo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administracion\Pedidos\FrmConfiguracionPedido.resx">
+      <DependentUpon>FrmConfiguracionPedido.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Administracion\FrmDirecciones.resx">
       <DependentUpon>FrmDirecciones.cs</DependentUpon>
@@ -801,7 +825,7 @@
     <EmbeddedResource Include="FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmPedidos.resx">
+    <EmbeddedResource Include="Administracion\Pedidos\FrmPedidos.resx">
       <DependentUpon>FrmPedidos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmPrincipal.resx">
@@ -985,5 +1009,6 @@
       <LastGenOutput>TransporSysEntities.cs</LastGenOutput>
     </Content>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -21,12 +21,6 @@ namespace _911_RD.Administracion.Vehiculo
         }
 
 
-        private void FrmCombustible_Load(object sender, EventArgs e)
-        {
-
-        }
- 
-
     private void InsertarCombustible()
     {
         try

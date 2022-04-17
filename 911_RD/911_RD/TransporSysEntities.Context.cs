@@ -28,6 +28,7 @@ namespace _911_RD
         public virtual DbSet<ALERGIAS> ALERGIAS { get; set; }
         public virtual DbSet<ALMACENES> ALMACENES { get; set; }
         public virtual DbSet<ARTICULOS> ARTICULOS { get; set; }
+        public virtual DbSet<ARTICULOS_VS_CONFIGURACION_PEDIDO> ARTICULOS_VS_CONFIGURACION_PEDIDO { get; set; }
         public virtual DbSet<BENEFICIOS> BENEFICIOS { get; set; }
         public virtual DbSet<CALLES> CALLES { get; set; }
         public virtual DbSet<CATEGORIAS> CATEGORIAS { get; set; }
@@ -38,6 +39,7 @@ namespace _911_RD
         public virtual DbSet<COMBUSTIBLE> COMBUSTIBLE { get; set; }
         public virtual DbSet<COMPRAS> COMPRAS { get; set; }
         public virtual DbSet<CONDUCTOR> CONDUCTOR { get; set; }
+        public virtual DbSet<CONFIGURACION_PEDIDOS> CONFIGURACION_PEDIDOS { get; set; }
         public virtual DbSet<CONTINENTES> CONTINENTES { get; set; }
         public virtual DbSet<COTIZACIONES> COTIZACIONES { get; set; }
         public virtual DbSet<DEPARTAMENTOS> DEPARTAMENTOS { get; set; }

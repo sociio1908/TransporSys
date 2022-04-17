@@ -51,6 +51,14 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.ARTICULOS_VS_CATEGORIAS_VS_D
           <Property Name="id_categoria" Type="int" Nullable="false" />
           <Property Name="id_descuento" Type="int" Nullable="false" />
         </EntityType>
+        <EntityType Name="ARTICULOS_VS_CONFIGURACION_PEDIDO">
+          <Key>
+            <PropertyRef Name="id_vs" />
+          </Key>
+          <Property Name="id_vs" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_configuracion" Type="int" Nullable="false" />
+          <Property Name="id_articulo" Type="int" Nullable="false" />
+        </EntityType>
         <EntityType Name="BENEFICIOS">
           <Key>
             <PropertyRef Name="id_beneficio" />
@@ -142,6 +150,14 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.ARTICULOS_VS_CATEGORIAS_VS_D
           <Property Name="id_empleado" Type="int" Nullable="false" />
           <Property Name="num_licencia" Type="int" Nullable="false" />
           <Property Name="fecha_vencimiento" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CONFIGURACION_PEDIDOS">
+          <Key>
+            <PropertyRef Name="id_configuracion" />
+          </Key>
+          <Property Name="id_configuracion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="descripcion" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="estado" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="CONTINENTES">
           <Key>
@@ -829,6 +845,30 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.VEHICULOS_VS_CONDUCTOR' no t
           <Property Name="fecha" Type="datetime" Nullable="false" />
           <Property Name="estado" Type="bit" Nullable="false" />
         </EntityType>
+        <Association Name="FK__ARTICULOS__id_ar__520F23F5">
+          <End Role="ARTICULOS" Type="Self.ARTICULOS" Multiplicity="1" />
+          <End Role="ARTICULOS_VS_CONFIGURACION_PEDIDO" Type="Self.ARTICULOS_VS_CONFIGURACION_PEDIDO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ARTICULOS">
+              <PropertyRef Name="id_articulo" />
+            </Principal>
+            <Dependent Role="ARTICULOS_VS_CONFIGURACION_PEDIDO">
+              <PropertyRef Name="id_articulo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ARTICULOS__id_co__5303482E">
+          <End Role="CONFIGURACION_PEDIDOS" Type="Self.CONFIGURACION_PEDIDOS" Multiplicity="1" />
+          <End Role="ARTICULOS_VS_CONFIGURACION_PEDIDO" Type="Self.ARTICULOS_VS_CONFIGURACION_PEDIDO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CONFIGURACION_PEDIDOS">
+              <PropertyRef Name="id_configuracion" />
+            </Principal>
+            <Dependent Role="ARTICULOS_VS_CONFIGURACION_PEDIDO">
+              <PropertyRef Name="id_configuracion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK__CONDUCTOR__id_em__54CB950F">
           <End Role="EMPLEADOS" Type="Self.EMPLEADOS" Multiplicity="1" />
           <End Role="CONDUCTOR" Type="Self.CONDUCTOR" Multiplicity="*" />
@@ -1769,6 +1809,7 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.VEHICULOS_VS_CONDUCTOR' no t
           <EntitySet Name="ALERGIAS" EntityType="Self.ALERGIAS" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ALMACENES" EntityType="Self.ALMACENES" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ARTICULOS" EntityType="Self.ARTICULOS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ARTICULOS_VS_CONFIGURACION_PEDIDO" EntityType="Self.ARTICULOS_VS_CONFIGURACION_PEDIDO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="BENEFICIOS" EntityType="Self.BENEFICIOS" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CALLES" EntityType="Self.CALLES" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CATEGORIAS" EntityType="Self.CATEGORIAS" Schema="dbo" store:Type="Tables" />
@@ -1779,6 +1820,7 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.VEHICULOS_VS_CONDUCTOR' no t
           <EntitySet Name="COMBUSTIBLE" EntityType="Self.COMBUSTIBLE" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="COMPRAS" EntityType="Self.COMPRAS" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CONDUCTOR" EntityType="Self.CONDUCTOR" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CONFIGURACION_PEDIDOS" EntityType="Self.CONFIGURACION_PEDIDOS" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CONTINENTES" EntityType="Self.CONTINENTES" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="COTIZACIONES" EntityType="Self.COTIZACIONES" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DEPARTAMENTOS" EntityType="Self.DEPARTAMENTOS" Schema="dbo" store:Type="Tables" />
@@ -1885,6 +1927,14 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.VEHICULOS_VS_CONDUCTOR' no t
     [VEHICULOS_VS_CONDUCTOR].[id_conductor] AS [id_conductor]
     FROM [dbo].[VEHICULOS_VS_CONDUCTOR] AS [VEHICULOS_VS_CONDUCTOR]</DefiningQuery>
           </EntitySet>
+          <AssociationSet Name="FK__ARTICULOS__id_ar__520F23F5" Association="Self.FK__ARTICULOS__id_ar__520F23F5">
+            <End Role="ARTICULOS" EntitySet="ARTICULOS" />
+            <End Role="ARTICULOS_VS_CONFIGURACION_PEDIDO" EntitySet="ARTICULOS_VS_CONFIGURACION_PEDIDO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ARTICULOS__id_co__5303482E" Association="Self.FK__ARTICULOS__id_co__5303482E">
+            <End Role="CONFIGURACION_PEDIDOS" EntitySet="CONFIGURACION_PEDIDOS" />
+            <End Role="ARTICULOS_VS_CONFIGURACION_PEDIDO" EntitySet="ARTICULOS_VS_CONFIGURACION_PEDIDO" />
+          </AssociationSet>
           <AssociationSet Name="FK__CONDUCTOR__id_em__54CB950F" Association="Self.FK__CONDUCTOR__id_em__54CB950F">
             <End Role="EMPLEADOS" EntitySet="EMPLEADOS" />
             <End Role="CONDUCTOR" EntitySet="CONDUCTOR" />
@@ -2238,6 +2288,7 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.VEHICULOS_VS_CONDUCTOR' no t
           <Property Name="intItebis" Type="Int32" Nullable="false" />
           <Property Name="stock" Type="Double" />
           <Property Name="recompra" Type="Double" />
+          <NavigationProperty Name="ARTICULOS_VS_CONFIGURACION_PEDIDO" Relationship="Self.FK__ARTICULOS__id_ar__520F23F5" FromRole="ARTICULOS" ToRole="ARTICULOS_VS_CONFIGURACION_PEDIDO" />
           <NavigationProperty Name="DETALLES_PEDIDOS" Relationship="Self.FK__DETALLES___id_ar__469D7149" FromRole="ARTICULOS" ToRole="DETALLES_PEDIDOS" />
           <NavigationProperty Name="CATEGORIAS" Relationship="Self.FK_ARTICULOS_CATEGORIAS" FromRole="ARTICULOS" ToRole="CATEGORIAS" />
           <NavigationProperty Name="ITEBIS" Relationship="Self.FK_ARTICULOS_ITEBIS" FromRole="ARTICULOS" ToRole="ITEBIS" />
@@ -2251,6 +2302,16 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.VEHICULOS_VS_CONDUCTOR' no t
           <NavigationProperty Name="EXISTENCIAS" Relationship="Self.FK_EXISTENCIAS_ARTICULOS" FromRole="ARTICULOS" ToRole="EXISTENCIAS" />
           <NavigationProperty Name="FINANCIAMIENTOS" Relationship="Self.FK_FINANCIAMIENTOS_ARTICULOS" FromRole="ARTICULOS" ToRole="FINANCIAMIENTOS" />
           <NavigationProperty Name="PRECIOS" Relationship="Self.FK_PRECIOS_ARTICULOS" FromRole="ARTICULOS" ToRole="PRECIOS" />
+        </EntityType>
+        <EntityType Name="ARTICULOS_VS_CONFIGURACION_PEDIDO">
+          <Key>
+            <PropertyRef Name="id_vs" />
+          </Key>
+          <Property Name="id_vs" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_configuracion" Type="Int32" Nullable="false" />
+          <Property Name="id_articulo" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ARTICULOS" Relationship="Self.FK__ARTICULOS__id_ar__520F23F5" FromRole="ARTICULOS_VS_CONFIGURACION_PEDIDO" ToRole="ARTICULOS" />
+          <NavigationProperty Name="CONFIGURACION_PEDIDOS" Relationship="Self.FK__ARTICULOS__id_co__5303482E" FromRole="ARTICULOS_VS_CONFIGURACION_PEDIDO" ToRole="CONFIGURACION_PEDIDOS" />
         </EntityType>
         <EntityType Name="BENEFICIOS">
           <Key>
@@ -2360,6 +2421,15 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.VEHICULOS_VS_CONDUCTOR' no t
           <Property Name="fecha_vencimiento" Type="DateTime" Nullable="false" Precision="0" />
           <NavigationProperty Name="EMPLEADOS" Relationship="Self.FK__CONDUCTOR__id_em__54CB950F" FromRole="CONDUCTOR" ToRole="EMPLEADOS" />
           <NavigationProperty Name="TRANSPORTE" Relationship="Self.FK_conducto" FromRole="CONDUCTOR" ToRole="TRANSPORTE" />
+        </EntityType>
+        <EntityType Name="CONFIGURACION_PEDIDOS">
+          <Key>
+            <PropertyRef Name="id_configuracion" />
+          </Key>
+          <Property Name="id_configuracion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="estado" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="ARTICULOS_VS_CONFIGURACION_PEDIDO" Relationship="Self.FK__ARTICULOS__id_co__5303482E" FromRole="CONFIGURACION_PEDIDOS" ToRole="ARTICULOS_VS_CONFIGURACION_PEDIDO" />
         </EntityType>
         <EntityType Name="CONTINENTES">
           <Key>
@@ -3175,6 +3245,18 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.VEHICULOS_VS_CONDUCTOR' no t
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK__ARTICULOS__id_ar__520F23F5">
+          <End Role="ARTICULOS" Type="Self.ARTICULOS" Multiplicity="1" />
+          <End Role="ARTICULOS_VS_CONFIGURACION_PEDIDO" Type="Self.ARTICULOS_VS_CONFIGURACION_PEDIDO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ARTICULOS">
+              <PropertyRef Name="id_articulo" />
+            </Principal>
+            <Dependent Role="ARTICULOS_VS_CONFIGURACION_PEDIDO">
+              <PropertyRef Name="id_articulo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK__DETALLES___id_ar__469D7149">
           <End Role="ARTICULOS" Type="Self.ARTICULOS" Multiplicity="1" />
           <End Role="DETALLES_PEDIDOS" Type="Self.DETALLES_PEDIDOS" Multiplicity="*" />
@@ -3328,6 +3410,18 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.VEHICULOS_VS_CONDUCTOR' no t
             </Principal>
             <Dependent Role="PRECIOS">
               <PropertyRef Name="id_articulo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ARTICULOS__id_co__5303482E">
+          <End Role="CONFIGURACION_PEDIDOS" Type="Self.CONFIGURACION_PEDIDOS" Multiplicity="1" />
+          <End Role="ARTICULOS_VS_CONFIGURACION_PEDIDO" Type="Self.ARTICULOS_VS_CONFIGURACION_PEDIDO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CONFIGURACION_PEDIDOS">
+              <PropertyRef Name="id_configuracion" />
+            </Principal>
+            <Dependent Role="ARTICULOS_VS_CONFIGURACION_PEDIDO">
+              <PropertyRef Name="id_configuracion" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -4051,6 +4145,7 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.VEHICULOS_VS_CONDUCTOR' no t
           <EntitySet Name="ALERGIAS" EntityType="Self.ALERGIAS" />
           <EntitySet Name="ALMACENES" EntityType="Self.ALMACENES" />
           <EntitySet Name="ARTICULOS" EntityType="Self.ARTICULOS" />
+          <EntitySet Name="ARTICULOS_VS_CONFIGURACION_PEDIDO" EntityType="Self.ARTICULOS_VS_CONFIGURACION_PEDIDO" />
           <EntitySet Name="BENEFICIOS" EntityType="Self.BENEFICIOS" />
           <EntitySet Name="CALLES" EntityType="Self.CALLES" />
           <EntitySet Name="CATEGORIAS" EntityType="Self.CATEGORIAS" />
@@ -4061,6 +4156,7 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.VEHICULOS_VS_CONDUCTOR' no t
           <EntitySet Name="COMBUSTIBLE" EntityType="Self.COMBUSTIBLE" />
           <EntitySet Name="COMPRAS" EntityType="Self.COMPRAS" />
           <EntitySet Name="CONDUCTOR" EntityType="Self.CONDUCTOR" />
+          <EntitySet Name="CONFIGURACION_PEDIDOS" EntityType="Self.CONFIGURACION_PEDIDOS" />
           <EntitySet Name="CONTINENTES" EntityType="Self.CONTINENTES" />
           <EntitySet Name="COTIZACIONES" EntityType="Self.COTIZACIONES" />
           <EntitySet Name="DEPARTAMENTOS" EntityType="Self.DEPARTAMENTOS" />
@@ -4138,6 +4234,10 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.VEHICULOS_VS_CONDUCTOR' no t
             <End Role="ALMACENES" EntitySet="ALMACENES" />
             <End Role="EXISTENCIAS" EntitySet="EXISTENCIAS" />
           </AssociationSet>
+          <AssociationSet Name="FK__ARTICULOS__id_ar__520F23F5" Association="Self.FK__ARTICULOS__id_ar__520F23F5">
+            <End Role="ARTICULOS" EntitySet="ARTICULOS" />
+            <End Role="ARTICULOS_VS_CONFIGURACION_PEDIDO" EntitySet="ARTICULOS_VS_CONFIGURACION_PEDIDO" />
+          </AssociationSet>
           <AssociationSet Name="FK__DETALLES___id_ar__469D7149" Association="Self.FK__DETALLES___id_ar__469D7149">
             <End Role="ARTICULOS" EntitySet="ARTICULOS" />
             <End Role="DETALLES_PEDIDOS" EntitySet="DETALLES_PEDIDOS" />
@@ -4189,6 +4289,10 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.VEHICULOS_VS_CONDUCTOR' no t
           <AssociationSet Name="FK_PRECIOS_ARTICULOS" Association="Self.FK_PRECIOS_ARTICULOS">
             <End Role="ARTICULOS" EntitySet="ARTICULOS" />
             <End Role="PRECIOS" EntitySet="PRECIOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ARTICULOS__id_co__5303482E" Association="Self.FK__ARTICULOS__id_co__5303482E">
+            <End Role="CONFIGURACION_PEDIDOS" EntitySet="CONFIGURACION_PEDIDOS" />
+            <End Role="ARTICULOS_VS_CONFIGURACION_PEDIDO" EntitySet="ARTICULOS_VS_CONFIGURACION_PEDIDO" />
           </AssociationSet>
           <AssociationSet Name="FK_BENEFICIOS_TIPOS_MEMBRESIAS" Association="Self.FK_BENEFICIOS_TIPOS_MEMBRESIAS">
             <End Role="TIPOS_MEMBRESIAS" EntitySet="TIPOS_MEMBRESIAS" />
@@ -4478,6 +4582,15 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.VEHICULOS_VS_CONDUCTOR' no t
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="ARTICULOS_VS_CONFIGURACION_PEDIDO">
+            <EntityTypeMapping TypeName="TransporSysModel.ARTICULOS_VS_CONFIGURACION_PEDIDO">
+              <MappingFragment StoreEntitySet="ARTICULOS_VS_CONFIGURACION_PEDIDO">
+                <ScalarProperty Name="id_vs" ColumnName="id_vs" />
+                <ScalarProperty Name="id_configuracion" ColumnName="id_configuracion" />
+                <ScalarProperty Name="id_articulo" ColumnName="id_articulo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="BENEFICIOS">
             <EntityTypeMapping TypeName="TransporSysModel.BENEFICIOS">
               <MappingFragment StoreEntitySet="BENEFICIOS">
@@ -4577,6 +4690,15 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.VEHICULOS_VS_CONDUCTOR' no t
                 <ScalarProperty Name="id_empleado" ColumnName="id_empleado" />
                 <ScalarProperty Name="num_licencia" ColumnName="num_licencia" />
                 <ScalarProperty Name="fecha_vencimiento" ColumnName="fecha_vencimiento" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CONFIGURACION_PEDIDOS">
+            <EntityTypeMapping TypeName="TransporSysModel.CONFIGURACION_PEDIDOS">
+              <MappingFragment StoreEntitySet="CONFIGURACION_PEDIDOS">
+                <ScalarProperty Name="id_configuracion" ColumnName="id_configuracion" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

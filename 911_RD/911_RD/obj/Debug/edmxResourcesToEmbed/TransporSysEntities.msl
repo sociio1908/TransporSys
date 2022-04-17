@@ -38,6 +38,15 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="ARTICULOS_VS_CONFIGURACION_PEDIDO">
+      <EntityTypeMapping TypeName="TransporSysModel.ARTICULOS_VS_CONFIGURACION_PEDIDO">
+        <MappingFragment StoreEntitySet="ARTICULOS_VS_CONFIGURACION_PEDIDO">
+          <ScalarProperty Name="id_vs" ColumnName="id_vs" />
+          <ScalarProperty Name="id_configuracion" ColumnName="id_configuracion" />
+          <ScalarProperty Name="id_articulo" ColumnName="id_articulo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="BENEFICIOS">
       <EntityTypeMapping TypeName="TransporSysModel.BENEFICIOS">
         <MappingFragment StoreEntitySet="BENEFICIOS">
@@ -137,6 +146,15 @@
           <ScalarProperty Name="id_empleado" ColumnName="id_empleado" />
           <ScalarProperty Name="num_licencia" ColumnName="num_licencia" />
           <ScalarProperty Name="fecha_vencimiento" ColumnName="fecha_vencimiento" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CONFIGURACION_PEDIDOS">
+      <EntityTypeMapping TypeName="TransporSysModel.CONFIGURACION_PEDIDOS">
+        <MappingFragment StoreEntitySet="CONFIGURACION_PEDIDOS">
+          <ScalarProperty Name="id_configuracion" ColumnName="id_configuracion" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

@@ -29,6 +29,7 @@ namespace _911_RD.Administracion.Configuracion
             this.btn_combustibles = new System.Windows.Forms.Button();
             this.btn_Tipos_Pago = new System.Windows.Forms.Button();
             this.p_container = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -69,6 +70,7 @@ namespace _911_RD.Administracion.Configuracion
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.button1);
             this.panel2.Controls.Add(this.btn_empresa);
             this.panel2.Controls.Add(this.btn_combustibles);
             this.panel2.Controls.Add(this.btn_Tipos_Pago);
@@ -122,6 +124,18 @@ namespace _911_RD.Administracion.Configuracion
             this.p_container.Size = new System.Drawing.Size(948, 721);
             this.p_container.TabIndex = 2;
             // 
+            // button1
+            // 
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Location = new System.Drawing.Point(3, 135);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(146, 35);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "PEDIDOS AUTOMATICOS";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // FrmConfiguracion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -152,5 +166,6 @@ namespace _911_RD.Administracion.Configuracion
         private System.Windows.Forms.Button btn_Tipos_Pago;
         private System.Windows.Forms.Button btn_empresa;
         private System.Windows.Forms.Button btn_combustibles;
+        private System.Windows.Forms.Button button1;
     }
 }
