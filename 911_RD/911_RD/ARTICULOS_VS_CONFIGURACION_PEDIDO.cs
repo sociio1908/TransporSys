@@ -17,6 +17,7 @@ namespace _911_RD
         public int id_vs { get; set; }
         public int id_configuracion { get; set; }
         public int id_articulo { get; set; }
+        public int num_prioridad { get; set; }
     
         public virtual ARTICULOS ARTICULOS { get; set; }
         public virtual CONFIGURACION_PEDIDOS CONFIGURACION_PEDIDOS { get; set; }

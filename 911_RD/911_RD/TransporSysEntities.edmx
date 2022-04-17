@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="TransporSysModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="TransporSysModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="ALERGIAS">
           <Key>
             <PropertyRef Name="id_alergia" />
@@ -58,6 +58,7 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.ARTICULOS_VS_CATEGORIAS_VS_D
           <Property Name="id_vs" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="id_configuracion" Type="int" Nullable="false" />
           <Property Name="id_articulo" Type="int" Nullable="false" />
+          <Property Name="num_prioridad" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="BENEFICIOS">
           <Key>
@@ -2248,8 +2249,7 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.VEHICULOS_VS_CONDUCTOR' no t
             <End Role="VENTAS" EntitySet="VENTAS" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="TransporSysModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -2312,6 +2312,7 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.VEHICULOS_VS_CONDUCTOR' no t
           <Property Name="id_articulo" Type="Int32" Nullable="false" />
           <NavigationProperty Name="ARTICULOS" Relationship="Self.FK__ARTICULOS__id_ar__520F23F5" FromRole="ARTICULOS_VS_CONFIGURACION_PEDIDO" ToRole="ARTICULOS" />
           <NavigationProperty Name="CONFIGURACION_PEDIDOS" Relationship="Self.FK__ARTICULOS__id_co__5303482E" FromRole="ARTICULOS_VS_CONFIGURACION_PEDIDO" ToRole="CONFIGURACION_PEDIDOS" />
+          <Property Name="num_prioridad" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="BENEFICIOS">
           <Key>
@@ -4585,6 +4586,7 @@ advertencia 6002: La tabla o vista 'TransporSys.dbo.VEHICULOS_VS_CONDUCTOR' no t
           <EntitySetMapping Name="ARTICULOS_VS_CONFIGURACION_PEDIDO">
             <EntityTypeMapping TypeName="TransporSysModel.ARTICULOS_VS_CONFIGURACION_PEDIDO">
               <MappingFragment StoreEntitySet="ARTICULOS_VS_CONFIGURACION_PEDIDO">
+                <ScalarProperty Name="num_prioridad" ColumnName="num_prioridad" />
                 <ScalarProperty Name="id_vs" ColumnName="id_vs" />
                 <ScalarProperty Name="id_configuracion" ColumnName="id_configuracion" />
                 <ScalarProperty Name="id_articulo" ColumnName="id_articulo" />

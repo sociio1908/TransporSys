@@ -94,7 +94,7 @@ namespace _911_RD.Administracion.Configuracion
         private void btn_quitar_Click(object sender, EventArgs e)
         {
             if (dataGridView1.Rows.Count > 0) 
-                dataGridView1.Rows.RemoveAt(dataGridView1.CurrentCell.RowIndex);  
+                dataGridView1.Rows.RemoveAt(dataGridView1.CurrentCell.RowIndex); 
         }
     }
 }
