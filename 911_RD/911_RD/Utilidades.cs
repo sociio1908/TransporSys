@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
+using System.Linq; 
 using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
+using System.Text; 
 using System.Windows.Forms;
+using MailKit.Net.Smtp;
+using MimeKit;
+
 namespace _911_RD
 {
     class Utilidades
@@ -164,6 +166,62 @@ namespace _911_RD
             }
         }
 
+
+
+        public static void EnviarCorreo(string nom_suplidor, string correo, string nom_articulo, string cantidad, string precio, string total)
+        {
+        /*    using (TransporSysEntities db = new TransporSysEntities())
+            {
+                var empresa = from v in db.EMPRESA
+                                select new
+                               {
+                                    Empresa = v.
+                               };
+            }*/
+
+                String servidor = "smtp.gmail.com";
+            int puerto = 587;
+            string Guser = "yeri.paulino@gmail.com";
+            string Gpass = "Librealos25#";
+
+            MimeMessage message = new MimeMessage();
+            message.From.Add(new MailboxAddress("TransporSys", Guser));
+            message.To.Add(new MailboxAddress("Destino", correo));
+            message.Subject = "Solicitud pedido";
+
+            BodyBuilder bodyBuilder = new BodyBuilder();
+            bodyBuilder.HtmlBody = " <b>SOLICITUD PEDIDO PARA: " + nom_suplidor + "</b> <br>" +
+                "-----------------------------------------------------" +
+                "<br><b>Articulo: </b>" + nom_articulo +
+                " <br><b>Cantidad requerida: </b>" + cantidad +
+                " <br><b>Costo previsto RD$: </b>" + precio
+                + " <br>-----------------------------------------------------" +
+                " <br><b>TOTAL RD$: </b>" + total +
+                " <br>-----------------------------------------------------" +
+                " <br><b>NOTA IMPORTANTE:</b><br>CUALQUIER INQUIETUD QUE PERJUDIQUE EL PROCESO DE ESTE PEDIDO FAVOR " +
+                "CONTACTARNOS DE INMEDIATO." +
+                "<br><br><b>Numero de contacto: </b>" + "(809) 886-2933" +
+                "<br>Muchas gracias de antemeano.";
+
+            message.Body = bodyBuilder.ToMessageBody();
+            try
+            {
+                using (var client = new SmtpClient())
+                {
+                    client.Connect(servidor, puerto, MailKit.Security.SecureSocketOptions.StartTls);
+                    client.CheckCertificateRevocation = false; 
+                    client.Authenticate(Guser,Gpass);
+                    client.Send(message);
+                    client.Disconnect(true);
+                }
+            }
+            catch (Exception except)
+            {
+                Console.WriteLine("Error on sending mail : " + except.Message);
+            }
+
+        }
+            
 
         public static void LimpiarControles(System.Windows.Forms.Control forms)
         {

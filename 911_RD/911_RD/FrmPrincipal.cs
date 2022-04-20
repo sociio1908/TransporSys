@@ -27,7 +27,7 @@ namespace _911_RD
 
             label13.Text = Utilidades.nomusuario +" " +Utilidades.Apeuser;
             label12.Text = Utilidades.puestouser;
-
+            Utilidades.EnviarCorreo("Franklyn's Oxygen", "yeri.paulino@yahoo.es", "Oxigeno de 680", "25", "4800", "120000");
             if ( Utilidades.puestouser == "1")
             {
             //    btn_empleado.Enabled = false;

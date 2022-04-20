@@ -267,3 +267,12 @@ C:\Users\Ing. Jerinel Mendoza\Documents\Proyecto C#\TranporSys\911_RD\911_RD\obj
 C:\Users\Ing. Jerinel Mendoza\Documents\Proyecto C#\TranporSys\911_RD\911_RD\obj\Debug\_911_RD.Administracion.FrmAdmPedios.resources
 C:\Users\Ing. Jerinel Mendoza\Documents\Proyecto C#\TranporSys\911_RD\911_RD\obj\Debug\_911_RD.Administracion.FrmConfiguracionPedido.resources
 C:\Users\Ing. Jerinel Mendoza\Documents\Proyecto C#\TranporSys\911_RD\911_RD\obj\Debug\_911_RD.Administracion.Configuracion.FrmConfiguracionProducto.resources
+C:\Users\Ing. Jerinel Mendoza\Documents\Proyecto C#\TranporSys\911_RD\911_RD\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\Ing. Jerinel Mendoza\Documents\Proyecto C#\TranporSys\911_RD\911_RD\bin\Debug\MailKit.dll
+C:\Users\Ing. Jerinel Mendoza\Documents\Proyecto C#\TranporSys\911_RD\911_RD\bin\Debug\MimeKit.dll
+C:\Users\Ing. Jerinel Mendoza\Documents\Proyecto C#\TranporSys\911_RD\911_RD\bin\Debug\System.Text.Encoding.CodePages.dll
+C:\Users\Ing. Jerinel Mendoza\Documents\Proyecto C#\TranporSys\911_RD\911_RD\bin\Debug\BouncyCastle.Crypto.xml
+C:\Users\Ing. Jerinel Mendoza\Documents\Proyecto C#\TranporSys\911_RD\911_RD\bin\Debug\MailKit.pdb
+C:\Users\Ing. Jerinel Mendoza\Documents\Proyecto C#\TranporSys\911_RD\911_RD\bin\Debug\MailKit.xml
+C:\Users\Ing. Jerinel Mendoza\Documents\Proyecto C#\TranporSys\911_RD\911_RD\bin\Debug\MimeKit.pdb
+C:\Users\Ing. Jerinel Mendoza\Documents\Proyecto C#\TranporSys\911_RD\911_RD\bin\Debug\MimeKit.xml

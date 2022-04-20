@@ -375,6 +375,12 @@ namespace _911_RD.Administracion
                             result.stock = actstock;
                             db.SaveChanges();
                         }
+
+                        //AQUI EVALUAMOS SI HAY QUE HACER EL PEDIDO: Despues de hacer update de stock
+                        if(ValidarReorden(a))
+                        {
+
+                        } 
                     }
                 }
                 catch (Exception)
@@ -382,6 +388,21 @@ namespace _911_RD.Administracion
 
                 }
 
+            }
+        }
+
+        //validar SI ESTA EN RECOMPRA 
+        bool ValidarReorden(int codigo)
+        {
+            using (var db = new TransporSysEntities())
+            {
+                var result = db.ARTICULOS.SingleOrDefault(b => b.id_articulo == codigo);
+                if (result.id_articulo == codigo)
+                {
+                    if (result.stock <= result.reorden)
+                        return true;
+                }
+                return false;
             }
         }
 
@@ -536,5 +557,6 @@ namespace _911_RD.Administracion
         {
 
         }
+
     }
 }
