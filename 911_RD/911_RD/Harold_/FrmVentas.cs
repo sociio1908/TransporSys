@@ -57,8 +57,8 @@ namespace _911_RD.Administracion
                     txt_des.Text = frmarticulos.dataGridView1.CurrentRow.Cells[2].Value.ToString();
                     txt_stock.Text = frmarticulos.dataGridView1.CurrentRow.Cells[3].Value.ToString();
                     txt_precio.Text = frmarticulos.dataGridView1.CurrentRow.Cells[4].Value.ToString();
-                    txt_porcentaje_itb.Text = frmarticulos.dataGridView1.SelectedRows[0].Cells[5].Value.ToString();
-                    txt_codBarra.Text = frmarticulos.dataGridView1.CurrentRow.Cells[9].Value.ToString();
+                    txt_porcentaje_itb.Text = frmarticulos.dataGridView1.SelectedRows[0].Cells[7].Value.ToString();
+                    txt_codBarra.Text = frmarticulos.dataGridView1.CurrentRow.Cells[11].Value.ToString();
                     codigo_de_barra();
                 }
             }
@@ -308,8 +308,7 @@ namespace _911_RD.Administracion
                     }
                     catch (Exception) { }
                 }
-
-                MessageBox.Show("");
+                 
             }
 
 
@@ -351,7 +350,6 @@ namespace _911_RD.Administracion
                     catch (Exception) { }
                 }
 
-                MessageBox.Show("");
             }
 
 
@@ -370,11 +368,11 @@ namespace _911_RD.Administracion
 
                         var result = db.ARTICULOS.SingleOrDefault(b => b.id_articulo == a);
                         var stockactual = db.ARTICULOS.SingleOrDefault(b => b.id_articulo == a);
-                        int d = Convert.ToInt32(stockactual.reorden.ToString());
+                        int d = Convert.ToInt32(stockactual.stock.ToString());
                         double actstock = d - c;
                         if (result != null)
                         {
-                            result.reorden = actstock;
+                            result.stock = actstock;
                             db.SaveChanges();
                         }
                     }
@@ -432,7 +430,7 @@ namespace _911_RD.Administracion
                                         pro.id_articulo,
                                         pro.nombre,
                                         pro.descripcion,
-                                        pro.reorden,
+                                        pro.stock,
                                         pro.precio,
                                         itb.porcentaje,
                                         pro.codigo_barras,
@@ -449,7 +447,7 @@ namespace _911_RD.Administracion
                         txt_id.Text = OArticulos.id_articulo.ToString();
                         txt_nombre.Text = OArticulos.nombre.ToString();
                         txt_des.Text = OArticulos.descripcion.ToString();
-                        txt_stock.Text = OArticulos.reorden.ToString();
+                        txt_stock.Text = OArticulos.stock.ToString();
                         txt_precio.Text = OArticulos.precio.ToString();
                         txt_codBarra.Text = OArticulos.codigo_barras.ToString();
                         txt_porcentaje_itb.Text = OArticulos.porcentaje.ToString();

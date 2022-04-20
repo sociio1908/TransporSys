@@ -35,16 +35,13 @@ namespace _911_RD.Administracion
             {
                 try
                 {
-                    var pedidosD = from v in db.PEDIDOS
-                                   join dp in db.DETALLES_PEDIDOS on v.num_pedido equals dp.num_pedido
-                                   join a in db.ARTICULOS on dp.id_articulo equals a.id_articulo
+                    var pedidosD = from v in db.PEDIDOS 
                                    join s in db.SUPLIDORES on v.id_suplidor equals s.id_suplidor
                                    join t in db.TERCEROS on s.id_tercero equals t.id_tercero
                                    join tVs in db.TERCEROS_VS_IDENTIFICACIONES on t.id_tercero equals tVs.id_tercero
                                    join ide in db.IDENTIFICACIONES on tVs.id_identificacion equals ide.id_identificacion
                                    select new
-                                   {
-                                       //aqui cargas los campos de tu tabla
+                                   { 
                                        numpedido = v.num_pedido,
                                        idsuplidor = s.id_suplidor,
                                        NomSup = t.nombre,
@@ -56,11 +53,9 @@ namespace _911_RD.Administracion
                                    };
 
                     if (condicion.Trim().Equals("") == false)
-                    {
+                     {
                         pedidosD = pedidosD.Where(a => a.Identficacion.ToString().Contains(condicion) || a.numpedido.ToString().Contains(condicion) || a.NomSup.ToString().Contains(condicion));
-
-                    }
-                    int idP = 0;
+                     } 
                     foreach (var OArticulos in pedidosD)
                     {
                         string valor = "";
@@ -69,24 +64,10 @@ namespace _911_RD.Administracion
                         if (OArticulos.estado == 1)
                             valor = "Recibido";
                         if (OArticulos.estado == 2)
-                            valor = "Cancelado";
-                        if (dataGridView1.Rows.Count == 0)
-                        {
+                            valor = "Cancelado"; 
                             dataGridView1.Rows.Add(OArticulos.numpedido.ToString(), OArticulos.NomSup.ToString(), OArticulos.idsuplidor.ToString(),
                                 OArticulos.Identficacion.ToString(), OArticulos.total.ToString(), OArticulos.FechaPedido.ToString(), OArticulos.FechaEntrega.ToString(),
-                                valor);
-                        }
-                        else if (dataGridView1.Rows[idP - 1].Cells[0].Value.ToString() != OArticulos.numpedido.ToString())
-                        {
-                            dataGridView1.Rows.Add(OArticulos.numpedido.ToString(), OArticulos.NomSup.ToString(), OArticulos.idsuplidor.ToString(),
-                                OArticulos.Identficacion.ToString(), OArticulos.total.ToString(), OArticulos.FechaPedido.ToString(), OArticulos.FechaEntrega.ToString(),
-                                valor);
-                        }
-
-
-
-
-                        idP++;
+                                valor); 
                     }
 
 
