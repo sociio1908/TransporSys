@@ -217,8 +217,7 @@ namespace _911_RD
                         db.SaveChanges();
                 }
                     catch (Exception) { }
-                }
-
+                } 
         }
 
 
@@ -227,8 +226,7 @@ namespace _911_RD
         private void InsertarDetalle()
         {
             using (TransporSysEntities db = new TransporSysEntities())
-            {
-
+            { 
                 numP = db.PEDIDOS.Max(j => j.num_pedido);
 
                     foreach (DataGridViewRow row in dataGridView1.Rows)

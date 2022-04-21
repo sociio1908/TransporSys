@@ -166,7 +166,7 @@ namespace _911_RD
             }
         }
 
-
+        public static List<Suplidor> suplidores = new List<Suplidor>();
 
         public static void EnviarCorreo(string nom_suplidor, string correo, string nom_articulo, string cantidad, string precio, string total)
         {
@@ -278,4 +278,18 @@ namespace _911_RD
                 CharSet = System.Runtime.InteropServices.CharSet.Auto)]
             static extern bool SetWindowText(IntPtr hwnd, string lpString);
     }
+     
+      
+
+
+
+    public class Suplidor
+    {
+        public int id_suplidor { get; set; }
+        public double tiempo_entrega { get; set; }
+        public double precio { get; set; }
+        public double calificacion { get; set; }
+
+    }
+
 }

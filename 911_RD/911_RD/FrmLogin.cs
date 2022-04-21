@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using _911_RD.Administracion;
 
 namespace _911_RD
 {
@@ -15,7 +16,11 @@ namespace _911_RD
         public FrmLogin()
         {
             InitializeComponent();
+            metodos.LlenarSuplidor(1);
+
         }
+
+        MetodosCRUD metodos = new MetodosCRUD();
 
         private void lbl_cerrar_Click(object sender, EventArgs e)
         {

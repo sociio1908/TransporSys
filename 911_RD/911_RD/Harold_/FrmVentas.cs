@@ -379,8 +379,13 @@ namespace _911_RD.Administracion
                         //AQUI EVALUAMOS SI HAY QUE HACER EL PEDIDO: Despues de hacer update de stock
                         if(ValidarReorden(a))
                         {
+                            //Ya aqui tenemos el producto que debemos solicitar
 
-                        } 
+
+
+
+
+                        }  
                     }
                 }
                 catch (Exception)

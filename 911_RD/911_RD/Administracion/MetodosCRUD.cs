@@ -13,7 +13,117 @@ namespace _911_RD.Administracion
     class MetodosCRUD
     {
 
-        //ME FALTA CONDUCTOR Y AHI PUEDO INSERTAR EMPLEADOOOOOOOOOOOOOOOS
+        public int HacerPedido(int id_suplidor, double total)
+        { 
+                using (TransporSysEntities db = new TransporSysEntities())
+                {
+                    try
+                    {
+                        PEDIDOS comp = new PEDIDOS
+                        {
+                            id_suplidor = id_suplidor,
+                            total = total,
+                            creado = DateTime.Now,
+                            estado = 0,
+                        };
+                        db.PEDIDOS.Add(comp);
+                        db.SaveChanges();
+                         return 0;
+                    }
+                    catch (Exception) { }
+                } 
+            return 1;
+        }
+
+        /*    ,[id_suplidor]
+              ,[total]
+              ,[estado]
+              ,[creado]
+              ,[fechaEntrega]
+         *  ------------------
+         *  [id_articulo]
+           ,[cantidad]
+           ,[precio]
+           ,[ID]
+        public int id_suplidor { get; set; }
+        public double tiempo_entrega { get; set; }
+        public double precio { get; set; }
+        public double calificacion { get; set; }
+
+  */
+        public void LlenarSuplidor(int id_articulo)
+        {
+            using (TransporSysEntities db = new TransporSysEntities())
+            {
+                var suplidor = from pro in db.ARTICULOS
+                               join Dped in db.DETALLES_PEDIDOS on pro.id_articulo equals Dped.id_articulo
+                               join ped in db.PEDIDOS on Dped.num_pedido equals ped.num_pedido
+                               join sup in db.SUPLIDORES on ped.id_suplidor equals sup.id_suplidor 
+                                select new
+                                { 
+                                    pro.id_articulo,  
+                                    pro.recompra, 
+                                    sup.id_suplidor,
+                                    Dped.precio,
+                                    fechai = ped.creado,
+                                    fechaf = ped.fechaEntrega, 
+                                };
+                //filtro
+                suplidor = suplidor.Where(pro => pro.id_articulo == id_articulo);
+                foreach (var OArticulos in suplidor)
+                {
+                    double Upre = 0; 
+                    var nump = db.PEDIDOS
+                           .Where(x => x.id_suplidor == OArticulos.id_suplidor && x.estado== 1)
+                             .OrderByDescending(x => x.num_pedido)
+                             .Take(1);
+                    //ultimo pedido de ese articulo, por este suplidor
+                    foreach (var d in nump)
+                    {
+                        Upre = db.DETALLES_PEDIDOS.FirstOrDefault(x => x.num_pedido == d.num_pedido).precio;
+                        System.Diagnostics.Debug.WriteLine("PRECIO: " +Upre);
+                    }
+
+                    System.Diagnostics.Debug.WriteLine("\n\n\n\n");
+                    System.Diagnostics.Debug.WriteLine("ID: " + OArticulos.id_articulo);
+                    System.Diagnostics.Debug.WriteLine("RE: " + OArticulos.recompra);
+                    System.Diagnostics.Debug.WriteLine("SUP: " + OArticulos.id_suplidor);
+                    System.Diagnostics.Debug.WriteLine("PRE: " + OArticulos.precio);
+                    System.Diagnostics.Debug.WriteLine("Fi: " + OArticulos.fechai);
+                    System.Diagnostics.Debug.WriteLine("Ff: " + OArticulos.fechaf);
+                    /*        
+                                            Utilidades.suplidores.Add(OArticulos.id_articulo.ToString(), OArticulos.id_articulo.ToString(),
+                                            OArticulos.id_articulo.ToString(),
+                                            OArticulos.id_articulo.ToString(),
+                                            OArticulos.id_articulo.ToString(),
+                                            OArticulos.id_articulo.ToString(),
+                                            OArticulos.id_articulo.ToString(),
+                                            OArticulos.id_articulo.ToString())
+                                            */
+                }
+              }
+
+            } 
+
+
+        int numP;
+        void insertarDetallePedido(int id_articulo, double cant, double prec)
+        {
+            using (TransporSysEntities db = new TransporSysEntities())
+            {
+                numP = db.PEDIDOS.Max(j => j.num_pedido);
+
+                    DETALLES_PEDIDOS Dpedido = new DETALLES_PEDIDOS
+                    {
+                        num_pedido = numP,
+                        id_articulo = id_articulo,
+                        cantidad = cant,
+                        precio = prec,
+                    };
+                    db.DETALLES_PEDIDOS.Add(Dpedido);
+                  db.SaveChanges();
+            }
+        }
 
         public int crudConductor(string id_empleado, string num_licencia, DateTime fecha_vencimiento)
         {
@@ -380,15 +490,14 @@ namespace _911_RD.Administracion
         }
 
 
+
+
+
+
         public DataTable buscarEmpleado(string identidicacion, string codigo){
             DataTable dt = new DataTable();
            
-
-          
-
-
-
-
+             
 
 
             return dt;
