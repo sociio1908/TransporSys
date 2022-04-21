@@ -51,6 +51,8 @@ namespace _911_RD.Administracion
         public double calificacion { get; set; }
 
   */
+
+
         public void LlenarSuplidor(int id_articulo)
         {
             using (TransporSysEntities db = new TransporSysEntities())
@@ -61,6 +63,7 @@ namespace _911_RD.Administracion
                                join sup in db.SUPLIDORES on ped.id_suplidor equals sup.id_suplidor 
                                 select new
                                 { 
+                                    ped.num_pedido,
                                     pro.id_articulo,  
                                     pro.recompra, 
                                     sup.id_suplidor,
@@ -69,39 +72,60 @@ namespace _911_RD.Administracion
                                     fechaf = ped.fechaEntrega, 
                                 };
                 //filtro
-                suplidor = suplidor.Where(pro => pro.id_articulo == id_articulo);
-                foreach (var OArticulos in suplidor)
+                System.Diagnostics.Debug.WriteLine("\n\n\n\n");
+                suplidor = suplidor.Where(pro => pro.id_articulo == id_articulo).OrderBy(f => f.id_suplidor);
+
+                foreach (var OArticulos in suplidor.ToList())
                 {
-                    double Upre = 0; 
+                    double Upre = 0;
+
+                    //ultimo pedido de ese suplidor en este articulo
                     var nump = db.PEDIDOS
                            .Where(x => x.id_suplidor == OArticulos.id_suplidor && x.estado== 1)
                              .OrderByDescending(x => x.num_pedido)
                              .Take(1);
-                    //ultimo pedido de ese articulo, por este suplidor
+                    System.Diagnostics.Debug.WriteLine("\n\n\n\n");
+
                     foreach (var d in nump)
                     {
-                        Upre = db.DETALLES_PEDIDOS.FirstOrDefault(x => x.num_pedido == d.num_pedido).precio;
-                        System.Diagnostics.Debug.WriteLine("PRECIO: " +Upre);
-                    }
+                        if(OArticulos.num_pedido == d.num_pedido)
+                        {
+                            System.Diagnostics.Debug.WriteLine("SUP: " + d.id_suplidor);
+                            System.Diagnostics.Debug.WriteLine("ENTRO CON: " + OArticulos.num_pedido);
+                            System.Diagnostics.Debug.WriteLine("ENTRO CON: " + d.num_pedido);
 
-                    System.Diagnostics.Debug.WriteLine("\n\n\n\n");
-                    System.Diagnostics.Debug.WriteLine("ID: " + OArticulos.id_articulo);
-                    System.Diagnostics.Debug.WriteLine("RE: " + OArticulos.recompra);
-                    System.Diagnostics.Debug.WriteLine("SUP: " + OArticulos.id_suplidor);
-                    System.Diagnostics.Debug.WriteLine("PRE: " + OArticulos.precio);
-                    System.Diagnostics.Debug.WriteLine("Fi: " + OArticulos.fechai);
-                    System.Diagnostics.Debug.WriteLine("Ff: " + OArticulos.fechaf);
-                    /*        
-                                            Utilidades.suplidores.Add(OArticulos.id_articulo.ToString(), OArticulos.id_articulo.ToString(),
-                                            OArticulos.id_articulo.ToString(),
-                                            OArticulos.id_articulo.ToString(),
-                                            OArticulos.id_articulo.ToString(),
-                                            OArticulos.id_articulo.ToString(),
-                                            OArticulos.id_articulo.ToString(),
-                                            OArticulos.id_articulo.ToString())
-                                            */
+                            Upre = db.DETALLES_PEDIDOS.FirstOrDefault(x => x.num_pedido == d.num_pedido).precio;
+                            /*
+                     YA TENEMOS EN LA LISTA QUE EL PRECIO CON SU RESPECTIVO SUPLIDOR, 
+                     SOLO NECESITAMOS EL TIEMPO DE ENTREGA - PARA AGREGAR TODOS LOS SUPLIDORES A ESTE HSITORIAL 
+                            Y LUEGO SOLICITAR EL PEDIDO, TENEMOS RECOMPRA Y TODO, SOLO SACAMOS EL PRECIO MENOR
+                            Y EL TIEMPO MENOR
+
+                    f*/
+
+                            Suplidor suplidor1 = new Suplidor();
+                            suplidor1.id_suplidor = d.id_suplidor;
+                            suplidor1.precio = Upre;
+                            suplidor1.tiempo_entrega = 0;
+                            suplidor1.calificacion = 0;
+                            Utilidades.suplidores.Add(suplidor1);
+                        } 
+                     }
                 }
-              }
+
+
+                
+                System.Diagnostics.Debug.WriteLine("\n\n\n\n");
+
+                foreach (var otro in Utilidades.suplidores)
+                {
+                    System.Diagnostics.Debug.WriteLine("ID: " + otro.id_suplidor
+                  + "-" + otro.precio
+                  + "-" + otro.calificacion
+                  + "-" + otro.precio);
+                }
+
+            }
 
             } 
 
