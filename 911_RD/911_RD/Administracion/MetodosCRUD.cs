@@ -89,45 +89,49 @@ namespace _911_RD.Administracion
                     foreach (var d in nump)
                     {
                         if(OArticulos.num_pedido == d.num_pedido)
-                        {
-                            System.Diagnostics.Debug.WriteLine("SUP: " + d.id_suplidor);
-                            System.Diagnostics.Debug.WriteLine("ENTRO CON: " + OArticulos.num_pedido);
-                            System.Diagnostics.Debug.WriteLine("ENTRO CON: " + d.num_pedido);
+                        {  
+                            
+                            //precio
+                            Upre = db.DETALLES_PEDIDOS.FirstOrDefault(x => x.num_pedido == d.num_pedido).precio; 
+                            DateTime datef;
+                            //Tiempo en minutos de entrega 
+                            datef = DateTime.Parse(d.fechaEntrega.ToString());
 
-                            Upre = db.DETALLES_PEDIDOS.FirstOrDefault(x => x.num_pedido == d.num_pedido).precio;
                             /*
-                     YA TENEMOS EN LA LISTA QUE EL PRECIO CON SU RESPECTIVO SUPLIDOR, 
-                     SOLO NECESITAMOS EL TIEMPO DE ENTREGA - PARA AGREGAR TODOS LOS SUPLIDORES A ESTE HSITORIAL 
-                            Y LUEGO SOLICITAR EL PEDIDO, TENEMOS RECOMPRA Y TODO, SOLO SACAMOS EL PRECIO MENOR
-                            Y EL TIEMPO MENOR
+                              TENEMOS TODOS LOS SUPLIDORES QUE ME VENDEN DE ESE PRODUCTO CON:
+                                - TIEMPO DE ENTREGA 
+                                - PRECIO
+                                - CALIFICACION 
+                             EN SU HISORIAL, AHORA:
+                             1 - Evaluamos la prioridad
+                             2 - Y demas
 
-                    f*/
 
+                            AL 
+                              Y LUEGO SOLICITAR EL PEDIDO, TENEMOS RECOMPRA Y TODO, SOLO SACAMOS EL PRECIO MENOR
+                              Y EL TIEMPO MENOR 
+                            */
+
+                            double time = CalcularTiempo(d.creado, datef);  
                             Suplidor suplidor1 = new Suplidor();
                             suplidor1.id_suplidor = d.id_suplidor;
                             suplidor1.precio = Upre;
-                            suplidor1.tiempo_entrega = 0;
+                            suplidor1.tiempo_entrega = time;
                             suplidor1.calificacion = 0;
                             Utilidades.suplidores.Add(suplidor1);
                         } 
                      }
-                }
-
-
-                
-                System.Diagnostics.Debug.WriteLine("\n\n\n\n");
-
-                foreach (var otro in Utilidades.suplidores)
-                {
-                    System.Diagnostics.Debug.WriteLine("ID: " + otro.id_suplidor
-                  + "-" + otro.precio
-                  + "-" + otro.calificacion
-                  + "-" + otro.precio);
-                }
-
+                } 
             }
 
-            } 
+        } 
+
+
+
+        public double CalcularTiempo(DateTime ini, DateTime fin)
+        { 
+            return (fin - ini).TotalMinutes;
+        } 
 
 
         int numP;
