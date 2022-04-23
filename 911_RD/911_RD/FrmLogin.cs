@@ -16,7 +16,7 @@ namespace _911_RD
         public FrmLogin()
         {
             InitializeComponent();
-            metodos.LlenarSuplidor(1);
+            metodos.LlenarSuplidor(2);
             System.Diagnostics.Debug.WriteLine("\n\n\n\n"); 
             foreach (var otro in Utilidades.suplidores)
             {

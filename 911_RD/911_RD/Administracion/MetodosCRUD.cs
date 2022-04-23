@@ -96,22 +96,6 @@ namespace _911_RD.Administracion
                             DateTime datef;
                             //Tiempo en minutos de entrega 
                             datef = DateTime.Parse(d.fechaEntrega.ToString());
-
-                            /*
-                              TENEMOS TODOS LOS SUPLIDORES QUE ME VENDEN DE ESE PRODUCTO CON:
-                                - TIEMPO DE ENTREGA 
-                                - PRECIO
-                                - CALIFICACION 
-                             EN SU HISORIAL, AHORA:
-                             1 - Evaluamos la prioridad
-                             2 - Y demas
-
-
-                            AL 
-                              Y LUEGO SOLICITAR EL PEDIDO, TENEMOS RECOMPRA Y TODO, SOLO SACAMOS EL PRECIO MENOR
-                              Y EL TIEMPO MENOR 
-                            */
-
                             double time = CalcularTiempo(d.creado, datef);  
                             Suplidor suplidor1 = new Suplidor();
                             suplidor1.id_suplidor = d.id_suplidor;
@@ -122,16 +106,83 @@ namespace _911_RD.Administracion
                         } 
                      }
                 } 
+                if (Utilidades.suplidores.Count > 0)
+                {
+                    ValidarPrioridad(id_articulo);
+                }
+
+                /*
+                  TENEMOS TODOS LOS SUPLIDORES QUE ME VENDEN DE ESE PRODUCTO CON:
+                    - TIEMPO DE ENTREGA 
+                    - PRECIO
+                    - CALIFICACION 
+                 EN SU HISORIAL, AHORA:
+                 - Evaluamos la que este en la tabla de configuracion
+                 - Evaluamos la prioridad 
+                 - Sacamos el suplidor con esas especificaciones
+                 - Hacemos el pedido
+                AL 
+                   */
+
+
             }
 
         } 
 
 
 
-        public double CalcularTiempo(DateTime ini, DateTime fin)
+        public void ValidarPrioridad(int id_articulo)
         { 
-            return (fin - ini).TotalMinutes;
-        } 
+            using (TransporSysEntities db = new TransporSysEntities())
+            {
+                var config = from art in db.ARTICULOS
+                               join ac in db.ARTICULOS_VS_CONFIGURACION_PEDIDO on art.id_articulo equals ac.id_articulo
+                               join c in db.CONFIGURACION_PEDIDOS on ac.id_configuracion equals c.id_configuracion
+                               select new
+                               {
+                                    art.id_articulo,
+                                    ac.id_configuracion,
+                                    c.descripcion,
+                                    ac.num_prioridad,
+                               };
+                //filtro
+                config = config.Where(pro => pro.id_articulo == id_articulo).OrderBy(f => f.num_prioridad); 
+                foreach (var OArticulos in config.ToList())
+                {
+                    System.Diagnostics.Debug.WriteLine("NUM_PRIORIDAD: " + OArticulos.num_prioridad);
+/*                    if (OArticulos.num_prioridad==1)
+                    {
+                        
+                    }*/
+                    System.Diagnostics.Debug.WriteLine("DESCRIPCION: " + OArticulos.descripcion); 
+
+                }
+            } 
+          }
+
+        public int SupPrecio(string prioridad)
+        {
+
+            if (prioridad == "Precio")
+            {
+                var sup = Utilidades.suplidores.ToList().OrderByDescending(f => f.precio \\);
+
+            }
+                if (prioridad == "Tiempo entrega")
+                 {
+                  foreach (var sup in Utilidades.suplidores)
+                  {
+
+
+                     } 
+            } 
+                return 0;
+        }
+
+        public double CalcularTiempo(DateTime ini, DateTime fin)
+                { 
+                       return (fin - ini).TotalMinutes;
+                } 
 
 
         int numP;
