@@ -7,18 +7,24 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using System.Configuration;
+using static _911_RD.Utilidades;
 
 namespace _911_RD.Administracion
 {
     class MetodosCRUD
     {
 
-        public int HacerPedido(int id_suplidor, double total)
+        public int HacerPedido(int id_suplidor, int id_articulo )
         { 
                 using (TransporSysEntities db = new TransporSysEntities())
                 {
                     try
                     {
+                    var art = db.ARTICULOS.FirstOrDefault(x => x.id_articulo == id_articulo); 
+                    double total; 
+                    var sup = Utilidades.suplidores.FirstOrDefault(f => f.id_suplidor== id_suplidor);
+
+                    total = double.Parse(sup.precio.ToString()) * double.Parse(art.recompra.ToString()); 
                         PEDIDOS comp = new PEDIDOS
                         {
                             id_suplidor = id_suplidor,
@@ -28,32 +34,19 @@ namespace _911_RD.Administracion
                         };
                         db.PEDIDOS.Add(comp);
                         db.SaveChanges();
-                         return 0;
+                        insertarDetallePedido(id_articulo, double.Parse(art.recompra.ToString()), sup.precio);
+                    Utilidades.EnviarCorreo(id_suplidor, art.nombre, art.recompra.ToString(), sup.precio.ToString(), total.ToString());
+                         return 1;
                     }
-                    catch (Exception) { }
-                } 
-            return 1;
-        }
+                    catch (Exception sds) {
 
-        /*    ,[id_suplidor]
-              ,[total]
-              ,[estado]
-              ,[creado]
-              ,[fechaEntrega]
-         *  ------------------
-         *  [id_articulo]
-           ,[cantidad]
-           ,[precio]
-           ,[ID]
-        public int id_suplidor { get; set; }
-        public double tiempo_entrega { get; set; }
-        public double precio { get; set; }
-        public double calificacion { get; set; }
+                    System.Diagnostics.Debug.WriteLine("-----------ERROR: " + sds.ToString());
+                }
+            } 
+            return 0;
+        }  
 
-  */
-
-
-        public void LlenarSuplidor(int id_articulo)
+        public int LlenarSuplidor(int id_articulo)
         {
             using (TransporSysEntities db = new TransporSysEntities())
             {
@@ -71,9 +64,10 @@ namespace _911_RD.Administracion
                                     fechai = ped.creado,
                                     fechaf = ped.fechaEntrega, 
                                 };
-                //filtro
-                System.Diagnostics.Debug.WriteLine("\n\n\n\n");
+                //filtro 
                 suplidor = suplidor.Where(pro => pro.id_articulo == id_articulo).OrderBy(f => f.id_suplidor);
+                if(suplidor==null)
+                    return 0;
 
                 foreach (var OArticulos in suplidor.ToList())
                 {
@@ -83,8 +77,7 @@ namespace _911_RD.Administracion
                     var nump = db.PEDIDOS
                            .Where(x => x.id_suplidor == OArticulos.id_suplidor && x.estado== 1)
                              .OrderByDescending(x => x.num_pedido)
-                             .Take(1);
-                    System.Diagnostics.Debug.WriteLine("\n\n\n\n");
+                             .Take(1); 
 
                     foreach (var d in nump)
                     {
@@ -108,30 +101,23 @@ namespace _911_RD.Administracion
                 } 
                 if (Utilidades.suplidores.Count > 0)
                 {
-                    ValidarPrioridad(id_articulo);
-                }
-
-                /*
-                  TENEMOS TODOS LOS SUPLIDORES QUE ME VENDEN DE ESE PRODUCTO CON:
-                    - TIEMPO DE ENTREGA 
-                    - PRECIO
-                    - CALIFICACION 
-                 EN SU HISORIAL, AHORA:
-                 - Evaluamos la que este en la tabla de configuracion
-                 - Evaluamos la prioridad 
-                 - Sacamos el suplidor con esas especificaciones
-                 - Hacemos el pedido
-                AL 
-                   */
-
-
+                    string res = ValidarPrioridad(id_articulo);
+                    if (res != null){
+                        int id_sup = SacarSuplidor(res);
+                        if (id_sup > 0)
+                        {
+                            if(HacerPedido(id_sup, id_articulo)==1)
+                            {
+                                return 1;
+                            }
+                        }
+                    }
+                } 
             }
+            return 0;
+        }  
 
-        } 
-
-
-
-        public void ValidarPrioridad(int id_articulo)
+        public string ValidarPrioridad(int id_articulo)
         { 
             using (TransporSysEntities db = new TransporSysEntities())
             {
@@ -147,36 +133,42 @@ namespace _911_RD.Administracion
                                };
                 //filtro
                 config = config.Where(pro => pro.id_articulo == id_articulo).OrderBy(f => f.num_prioridad); 
-                foreach (var OArticulos in config.ToList())
-                {
-                    System.Diagnostics.Debug.WriteLine("NUM_PRIORIDAD: " + OArticulos.num_prioridad);
-/*                    if (OArticulos.num_prioridad==1)
-                    {
-                        
-                    }*/
-                    System.Diagnostics.Debug.WriteLine("DESCRIPCION: " + OArticulos.descripcion); 
+                 if(config==null)
+                    return null;
 
+                foreach (var OArticulos in config.ToList())
+                { 
+                    if (OArticulos.num_prioridad==1)
+                    {
+                        return OArticulos.descripcion;
+                    }
                 }
-            } 
+            }
+            return null;
           }
 
-        public int SupPrecio(string prioridad)
+        public int SacarSuplidor(string prioridad)
         {
-
+            //metodo validando orden
             if (prioridad == "Precio")
             {
-                var sup = Utilidades.suplidores.ToList().OrderByDescending(f => f.precio \\);
+                var sup = Utilidades.suplidores.ToList().OrderBy(f => f.precio).Take(1);
 
+                foreach (var OArticulos in sup)
+                {
+                    return OArticulos.id_suplidor;
+                }
             }
-                if (prioridad == "Tiempo entrega")
-                 {
-                  foreach (var sup in Utilidades.suplidores)
-                  {
+            if (prioridad == "Tiempo entrega")
+            {
+                var sup = Utilidades.suplidores.ToList().OrderBy(f => f.tiempo_entrega).Take(1);
 
-
-                     } 
-            } 
-                return 0;
+                foreach (var OArticulos in sup)
+                {
+                    return OArticulos.id_suplidor;
+                }
+            }
+            return 0;
         }
 
         public double CalcularTiempo(DateTime ini, DateTime fin)
@@ -186,7 +178,7 @@ namespace _911_RD.Administracion
 
 
         int numP;
-        void insertarDetallePedido(int id_articulo, double cant, double prec)
+        public void insertarDetallePedido(int id_articulo, double cant, double prec)
         {
             using (TransporSysEntities db = new TransporSysEntities())
             {
@@ -200,7 +192,7 @@ namespace _911_RD.Administracion
                         precio = prec,
                     };
                     db.DETALLES_PEDIDOS.Add(Dpedido);
-                  db.SaveChanges();
+                  db.SaveChanges(); 
             }
         }
 

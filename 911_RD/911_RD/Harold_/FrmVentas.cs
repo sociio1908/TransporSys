@@ -354,6 +354,7 @@ namespace _911_RD.Administracion
 
 
         }
+        MetodosCRUD metodos = new MetodosCRUD();
 
         private void ActualizarStock()
         {
@@ -379,12 +380,7 @@ namespace _911_RD.Administracion
                         //AQUI EVALUAMOS SI HAY QUE HACER EL PEDIDO: Despues de hacer update de stock
                         if(ValidarReorden(a))
                         {
-                            //Ya aqui tenemos el producto que debemos solicitar
-
-
-
-
-
+                            PedirArticulo(a); 
                         }  
                     }
                 }
@@ -408,6 +404,50 @@ namespace _911_RD.Administracion
                         return true;
                 }
                 return false;
+            }
+        }
+
+        void PedirArticulo(int a)
+        {
+            using (var db = new TransporSysEntities())
+            {
+                var suplidor = from pro in db.ARTICULOS
+                               join Dped in db.DETALLES_PEDIDOS on pro.id_articulo equals Dped.id_articulo
+                               join ped in db.PEDIDOS on Dped.num_pedido equals ped.num_pedido
+                               join con in db.ARTICULOS_VS_CONFIGURACION_PEDIDO on pro.id_articulo equals con.id_articulo
+                               select new
+                               {
+                                   ped.num_pedido,
+                                   Dped.id_articulo,
+                                   ped.estado, 
+                                  id_conart =  con.id_articulo
+                               };
+                //filtro 
+                suplidor = suplidor.Where(pro => pro.id_articulo == a && pro.estado == 0).OrderBy(f => f.id_articulo);
+                MessageBox.Show("cont ."+suplidor.ToList().Count);
+                foreach ( var sas in suplidor.ToList())
+                {
+
+                    MessageBox.Show("PEDIDO ." + sas.num_pedido);
+                    MessageBox.Show("ESTADO ." + sas.estado);
+                }
+
+                if (suplidor.ToList().Count>0)
+                {
+                    MessageBox.Show("YA HAY UN PEDIDO PROCESADO.");
+                    return;
+                }
+                suplidor = suplidor.Where(pro => pro.id_conart == a).OrderBy(f => f.id_articulo);
+                if (suplidor.ToList().Count > 0)
+                {
+                    MessageBox.Show("ARTICULO NO CONFIGURADO PARA COMPRAR AUTOMATICAMENTE.");
+                    return;
+                }
+
+                if (metodos.LlenarSuplidor(a) == 1)
+                    {
+                        MessageBox.Show("RESULTADO DEL METODO: "+ metodos.LlenarSuplidor(a));
+                    }
             }
         }
 

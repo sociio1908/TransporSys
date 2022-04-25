@@ -12,7 +12,7 @@ namespace _911_RD
 {
     class Utilidades
     {
-                                                             //INGJERINELMENDO;initial catalog=TransporSys;integrated security=True;
+        //INGJERINELMENDO;initial catalog=TransporSys;integrated security=True;
         public static SqlConnection conexion = new SqlConnection("server=INGJERINELMENDO ; database=TransporSys ; integrated security = true");
 
         public static Tuple<string, string, Boolean> ExtraerDireccion(string link1)
@@ -21,35 +21,35 @@ namespace _911_RD
             string latitud = null, longitud = null;
             try
             {
-            char[] data = link1.ToCharArray();
-            int coma = 0;
+                char[] data = link1.ToCharArray();
+                int coma = 0;
 
-            for (int a = 0; a < data.Length; a++)
-            {
-                if (data[a].ToString().Equals("@") || (coma > 0 && coma < 3))
+                for (int a = 0; a < data.Length; a++)
                 {
-                    if (coma == 1 && data[a].ToString() != (","))
+                    if (data[a].ToString().Equals("@") || (coma > 0 && coma < 3))
                     {
-                        latitud += data[a].ToString();
-                    }
-                    if (coma == 2 && data[a].ToString() != (","))
-                    {
-                        longitud += data[a].ToString();
-                    }
-                    if (data[a].ToString().Equals("@"))
-                    {
-                        coma++;
-                    }
-                    if (data[a].ToString().Equals(","))
-                    {
-                        coma++;
+                        if (coma == 1 && data[a].ToString() != (","))
+                        {
+                            latitud += data[a].ToString();
+                        }
+                        if (coma == 2 && data[a].ToString() != (","))
+                        {
+                            longitud += data[a].ToString();
+                        }
+                        if (data[a].ToString().Equals("@"))
+                        {
+                            coma++;
+                        }
+                        if (data[a].ToString().Equals(","))
+                        {
+                            coma++;
+                        }
                     }
                 }
-            }
-            latitud.Trim();
-            longitud.Trim();
-            latitud.Replace(",", "");
-            longitud.Replace(",", "");
+                latitud.Trim();
+                longitud.Trim();
+                latitud.Replace(",", "");
+                longitud.Replace(",", "");
                 if ((latitud != null || latitud != "") && (longitud != null || longitud != ""))
                     listo = true;
 
@@ -83,11 +83,11 @@ namespace _911_RD
                         }
                         if (obj.SoloNumeros == true)
                         {
-                            int cont = 0, letrasEncontradas=0;
+                            int cont = 0, letrasEncontradas = 0;
                             foreach (char letra in obj.Text.Trim())
                             {
 
-                                if(char.IsLetter(obj.Text.Trim(), cont)){
+                                if (char.IsLetter(obj.Text.Trim(), cont)) {
                                     letrasEncontradas++;
                                 }
                                 cont++;
@@ -168,103 +168,110 @@ namespace _911_RD
 
         public static List<Suplidor> suplidores = new List<Suplidor>();
 
-        public static void EnviarCorreo(string nom_suplidor, string correo, string nom_articulo, string cantidad, string precio, string total)
+        public static void EnviarCorreo(int id_suplidor, string nom_articulo, string cantidad, string precio, string total)
         {
-        /*    using (TransporSysEntities db = new TransporSysEntities())
+            using (TransporSysEntities db = new TransporSysEntities())
             {
-                var empresa = from v in db.EMPRESA
-                                select new
-                               {
-                                    Empresa = v.
-                               };
-            }*/
+                var sup = from supi in db.SUPLIDORES
+                          join ter in db.TERCEROS on supi.id_tercero equals ter.id_tercero
+                          join coVS in db.TERCEROS_VS_EMAILS on ter.id_tercero equals coVS.id_tercero
+                          join co in db.EMAILS on coVS.id_email equals co.id_email
+                          select new
+                          {
+                              id_suplidor = supi.id_suplidor,
+                              nom_suplidor = ter.nombre,
+                              correo = co.email,
+                          };
 
+                sup = sup.Where(pro => pro.id_suplidor == id_suplidor).OrderBy(f => f.id_suplidor).Take(1);
                 String servidor = "smtp.gmail.com";
-            int puerto = 587;
-            string Guser = "yeri.paulino@gmail.com";
-            string Gpass = "Librealos25#";
+                int puerto = 587;
+                string Guser = "yeri.paulino@gmail.com";
+                string Gpass = "Librealos25#";
 
-            MimeMessage message = new MimeMessage();
-            message.From.Add(new MailboxAddress("TransporSys", Guser));
-            message.To.Add(new MailboxAddress("Destino", correo));
-            message.Subject = "Solicitud pedido";
+                MimeMessage message = new MimeMessage();
+                message.From.Add(new MailboxAddress("TransporSys", Guser));
+                message.To.Add(new MailboxAddress("Destino", sup.ToList()[0].correo));
+                message.Subject = "Solicitud pedido";
 
-            BodyBuilder bodyBuilder = new BodyBuilder();
-            bodyBuilder.HtmlBody = " <b>SOLICITUD PEDIDO PARA: " + nom_suplidor + "</b> <br>" +
-                "-----------------------------------------------------" +
-                "<br><b>Articulo: </b>" + nom_articulo +
-                " <br><b>Cantidad requerida: </b>" + cantidad +
-                " <br><b>Costo previsto RD$: </b>" + precio
-                + " <br>-----------------------------------------------------" +
-                " <br><b>TOTAL RD$: </b>" + total +
-                " <br>-----------------------------------------------------" +
-                " <br><b>NOTA IMPORTANTE:</b><br>CUALQUIER INQUIETUD QUE PERJUDIQUE EL PROCESO DE ESTE PEDIDO FAVOR " +
-                "CONTACTARNOS DE INMEDIATO." +
-                "<br><br><b>Numero de contacto: </b>" + "(809) 886-2933" +
-                "<br>Muchas gracias de antemeano.";
+                BodyBuilder bodyBuilder = new BodyBuilder();
+                bodyBuilder.HtmlBody = " <b>SOLICITUD PEDIDO PARA: " + sup.ToList()[0].nom_suplidor + "</b> <br>" +
+                    "-----------------------------------------------------" +
+                    "<br><b>Articulo: </b>" + nom_articulo +
+                    " <br><b>Cantidad requerida: </b>" + cantidad +
+                    " <br><b>Costo previsto RD$: </b>" + precio
+                    + " <br>-----------------------------------------------------" +
+                    " <br><b>TOTAL RD$: </b>" + total +
+                    " <br>-----------------------------------------------------" +
+                    " <br><b>NOTA IMPORTANTE:</b><br>CUALQUIER INQUIETUD QUE PERJUDIQUE EL PROCESO DE ESTE PEDIDO FAVOR " +
+                    "CONTACTARNOS DE INMEDIATO." +
+                    "<br><br><b>Numero de contacto: </b>" + "(809) 886-2933" +
+                    "<br>Muchas gracias de antemeano.";
 
-            message.Body = bodyBuilder.ToMessageBody();
-            try
-            {
-                using (var client = new SmtpClient())
+                message.Body = bodyBuilder.ToMessageBody();
+                try
                 {
-                    client.Connect(servidor, puerto, MailKit.Security.SecureSocketOptions.StartTls);
-                    client.CheckCertificateRevocation = false; 
-                    client.Authenticate(Guser,Gpass);
-                    client.Send(message);
-                    client.Disconnect(true);
-                }
-            }
-            catch (Exception except)
-            {
-                Console.WriteLine("Error on sending mail : " + except.Message);
-            }
-
-        }
-            
-
-        public static void LimpiarControles(System.Windows.Forms.Control forms)
-        {
-            try
-            {
-                foreach (Control Item in forms.Controls)
-                {
-                    if (Item is ErrorTxtBox obj)
+                    using (var client = new SmtpClient())
                     {
-                        if (obj.Limpiar)
+                        client.Connect(servidor, puerto, MailKit.Security.SecureSocketOptions.StartTls);
+                        client.CheckCertificateRevocation = false;
+                        client.Authenticate(Guser, Gpass);
+                        client.Send(message);
+                        client.Disconnect(true);
+                    }
+                }
+
+                catch (Exception except)
+                {
+                    Console.WriteLine("Error on sending mail : " + except.Message);
+                }
+
+            }
+        }
+
+
+            public static void LimpiarControles(System.Windows.Forms.Control forms)
+            {
+                try
+                {
+                    foreach (Control Item in forms.Controls)
+                    {
+                        if (Item is ErrorTxtBox obj)
                         {
-                            obj.Text = "";
+                            if (obj.Limpiar)
+                            {
+                                obj.Text = "";
+                            }
                         }
-                    }
-                    else if (Item is DataGridView dataGrid)
-                    {
-                        dataGrid.Rows.Clear();
-                    }
-                    else if (Item is ComboBox combox)
-                    {
-                        combox.SelectedIndex = 0;
-                    }
-                    else if (Item is NumericUpDown numeric)
-                    {
-                        numeric.Value = 0;
-                    }
-                    if (Item.Controls.Count > 0)
-                    {
-                        LimpiarControles(Item);
+                        else if (Item is DataGridView dataGrid)
+                        {
+                            dataGrid.Rows.Clear();
+                        }
+                        else if (Item is ComboBox combox)
+                        {
+                            combox.SelectedIndex = 0;
+                        }
+                        else if (Item is NumericUpDown numeric)
+                        {
+                            numeric.Value = 0;
+                        }
+                        if (Item.Controls.Count > 0)
+                        {
+                            LimpiarControles(Item);
+                        }
+
                     }
 
                 }
+                catch (Exception er)
+                {
+                    //error
+                }
+
 
             }
-            catch (Exception er)
-            {
-                //error
-            }
 
-
-        }
-
-        const int WM_CLOSE = 0x0010;
+            const int WM_CLOSE = 0x0010;
             [System.Runtime.InteropServices.DllImport("user32.dll", SetLastError = true)]
             static extern IntPtr FindWindow(string lpClassName, string lpWindowName);
             [System.Runtime.InteropServices.DllImport("user32.dll",
@@ -277,19 +284,19 @@ namespace _911_RD
             [System.Runtime.InteropServices.DllImport("user32.dll", SetLastError = true,
                 CharSet = System.Runtime.InteropServices.CharSet.Auto)]
             static extern bool SetWindowText(IntPtr hwnd, string lpString);
+        }
+
+
+
+
+
+        public class Suplidor
+        {
+            public int id_suplidor { get; set; }
+            public double tiempo_entrega { get; set; }
+            public double precio { get; set; }
+            public double calificacion { get; set; }
+
+        }
     }
-     
-      
 
-
-
-    public class Suplidor
-    {
-        public int id_suplidor { get; set; }
-        public double tiempo_entrega { get; set; }
-        public double precio { get; set; }
-        public double calificacion { get; set; }
-
-    }
-
-}

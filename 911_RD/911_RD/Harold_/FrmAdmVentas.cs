@@ -99,7 +99,12 @@ namespace _911_RD.Administracion
 
         private void button1_Click(object sender, EventArgs e)
         {
-            ActualizarStock();
+            DialogResult dialogResult = MessageBox.Show("Seguro que desea eliminar la venta ?", "Precaución", MessageBoxButtons.YesNo);
+
+            if (dialogResult == DialogResult.No)
+                return;
+
+                ActualizarStock();
             Cancelar();
             
         }

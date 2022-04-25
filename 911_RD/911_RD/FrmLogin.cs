@@ -16,18 +16,7 @@ namespace _911_RD
         public FrmLogin()
         {
             InitializeComponent();
-            metodos.LlenarSuplidor(2);
-            System.Diagnostics.Debug.WriteLine("\n\n\n\n"); 
-            foreach (var otro in Utilidades.suplidores)
-            {
-                System.Diagnostics.Debug.WriteLine("ID_SUPLIDOR: " + otro.id_suplidor);
-                System.Diagnostics.Debug.WriteLine("- TIEMPO: " + otro.tiempo_entrega);
-                System.Diagnostics.Debug.WriteLine("- PRECIO: " + otro.precio.ToString("0.##"));
-                System.Diagnostics.Debug.WriteLine("- CALIFICACION: " + otro.calificacion);
-                System.Diagnostics.Debug.WriteLine("----------------------------------");
-
-
-            }
+           
         }
 
         MetodosCRUD metodos = new MetodosCRUD();
