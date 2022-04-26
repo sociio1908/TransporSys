@@ -411,43 +411,31 @@ namespace _911_RD.Administracion
         {
             using (var db = new TransporSysEntities())
             {
-                var suplidor = from pro in db.ARTICULOS
-                               join Dped in db.DETALLES_PEDIDOS on pro.id_articulo equals Dped.id_articulo
-                               join ped in db.PEDIDOS on Dped.num_pedido equals ped.num_pedido
-                               join con in db.ARTICULOS_VS_CONFIGURACION_PEDIDO on pro.id_articulo equals con.id_articulo
-                               select new
-                               {
-                                   ped.num_pedido,
-                                   Dped.id_articulo,
-                                   ped.estado, 
-                                  id_conart =  con.id_articulo
-                               };
-                //filtro 
-                suplidor = suplidor.Where(pro => pro.id_articulo == a && pro.estado == 0).OrderBy(f => f.id_articulo);
-                MessageBox.Show("cont ."+suplidor.ToList().Count);
-                foreach ( var sas in suplidor.ToList())
+                var existeCon = db.ARTICULOS_VS_CONFIGURACION_PEDIDO.FirstOrDefault(art => art.id_articulo == a);
+                if (existeCon == null)
                 {
-
-                    MessageBox.Show("PEDIDO ." + sas.num_pedido);
-                    MessageBox.Show("ESTADO ." + sas.estado);
-                }
-
-                if (suplidor.ToList().Count>0)
-                {
-                    MessageBox.Show("YA HAY UN PEDIDO PROCESADO.");
+                    MessageBox.Show("NO HAY CONFIGURACION PARA PEDIRSE AUTOMATICAMENTE."); 
                     return;
                 }
-                suplidor = suplidor.Where(pro => pro.id_conart == a).OrderBy(f => f.id_articulo);
-                if (suplidor.ToList().Count > 0)
+                bool hay = false;
+                var existePedidoD = from d in db.PEDIDOS
+                                    where d.estado == 0 select d ; 
+                foreach (var vu in existePedidoD)
                 {
-                    MessageBox.Show("ARTICULO NO CONFIGURADO PARA COMPRAR AUTOMATICAMENTE.");
+                    var prod = from d in db.DETALLES_PEDIDOS
+                               where d.id_articulo == a && d.num_pedido == vu.num_pedido
+                               select d; 
+                    if (prod!=null) 
+                        hay = true;  
+                } 
+                if (hay)
+                {
+                    MessageBox.Show("YA HAY UN PEDIDO REALIZADO");
                     return;
                 }
-
-                if (metodos.LlenarSuplidor(a) == 1)
-                    {
-                        MessageBox.Show("RESULTADO DEL METODO: "+ metodos.LlenarSuplidor(a));
-                    }
+                int res = metodos.LlenarSuplidor(a); 
+                if (res==1) 
+                   MessageBox.Show("PEDIDO AUTOMATICO REALIZADO CON EXITO."); 
             }
         }
 

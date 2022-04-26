@@ -39,8 +39,6 @@ namespace _911_RD.Administracion
                          return 1;
                     }
                     catch (Exception sds) {
-
-                    System.Diagnostics.Debug.WriteLine("-----------ERROR: " + sds.ToString());
                 }
             } 
             return 0;

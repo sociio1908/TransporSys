@@ -184,10 +184,17 @@ namespace _911_RD
                           };
 
                 sup = sup.Where(pro => pro.id_suplidor == id_suplidor).OrderBy(f => f.id_suplidor).Take(1);
-                String servidor = "smtp.gmail.com";
+                System.Diagnostics.Debug.WriteLine("\nCorreo: " + sup.ToList()[0].correo);
+                System.Diagnostics.Debug.WriteLine("\nSUPLDIOR: " + sup.ToList()[0].nom_suplidor); 
+
+
+                // PEDIO AUTOMATICO LISTO --- ARREGLAR PEDIDO
+
+
+                String servidor = "smtp.mail.yahoo.com";
                 int puerto = 587;
-                string Guser = "yeri.paulino@gmail.com";
-                string Gpass = "Librealos25#";
+                string Guser = "yeri.paulino@yahoo.es";
+                string Gpass = "@Librealos25@";
 
                 MimeMessage message = new MimeMessage();
                 message.From.Add(new MailboxAddress("TransporSys", Guser));
