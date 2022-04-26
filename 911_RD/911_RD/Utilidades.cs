@@ -185,10 +185,10 @@ namespace _911_RD
 
                 sup = sup.Where(pro => pro.id_suplidor == id_suplidor).OrderBy(f => f.id_suplidor).Take(1);
                 System.Diagnostics.Debug.WriteLine("\nCorreo: " + sup.ToList()[0].correo);
-                System.Diagnostics.Debug.WriteLine("\nSUPLDIOR: " + sup.ToList()[0].nom_suplidor); 
+                System.Diagnostics.Debug.WriteLine("\nSUPLDIOR: " + sup.ToList()[0].nom_suplidor);
 
 
-                // PEDIO AUTOMATICO LISTO --- ARREGLAR PEDIDO
+                // PEDIO AUTOMATICO LISTO -ARREGLAR CORREO
 
 
                 String servidor = "smtp.mail.yahoo.com";
