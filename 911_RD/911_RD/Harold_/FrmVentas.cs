@@ -276,6 +276,7 @@ namespace _911_RD.Administracion
                 }
                 nofactura();
 
+                MessageBox.Show("Venta realizada con exito.");
             }
             
         }
@@ -375,13 +376,14 @@ namespace _911_RD.Administracion
                         {
                             result.stock = actstock;
                             db.SaveChanges();
-                        }
+                        } 
 
                         //AQUI EVALUAMOS SI HAY QUE HACER EL PEDIDO: Despues de hacer update de stock
                         if(ValidarReorden(a))
                         {
                             PedirArticulo(a); 
-                        }  
+                        }
+                        
                     }
                 }
                 catch (Exception)

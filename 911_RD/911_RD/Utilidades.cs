@@ -120,6 +120,7 @@ namespace _911_RD
         }
 
         public static int idusuario = 0;
+        public static int nump = 0;
         public static String nomusuario = "";
         public static string puestouser = "";
         public static string Apeuser = "";
@@ -189,12 +190,10 @@ namespace _911_RD
 
 
                 // PEDIO AUTOMATICO LISTO -ARREGLAR CORREO
-
-
-                String servidor = "smtp.mail.yahoo.com";
+                String servidor = "smtp.gmail.com";
                 int puerto = 587;
-                string Guser = "yeri.paulino@yahoo.es";
-                string Gpass = "@Librealos25@";
+                string Guser = "sociiocoding@gmail.com";
+                string Gpass = "yerimendoza1908";
 
                 MimeMessage message = new MimeMessage();
                 message.From.Add(new MailboxAddress("TransporSys", Guser));

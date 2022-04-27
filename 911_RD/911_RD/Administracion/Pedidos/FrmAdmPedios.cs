@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using _911_RD.Administracion.Pedidos;
 using Microsoft.VisualBasic;
 
 
@@ -55,7 +56,9 @@ namespace _911_RD.Administracion
                     if (condicion.Trim().Equals("") == false)
                      {
                         pedidosD = pedidosD.Where(a => a.Identficacion.ToString().Contains(condicion) || a.numpedido.ToString().Contains(condicion) || a.NomSup.ToString().Contains(condicion));
-                     } 
+                     }
+                    pedidosD = pedidosD.OrderByDescending(pro => pro.numpedido);
+
                     foreach (var OArticulos in pedidosD)
                     {
                         string valor = "";
@@ -258,9 +261,17 @@ namespace _911_RD.Administracion
                 db.SaveChanges(); 
             }
 
-        } 
+        }
 
-
+        private void dataGridView1_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dataGridView1.Rows.Count > 0)
+            {
+                Utilidades.nump = int.Parse(dataGridView1.CurrentRow.Cells[0].Value.ToString());
+                FrmDetallesPedidos detallesPedidos = new FrmDetallesPedidos(); 
+                detallesPedidos.ShowDialog();
+            }
+        }
     }
         
     }

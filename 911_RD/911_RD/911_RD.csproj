@@ -282,6 +282,12 @@
     <Compile Include="Administracion\PAGOS_COBROS\FrmTiposPago.Designer.cs">
       <DependentUpon>FrmTiposPago.cs</DependentUpon>
     </Compile>
+    <Compile Include="Administracion\Pedidos\FrmDetallesPedidos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administracion\Pedidos\FrmDetallesPedidos.Designer.cs">
+      <DependentUpon>FrmDetallesPedidos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Administracion\Servicios\FrmServicios.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -806,6 +812,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Administracion\PAGOS_COBROS\FrmTiposPago.resx">
       <DependentUpon>FrmTiposPago.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administracion\Pedidos\FrmDetallesPedidos.resx">
+      <DependentUpon>FrmDetallesPedidos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Administracion\Servicios\FrmServicios.resx">
       <DependentUpon>FrmServicios.cs</DependentUpon>

@@ -16,7 +16,7 @@ namespace _911_RD
         public FrmLogin()
         {
             InitializeComponent();
-           
+
         }
 
         MetodosCRUD metodos = new MetodosCRUD();

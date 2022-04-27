@@ -276,3 +276,4 @@ C:\Users\Ing. Jerinel Mendoza\Documents\Proyecto C#\TranporSys\911_RD\911_RD\bin
 C:\Users\Ing. Jerinel Mendoza\Documents\Proyecto C#\TranporSys\911_RD\911_RD\bin\Debug\MailKit.xml
 C:\Users\Ing. Jerinel Mendoza\Documents\Proyecto C#\TranporSys\911_RD\911_RD\bin\Debug\MimeKit.pdb
 C:\Users\Ing. Jerinel Mendoza\Documents\Proyecto C#\TranporSys\911_RD\911_RD\bin\Debug\MimeKit.xml
+C:\Users\Ing. Jerinel Mendoza\Documents\Proyecto C#\TranporSys\911_RD\911_RD\obj\Debug\_911_RD.Administracion.Pedidos.FrmDetallesPedidos.resources
